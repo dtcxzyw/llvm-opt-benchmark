@@ -2088,7 +2088,8 @@ entry:
   store i32 %kind, ptr %kind.addr, align 4
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node5RealmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %internal_bindings = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 1
   call void @_ZNSt3setIPN4node11node_moduleESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %internal_bindings) #3
   %builtins_with_cache = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 2
@@ -2098,8 +2099,8 @@ entry:
   %builtins_in_snapshot = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %builtins_in_snapshot) #3
   %env_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 5
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 6
   store ptr %context, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -2107,10 +2108,10 @@ entry:
   %this1.i383 = load ptr, ptr %this.addr.i382, align 8
   store ptr %this1.i383, ptr %this.addr.i.i381, align 8
   %this1.i.i384 = load ptr, ptr %this.addr.i.i381, align 8
-  %1 = load ptr, ptr %this1.i.i384, align 8
-  store ptr %1, ptr %slot.addr.i, align 8
-  %2 = load ptr, ptr %slot.addr.i, align 8
-  %call4 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %2 = load ptr, ptr %this1.i.i384, align 8
+  store ptr %2, ptr %slot.addr.i, align 8
+  %3 = load ptr, ptr %slot.addr.i, align 8
+  %call4 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
   store ptr %call4, ptr %isolate_, align 8
   %context_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 7
   store ptr %context_, ptr %this.addr.i12, align 8
@@ -2601,8 +2602,8 @@ entry:
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr null, ptr %this1.i.i, align 8
   %kind_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 68
-  %3 = load i32, ptr %kind.addr, align 4
-  store i32 %3, ptr %kind_, align 8
+  %4 = load i32, ptr %kind.addr, align 4
+  store i32 %4, ptr %kind_, align 8
   %has_run_bootstrapping_code_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 69
   store i8 0, ptr %has_run_bootstrapping_code_, align 4
   %base_object_count_ = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 70
@@ -2615,17 +2616,17 @@ entry:
   call void @_ZN4node12CleanupQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cleanup_queue_) #3
   %context_5 = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 7
   %isolate_6 = getelementptr inbounds %"class.node::Realm", ptr %this3, i32 0, i32 6
-  %4 = load ptr, ptr %isolate_6, align 8
+  %5 = load ptr, ptr %isolate_6, align 8
   store ptr %context_5, ptr %this.addr.i134, align 8
-  store ptr %4, ptr %isolate.addr.i, align 8
+  store ptr %5, ptr %isolate.addr.i, align 8
   store ptr %context, ptr %other.addr.i, align 8
   %this1.i135 = load ptr, ptr %this.addr.i134, align 8
   store ptr %this1.i135, ptr %this.addr.i387, align 8
   %this1.i388 = load ptr, ptr %this.addr.i387, align 8
   store ptr %this1.i388, ptr %this.addr.i.i386, align 8
   %this1.i.i389 = load ptr, ptr %this.addr.i.i386, align 8
-  %5 = load ptr, ptr %this1.i.i389, align 8
-  %cmp.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i.i389, align 8
+  %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %if.then.i392, label %if.end.i390
 
 if.then.i392:                                     ; preds = %entry
@@ -2634,28 +2635,28 @@ if.then.i392:                                     ; preds = %entry
 if.end.i390:                                      ; preds = %entry
   store ptr %this1.i388, ptr %this.addr.i393, align 8
   %this1.i394 = load ptr, ptr %this.addr.i393, align 8
-  %6 = load ptr, ptr %this1.i394, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %6) #3
+  %7 = load ptr, ptr %this1.i394, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %7) #3
   store ptr %this1.i388, ptr %this.addr.i397, align 8
   %this1.i398 = load ptr, ptr %this.addr.i397, align 8
   store ptr null, ptr %this1.i398, align 8
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit: ; preds = %if.end.i390, %if.then.i392
-  %7 = load ptr, ptr %other.addr.i, align 8
-  store ptr %7, ptr %this.addr.i137, align 8
+  %8 = load ptr, ptr %other.addr.i, align 8
+  store ptr %8, ptr %this.addr.i137, align 8
   %this1.i138 = load ptr, ptr %this.addr.i137, align 8
-  %8 = load ptr, ptr %this1.i138, align 8
-  %cmp.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %this1.i138, align 8
+  %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 if.end.i:                                         ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
-  %9 = load ptr, ptr %isolate.addr.i, align 8
-  %10 = load ptr, ptr %other.addr.i, align 8
-  store ptr %10, ptr %this.addr.i404, align 8
+  %10 = load ptr, ptr %isolate.addr.i, align 8
+  %11 = load ptr, ptr %other.addr.i, align 8
+  store ptr %11, ptr %this.addr.i404, align 8
   %this1.i405 = load ptr, ptr %this.addr.i404, align 8
   store ptr %this1.i405, ptr %this.addr.i.i403, align 8
   %this1.i.i406 = load ptr, ptr %this.addr.i.i403, align 8
@@ -2663,16 +2664,16 @@ if.end.i:                                         ; preds = %_ZN2v814PersistentB
   %this1.i3.i = load ptr, ptr %this.addr.i2.i, align 8
   store ptr %this1.i3.i, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %11 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %11, ptr %slot.addr.i.i, align 8
-  %12 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %9, ptr %isolate.addr.i399, align 8
-  store ptr %12, ptr %that.addr.i, align 8
-  %13 = load ptr, ptr %that.addr.i, align 8
-  store ptr %13, ptr %value.addr.i, align 8
-  %14 = load ptr, ptr %value.addr.i, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %cmp.i407 = icmp eq i64 %15, 0
+  %12 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %12, ptr %slot.addr.i.i, align 8
+  %13 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %10, ptr %isolate.addr.i399, align 8
+  store ptr %13, ptr %that.addr.i, align 8
+  %14 = load ptr, ptr %that.addr.i, align 8
+  store ptr %14, ptr %value.addr.i, align 8
+  %15 = load ptr, ptr %value.addr.i, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %cmp.i407 = icmp eq i64 %16, 0
   br i1 %cmp.i407, label %if.then.i402, label %if.end.i400
 
 if.then.i402:                                     ; preds = %if.end.i
@@ -2680,24 +2681,24 @@ if.then.i402:                                     ; preds = %if.end.i
   br label %_ZN2v814PersistentBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i400:                                      ; preds = %if.end.i
-  %16 = load ptr, ptr %isolate.addr.i399, align 8
-  %17 = load ptr, ptr %that.addr.i, align 8
-  store ptr %17, ptr %value.addr.i408, align 8
-  %18 = load ptr, ptr %value.addr.i408, align 8
-  %19 = load i64, ptr %18, align 8
-  %call2.i401 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %16, i64 noundef %19) #3
+  %17 = load ptr, ptr %isolate.addr.i399, align 8
+  %18 = load ptr, ptr %that.addr.i, align 8
+  store ptr %18, ptr %value.addr.i408, align 8
+  %19 = load ptr, ptr %value.addr.i408, align 8
+  %20 = load i64, ptr %19, align 8
+  %call2.i401 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %17, i64 noundef %20) #3
   store ptr %call2.i401, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i400, %if.then.i402
-  %20 = load ptr, ptr %retval.i, align 8
+  %21 = load ptr, ptr %retval.i, align 8
   store ptr %this1.i135, ptr %this.addr.i395, align 8
   %this1.i396 = load ptr, ptr %this.addr.i395, align 8
-  store ptr %20, ptr %this1.i396, align 8
+  store ptr %21, ptr %this1.i396, align 8
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit, %if.then.i
-  %21 = load ptr, ptr %env.addr, align 8
+  %22 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %context, i64 8, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
@@ -2705,8 +2706,8 @@ _ZN2v814PersistentBaseINS_7ContextEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.e
   %coerce.dive9 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive9, i32 0, i32 0
   %coerce.dive11 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive10, i32 0, i32 0
-  %22 = load ptr, ptr %coerce.dive11, align 8
-  call void @_ZN4node11Environment15AssignToContextEN2v85LocalINS1_7ContextEEEPNS_5RealmERKNS_11ContextInfoE(ptr noundef nonnull align 8 dereferenceable(2872) %21, ptr %22, ptr noundef %this3, ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp)
+  %23 = load ptr, ptr %coerce.dive11, align 8
+  call void @_ZN4node11Environment15AssignToContextEN2v85LocalINS1_7ContextEEEPNS_5RealmERKNS_11ContextInfoE(ptr noundef nonnull align 8 dereferenceable(2872) %22, ptr %23, ptr noundef %this3, ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp)
   call void @_ZN4node11ContextInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #3
@@ -2719,7 +2720,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2786,7 +2788,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cleanup_hooks_ = getelementptr inbounds %"class.node::CleanupQueue", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIN4node12CleanupQueue19CleanupHookCallbackENS2_4HashENS2_5EqualESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_) #3
   %cleanup_hook_counter_ = getelementptr inbounds %"class.node::CleanupQueue", ptr %this1, i32 0, i32 2
@@ -3185,13 +3188,14 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node5RealmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %base_object_count_ = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 70
-  %0 = load i64, ptr %base_object_count_, align 8
-  %cmp = icmp eq i64 %0, 0
+  %1 = load i64, ptr %base_object_count_, align 8
+  %cmp = icmp eq i64 %1, 0
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -3229,8 +3233,8 @@ do.end6:                                          ; preds = %do.cond5
   %this1.i732 = load ptr, ptr %this.addr.i731, align 8
   store ptr %this1.i732, ptr %this.addr.i.i730, align 8
   %this1.i.i733 = load ptr, ptr %this.addr.i.i730, align 8
-  %1 = load ptr, ptr %this1.i.i733, align 8
-  %cmp.i.i734 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %this1.i.i733, align 8
+  %cmp.i.i734 = icmp eq ptr %2, null
   br i1 %cmp.i.i734, label %if.then.i738, label %if.end.i735
 
 if.then.i738:                                     ; preds = %do.end6
@@ -3239,8 +3243,8 @@ if.then.i738:                                     ; preds = %do.end6
 if.end.i735:                                      ; preds = %do.end6
   store ptr %this1.i732, ptr %this.addr.i3.i729, align 8
   %this1.i4.i736 = load ptr, ptr %this.addr.i3.i729, align 8
-  %2 = load ptr, ptr %this1.i4.i736, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
+  %3 = load ptr, ptr %this1.i4.i736, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %3) #3
   store ptr %this1.i732, ptr %this.addr.i5.i728, align 8
   %this1.i6.i737 = load ptr, ptr %this.addr.i5.i728, align 8
   store ptr null, ptr %this1.i6.i737, align 8
@@ -3254,8 +3258,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit739: ; preds = %if.end.i735, %
   %this1.i720 = load ptr, ptr %this.addr.i719, align 8
   store ptr %this1.i720, ptr %this.addr.i.i718, align 8
   %this1.i.i721 = load ptr, ptr %this.addr.i.i718, align 8
-  %3 = load ptr, ptr %this1.i.i721, align 8
-  %cmp.i.i722 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %this1.i.i721, align 8
+  %cmp.i.i722 = icmp eq ptr %4, null
   br i1 %cmp.i.i722, label %if.then.i726, label %if.end.i723
 
 if.then.i726:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit739
@@ -3264,8 +3268,8 @@ if.then.i726:                                     ; preds = %_ZN2v814PersistentB
 if.end.i723:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit739
   store ptr %this1.i720, ptr %this.addr.i3.i717, align 8
   %this1.i4.i724 = load ptr, ptr %this.addr.i3.i717, align 8
-  %4 = load ptr, ptr %this1.i4.i724, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %4) #3
+  %5 = load ptr, ptr %this1.i4.i724, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %5) #3
   store ptr %this1.i720, ptr %this.addr.i5.i716, align 8
   %this1.i6.i725 = load ptr, ptr %this.addr.i5.i716, align 8
   store ptr null, ptr %this1.i6.i725, align 8
@@ -3279,8 +3283,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit727: ; preds = %if.end.i723, %
   %this1.i708 = load ptr, ptr %this.addr.i707, align 8
   store ptr %this1.i708, ptr %this.addr.i.i706, align 8
   %this1.i.i709 = load ptr, ptr %this.addr.i.i706, align 8
-  %5 = load ptr, ptr %this1.i.i709, align 8
-  %cmp.i.i710 = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i.i709, align 8
+  %cmp.i.i710 = icmp eq ptr %6, null
   br i1 %cmp.i.i710, label %if.then.i714, label %if.end.i711
 
 if.then.i714:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit727
@@ -3289,8 +3293,8 @@ if.then.i714:                                     ; preds = %_ZN2v814PersistentB
 if.end.i711:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit727
   store ptr %this1.i708, ptr %this.addr.i3.i705, align 8
   %this1.i4.i712 = load ptr, ptr %this.addr.i3.i705, align 8
-  %6 = load ptr, ptr %this1.i4.i712, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %6) #3
+  %7 = load ptr, ptr %this1.i4.i712, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %7) #3
   store ptr %this1.i708, ptr %this.addr.i5.i704, align 8
   %this1.i6.i713 = load ptr, ptr %this.addr.i5.i704, align 8
   store ptr null, ptr %this1.i6.i713, align 8
@@ -3304,8 +3308,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit715: ; preds = %if.end.i711, %
   %this1.i696 = load ptr, ptr %this.addr.i695, align 8
   store ptr %this1.i696, ptr %this.addr.i.i694, align 8
   %this1.i.i697 = load ptr, ptr %this.addr.i.i694, align 8
-  %7 = load ptr, ptr %this1.i.i697, align 8
-  %cmp.i.i698 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %this1.i.i697, align 8
+  %cmp.i.i698 = icmp eq ptr %8, null
   br i1 %cmp.i.i698, label %if.then.i702, label %if.end.i699
 
 if.then.i702:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit715
@@ -3314,8 +3318,8 @@ if.then.i702:                                     ; preds = %_ZN2v814PersistentB
 if.end.i699:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit715
   store ptr %this1.i696, ptr %this.addr.i3.i693, align 8
   %this1.i4.i700 = load ptr, ptr %this.addr.i3.i693, align 8
-  %8 = load ptr, ptr %this1.i4.i700, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %8) #3
+  %9 = load ptr, ptr %this1.i4.i700, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %9) #3
   store ptr %this1.i696, ptr %this.addr.i5.i692, align 8
   %this1.i6.i701 = load ptr, ptr %this.addr.i5.i692, align 8
   store ptr null, ptr %this1.i6.i701, align 8
@@ -3329,8 +3333,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit703: ; preds = %if.end.i699, %
   %this1.i684 = load ptr, ptr %this.addr.i683, align 8
   store ptr %this1.i684, ptr %this.addr.i.i682, align 8
   %this1.i.i685 = load ptr, ptr %this.addr.i.i682, align 8
-  %9 = load ptr, ptr %this1.i.i685, align 8
-  %cmp.i.i686 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %this1.i.i685, align 8
+  %cmp.i.i686 = icmp eq ptr %10, null
   br i1 %cmp.i.i686, label %if.then.i690, label %if.end.i687
 
 if.then.i690:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit703
@@ -3339,8 +3343,8 @@ if.then.i690:                                     ; preds = %_ZN2v814PersistentB
 if.end.i687:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit703
   store ptr %this1.i684, ptr %this.addr.i3.i681, align 8
   %this1.i4.i688 = load ptr, ptr %this.addr.i3.i681, align 8
-  %10 = load ptr, ptr %this1.i4.i688, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %10) #3
+  %11 = load ptr, ptr %this1.i4.i688, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %11) #3
   store ptr %this1.i684, ptr %this.addr.i5.i680, align 8
   %this1.i6.i689 = load ptr, ptr %this.addr.i5.i680, align 8
   store ptr null, ptr %this1.i6.i689, align 8
@@ -3354,8 +3358,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit691: ; preds = %if.end.i687, %
   %this1.i672 = load ptr, ptr %this.addr.i671, align 8
   store ptr %this1.i672, ptr %this.addr.i.i670, align 8
   %this1.i.i673 = load ptr, ptr %this.addr.i.i670, align 8
-  %11 = load ptr, ptr %this1.i.i673, align 8
-  %cmp.i.i674 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %this1.i.i673, align 8
+  %cmp.i.i674 = icmp eq ptr %12, null
   br i1 %cmp.i.i674, label %if.then.i678, label %if.end.i675
 
 if.then.i678:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit691
@@ -3364,8 +3368,8 @@ if.then.i678:                                     ; preds = %_ZN2v814PersistentB
 if.end.i675:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit691
   store ptr %this1.i672, ptr %this.addr.i3.i669, align 8
   %this1.i4.i676 = load ptr, ptr %this.addr.i3.i669, align 8
-  %12 = load ptr, ptr %this1.i4.i676, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %12) #3
+  %13 = load ptr, ptr %this1.i4.i676, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %13) #3
   store ptr %this1.i672, ptr %this.addr.i5.i668, align 8
   %this1.i6.i677 = load ptr, ptr %this.addr.i5.i668, align 8
   store ptr null, ptr %this1.i6.i677, align 8
@@ -3379,8 +3383,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit679: ; preds = %if.end.i675, %
   %this1.i660 = load ptr, ptr %this.addr.i659, align 8
   store ptr %this1.i660, ptr %this.addr.i.i658, align 8
   %this1.i.i661 = load ptr, ptr %this.addr.i.i658, align 8
-  %13 = load ptr, ptr %this1.i.i661, align 8
-  %cmp.i.i662 = icmp eq ptr %13, null
+  %14 = load ptr, ptr %this1.i.i661, align 8
+  %cmp.i.i662 = icmp eq ptr %14, null
   br i1 %cmp.i.i662, label %if.then.i666, label %if.end.i663
 
 if.then.i666:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit679
@@ -3389,8 +3393,8 @@ if.then.i666:                                     ; preds = %_ZN2v814PersistentB
 if.end.i663:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit679
   store ptr %this1.i660, ptr %this.addr.i3.i657, align 8
   %this1.i4.i664 = load ptr, ptr %this.addr.i3.i657, align 8
-  %14 = load ptr, ptr %this1.i4.i664, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %14) #3
+  %15 = load ptr, ptr %this1.i4.i664, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %15) #3
   store ptr %this1.i660, ptr %this.addr.i5.i656, align 8
   %this1.i6.i665 = load ptr, ptr %this.addr.i5.i656, align 8
   store ptr null, ptr %this1.i6.i665, align 8
@@ -3404,8 +3408,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit667: ; preds = %if.end.i663, %
   %this1.i648 = load ptr, ptr %this.addr.i647, align 8
   store ptr %this1.i648, ptr %this.addr.i.i646, align 8
   %this1.i.i649 = load ptr, ptr %this.addr.i.i646, align 8
-  %15 = load ptr, ptr %this1.i.i649, align 8
-  %cmp.i.i650 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %this1.i.i649, align 8
+  %cmp.i.i650 = icmp eq ptr %16, null
   br i1 %cmp.i.i650, label %if.then.i654, label %if.end.i651
 
 if.then.i654:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit667
@@ -3414,8 +3418,8 @@ if.then.i654:                                     ; preds = %_ZN2v814PersistentB
 if.end.i651:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit667
   store ptr %this1.i648, ptr %this.addr.i3.i645, align 8
   %this1.i4.i652 = load ptr, ptr %this.addr.i3.i645, align 8
-  %16 = load ptr, ptr %this1.i4.i652, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %16) #3
+  %17 = load ptr, ptr %this1.i4.i652, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %17) #3
   store ptr %this1.i648, ptr %this.addr.i5.i644, align 8
   %this1.i6.i653 = load ptr, ptr %this.addr.i5.i644, align 8
   store ptr null, ptr %this1.i6.i653, align 8
@@ -3429,8 +3433,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit655: ; preds = %if.end.i651, %
   %this1.i636 = load ptr, ptr %this.addr.i635, align 8
   store ptr %this1.i636, ptr %this.addr.i.i634, align 8
   %this1.i.i637 = load ptr, ptr %this.addr.i.i634, align 8
-  %17 = load ptr, ptr %this1.i.i637, align 8
-  %cmp.i.i638 = icmp eq ptr %17, null
+  %18 = load ptr, ptr %this1.i.i637, align 8
+  %cmp.i.i638 = icmp eq ptr %18, null
   br i1 %cmp.i.i638, label %if.then.i642, label %if.end.i639
 
 if.then.i642:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit655
@@ -3439,8 +3443,8 @@ if.then.i642:                                     ; preds = %_ZN2v814PersistentB
 if.end.i639:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit655
   store ptr %this1.i636, ptr %this.addr.i3.i633, align 8
   %this1.i4.i640 = load ptr, ptr %this.addr.i3.i633, align 8
-  %18 = load ptr, ptr %this1.i4.i640, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %18) #3
+  %19 = load ptr, ptr %this1.i4.i640, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %19) #3
   store ptr %this1.i636, ptr %this.addr.i5.i632, align 8
   %this1.i6.i641 = load ptr, ptr %this.addr.i5.i632, align 8
   store ptr null, ptr %this1.i6.i641, align 8
@@ -3454,8 +3458,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit643: ; preds = %if.end.i639, %
   %this1.i624 = load ptr, ptr %this.addr.i623, align 8
   store ptr %this1.i624, ptr %this.addr.i.i622, align 8
   %this1.i.i625 = load ptr, ptr %this.addr.i.i622, align 8
-  %19 = load ptr, ptr %this1.i.i625, align 8
-  %cmp.i.i626 = icmp eq ptr %19, null
+  %20 = load ptr, ptr %this1.i.i625, align 8
+  %cmp.i.i626 = icmp eq ptr %20, null
   br i1 %cmp.i.i626, label %if.then.i630, label %if.end.i627
 
 if.then.i630:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit643
@@ -3464,8 +3468,8 @@ if.then.i630:                                     ; preds = %_ZN2v814PersistentB
 if.end.i627:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit643
   store ptr %this1.i624, ptr %this.addr.i3.i621, align 8
   %this1.i4.i628 = load ptr, ptr %this.addr.i3.i621, align 8
-  %20 = load ptr, ptr %this1.i4.i628, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %20) #3
+  %21 = load ptr, ptr %this1.i4.i628, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %21) #3
   store ptr %this1.i624, ptr %this.addr.i5.i620, align 8
   %this1.i6.i629 = load ptr, ptr %this.addr.i5.i620, align 8
   store ptr null, ptr %this1.i6.i629, align 8
@@ -3479,8 +3483,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit631: ; preds = %if.end.i627, %
   %this1.i612 = load ptr, ptr %this.addr.i611, align 8
   store ptr %this1.i612, ptr %this.addr.i.i610, align 8
   %this1.i.i613 = load ptr, ptr %this.addr.i.i610, align 8
-  %21 = load ptr, ptr %this1.i.i613, align 8
-  %cmp.i.i614 = icmp eq ptr %21, null
+  %22 = load ptr, ptr %this1.i.i613, align 8
+  %cmp.i.i614 = icmp eq ptr %22, null
   br i1 %cmp.i.i614, label %if.then.i618, label %if.end.i615
 
 if.then.i618:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit631
@@ -3489,8 +3493,8 @@ if.then.i618:                                     ; preds = %_ZN2v814PersistentB
 if.end.i615:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit631
   store ptr %this1.i612, ptr %this.addr.i3.i609, align 8
   %this1.i4.i616 = load ptr, ptr %this.addr.i3.i609, align 8
-  %22 = load ptr, ptr %this1.i4.i616, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %22) #3
+  %23 = load ptr, ptr %this1.i4.i616, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %23) #3
   store ptr %this1.i612, ptr %this.addr.i5.i608, align 8
   %this1.i6.i617 = load ptr, ptr %this.addr.i5.i608, align 8
   store ptr null, ptr %this1.i6.i617, align 8
@@ -3504,8 +3508,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit619: ; preds = %if.end.i615, %
   %this1.i600 = load ptr, ptr %this.addr.i599, align 8
   store ptr %this1.i600, ptr %this.addr.i.i598, align 8
   %this1.i.i601 = load ptr, ptr %this.addr.i.i598, align 8
-  %23 = load ptr, ptr %this1.i.i601, align 8
-  %cmp.i.i602 = icmp eq ptr %23, null
+  %24 = load ptr, ptr %this1.i.i601, align 8
+  %cmp.i.i602 = icmp eq ptr %24, null
   br i1 %cmp.i.i602, label %if.then.i606, label %if.end.i603
 
 if.then.i606:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit619
@@ -3514,8 +3518,8 @@ if.then.i606:                                     ; preds = %_ZN2v814PersistentB
 if.end.i603:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit619
   store ptr %this1.i600, ptr %this.addr.i3.i597, align 8
   %this1.i4.i604 = load ptr, ptr %this.addr.i3.i597, align 8
-  %24 = load ptr, ptr %this1.i4.i604, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %24) #3
+  %25 = load ptr, ptr %this1.i4.i604, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %25) #3
   store ptr %this1.i600, ptr %this.addr.i5.i596, align 8
   %this1.i6.i605 = load ptr, ptr %this.addr.i5.i596, align 8
   store ptr null, ptr %this1.i6.i605, align 8
@@ -3529,8 +3533,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit607: ; preds = %if.end.i603, %
   %this1.i588 = load ptr, ptr %this.addr.i587, align 8
   store ptr %this1.i588, ptr %this.addr.i.i586, align 8
   %this1.i.i589 = load ptr, ptr %this.addr.i.i586, align 8
-  %25 = load ptr, ptr %this1.i.i589, align 8
-  %cmp.i.i590 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %this1.i.i589, align 8
+  %cmp.i.i590 = icmp eq ptr %26, null
   br i1 %cmp.i.i590, label %if.then.i594, label %if.end.i591
 
 if.then.i594:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit607
@@ -3539,8 +3543,8 @@ if.then.i594:                                     ; preds = %_ZN2v814PersistentB
 if.end.i591:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit607
   store ptr %this1.i588, ptr %this.addr.i3.i585, align 8
   %this1.i4.i592 = load ptr, ptr %this.addr.i3.i585, align 8
-  %26 = load ptr, ptr %this1.i4.i592, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %26) #3
+  %27 = load ptr, ptr %this1.i4.i592, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %27) #3
   store ptr %this1.i588, ptr %this.addr.i5.i584, align 8
   %this1.i6.i593 = load ptr, ptr %this.addr.i5.i584, align 8
   store ptr null, ptr %this1.i6.i593, align 8
@@ -3554,8 +3558,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit595: ; preds = %if.end.i591, %
   %this1.i576 = load ptr, ptr %this.addr.i575, align 8
   store ptr %this1.i576, ptr %this.addr.i.i574, align 8
   %this1.i.i577 = load ptr, ptr %this.addr.i.i574, align 8
-  %27 = load ptr, ptr %this1.i.i577, align 8
-  %cmp.i.i578 = icmp eq ptr %27, null
+  %28 = load ptr, ptr %this1.i.i577, align 8
+  %cmp.i.i578 = icmp eq ptr %28, null
   br i1 %cmp.i.i578, label %if.then.i582, label %if.end.i579
 
 if.then.i582:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit595
@@ -3564,8 +3568,8 @@ if.then.i582:                                     ; preds = %_ZN2v814PersistentB
 if.end.i579:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit595
   store ptr %this1.i576, ptr %this.addr.i3.i573, align 8
   %this1.i4.i580 = load ptr, ptr %this.addr.i3.i573, align 8
-  %28 = load ptr, ptr %this1.i4.i580, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %28) #3
+  %29 = load ptr, ptr %this1.i4.i580, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %29) #3
   store ptr %this1.i576, ptr %this.addr.i5.i572, align 8
   %this1.i6.i581 = load ptr, ptr %this.addr.i5.i572, align 8
   store ptr null, ptr %this1.i6.i581, align 8
@@ -3579,8 +3583,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit583: ; preds = %if.end.i579, %
   %this1.i839 = load ptr, ptr %this.addr.i838, align 8
   store ptr %this1.i839, ptr %this.addr.i.i837, align 8
   %this1.i.i840 = load ptr, ptr %this.addr.i.i837, align 8
-  %29 = load ptr, ptr %this1.i.i840, align 8
-  %cmp.i.i841 = icmp eq ptr %29, null
+  %30 = load ptr, ptr %this1.i.i840, align 8
+  %cmp.i.i841 = icmp eq ptr %30, null
   br i1 %cmp.i.i841, label %if.then.i845, label %if.end.i842
 
 if.then.i845:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit583
@@ -3589,8 +3593,8 @@ if.then.i845:                                     ; preds = %_ZN2v814PersistentB
 if.end.i842:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit583
   store ptr %this1.i839, ptr %this.addr.i3.i836, align 8
   %this1.i4.i843 = load ptr, ptr %this.addr.i3.i836, align 8
-  %30 = load ptr, ptr %this1.i4.i843, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %30) #3
+  %31 = load ptr, ptr %this1.i4.i843, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %31) #3
   store ptr %this1.i839, ptr %this.addr.i5.i835, align 8
   %this1.i6.i844 = load ptr, ptr %this.addr.i5.i835, align 8
   store ptr null, ptr %this1.i6.i844, align 8
@@ -3604,8 +3608,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit846: ; preds = %if.end.i842, %if
   %this1.i827 = load ptr, ptr %this.addr.i826, align 8
   store ptr %this1.i827, ptr %this.addr.i.i825, align 8
   %this1.i.i828 = load ptr, ptr %this.addr.i.i825, align 8
-  %31 = load ptr, ptr %this1.i.i828, align 8
-  %cmp.i.i829 = icmp eq ptr %31, null
+  %32 = load ptr, ptr %this1.i.i828, align 8
+  %cmp.i.i829 = icmp eq ptr %32, null
   br i1 %cmp.i.i829, label %if.then.i833, label %if.end.i830
 
 if.then.i833:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit846
@@ -3614,8 +3618,8 @@ if.then.i833:                                     ; preds = %_ZN2v814PersistentB
 if.end.i830:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit846
   store ptr %this1.i827, ptr %this.addr.i3.i824, align 8
   %this1.i4.i831 = load ptr, ptr %this.addr.i3.i824, align 8
-  %32 = load ptr, ptr %this1.i4.i831, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %32) #3
+  %33 = load ptr, ptr %this1.i4.i831, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %33) #3
   store ptr %this1.i827, ptr %this.addr.i5.i823, align 8
   %this1.i6.i832 = load ptr, ptr %this.addr.i5.i823, align 8
   store ptr null, ptr %this1.i6.i832, align 8
@@ -3629,8 +3633,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit834: ; preds = %if.end.i830, %if
   %this1.i815 = load ptr, ptr %this.addr.i814, align 8
   store ptr %this1.i815, ptr %this.addr.i.i813, align 8
   %this1.i.i816 = load ptr, ptr %this.addr.i.i813, align 8
-  %33 = load ptr, ptr %this1.i.i816, align 8
-  %cmp.i.i817 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %this1.i.i816, align 8
+  %cmp.i.i817 = icmp eq ptr %34, null
   br i1 %cmp.i.i817, label %if.then.i821, label %if.end.i818
 
 if.then.i821:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit834
@@ -3639,8 +3643,8 @@ if.then.i821:                                     ; preds = %_ZN2v814PersistentB
 if.end.i818:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit834
   store ptr %this1.i815, ptr %this.addr.i3.i812, align 8
   %this1.i4.i819 = load ptr, ptr %this.addr.i3.i812, align 8
-  %34 = load ptr, ptr %this1.i4.i819, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %34) #3
+  %35 = load ptr, ptr %this1.i4.i819, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %35) #3
   store ptr %this1.i815, ptr %this.addr.i5.i811, align 8
   %this1.i6.i820 = load ptr, ptr %this.addr.i5.i811, align 8
   store ptr null, ptr %this1.i6.i820, align 8
@@ -3654,8 +3658,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit822: ; preds = %if.end.i818, %if
   %this1.i803 = load ptr, ptr %this.addr.i802, align 8
   store ptr %this1.i803, ptr %this.addr.i.i801, align 8
   %this1.i.i804 = load ptr, ptr %this.addr.i.i801, align 8
-  %35 = load ptr, ptr %this1.i.i804, align 8
-  %cmp.i.i805 = icmp eq ptr %35, null
+  %36 = load ptr, ptr %this1.i.i804, align 8
+  %cmp.i.i805 = icmp eq ptr %36, null
   br i1 %cmp.i.i805, label %if.then.i809, label %if.end.i806
 
 if.then.i809:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit822
@@ -3664,8 +3668,8 @@ if.then.i809:                                     ; preds = %_ZN2v814PersistentB
 if.end.i806:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit822
   store ptr %this1.i803, ptr %this.addr.i3.i800, align 8
   %this1.i4.i807 = load ptr, ptr %this.addr.i3.i800, align 8
-  %36 = load ptr, ptr %this1.i4.i807, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %36) #3
+  %37 = load ptr, ptr %this1.i4.i807, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %37) #3
   store ptr %this1.i803, ptr %this.addr.i5.i799, align 8
   %this1.i6.i808 = load ptr, ptr %this.addr.i5.i799, align 8
   store ptr null, ptr %this1.i6.i808, align 8
@@ -3679,8 +3683,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit810: ; preds = %if.end.i806, %if
   %this1.i791 = load ptr, ptr %this.addr.i790, align 8
   store ptr %this1.i791, ptr %this.addr.i.i789, align 8
   %this1.i.i792 = load ptr, ptr %this.addr.i.i789, align 8
-  %37 = load ptr, ptr %this1.i.i792, align 8
-  %cmp.i.i793 = icmp eq ptr %37, null
+  %38 = load ptr, ptr %this1.i.i792, align 8
+  %cmp.i.i793 = icmp eq ptr %38, null
   br i1 %cmp.i.i793, label %if.then.i797, label %if.end.i794
 
 if.then.i797:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit810
@@ -3689,8 +3693,8 @@ if.then.i797:                                     ; preds = %_ZN2v814PersistentB
 if.end.i794:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit810
   store ptr %this1.i791, ptr %this.addr.i3.i788, align 8
   %this1.i4.i795 = load ptr, ptr %this.addr.i3.i788, align 8
-  %38 = load ptr, ptr %this1.i4.i795, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %38) #3
+  %39 = load ptr, ptr %this1.i4.i795, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %39) #3
   store ptr %this1.i791, ptr %this.addr.i5.i787, align 8
   %this1.i6.i796 = load ptr, ptr %this.addr.i5.i787, align 8
   store ptr null, ptr %this1.i6.i796, align 8
@@ -3704,8 +3708,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit798: ; preds = %if.end.i794, %if
   %this1.i779 = load ptr, ptr %this.addr.i778, align 8
   store ptr %this1.i779, ptr %this.addr.i.i777, align 8
   %this1.i.i780 = load ptr, ptr %this.addr.i.i777, align 8
-  %39 = load ptr, ptr %this1.i.i780, align 8
-  %cmp.i.i781 = icmp eq ptr %39, null
+  %40 = load ptr, ptr %this1.i.i780, align 8
+  %cmp.i.i781 = icmp eq ptr %40, null
   br i1 %cmp.i.i781, label %if.then.i785, label %if.end.i782
 
 if.then.i785:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit798
@@ -3714,8 +3718,8 @@ if.then.i785:                                     ; preds = %_ZN2v814PersistentB
 if.end.i782:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit798
   store ptr %this1.i779, ptr %this.addr.i3.i776, align 8
   %this1.i4.i783 = load ptr, ptr %this.addr.i3.i776, align 8
-  %40 = load ptr, ptr %this1.i4.i783, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %40) #3
+  %41 = load ptr, ptr %this1.i4.i783, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %41) #3
   store ptr %this1.i779, ptr %this.addr.i5.i775, align 8
   %this1.i6.i784 = load ptr, ptr %this.addr.i5.i775, align 8
   store ptr null, ptr %this1.i6.i784, align 8
@@ -3729,8 +3733,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit786: ; preds = %if.end.i782, %if
   %this1.i564 = load ptr, ptr %this.addr.i563, align 8
   store ptr %this1.i564, ptr %this.addr.i.i562, align 8
   %this1.i.i565 = load ptr, ptr %this.addr.i.i562, align 8
-  %41 = load ptr, ptr %this1.i.i565, align 8
-  %cmp.i.i566 = icmp eq ptr %41, null
+  %42 = load ptr, ptr %this1.i.i565, align 8
+  %cmp.i.i566 = icmp eq ptr %42, null
   br i1 %cmp.i.i566, label %if.then.i570, label %if.end.i567
 
 if.then.i570:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit786
@@ -3739,8 +3743,8 @@ if.then.i570:                                     ; preds = %_ZN2v814PersistentB
 if.end.i567:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit786
   store ptr %this1.i564, ptr %this.addr.i3.i561, align 8
   %this1.i4.i568 = load ptr, ptr %this.addr.i3.i561, align 8
-  %42 = load ptr, ptr %this1.i4.i568, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %42) #3
+  %43 = load ptr, ptr %this1.i4.i568, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %43) #3
   store ptr %this1.i564, ptr %this.addr.i5.i560, align 8
   %this1.i6.i569 = load ptr, ptr %this.addr.i5.i560, align 8
   store ptr null, ptr %this1.i6.i569, align 8
@@ -3754,8 +3758,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit571: ; preds = %if.end.i567, %
   %this1.i552 = load ptr, ptr %this.addr.i551, align 8
   store ptr %this1.i552, ptr %this.addr.i.i550, align 8
   %this1.i.i553 = load ptr, ptr %this.addr.i.i550, align 8
-  %43 = load ptr, ptr %this1.i.i553, align 8
-  %cmp.i.i554 = icmp eq ptr %43, null
+  %44 = load ptr, ptr %this1.i.i553, align 8
+  %cmp.i.i554 = icmp eq ptr %44, null
   br i1 %cmp.i.i554, label %if.then.i558, label %if.end.i555
 
 if.then.i558:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit571
@@ -3764,8 +3768,8 @@ if.then.i558:                                     ; preds = %_ZN2v814PersistentB
 if.end.i555:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit571
   store ptr %this1.i552, ptr %this.addr.i3.i549, align 8
   %this1.i4.i556 = load ptr, ptr %this.addr.i3.i549, align 8
-  %44 = load ptr, ptr %this1.i4.i556, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %44) #3
+  %45 = load ptr, ptr %this1.i4.i556, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %45) #3
   store ptr %this1.i552, ptr %this.addr.i5.i548, align 8
   %this1.i6.i557 = load ptr, ptr %this.addr.i5.i548, align 8
   store ptr null, ptr %this1.i6.i557, align 8
@@ -3779,8 +3783,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit559: ; preds = %if.end.i555, %
   %this1.i540 = load ptr, ptr %this.addr.i539, align 8
   store ptr %this1.i540, ptr %this.addr.i.i538, align 8
   %this1.i.i541 = load ptr, ptr %this.addr.i.i538, align 8
-  %45 = load ptr, ptr %this1.i.i541, align 8
-  %cmp.i.i542 = icmp eq ptr %45, null
+  %46 = load ptr, ptr %this1.i.i541, align 8
+  %cmp.i.i542 = icmp eq ptr %46, null
   br i1 %cmp.i.i542, label %if.then.i546, label %if.end.i543
 
 if.then.i546:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit559
@@ -3789,8 +3793,8 @@ if.then.i546:                                     ; preds = %_ZN2v814PersistentB
 if.end.i543:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit559
   store ptr %this1.i540, ptr %this.addr.i3.i537, align 8
   %this1.i4.i544 = load ptr, ptr %this.addr.i3.i537, align 8
-  %46 = load ptr, ptr %this1.i4.i544, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %46) #3
+  %47 = load ptr, ptr %this1.i4.i544, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %47) #3
   store ptr %this1.i540, ptr %this.addr.i5.i536, align 8
   %this1.i6.i545 = load ptr, ptr %this.addr.i5.i536, align 8
   store ptr null, ptr %this1.i6.i545, align 8
@@ -3804,8 +3808,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit547: ; preds = %if.end.i543, %
   %this1.i767 = load ptr, ptr %this.addr.i766, align 8
   store ptr %this1.i767, ptr %this.addr.i.i765, align 8
   %this1.i.i768 = load ptr, ptr %this.addr.i.i765, align 8
-  %47 = load ptr, ptr %this1.i.i768, align 8
-  %cmp.i.i769 = icmp eq ptr %47, null
+  %48 = load ptr, ptr %this1.i.i768, align 8
+  %cmp.i.i769 = icmp eq ptr %48, null
   br i1 %cmp.i.i769, label %if.then.i773, label %if.end.i770
 
 if.then.i773:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit547
@@ -3814,8 +3818,8 @@ if.then.i773:                                     ; preds = %_ZN2v814PersistentB
 if.end.i770:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit547
   store ptr %this1.i767, ptr %this.addr.i3.i764, align 8
   %this1.i4.i771 = load ptr, ptr %this.addr.i3.i764, align 8
-  %48 = load ptr, ptr %this1.i4.i771, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %48) #3
+  %49 = load ptr, ptr %this1.i4.i771, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %49) #3
   store ptr %this1.i767, ptr %this.addr.i5.i763, align 8
   %this1.i6.i772 = load ptr, ptr %this.addr.i5.i763, align 8
   store ptr null, ptr %this1.i6.i772, align 8
@@ -3829,8 +3833,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit774: ; preds = %if.end.i770, %if
   %this1.i528 = load ptr, ptr %this.addr.i527, align 8
   store ptr %this1.i528, ptr %this.addr.i.i526, align 8
   %this1.i.i529 = load ptr, ptr %this.addr.i.i526, align 8
-  %49 = load ptr, ptr %this1.i.i529, align 8
-  %cmp.i.i530 = icmp eq ptr %49, null
+  %50 = load ptr, ptr %this1.i.i529, align 8
+  %cmp.i.i530 = icmp eq ptr %50, null
   br i1 %cmp.i.i530, label %if.then.i534, label %if.end.i531
 
 if.then.i534:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit774
@@ -3839,8 +3843,8 @@ if.then.i534:                                     ; preds = %_ZN2v814PersistentB
 if.end.i531:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit774
   store ptr %this1.i528, ptr %this.addr.i3.i525, align 8
   %this1.i4.i532 = load ptr, ptr %this.addr.i3.i525, align 8
-  %50 = load ptr, ptr %this1.i4.i532, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %50) #3
+  %51 = load ptr, ptr %this1.i4.i532, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %51) #3
   store ptr %this1.i528, ptr %this.addr.i5.i524, align 8
   %this1.i6.i533 = load ptr, ptr %this.addr.i5.i524, align 8
   store ptr null, ptr %this1.i6.i533, align 8
@@ -3854,8 +3858,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit535: ; preds = %if.end.i531, %
   %this1.i516 = load ptr, ptr %this.addr.i515, align 8
   store ptr %this1.i516, ptr %this.addr.i.i514, align 8
   %this1.i.i517 = load ptr, ptr %this.addr.i.i514, align 8
-  %51 = load ptr, ptr %this1.i.i517, align 8
-  %cmp.i.i518 = icmp eq ptr %51, null
+  %52 = load ptr, ptr %this1.i.i517, align 8
+  %cmp.i.i518 = icmp eq ptr %52, null
   br i1 %cmp.i.i518, label %if.then.i522, label %if.end.i519
 
 if.then.i522:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit535
@@ -3864,8 +3868,8 @@ if.then.i522:                                     ; preds = %_ZN2v814PersistentB
 if.end.i519:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit535
   store ptr %this1.i516, ptr %this.addr.i3.i513, align 8
   %this1.i4.i520 = load ptr, ptr %this.addr.i3.i513, align 8
-  %52 = load ptr, ptr %this1.i4.i520, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %52) #3
+  %53 = load ptr, ptr %this1.i4.i520, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %53) #3
   store ptr %this1.i516, ptr %this.addr.i5.i512, align 8
   %this1.i6.i521 = load ptr, ptr %this.addr.i5.i512, align 8
   store ptr null, ptr %this1.i6.i521, align 8
@@ -3879,8 +3883,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit523: ; preds = %if.end.i519, %
   %this1.i504 = load ptr, ptr %this.addr.i503, align 8
   store ptr %this1.i504, ptr %this.addr.i.i502, align 8
   %this1.i.i505 = load ptr, ptr %this.addr.i.i502, align 8
-  %53 = load ptr, ptr %this1.i.i505, align 8
-  %cmp.i.i506 = icmp eq ptr %53, null
+  %54 = load ptr, ptr %this1.i.i505, align 8
+  %cmp.i.i506 = icmp eq ptr %54, null
   br i1 %cmp.i.i506, label %if.then.i510, label %if.end.i507
 
 if.then.i510:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit523
@@ -3889,8 +3893,8 @@ if.then.i510:                                     ; preds = %_ZN2v814PersistentB
 if.end.i507:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit523
   store ptr %this1.i504, ptr %this.addr.i3.i501, align 8
   %this1.i4.i508 = load ptr, ptr %this.addr.i3.i501, align 8
-  %54 = load ptr, ptr %this1.i4.i508, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %54) #3
+  %55 = load ptr, ptr %this1.i4.i508, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %55) #3
   store ptr %this1.i504, ptr %this.addr.i5.i500, align 8
   %this1.i6.i509 = load ptr, ptr %this.addr.i5.i500, align 8
   store ptr null, ptr %this1.i6.i509, align 8
@@ -3904,8 +3908,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit511: ; preds = %if.end.i507, %
   %this1.i492 = load ptr, ptr %this.addr.i491, align 8
   store ptr %this1.i492, ptr %this.addr.i.i490, align 8
   %this1.i.i493 = load ptr, ptr %this.addr.i.i490, align 8
-  %55 = load ptr, ptr %this1.i.i493, align 8
-  %cmp.i.i494 = icmp eq ptr %55, null
+  %56 = load ptr, ptr %this1.i.i493, align 8
+  %cmp.i.i494 = icmp eq ptr %56, null
   br i1 %cmp.i.i494, label %if.then.i498, label %if.end.i495
 
 if.then.i498:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit511
@@ -3914,8 +3918,8 @@ if.then.i498:                                     ; preds = %_ZN2v814PersistentB
 if.end.i495:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit511
   store ptr %this1.i492, ptr %this.addr.i3.i489, align 8
   %this1.i4.i496 = load ptr, ptr %this.addr.i3.i489, align 8
-  %56 = load ptr, ptr %this1.i4.i496, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %56) #3
+  %57 = load ptr, ptr %this1.i4.i496, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %57) #3
   store ptr %this1.i492, ptr %this.addr.i5.i488, align 8
   %this1.i6.i497 = load ptr, ptr %this.addr.i5.i488, align 8
   store ptr null, ptr %this1.i6.i497, align 8
@@ -3929,8 +3933,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit499: ; preds = %if.end.i495, %
   %this1.i480 = load ptr, ptr %this.addr.i479, align 8
   store ptr %this1.i480, ptr %this.addr.i.i478, align 8
   %this1.i.i481 = load ptr, ptr %this.addr.i.i478, align 8
-  %57 = load ptr, ptr %this1.i.i481, align 8
-  %cmp.i.i482 = icmp eq ptr %57, null
+  %58 = load ptr, ptr %this1.i.i481, align 8
+  %cmp.i.i482 = icmp eq ptr %58, null
   br i1 %cmp.i.i482, label %if.then.i486, label %if.end.i483
 
 if.then.i486:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit499
@@ -3939,8 +3943,8 @@ if.then.i486:                                     ; preds = %_ZN2v814PersistentB
 if.end.i483:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit499
   store ptr %this1.i480, ptr %this.addr.i3.i477, align 8
   %this1.i4.i484 = load ptr, ptr %this.addr.i3.i477, align 8
-  %58 = load ptr, ptr %this1.i4.i484, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %58) #3
+  %59 = load ptr, ptr %this1.i4.i484, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %59) #3
   store ptr %this1.i480, ptr %this.addr.i5.i476, align 8
   %this1.i6.i485 = load ptr, ptr %this.addr.i5.i476, align 8
   store ptr null, ptr %this1.i6.i485, align 8
@@ -3954,8 +3958,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit487: ; preds = %if.end.i483, %
   %this1.i468 = load ptr, ptr %this.addr.i467, align 8
   store ptr %this1.i468, ptr %this.addr.i.i466, align 8
   %this1.i.i469 = load ptr, ptr %this.addr.i.i466, align 8
-  %59 = load ptr, ptr %this1.i.i469, align 8
-  %cmp.i.i470 = icmp eq ptr %59, null
+  %60 = load ptr, ptr %this1.i.i469, align 8
+  %cmp.i.i470 = icmp eq ptr %60, null
   br i1 %cmp.i.i470, label %if.then.i474, label %if.end.i471
 
 if.then.i474:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit487
@@ -3964,8 +3968,8 @@ if.then.i474:                                     ; preds = %_ZN2v814PersistentB
 if.end.i471:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit487
   store ptr %this1.i468, ptr %this.addr.i3.i465, align 8
   %this1.i4.i472 = load ptr, ptr %this.addr.i3.i465, align 8
-  %60 = load ptr, ptr %this1.i4.i472, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %60) #3
+  %61 = load ptr, ptr %this1.i4.i472, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %61) #3
   store ptr %this1.i468, ptr %this.addr.i5.i464, align 8
   %this1.i6.i473 = load ptr, ptr %this.addr.i5.i464, align 8
   store ptr null, ptr %this1.i6.i473, align 8
@@ -3979,8 +3983,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit475: ; preds = %if.end.i471, %
   %this1.i456 = load ptr, ptr %this.addr.i455, align 8
   store ptr %this1.i456, ptr %this.addr.i.i454, align 8
   %this1.i.i457 = load ptr, ptr %this.addr.i.i454, align 8
-  %61 = load ptr, ptr %this1.i.i457, align 8
-  %cmp.i.i458 = icmp eq ptr %61, null
+  %62 = load ptr, ptr %this1.i.i457, align 8
+  %cmp.i.i458 = icmp eq ptr %62, null
   br i1 %cmp.i.i458, label %if.then.i462, label %if.end.i459
 
 if.then.i462:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit475
@@ -3989,8 +3993,8 @@ if.then.i462:                                     ; preds = %_ZN2v814PersistentB
 if.end.i459:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit475
   store ptr %this1.i456, ptr %this.addr.i3.i453, align 8
   %this1.i4.i460 = load ptr, ptr %this.addr.i3.i453, align 8
-  %62 = load ptr, ptr %this1.i4.i460, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %62) #3
+  %63 = load ptr, ptr %this1.i4.i460, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %63) #3
   store ptr %this1.i456, ptr %this.addr.i5.i452, align 8
   %this1.i6.i461 = load ptr, ptr %this.addr.i5.i452, align 8
   store ptr null, ptr %this1.i6.i461, align 8
@@ -4004,8 +4008,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit463: ; preds = %if.end.i459, %
   %this1.i444 = load ptr, ptr %this.addr.i443, align 8
   store ptr %this1.i444, ptr %this.addr.i.i442, align 8
   %this1.i.i445 = load ptr, ptr %this.addr.i.i442, align 8
-  %63 = load ptr, ptr %this1.i.i445, align 8
-  %cmp.i.i446 = icmp eq ptr %63, null
+  %64 = load ptr, ptr %this1.i.i445, align 8
+  %cmp.i.i446 = icmp eq ptr %64, null
   br i1 %cmp.i.i446, label %if.then.i450, label %if.end.i447
 
 if.then.i450:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit463
@@ -4014,8 +4018,8 @@ if.then.i450:                                     ; preds = %_ZN2v814PersistentB
 if.end.i447:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit463
   store ptr %this1.i444, ptr %this.addr.i3.i441, align 8
   %this1.i4.i448 = load ptr, ptr %this.addr.i3.i441, align 8
-  %64 = load ptr, ptr %this1.i4.i448, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %64) #3
+  %65 = load ptr, ptr %this1.i4.i448, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %65) #3
   store ptr %this1.i444, ptr %this.addr.i5.i440, align 8
   %this1.i6.i449 = load ptr, ptr %this.addr.i5.i440, align 8
   store ptr null, ptr %this1.i6.i449, align 8
@@ -4029,8 +4033,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit451: ; preds = %if.end.i447, %
   %this1.i432 = load ptr, ptr %this.addr.i431, align 8
   store ptr %this1.i432, ptr %this.addr.i.i430, align 8
   %this1.i.i433 = load ptr, ptr %this.addr.i.i430, align 8
-  %65 = load ptr, ptr %this1.i.i433, align 8
-  %cmp.i.i434 = icmp eq ptr %65, null
+  %66 = load ptr, ptr %this1.i.i433, align 8
+  %cmp.i.i434 = icmp eq ptr %66, null
   br i1 %cmp.i.i434, label %if.then.i438, label %if.end.i435
 
 if.then.i438:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit451
@@ -4039,8 +4043,8 @@ if.then.i438:                                     ; preds = %_ZN2v814PersistentB
 if.end.i435:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit451
   store ptr %this1.i432, ptr %this.addr.i3.i429, align 8
   %this1.i4.i436 = load ptr, ptr %this.addr.i3.i429, align 8
-  %66 = load ptr, ptr %this1.i4.i436, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %66) #3
+  %67 = load ptr, ptr %this1.i4.i436, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %67) #3
   store ptr %this1.i432, ptr %this.addr.i5.i428, align 8
   %this1.i6.i437 = load ptr, ptr %this.addr.i5.i428, align 8
   store ptr null, ptr %this1.i6.i437, align 8
@@ -4054,8 +4058,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit439: ; preds = %if.end.i435, %
   %this1.i420 = load ptr, ptr %this.addr.i419, align 8
   store ptr %this1.i420, ptr %this.addr.i.i418, align 8
   %this1.i.i421 = load ptr, ptr %this.addr.i.i418, align 8
-  %67 = load ptr, ptr %this1.i.i421, align 8
-  %cmp.i.i422 = icmp eq ptr %67, null
+  %68 = load ptr, ptr %this1.i.i421, align 8
+  %cmp.i.i422 = icmp eq ptr %68, null
   br i1 %cmp.i.i422, label %if.then.i426, label %if.end.i423
 
 if.then.i426:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit439
@@ -4064,8 +4068,8 @@ if.then.i426:                                     ; preds = %_ZN2v814PersistentB
 if.end.i423:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit439
   store ptr %this1.i420, ptr %this.addr.i3.i417, align 8
   %this1.i4.i424 = load ptr, ptr %this.addr.i3.i417, align 8
-  %68 = load ptr, ptr %this1.i4.i424, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %68) #3
+  %69 = load ptr, ptr %this1.i4.i424, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %69) #3
   store ptr %this1.i420, ptr %this.addr.i5.i416, align 8
   %this1.i6.i425 = load ptr, ptr %this.addr.i5.i416, align 8
   store ptr null, ptr %this1.i6.i425, align 8
@@ -4079,8 +4083,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit427: ; preds = %if.end.i423, %
   %this1.i408 = load ptr, ptr %this.addr.i407, align 8
   store ptr %this1.i408, ptr %this.addr.i.i406, align 8
   %this1.i.i409 = load ptr, ptr %this.addr.i.i406, align 8
-  %69 = load ptr, ptr %this1.i.i409, align 8
-  %cmp.i.i410 = icmp eq ptr %69, null
+  %70 = load ptr, ptr %this1.i.i409, align 8
+  %cmp.i.i410 = icmp eq ptr %70, null
   br i1 %cmp.i.i410, label %if.then.i414, label %if.end.i411
 
 if.then.i414:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit427
@@ -4089,8 +4093,8 @@ if.then.i414:                                     ; preds = %_ZN2v814PersistentB
 if.end.i411:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit427
   store ptr %this1.i408, ptr %this.addr.i3.i405, align 8
   %this1.i4.i412 = load ptr, ptr %this.addr.i3.i405, align 8
-  %70 = load ptr, ptr %this1.i4.i412, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %70) #3
+  %71 = load ptr, ptr %this1.i4.i412, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %71) #3
   store ptr %this1.i408, ptr %this.addr.i5.i404, align 8
   %this1.i6.i413 = load ptr, ptr %this.addr.i5.i404, align 8
   store ptr null, ptr %this1.i6.i413, align 8
@@ -4104,8 +4108,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit415: ; preds = %if.end.i411, %
   %this1.i396 = load ptr, ptr %this.addr.i395, align 8
   store ptr %this1.i396, ptr %this.addr.i.i394, align 8
   %this1.i.i397 = load ptr, ptr %this.addr.i.i394, align 8
-  %71 = load ptr, ptr %this1.i.i397, align 8
-  %cmp.i.i398 = icmp eq ptr %71, null
+  %72 = load ptr, ptr %this1.i.i397, align 8
+  %cmp.i.i398 = icmp eq ptr %72, null
   br i1 %cmp.i.i398, label %if.then.i402, label %if.end.i399
 
 if.then.i402:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit415
@@ -4114,8 +4118,8 @@ if.then.i402:                                     ; preds = %_ZN2v814PersistentB
 if.end.i399:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit415
   store ptr %this1.i396, ptr %this.addr.i3.i393, align 8
   %this1.i4.i400 = load ptr, ptr %this.addr.i3.i393, align 8
-  %72 = load ptr, ptr %this1.i4.i400, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %72) #3
+  %73 = load ptr, ptr %this1.i4.i400, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %73) #3
   store ptr %this1.i396, ptr %this.addr.i5.i392, align 8
   %this1.i6.i401 = load ptr, ptr %this.addr.i5.i392, align 8
   store ptr null, ptr %this1.i6.i401, align 8
@@ -4129,8 +4133,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit403: ; preds = %if.end.i399, %
   %this1.i384 = load ptr, ptr %this.addr.i383, align 8
   store ptr %this1.i384, ptr %this.addr.i.i382, align 8
   %this1.i.i385 = load ptr, ptr %this.addr.i.i382, align 8
-  %73 = load ptr, ptr %this1.i.i385, align 8
-  %cmp.i.i386 = icmp eq ptr %73, null
+  %74 = load ptr, ptr %this1.i.i385, align 8
+  %cmp.i.i386 = icmp eq ptr %74, null
   br i1 %cmp.i.i386, label %if.then.i390, label %if.end.i387
 
 if.then.i390:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit403
@@ -4139,8 +4143,8 @@ if.then.i390:                                     ; preds = %_ZN2v814PersistentB
 if.end.i387:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit403
   store ptr %this1.i384, ptr %this.addr.i3.i381, align 8
   %this1.i4.i388 = load ptr, ptr %this.addr.i3.i381, align 8
-  %74 = load ptr, ptr %this1.i4.i388, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %74) #3
+  %75 = load ptr, ptr %this1.i4.i388, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %75) #3
   store ptr %this1.i384, ptr %this.addr.i5.i380, align 8
   %this1.i6.i389 = load ptr, ptr %this.addr.i5.i380, align 8
   store ptr null, ptr %this1.i6.i389, align 8
@@ -4154,8 +4158,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit391: ; preds = %if.end.i387, %
   %this1.i372 = load ptr, ptr %this.addr.i371, align 8
   store ptr %this1.i372, ptr %this.addr.i.i370, align 8
   %this1.i.i373 = load ptr, ptr %this.addr.i.i370, align 8
-  %75 = load ptr, ptr %this1.i.i373, align 8
-  %cmp.i.i374 = icmp eq ptr %75, null
+  %76 = load ptr, ptr %this1.i.i373, align 8
+  %cmp.i.i374 = icmp eq ptr %76, null
   br i1 %cmp.i.i374, label %if.then.i378, label %if.end.i375
 
 if.then.i378:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit391
@@ -4164,8 +4168,8 @@ if.then.i378:                                     ; preds = %_ZN2v814PersistentB
 if.end.i375:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit391
   store ptr %this1.i372, ptr %this.addr.i3.i369, align 8
   %this1.i4.i376 = load ptr, ptr %this.addr.i3.i369, align 8
-  %76 = load ptr, ptr %this1.i4.i376, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %76) #3
+  %77 = load ptr, ptr %this1.i4.i376, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %77) #3
   store ptr %this1.i372, ptr %this.addr.i5.i368, align 8
   %this1.i6.i377 = load ptr, ptr %this.addr.i5.i368, align 8
   store ptr null, ptr %this1.i6.i377, align 8
@@ -4179,8 +4183,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit379: ; preds = %if.end.i375, %
   %this1.i360 = load ptr, ptr %this.addr.i359, align 8
   store ptr %this1.i360, ptr %this.addr.i.i358, align 8
   %this1.i.i361 = load ptr, ptr %this.addr.i.i358, align 8
-  %77 = load ptr, ptr %this1.i.i361, align 8
-  %cmp.i.i362 = icmp eq ptr %77, null
+  %78 = load ptr, ptr %this1.i.i361, align 8
+  %cmp.i.i362 = icmp eq ptr %78, null
   br i1 %cmp.i.i362, label %if.then.i366, label %if.end.i363
 
 if.then.i366:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit379
@@ -4189,8 +4193,8 @@ if.then.i366:                                     ; preds = %_ZN2v814PersistentB
 if.end.i363:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit379
   store ptr %this1.i360, ptr %this.addr.i3.i357, align 8
   %this1.i4.i364 = load ptr, ptr %this.addr.i3.i357, align 8
-  %78 = load ptr, ptr %this1.i4.i364, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %78) #3
+  %79 = load ptr, ptr %this1.i4.i364, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %79) #3
   store ptr %this1.i360, ptr %this.addr.i5.i356, align 8
   %this1.i6.i365 = load ptr, ptr %this.addr.i5.i356, align 8
   store ptr null, ptr %this1.i6.i365, align 8
@@ -4204,8 +4208,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit367: ; preds = %if.end.i363, %
   %this1.i348 = load ptr, ptr %this.addr.i347, align 8
   store ptr %this1.i348, ptr %this.addr.i.i346, align 8
   %this1.i.i349 = load ptr, ptr %this.addr.i.i346, align 8
-  %79 = load ptr, ptr %this1.i.i349, align 8
-  %cmp.i.i350 = icmp eq ptr %79, null
+  %80 = load ptr, ptr %this1.i.i349, align 8
+  %cmp.i.i350 = icmp eq ptr %80, null
   br i1 %cmp.i.i350, label %if.then.i354, label %if.end.i351
 
 if.then.i354:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit367
@@ -4214,8 +4218,8 @@ if.then.i354:                                     ; preds = %_ZN2v814PersistentB
 if.end.i351:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit367
   store ptr %this1.i348, ptr %this.addr.i3.i345, align 8
   %this1.i4.i352 = load ptr, ptr %this.addr.i3.i345, align 8
-  %80 = load ptr, ptr %this1.i4.i352, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %80) #3
+  %81 = load ptr, ptr %this1.i4.i352, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %81) #3
   store ptr %this1.i348, ptr %this.addr.i5.i344, align 8
   %this1.i6.i353 = load ptr, ptr %this.addr.i5.i344, align 8
   store ptr null, ptr %this1.i6.i353, align 8
@@ -4229,8 +4233,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit355: ; preds = %if.end.i351, %
   %this1.i336 = load ptr, ptr %this.addr.i335, align 8
   store ptr %this1.i336, ptr %this.addr.i.i334, align 8
   %this1.i.i337 = load ptr, ptr %this.addr.i.i334, align 8
-  %81 = load ptr, ptr %this1.i.i337, align 8
-  %cmp.i.i338 = icmp eq ptr %81, null
+  %82 = load ptr, ptr %this1.i.i337, align 8
+  %cmp.i.i338 = icmp eq ptr %82, null
   br i1 %cmp.i.i338, label %if.then.i342, label %if.end.i339
 
 if.then.i342:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit355
@@ -4239,8 +4243,8 @@ if.then.i342:                                     ; preds = %_ZN2v814PersistentB
 if.end.i339:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit355
   store ptr %this1.i336, ptr %this.addr.i3.i333, align 8
   %this1.i4.i340 = load ptr, ptr %this.addr.i3.i333, align 8
-  %82 = load ptr, ptr %this1.i4.i340, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %82) #3
+  %83 = load ptr, ptr %this1.i4.i340, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %83) #3
   store ptr %this1.i336, ptr %this.addr.i5.i332, align 8
   %this1.i6.i341 = load ptr, ptr %this.addr.i5.i332, align 8
   store ptr null, ptr %this1.i6.i341, align 8
@@ -4254,8 +4258,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit343: ; preds = %if.end.i339, %
   %this1.i324 = load ptr, ptr %this.addr.i323, align 8
   store ptr %this1.i324, ptr %this.addr.i.i322, align 8
   %this1.i.i325 = load ptr, ptr %this.addr.i.i322, align 8
-  %83 = load ptr, ptr %this1.i.i325, align 8
-  %cmp.i.i326 = icmp eq ptr %83, null
+  %84 = load ptr, ptr %this1.i.i325, align 8
+  %cmp.i.i326 = icmp eq ptr %84, null
   br i1 %cmp.i.i326, label %if.then.i330, label %if.end.i327
 
 if.then.i330:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit343
@@ -4264,8 +4268,8 @@ if.then.i330:                                     ; preds = %_ZN2v814PersistentB
 if.end.i327:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit343
   store ptr %this1.i324, ptr %this.addr.i3.i321, align 8
   %this1.i4.i328 = load ptr, ptr %this.addr.i3.i321, align 8
-  %84 = load ptr, ptr %this1.i4.i328, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %84) #3
+  %85 = load ptr, ptr %this1.i4.i328, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %85) #3
   store ptr %this1.i324, ptr %this.addr.i5.i320, align 8
   %this1.i6.i329 = load ptr, ptr %this.addr.i5.i320, align 8
   store ptr null, ptr %this1.i6.i329, align 8
@@ -4279,8 +4283,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit331: ; preds = %if.end.i327, %
   %this1.i312 = load ptr, ptr %this.addr.i311, align 8
   store ptr %this1.i312, ptr %this.addr.i.i310, align 8
   %this1.i.i313 = load ptr, ptr %this.addr.i.i310, align 8
-  %85 = load ptr, ptr %this1.i.i313, align 8
-  %cmp.i.i314 = icmp eq ptr %85, null
+  %86 = load ptr, ptr %this1.i.i313, align 8
+  %cmp.i.i314 = icmp eq ptr %86, null
   br i1 %cmp.i.i314, label %if.then.i318, label %if.end.i315
 
 if.then.i318:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit331
@@ -4289,8 +4293,8 @@ if.then.i318:                                     ; preds = %_ZN2v814PersistentB
 if.end.i315:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit331
   store ptr %this1.i312, ptr %this.addr.i3.i309, align 8
   %this1.i4.i316 = load ptr, ptr %this.addr.i3.i309, align 8
-  %86 = load ptr, ptr %this1.i4.i316, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %86) #3
+  %87 = load ptr, ptr %this1.i4.i316, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %87) #3
   store ptr %this1.i312, ptr %this.addr.i5.i308, align 8
   %this1.i6.i317 = load ptr, ptr %this.addr.i5.i308, align 8
   store ptr null, ptr %this1.i6.i317, align 8
@@ -4304,8 +4308,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit319: ; preds = %if.end.i315, %
   %this1.i300 = load ptr, ptr %this.addr.i299, align 8
   store ptr %this1.i300, ptr %this.addr.i.i298, align 8
   %this1.i.i301 = load ptr, ptr %this.addr.i.i298, align 8
-  %87 = load ptr, ptr %this1.i.i301, align 8
-  %cmp.i.i302 = icmp eq ptr %87, null
+  %88 = load ptr, ptr %this1.i.i301, align 8
+  %cmp.i.i302 = icmp eq ptr %88, null
   br i1 %cmp.i.i302, label %if.then.i306, label %if.end.i303
 
 if.then.i306:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit319
@@ -4314,8 +4318,8 @@ if.then.i306:                                     ; preds = %_ZN2v814PersistentB
 if.end.i303:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit319
   store ptr %this1.i300, ptr %this.addr.i3.i297, align 8
   %this1.i4.i304 = load ptr, ptr %this.addr.i3.i297, align 8
-  %88 = load ptr, ptr %this1.i4.i304, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %88) #3
+  %89 = load ptr, ptr %this1.i4.i304, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %89) #3
   store ptr %this1.i300, ptr %this.addr.i5.i296, align 8
   %this1.i6.i305 = load ptr, ptr %this.addr.i5.i296, align 8
   store ptr null, ptr %this1.i6.i305, align 8
@@ -4329,8 +4333,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit307: ; preds = %if.end.i303, %
   %this1.i288 = load ptr, ptr %this.addr.i287, align 8
   store ptr %this1.i288, ptr %this.addr.i.i286, align 8
   %this1.i.i289 = load ptr, ptr %this.addr.i.i286, align 8
-  %89 = load ptr, ptr %this1.i.i289, align 8
-  %cmp.i.i290 = icmp eq ptr %89, null
+  %90 = load ptr, ptr %this1.i.i289, align 8
+  %cmp.i.i290 = icmp eq ptr %90, null
   br i1 %cmp.i.i290, label %if.then.i294, label %if.end.i291
 
 if.then.i294:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit307
@@ -4339,8 +4343,8 @@ if.then.i294:                                     ; preds = %_ZN2v814PersistentB
 if.end.i291:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit307
   store ptr %this1.i288, ptr %this.addr.i3.i285, align 8
   %this1.i4.i292 = load ptr, ptr %this.addr.i3.i285, align 8
-  %90 = load ptr, ptr %this1.i4.i292, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %90) #3
+  %91 = load ptr, ptr %this1.i4.i292, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %91) #3
   store ptr %this1.i288, ptr %this.addr.i5.i284, align 8
   %this1.i6.i293 = load ptr, ptr %this.addr.i5.i284, align 8
   store ptr null, ptr %this1.i6.i293, align 8
@@ -4354,8 +4358,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit295: ; preds = %if.end.i291, %
   %this1.i276 = load ptr, ptr %this.addr.i275, align 8
   store ptr %this1.i276, ptr %this.addr.i.i274, align 8
   %this1.i.i277 = load ptr, ptr %this.addr.i.i274, align 8
-  %91 = load ptr, ptr %this1.i.i277, align 8
-  %cmp.i.i278 = icmp eq ptr %91, null
+  %92 = load ptr, ptr %this1.i.i277, align 8
+  %cmp.i.i278 = icmp eq ptr %92, null
   br i1 %cmp.i.i278, label %if.then.i282, label %if.end.i279
 
 if.then.i282:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit295
@@ -4364,8 +4368,8 @@ if.then.i282:                                     ; preds = %_ZN2v814PersistentB
 if.end.i279:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit295
   store ptr %this1.i276, ptr %this.addr.i3.i273, align 8
   %this1.i4.i280 = load ptr, ptr %this.addr.i3.i273, align 8
-  %92 = load ptr, ptr %this1.i4.i280, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %92) #3
+  %93 = load ptr, ptr %this1.i4.i280, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %93) #3
   store ptr %this1.i276, ptr %this.addr.i5.i272, align 8
   %this1.i6.i281 = load ptr, ptr %this.addr.i5.i272, align 8
   store ptr null, ptr %this1.i6.i281, align 8
@@ -4379,8 +4383,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit283: ; preds = %if.end.i279, %
   %this1.i264 = load ptr, ptr %this.addr.i263, align 8
   store ptr %this1.i264, ptr %this.addr.i.i262, align 8
   %this1.i.i265 = load ptr, ptr %this.addr.i.i262, align 8
-  %93 = load ptr, ptr %this1.i.i265, align 8
-  %cmp.i.i266 = icmp eq ptr %93, null
+  %94 = load ptr, ptr %this1.i.i265, align 8
+  %cmp.i.i266 = icmp eq ptr %94, null
   br i1 %cmp.i.i266, label %if.then.i270, label %if.end.i267
 
 if.then.i270:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit283
@@ -4389,8 +4393,8 @@ if.then.i270:                                     ; preds = %_ZN2v814PersistentB
 if.end.i267:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit283
   store ptr %this1.i264, ptr %this.addr.i3.i261, align 8
   %this1.i4.i268 = load ptr, ptr %this.addr.i3.i261, align 8
-  %94 = load ptr, ptr %this1.i4.i268, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %94) #3
+  %95 = load ptr, ptr %this1.i4.i268, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %95) #3
   store ptr %this1.i264, ptr %this.addr.i5.i260, align 8
   %this1.i6.i269 = load ptr, ptr %this.addr.i5.i260, align 8
   store ptr null, ptr %this1.i6.i269, align 8
@@ -4404,8 +4408,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit271: ; preds = %if.end.i267, %
   %this1.i252 = load ptr, ptr %this.addr.i251, align 8
   store ptr %this1.i252, ptr %this.addr.i.i250, align 8
   %this1.i.i253 = load ptr, ptr %this.addr.i.i250, align 8
-  %95 = load ptr, ptr %this1.i.i253, align 8
-  %cmp.i.i254 = icmp eq ptr %95, null
+  %96 = load ptr, ptr %this1.i.i253, align 8
+  %cmp.i.i254 = icmp eq ptr %96, null
   br i1 %cmp.i.i254, label %if.then.i258, label %if.end.i255
 
 if.then.i258:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit271
@@ -4414,8 +4418,8 @@ if.then.i258:                                     ; preds = %_ZN2v814PersistentB
 if.end.i255:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit271
   store ptr %this1.i252, ptr %this.addr.i3.i249, align 8
   %this1.i4.i256 = load ptr, ptr %this.addr.i3.i249, align 8
-  %96 = load ptr, ptr %this1.i4.i256, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %96) #3
+  %97 = load ptr, ptr %this1.i4.i256, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %97) #3
   store ptr %this1.i252, ptr %this.addr.i5.i248, align 8
   %this1.i6.i257 = load ptr, ptr %this.addr.i5.i248, align 8
   store ptr null, ptr %this1.i6.i257, align 8
@@ -4429,8 +4433,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit259: ; preds = %if.end.i255, %
   %this1.i240 = load ptr, ptr %this.addr.i239, align 8
   store ptr %this1.i240, ptr %this.addr.i.i238, align 8
   %this1.i.i241 = load ptr, ptr %this.addr.i.i238, align 8
-  %97 = load ptr, ptr %this1.i.i241, align 8
-  %cmp.i.i242 = icmp eq ptr %97, null
+  %98 = load ptr, ptr %this1.i.i241, align 8
+  %cmp.i.i242 = icmp eq ptr %98, null
   br i1 %cmp.i.i242, label %if.then.i246, label %if.end.i243
 
 if.then.i246:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit259
@@ -4439,8 +4443,8 @@ if.then.i246:                                     ; preds = %_ZN2v814PersistentB
 if.end.i243:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit259
   store ptr %this1.i240, ptr %this.addr.i3.i237, align 8
   %this1.i4.i244 = load ptr, ptr %this.addr.i3.i237, align 8
-  %98 = load ptr, ptr %this1.i4.i244, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %98) #3
+  %99 = load ptr, ptr %this1.i4.i244, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %99) #3
   store ptr %this1.i240, ptr %this.addr.i5.i236, align 8
   %this1.i6.i245 = load ptr, ptr %this.addr.i5.i236, align 8
   store ptr null, ptr %this1.i6.i245, align 8
@@ -4454,8 +4458,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit247: ; preds = %if.end.i243, %
   %this1.i228 = load ptr, ptr %this.addr.i227, align 8
   store ptr %this1.i228, ptr %this.addr.i.i226, align 8
   %this1.i.i229 = load ptr, ptr %this.addr.i.i226, align 8
-  %99 = load ptr, ptr %this1.i.i229, align 8
-  %cmp.i.i230 = icmp eq ptr %99, null
+  %100 = load ptr, ptr %this1.i.i229, align 8
+  %cmp.i.i230 = icmp eq ptr %100, null
   br i1 %cmp.i.i230, label %if.then.i234, label %if.end.i231
 
 if.then.i234:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit247
@@ -4464,8 +4468,8 @@ if.then.i234:                                     ; preds = %_ZN2v814PersistentB
 if.end.i231:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit247
   store ptr %this1.i228, ptr %this.addr.i3.i225, align 8
   %this1.i4.i232 = load ptr, ptr %this.addr.i3.i225, align 8
-  %100 = load ptr, ptr %this1.i4.i232, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %100) #3
+  %101 = load ptr, ptr %this1.i4.i232, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %101) #3
   store ptr %this1.i228, ptr %this.addr.i5.i224, align 8
   %this1.i6.i233 = load ptr, ptr %this.addr.i5.i224, align 8
   store ptr null, ptr %this1.i6.i233, align 8
@@ -4479,8 +4483,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit235: ; preds = %if.end.i231, %
   %this1.i216 = load ptr, ptr %this.addr.i215, align 8
   store ptr %this1.i216, ptr %this.addr.i.i214, align 8
   %this1.i.i217 = load ptr, ptr %this.addr.i.i214, align 8
-  %101 = load ptr, ptr %this1.i.i217, align 8
-  %cmp.i.i218 = icmp eq ptr %101, null
+  %102 = load ptr, ptr %this1.i.i217, align 8
+  %cmp.i.i218 = icmp eq ptr %102, null
   br i1 %cmp.i.i218, label %if.then.i222, label %if.end.i219
 
 if.then.i222:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit235
@@ -4489,8 +4493,8 @@ if.then.i222:                                     ; preds = %_ZN2v814PersistentB
 if.end.i219:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit235
   store ptr %this1.i216, ptr %this.addr.i3.i213, align 8
   %this1.i4.i220 = load ptr, ptr %this.addr.i3.i213, align 8
-  %102 = load ptr, ptr %this1.i4.i220, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %102) #3
+  %103 = load ptr, ptr %this1.i4.i220, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %103) #3
   store ptr %this1.i216, ptr %this.addr.i5.i212, align 8
   %this1.i6.i221 = load ptr, ptr %this.addr.i5.i212, align 8
   store ptr null, ptr %this1.i6.i221, align 8
@@ -4504,8 +4508,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit223: ; preds = %if.end.i219, %
   %this1.i204 = load ptr, ptr %this.addr.i203, align 8
   store ptr %this1.i204, ptr %this.addr.i.i202, align 8
   %this1.i.i205 = load ptr, ptr %this.addr.i.i202, align 8
-  %103 = load ptr, ptr %this1.i.i205, align 8
-  %cmp.i.i206 = icmp eq ptr %103, null
+  %104 = load ptr, ptr %this1.i.i205, align 8
+  %cmp.i.i206 = icmp eq ptr %104, null
   br i1 %cmp.i.i206, label %if.then.i210, label %if.end.i207
 
 if.then.i210:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit223
@@ -4514,8 +4518,8 @@ if.then.i210:                                     ; preds = %_ZN2v814PersistentB
 if.end.i207:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit223
   store ptr %this1.i204, ptr %this.addr.i3.i201, align 8
   %this1.i4.i208 = load ptr, ptr %this.addr.i3.i201, align 8
-  %104 = load ptr, ptr %this1.i4.i208, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %104) #3
+  %105 = load ptr, ptr %this1.i4.i208, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %105) #3
   store ptr %this1.i204, ptr %this.addr.i5.i200, align 8
   %this1.i6.i209 = load ptr, ptr %this.addr.i5.i200, align 8
   store ptr null, ptr %this1.i6.i209, align 8
@@ -4529,8 +4533,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit211: ; preds = %if.end.i207, %
   %this1.i755 = load ptr, ptr %this.addr.i754, align 8
   store ptr %this1.i755, ptr %this.addr.i.i753, align 8
   %this1.i.i756 = load ptr, ptr %this.addr.i.i753, align 8
-  %105 = load ptr, ptr %this1.i.i756, align 8
-  %cmp.i.i757 = icmp eq ptr %105, null
+  %106 = load ptr, ptr %this1.i.i756, align 8
+  %cmp.i.i757 = icmp eq ptr %106, null
   br i1 %cmp.i.i757, label %if.then.i761, label %if.end.i758
 
 if.then.i761:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit211
@@ -4539,8 +4543,8 @@ if.then.i761:                                     ; preds = %_ZN2v814PersistentB
 if.end.i758:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit211
   store ptr %this1.i755, ptr %this.addr.i3.i752, align 8
   %this1.i4.i759 = load ptr, ptr %this.addr.i3.i752, align 8
-  %106 = load ptr, ptr %this1.i4.i759, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %106) #3
+  %107 = load ptr, ptr %this1.i4.i759, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %107) #3
   store ptr %this1.i755, ptr %this.addr.i5.i751, align 8
   %this1.i6.i760 = load ptr, ptr %this.addr.i5.i751, align 8
   store ptr null, ptr %this1.i6.i760, align 8
@@ -4554,8 +4558,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit762: ; preds = %if.end.i758, %if
   %this1.i192 = load ptr, ptr %this.addr.i191, align 8
   store ptr %this1.i192, ptr %this.addr.i.i190, align 8
   %this1.i.i193 = load ptr, ptr %this.addr.i.i190, align 8
-  %107 = load ptr, ptr %this1.i.i193, align 8
-  %cmp.i.i194 = icmp eq ptr %107, null
+  %108 = load ptr, ptr %this1.i.i193, align 8
+  %cmp.i.i194 = icmp eq ptr %108, null
   br i1 %cmp.i.i194, label %if.then.i198, label %if.end.i195
 
 if.then.i198:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit762
@@ -4564,8 +4568,8 @@ if.then.i198:                                     ; preds = %_ZN2v814PersistentB
 if.end.i195:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit762
   store ptr %this1.i192, ptr %this.addr.i3.i189, align 8
   %this1.i4.i196 = load ptr, ptr %this.addr.i3.i189, align 8
-  %108 = load ptr, ptr %this1.i4.i196, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %108) #3
+  %109 = load ptr, ptr %this1.i4.i196, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %109) #3
   store ptr %this1.i192, ptr %this.addr.i5.i188, align 8
   %this1.i6.i197 = load ptr, ptr %this.addr.i5.i188, align 8
   store ptr null, ptr %this1.i6.i197, align 8
@@ -4579,8 +4583,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit199: ; preds = %if.end.i195, %
   %this1.i180 = load ptr, ptr %this.addr.i179, align 8
   store ptr %this1.i180, ptr %this.addr.i.i178, align 8
   %this1.i.i181 = load ptr, ptr %this.addr.i.i178, align 8
-  %109 = load ptr, ptr %this1.i.i181, align 8
-  %cmp.i.i182 = icmp eq ptr %109, null
+  %110 = load ptr, ptr %this1.i.i181, align 8
+  %cmp.i.i182 = icmp eq ptr %110, null
   br i1 %cmp.i.i182, label %if.then.i186, label %if.end.i183
 
 if.then.i186:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit199
@@ -4589,8 +4593,8 @@ if.then.i186:                                     ; preds = %_ZN2v814PersistentB
 if.end.i183:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit199
   store ptr %this1.i180, ptr %this.addr.i3.i177, align 8
   %this1.i4.i184 = load ptr, ptr %this.addr.i3.i177, align 8
-  %110 = load ptr, ptr %this1.i4.i184, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %110) #3
+  %111 = load ptr, ptr %this1.i4.i184, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %111) #3
   store ptr %this1.i180, ptr %this.addr.i5.i176, align 8
   %this1.i6.i185 = load ptr, ptr %this.addr.i5.i176, align 8
   store ptr null, ptr %this1.i6.i185, align 8
@@ -4604,8 +4608,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit187: ; preds = %if.end.i183, %
   %this1.i168 = load ptr, ptr %this.addr.i167, align 8
   store ptr %this1.i168, ptr %this.addr.i.i166, align 8
   %this1.i.i169 = load ptr, ptr %this.addr.i.i166, align 8
-  %111 = load ptr, ptr %this1.i.i169, align 8
-  %cmp.i.i170 = icmp eq ptr %111, null
+  %112 = load ptr, ptr %this1.i.i169, align 8
+  %cmp.i.i170 = icmp eq ptr %112, null
   br i1 %cmp.i.i170, label %if.then.i174, label %if.end.i171
 
 if.then.i174:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit187
@@ -4614,8 +4618,8 @@ if.then.i174:                                     ; preds = %_ZN2v814PersistentB
 if.end.i171:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit187
   store ptr %this1.i168, ptr %this.addr.i3.i165, align 8
   %this1.i4.i172 = load ptr, ptr %this.addr.i3.i165, align 8
-  %112 = load ptr, ptr %this1.i4.i172, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %112) #3
+  %113 = load ptr, ptr %this1.i4.i172, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %113) #3
   store ptr %this1.i168, ptr %this.addr.i5.i164, align 8
   %this1.i6.i173 = load ptr, ptr %this.addr.i5.i164, align 8
   store ptr null, ptr %this1.i6.i173, align 8
@@ -4629,8 +4633,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit175: ; preds = %if.end.i171, %
   %this1.i744 = load ptr, ptr %this.addr.i743, align 8
   store ptr %this1.i744, ptr %this.addr.i.i742, align 8
   %this1.i.i745 = load ptr, ptr %this.addr.i.i742, align 8
-  %113 = load ptr, ptr %this1.i.i745, align 8
-  %cmp.i.i746 = icmp eq ptr %113, null
+  %114 = load ptr, ptr %this1.i.i745, align 8
+  %cmp.i.i746 = icmp eq ptr %114, null
   br i1 %cmp.i.i746, label %if.then.i750, label %if.end.i747
 
 if.then.i750:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit175
@@ -4639,8 +4643,8 @@ if.then.i750:                                     ; preds = %_ZN2v814PersistentB
 if.end.i747:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit175
   store ptr %this1.i744, ptr %this.addr.i3.i741, align 8
   %this1.i4.i748 = load ptr, ptr %this.addr.i3.i741, align 8
-  %114 = load ptr, ptr %this1.i4.i748, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %114) #3
+  %115 = load ptr, ptr %this1.i4.i748, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %115) #3
   store ptr %this1.i744, ptr %this.addr.i5.i740, align 8
   %this1.i6.i749 = load ptr, ptr %this.addr.i5.i740, align 8
   store ptr null, ptr %this1.i6.i749, align 8
@@ -4654,8 +4658,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %if.end.i747, %if.th
   %this1.i156 = load ptr, ptr %this.addr.i155, align 8
   store ptr %this1.i156, ptr %this.addr.i.i154, align 8
   %this1.i.i157 = load ptr, ptr %this.addr.i.i154, align 8
-  %115 = load ptr, ptr %this1.i.i157, align 8
-  %cmp.i.i158 = icmp eq ptr %115, null
+  %116 = load ptr, ptr %this1.i.i157, align 8
+  %cmp.i.i158 = icmp eq ptr %116, null
   br i1 %cmp.i.i158, label %if.then.i162, label %if.end.i159
 
 if.then.i162:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
@@ -4664,8 +4668,8 @@ if.then.i162:                                     ; preds = %_ZN2v814PersistentB
 if.end.i159:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   store ptr %this1.i156, ptr %this.addr.i3.i153, align 8
   %this1.i4.i160 = load ptr, ptr %this.addr.i3.i153, align 8
-  %116 = load ptr, ptr %this1.i4.i160, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %116) #3
+  %117 = load ptr, ptr %this1.i4.i160, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %117) #3
   store ptr %this1.i156, ptr %this.addr.i5.i152, align 8
   %this1.i6.i161 = load ptr, ptr %this.addr.i5.i152, align 8
   store ptr null, ptr %this1.i6.i161, align 8
@@ -4679,8 +4683,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit163: ; preds = %if.end.i159, %
   %this1.i144 = load ptr, ptr %this.addr.i143, align 8
   store ptr %this1.i144, ptr %this.addr.i.i142, align 8
   %this1.i.i145 = load ptr, ptr %this.addr.i.i142, align 8
-  %117 = load ptr, ptr %this1.i.i145, align 8
-  %cmp.i.i146 = icmp eq ptr %117, null
+  %118 = load ptr, ptr %this1.i.i145, align 8
+  %cmp.i.i146 = icmp eq ptr %118, null
   br i1 %cmp.i.i146, label %if.then.i150, label %if.end.i147
 
 if.then.i150:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit163
@@ -4689,8 +4693,8 @@ if.then.i150:                                     ; preds = %_ZN2v814PersistentB
 if.end.i147:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit163
   store ptr %this1.i144, ptr %this.addr.i3.i141, align 8
   %this1.i4.i148 = load ptr, ptr %this.addr.i3.i141, align 8
-  %118 = load ptr, ptr %this1.i4.i148, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %118) #3
+  %119 = load ptr, ptr %this1.i4.i148, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %119) #3
   store ptr %this1.i144, ptr %this.addr.i5.i140, align 8
   %this1.i6.i149 = load ptr, ptr %this.addr.i5.i140, align 8
   store ptr null, ptr %this1.i6.i149, align 8
@@ -4704,8 +4708,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit151: ; preds = %if.end.i147, %
   %this1.i135 = load ptr, ptr %this.addr.i134, align 8
   store ptr %this1.i135, ptr %this.addr.i.i133, align 8
   %this1.i.i136 = load ptr, ptr %this.addr.i.i133, align 8
-  %119 = load ptr, ptr %this1.i.i136, align 8
-  %cmp.i.i137 = icmp eq ptr %119, null
+  %120 = load ptr, ptr %this1.i.i136, align 8
+  %cmp.i.i137 = icmp eq ptr %120, null
   br i1 %cmp.i.i137, label %if.then.i139, label %if.end.i138
 
 if.then.i139:                                     ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit151
@@ -4714,8 +4718,8 @@ if.then.i139:                                     ; preds = %_ZN2v814PersistentB
 if.end.i138:                                      ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit151
   store ptr %this1.i135, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %120 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %120) #3
+  %121 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %121) #3
   store ptr %this1.i135, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -4729,8 +4733,8 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %if.end.i138, %if.
   %this1.i128 = load ptr, ptr %this.addr.i127, align 8
   store ptr %this1.i128, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %121 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %121, null
+  %122 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %122, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
@@ -4739,8 +4743,8 @@ if.then.i:                                        ; preds = %_ZN2v814PersistentB
 if.end.i:                                         ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   store ptr %this1.i128, ptr %this.addr.i129, align 8
   %this1.i130 = load ptr, ptr %this.addr.i129, align 8
-  %122 = load ptr, ptr %this1.i130, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %122) #3
+  %123 = load ptr, ptr %this1.i130, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %123) #3
   store ptr %this1.i128, ptr %this.addr.i131, align 8
   %this1.i132 = load ptr, ptr %this.addr.i131, align 8
   store ptr null, ptr %this1.i132, align 8
@@ -4770,7 +4774,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cleanup_hooks_ = getelementptr inbounds %"class.node::CleanupQueue", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIN4node12CleanupQueue19CleanupHookCallbackENS2_4HashENS2_5EqualESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_) #3
   call void @_ZN4node14MemoryRetainerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -33730,9 +33735,10 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this3, ptr noundef %0, ptr %1, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i32 0, i32 0, i32 2), ptr %this3, align 8
-  %2 = load ptr, ptr %realm_info.addr, align 8
-  %cmp = icmp eq ptr %2, null
+  %2 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
+  %3 = load ptr, ptr %realm_info.addr, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -33751,15 +33757,16 @@ entry:
   %agg.tmp = alloca %"class.v8::Local", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %this1)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %env_ = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %env_, align 8
+  %1 = load ptr, ptr %env_, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %1 = load ptr, ptr %vfn, align 8
-  %call2 = call ptr %1(ptr noundef nonnull align 8 dereferenceable(872) %this1)
+  %2 = load ptr, ptr %vfn, align 8
+  %call2 = call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %this1)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive3 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive4 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive3, i32 0, i32 0
@@ -33767,8 +33774,8 @@ entry:
   %coerce.dive5 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive5, i32 0, i32 0
   %coerce.dive7 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive6, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive7, align 8
-  call void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %0, ptr %2)
+  %3 = load ptr, ptr %coerce.dive7, align 8
+  call void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %1, ptr %3)
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
   call void @_ZN4node5RealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this1) #3
   ret void
@@ -36359,10 +36366,11 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %retainer.addr, align 8
-  store ptr %0, ptr %retainer_, align 8
+  %1 = load ptr, ptr %retainer.addr, align 8
+  store ptr %1, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wrapper_node_, align 8
   %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
@@ -36375,8 +36383,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %retainer_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %retainer_2, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %retainer_2, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -36397,72 +36405,72 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tracker.addr, align 8
-  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %3 = load ptr, ptr %tracker.addr, align 8
+  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %retainer_7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %retainer_7, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %retainer_7, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call8 = call ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %coerce.dive = getelementptr inbounds %"class.v8::Local.294", ptr %obj, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase.295", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive10, align 8
   store ptr %obj, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %5 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
-  %6 = load ptr, ptr %tracker.addr, align 8
-  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %tracker.addr, align 8
+  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %obj, i64 8, i1 false)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local.294", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase.295", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive16, align 8
-  store ptr %7, ptr %that.i, align 8
+  %8 = load ptr, ptr %coerce.dive16, align 8
+  store ptr %8, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i36, align 8
   %this3.i = load ptr, ptr %this.addr.i36, align 8
   store ptr %this3.i, ptr %this.addr.i37, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %9, i64 8, i1 false)
   %vtable17 = load ptr, ptr %call13, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 0
-  %9 = load ptr, ptr %vfn18, align 8
-  %call19 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %10 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %wrapper_node_20 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %wrapper_node_20, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %do.end6
   %retainer_22 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %retainer_22, align 8
-  %vtable23 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %retainer_22, align 8
+  %vtable23 = load ptr, ptr %11, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 3
-  %11 = load ptr, ptr %vfn24, align 8
-  %call25 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn24, align 8
+  %call25 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
   store ptr %call25, ptr %name_, align 8
   %retainer_26 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %retainer_26, align 8
-  %vtable27 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %retainer_26, align 8
+  %vtable27 = load ptr, ptr %13, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn28, align 8
+  %call29 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %size_30 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
   store i64 %call29, ptr %size_30, align 8
   %retainer_31 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %retainer_31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %retainer_31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 7
-  %15 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %detachedness_35 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 %call34, ptr %detachedness_35, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
@@ -36542,7 +36550,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42155,7 +42164,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -42166,14 +42176,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8

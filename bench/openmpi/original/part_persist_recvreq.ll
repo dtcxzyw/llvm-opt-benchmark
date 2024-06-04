@@ -54,35 +54,36 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef %0) #
 
 20:                                               ; preds = %19
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %23 = icmp ne i32 %21, %22
-  br i1 %23, label %24, label %25
+  %22 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp ne i32 %21, %23
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %20
+25:                                               ; preds = %20
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %20
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %26, i32 0, i32 0
-  %28 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %27, i32 0, i32 6
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %31, i32 0, i32 6
-  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
-  store volatile i32 1, ptr %33, align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %35, i32 0, i32 6
-  call void @opal_obj_run_constructors(ptr noundef %36)
-  br label %37
-
-37:                                               ; preds = %25
+26:                                               ; preds = %25, %20
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %30, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %32, i32 0, i32 6
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %36, i32 0, i32 6
+  call void @opal_obj_run_constructors(ptr noundef %37)
   br label %38
 
-38:                                               ; preds = %37
+38:                                               ; preds = %26
+  br label %39
+
+39:                                               ; preds = %38
   ret void
 }
 

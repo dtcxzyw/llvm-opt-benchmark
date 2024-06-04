@@ -294,9 +294,10 @@ define void @_ZN4LIEF2PE12ResourceDataD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   call void @_ZN4LIEF2PE12ResourceNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3) #10
   ret void
 }
@@ -390,44 +391,45 @@ define void @_ZN4LIEF2PE12ResourceDataC2ERKS1_(ptr noundef nonnull align 8 deref
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76) %7, ptr noundef nonnull align 8 dereferenceable(76) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %10, i32 0, i32 2
-  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %22
+  %9 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %11, i32 0, i32 2
+  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %23
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 3
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %14, i32 0, i32 3
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 5
-  store i32 0, ptr %21, align 8
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 3
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %15, i32 0, i32 3
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 5
+  store i32 0, ptr %22, align 8
   ret void
 
-22:                                               ; preds = %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
   call void @_ZN4LIEF2PE12ResourceNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %7) #10
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #4
@@ -549,17 +551,18 @@ define void @_ZN4LIEF2PE12ResourceDataC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 3
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 4
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 5
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %3, i32 0, i32 1
-  store i32 1, ptr %8, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 3
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 4
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %3, i32 0, i32 5
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %3, i32 0, i32 1
+  store i32 1, ptr %9, align 8
   ret void
 }
 
@@ -584,18 +587,19 @@ define void @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj(ptr noundef nonnull 
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %7)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 3
-  %10 = load i32, ptr %6, align 4
-  store i32 %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 4
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 5
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %7, i32 0, i32 1
-  store i32 1, ptr %13, align 8
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE12ResourceDataE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 3
+  %11 = load i32, ptr %6, align 4
+  store i32 %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 4
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceData", ptr %7, i32 0, i32 5
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %7, i32 0, i32 1
+  store i32 1, ptr %14, align 8
   ret void
 }
 

@@ -53,18 +53,20 @@ define internal i32 @pmix_pstat_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_pstat_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_pstat_base_module_1_0_0_t, ptr @pmix_pstat, i32 0, i32 2), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.pmix_pstat_base_module_1_0_0_t, ptr @pmix_pstat, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_pstat_base_module_1_0_0_t, ptr @pmix_pstat, i32 0, i32 2), align 8
-  %5 = call i32 %4()
-  br label %6
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.pmix_pstat_base_module_1_0_0_t, ptr @pmix_pstat, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 %6()
+  br label %8
 
-6:                                                ; preds = %3, %0
-  %7 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_pstat_base_framework, ptr noundef null)
-  ret i32 %7
+8:                                                ; preds = %4, %0
+  %9 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_pstat_base_framework, ptr noundef null)
+  ret i32 %9
 }
 
 declare i32 @pmix_mca_base_framework_components_open(ptr noundef, i32 noundef) #1

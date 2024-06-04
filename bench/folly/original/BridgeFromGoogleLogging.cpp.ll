@@ -58,7 +58,8 @@ declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
@@ -66,10 +67,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %1
 }
 
 declare void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #1
@@ -82,7 +83,8 @@ declare void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -91,10 +93,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  %2 = extractvalue { ptr, i32 } %1, 0
+  tail call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 

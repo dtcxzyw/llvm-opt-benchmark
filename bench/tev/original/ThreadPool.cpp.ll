@@ -757,68 +757,69 @@ define dso_local void @_ZN3tev10ThreadPoolC2Emb(ptr noundef nonnull align 8 dere
   %10 = zext i1 %2 to i8
   store i8 %10, ptr %6, align 1
   %11 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tev10ThreadPoolE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 1
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 2
-  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %14 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 3
-  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #13
-  %15 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 4
-  call void @_ZNSt3__15mutexC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #13
-  %16 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 5
-  call void @_ZNSt3__118condition_variableC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #13
-  %17 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 6
-  call void @_ZNSt3__16atomicImEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #13
-  %18 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 7
-  call void @_ZNSt3__15mutexC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #13
-  %19 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 8
-  call void @_ZNSt3__118condition_variableC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #13
-  %20 = load i8, ptr %6, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %32, label %22
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tev10ThreadPoolE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 1
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 2
+  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  %15 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 3
+  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(25) %15) #13
+  %16 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 4
+  call void @_ZNSt3__15mutexC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #13
+  %17 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 5
+  call void @_ZNSt3__118condition_variableC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #13
+  %18 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 6
+  call void @_ZNSt3__16atomicImEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #13
+  %19 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 7
+  call void @_ZNSt3__15mutexC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #13
+  %20 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 8
+  call void @_ZNSt3__118condition_variableC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #13
+  %21 = load i8, ptr %6, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %33, label %23
 
-22:                                               ; preds = %3
-  %23 = call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #13
-  %24 = zext i32 %23 to i64
-  store i64 %24, ptr %7, align 8
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__13minB8ne190000ImEERKT_S3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %26 unwind label %28
+23:                                               ; preds = %3
+  %24 = call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #13
+  %25 = zext i32 %24 to i64
+  store i64 %25, ptr %7, align 8
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__13minB8ne190000ImEERKT_S3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %27 unwind label %29
 
-26:                                               ; preds = %22
-  %27 = load i64, ptr %25, align 8
-  store i64 %27, ptr %5, align 8
-  br label %32
+27:                                               ; preds = %23
+  %28 = load i64, ptr %26, align 8
+  store i64 %28, ptr %5, align 8
+  br label %33
 
-28:                                               ; preds = %32, %22
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %33, %23
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %8, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %9, align 4
-  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #13
-  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #13
-  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #13
-  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %36
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
+  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #13
+  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #13
+  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %15) #13
+  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  br label %37
 
-32:                                               ; preds = %26, %3
-  %33 = load i64, ptr %5, align 8
-  invoke void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull align 8 dereferenceable(256) %11, i64 noundef %33)
-          to label %34 unwind label %28
+33:                                               ; preds = %27, %3
+  %34 = load i64, ptr %5, align 8
+  invoke void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull align 8 dereferenceable(256) %11, i64 noundef %34)
+          to label %35 unwind label %29
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 6
-  call void @_ZNSt3__113__atomic_baseImLb0EE5storeB8ne190000EmNS_12memory_orderE(ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef 0, i32 noundef 5) #13
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds %"class.tev::ThreadPool", ptr %11, i32 0, i32 6
+  call void @_ZNSt3__113__atomic_baseImLb0EE5storeB8ne190000EmNS_12memory_orderE(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0, i32 noundef 5) #13
   ret void
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1007,32 +1008,33 @@ define dso_local void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tev10ThreadPoolE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tev10ThreadPoolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN3tev10ThreadPool17waitUntilFinishedEv(ptr noundef nonnull align 8 dereferenceable(256) %3)
-          to label %4 unwind label %12
+          to label %5 unwind label %13
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 2
-  %6 = call noundef i64 @_ZNKSt3__16vectorINS_6threadENS_9allocatorIS1_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  invoke void @_ZN3tev10ThreadPool15shutdownThreadsEm(ptr noundef nonnull align 8 dereferenceable(256) %3, i64 noundef %6)
-          to label %7 unwind label %12
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 2
+  %7 = call noundef i64 @_ZNKSt3__16vectorINS_6threadENS_9allocatorIS1_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  invoke void @_ZN3tev10ThreadPool15shutdownThreadsEm(ptr noundef nonnull align 8 dereferenceable(256) %3, i64 noundef %7)
+          to label %8 unwind label %13
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 8
-  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #13
-  %9 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 5
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 8
   call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #13
-  %10 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 3
-  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #13
-  %11 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 2
-  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  %10 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 5
+  call void @_ZNSt3__118condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #13
+  %11 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 3
+  call void @_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #13
+  %12 = getelementptr inbounds %"class.tev::ThreadPool", ptr %3, i32 0, i32 2
+  call void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   ret void
 
-12:                                               ; preds = %4, %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %5, %1
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 }
 
@@ -3644,7 +3646,8 @@ define linkonce_odr hidden void @_ZNSt3__117bad_function_callC2B8ne190000Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__117bad_function_callE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt3__117bad_function_callE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3664,7 +3667,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4309,7 +4313,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

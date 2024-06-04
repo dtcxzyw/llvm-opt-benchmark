@@ -232,27 +232,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %default_kvi, ptr align 8 @__const.cmd_config.default_kvi, i64 32, i1 false)
   %call = call ptr @getenv(ptr noundef @.str) #9
   %call1 = call ptr @xstrdup_or_null(ptr noundef %call)
-  store ptr %call1, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %2 = load i32, ptr %argc.addr, align 4
-  %3 = load ptr, ptr %argv.addr, align 8
-  %4 = load ptr, ptr %prefix.addr, align 8
-  %call2 = call i32 @parse_options(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef @builtin_config_options, ptr noundef @builtin_config_usage, i32 noundef 2)
+  %2 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call1, ptr %2, align 8
+  %3 = load i32, ptr %argc.addr, align 4
+  %4 = load ptr, ptr %argv.addr, align 8
+  %5 = load ptr, ptr %prefix.addr, align 8
+  %call2 = call i32 @parse_options(i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef @builtin_config_options, ptr noundef @builtin_config_usage, i32 noundef 2)
   store i32 %call2, ptr %argc.addr, align 4
-  %5 = load i32, ptr @use_global_config, align 4
-  %6 = load i32, ptr @use_system_config, align 4
-  %add = add nsw i32 %5, %6
-  %7 = load i32, ptr @use_local_config, align 4
-  %add3 = add nsw i32 %add, %7
-  %8 = load i32, ptr @use_worktree_config, align 4
-  %add4 = add nsw i32 %add3, %8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool5 = icmp ne ptr %9, null
+  %6 = load i32, ptr @use_global_config, align 4
+  %7 = load i32, ptr @use_system_config, align 4
+  %add = add nsw i32 %6, %7
+  %8 = load i32, ptr @use_local_config, align 4
+  %add3 = add nsw i32 %add, %8
+  %9 = load i32, ptr @use_worktree_config, align 4
+  %add4 = add nsw i32 %add3, %9
+  %10 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %tobool5 = icmp ne ptr %11, null
   %lnot6 = xor i1 %tobool5, true
   %lnot8 = xor i1 %lnot6, true
   %lnot.ext9 = zext i1 %lnot8 to i32
   %add10 = add nsw i32 %add4, %lnot.ext9
-  %10 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 2), align 8
-  %tobool11 = icmp ne ptr %10, null
+  %12 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %tobool11 = icmp ne ptr %13, null
   %lnot12 = xor i1 %tobool11, true
   %lnot14 = xor i1 %lnot12, true
   %lnot.ext15 = zext i1 %lnot14 to i32
@@ -268,13 +271,13 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %11 = load i32, ptr %nongit, align 4
-  %tobool20 = icmp ne i32 %11, 0
+  %14 = load i32, ptr %nongit, align 4
+  %tobool20 = icmp ne i32 %14, 0
   br i1 %tobool20, label %if.then21, label %if.end34
 
 if.then21:                                        ; preds = %if.end
-  %12 = load i32, ptr @use_local_config, align 4
-  %tobool22 = icmp ne i32 %12, 0
+  %15 = load i32, ptr @use_local_config, align 4
+  %tobool22 = icmp ne i32 %15, 0
   br i1 %tobool22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.then21
@@ -283,8 +286,9 @@ if.then23:                                        ; preds = %if.then21
   unreachable
 
 if.end25:                                         ; preds = %if.then21
-  %13 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 2), align 8
-  %tobool26 = icmp ne ptr %13, null
+  %16 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %tobool26 = icmp ne ptr %17, null
   br i1 %tobool26, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end25
@@ -293,8 +297,8 @@ if.then27:                                        ; preds = %if.end25
   unreachable
 
 if.end29:                                         ; preds = %if.end25
-  %14 = load i32, ptr @use_worktree_config, align 4
-  %tobool30 = icmp ne i32 %14, 0
+  %18 = load i32, ptr @use_worktree_config, align 4
+  %tobool30 = icmp ne i32 %18, 0
   br i1 %tobool30, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end29
@@ -306,34 +310,38 @@ if.end33:                                         ; preds = %if.end29
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end33, %if.end
-  %15 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool35 = icmp ne ptr %15, null
+  %19 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %tobool35 = icmp ne ptr %20, null
   br i1 %tobool35, label %land.lhs.true, label %if.end39
 
 land.lhs.true:                                    ; preds = %if.end34
-  %16 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %call36 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.5) #11
+  %21 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %call36 = call i32 @strcmp(ptr noundef %22, ptr noundef @.str.5) #11
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %if.end39, label %if.then38
 
 if.then38:                                        ; preds = %land.lhs.true
-  store ptr null, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
+  %23 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr null, ptr %23, align 8
   %bf.load = load i8, ptr @given_config_source, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 1
   store i8 %bf.set, ptr @given_config_source, align 8
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
+  %24 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 5, ptr %24, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %land.lhs.true, %if.end34
-  %17 = load i32, ptr @use_global_config, align 4
-  %tobool40 = icmp ne i32 %17, 0
+  %25 = load i32, ptr @use_global_config, align 4
+  %tobool40 = icmp ne i32 %25, 0
   br i1 %tobool40, label %if.then41, label %if.else55
 
 if.then41:                                        ; preds = %if.end39
   call void @git_global_config(ptr noundef %user_config, ptr noundef %xdg_config)
-  %18 = load ptr, ptr %user_config, align 8
-  %tobool42 = icmp ne ptr %18, null
+  %26 = load ptr, ptr %user_config, align 8
+  %tobool42 = icmp ne ptr %26, null
   br i1 %tobool42, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %if.then41
@@ -342,93 +350,101 @@ if.then43:                                        ; preds = %if.then41
   unreachable
 
 if.end45:                                         ; preds = %if.then41
-  store i32 2, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
-  %19 = load ptr, ptr %user_config, align 8
-  %call46 = call i32 @access_or_warn(ptr noundef %19, i32 noundef 4, i32 noundef 0)
+  %27 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 2, ptr %27, align 8
+  %28 = load ptr, ptr %user_config, align 8
+  %call46 = call i32 @access_or_warn(ptr noundef %28, i32 noundef 4, i32 noundef 0)
   %tobool47 = icmp ne i32 %call46, 0
   br i1 %tobool47, label %land.lhs.true48, label %if.else
 
 land.lhs.true48:                                  ; preds = %if.end45
-  %20 = load ptr, ptr %xdg_config, align 8
-  %tobool49 = icmp ne ptr %20, null
+  %29 = load ptr, ptr %xdg_config, align 8
+  %tobool49 = icmp ne ptr %29, null
   br i1 %tobool49, label %land.lhs.true50, label %if.else
 
 land.lhs.true50:                                  ; preds = %land.lhs.true48
-  %21 = load ptr, ptr %xdg_config, align 8
-  %call51 = call i32 @access_or_warn(ptr noundef %21, i32 noundef 4, i32 noundef 0)
+  %30 = load ptr, ptr %xdg_config, align 8
+  %call51 = call i32 @access_or_warn(ptr noundef %30, i32 noundef 4, i32 noundef 0)
   %tobool52 = icmp ne i32 %call51, 0
   br i1 %tobool52, label %if.else, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true50
-  %22 = load ptr, ptr %xdg_config, align 8
-  store ptr %22, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %23 = load ptr, ptr %user_config, align 8
-  call void @free(ptr noundef %23) #9
+  %31 = load ptr, ptr %xdg_config, align 8
+  %32 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
+  %33 = load ptr, ptr %user_config, align 8
+  call void @free(ptr noundef %33) #9
   br label %if.end54
 
 if.else:                                          ; preds = %land.lhs.true50, %land.lhs.true48, %if.end45
-  %24 = load ptr, ptr %user_config, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %25 = load ptr, ptr %xdg_config, align 8
-  call void @free(ptr noundef %25) #9
+  %34 = load ptr, ptr %user_config, align 8
+  %35 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %xdg_config, align 8
+  call void @free(ptr noundef %36) #9
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else, %if.then53
   br label %if.end99
 
 if.else55:                                        ; preds = %if.end39
-  %26 = load i32, ptr @use_system_config, align 4
-  %tobool56 = icmp ne i32 %26, 0
+  %37 = load i32, ptr @use_system_config, align 4
+  %tobool56 = icmp ne i32 %37, 0
   br i1 %tobool56, label %if.then57, label %if.else59
 
 if.then57:                                        ; preds = %if.else55
   %call58 = call ptr @git_system_config()
-  store ptr %call58, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
+  %38 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call58, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 1, ptr %39, align 8
   br label %if.end98
 
 if.else59:                                        ; preds = %if.else55
-  %27 = load i32, ptr @use_local_config, align 4
-  %tobool60 = icmp ne i32 %27, 0
+  %40 = load i32, ptr @use_local_config, align 4
+  %tobool60 = icmp ne i32 %40, 0
   br i1 %tobool60, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.else59
   %call62 = call ptr (ptr, ...) @git_pathdup(ptr noundef @.str.7)
-  store ptr %call62, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  store i32 3, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
+  %41 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call62, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 3, ptr %42, align 8
   br label %if.end97
 
 if.else63:                                        ; preds = %if.else59
-  %28 = load i32, ptr @use_worktree_config, align 4
-  %tobool64 = icmp ne i32 %28, 0
+  %43 = load i32, ptr @use_worktree_config, align 4
+  %tobool64 = icmp ne i32 %43, 0
   br i1 %tobool64, label %if.then65, label %if.else81
 
 if.then65:                                        ; preds = %if.else63
   %call66 = call ptr @get_worktrees()
   store ptr %call66, ptr %worktrees, align 8
-  %29 = load ptr, ptr @the_repository, align 8
-  %repository_format_worktree_config = getelementptr inbounds %struct.repository, ptr %29, i32 0, i32 21
-  %30 = load i32, ptr %repository_format_worktree_config, align 8
-  %tobool67 = icmp ne i32 %30, 0
+  %44 = load ptr, ptr @the_repository, align 8
+  %repository_format_worktree_config = getelementptr inbounds %struct.repository, ptr %44, i32 0, i32 21
+  %45 = load i32, ptr %repository_format_worktree_config, align 8
+  %tobool67 = icmp ne i32 %45, 0
   br i1 %tobool67, label %if.then68, label %if.else70
 
 if.then68:                                        ; preds = %if.then65
   %call69 = call ptr (ptr, ...) @git_pathdup(ptr noundef @.str.8)
-  store ptr %call69, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
+  %46 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call69, ptr %46, align 8
   br label %if.end80
 
 if.else70:                                        ; preds = %if.then65
-  %31 = load ptr, ptr %worktrees, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %31, i64 0
-  %32 = load ptr, ptr %arrayidx, align 8
-  %tobool71 = icmp ne ptr %32, null
+  %47 = load ptr, ptr %worktrees, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %47, i64 0
+  %48 = load ptr, ptr %arrayidx, align 8
+  %tobool71 = icmp ne ptr %48, null
   br i1 %tobool71, label %land.lhs.true72, label %if.else77
 
 land.lhs.true72:                                  ; preds = %if.else70
-  %33 = load ptr, ptr %worktrees, align 8
-  %arrayidx73 = getelementptr inbounds ptr, ptr %33, i64 1
-  %34 = load ptr, ptr %arrayidx73, align 8
-  %tobool74 = icmp ne ptr %34, null
+  %49 = load ptr, ptr %worktrees, align 8
+  %arrayidx73 = getelementptr inbounds ptr, ptr %49, i64 1
+  %50 = load ptr, ptr %arrayidx73, align 8
+  %tobool74 = icmp ne ptr %50, null
   br i1 %tobool74, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %land.lhs.true72
@@ -438,52 +454,61 @@ if.then75:                                        ; preds = %land.lhs.true72
 
 if.else77:                                        ; preds = %land.lhs.true72, %if.else70
   %call78 = call ptr (ptr, ...) @git_pathdup(ptr noundef @.str.7)
-  store ptr %call78, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
+  %51 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call78, ptr %51, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.else77
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end79, %if.then68
-  store i32 3, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
-  %35 = load ptr, ptr %worktrees, align 8
-  call void @free_worktrees(ptr noundef %35)
+  %52 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 3, ptr %52, align 8
+  %53 = load ptr, ptr %worktrees, align 8
+  call void @free_worktrees(ptr noundef %53)
   br label %if.end96
 
 if.else81:                                        ; preds = %if.else63
-  %36 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool82 = icmp ne ptr %36, null
+  %54 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %tobool82 = icmp ne ptr %55, null
   br i1 %tobool82, label %if.then83, label %if.else91
 
 if.then83:                                        ; preds = %if.else81
-  %37 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %call84 = call i32 @is_absolute_path(ptr noundef %37)
+  %56 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %call84 = call i32 @is_absolute_path(ptr noundef %57)
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.end90, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %if.then83
-  %38 = load ptr, ptr %prefix.addr, align 8
-  %tobool87 = icmp ne ptr %38, null
+  %58 = load ptr, ptr %prefix.addr, align 8
+  %tobool87 = icmp ne ptr %58, null
   br i1 %tobool87, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %land.lhs.true86
-  %39 = load ptr, ptr %prefix.addr, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %call89 = call ptr @prefix_filename(ptr noundef %39, ptr noundef %40)
-  store ptr %call89, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
+  %59 = load ptr, ptr %prefix.addr, align 8
+  %60 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %call89 = call ptr @prefix_filename(ptr noundef %59, ptr noundef %61)
+  %62 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  store ptr %call89, ptr %62, align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %land.lhs.true86, %if.then83
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
+  %63 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 5, ptr %63, align 8
   br label %if.end95
 
 if.else91:                                        ; preds = %if.else81
-  %41 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 2), align 8
-  %tobool92 = icmp ne ptr %41, null
+  %64 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8
+  %tobool92 = icmp ne ptr %65, null
   br i1 %tobool92, label %if.then93, label %if.end94
 
 if.then93:                                        ; preds = %if.else91
-  store i32 5, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 3), align 8
+  %66 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 3
+  store i32 5, ptr %66, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %if.else91
@@ -502,48 +527,51 @@ if.end98:                                         ; preds = %if.end97, %if.then5
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end98, %if.end54
-  %42 = load i32, ptr @respect_includes_opt, align 4
-  %cmp100 = icmp eq i32 %42, -1
+  %67 = load i32, ptr @respect_includes_opt, align 4
+  %cmp100 = icmp eq i32 %67, -1
   br i1 %cmp100, label %if.then101, label %if.else108
 
 if.then101:                                       ; preds = %if.end99
-  %43 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool102 = icmp ne ptr %43, null
+  %68 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  %tobool102 = icmp ne ptr %69, null
   %lnot103 = xor i1 %tobool102, true
   %lnot.ext104 = zext i1 %lnot103 to i32
-  %44 = trunc i32 %lnot.ext104 to i8
+  %70 = trunc i32 %lnot.ext104 to i8
   %bf.load105 = load i8, ptr @config_options, align 8
-  %bf.value = and i8 %44, 1
+  %bf.value = and i8 %70, 1
   %bf.clear106 = and i8 %bf.load105, -2
   %bf.set107 = or i8 %bf.clear106, %bf.value
   store i8 %bf.set107, ptr @config_options, align 8
   br label %if.end114
 
 if.else108:                                       ; preds = %if.end99
-  %45 = load i32, ptr @respect_includes_opt, align 4
-  %46 = trunc i32 %45 to i8
+  %71 = load i32, ptr @respect_includes_opt, align 4
+  %72 = trunc i32 %71 to i8
   %bf.load109 = load i8, ptr @config_options, align 8
-  %bf.value110 = and i8 %46, 1
+  %bf.value110 = and i8 %72, 1
   %bf.clear111 = and i8 %bf.load109, -2
   %bf.set112 = or i8 %bf.clear111, %bf.value110
   store i8 %bf.set112, ptr @config_options, align 8
   br label %if.end114
 
 if.end114:                                        ; preds = %if.else108, %if.then101
-  %47 = load i32, ptr %nongit, align 4
-  %tobool115 = icmp ne i32 %47, 0
+  %73 = load i32, ptr %nongit, align 4
+  %tobool115 = icmp ne i32 %73, 0
   br i1 %tobool115, label %if.end119, label %if.then116
 
 if.then116:                                       ; preds = %if.end114
   %call117 = call ptr @get_git_common_dir()
-  store ptr %call117, ptr getelementptr inbounds (%struct.config_options, ptr @config_options, i32 0, i32 1), align 8
+  %74 = getelementptr inbounds %struct.config_options, ptr @config_options, i32 0, i32 1
+  store ptr %call117, ptr %74, align 8
   %call118 = call ptr @get_git_dir()
-  store ptr %call118, ptr getelementptr inbounds (%struct.config_options, ptr @config_options, i32 0, i32 2), align 8
+  %75 = getelementptr inbounds %struct.config_options, ptr @config_options, i32 0, i32 2
+  store ptr %call118, ptr %75, align 8
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.end114
-  %48 = load i32, ptr @end_nul, align 4
-  %tobool120 = icmp ne i32 %48, 0
+  %76 = load i32, ptr @end_nul, align 4
+  %tobool120 = icmp ne i32 %76, 0
   br i1 %tobool120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %if.end119
@@ -553,14 +581,14 @@ if.then121:                                       ; preds = %if.end119
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then121, %if.end119
-  %49 = load i32, ptr @actions, align 4
-  %and = and i32 %49, 24576
+  %77 = load i32, ptr @actions, align 4
+  %and = and i32 %77, 24576
   %tobool123 = icmp ne i32 %and, 0
   br i1 %tobool123, label %land.lhs.true124, label %if.end130
 
 land.lhs.true124:                                 ; preds = %if.end122
-  %50 = load i32, ptr @type, align 4
-  %tobool125 = icmp ne i32 %50, 0
+  %78 = load i32, ptr @type, align 4
+  %tobool125 = icmp ne i32 %78, 0
   br i1 %tobool125, label %if.then126, label %if.end130
 
 if.then126:                                       ; preds = %land.lhs.true124
@@ -571,10 +599,10 @@ if.then126:                                       ; preds = %land.lhs.true124
   unreachable
 
 if.end130:                                        ; preds = %land.lhs.true124, %if.end122
-  %51 = load i32, ptr @actions, align 4
-  %52 = load i32, ptr @actions, align 4
-  %sub = sub nsw i32 %52, 1
-  %and131 = and i32 %51, %sub
+  %79 = load i32, ptr @actions, align 4
+  %80 = load i32, ptr @actions, align 4
+  %sub = sub nsw i32 %80, 1
+  %and131 = and i32 %79, %sub
   %tobool132 = icmp ne i32 %and131, 0
   br i1 %tobool132, label %if.then133, label %if.end137
 
@@ -586,13 +614,13 @@ if.then133:                                       ; preds = %if.end130
   unreachable
 
 if.end137:                                        ; preds = %if.end130
-  %53 = load i32, ptr @actions, align 4
-  %cmp138 = icmp eq i32 %53, 0
+  %81 = load i32, ptr @actions, align 4
+  %cmp138 = icmp eq i32 %81, 0
   br i1 %cmp138, label %if.then139, label %if.end142
 
 if.then139:                                       ; preds = %if.end137
-  %54 = load i32, ptr %argc.addr, align 4
-  switch i32 %54, label %sw.default [
+  %82 = load i32, ptr %argc.addr, align 4
+  switch i32 %82, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb140
     i32 3, label %sw.bb141
@@ -618,18 +646,18 @@ sw.epilog:                                        ; preds = %sw.bb141, %sw.bb140
   br label %if.end142
 
 if.end142:                                        ; preds = %sw.epilog, %if.end137
-  %55 = load i32, ptr @omit_values, align 4
-  %tobool143 = icmp ne i32 %55, 0
+  %83 = load i32, ptr @omit_values, align 4
+  %tobool143 = icmp ne i32 %83, 0
   br i1 %tobool143, label %land.lhs.true144, label %if.end151
 
 land.lhs.true144:                                 ; preds = %if.end142
-  %56 = load i32, ptr @actions, align 4
-  %cmp145 = icmp eq i32 %56, 512
+  %84 = load i32, ptr @actions, align 4
+  %cmp145 = icmp eq i32 %84, 512
   br i1 %cmp145, label %if.end151, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true144
-  %57 = load i32, ptr @actions, align 4
-  %cmp146 = icmp eq i32 %57, 4
+  %85 = load i32, ptr @actions, align 4
+  %cmp146 = icmp eq i32 %85, 4
   br i1 %cmp146, label %if.end151, label %if.then147
 
 if.then147:                                       ; preds = %lor.lhs.false
@@ -640,13 +668,13 @@ if.then147:                                       ; preds = %lor.lhs.false
   unreachable
 
 if.end151:                                        ; preds = %lor.lhs.false, %land.lhs.true144, %if.end142
-  %58 = load i32, ptr @show_origin, align 4
-  %tobool152 = icmp ne i32 %58, 0
+  %86 = load i32, ptr @show_origin, align 4
+  %tobool152 = icmp ne i32 %86, 0
   br i1 %tobool152, label %land.lhs.true153, label %if.end160
 
 land.lhs.true153:                                 ; preds = %if.end151
-  %59 = load i32, ptr @actions, align 4
-  %and154 = and i32 %59, 519
+  %87 = load i32, ptr @actions, align 4
+  %and154 = and i32 %87, 519
   %tobool155 = icmp ne i32 %and154, 0
   br i1 %tobool155, label %if.end160, label %if.then156
 
@@ -658,13 +686,13 @@ if.then156:                                       ; preds = %land.lhs.true153
   unreachable
 
 if.end160:                                        ; preds = %land.lhs.true153, %if.end151
-  %60 = load ptr, ptr @default_value, align 8
-  %tobool161 = icmp ne ptr %60, null
+  %88 = load ptr, ptr @default_value, align 8
+  %tobool161 = icmp ne ptr %88, null
   br i1 %tobool161, label %land.lhs.true162, label %if.end169
 
 land.lhs.true162:                                 ; preds = %if.end160
-  %61 = load i32, ptr @actions, align 4
-  %and163 = and i32 %61, 1
+  %89 = load i32, ptr @actions, align 4
+  %and163 = and i32 %89, 1
   %tobool164 = icmp ne i32 %and163, 0
   br i1 %tobool164, label %if.end169, label %if.then165
 
@@ -676,14 +704,14 @@ if.then165:                                       ; preds = %land.lhs.true162
   unreachable
 
 if.end169:                                        ; preds = %land.lhs.true162, %if.end160
-  %62 = load i32, ptr @fixed_value, align 4
-  %tobool170 = icmp ne i32 %62, 0
+  %90 = load i32, ptr @fixed_value, align 4
+  %tobool170 = icmp ne i32 %90, 0
   br i1 %tobool170, label %if.then171, label %if.end198
 
 if.then171:                                       ; preds = %if.end169
   store i32 0, ptr %allowed_usage, align 4
-  %63 = load i32, ptr @actions, align 4
-  switch i32 %63, label %sw.epilog191 [
+  %91 = load i32, ptr @actions, align 4
+  switch i32 %91, label %sw.epilog191 [
     i32 1, label %sw.bb172
     i32 2, label %sw.bb172
     i32 4, label %sw.bb172
@@ -694,48 +722,48 @@ if.then171:                                       ; preds = %if.end169
   ]
 
 sw.bb172:                                         ; preds = %if.then171, %if.then171, %if.then171, %if.then171, %if.then171
-  %64 = load i32, ptr %argc.addr, align 4
-  %cmp173 = icmp sgt i32 %64, 1
+  %92 = load i32, ptr %argc.addr, align 4
+  %cmp173 = icmp sgt i32 %92, 1
   br i1 %cmp173, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %sw.bb172
-  %65 = load ptr, ptr %argv.addr, align 8
-  %arrayidx174 = getelementptr inbounds ptr, ptr %65, i64 1
-  %66 = load ptr, ptr %arrayidx174, align 8
-  %tobool175 = icmp ne ptr %66, null
+  %93 = load ptr, ptr %argv.addr, align 8
+  %arrayidx174 = getelementptr inbounds ptr, ptr %93, i64 1
+  %94 = load ptr, ptr %arrayidx174, align 8
+  %tobool175 = icmp ne ptr %94, null
   %lnot176 = xor i1 %tobool175, true
   %lnot178 = xor i1 %lnot176, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %sw.bb172
-  %67 = phi i1 [ false, %sw.bb172 ], [ %lnot178, %land.rhs ]
-  %land.ext = zext i1 %67 to i32
+  %95 = phi i1 [ false, %sw.bb172 ], [ %lnot178, %land.rhs ]
+  %land.ext = zext i1 %95 to i32
   store i32 %land.ext, ptr %allowed_usage, align 4
   br label %sw.epilog191
 
 sw.bb180:                                         ; preds = %if.then171, %if.then171
-  %68 = load i32, ptr %argc.addr, align 4
-  %cmp181 = icmp sgt i32 %68, 2
+  %96 = load i32, ptr %argc.addr, align 4
+  %cmp181 = icmp sgt i32 %96, 2
   br i1 %cmp181, label %land.rhs182, label %land.end189
 
 land.rhs182:                                      ; preds = %sw.bb180
-  %69 = load ptr, ptr %argv.addr, align 8
-  %arrayidx183 = getelementptr inbounds ptr, ptr %69, i64 2
-  %70 = load ptr, ptr %arrayidx183, align 8
-  %tobool184 = icmp ne ptr %70, null
+  %97 = load ptr, ptr %argv.addr, align 8
+  %arrayidx183 = getelementptr inbounds ptr, ptr %97, i64 2
+  %98 = load ptr, ptr %arrayidx183, align 8
+  %tobool184 = icmp ne ptr %98, null
   %lnot185 = xor i1 %tobool184, true
   %lnot187 = xor i1 %lnot185, true
   br label %land.end189
 
 land.end189:                                      ; preds = %land.rhs182, %sw.bb180
-  %71 = phi i1 [ false, %sw.bb180 ], [ %lnot187, %land.rhs182 ]
-  %land.ext190 = zext i1 %71 to i32
+  %99 = phi i1 [ false, %sw.bb180 ], [ %lnot187, %land.rhs182 ]
+  %land.ext190 = zext i1 %99 to i32
   store i32 %land.ext190, ptr %allowed_usage, align 4
   br label %sw.epilog191
 
 sw.epilog191:                                     ; preds = %land.end189, %land.end, %if.then171
-  %72 = load i32, ptr %allowed_usage, align 4
-  %tobool192 = icmp ne i32 %72, 0
+  %100 = load i32, ptr %allowed_usage, align 4
+  %tobool192 = icmp ne i32 %100, 0
   br i1 %tobool192, label %if.end197, label %if.then193
 
 if.then193:                                       ; preds = %sw.epilog191
@@ -746,14 +774,14 @@ if.then193:                                       ; preds = %sw.epilog191
   unreachable
 
 if.end197:                                        ; preds = %sw.epilog191
-  %73 = load i32, ptr %flags, align 4
-  %or = or i32 %73, 2
+  %101 = load i32, ptr %flags, align 4
+  %or = or i32 %101, 2
   store i32 %or, ptr %flags, align 4
   br label %if.end198
 
 if.end198:                                        ; preds = %if.end197, %if.end169
-  %74 = load i32, ptr @actions, align 4
-  %and199 = and i32 %74, 33286
+  %102 = load i32, ptr @actions, align 4
+  %and199 = and i32 %102, 33286
   %tobool200 = icmp ne i32 %and199, 0
   br i1 %tobool200, label %if.then201, label %if.end202
 
@@ -762,27 +790,29 @@ if.then201:                                       ; preds = %if.end198
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then201, %if.end198
-  %75 = load i32, ptr @actions, align 4
-  %cmp203 = icmp eq i32 %75, 512
+  %103 = load i32, ptr @actions, align 4
+  %cmp203 = icmp eq i32 %103, 512
   br i1 %cmp203, label %if.then204, label %if.else214
 
 if.then204:                                       ; preds = %if.end202
-  %76 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %76, i32 noundef 0, i32 noundef 0)
-  %77 = load ptr, ptr @the_repository, align 8
-  %call205 = call i32 @config_with_options(ptr noundef @show_all_config, ptr noundef null, ptr noundef @given_config_source, ptr noundef %77, ptr noundef @config_options)
+  %104 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %104, i32 noundef 0, i32 noundef 0)
+  %105 = load ptr, ptr @the_repository, align 8
+  %call205 = call i32 @config_with_options(ptr noundef @show_all_config, ptr noundef null, ptr noundef @given_config_source, ptr noundef %105, ptr noundef @config_options)
   %cmp206 = icmp slt i32 %call205, 0
   br i1 %cmp206, label %if.then207, label %if.end213
 
 if.then207:                                       ; preds = %if.then204
-  %78 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool208 = icmp ne ptr %78, null
+  %106 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %tobool208 = icmp ne ptr %107, null
   br i1 %tobool208, label %if.then209, label %if.else211
 
 if.then209:                                       ; preds = %if.then207
   %call210 = call ptr @_(ptr noundef @.str.16)
-  %79 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  call void (ptr, ...) @die_errno(ptr noundef %call210, ptr noundef %79) #10
+  %108 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  call void (ptr, ...) @die_errno(ptr noundef %call210, ptr noundef %109) #10
   unreachable
 
 if.else211:                                       ; preds = %if.then207
@@ -794,20 +824,21 @@ if.end213:                                        ; preds = %if.then204
   br label %if.end399
 
 if.else214:                                       ; preds = %if.end202
-  %80 = load i32, ptr @actions, align 4
-  %cmp215 = icmp eq i32 %80, 1024
+  %110 = load i32, ptr @actions, align 4
+  %cmp215 = icmp eq i32 %110, 1024
   br i1 %cmp215, label %if.then216, label %if.else253
 
 if.then216:                                       ; preds = %if.else214
-  %81 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %81, i32 noundef 0, i32 noundef 0)
-  %82 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool217 = icmp ne ptr %82, null
+  %111 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %111, i32 noundef 0, i32 noundef 0)
+  %112 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %tobool217 = icmp ne ptr %113, null
   br i1 %tobool217, label %if.end222, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %if.then216
-  %83 = load i32, ptr %nongit, align 4
-  %tobool219 = icmp ne i32 %83, 0
+  %114 = load i32, ptr %nongit, align 4
+  %tobool219 = icmp ne i32 %114, 0
   br i1 %tobool219, label %if.then220, label %if.end222
 
 if.then220:                                       ; preds = %land.lhs.true218
@@ -828,8 +859,9 @@ if.then226:                                       ; preds = %if.end222
   unreachable
 
 if.end228:                                        ; preds = %if.end222
-  %84 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 2), align 8
-  %tobool229 = icmp ne ptr %84, null
+  %115 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8
+  %tobool229 = icmp ne ptr %116, null
   br i1 %tobool229, label %if.then230, label %if.end232
 
 if.then230:                                       ; preds = %if.end228
@@ -839,13 +871,15 @@ if.then230:                                       ; preds = %if.end228
 
 if.end232:                                        ; preds = %if.end228
   call void @git_config(ptr noundef @git_default_config, ptr noundef null)
-  %85 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool233 = icmp ne ptr %85, null
+  %117 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %tobool233 = icmp ne ptr %118, null
   br i1 %tobool233, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end232
-  %86 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %call234 = call ptr @xstrdup(ptr noundef %86)
+  %119 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %call234 = call ptr @xstrdup(ptr noundef %120)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end232
@@ -855,40 +889,40 @@ cond.false:                                       ; preds = %if.end232
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call234, %cond.true ], [ %call235, %cond.false ]
   store ptr %cond, ptr %config_file, align 8
-  %87 = load i32, ptr @use_global_config, align 4
-  %tobool236 = icmp ne i32 %87, 0
+  %121 = load i32, ptr @use_global_config, align 4
+  %tobool236 = icmp ne i32 %121, 0
   br i1 %tobool236, label %if.then237, label %if.end251
 
 if.then237:                                       ; preds = %cond.end
-  %88 = load ptr, ptr %config_file, align 8
-  %call238 = call i32 (ptr, i32, ...) @open64(ptr noundef %88, i32 noundef 193, i32 noundef 438)
+  %122 = load ptr, ptr %config_file, align 8
+  %call238 = call i32 (ptr, i32, ...) @open64(ptr noundef %122, i32 noundef 193, i32 noundef 438)
   store i32 %call238, ptr %fd, align 4
-  %89 = load i32, ptr %fd, align 4
-  %cmp239 = icmp sge i32 %89, 0
+  %123 = load i32, ptr %fd, align 4
+  %cmp239 = icmp sge i32 %123, 0
   br i1 %cmp239, label %if.then240, label %if.else244
 
 if.then240:                                       ; preds = %if.then237
   %call241 = call ptr @default_user_config()
   store ptr %call241, ptr %content, align 8
-  %90 = load i32, ptr %fd, align 4
-  %91 = load ptr, ptr %content, align 8
-  %call242 = call i64 @write_str_in_full(i32 noundef %90, ptr noundef %91)
-  %92 = load ptr, ptr %content, align 8
-  call void @free(ptr noundef %92) #9
-  %93 = load i32, ptr %fd, align 4
-  %call243 = call i32 @close(i32 noundef %93)
+  %124 = load i32, ptr %fd, align 4
+  %125 = load ptr, ptr %content, align 8
+  %call242 = call i64 @write_str_in_full(i32 noundef %124, ptr noundef %125)
+  %126 = load ptr, ptr %content, align 8
+  call void @free(ptr noundef %126) #9
+  %127 = load i32, ptr %fd, align 4
+  %call243 = call i32 @close(i32 noundef %127)
   br label %if.end250
 
 if.else244:                                       ; preds = %if.then237
   %call245 = call ptr @__errno_location() #12
-  %94 = load i32, ptr %call245, align 4
-  %cmp246 = icmp ne i32 %94, 17
+  %128 = load i32, ptr %call245, align 4
+  %cmp246 = icmp ne i32 %128, 17
   br i1 %cmp246, label %if.then247, label %if.end249
 
 if.then247:                                       ; preds = %if.else244
   %call248 = call ptr @_(ptr noundef @.str.21)
-  %95 = load ptr, ptr %config_file, align 8
-  call void (ptr, ...) @die_errno(ptr noundef %call248, ptr noundef %95) #10
+  %129 = load ptr, ptr %config_file, align 8
+  call void (ptr, ...) @die_errno(ptr noundef %call248, ptr noundef %129) #10
   unreachable
 
 if.end249:                                        ; preds = %if.else244
@@ -898,46 +932,47 @@ if.end250:                                        ; preds = %if.end249, %if.then
   br label %if.end251
 
 if.end251:                                        ; preds = %if.end250, %cond.end
-  %96 = load ptr, ptr %config_file, align 8
-  %call252 = call i32 @launch_editor(ptr noundef %96, ptr noundef null, ptr noundef null)
-  %97 = load ptr, ptr %config_file, align 8
-  call void @free(ptr noundef %97) #9
+  %130 = load ptr, ptr %config_file, align 8
+  %call252 = call i32 @launch_editor(ptr noundef %130, ptr noundef null, ptr noundef null)
+  %131 = load ptr, ptr %config_file, align 8
+  call void @free(ptr noundef %131) #9
   br label %if.end398
 
 if.else253:                                       ; preds = %if.else214
-  %98 = load i32, ptr @actions, align 4
-  %cmp254 = icmp eq i32 %98, 2048
+  %132 = load i32, ptr @actions, align 4
+  %cmp254 = icmp eq i32 %132, 2048
   br i1 %cmp254, label %if.then255, label %if.else268
 
 if.then255:                                       ; preds = %if.else253
   call void @check_write()
-  %99 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %99, i32 noundef 2, i32 noundef 2)
-  %100 = load ptr, ptr %argv.addr, align 8
-  %arrayidx256 = getelementptr inbounds ptr, ptr %100, i64 0
-  %101 = load ptr, ptr %arrayidx256, align 8
-  %102 = load ptr, ptr %argv.addr, align 8
-  %arrayidx257 = getelementptr inbounds ptr, ptr %102, i64 1
-  %103 = load ptr, ptr %arrayidx257, align 8
-  %call258 = call ptr @normalize_value(ptr noundef %101, ptr noundef %103, ptr noundef %default_kvi)
+  %133 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %133, i32 noundef 2, i32 noundef 2)
+  %134 = load ptr, ptr %argv.addr, align 8
+  %arrayidx256 = getelementptr inbounds ptr, ptr %134, i64 0
+  %135 = load ptr, ptr %arrayidx256, align 8
+  %136 = load ptr, ptr %argv.addr, align 8
+  %arrayidx257 = getelementptr inbounds ptr, ptr %136, i64 1
+  %137 = load ptr, ptr %arrayidx257, align 8
+  %call258 = call ptr @normalize_value(ptr noundef %135, ptr noundef %137, ptr noundef %default_kvi)
   store ptr %call258, ptr %value, align 8
-  %104 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %105 = load ptr, ptr %argv.addr, align 8
-  %arrayidx259 = getelementptr inbounds ptr, ptr %105, i64 0
-  %106 = load ptr, ptr %arrayidx259, align 8
-  %107 = load ptr, ptr %value, align 8
-  %call260 = call i32 @git_config_set_in_file_gently(ptr noundef %104, ptr noundef %106, ptr noundef %107)
+  %138 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %argv.addr, align 8
+  %arrayidx259 = getelementptr inbounds ptr, ptr %140, i64 0
+  %141 = load ptr, ptr %arrayidx259, align 8
+  %142 = load ptr, ptr %value, align 8
+  %call260 = call i32 @git_config_set_in_file_gently(ptr noundef %139, ptr noundef %141, ptr noundef %142)
   store i32 %call260, ptr %ret, align 4
-  %108 = load i32, ptr %ret, align 4
-  %cmp261 = icmp eq i32 %108, 5
+  %143 = load i32, ptr %ret, align 4
+  %cmp261 = icmp eq i32 %143, 5
   br i1 %cmp261, label %if.then262, label %if.end267
 
 if.then262:                                       ; preds = %if.then255
   %call263 = call ptr @_(ptr noundef @.str.22)
-  %109 = load ptr, ptr %argv.addr, align 8
-  %arrayidx264 = getelementptr inbounds ptr, ptr %109, i64 0
-  %110 = load ptr, ptr %arrayidx264, align 8
-  %call265 = call i32 (ptr, ...) @error(ptr noundef %call263, ptr noundef %110)
+  %144 = load ptr, ptr %argv.addr, align 8
+  %arrayidx264 = getelementptr inbounds ptr, ptr %144, i64 0
+  %145 = load ptr, ptr %arrayidx264, align 8
+  %call265 = call i32 (ptr, ...) @error(ptr noundef %call263, ptr noundef %145)
   %call266 = call i32 @const_error()
   br label %if.end267
 
@@ -945,267 +980,275 @@ if.end267:                                        ; preds = %if.then262, %if.the
   br label %if.end397
 
 if.else268:                                       ; preds = %if.else253
-  %111 = load i32, ptr @actions, align 4
-  %cmp269 = icmp eq i32 %111, 4096
+  %146 = load i32, ptr @actions, align 4
+  %cmp269 = icmp eq i32 %146, 4096
   br i1 %cmp269, label %if.then270, label %if.else277
 
 if.then270:                                       ; preds = %if.else268
   call void @check_write()
-  %112 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %112, i32 noundef 2, i32 noundef 3)
-  %113 = load ptr, ptr %argv.addr, align 8
-  %arrayidx271 = getelementptr inbounds ptr, ptr %113, i64 0
-  %114 = load ptr, ptr %arrayidx271, align 8
-  %115 = load ptr, ptr %argv.addr, align 8
-  %arrayidx272 = getelementptr inbounds ptr, ptr %115, i64 1
-  %116 = load ptr, ptr %arrayidx272, align 8
-  %call273 = call ptr @normalize_value(ptr noundef %114, ptr noundef %116, ptr noundef %default_kvi)
+  %147 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %147, i32 noundef 2, i32 noundef 3)
+  %148 = load ptr, ptr %argv.addr, align 8
+  %arrayidx271 = getelementptr inbounds ptr, ptr %148, i64 0
+  %149 = load ptr, ptr %arrayidx271, align 8
+  %150 = load ptr, ptr %argv.addr, align 8
+  %arrayidx272 = getelementptr inbounds ptr, ptr %150, i64 1
+  %151 = load ptr, ptr %arrayidx272, align 8
+  %call273 = call ptr @normalize_value(ptr noundef %149, ptr noundef %151, ptr noundef %default_kvi)
   store ptr %call273, ptr %value, align 8
-  %117 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %118 = load ptr, ptr %argv.addr, align 8
-  %arrayidx274 = getelementptr inbounds ptr, ptr %118, i64 0
-  %119 = load ptr, ptr %arrayidx274, align 8
-  %120 = load ptr, ptr %value, align 8
-  %121 = load ptr, ptr %argv.addr, align 8
-  %arrayidx275 = getelementptr inbounds ptr, ptr %121, i64 2
-  %122 = load ptr, ptr %arrayidx275, align 8
-  %123 = load i32, ptr %flags, align 4
-  %call276 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %117, ptr noundef %119, ptr noundef %120, ptr noundef %122, i32 noundef %123)
+  %152 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8
+  %154 = load ptr, ptr %argv.addr, align 8
+  %arrayidx274 = getelementptr inbounds ptr, ptr %154, i64 0
+  %155 = load ptr, ptr %arrayidx274, align 8
+  %156 = load ptr, ptr %value, align 8
+  %157 = load ptr, ptr %argv.addr, align 8
+  %arrayidx275 = getelementptr inbounds ptr, ptr %157, i64 2
+  %158 = load ptr, ptr %arrayidx275, align 8
+  %159 = load i32, ptr %flags, align 4
+  %call276 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %153, ptr noundef %155, ptr noundef %156, ptr noundef %158, i32 noundef %159)
   store i32 %call276, ptr %ret, align 4
   br label %if.end396
 
 if.else277:                                       ; preds = %if.else268
-  %124 = load i32, ptr @actions, align 4
-  %cmp278 = icmp eq i32 %124, 16
+  %160 = load i32, ptr @actions, align 4
+  %cmp278 = icmp eq i32 %160, 16
   br i1 %cmp278, label %if.then279, label %if.else285
 
 if.then279:                                       ; preds = %if.else277
   call void @check_write()
-  %125 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %125, i32 noundef 2, i32 noundef 2)
-  %126 = load ptr, ptr %argv.addr, align 8
-  %arrayidx280 = getelementptr inbounds ptr, ptr %126, i64 0
-  %127 = load ptr, ptr %arrayidx280, align 8
-  %128 = load ptr, ptr %argv.addr, align 8
-  %arrayidx281 = getelementptr inbounds ptr, ptr %128, i64 1
-  %129 = load ptr, ptr %arrayidx281, align 8
-  %call282 = call ptr @normalize_value(ptr noundef %127, ptr noundef %129, ptr noundef %default_kvi)
+  %161 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %161, i32 noundef 2, i32 noundef 2)
+  %162 = load ptr, ptr %argv.addr, align 8
+  %arrayidx280 = getelementptr inbounds ptr, ptr %162, i64 0
+  %163 = load ptr, ptr %arrayidx280, align 8
+  %164 = load ptr, ptr %argv.addr, align 8
+  %arrayidx281 = getelementptr inbounds ptr, ptr %164, i64 1
+  %165 = load ptr, ptr %arrayidx281, align 8
+  %call282 = call ptr @normalize_value(ptr noundef %163, ptr noundef %165, ptr noundef %default_kvi)
   store ptr %call282, ptr %value, align 8
-  %130 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %131 = load ptr, ptr %argv.addr, align 8
-  %arrayidx283 = getelementptr inbounds ptr, ptr %131, i64 0
-  %132 = load ptr, ptr %arrayidx283, align 8
-  %133 = load ptr, ptr %value, align 8
-  %134 = load i32, ptr %flags, align 4
-  %call284 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %130, ptr noundef %132, ptr noundef %133, ptr noundef inttoptr (i64 1 to ptr), i32 noundef %134)
+  %166 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %167 = load ptr, ptr %166, align 8
+  %168 = load ptr, ptr %argv.addr, align 8
+  %arrayidx283 = getelementptr inbounds ptr, ptr %168, i64 0
+  %169 = load ptr, ptr %arrayidx283, align 8
+  %170 = load ptr, ptr %value, align 8
+  %171 = load i32, ptr %flags, align 4
+  %172 = inttoptr i64 1 to ptr
+  %call284 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %167, ptr noundef %169, ptr noundef %170, ptr noundef %172, i32 noundef %171)
   store i32 %call284, ptr %ret, align 4
   br label %if.end395
 
 if.else285:                                       ; preds = %if.else277
-  %135 = load i32, ptr @actions, align 4
-  %cmp286 = icmp eq i32 %135, 8
+  %173 = load i32, ptr @actions, align 4
+  %cmp286 = icmp eq i32 %173, 8
   br i1 %cmp286, label %if.then287, label %if.else295
 
 if.then287:                                       ; preds = %if.else285
   call void @check_write()
-  %136 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %136, i32 noundef 2, i32 noundef 3)
-  %137 = load ptr, ptr %argv.addr, align 8
-  %arrayidx288 = getelementptr inbounds ptr, ptr %137, i64 0
-  %138 = load ptr, ptr %arrayidx288, align 8
-  %139 = load ptr, ptr %argv.addr, align 8
-  %arrayidx289 = getelementptr inbounds ptr, ptr %139, i64 1
-  %140 = load ptr, ptr %arrayidx289, align 8
-  %call290 = call ptr @normalize_value(ptr noundef %138, ptr noundef %140, ptr noundef %default_kvi)
+  %174 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %174, i32 noundef 2, i32 noundef 3)
+  %175 = load ptr, ptr %argv.addr, align 8
+  %arrayidx288 = getelementptr inbounds ptr, ptr %175, i64 0
+  %176 = load ptr, ptr %arrayidx288, align 8
+  %177 = load ptr, ptr %argv.addr, align 8
+  %arrayidx289 = getelementptr inbounds ptr, ptr %177, i64 1
+  %178 = load ptr, ptr %arrayidx289, align 8
+  %call290 = call ptr @normalize_value(ptr noundef %176, ptr noundef %178, ptr noundef %default_kvi)
   store ptr %call290, ptr %value, align 8
-  %141 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %142 = load ptr, ptr %argv.addr, align 8
-  %arrayidx291 = getelementptr inbounds ptr, ptr %142, i64 0
-  %143 = load ptr, ptr %arrayidx291, align 8
-  %144 = load ptr, ptr %value, align 8
-  %145 = load ptr, ptr %argv.addr, align 8
-  %arrayidx292 = getelementptr inbounds ptr, ptr %145, i64 2
-  %146 = load ptr, ptr %arrayidx292, align 8
-  %147 = load i32, ptr %flags, align 4
-  %or293 = or i32 %147, 1
-  %call294 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %141, ptr noundef %143, ptr noundef %144, ptr noundef %146, i32 noundef %or293)
+  %179 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr %argv.addr, align 8
+  %arrayidx291 = getelementptr inbounds ptr, ptr %181, i64 0
+  %182 = load ptr, ptr %arrayidx291, align 8
+  %183 = load ptr, ptr %value, align 8
+  %184 = load ptr, ptr %argv.addr, align 8
+  %arrayidx292 = getelementptr inbounds ptr, ptr %184, i64 2
+  %185 = load ptr, ptr %arrayidx292, align 8
+  %186 = load i32, ptr %flags, align 4
+  %or293 = or i32 %186, 1
+  %call294 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %180, ptr noundef %182, ptr noundef %183, ptr noundef %185, i32 noundef %or293)
   store i32 %call294, ptr %ret, align 4
   br label %if.end394
 
 if.else295:                                       ; preds = %if.else285
-  %148 = load i32, ptr @actions, align 4
-  %cmp296 = icmp eq i32 %148, 1
+  %187 = load i32, ptr @actions, align 4
+  %cmp296 = icmp eq i32 %187, 1
   br i1 %cmp296, label %if.then297, label %if.else301
 
 if.then297:                                       ; preds = %if.else295
-  %149 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %149, i32 noundef 1, i32 noundef 2)
-  %150 = load ptr, ptr %argv.addr, align 8
-  %arrayidx298 = getelementptr inbounds ptr, ptr %150, i64 0
-  %151 = load ptr, ptr %arrayidx298, align 8
-  %152 = load ptr, ptr %argv.addr, align 8
-  %arrayidx299 = getelementptr inbounds ptr, ptr %152, i64 1
-  %153 = load ptr, ptr %arrayidx299, align 8
-  %154 = load i32, ptr %flags, align 4
-  %call300 = call i32 @get_value(ptr noundef %151, ptr noundef %153, i32 noundef %154)
+  %188 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %188, i32 noundef 1, i32 noundef 2)
+  %189 = load ptr, ptr %argv.addr, align 8
+  %arrayidx298 = getelementptr inbounds ptr, ptr %189, i64 0
+  %190 = load ptr, ptr %arrayidx298, align 8
+  %191 = load ptr, ptr %argv.addr, align 8
+  %arrayidx299 = getelementptr inbounds ptr, ptr %191, i64 1
+  %192 = load ptr, ptr %arrayidx299, align 8
+  %193 = load i32, ptr %flags, align 4
+  %call300 = call i32 @get_value(ptr noundef %190, ptr noundef %192, i32 noundef %193)
   store i32 %call300, ptr %retval, align 4
   br label %return
 
 if.else301:                                       ; preds = %if.else295
-  %155 = load i32, ptr @actions, align 4
-  %cmp302 = icmp eq i32 %155, 2
+  %194 = load i32, ptr @actions, align 4
+  %cmp302 = icmp eq i32 %194, 2
   br i1 %cmp302, label %if.then303, label %if.else307
 
 if.then303:                                       ; preds = %if.else301
   store i32 1, ptr @do_all, align 4
-  %156 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %156, i32 noundef 1, i32 noundef 2)
-  %157 = load ptr, ptr %argv.addr, align 8
-  %arrayidx304 = getelementptr inbounds ptr, ptr %157, i64 0
-  %158 = load ptr, ptr %arrayidx304, align 8
-  %159 = load ptr, ptr %argv.addr, align 8
-  %arrayidx305 = getelementptr inbounds ptr, ptr %159, i64 1
-  %160 = load ptr, ptr %arrayidx305, align 8
-  %161 = load i32, ptr %flags, align 4
-  %call306 = call i32 @get_value(ptr noundef %158, ptr noundef %160, i32 noundef %161)
+  %195 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %195, i32 noundef 1, i32 noundef 2)
+  %196 = load ptr, ptr %argv.addr, align 8
+  %arrayidx304 = getelementptr inbounds ptr, ptr %196, i64 0
+  %197 = load ptr, ptr %arrayidx304, align 8
+  %198 = load ptr, ptr %argv.addr, align 8
+  %arrayidx305 = getelementptr inbounds ptr, ptr %198, i64 1
+  %199 = load ptr, ptr %arrayidx305, align 8
+  %200 = load i32, ptr %flags, align 4
+  %call306 = call i32 @get_value(ptr noundef %197, ptr noundef %199, i32 noundef %200)
   store i32 %call306, ptr %retval, align 4
   br label %return
 
 if.else307:                                       ; preds = %if.else301
-  %162 = load i32, ptr @actions, align 4
-  %cmp308 = icmp eq i32 %162, 4
+  %201 = load i32, ptr @actions, align 4
+  %cmp308 = icmp eq i32 %201, 4
   br i1 %cmp308, label %if.then309, label %if.else313
 
 if.then309:                                       ; preds = %if.else307
   store i32 1, ptr @show_keys, align 4
   store i32 1, ptr @use_key_regexp, align 4
   store i32 1, ptr @do_all, align 4
-  %163 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %163, i32 noundef 1, i32 noundef 2)
-  %164 = load ptr, ptr %argv.addr, align 8
-  %arrayidx310 = getelementptr inbounds ptr, ptr %164, i64 0
-  %165 = load ptr, ptr %arrayidx310, align 8
-  %166 = load ptr, ptr %argv.addr, align 8
-  %arrayidx311 = getelementptr inbounds ptr, ptr %166, i64 1
-  %167 = load ptr, ptr %arrayidx311, align 8
-  %168 = load i32, ptr %flags, align 4
-  %call312 = call i32 @get_value(ptr noundef %165, ptr noundef %167, i32 noundef %168)
+  %202 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %202, i32 noundef 1, i32 noundef 2)
+  %203 = load ptr, ptr %argv.addr, align 8
+  %arrayidx310 = getelementptr inbounds ptr, ptr %203, i64 0
+  %204 = load ptr, ptr %arrayidx310, align 8
+  %205 = load ptr, ptr %argv.addr, align 8
+  %arrayidx311 = getelementptr inbounds ptr, ptr %205, i64 1
+  %206 = load ptr, ptr %arrayidx311, align 8
+  %207 = load i32, ptr %flags, align 4
+  %call312 = call i32 @get_value(ptr noundef %204, ptr noundef %206, i32 noundef %207)
   store i32 %call312, ptr %retval, align 4
   br label %return
 
 if.else313:                                       ; preds = %if.else307
-  %169 = load i32, ptr @actions, align 4
-  %cmp314 = icmp eq i32 %169, 32768
+  %208 = load i32, ptr @actions, align 4
+  %cmp314 = icmp eq i32 %208, 32768
   br i1 %cmp314, label %if.then315, label %if.else319
 
 if.then315:                                       ; preds = %if.else313
-  %170 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %170, i32 noundef 2, i32 noundef 2)
-  %171 = load ptr, ptr %argv.addr, align 8
-  %arrayidx316 = getelementptr inbounds ptr, ptr %171, i64 0
-  %172 = load ptr, ptr %arrayidx316, align 8
-  %173 = load ptr, ptr %argv.addr, align 8
-  %arrayidx317 = getelementptr inbounds ptr, ptr %173, i64 1
-  %174 = load ptr, ptr %arrayidx317, align 8
-  %call318 = call i32 @get_urlmatch(ptr noundef %172, ptr noundef %174)
+  %209 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %209, i32 noundef 2, i32 noundef 2)
+  %210 = load ptr, ptr %argv.addr, align 8
+  %arrayidx316 = getelementptr inbounds ptr, ptr %210, i64 0
+  %211 = load ptr, ptr %arrayidx316, align 8
+  %212 = load ptr, ptr %argv.addr, align 8
+  %arrayidx317 = getelementptr inbounds ptr, ptr %212, i64 1
+  %213 = load ptr, ptr %arrayidx317, align 8
+  %call318 = call i32 @get_urlmatch(ptr noundef %211, ptr noundef %213)
   store i32 %call318, ptr %retval, align 4
   br label %return
 
 if.else319:                                       ; preds = %if.else313
-  %175 = load i32, ptr @actions, align 4
-  %cmp320 = icmp eq i32 %175, 32
+  %214 = load i32, ptr @actions, align 4
+  %cmp320 = icmp eq i32 %214, 32
   br i1 %cmp320, label %if.then321, label %if.else330
 
 if.then321:                                       ; preds = %if.else319
   call void @check_write()
-  %176 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %176, i32 noundef 1, i32 noundef 2)
-  %177 = load i32, ptr %argc.addr, align 4
-  %cmp322 = icmp eq i32 %177, 2
+  %215 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %215, i32 noundef 1, i32 noundef 2)
+  %216 = load i32, ptr %argc.addr, align 4
+  %cmp322 = icmp eq i32 %216, 2
   br i1 %cmp322, label %if.then323, label %if.else327
 
 if.then323:                                       ; preds = %if.then321
-  %178 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %179 = load ptr, ptr %argv.addr, align 8
-  %arrayidx324 = getelementptr inbounds ptr, ptr %179, i64 0
-  %180 = load ptr, ptr %arrayidx324, align 8
-  %181 = load ptr, ptr %argv.addr, align 8
-  %arrayidx325 = getelementptr inbounds ptr, ptr %181, i64 1
-  %182 = load ptr, ptr %arrayidx325, align 8
-  %183 = load i32, ptr %flags, align 4
-  %call326 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %178, ptr noundef %180, ptr noundef null, ptr noundef %182, i32 noundef %183)
+  %217 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %218 = load ptr, ptr %217, align 8
+  %219 = load ptr, ptr %argv.addr, align 8
+  %arrayidx324 = getelementptr inbounds ptr, ptr %219, i64 0
+  %220 = load ptr, ptr %arrayidx324, align 8
+  %221 = load ptr, ptr %argv.addr, align 8
+  %arrayidx325 = getelementptr inbounds ptr, ptr %221, i64 1
+  %222 = load ptr, ptr %arrayidx325, align 8
+  %223 = load i32, ptr %flags, align 4
+  %call326 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %218, ptr noundef %220, ptr noundef null, ptr noundef %222, i32 noundef %223)
   store i32 %call326, ptr %retval, align 4
   br label %return
 
 if.else327:                                       ; preds = %if.then321
-  %184 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %185 = load ptr, ptr %argv.addr, align 8
-  %arrayidx328 = getelementptr inbounds ptr, ptr %185, i64 0
-  %186 = load ptr, ptr %arrayidx328, align 8
-  %call329 = call i32 @git_config_set_in_file_gently(ptr noundef %184, ptr noundef %186, ptr noundef null)
+  %224 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %225 = load ptr, ptr %224, align 8
+  %226 = load ptr, ptr %argv.addr, align 8
+  %arrayidx328 = getelementptr inbounds ptr, ptr %226, i64 0
+  %227 = load ptr, ptr %arrayidx328, align 8
+  %call329 = call i32 @git_config_set_in_file_gently(ptr noundef %225, ptr noundef %227, ptr noundef null)
   store i32 %call329, ptr %retval, align 4
   br label %return
 
 if.else330:                                       ; preds = %if.else319
-  %187 = load i32, ptr @actions, align 4
-  %cmp331 = icmp eq i32 %187, 64
+  %228 = load i32, ptr @actions, align 4
+  %cmp331 = icmp eq i32 %228, 64
   br i1 %cmp331, label %if.then332, label %if.else337
 
 if.then332:                                       ; preds = %if.else330
   call void @check_write()
-  %188 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %188, i32 noundef 1, i32 noundef 2)
-  %189 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %190 = load ptr, ptr %argv.addr, align 8
-  %arrayidx333 = getelementptr inbounds ptr, ptr %190, i64 0
-  %191 = load ptr, ptr %arrayidx333, align 8
-  %192 = load ptr, ptr %argv.addr, align 8
-  %arrayidx334 = getelementptr inbounds ptr, ptr %192, i64 1
-  %193 = load ptr, ptr %arrayidx334, align 8
-  %194 = load i32, ptr %flags, align 4
-  %or335 = or i32 %194, 1
-  %call336 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %189, ptr noundef %191, ptr noundef null, ptr noundef %193, i32 noundef %or335)
+  %229 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %229, i32 noundef 1, i32 noundef 2)
+  %230 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %231 = load ptr, ptr %230, align 8
+  %232 = load ptr, ptr %argv.addr, align 8
+  %arrayidx333 = getelementptr inbounds ptr, ptr %232, i64 0
+  %233 = load ptr, ptr %arrayidx333, align 8
+  %234 = load ptr, ptr %argv.addr, align 8
+  %arrayidx334 = getelementptr inbounds ptr, ptr %234, i64 1
+  %235 = load ptr, ptr %arrayidx334, align 8
+  %236 = load i32, ptr %flags, align 4
+  %or335 = or i32 %236, 1
+  %call336 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %231, ptr noundef %233, ptr noundef null, ptr noundef %235, i32 noundef %or335)
   store i32 %call336, ptr %retval, align 4
   br label %return
 
 if.else337:                                       ; preds = %if.else330
-  %195 = load i32, ptr @actions, align 4
-  %cmp338 = icmp eq i32 %195, 128
+  %237 = load i32, ptr @actions, align 4
+  %cmp338 = icmp eq i32 %237, 128
   br i1 %cmp338, label %if.then339, label %if.else353
 
 if.then339:                                       ; preds = %if.else337
   call void @check_write()
-  %196 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %196, i32 noundef 2, i32 noundef 2)
-  %197 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %198 = load ptr, ptr %argv.addr, align 8
-  %arrayidx340 = getelementptr inbounds ptr, ptr %198, i64 0
-  %199 = load ptr, ptr %arrayidx340, align 8
-  %200 = load ptr, ptr %argv.addr, align 8
-  %arrayidx341 = getelementptr inbounds ptr, ptr %200, i64 1
-  %201 = load ptr, ptr %arrayidx341, align 8
-  %call342 = call i32 @git_config_rename_section_in_file(ptr noundef %197, ptr noundef %199, ptr noundef %201)
+  %238 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %238, i32 noundef 2, i32 noundef 2)
+  %239 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %240 = load ptr, ptr %239, align 8
+  %241 = load ptr, ptr %argv.addr, align 8
+  %arrayidx340 = getelementptr inbounds ptr, ptr %241, i64 0
+  %242 = load ptr, ptr %arrayidx340, align 8
+  %243 = load ptr, ptr %argv.addr, align 8
+  %arrayidx341 = getelementptr inbounds ptr, ptr %243, i64 1
+  %244 = load ptr, ptr %arrayidx341, align 8
+  %call342 = call i32 @git_config_rename_section_in_file(ptr noundef %240, ptr noundef %242, ptr noundef %244)
   store i32 %call342, ptr %ret, align 4
-  %202 = load i32, ptr %ret, align 4
-  %cmp343 = icmp slt i32 %202, 0
+  %245 = load i32, ptr %ret, align 4
+  %cmp343 = icmp slt i32 %245, 0
   br i1 %cmp343, label %if.then344, label %if.else345
 
 if.then344:                                       ; preds = %if.then339
-  %203 = load i32, ptr %ret, align 4
-  store i32 %203, ptr %retval, align 4
+  %246 = load i32, ptr %ret, align 4
+  store i32 %246, ptr %retval, align 4
   br label %return
 
 if.else345:                                       ; preds = %if.then339
-  %204 = load i32, ptr %ret, align 4
-  %tobool346 = icmp ne i32 %204, 0
+  %247 = load i32, ptr %ret, align 4
+  %tobool346 = icmp ne i32 %247, 0
   br i1 %tobool346, label %if.else350, label %if.then347
 
 if.then347:                                       ; preds = %if.else345
   %call348 = call ptr @_(ptr noundef @.str.23)
-  %205 = load ptr, ptr %argv.addr, align 8
-  %arrayidx349 = getelementptr inbounds ptr, ptr %205, i64 0
-  %206 = load ptr, ptr %arrayidx349, align 8
-  call void (ptr, ...) @die(ptr noundef %call348, ptr noundef %206) #10
+  %248 = load ptr, ptr %argv.addr, align 8
+  %arrayidx349 = getelementptr inbounds ptr, ptr %248, i64 0
+  %249 = load ptr, ptr %arrayidx349, align 8
+  call void (ptr, ...) @die(ptr noundef %call348, ptr noundef %249) #10
   unreachable
 
 if.else350:                                       ; preds = %if.else345
@@ -1219,40 +1262,41 @@ if.end352:                                        ; preds = %if.end351
   br label %if.end387
 
 if.else353:                                       ; preds = %if.else337
-  %207 = load i32, ptr @actions, align 4
-  %cmp354 = icmp eq i32 %207, 256
+  %250 = load i32, ptr @actions, align 4
+  %cmp354 = icmp eq i32 %250, 256
   br i1 %cmp354, label %if.then355, label %if.else368
 
 if.then355:                                       ; preds = %if.else353
   call void @check_write()
-  %208 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %208, i32 noundef 1, i32 noundef 1)
-  %209 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %210 = load ptr, ptr %argv.addr, align 8
-  %arrayidx356 = getelementptr inbounds ptr, ptr %210, i64 0
-  %211 = load ptr, ptr %arrayidx356, align 8
-  %call357 = call i32 @git_config_rename_section_in_file(ptr noundef %209, ptr noundef %211, ptr noundef null)
+  %251 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %251, i32 noundef 1, i32 noundef 1)
+  %252 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8
+  %254 = load ptr, ptr %argv.addr, align 8
+  %arrayidx356 = getelementptr inbounds ptr, ptr %254, i64 0
+  %255 = load ptr, ptr %arrayidx356, align 8
+  %call357 = call i32 @git_config_rename_section_in_file(ptr noundef %253, ptr noundef %255, ptr noundef null)
   store i32 %call357, ptr %ret, align 4
-  %212 = load i32, ptr %ret, align 4
-  %cmp358 = icmp slt i32 %212, 0
+  %256 = load i32, ptr %ret, align 4
+  %cmp358 = icmp slt i32 %256, 0
   br i1 %cmp358, label %if.then359, label %if.else360
 
 if.then359:                                       ; preds = %if.then355
-  %213 = load i32, ptr %ret, align 4
-  store i32 %213, ptr %retval, align 4
+  %257 = load i32, ptr %ret, align 4
+  store i32 %257, ptr %retval, align 4
   br label %return
 
 if.else360:                                       ; preds = %if.then355
-  %214 = load i32, ptr %ret, align 4
-  %tobool361 = icmp ne i32 %214, 0
+  %258 = load i32, ptr %ret, align 4
+  %tobool361 = icmp ne i32 %258, 0
   br i1 %tobool361, label %if.else365, label %if.then362
 
 if.then362:                                       ; preds = %if.else360
   %call363 = call ptr @_(ptr noundef @.str.23)
-  %215 = load ptr, ptr %argv.addr, align 8
-  %arrayidx364 = getelementptr inbounds ptr, ptr %215, i64 0
-  %216 = load ptr, ptr %arrayidx364, align 8
-  call void (ptr, ...) @die(ptr noundef %call363, ptr noundef %216) #10
+  %259 = load ptr, ptr %argv.addr, align 8
+  %arrayidx364 = getelementptr inbounds ptr, ptr %259, i64 0
+  %260 = load ptr, ptr %arrayidx364, align 8
+  call void (ptr, ...) @die(ptr noundef %call363, ptr noundef %260) #10
   unreachable
 
 if.else365:                                       ; preds = %if.else360
@@ -1266,50 +1310,50 @@ if.end367:                                        ; preds = %if.end366
   br label %if.end386
 
 if.else368:                                       ; preds = %if.else353
-  %217 = load i32, ptr @actions, align 4
-  %cmp369 = icmp eq i32 %217, 8192
+  %261 = load i32, ptr @actions, align 4
+  %cmp369 = icmp eq i32 %261, 8192
   br i1 %cmp369, label %if.then370, label %if.else373
 
 if.then370:                                       ; preds = %if.else368
-  %218 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %218, i32 noundef 1, i32 noundef 2)
-  %219 = load ptr, ptr %argv.addr, align 8
-  %arrayidx371 = getelementptr inbounds ptr, ptr %219, i64 0
-  %220 = load ptr, ptr %arrayidx371, align 8
-  %221 = load ptr, ptr %argv.addr, align 8
-  %arrayidx372 = getelementptr inbounds ptr, ptr %221, i64 1
-  %222 = load ptr, ptr %arrayidx372, align 8
-  call void @get_color(ptr noundef %220, ptr noundef %222)
+  %262 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %262, i32 noundef 1, i32 noundef 2)
+  %263 = load ptr, ptr %argv.addr, align 8
+  %arrayidx371 = getelementptr inbounds ptr, ptr %263, i64 0
+  %264 = load ptr, ptr %arrayidx371, align 8
+  %265 = load ptr, ptr %argv.addr, align 8
+  %arrayidx372 = getelementptr inbounds ptr, ptr %265, i64 1
+  %266 = load ptr, ptr %arrayidx372, align 8
+  call void @get_color(ptr noundef %264, ptr noundef %266)
   br label %if.end385
 
 if.else373:                                       ; preds = %if.else368
-  %223 = load i32, ptr @actions, align 4
-  %cmp374 = icmp eq i32 %223, 16384
+  %267 = load i32, ptr @actions, align 4
+  %cmp374 = icmp eq i32 %267, 16384
   br i1 %cmp374, label %if.then375, label %if.end384
 
 if.then375:                                       ; preds = %if.else373
-  %224 = load i32, ptr %argc.addr, align 4
-  call void @check_argc(i32 noundef %224, i32 noundef 1, i32 noundef 2)
-  %225 = load i32, ptr %argc.addr, align 4
-  %cmp376 = icmp eq i32 %225, 2
+  %268 = load i32, ptr %argc.addr, align 4
+  call void @check_argc(i32 noundef %268, i32 noundef 1, i32 noundef 2)
+  %269 = load i32, ptr %argc.addr, align 4
+  %cmp376 = icmp eq i32 %269, 2
   br i1 %cmp376, label %if.then377, label %if.end380
 
 if.then377:                                       ; preds = %if.then375
-  %226 = load ptr, ptr %argv.addr, align 8
-  %arrayidx378 = getelementptr inbounds ptr, ptr %226, i64 1
-  %227 = load ptr, ptr %arrayidx378, align 8
-  %call379 = call i32 @git_config_bool(ptr noundef @.str.24, ptr noundef %227)
+  %270 = load ptr, ptr %argv.addr, align 8
+  %arrayidx378 = getelementptr inbounds ptr, ptr %270, i64 1
+  %271 = load ptr, ptr %arrayidx378, align 8
+  %call379 = call i32 @git_config_bool(ptr noundef @.str.24, ptr noundef %271)
   store i32 %call379, ptr @color_stdout_is_tty, align 4
   br label %if.end380
 
 if.end380:                                        ; preds = %if.then377, %if.then375
-  %228 = load ptr, ptr %argv.addr, align 8
-  %arrayidx381 = getelementptr inbounds ptr, ptr %228, i64 0
-  %229 = load ptr, ptr %arrayidx381, align 8
-  %230 = load i32, ptr %argc.addr, align 4
-  %cmp382 = icmp eq i32 %230, 2
+  %272 = load ptr, ptr %argv.addr, align 8
+  %arrayidx381 = getelementptr inbounds ptr, ptr %272, i64 0
+  %273 = load ptr, ptr %arrayidx381, align 8
+  %274 = load i32, ptr %argc.addr, align 4
+  %cmp382 = icmp eq i32 %274, 2
   %conv = zext i1 %cmp382 to i32
-  %call383 = call i32 @get_colorbool(ptr noundef %229, i32 noundef %conv)
+  %call383 = call i32 @get_colorbool(ptr noundef %273, i32 noundef %conv)
   store i32 %call383, ptr %retval, align 4
   br label %return
 
@@ -1359,15 +1403,15 @@ if.end398:                                        ; preds = %if.end397, %if.end2
   br label %if.end399
 
 if.end399:                                        ; preds = %if.end398, %if.end213
-  %231 = load ptr, ptr %value, align 8
-  call void @free(ptr noundef %231) #9
-  %232 = load i32, ptr %ret, align 4
-  store i32 %232, ptr %retval, align 4
+  %275 = load ptr, ptr %value, align 8
+  call void @free(ptr noundef %275) #9
+  %276 = load i32, ptr %ret, align 4
+  store i32 %276, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end399, %if.end380, %if.then359, %if.then344, %if.then332, %if.else327, %if.then323, %if.then315, %if.then309, %if.then303, %if.then297
-  %233 = load i32, ptr %retval, align 4
-  ret i32 %233
+  %277 = load i32, ptr %retval, align 4
+  ret i32 %277
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1693,15 +1737,16 @@ declare i32 @launch_editor(ptr noundef, ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal void @check_write() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr @startup_info, align 8
-  %have_repository = getelementptr inbounds %struct.startup_info, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %have_repository, align 8
-  %tobool1 = icmp ne i32 %2, 0
+  %2 = load ptr, ptr @startup_info, align 8
+  %have_repository = getelementptr inbounds %struct.startup_info, ptr %2, i32 0, i32 0
+  %3 = load i32, ptr %have_repository, align 8
+  %tobool1 = icmp ne i32 %3, 0
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -1722,8 +1767,9 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.git_config_source, ptr @given_config_source, i32 0, i32 2), align 8
-  %tobool6 = icmp ne ptr %3, null
+  %4 = getelementptr inbounds %struct.git_config_source, ptr @given_config_source, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %tobool6 = icmp ne ptr %5, null
   br i1 %tobool6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5

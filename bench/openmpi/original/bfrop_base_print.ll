@@ -219,36 +219,37 @@ define ptr @PMIx_Info_string(ptr noundef %0) #0 {
   %10 = call i32 @pmix_bfrops_base_print_info(ptr noundef %5, ptr noundef null, ptr noundef %9, i16 noundef zeroext 24)
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %2, align 8
-  br label %28
+  br label %29
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %14 = getelementptr inbounds %struct.pmix_peer_t, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.pmix_namespace_t, ptr %15, i32 0, i32 12
-  %17 = getelementptr inbounds %struct.pmix_personality_t, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.pmix_bfrops_module_t, ptr %18, i32 0, i32 6
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i32 %20(ptr noundef %5, ptr noundef null, ptr noundef %21, i16 noundef zeroext 24)
-  store i32 %22, ptr %4, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp ne i32 0, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %12
-  store ptr null, ptr %2, align 8
-  br label %28
+  %13 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.pmix_peer_t, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.pmix_namespace_t, ptr %16, i32 0, i32 12
+  %18 = getelementptr inbounds %struct.pmix_personality_t, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.pmix_bfrops_module_t, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i32 %21(ptr noundef %5, ptr noundef null, ptr noundef %22, i16 noundef zeroext 24)
+  store i32 %23, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4
+  %25 = icmp ne i32 0, %24
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %12
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %2, align 8
-  br label %28
+  store ptr null, ptr %2, align 8
+  br label %29
 
-28:                                               ; preds = %26, %25, %8
-  %29 = load ptr, ptr %2, align 8
-  ret ptr %29
+27:                                               ; preds = %12
+  %28 = load ptr, ptr %5, align 8
+  store ptr %28, ptr %2, align 8
+  br label %29
+
+29:                                               ; preds = %27, %26, %8
+  %30 = load ptr, ptr %2, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -361,36 +362,37 @@ define ptr @PMIx_Value_string(ptr noundef %0) #0 {
   %10 = call i32 @pmix_bfrops_base_print_value(ptr noundef %5, ptr noundef null, ptr noundef %9, i16 noundef zeroext 21)
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %2, align 8
-  br label %28
+  br label %29
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %14 = getelementptr inbounds %struct.pmix_peer_t, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.pmix_namespace_t, ptr %15, i32 0, i32 12
-  %17 = getelementptr inbounds %struct.pmix_personality_t, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.pmix_bfrops_module_t, ptr %18, i32 0, i32 6
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i32 %20(ptr noundef %5, ptr noundef null, ptr noundef %21, i16 noundef zeroext 21)
-  store i32 %22, ptr %4, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp ne i32 0, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %12
-  store ptr null, ptr %2, align 8
-  br label %28
+  %13 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.pmix_peer_t, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.pmix_namespace_t, ptr %16, i32 0, i32 12
+  %18 = getelementptr inbounds %struct.pmix_personality_t, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.pmix_bfrops_module_t, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i32 %21(ptr noundef %5, ptr noundef null, ptr noundef %22, i16 noundef zeroext 21)
+  store i32 %23, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4
+  %25 = icmp ne i32 0, %24
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %12
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %2, align 8
-  br label %28
+  store ptr null, ptr %2, align 8
+  br label %29
 
-28:                                               ; preds = %26, %25, %8
-  %29 = load ptr, ptr %2, align 8
-  ret ptr %29
+27:                                               ; preds = %12
+  %28 = load ptr, ptr %5, align 8
+  store ptr %28, ptr %2, align 8
+  br label %29
+
+29:                                               ; preds = %27, %26, %8
+  %30 = load ptr, ptr %2, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable

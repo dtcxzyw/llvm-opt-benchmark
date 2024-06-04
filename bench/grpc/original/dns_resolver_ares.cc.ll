@@ -3284,7 +3284,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15ResolverFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3318,7 +3319,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core15ResolverFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core15ResolverFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4131,18 +4133,19 @@ invoke.cont18:                                    ; preds = %invoke.cont14
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %request_service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %this1, i32 0, i32 1
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9grpc_core15PollingResolver12channel_argsEv(ptr noundef nonnull align 8 dereferenceable(536) %this1)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont21
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef @.str.7) #3
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %call28 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call25, i64 %4, ptr %6)
+  %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %call28 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call25, i64 %5, ptr %7)
           to label %invoke.cont27 unwind label %lpad23
 
 invoke.cont27:                                    ; preds = %invoke.cont24
@@ -4164,11 +4167,11 @@ invoke.cont33:                                    ; preds = %invoke.cont27
 
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, ptr noundef @.str.8) #3
-  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %call40 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 %8, ptr %10)
+  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %call40 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 %9, ptr %11)
           to label %invoke.cont39 unwind label %lpad23
 
 invoke.cont39:                                    ; preds = %invoke.cont36
@@ -4190,11 +4193,11 @@ invoke.cont45:                                    ; preds = %invoke.cont39
 
 invoke.cont51:                                    ; preds = %invoke.cont45
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp53, ptr noundef @.str.9) #3
-  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp53, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp53, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %call55 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call52, i64 %12, ptr %14)
+  %12 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp53, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp53, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %call55 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call52, i64 %13, ptr %15)
           to label %invoke.cont54 unwind label %lpad23
 
 invoke.cont54:                                    ; preds = %invoke.cont51
@@ -4211,27 +4214,27 @@ invoke.cont59:                                    ; preds = %invoke.cont54
           to label %invoke.cont61 unwind label %lpad23
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %15 = load i32, ptr %call62, align 4
-  store i32 %15, ptr %query_timeout_ms_, align 4
+  %16 = load i32, ptr %call62, align 4
+  store i32 %16, ptr %query_timeout_ms_, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont18, %invoke.cont14, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp) #3
   br label %eh.resume
 
 lpad23:                                           ; preds = %invoke.cont59, %invoke.cont54, %invoke.cont51, %invoke.cont45, %invoke.cont39, %invoke.cont36, %invoke.cont33, %invoke.cont27, %invoke.cont24, %invoke.cont21
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
   br label %eh.resume
 
@@ -5032,7 +5035,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -5060,10 +5064,10 @@ do.end:                                           ; preds = %do.cond
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %do.body
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #19
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #19
   unreachable
 }
 
@@ -5606,7 +5610,8 @@ entry:
   store ptr %resolver, ptr %resolver.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %on_resolved_mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %on_resolved_mu_)
           to label %invoke.cont unwind label %lpad
@@ -5650,7 +5655,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   %hostname_request_14 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr @grpc_dns_lookup_hostname_ares, align 8
+  %1 = load ptr, ptr @grpc_dns_lookup_hostname_ares, align 8
   %resolver_15 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 2
   %call17 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %resolver_15)
           to label %invoke.cont16 unwind label %lpad6
@@ -5671,7 +5676,7 @@ invoke.cont22:                                    ; preds = %invoke.cont18
 
 invoke.cont24:                                    ; preds = %invoke.cont22
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call25) #3
-  %1 = load ptr, ptr @_ZN9grpc_core18kDefaultSecurePortE, align 8
+  %2 = load ptr, ptr @_ZN9grpc_core18kDefaultSecurePortE, align 8
   %resolver_27 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 2
   %call29 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %resolver_27)
           to label %invoke.cont28 unwind label %lpad6
@@ -5689,8 +5694,8 @@ invoke.cont30:                                    ; preds = %invoke.cont28
 
 invoke.cont35:                                    ; preds = %invoke.cont30
   %query_timeout_ms_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %call36, i32 0, i32 3
-  %2 = load i32, ptr %query_timeout_ms_, align 4
-  %call38 = invoke noundef ptr %0(ptr noundef %call20, ptr noundef %call26, ptr noundef %1, ptr noundef %call31, ptr noundef %on_hostname_resolved_32, ptr noundef %addresses_33, i32 noundef %2)
+  %3 = load i32, ptr %query_timeout_ms_, align 4
+  %call38 = invoke noundef ptr %1(ptr noundef %call20, ptr noundef %call26, ptr noundef %2, ptr noundef %call31, ptr noundef %on_hostname_resolved_32, ptr noundef %addresses_33, i32 noundef %3)
           to label %invoke.cont37 unwind label %lpad6
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -5716,39 +5721,39 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup160
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup153
 
 lpad6:                                            ; preds = %invoke.cont144, %if.then142, %invoke.cont135, %invoke.cont130, %invoke.cont128, %invoke.cont124, %invoke.cont122, %invoke.cont118, %invoke.cont116, %invoke.cont112, %invoke.cont109, %invoke.cont106, %if.then103, %if.end98, %invoke.cont90, %if.then88, %invoke.cont81, %invoke.cont76, %invoke.cont74, %invoke.cont70, %invoke.cont68, %invoke.cont64, %invoke.cont62, %invoke.cont58, %invoke.cont55, %invoke.cont52, %if.then49, %do.end, %invoke.cont41, %if.then, %invoke.cont35, %invoke.cont30, %invoke.cont28, %invoke.cont24, %invoke.cont22, %invoke.cont18, %invoke.cont16, %invoke.cont12, %invoke.cont10, %invoke.cont7, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -5765,8 +5770,8 @@ do.end:                                           ; preds = %do.cond
 
 invoke.cont47:                                    ; preds = %do.end
   %enable_srv_queries_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %call48, i32 0, i32 2
-  %15 = load i8, ptr %enable_srv_queries_, align 1
-  %tobool = trunc i8 %15 to i1
+  %16 = load i8, ptr %enable_srv_queries_, align 1
+  %tobool = trunc i8 %16 to i1
   br i1 %tobool, label %if.then49, label %if.end98
 
 if.then49:                                        ; preds = %invoke.cont47
@@ -5789,7 +5794,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
 
 invoke.cont58:                                    ; preds = %invoke.cont55
   %srv_request_60 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 6
-  %16 = load ptr, ptr @grpc_dns_lookup_srv_ares, align 8
+  %17 = load ptr, ptr @grpc_dns_lookup_srv_ares, align 8
   %resolver_61 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 2
   %call63 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %resolver_61)
           to label %invoke.cont62 unwind label %lpad6
@@ -5827,8 +5832,8 @@ invoke.cont76:                                    ; preds = %invoke.cont74
 
 invoke.cont81:                                    ; preds = %invoke.cont76
   %query_timeout_ms_83 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %call82, i32 0, i32 3
-  %17 = load i32, ptr %query_timeout_ms_83, align 4
-  %call85 = invoke noundef ptr %16(ptr noundef %call66, ptr noundef %call72, ptr noundef %call77, ptr noundef %on_srv_resolved_78, ptr noundef %balancer_addresses_79, i32 noundef %17)
+  %18 = load i32, ptr %query_timeout_ms_83, align 4
+  %call85 = invoke noundef ptr %17(ptr noundef %call66, ptr noundef %call72, ptr noundef %call77, ptr noundef %on_srv_resolved_78, ptr noundef %balancer_addresses_79, i32 noundef %18)
           to label %invoke.cont84 unwind label %lpad6
 
 invoke.cont84:                                    ; preds = %invoke.cont81
@@ -5854,12 +5859,12 @@ invoke.cont94:                                    ; preds = %invoke.cont90
   br label %if.end95
 
 lpad54:                                           ; preds = %invoke.cont53
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50) #3
   br label %ehcleanup
 
@@ -5879,8 +5884,8 @@ if.end98:                                         ; preds = %do.end97, %invoke.c
 
 invoke.cont100:                                   ; preds = %if.end98
   %request_service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %call101, i32 0, i32 1
-  %21 = load i8, ptr %request_service_config_, align 8
-  %tobool102 = trunc i8 %21 to i1
+  %22 = load i8, ptr %request_service_config_, align 8
+  %tobool102 = trunc i8 %22 to i1
   br i1 %tobool102, label %if.then103, label %if.end152
 
 if.then103:                                       ; preds = %invoke.cont100
@@ -5903,7 +5908,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %txt_request_114 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 8
-  %22 = load ptr, ptr @grpc_dns_lookup_txt_ares, align 8
+  %23 = load ptr, ptr @grpc_dns_lookup_txt_ares, align 8
   %resolver_115 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 2
   %call117 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %resolver_115)
           to label %invoke.cont116 unwind label %lpad6
@@ -5941,8 +5946,8 @@ invoke.cont130:                                   ; preds = %invoke.cont128
 
 invoke.cont135:                                   ; preds = %invoke.cont130
   %query_timeout_ms_137 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver", ptr %call136, i32 0, i32 3
-  %23 = load i32, ptr %query_timeout_ms_137, align 4
-  %call139 = invoke noundef ptr %22(ptr noundef %call120, ptr noundef %call126, ptr noundef %call131, ptr noundef %on_txt_resolved_132, ptr noundef %service_config_json_133, i32 noundef %23)
+  %24 = load i32, ptr %query_timeout_ms_137, align 4
+  %call139 = invoke noundef ptr %23(ptr noundef %call120, ptr noundef %call126, ptr noundef %call131, ptr noundef %on_txt_resolved_132, ptr noundef %service_config_json_133, i32 noundef %24)
           to label %invoke.cont138 unwind label %lpad6
 
 invoke.cont138:                                   ; preds = %invoke.cont135
@@ -5968,12 +5973,12 @@ invoke.cont148:                                   ; preds = %invoke.cont144
   br label %if.end149
 
 lpad108:                                          ; preds = %invoke.cont107
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp104) #3
   br label %ehcleanup
 
@@ -6084,23 +6089,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.161", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -6954,10 +6960,11 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %service_config_json_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresClientChannelDNSResolver::AresRequestWrapper", ptr %this1, i32 0, i32 11
-  %0 = load ptr, ptr %service_config_json_, align 8
-  invoke void @gpr_free(ptr noundef %0)
+  %1 = load ptr, ptr %service_config_json_, align 8
+  invoke void @gpr_free(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -6988,10 +6995,10 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #19
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #19
   unreachable
 }
 
@@ -7012,7 +7019,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14628,7 +14636,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11DNSResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_resolver_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver", ptr %this1, i32 0, i32 1
   invoke void @_ZN9grpc_core14GetDNSResolverEv(ptr sret(%"class.std::shared_ptr") align 8 %default_resolver_)
           to label %invoke.cont unwind label %lpad
@@ -14649,30 +14658,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #3
   br label %ehcleanup
 
@@ -14722,7 +14731,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core11DNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core11DNSResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14744,7 +14754,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %open_requests_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver", ptr %this1, i32 0, i32 3
   call void @_ZN4absl12lts_2023080213flat_hash_setIN9grpc_core11DNSResolver16LookupTaskHandleEN17grpc_event_engine12experimental20TaskHandleComparatorIS4_E4HashESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %open_requests_) #3
   %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver", ptr %this1, i32 0, i32 2
@@ -15445,7 +15456,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #4 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16651,7 +16663,8 @@ entry:
   %coerce.dive4 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp3, i32 0, i32 0
   %15 = load i64, ptr %coerce.dive4, align 8
   call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this1, i64 %8, ptr %10, i64 %12, ptr %14, i64 %15, ptr noundef %4, ptr noundef %5, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %this1, align 8
   %default_port_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresHostnameRequest", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %default_port_, ptr noundef nonnull align 8 dereferenceable(16) %default_port, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -16677,22 +16690,22 @@ invoke.cont6:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %ehcleanup
 
 lpad5:                                            ; preds = %if.then
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrISt6vectorIN9grpc_core17EndpointAddressesESaIS2_EESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %addresses_) #3
   call void @_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_resolve_address_done_) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_port_) #3
@@ -16845,7 +16858,8 @@ entry:
   store ptr %resolver, ptr %resolver.addr, align 8
   store i64 %aba_token, ptr %aba_token.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(16) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -16868,18 +16882,18 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %interested_parties.addr, align 8
-  store ptr %4, ptr %interested_parties_, align 8
+  %5 = load ptr, ptr %interested_parties.addr, align 8
+  store ptr %5, ptr %interested_parties_, align 8
   %grpc_ares_request_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %grpc_ares_request_) #3
   %completed_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 7
   store i8 0, ptr %completed_, align 8
   %resolver_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %resolver.addr, align 8
-  store ptr %5, ptr %resolver_, align 8
+  %6 = load ptr, ptr %resolver.addr, align 8
+  store ptr %6, ptr %resolver_, align 8
   %aba_token_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 9
-  %6 = load i64, ptr %aba_token.addr, align 8
-  store i64 %6, ptr %aba_token_, align 8
+  %7 = load i64, ptr %aba_token.addr, align 8
+  store i64 %7, ptr %aba_token_, align 8
   %pollset_set_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 11
   %call = invoke noundef ptr @_Z23grpc_pollset_set_createv()
           to label %invoke.cont8 unwind label %lpad7
@@ -16889,51 +16903,51 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %on_dns_lookup_done_9 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 10
   %call10 = call noundef ptr @_Z17grpc_closure_initP12grpc_closurePFvPvN4absl12lts_202308026StatusEES1_(ptr noundef %on_dns_lookup_done_9, ptr noundef @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequest15OnDnsLookupDoneEPvN4absl12lts_202308026StatusE, ptr noundef %this1)
   %pollset_set_11 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 11
-  %7 = load ptr, ptr %pollset_set_11, align 8
+  %8 = load ptr, ptr %pollset_set_11, align 8
   %interested_parties_12 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 5
-  %8 = load ptr, ptr %interested_parties_12, align 8
-  invoke void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %interested_parties_12, align 8
+  invoke void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr noundef %8, ptr noundef %9)
           to label %invoke.cont13 unwind label %lpad7
 
 invoke.cont13:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   br label %ehcleanup14
 
 lpad5:                                            ; preds = %invoke.cont4
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %grpc_ares_request_) #3
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #3
   br label %ehcleanup
@@ -17006,7 +17020,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %addresses_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresHostnameRequest", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrISt6vectorIN9grpc_core17EndpointAddressesESaIS2_EESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %addresses_) #3
   %on_resolve_address_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresHostnameRequest", ptr %this1, i32 0, i32 2
@@ -17438,7 +17453,8 @@ entry:
   %agg.tmp = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -17462,29 +17478,29 @@ do.cond:                                          ; preds = %if.end
 
 do.end:                                           ; preds = %do.cond
   %resolver_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %resolver_, align 8
+  %1 = load ptr, ptr %resolver_, align 8
   %call4 = invoke { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequest11task_handleEv(ptr noundef nonnull align 8 dereferenceable(168) %this1)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %do.end
   %coerce.dive = getelementptr inbounds %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %agg.tmp, i32 0, i32 0
-  %1 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 0
-  %2 = extractvalue { i64, i64 } %call4, 0
-  store i64 %2, ptr %1, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 1
-  %4 = extractvalue { i64, i64 } %call4, 1
-  store i64 %4, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  invoke void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver17UnregisterRequestENS_11DNSResolver16LookupTaskHandleE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 %6, i64 %8)
+  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 0
+  %3 = extractvalue { i64, i64 } %call4, 0
+  store i64 %3, ptr %2, align 8
+  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 1
+  %5 = extractvalue { i64, i64 } %call4, 1
+  store i64 %5, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  invoke void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver17UnregisterRequestENS_11DNSResolver16LookupTaskHandleE(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 %7, i64 %9)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %pollset_set_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresRequest", ptr %this1, i32 0, i32 11
-  %9 = load ptr, ptr %pollset_set_, align 8
-  invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %9)
+  %10 = load ptr, ptr %pollset_set_, align 8
+  invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %10)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -17499,10 +17515,10 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont5, %invoke.cont3, %do.end, %if.then
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
@@ -19092,7 +19108,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -22845,7 +22862,8 @@ entry:
   %coerce.dive4 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp3, i32 0, i32 0
   %15 = load i64, ptr %coerce.dive4, align 8
   call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this1, i64 %8, ptr %10, i64 %12, ptr %14, i64 %15, ptr noundef %4, ptr noundef %5, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %this1, align 8
   %on_resolve_address_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresSRVRequest", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(32) %on_resolve_address_done_, ptr noundef nonnull align 8 dereferenceable(32) %on_resolve_address_done) #3
   %balancer_addresses_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresSRVRequest", ptr %this1, i32 0, i32 2
@@ -22864,12 +22882,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrISt6vectorIN9grpc_core17EndpointAddressesESaIS2_EESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %balancer_addresses_) #3
   call void @_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_resolve_address_done_) #3
   call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this1) #3
@@ -22898,7 +22916,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %balancer_addresses_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresSRVRequest", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrISt6vectorIN9grpc_core17EndpointAddressesESaIS2_EESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %balancer_addresses_) #3
   %on_resolve_address_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresSRVRequest", ptr %this1, i32 0, i32 1
@@ -23273,7 +23292,8 @@ entry:
   %coerce.dive4 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp3, i32 0, i32 0
   %15 = load i64, ptr %coerce.dive4, align 8
   call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this1, i64 %8, ptr %10, i64 %12, ptr %14, i64 %15, ptr noundef %4, ptr noundef %5, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %this1, align 8
   %service_config_json_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresTXTRequest", ptr %this1, i32 0, i32 1
   store ptr null, ptr %service_config_json_, align 8
   %on_resolved_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresTXTRequest", ptr %this1, i32 0, i32 2
@@ -23292,12 +23312,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_resolved_) #3
   call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this1) #3
   br label %eh.resume
@@ -23346,10 +23366,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %service_config_json_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::AresDNSResolver::AresTXTRequest", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %service_config_json_, align 8
-  invoke void @gpr_free(ptr noundef %0)
+  %1 = load ptr, ptr %service_config_json_, align 8
+  invoke void @gpr_free(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -23359,10 +23380,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #19
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #19
   unreachable
 }
 
@@ -24958,10 +24979,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -24971,7 +24993,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

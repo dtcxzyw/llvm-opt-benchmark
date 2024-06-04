@@ -656,11 +656,12 @@ define void @_ZN5faiss20IndexBinaryFromFloatC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 2
-  store i8 0, ptr %5, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 2
+  store i8 0, ptr %6, align 8
   ret void
 }
 
@@ -678,24 +679,25 @@ define void @_ZN5faiss20IndexBinaryFromFloatC2EPNS_5IndexE(ptr noundef nonnull a
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %9, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %5, i32 0, i32 2
-  store i8 0, ptr %12, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 5
-  %18 = zext i1 %16 to i8
-  store i8 %18, ptr %17, align 1
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.faiss::Index", ptr %19, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 3
-  store i64 %21, ptr %22, align 8
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %5, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %5, i32 0, i32 2
+  store i8 0, ptr %13, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %14, i32 0, i32 5
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 5
+  %19 = zext i1 %17 to i8
+  store i8 %19, ptr %18, align 1
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 3
+  store i64 %22, ptr %23, align 8
   ret void
 }
 
@@ -704,29 +706,30 @@ define void @_ZN5faiss20IndexBinaryFromFloatD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %16
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 2
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::IndexBinaryFromFloat", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(36) %9) #8
-  br label %15
-
-15:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(36) %10) #8
   br label %16
 
-16:                                               ; preds = %15, %1
+16:                                               ; preds = %12, %8
+  br label %17
+
+17:                                               ; preds = %16, %1
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   ret void
 }
@@ -1132,9 +1135,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }

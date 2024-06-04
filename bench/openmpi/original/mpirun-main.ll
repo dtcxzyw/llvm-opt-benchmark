@@ -101,61 +101,62 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   unreachable
 
 44:                                               ; preds = %37
-  %45 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10), align 8
-  %46 = call i32 @setenv(ptr noundef @.str.11, ptr noundef %45, i32 noundef 1) #6
+  %45 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 @setenv(ptr noundef @.str.11, ptr noundef %46, i32 noundef 1) #6
   call void @setup_mca_prefixes()
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = call zeroext i1 @opal_path_is_absolute(ptr noundef %49)
-  br i1 %50, label %51, label %54
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds ptr, ptr %48, i64 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = call zeroext i1 @opal_path_is_absolute(ptr noundef %50)
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %7, align 8
-  %53 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef %52)
-  br label %56
-
-54:                                               ; preds = %44
-  %55 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef @.str.12)
-  br label %56
-
-56:                                               ; preds = %54, %51
-  store i64 1, ptr %10, align 8
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %7, align 8
+  %54 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef %53)
   br label %57
 
-57:                                               ; preds = %69, %56
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i64, ptr %10, align 8
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr null, %61
-  br i1 %62, label %63, label %72
+55:                                               ; preds = %44
+  %56 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef @.str.12)
+  br label %57
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i64, ptr %10, align 8
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef %67)
-  br label %69
+57:                                               ; preds = %55, %52
+  store i64 1, ptr %10, align 8
+  br label %58
 
-69:                                               ; preds = %63
-  %70 = load i64, ptr %10, align 8
-  %71 = add i64 %70, 1
-  store i64 %71, ptr %10, align 8
-  br label %57, !llvm.loop !5
+58:                                               ; preds = %70, %57
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i64, ptr %10, align 8
+  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp ne ptr null, %62
+  br i1 %63, label %64, label %73
 
-72:                                               ; preds = %57
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = call i32 @execv(ptr noundef %73, ptr noundef %74) #6
-  store i32 %75, ptr %9, align 4
-  %76 = load ptr, ptr @opal_show_help, align 8
-  %77 = load ptr, ptr %7, align 8
-  %78 = call ptr @__errno_location() #8
-  %79 = load i32, ptr %78, align 4
-  %80 = call ptr @strerror(i32 noundef %79) #6
-  %81 = call i32 (ptr, ptr, i32, ...) %76(ptr noundef @.str.9, ptr noundef @.str.13, i32 noundef 1, ptr noundef %77, ptr noundef %80)
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i64, ptr %10, align 8
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i32 @opal_argv_append_nosize(ptr noundef %8, ptr noundef %68)
+  br label %70
+
+70:                                               ; preds = %64
+  %71 = load i64, ptr %10, align 8
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %10, align 8
+  br label %58, !llvm.loop !5
+
+73:                                               ; preds = %58
+  %74 = load ptr, ptr %7, align 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = call i32 @execv(ptr noundef %74, ptr noundef %75) #6
+  store i32 %76, ptr %9, align 4
+  %77 = load ptr, ptr @opal_show_help, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = call ptr @__errno_location() #8
+  %80 = load i32, ptr %79, align 4
+  %81 = call ptr @strerror(i32 noundef %80) #6
+  %82 = call i32 (ptr, ptr, i32, ...) %77(ptr noundef @.str.9, ptr noundef @.str.13, i32 noundef 1, ptr noundef %78, ptr noundef %81)
   call void @exit(i32 noundef 1) #7
   unreachable
 }
@@ -193,18 +194,19 @@ define internal ptr @find_prterun() #0 {
 6:                                                ; preds = %0
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %1, align 8
-  br label %12
+  br label %13
 
 8:                                                ; preds = %0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2), align 8
-  %10 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef @.str.15, ptr noundef %9, ptr noundef @.str.16)
-  %11 = load ptr, ptr %2, align 8
-  store ptr %11, ptr %1, align 8
-  br label %12
+  %9 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef @.str.15, ptr noundef %10, ptr noundef @.str.16)
+  %12 = load ptr, ptr %2, align 8
+  store ptr %12, ptr %1, align 8
+  br label %13
 
-12:                                               ; preds = %8, %6
-  %13 = load ptr, ptr %1, align 8
-  ret ptr %13
+13:                                               ; preds = %8, %6
+  %14 = load ptr, ptr %1, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable

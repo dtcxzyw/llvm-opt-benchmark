@@ -155,8 +155,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !43
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 240
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !45
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene18CB3DMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene18CB3DMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene18CB3DMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene18CB3DMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %B3dStack = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %B3dStack, i8 0, i64 24, i1 false)

@@ -3119,16 +3119,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
   br label %eh.resume
 
@@ -6349,7 +6350,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp4D3DS8MaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(689) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials) #16
   %pcInstance = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 3
@@ -6365,7 +6367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials) #16
   call void @_ZN6Assimp4D3DS8MaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(689) %this1) #16
@@ -13815,10 +13818,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mName = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mName, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %name.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mName, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %mDiffuse = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 2
   invoke void @_ZN9aiColor3DC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %mDiffuse, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000)
           to label %invoke.cont unwind label %lpad
@@ -13861,12 +13865,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mName) #16
   br label %eh.resume
 
@@ -13953,7 +13957,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %sTexAmbient = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 19
   call void @_ZN6Assimp4D3DS7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sTexAmbient) #16
   %sTexShininess = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 16
@@ -26386,27 +26391,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6Assimp4D3DS8MaterialC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(689) %this1, ptr noundef nonnull align 8 dereferenceable(689) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %other.addr, align 8
+  %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %2, i32 0, i32 2
   invoke void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials, ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %pcInstance = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %other.addr, align 8
-  %pcInstance3 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %other.addr, align 8
+  %pcInstance3 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %3, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pcInstance, ptr align 8 %pcInstance3, i64 9, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp4D3DS8MaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(689) %this1) #16
   br label %eh.resume
 
@@ -26428,187 +26434,188 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mName = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %mName2 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %other.addr, align 8
+  %mName2 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mName, ptr noundef nonnull align 8 dereferenceable(32) %mName2)
   %mDiffuse = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %mDiffuse3 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %other.addr, align 8
+  %mDiffuse3 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %2, i32 0, i32 2
   invoke void @_ZN9aiColor3DC2ERKS_(ptr noundef nonnull align 4 dereferenceable(12) %mDiffuse, ptr noundef nonnull align 4 dereferenceable(12) %mDiffuse3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %mSpecularExponent = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %other.addr, align 8
-  %mSpecularExponent4 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %other.addr, align 8
+  %mSpecularExponent4 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %3, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %mSpecularExponent, ptr align 4 %mSpecularExponent4, i64 8, i1 false)
   %mSpecular = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %other.addr, align 8
-  %mSpecular5 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %3, i32 0, i32 5
+  %4 = load ptr, ptr %other.addr, align 8
+  %mSpecular5 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %4, i32 0, i32 5
   invoke void @_ZN9aiColor3DC2ERKS_(ptr noundef nonnull align 4 dereferenceable(12) %mSpecular, ptr noundef nonnull align 4 dereferenceable(12) %mSpecular5)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %mAmbient = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %other.addr, align 8
-  %mAmbient7 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %4, i32 0, i32 6
+  %5 = load ptr, ptr %other.addr, align 8
+  %mAmbient7 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %5, i32 0, i32 6
   invoke void @_ZN9aiColor3DC2ERKS_(ptr noundef nonnull align 4 dereferenceable(12) %mAmbient, ptr noundef nonnull align 4 dereferenceable(12) %mAmbient7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %mShading = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 7
-  %5 = load ptr, ptr %other.addr, align 8
-  %mShading9 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %5, i32 0, i32 7
+  %6 = load ptr, ptr %other.addr, align 8
+  %mShading9 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %6, i32 0, i32 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %mShading, ptr align 4 %mShading9, i64 8, i1 false)
   %sTexDiffuse = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %other.addr, align 8
-  %sTexDiffuse10 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %6, i32 0, i32 10
+  %7 = load ptr, ptr %other.addr, align 8
+  %sTexDiffuse10 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %7, i32 0, i32 10
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexDiffuse, ptr noundef nonnull align 8 dereferenceable(72) %sTexDiffuse10)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   %sTexOpacity = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 11
-  %7 = load ptr, ptr %other.addr, align 8
-  %sTexOpacity12 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %7, i32 0, i32 11
+  %8 = load ptr, ptr %other.addr, align 8
+  %sTexOpacity12 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %8, i32 0, i32 11
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexOpacity, ptr noundef nonnull align 8 dereferenceable(72) %sTexOpacity12)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
   %sTexSpecular = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 12
-  %8 = load ptr, ptr %other.addr, align 8
-  %sTexSpecular15 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %8, i32 0, i32 12
+  %9 = load ptr, ptr %other.addr, align 8
+  %sTexSpecular15 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %9, i32 0, i32 12
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexSpecular, ptr noundef nonnull align 8 dereferenceable(72) %sTexSpecular15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont14
   %sTexReflective = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 13
-  %9 = load ptr, ptr %other.addr, align 8
-  %sTexReflective18 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %9, i32 0, i32 13
+  %10 = load ptr, ptr %other.addr, align 8
+  %sTexReflective18 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %10, i32 0, i32 13
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexReflective, ptr noundef nonnull align 8 dereferenceable(72) %sTexReflective18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
   %sTexBump = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 14
-  %10 = load ptr, ptr %other.addr, align 8
-  %sTexBump21 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %10, i32 0, i32 14
+  %11 = load ptr, ptr %other.addr, align 8
+  %sTexBump21 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %11, i32 0, i32 14
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexBump, ptr noundef nonnull align 8 dereferenceable(72) %sTexBump21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   %sTexEmissive = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 15
-  %11 = load ptr, ptr %other.addr, align 8
-  %sTexEmissive24 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %11, i32 0, i32 15
+  %12 = load ptr, ptr %other.addr, align 8
+  %sTexEmissive24 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %12, i32 0, i32 15
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexEmissive, ptr noundef nonnull align 8 dereferenceable(72) %sTexEmissive24)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   %sTexShininess = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 16
-  %12 = load ptr, ptr %other.addr, align 8
-  %sTexShininess27 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %12, i32 0, i32 16
+  %13 = load ptr, ptr %other.addr, align 8
+  %sTexShininess27 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %13, i32 0, i32 16
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexShininess, ptr noundef nonnull align 8 dereferenceable(72) %sTexShininess27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
   %mBumpHeight = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 17
-  %13 = load ptr, ptr %other.addr, align 8
-  %mBumpHeight30 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %13, i32 0, i32 17
-  %14 = load float, ptr %mBumpHeight30, align 8
-  store float %14, ptr %mBumpHeight, align 8
+  %14 = load ptr, ptr %other.addr, align 8
+  %mBumpHeight30 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %14, i32 0, i32 17
+  %15 = load float, ptr %mBumpHeight30, align 8
+  store float %15, ptr %mBumpHeight, align 8
   %mEmissive = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 18
-  %15 = load ptr, ptr %other.addr, align 8
-  %mEmissive31 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %15, i32 0, i32 18
+  %16 = load ptr, ptr %other.addr, align 8
+  %mEmissive31 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %16, i32 0, i32 18
   invoke void @_ZN9aiColor3DC2ERKS_(ptr noundef nonnull align 4 dereferenceable(12) %mEmissive, ptr noundef nonnull align 4 dereferenceable(12) %mEmissive31)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %sTexAmbient = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 19
-  %16 = load ptr, ptr %other.addr, align 8
-  %sTexAmbient34 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %16, i32 0, i32 19
+  %17 = load ptr, ptr %other.addr, align 8
+  %sTexAmbient34 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %17, i32 0, i32 19
   invoke void @_ZN6Assimp4D3DS7TextureC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %sTexAmbient, ptr noundef nonnull align 8 dereferenceable(72) %sTexAmbient34)
           to label %invoke.cont35 unwind label %lpad32
 
 invoke.cont35:                                    ; preds = %invoke.cont33
   %mTwoSided = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 20
-  %17 = load ptr, ptr %other.addr, align 8
-  %mTwoSided36 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %17, i32 0, i32 20
-  %18 = load i8, ptr %mTwoSided36, align 8
-  %tobool = trunc i8 %18 to i1
+  %18 = load ptr, ptr %other.addr, align 8
+  %mTwoSided36 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %18, i32 0, i32 20
+  %19 = load i8, ptr %mTwoSided36, align 8
+  %tobool = trunc i8 %19 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %mTwoSided, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont, %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup42
 
 lpad13:                                           ; preds = %invoke.cont11
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup41
 
 lpad16:                                           ; preds = %invoke.cont14
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad19:                                           ; preds = %invoke.cont17
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad22:                                           ; preds = %invoke.cont20
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad25:                                           ; preds = %invoke.cont23
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad28:                                           ; preds = %invoke.cont26
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad32:                                           ; preds = %invoke.cont33, %invoke.cont29
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp4D3DS7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sTexShininess) #16
   br label %ehcleanup
 
@@ -27472,33 +27479,34 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %other.addr, align 8
+  %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %2, i32 0, i32 2
   call void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials, ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials2) #16
   %pcInstance = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %other.addr, align 8
-  %pcInstance3 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %pcInstance3, align 8
-  store ptr %3, ptr %pcInstance, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %pcInstance3 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %pcInstance3, align 8
+  store ptr %4, ptr %pcInstance, align 8
   %bNeed = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %bNeed4 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %4, i32 0, i32 4
-  %5 = load i8, ptr %bNeed4, align 8
-  %tobool = trunc i8 %5 to i1
+  %5 = load ptr, ptr %other.addr, align 8
+  %bNeed4 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %5, i32 0, i32 4
+  %6 = load i8, ptr %bNeed4, align 8
+  %tobool = trunc i8 %6 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %bNeed, align 8
-  %6 = load ptr, ptr %other.addr, align 8
-  %pcInstance5 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %other.addr, align 8
+  %pcInstance5 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %7, i32 0, i32 3
   store ptr null, ptr %pcInstance5, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 }
 
@@ -32378,16 +32386,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
   br label %eh.resume
 
@@ -33033,16 +33042,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
   br label %eh.resume
 

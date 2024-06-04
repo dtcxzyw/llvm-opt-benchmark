@@ -74,7 +74,7 @@ define internal ptr @mca_coll_monitoring_component_query(ptr noundef %0, ptr nou
   %11 = load ptr, ptr %5, align 8
   store i32 -1, ptr %11, align 4
   store ptr null, ptr %3, align 8
-  br label %157
+  br label %158
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %6, align 8
@@ -264,17 +264,18 @@ define internal ptr @mca_coll_monitoring_component_query(ptr noundef %0, ptr nou
   %151 = load ptr, ptr %6, align 8
   %152 = getelementptr inbounds %struct.mca_coll_monitoring_module_t, ptr %151, i32 0, i32 3
   store volatile i32 0, ptr %152, align 8
-  %153 = load i32, ptr getelementptr inbounds (%struct.mca_coll_monitoring_component_t, ptr @mca_coll_monitoring_component, i32 0, i32 1), align 8
-  %154 = load ptr, ptr %5, align 8
-  store i32 %153, ptr %154, align 4
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct.mca_coll_monitoring_module_t, ptr %155, i32 0, i32 0
-  store ptr %156, ptr %3, align 8
-  br label %157
+  %153 = getelementptr inbounds %struct.mca_coll_monitoring_component_t, ptr @mca_coll_monitoring_component, i32 0, i32 1
+  %154 = load i32, ptr %153, align 8
+  %155 = load ptr, ptr %5, align 8
+  store i32 %154, ptr %155, align 4
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds %struct.mca_coll_monitoring_module_t, ptr %156, i32 0, i32 0
+  store ptr %157, ptr %3, align 8
+  br label %158
 
-157:                                              ; preds = %12, %10
-  %158 = load ptr, ptr %3, align 8
-  ret ptr %158
+158:                                              ; preds = %12, %10
+  %159 = load ptr, ptr %3, align 8
+  ret ptr %159
 }
 
 declare void @mca_common_monitoring_finalize() #1

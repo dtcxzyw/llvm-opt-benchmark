@@ -531,11 +531,12 @@ do.body6:                                         ; preds = %do.body5
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %base, align 8
-  %th_base_lock7 = getelementptr inbounds %struct.event_base, ptr %5, i32 0, i32 31
-  %6 = load ptr, ptr %th_base_lock7, align 8
-  %call8 = call i32 %4(i32 noundef 0, ptr noundef %6)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %base, align 8
+  %th_base_lock7 = getelementptr inbounds %struct.event_base, ptr %6, i32 0, i32 31
+  %7 = load ptr, ptr %th_base_lock7, align 8
+  %call8 = call i32 %5(i32 noundef 0, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body6
@@ -545,28 +546,29 @@ do.end9:                                          ; preds = %if.end
   br label %do.end10
 
 do.end10:                                         ; preds = %do.end9
-  %7 = load ptr, ptr %base, align 8
+  %8 = load ptr, ptr %base, align 8
   %ssi_signo = getelementptr inbounds %struct.signalfd_siginfo, ptr %fdsi, i32 0, i32 0
-  %8 = load i32, ptr %ssi_signo, align 8
-  call void @evmap_signal_active_(ptr noundef %7, i32 noundef %8, i32 noundef 1)
+  %9 = load i32, ptr %ssi_signo, align 8
+  call void @evmap_signal_active_(ptr noundef %8, i32 noundef %9, i32 noundef 1)
   br label %do.body11
 
 do.body11:                                        ; preds = %do.end10
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body11
-  %9 = load ptr, ptr %base, align 8
-  %th_base_lock13 = getelementptr inbounds %struct.event_base, ptr %9, i32 0, i32 31
-  %10 = load ptr, ptr %th_base_lock13, align 8
-  %tobool14 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %base, align 8
+  %th_base_lock13 = getelementptr inbounds %struct.event_base, ptr %10, i32 0, i32 31
+  %11 = load ptr, ptr %th_base_lock13, align 8
+  %tobool14 = icmp ne ptr %11, null
   br i1 %tobool14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.body12
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %12 = load ptr, ptr %base, align 8
-  %th_base_lock16 = getelementptr inbounds %struct.event_base, ptr %12, i32 0, i32 31
-  %13 = load ptr, ptr %th_base_lock16, align 8
-  %call17 = call i32 %11(i32 noundef 0, ptr noundef %13)
+  %12 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %base, align 8
+  %th_base_lock16 = getelementptr inbounds %struct.event_base, ptr %14, i32 0, i32 31
+  %15 = load ptr, ptr %th_base_lock16, align 8
+  %call17 = call i32 %13(i32 noundef 0, ptr noundef %15)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.body12

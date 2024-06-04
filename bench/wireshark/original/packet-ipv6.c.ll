@@ -1872,24 +1872,25 @@ define internal ptr @ipv6_value(ptr noundef %0) #0 {
   store ptr %6, ptr %4, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  store ptr inttoptr (i64 255 to ptr), ptr %2, align 8
-  br label %16
+  %10 = inttoptr i64 255 to ptr
+  store ptr %10, ptr %2, align 8
+  br label %17
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = zext i32 %13 to i64
-  %15 = inttoptr i64 %14 to ptr
-  store ptr %15, ptr %2, align 8
-  br label %16
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %4, align 8
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = zext i32 %14 to i64
+  %16 = inttoptr i64 %15 to ptr
+  store ptr %16, ptr %2, align 8
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load ptr, ptr %2, align 8
-  ret ptr %17
+17:                                               ; preds = %11, %9
+  %18 = load ptr, ptr %2, align 8
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2540,7 +2541,7 @@ define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %88 = load i32, ptr %26, align 4
   %89 = add i32 %88, 0
   store i32 %89, ptr %5, align 4
-  br label %617
+  br label %618
 
 90:                                               ; preds = %4
   %91 = load ptr, ptr %6, align 8
@@ -2767,7 +2768,7 @@ define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @copy_address_shallow(ptr noundef %265, ptr noundef %267)
   %268 = load ptr, ptr %8, align 8
   %269 = icmp ne ptr %268, null
-  br i1 %269, label %270, label %358
+  br i1 %269, label %270, label %359
 
 270:                                              ; preds = %213
   %271 = load i32, ptr @ipv6_summary_in_tree, align 4
@@ -2862,409 +2863,410 @@ define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %346 = add i32 %345, 24
   %347 = load i32, ptr @hf_ipv6_dst_embed_ipv4, align 4
   call void @add_ipv6_address_embed_ipv4(ptr noundef %342, ptr noundef %343, ptr noundef %344, i32 noundef %346, i32 noundef %347)
-  %348 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 7), align 4
-  %349 = icmp ne i32 %348, 0
-  br i1 %349, label %350, label %357
+  %348 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 7
+  %349 = load i32, ptr %348, align 4
+  %350 = icmp ne i32 %349, 0
+  br i1 %350, label %351, label %358
 
-350:                                              ; preds = %287
-  %351 = load ptr, ptr %10, align 8
-  %352 = load ptr, ptr %7, align 8
-  %353 = load ptr, ptr %6, align 8
-  %354 = load i32, ptr %26, align 4
-  %355 = load ptr, ptr %21, align 8
-  %356 = load ptr, ptr %22, align 8
-  call void @add_geoip_info(ptr noundef %351, ptr noundef %352, ptr noundef %353, i32 noundef %354, ptr noundef %355, ptr noundef %356)
-  br label %357
-
-357:                                              ; preds = %350, %287
+351:                                              ; preds = %287
+  %352 = load ptr, ptr %10, align 8
+  %353 = load ptr, ptr %7, align 8
+  %354 = load ptr, ptr %6, align 8
+  %355 = load i32, ptr %26, align 4
+  %356 = load ptr, ptr %21, align 8
+  %357 = load ptr, ptr %22, align 8
+  call void @add_geoip_info(ptr noundef %352, ptr noundef %353, ptr noundef %354, i32 noundef %355, ptr noundef %356, ptr noundef %357)
   br label %358
 
-358:                                              ; preds = %357, %213
-  %359 = load i32, ptr %26, align 4
-  %360 = add i32 %359, 40
-  store i32 %360, ptr %26, align 4
-  %361 = load i32, ptr %23, align 4
-  store i32 %361, ptr %25, align 4
-  %362 = load i32, ptr %25, align 4
-  %363 = icmp eq i32 %362, 0
-  br i1 %363, label %364, label %385
+358:                                              ; preds = %351, %287
+  br label %359
 
-364:                                              ; preds = %358
-  %365 = load i8, ptr %18, align 1
-  %366 = zext i8 %365 to i32
-  %367 = icmp eq i32 %366, 0
-  br i1 %367, label %368, label %385
+359:                                              ; preds = %358, %213
+  %360 = load i32, ptr %26, align 4
+  %361 = add i32 %360, 40
+  store i32 %361, ptr %26, align 4
+  %362 = load i32, ptr %23, align 4
+  store i32 %362, ptr %25, align 4
+  %363 = load i32, ptr %25, align 4
+  %364 = icmp eq i32 %363, 0
+  br i1 %364, label %365, label %386
 
-368:                                              ; preds = %364
-  %369 = load ptr, ptr %6, align 8
-  %370 = load i32, ptr %26, align 4
-  %371 = call i32 @ipv6_get_jumbo_plen(ptr noundef %369, i32 noundef %370)
-  store i32 %371, ptr %24, align 4
-  %372 = load i32, ptr %24, align 4
-  %373 = icmp ne i32 %372, 0
-  br i1 %373, label %374, label %377
+365:                                              ; preds = %359
+  %366 = load i8, ptr %18, align 1
+  %367 = zext i8 %366 to i32
+  %368 = icmp eq i32 %367, 0
+  br i1 %368, label %369, label %386
 
-374:                                              ; preds = %368
-  %375 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %375, ptr noundef @.str.855)
-  %376 = load i32, ptr %24, align 4
-  store i32 %376, ptr %25, align 4
-  br label %384
+369:                                              ; preds = %365
+  %370 = load ptr, ptr %6, align 8
+  %371 = load i32, ptr %26, align 4
+  %372 = call i32 @ipv6_get_jumbo_plen(ptr noundef %370, i32 noundef %371)
+  store i32 %372, ptr %24, align 4
+  %373 = load i32, ptr %24, align 4
+  %374 = icmp ne i32 %373, 0
+  br i1 %374, label %375, label %378
 
-377:                                              ; preds = %368
-  %378 = load ptr, ptr %7, align 8
-  %379 = getelementptr inbounds %struct._packet_info, ptr %378, i32 0, i32 1
-  %380 = load ptr, ptr %379, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %380, i32 noundef 25, ptr noundef @.str.856)
-  %381 = load ptr, ptr %7, align 8
-  %382 = load ptr, ptr %15, align 8
-  %383 = call ptr @expert_add_info(ptr noundef %381, ptr noundef %382, ptr noundef @ei_ipv6_opt_jumbo_missing)
-  br label %384
-
-384:                                              ; preds = %377, %374
+375:                                              ; preds = %369
+  %376 = load ptr, ptr %15, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %376, ptr noundef @.str.855)
+  %377 = load i32, ptr %24, align 4
+  store i32 %377, ptr %25, align 4
   br label %385
 
-385:                                              ; preds = %384, %364, %358
-  %386 = load ptr, ptr %6, align 8
-  %387 = call i32 @tvb_reported_length(ptr noundef %386)
-  %388 = sub i32 %387, 40
-  store i32 %388, ptr %27, align 4
-  %389 = load ptr, ptr %7, align 8
-  %390 = getelementptr inbounds %struct._packet_info, ptr %389, i32 0, i32 21
-  %391 = load i8, ptr %390, align 4
-  %392 = and i8 %391, 1
-  %393 = zext i8 %392 to i32
-  %394 = icmp ne i32 %393, 0
-  br i1 %394, label %404, label %395
+378:                                              ; preds = %369
+  %379 = load ptr, ptr %7, align 8
+  %380 = getelementptr inbounds %struct._packet_info, ptr %379, i32 0, i32 1
+  %381 = load ptr, ptr %380, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %381, i32 noundef 25, ptr noundef @.str.856)
+  %382 = load ptr, ptr %7, align 8
+  %383 = load ptr, ptr %15, align 8
+  %384 = call ptr @expert_add_info(ptr noundef %382, ptr noundef %383, ptr noundef @ei_ipv6_opt_jumbo_missing)
+  br label %385
 
-395:                                              ; preds = %385
-  %396 = load i32, ptr %25, align 4
-  %397 = load i32, ptr %27, align 4
-  %398 = icmp ugt i32 %396, %397
-  br i1 %398, label %399, label %404
+385:                                              ; preds = %378, %375
+  br label %386
 
-399:                                              ; preds = %395
-  %400 = load ptr, ptr %7, align 8
-  %401 = load ptr, ptr %15, align 8
-  %402 = load i32, ptr %27, align 4
-  %403 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %400, ptr noundef %401, ptr noundef @ei_ipv6_plen_exceeds_framing, ptr noundef @.str.857, i32 noundef %402)
-  br label %404
+386:                                              ; preds = %385, %365, %359
+  %387 = load ptr, ptr %6, align 8
+  %388 = call i32 @tvb_reported_length(ptr noundef %387)
+  %389 = sub i32 %388, 40
+  store i32 %389, ptr %27, align 4
+  %390 = load ptr, ptr %7, align 8
+  %391 = getelementptr inbounds %struct._packet_info, ptr %390, i32 0, i32 21
+  %392 = load i8, ptr %391, align 4
+  %393 = and i8 %392, 1
+  %394 = zext i8 %393 to i32
+  %395 = icmp ne i32 %394, 0
+  br i1 %395, label %405, label %396
 
-404:                                              ; preds = %399, %395, %385
-  %405 = load ptr, ptr %7, align 8
-  %406 = getelementptr inbounds %struct._packet_info, ptr %405, i32 0, i32 3
-  %407 = load i32, ptr %406, align 4
-  %408 = load ptr, ptr %7, align 8
-  %409 = getelementptr inbounds %struct._packet_info, ptr %408, i32 0, i32 16
-  %410 = load ptr, ptr %7, align 8
-  %411 = getelementptr inbounds %struct._packet_info, ptr %410, i32 0, i32 17
-  %412 = call ptr @find_conversation(i32 noundef %407, ptr noundef %409, ptr noundef %411, i32 noundef 40, i32 noundef 0, i32 noundef 0, i32 noundef 262144)
-  store ptr %412, ptr %33, align 8
-  %413 = load ptr, ptr %33, align 8
-  %414 = icmp ne ptr %413, null
-  br i1 %414, label %424, label %415
+396:                                              ; preds = %386
+  %397 = load i32, ptr %25, align 4
+  %398 = load i32, ptr %27, align 4
+  %399 = icmp ugt i32 %397, %398
+  br i1 %399, label %400, label %405
 
-415:                                              ; preds = %404
-  %416 = load ptr, ptr %7, align 8
-  %417 = getelementptr inbounds %struct._packet_info, ptr %416, i32 0, i32 3
-  %418 = load i32, ptr %417, align 4
-  %419 = load ptr, ptr %7, align 8
-  %420 = getelementptr inbounds %struct._packet_info, ptr %419, i32 0, i32 16
-  %421 = load ptr, ptr %7, align 8
-  %422 = getelementptr inbounds %struct._packet_info, ptr %421, i32 0, i32 17
-  %423 = call nonnull ptr @conversation_new(i32 noundef %418, ptr noundef %420, ptr noundef %422, i32 noundef 40, i32 noundef 0, i32 noundef 0, i32 noundef 16)
-  store ptr %423, ptr %33, align 8
-  br label %450
+400:                                              ; preds = %396
+  %401 = load ptr, ptr %7, align 8
+  %402 = load ptr, ptr %15, align 8
+  %403 = load i32, ptr %27, align 4
+  %404 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %401, ptr noundef %402, ptr noundef @ei_ipv6_plen_exceeds_framing, ptr noundef @.str.857, i32 noundef %403)
+  br label %405
 
-424:                                              ; preds = %404
-  %425 = load ptr, ptr %7, align 8
-  %426 = getelementptr inbounds %struct._packet_info, ptr %425, i32 0, i32 8
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds %struct._frame_data, ptr %427, i32 0, i32 9
-  %429 = load i16, ptr %428, align 2
-  %430 = lshr i16 %429, 3
-  %431 = and i16 %430, 1
-  %432 = zext i16 %431 to i32
-  %433 = icmp ne i32 %432, 0
-  br i1 %433, label %449, label %434
+405:                                              ; preds = %400, %396, %386
+  %406 = load ptr, ptr %7, align 8
+  %407 = getelementptr inbounds %struct._packet_info, ptr %406, i32 0, i32 3
+  %408 = load i32, ptr %407, align 4
+  %409 = load ptr, ptr %7, align 8
+  %410 = getelementptr inbounds %struct._packet_info, ptr %409, i32 0, i32 16
+  %411 = load ptr, ptr %7, align 8
+  %412 = getelementptr inbounds %struct._packet_info, ptr %411, i32 0, i32 17
+  %413 = call ptr @find_conversation(i32 noundef %408, ptr noundef %410, ptr noundef %412, i32 noundef 40, i32 noundef 0, i32 noundef 0, i32 noundef 262144)
+  store ptr %413, ptr %33, align 8
+  %414 = load ptr, ptr %33, align 8
+  %415 = icmp ne ptr %414, null
+  br i1 %415, label %425, label %416
 
-434:                                              ; preds = %424
-  %435 = load ptr, ptr %7, align 8
-  %436 = getelementptr inbounds %struct._packet_info, ptr %435, i32 0, i32 3
-  %437 = load i32, ptr %436, align 4
-  %438 = load ptr, ptr %33, align 8
-  %439 = getelementptr inbounds %struct.conversation, ptr %438, i32 0, i32 5
-  %440 = load i32, ptr %439, align 8
-  %441 = icmp ugt i32 %437, %440
-  br i1 %441, label %442, label %448
+416:                                              ; preds = %405
+  %417 = load ptr, ptr %7, align 8
+  %418 = getelementptr inbounds %struct._packet_info, ptr %417, i32 0, i32 3
+  %419 = load i32, ptr %418, align 4
+  %420 = load ptr, ptr %7, align 8
+  %421 = getelementptr inbounds %struct._packet_info, ptr %420, i32 0, i32 16
+  %422 = load ptr, ptr %7, align 8
+  %423 = getelementptr inbounds %struct._packet_info, ptr %422, i32 0, i32 17
+  %424 = call nonnull ptr @conversation_new(i32 noundef %419, ptr noundef %421, ptr noundef %423, i32 noundef 40, i32 noundef 0, i32 noundef 0, i32 noundef 16)
+  store ptr %424, ptr %33, align 8
+  br label %451
 
-442:                                              ; preds = %434
-  %443 = load ptr, ptr %7, align 8
-  %444 = getelementptr inbounds %struct._packet_info, ptr %443, i32 0, i32 3
-  %445 = load i32, ptr %444, align 4
-  %446 = load ptr, ptr %33, align 8
-  %447 = getelementptr inbounds %struct.conversation, ptr %446, i32 0, i32 5
-  store i32 %445, ptr %447, align 8
-  br label %448
+425:                                              ; preds = %405
+  %426 = load ptr, ptr %7, align 8
+  %427 = getelementptr inbounds %struct._packet_info, ptr %426, i32 0, i32 8
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds %struct._frame_data, ptr %428, i32 0, i32 9
+  %430 = load i16, ptr %429, align 2
+  %431 = lshr i16 %430, 3
+  %432 = and i16 %431, 1
+  %433 = zext i16 %432 to i32
+  %434 = icmp ne i32 %433, 0
+  br i1 %434, label %450, label %435
 
-448:                                              ; preds = %442, %434
+435:                                              ; preds = %425
+  %436 = load ptr, ptr %7, align 8
+  %437 = getelementptr inbounds %struct._packet_info, ptr %436, i32 0, i32 3
+  %438 = load i32, ptr %437, align 4
+  %439 = load ptr, ptr %33, align 8
+  %440 = getelementptr inbounds %struct.conversation, ptr %439, i32 0, i32 5
+  %441 = load i32, ptr %440, align 8
+  %442 = icmp ugt i32 %438, %441
+  br i1 %442, label %443, label %449
+
+443:                                              ; preds = %435
+  %444 = load ptr, ptr %7, align 8
+  %445 = getelementptr inbounds %struct._packet_info, ptr %444, i32 0, i32 3
+  %446 = load i32, ptr %445, align 4
+  %447 = load ptr, ptr %33, align 8
+  %448 = getelementptr inbounds %struct.conversation, ptr %447, i32 0, i32 5
+  store i32 %446, ptr %448, align 8
   br label %449
 
-449:                                              ; preds = %448, %424
+449:                                              ; preds = %443, %435
   br label %450
 
-450:                                              ; preds = %449, %415
-  %451 = load ptr, ptr %33, align 8
-  %452 = load ptr, ptr %7, align 8
-  %453 = call ptr @get_ipv6_conversation_data(ptr noundef %451, ptr noundef %452)
-  store ptr %453, ptr %32, align 8
-  %454 = load ptr, ptr %32, align 8
-  %455 = icmp ne ptr %454, null
-  br i1 %455, label %456, label %470
+450:                                              ; preds = %449, %425
+  br label %451
 
-456:                                              ; preds = %450
-  %457 = load ptr, ptr %32, align 8
-  %458 = getelementptr inbounds %struct.ipv6_analysis, ptr %457, i32 0, i32 1
-  %459 = load i32, ptr %458, align 4
-  %460 = load ptr, ptr %31, align 8
-  %461 = getelementptr inbounds %struct._ws_ip6, ptr %460, i32 0, i32 8
-  store i32 %459, ptr %461, align 8
-  %462 = load ptr, ptr %10, align 8
-  %463 = load i32, ptr @hf_ipv6_stream, align 4
-  %464 = load ptr, ptr %6, align 8
-  %465 = load ptr, ptr %32, align 8
-  %466 = getelementptr inbounds %struct.ipv6_analysis, ptr %465, i32 0, i32 1
-  %467 = load i32, ptr %466, align 4
-  %468 = call ptr @proto_tree_add_uint(ptr noundef %462, i32 noundef %463, ptr noundef %464, i32 noundef 0, i32 noundef 0, i32 noundef %467)
-  store ptr %468, ptr %12, align 8
-  %469 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %469)
-  br label %470
+451:                                              ; preds = %450, %416
+  %452 = load ptr, ptr %33, align 8
+  %453 = load ptr, ptr %7, align 8
+  %454 = call ptr @get_ipv6_conversation_data(ptr noundef %452, ptr noundef %453)
+  store ptr %454, ptr %32, align 8
+  %455 = load ptr, ptr %32, align 8
+  %456 = icmp ne ptr %455, null
+  br i1 %456, label %457, label %471
 
-470:                                              ; preds = %456, %450
-  %471 = load ptr, ptr %31, align 8
-  %472 = getelementptr inbounds %struct._ws_ip6, ptr %471, i32 0, i32 0
-  store i8 6, ptr %472, align 8
-  %473 = load i8, ptr %17, align 1
-  %474 = load ptr, ptr %31, align 8
-  %475 = getelementptr inbounds %struct._ws_ip6, ptr %474, i32 0, i32 1
-  store i8 %473, ptr %475, align 1
-  %476 = load i32, ptr %20, align 4
-  %477 = load ptr, ptr %31, align 8
-  %478 = getelementptr inbounds %struct._ws_ip6, ptr %477, i32 0, i32 2
-  store i32 %476, ptr %478, align 4
-  %479 = load i32, ptr %25, align 4
-  %480 = load ptr, ptr %31, align 8
-  %481 = getelementptr inbounds %struct._ws_ip6, ptr %480, i32 0, i32 3
-  store i32 %479, ptr %481, align 8
-  %482 = load i8, ptr %18, align 1
-  %483 = load ptr, ptr %31, align 8
-  %484 = getelementptr inbounds %struct._ws_ip6, ptr %483, i32 0, i32 4
-  store i8 %482, ptr %484, align 4
-  %485 = load i8, ptr %19, align 1
-  %486 = load ptr, ptr %31, align 8
-  %487 = getelementptr inbounds %struct._ws_ip6, ptr %486, i32 0, i32 5
-  store i8 %485, ptr %487, align 1
-  %488 = load ptr, ptr %7, align 8
-  %489 = getelementptr inbounds %struct._packet_info, ptr %488, i32 0, i32 50
-  %490 = load ptr, ptr %489, align 8
-  %491 = load ptr, ptr %31, align 8
-  %492 = getelementptr inbounds %struct._ws_ip6, ptr %491, i32 0, i32 6
-  %493 = load ptr, ptr %21, align 8
-  call void @alloc_address_wmem(ptr noundef %490, ptr noundef %492, i32 noundef 3, i32 noundef 16, ptr noundef %493)
-  %494 = load ptr, ptr %7, align 8
-  %495 = getelementptr inbounds %struct._packet_info, ptr %494, i32 0, i32 50
-  %496 = load ptr, ptr %495, align 8
-  %497 = load ptr, ptr %31, align 8
-  %498 = getelementptr inbounds %struct._ws_ip6, ptr %497, i32 0, i32 7
-  %499 = load ptr, ptr %22, align 8
-  call void @alloc_address_wmem(ptr noundef %496, ptr noundef %498, i32 noundef 3, i32 noundef 16, ptr noundef %499)
-  %500 = load ptr, ptr %7, align 8
-  %501 = getelementptr inbounds %struct._packet_info, ptr %500, i32 0, i32 50
-  %502 = load ptr, ptr %501, align 8
-  %503 = call noalias ptr @wmem_alloc0(ptr noundef %502, i64 noundef 32)
-  store ptr %503, ptr %34, align 8
-  %504 = load i32, ptr %23, align 4
-  %505 = trunc i32 %504 to i16
-  %506 = load ptr, ptr %34, align 8
-  %507 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %506, i32 0, i32 1
-  store i16 %505, ptr %507, align 4
-  %508 = load i32, ptr %24, align 4
-  %509 = load ptr, ptr %34, align 8
-  %510 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %509, i32 0, i32 0
-  store i32 %508, ptr %510, align 8
-  %511 = load i32, ptr %23, align 4
-  %512 = load ptr, ptr %34, align 8
-  %513 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %512, i32 0, i32 2
-  store i32 %511, ptr %513, align 8
-  %514 = load i32, ptr @ipv6_exthdr_under_root, align 4
-  %515 = icmp ne i32 %514, 0
-  br i1 %515, label %522, label %516
+457:                                              ; preds = %451
+  %458 = load ptr, ptr %32, align 8
+  %459 = getelementptr inbounds %struct.ipv6_analysis, ptr %458, i32 0, i32 1
+  %460 = load i32, ptr %459, align 4
+  %461 = load ptr, ptr %31, align 8
+  %462 = getelementptr inbounds %struct._ws_ip6, ptr %461, i32 0, i32 8
+  store i32 %460, ptr %462, align 8
+  %463 = load ptr, ptr %10, align 8
+  %464 = load i32, ptr @hf_ipv6_stream, align 4
+  %465 = load ptr, ptr %6, align 8
+  %466 = load ptr, ptr %32, align 8
+  %467 = getelementptr inbounds %struct.ipv6_analysis, ptr %466, i32 0, i32 1
+  %468 = load i32, ptr %467, align 4
+  %469 = call ptr @proto_tree_add_uint(ptr noundef %463, i32 noundef %464, ptr noundef %465, i32 noundef 0, i32 noundef 0, i32 noundef %468)
+  store ptr %469, ptr %12, align 8
+  %470 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %470)
+  br label %471
 
-516:                                              ; preds = %470
-  %517 = load ptr, ptr %10, align 8
-  %518 = load ptr, ptr %34, align 8
-  %519 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %518, i32 0, i32 3
-  store ptr %517, ptr %519, align 8
-  %520 = load ptr, ptr %34, align 8
-  %521 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %520, i32 0, i32 4
-  store i32 40, ptr %521, align 8
-  br label %522
+471:                                              ; preds = %457, %451
+  %472 = load ptr, ptr %31, align 8
+  %473 = getelementptr inbounds %struct._ws_ip6, ptr %472, i32 0, i32 0
+  store i8 6, ptr %473, align 8
+  %474 = load i8, ptr %17, align 1
+  %475 = load ptr, ptr %31, align 8
+  %476 = getelementptr inbounds %struct._ws_ip6, ptr %475, i32 0, i32 1
+  store i8 %474, ptr %476, align 1
+  %477 = load i32, ptr %20, align 4
+  %478 = load ptr, ptr %31, align 8
+  %479 = getelementptr inbounds %struct._ws_ip6, ptr %478, i32 0, i32 2
+  store i32 %477, ptr %479, align 4
+  %480 = load i32, ptr %25, align 4
+  %481 = load ptr, ptr %31, align 8
+  %482 = getelementptr inbounds %struct._ws_ip6, ptr %481, i32 0, i32 3
+  store i32 %480, ptr %482, align 8
+  %483 = load i8, ptr %18, align 1
+  %484 = load ptr, ptr %31, align 8
+  %485 = getelementptr inbounds %struct._ws_ip6, ptr %484, i32 0, i32 4
+  store i8 %483, ptr %485, align 4
+  %486 = load i8, ptr %19, align 1
+  %487 = load ptr, ptr %31, align 8
+  %488 = getelementptr inbounds %struct._ws_ip6, ptr %487, i32 0, i32 5
+  store i8 %486, ptr %488, align 1
+  %489 = load ptr, ptr %7, align 8
+  %490 = getelementptr inbounds %struct._packet_info, ptr %489, i32 0, i32 50
+  %491 = load ptr, ptr %490, align 8
+  %492 = load ptr, ptr %31, align 8
+  %493 = getelementptr inbounds %struct._ws_ip6, ptr %492, i32 0, i32 6
+  %494 = load ptr, ptr %21, align 8
+  call void @alloc_address_wmem(ptr noundef %491, ptr noundef %493, i32 noundef 3, i32 noundef 16, ptr noundef %494)
+  %495 = load ptr, ptr %7, align 8
+  %496 = getelementptr inbounds %struct._packet_info, ptr %495, i32 0, i32 50
+  %497 = load ptr, ptr %496, align 8
+  %498 = load ptr, ptr %31, align 8
+  %499 = getelementptr inbounds %struct._ws_ip6, ptr %498, i32 0, i32 7
+  %500 = load ptr, ptr %22, align 8
+  call void @alloc_address_wmem(ptr noundef %497, ptr noundef %499, i32 noundef 3, i32 noundef 16, ptr noundef %500)
+  %501 = load ptr, ptr %7, align 8
+  %502 = getelementptr inbounds %struct._packet_info, ptr %501, i32 0, i32 50
+  %503 = load ptr, ptr %502, align 8
+  %504 = call noalias ptr @wmem_alloc0(ptr noundef %503, i64 noundef 32)
+  store ptr %504, ptr %34, align 8
+  %505 = load i32, ptr %23, align 4
+  %506 = trunc i32 %505 to i16
+  %507 = load ptr, ptr %34, align 8
+  %508 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %507, i32 0, i32 1
+  store i16 %506, ptr %508, align 4
+  %509 = load i32, ptr %24, align 4
+  %510 = load ptr, ptr %34, align 8
+  %511 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %510, i32 0, i32 0
+  store i32 %509, ptr %511, align 8
+  %512 = load i32, ptr %23, align 4
+  %513 = load ptr, ptr %34, align 8
+  %514 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %513, i32 0, i32 2
+  store i32 %512, ptr %514, align 8
+  %515 = load i32, ptr @ipv6_exthdr_under_root, align 4
+  %516 = icmp ne i32 %515, 0
+  br i1 %516, label %523, label %517
 
-522:                                              ; preds = %516, %470
-  %523 = load ptr, ptr %7, align 8
-  %524 = getelementptr inbounds %struct._packet_info, ptr %523, i32 0, i32 50
-  %525 = load ptr, ptr %524, align 8
-  %526 = load ptr, ptr %7, align 8
-  %527 = load i32, ptr @proto_ipv6, align 4
-  %528 = load ptr, ptr %34, align 8
-  call void @p_add_proto_data(ptr noundef %525, ptr noundef %526, i32 noundef %527, i32 noundef 2, ptr noundef %528)
-  %529 = load ptr, ptr %6, align 8
-  %530 = load i32, ptr %25, align 4
-  %531 = add i32 40, %530
-  call void @set_actual_length(ptr noundef %529, i32 noundef %531)
-  %532 = load ptr, ptr %6, align 8
-  %533 = load ptr, ptr %7, align 8
-  call void @export_pdu(ptr noundef %532, ptr noundef %533)
+517:                                              ; preds = %471
+  %518 = load ptr, ptr %10, align 8
+  %519 = load ptr, ptr %34, align 8
+  %520 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %519, i32 0, i32 3
+  store ptr %518, ptr %520, align 8
+  %521 = load ptr, ptr %34, align 8
+  %522 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %521, i32 0, i32 4
+  store i32 40, ptr %522, align 8
+  br label %523
+
+523:                                              ; preds = %517, %471
+  %524 = load ptr, ptr %7, align 8
+  %525 = getelementptr inbounds %struct._packet_info, ptr %524, i32 0, i32 50
+  %526 = load ptr, ptr %525, align 8
+  %527 = load ptr, ptr %7, align 8
+  %528 = load i32, ptr @proto_ipv6, align 4
+  %529 = load ptr, ptr %34, align 8
+  call void @p_add_proto_data(ptr noundef %526, ptr noundef %527, i32 noundef %528, i32 noundef 2, ptr noundef %529)
+  %530 = load ptr, ptr %6, align 8
+  %531 = load i32, ptr %25, align 4
+  %532 = add i32 40, %531
+  call void @set_actual_length(ptr noundef %530, i32 noundef %532)
+  %533 = load ptr, ptr %6, align 8
   %534 = load ptr, ptr %7, align 8
-  %535 = getelementptr inbounds %struct._packet_info, ptr %534, i32 0, i32 20
-  %536 = load i32, ptr %535, align 8
-  store i32 %536, ptr %29, align 4
-  %537 = load ptr, ptr %7, align 8
-  %538 = load i8, ptr %18, align 1
-  call void @p_add_ipv6_nxt(ptr noundef %537, i8 noundef zeroext %538)
-  %539 = load ptr, ptr %6, align 8
-  %540 = load i32, ptr %26, align 4
-  %541 = call ptr @tvb_new_subset_remaining(ptr noundef %539, i32 noundef %540)
-  store ptr %541, ptr %28, align 8
+  call void @export_pdu(ptr noundef %533, ptr noundef %534)
+  %535 = load ptr, ptr %7, align 8
+  %536 = getelementptr inbounds %struct._packet_info, ptr %535, i32 0, i32 20
+  %537 = load i32, ptr %536, align 8
+  store i32 %537, ptr %29, align 4
+  %538 = load ptr, ptr %7, align 8
+  %539 = load i8, ptr %18, align 1
+  call void @p_add_ipv6_nxt(ptr noundef %538, i8 noundef zeroext %539)
+  %540 = load ptr, ptr %6, align 8
+  %541 = load i32, ptr %26, align 4
+  %542 = call ptr @tvb_new_subset_remaining(ptr noundef %540, i32 noundef %541)
+  store ptr %542, ptr %28, align 8
   store volatile i32 0, ptr %36, align 4
   call void @except_setup_try(ptr noundef %37, ptr noundef %38, ptr noundef @dissect_ipv6.catch_spec, i64 noundef 1)
-  %542 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 3
-  %543 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %542, i64 0, i64 0
-  %544 = call i32 @_setjmp(ptr noundef %543) #9
-  %545 = icmp ne i32 %544, 0
-  br i1 %545, label %546, label %548
+  %543 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 3
+  %544 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %543, i64 0, i64 0
+  %545 = call i32 @_setjmp(ptr noundef %544) #9
+  %546 = icmp ne i32 %545, 0
+  br i1 %546, label %547, label %549
 
-546:                                              ; preds = %522
-  %547 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 2
-  store volatile ptr %547, ptr %35, align 8
-  br label %549
+547:                                              ; preds = %523
+  %548 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 2
+  store volatile ptr %548, ptr %35, align 8
+  br label %550
 
-548:                                              ; preds = %522
+549:                                              ; preds = %523
   store volatile ptr null, ptr %35, align 8
-  br label %549
+  br label %550
 
-549:                                              ; preds = %548, %546
-  %550 = load volatile i32, ptr %36, align 4
-  %551 = and i32 %550, 1
-  %552 = icmp ne i32 %551, 0
-  br i1 %552, label %553, label %556
+550:                                              ; preds = %549, %547
+  %551 = load volatile i32, ptr %36, align 4
+  %552 = and i32 %551, 1
+  %553 = icmp ne i32 %552, 0
+  br i1 %553, label %554, label %557
 
-553:                                              ; preds = %549
-  %554 = load volatile i32, ptr %36, align 4
-  %555 = or i32 %554, 2
-  store volatile i32 %555, ptr %36, align 4
-  br label %556
+554:                                              ; preds = %550
+  %555 = load volatile i32, ptr %36, align 4
+  %556 = or i32 %555, 2
+  store volatile i32 %556, ptr %36, align 4
+  br label %557
 
-556:                                              ; preds = %553, %549
-  %557 = load volatile i32, ptr %36, align 4
-  %558 = and i32 %557, -2
-  store volatile i32 %558, ptr %36, align 4
-  %559 = load volatile i32, ptr %36, align 4
-  %560 = icmp eq i32 %559, 0
-  br i1 %560, label %561, label %571
+557:                                              ; preds = %554, %550
+  %558 = load volatile i32, ptr %36, align 4
+  %559 = and i32 %558, -2
+  store volatile i32 %559, ptr %36, align 4
+  %560 = load volatile i32, ptr %36, align 4
+  %561 = icmp eq i32 %560, 0
+  br i1 %561, label %562, label %572
 
-561:                                              ; preds = %556
-  %562 = load volatile ptr, ptr %35, align 8
-  %563 = icmp eq ptr %562, null
-  br i1 %563, label %564, label %571
+562:                                              ; preds = %557
+  %563 = load volatile ptr, ptr %35, align 8
+  %564 = icmp eq ptr %563, null
+  br i1 %564, label %565, label %572
 
-564:                                              ; preds = %561
-  %565 = load i8, ptr %18, align 1
-  %566 = zext i8 %565 to i32
-  %567 = load ptr, ptr %28, align 8
-  %568 = load ptr, ptr %7, align 8
-  %569 = load ptr, ptr %8, align 8
-  %570 = load ptr, ptr %31, align 8
-  call void @ipv6_dissect_next(i32 noundef %566, ptr noundef %567, ptr noundef %568, ptr noundef %569, ptr noundef %570)
-  br label %571
+565:                                              ; preds = %562
+  %566 = load i8, ptr %18, align 1
+  %567 = zext i8 %566 to i32
+  %568 = load ptr, ptr %28, align 8
+  %569 = load ptr, ptr %7, align 8
+  %570 = load ptr, ptr %8, align 8
+  %571 = load ptr, ptr %31, align 8
+  call void @ipv6_dissect_next(i32 noundef %567, ptr noundef %568, ptr noundef %569, ptr noundef %570, ptr noundef %571)
+  br label %572
 
-571:                                              ; preds = %564, %561, %556
-  %572 = load volatile i32, ptr %36, align 4
-  %573 = and i32 %572, 4
-  %574 = icmp ne i32 %573, 0
-  br i1 %574, label %598, label %575
+572:                                              ; preds = %565, %562, %557
+  %573 = load volatile i32, ptr %36, align 4
+  %574 = and i32 %573, 4
+  %575 = icmp ne i32 %574, 0
+  br i1 %575, label %599, label %576
 
-575:                                              ; preds = %571
-  %576 = load volatile i32, ptr %36, align 4
-  %577 = or i32 %576, 4
-  store volatile i32 %577, ptr %36, align 4
-  %578 = icmp ne i32 %577, 0
-  br i1 %578, label %579, label %598
+576:                                              ; preds = %572
+  %577 = load volatile i32, ptr %36, align 4
+  %578 = or i32 %577, 4
+  store volatile i32 %578, ptr %36, align 4
+  %579 = icmp ne i32 %578, 0
+  br i1 %579, label %580, label %599
 
-579:                                              ; preds = %575
-  %580 = load ptr, ptr %34, align 8
-  %581 = icmp ne ptr %580, null
-  br i1 %581, label %582, label %597
+580:                                              ; preds = %576
+  %581 = load ptr, ptr %34, align 8
+  %582 = icmp ne ptr %581, null
+  br i1 %582, label %583, label %598
 
-582:                                              ; preds = %579
-  %583 = load ptr, ptr %34, align 8
-  %584 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %583, i32 0, i32 3
-  %585 = load ptr, ptr %584, align 8
-  %586 = icmp ne ptr %585, null
-  br i1 %586, label %587, label %597
+583:                                              ; preds = %580
+  %584 = load ptr, ptr %34, align 8
+  %585 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %584, i32 0, i32 3
+  %586 = load ptr, ptr %585, align 8
+  %587 = icmp ne ptr %586, null
+  br i1 %587, label %588, label %598
 
-587:                                              ; preds = %582
-  %588 = load ptr, ptr %34, align 8
-  %589 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %588, i32 0, i32 3
-  %590 = load ptr, ptr %589, align 8
-  %591 = call ptr @proto_tree_get_parent(ptr noundef %590)
-  %592 = load ptr, ptr %34, align 8
-  %593 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %592, i32 0, i32 4
-  %594 = load i32, ptr %593, align 8
-  call void @proto_item_set_len(ptr noundef %591, i32 noundef %594)
-  %595 = load ptr, ptr %34, align 8
-  %596 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %595, i32 0, i32 3
-  store ptr null, ptr %596, align 8
-  br label %597
-
-597:                                              ; preds = %587, %582, %579
+588:                                              ; preds = %583
+  %589 = load ptr, ptr %34, align 8
+  %590 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %589, i32 0, i32 3
+  %591 = load ptr, ptr %590, align 8
+  %592 = call ptr @proto_tree_get_parent(ptr noundef %591)
+  %593 = load ptr, ptr %34, align 8
+  %594 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %593, i32 0, i32 4
+  %595 = load i32, ptr %594, align 8
+  call void @proto_item_set_len(ptr noundef %592, i32 noundef %595)
+  %596 = load ptr, ptr %34, align 8
+  %597 = getelementptr inbounds %struct.ipv6_pinfo_t, ptr %596, i32 0, i32 3
+  store ptr null, ptr %597, align 8
   br label %598
 
-598:                                              ; preds = %597, %575, %571
-  %599 = load volatile i32, ptr %36, align 4
-  %600 = and i32 %599, 1
-  %601 = icmp ne i32 %600, 0
-  br i1 %601, label %607, label %602
+598:                                              ; preds = %588, %583, %580
+  br label %599
 
-602:                                              ; preds = %598
-  %603 = load volatile ptr, ptr %35, align 8
-  %604 = icmp ne ptr %603, null
-  br i1 %604, label %605, label %607
+599:                                              ; preds = %598, %576, %572
+  %600 = load volatile i32, ptr %36, align 4
+  %601 = and i32 %600, 1
+  %602 = icmp ne i32 %601, 0
+  br i1 %602, label %608, label %603
 
-605:                                              ; preds = %602
-  %606 = load volatile ptr, ptr %35, align 8
-  call void @except_rethrow(ptr noundef %606) #10
+603:                                              ; preds = %599
+  %604 = load volatile ptr, ptr %35, align 8
+  %605 = icmp ne ptr %604, null
+  br i1 %605, label %606, label %608
+
+606:                                              ; preds = %603
+  %607 = load volatile ptr, ptr %35, align 8
+  call void @except_rethrow(ptr noundef %607) #10
   unreachable
 
-607:                                              ; preds = %602, %598
-  %608 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 2
-  %609 = getelementptr inbounds %struct.except_t, ptr %608, i32 0, i32 2
-  %610 = load volatile ptr, ptr %609, align 8
-  call void @except_free(ptr noundef %610)
-  %611 = call ptr @except_pop()
-  %612 = load i32, ptr %29, align 4
-  %613 = load ptr, ptr %7, align 8
-  %614 = getelementptr inbounds %struct._packet_info, ptr %613, i32 0, i32 20
-  store i32 %612, ptr %614, align 8
-  %615 = load ptr, ptr %6, align 8
-  %616 = call i32 @tvb_captured_length(ptr noundef %615)
-  store i32 %616, ptr %5, align 4
-  br label %617
+608:                                              ; preds = %603, %599
+  %609 = getelementptr inbounds %struct.except_catch, ptr %38, i32 0, i32 2
+  %610 = getelementptr inbounds %struct.except_t, ptr %609, i32 0, i32 2
+  %611 = load volatile ptr, ptr %610, align 8
+  call void @except_free(ptr noundef %611)
+  %612 = call ptr @except_pop()
+  %613 = load i32, ptr %29, align 4
+  %614 = load ptr, ptr %7, align 8
+  %615 = getelementptr inbounds %struct._packet_info, ptr %614, i32 0, i32 20
+  store i32 %613, ptr %615, align 8
+  %616 = load ptr, ptr %6, align 8
+  %617 = call i32 @tvb_captured_length(ptr noundef %616)
+  store i32 %617, ptr %5, align 4
+  br label %618
 
-617:                                              ; preds = %607, %80
-  %618 = load i32, ptr %5, align 4
-  ret i32 %618
+618:                                              ; preds = %608, %80
+  %619 = load i32, ptr %5, align 4
+  ret i32 %619
 }
 
 declare void @reassembly_table_register(ptr noundef, ptr noundef) #1

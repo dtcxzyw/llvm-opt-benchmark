@@ -1261,178 +1261,179 @@ define internal ptr @leave_edge() #0 {
   store i64 %6, ptr %5, align 8
   br label %7
 
-7:                                                ; preds = %52, %0
+7:                                                ; preds = %53, %0
   %8 = load i64, ptr @S_i, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.elist, ptr @Tree_edge, i32 0, i32 1), align 8
-  %10 = icmp ult i64 %8, %9
-  br i1 %10, label %11, label %55
+  %9 = getelementptr inbounds %struct.elist, ptr @Tree_edge, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ult i64 %8, %10
+  br i1 %11, label %12, label %56
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr @Tree_edge, align 8
-  %13 = load i64, ptr @S_i, align 8
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.Agobj_s, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %17, i32 0, i32 22
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %52
+12:                                               ; preds = %7
+  %13 = load ptr, ptr @Tree_edge, align 8
+  %14 = load i64, ptr @S_i, align 8
+  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.Agobj_s, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %18, i32 0, i32 22
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %53
 
-21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %39
+22:                                               ; preds = %12
+  %23 = load ptr, ptr %3, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %40
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Agobj_s, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %27, i32 0, i32 22
-  %29 = load i32, ptr %28, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.Agobj_s, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %32, i32 0, i32 22
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sgt i32 %29, %34
-  br i1 %35, label %36, label %38
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.Agobj_s, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %28, i32 0, i32 22
+  %30 = load i32, ptr %29, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.Agobj_s, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %33, i32 0, i32 22
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sgt i32 %30, %35
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %24
-  %37 = load ptr, ptr %2, align 8
-  store ptr %37, ptr %3, align 8
-  br label %38
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %2, align 8
+  store ptr %38, ptr %3, align 8
+  br label %39
 
-38:                                               ; preds = %36, %24
-  br label %44
+39:                                               ; preds = %37, %25
+  br label %45
 
-39:                                               ; preds = %21
-  %40 = load ptr, ptr @Tree_edge, align 8
-  %41 = load i64, ptr @S_i, align 8
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %3, align 8
-  br label %44
+40:                                               ; preds = %22
+  %41 = load ptr, ptr @Tree_edge, align 8
+  %42 = load i64, ptr @S_i, align 8
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %3, align 8
+  br label %45
 
-44:                                               ; preds = %39, %38
-  %45 = load i32, ptr %4, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %4, align 4
-  %47 = load i32, ptr @Search_size, align 4
-  %48 = icmp sge i32 %46, %47
-  br i1 %48, label %49, label %51
+45:                                               ; preds = %40, %39
+  %46 = load i32, ptr %4, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %4, align 4
+  %48 = load i32, ptr @Search_size, align 4
+  %49 = icmp sge i32 %47, %48
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %3, align 8
-  store ptr %50, ptr %1, align 8
-  br label %110
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %3, align 8
+  store ptr %51, ptr %1, align 8
+  br label %111
 
-51:                                               ; preds = %44
-  br label %52
+52:                                               ; preds = %45
+  br label %53
 
-52:                                               ; preds = %51, %11
-  %53 = load i64, ptr @S_i, align 8
-  %54 = add i64 %53, 1
-  store i64 %54, ptr @S_i, align 8
+53:                                               ; preds = %52, %12
+  %54 = load i64, ptr @S_i, align 8
+  %55 = add i64 %54, 1
+  store i64 %55, ptr @S_i, align 8
   br label %7
 
-55:                                               ; preds = %7
-  %56 = load i64, ptr %5, align 8
-  %57 = icmp ugt i64 %56, 0
-  br i1 %57, label %58, label %108
+56:                                               ; preds = %7
+  %57 = load i64, ptr %5, align 8
+  %58 = icmp ugt i64 %57, 0
+  br i1 %58, label %59, label %109
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   store i64 0, ptr @S_i, align 8
-  br label %59
+  br label %60
 
-59:                                               ; preds = %104, %58
-  %60 = load i64, ptr @S_i, align 8
-  %61 = load i64, ptr %5, align 8
-  %62 = icmp ult i64 %60, %61
-  br i1 %62, label %63, label %107
+60:                                               ; preds = %105, %59
+  %61 = load i64, ptr @S_i, align 8
+  %62 = load i64, ptr %5, align 8
+  %63 = icmp ult i64 %61, %62
+  br i1 %63, label %64, label %108
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr @Tree_edge, align 8
-  %65 = load i64, ptr @S_i, align 8
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.Agobj_s, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %69, i32 0, i32 22
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %104
+64:                                               ; preds = %60
+  %65 = load ptr, ptr @Tree_edge, align 8
+  %66 = load i64, ptr @S_i, align 8
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.Agobj_s, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %70, i32 0, i32 22
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %105
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %3, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %91
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %3, align 8
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %92
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.Agobj_s, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %79, i32 0, i32 22
-  %81 = load i32, ptr %80, align 8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.Agobj_s, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %84, i32 0, i32 22
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp sgt i32 %81, %86
-  br i1 %87, label %88, label %90
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds %struct.Agobj_s, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %80, i32 0, i32 22
+  %82 = load i32, ptr %81, align 8
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds %struct.Agobj_s, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %85, i32 0, i32 22
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp sgt i32 %82, %87
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %76
-  %89 = load ptr, ptr %2, align 8
-  store ptr %89, ptr %3, align 8
-  br label %90
+89:                                               ; preds = %77
+  %90 = load ptr, ptr %2, align 8
+  store ptr %90, ptr %3, align 8
+  br label %91
 
-90:                                               ; preds = %88, %76
-  br label %96
+91:                                               ; preds = %89, %77
+  br label %97
 
-91:                                               ; preds = %73
-  %92 = load ptr, ptr @Tree_edge, align 8
-  %93 = load i64, ptr @S_i, align 8
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %3, align 8
-  br label %96
+92:                                               ; preds = %74
+  %93 = load ptr, ptr @Tree_edge, align 8
+  %94 = load i64, ptr @S_i, align 8
+  %95 = getelementptr inbounds ptr, ptr %93, i64 %94
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %3, align 8
+  br label %97
 
-96:                                               ; preds = %91, %90
-  %97 = load i32, ptr %4, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %4, align 4
-  %99 = load i32, ptr @Search_size, align 4
-  %100 = icmp sge i32 %98, %99
-  br i1 %100, label %101, label %103
+97:                                               ; preds = %92, %91
+  %98 = load i32, ptr %4, align 4
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %4, align 4
+  %100 = load i32, ptr @Search_size, align 4
+  %101 = icmp sge i32 %99, %100
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %3, align 8
-  store ptr %102, ptr %1, align 8
-  br label %110
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %3, align 8
+  store ptr %103, ptr %1, align 8
+  br label %111
 
-103:                                              ; preds = %96
-  br label %104
+104:                                              ; preds = %97
+  br label %105
 
-104:                                              ; preds = %103, %63
-  %105 = load i64, ptr @S_i, align 8
-  %106 = add i64 %105, 1
-  store i64 %106, ptr @S_i, align 8
-  br label %59
+105:                                              ; preds = %104, %64
+  %106 = load i64, ptr @S_i, align 8
+  %107 = add i64 %106, 1
+  store i64 %107, ptr @S_i, align 8
+  br label %60
 
-107:                                              ; preds = %59
-  br label %108
+108:                                              ; preds = %60
+  br label %109
 
-108:                                              ; preds = %107, %55
-  %109 = load ptr, ptr %3, align 8
-  store ptr %109, ptr %1, align 8
-  br label %110
+109:                                              ; preds = %108, %56
+  %110 = load ptr, ptr %3, align 8
+  store ptr %110, ptr %1, align 8
+  br label %111
 
-110:                                              ; preds = %108, %101, %49
-  %111 = load ptr, ptr %1, align 8
-  ret ptr %111
+111:                                              ; preds = %109, %102, %50
+  %112 = load ptr, ptr %1, align 8
+  ret ptr %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2299,465 +2300,469 @@ define internal void @TB_balance() #0 {
 
 119:                                              ; preds = %103
   %120 = load i64, ptr %12, align 8
-  store i64 %120, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %121 = load ptr, ptr @Tree_node, align 8
-  %122 = load i64, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %123 = load i32, ptr %8, align 4
-  %124 = icmp sgt i32 %123, 1
-  %125 = select i1 %124, ptr @decreasingrankcmpf, ptr @increasingrankcmpf
-  call void @qsort(ptr noundef %121, i64 noundef %122, i64 noundef 8, ptr noundef %125)
+  %121 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  store i64 %120, ptr %121, align 8
+  %122 = load ptr, ptr @Tree_node, align 8
+  %123 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  %124 = load i64, ptr %123, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = icmp sgt i32 %125, 1
+  %127 = select i1 %126, ptr @decreasingrankcmpf, ptr @increasingrankcmpf
+  call void @qsort(ptr noundef %122, i64 noundef %124, i64 noundef 8, ptr noundef %127)
   store i64 0, ptr %13, align 8
-  br label %126
+  br label %128
 
-126:                                              ; preds = %154, %119
-  %127 = load i64, ptr %13, align 8
-  %128 = load i64, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %129 = icmp ult i64 %127, %128
-  br i1 %129, label %130, label %157
+128:                                              ; preds = %157, %119
+  %129 = load i64, ptr %13, align 8
+  %130 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8
+  %132 = icmp ult i64 %129, %131
+  br i1 %132, label %133, label %160
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr @Tree_node, align 8
-  %132 = load i64, ptr %13, align 8
-  %133 = getelementptr inbounds ptr, ptr %131, i64 %132
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr %1, align 8
-  %135 = load ptr, ptr %1, align 8
-  %136 = getelementptr inbounds %struct.Agobj_s, ptr %135, i32 0, i32 1
+133:                                              ; preds = %128
+  %134 = load ptr, ptr @Tree_node, align 8
+  %135 = load i64, ptr %13, align 8
+  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %137, i32 0, i32 28
-  %139 = load i8, ptr %138, align 8
-  %140 = sext i8 %139 to i32
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %153
+  store ptr %137, ptr %1, align 8
+  %138 = load ptr, ptr %1, align 8
+  %139 = getelementptr inbounds %struct.Agobj_s, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %140, i32 0, i32 28
+  %142 = load i8, ptr %141, align 8
+  %143 = sext i8 %142 to i32
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %156
 
-142:                                              ; preds = %130
-  %143 = load ptr, ptr %11, align 8
-  %144 = load ptr, ptr %1, align 8
-  %145 = getelementptr inbounds %struct.Agobj_s, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %146, i32 0, i32 43
-  %148 = load i32, ptr %147, align 8
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %143, i64 %149
-  %151 = load i32, ptr %150, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %150, align 4
-  br label %153
+145:                                              ; preds = %133
+  %146 = load ptr, ptr %11, align 8
+  %147 = load ptr, ptr %1, align 8
+  %148 = getelementptr inbounds %struct.Agobj_s, ptr %147, i32 0, i32 1
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %149, i32 0, i32 43
+  %151 = load i32, ptr %150, align 8
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds i32, ptr %146, i64 %152
+  %154 = load i32, ptr %153, align 4
+  %155 = add nsw i32 %154, 1
+  store i32 %155, ptr %153, align 4
+  br label %156
 
-153:                                              ; preds = %142, %130
-  br label %154
+156:                                              ; preds = %145, %133
+  br label %157
 
-154:                                              ; preds = %153
-  %155 = load i64, ptr %13, align 8
-  %156 = add i64 %155, 1
-  store i64 %156, ptr %13, align 8
-  br label %126
+157:                                              ; preds = %156
+  %158 = load i64, ptr %13, align 8
+  %159 = add i64 %158, 1
+  store i64 %159, ptr %13, align 8
+  br label %128
 
-157:                                              ; preds = %126
+160:                                              ; preds = %128
   store i64 0, ptr %12, align 8
-  br label %158
+  br label %161
 
-158:                                              ; preds = %427, %157
-  %159 = load i64, ptr %12, align 8
-  %160 = load i64, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %161 = icmp ult i64 %159, %160
-  br i1 %161, label %162, label %430
+161:                                              ; preds = %431, %160
+  %162 = load i64, ptr %12, align 8
+  %163 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  %164 = load i64, ptr %163, align 8
+  %165 = icmp ult i64 %162, %164
+  br i1 %165, label %166, label %434
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr @Tree_node, align 8
-  %164 = load i64, ptr %12, align 8
-  %165 = getelementptr inbounds ptr, ptr %163, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  store ptr %166, ptr %1, align 8
-  %167 = load ptr, ptr %1, align 8
-  %168 = getelementptr inbounds %struct.Agobj_s, ptr %167, i32 0, i32 1
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %169, i32 0, i32 28
-  %171 = load i8, ptr %170, align 8
-  %172 = sext i8 %171 to i32
-  %173 = icmp ne i32 %172, 0
-  br i1 %173, label %174, label %175
+166:                                              ; preds = %161
+  %167 = load ptr, ptr @Tree_node, align 8
+  %168 = load i64, ptr %12, align 8
+  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
+  %170 = load ptr, ptr %169, align 8
+  store ptr %170, ptr %1, align 8
+  %171 = load ptr, ptr %1, align 8
+  %172 = getelementptr inbounds %struct.Agobj_s, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %173, i32 0, i32 28
+  %175 = load i8, ptr %174, align 8
+  %176 = sext i8 %175 to i32
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %178, label %179
 
-174:                                              ; preds = %162
-  br label %427
+178:                                              ; preds = %166
+  br label %431
 
-175:                                              ; preds = %162
+179:                                              ; preds = %166
   store i32 0, ptr %7, align 4
   store i32 0, ptr %6, align 4
   store i32 0, ptr %3, align 4
-  %176 = load i32, ptr %10, align 4
-  store i32 %176, ptr %4, align 4
+  %180 = load i32, ptr %10, align 4
+  store i32 %180, ptr %4, align 4
   store i64 0, ptr %14, align 8
-  br label %177
+  br label %181
 
-177:                                              ; preds = %251, %175
-  %178 = load ptr, ptr %1, align 8
-  %179 = getelementptr inbounds %struct.Agobj_s, ptr %178, i32 0, i32 1
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %180, i32 0, i32 35
-  %182 = getelementptr inbounds %struct.elist, ptr %181, i32 0, i32 0
-  %183 = load ptr, ptr %182, align 8
-  %184 = load i64, ptr %14, align 8
-  %185 = getelementptr inbounds ptr, ptr %183, i64 %184
-  %186 = load ptr, ptr %185, align 8
-  store ptr %186, ptr %2, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %188, label %254
+181:                                              ; preds = %255, %179
+  %182 = load ptr, ptr %1, align 8
+  %183 = getelementptr inbounds %struct.Agobj_s, ptr %182, i32 0, i32 1
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %184, i32 0, i32 35
+  %186 = getelementptr inbounds %struct.elist, ptr %185, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = load i64, ptr %14, align 8
+  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %190 = load ptr, ptr %189, align 8
+  store ptr %190, ptr %2, align 8
+  %191 = icmp ne ptr %190, null
+  br i1 %191, label %192, label %258
 
-188:                                              ; preds = %177
-  %189 = load ptr, ptr %2, align 8
-  %190 = getelementptr inbounds %struct.Agobj_s, ptr %189, i32 0, i32 1
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %191, i32 0, i32 21
-  %193 = load i32, ptr %192, align 4
-  %194 = load i32, ptr %6, align 4
-  %195 = add nsw i32 %194, %193
-  store i32 %195, ptr %6, align 4
-  %196 = load i32, ptr %3, align 4
-  %197 = load ptr, ptr %2, align 8
-  %198 = getelementptr inbounds %struct.Agobj_s, ptr %197, i32 0, i32 0
-  %199 = load i32, ptr %198, align 8
-  %200 = and i32 %199, 3
-  %201 = icmp eq i32 %200, 3
-  br i1 %201, label %202, label %204
+192:                                              ; preds = %181
+  %193 = load ptr, ptr %2, align 8
+  %194 = getelementptr inbounds %struct.Agobj_s, ptr %193, i32 0, i32 1
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %195, i32 0, i32 21
+  %197 = load i32, ptr %196, align 4
+  %198 = load i32, ptr %6, align 4
+  %199 = add nsw i32 %198, %197
+  store i32 %199, ptr %6, align 4
+  %200 = load i32, ptr %3, align 4
+  %201 = load ptr, ptr %2, align 8
+  %202 = getelementptr inbounds %struct.Agobj_s, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr %202, align 8
+  %204 = and i32 %203, 3
+  %205 = icmp eq i32 %204, 3
+  br i1 %205, label %206, label %208
 
-202:                                              ; preds = %188
-  %203 = load ptr, ptr %2, align 8
-  br label %207
+206:                                              ; preds = %192
+  %207 = load ptr, ptr %2, align 8
+  br label %211
 
-204:                                              ; preds = %188
-  %205 = load ptr, ptr %2, align 8
-  %206 = getelementptr inbounds %struct.Agedge_s, ptr %205, i64 1
-  br label %207
+208:                                              ; preds = %192
+  %209 = load ptr, ptr %2, align 8
+  %210 = getelementptr inbounds %struct.Agedge_s, ptr %209, i64 1
+  br label %211
 
-207:                                              ; preds = %204, %202
-  %208 = phi ptr [ %203, %202 ], [ %206, %204 ]
-  %209 = getelementptr inbounds %struct.Agedge_s, ptr %208, i32 0, i32 3
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds %struct.Agobj_s, ptr %210, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %212, i32 0, i32 43
-  %214 = load i32, ptr %213, align 8
-  %215 = load ptr, ptr %2, align 8
-  %216 = getelementptr inbounds %struct.Agobj_s, ptr %215, i32 0, i32 1
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %217, i32 0, i32 25
-  %219 = load i32, ptr %218, align 4
-  %220 = add nsw i32 %214, %219
-  %221 = icmp sgt i32 %196, %220
-  br i1 %221, label %222, label %224
+211:                                              ; preds = %208, %206
+  %212 = phi ptr [ %207, %206 ], [ %210, %208 ]
+  %213 = getelementptr inbounds %struct.Agedge_s, ptr %212, i32 0, i32 3
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds %struct.Agobj_s, ptr %214, i32 0, i32 1
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %216, i32 0, i32 43
+  %218 = load i32, ptr %217, align 8
+  %219 = load ptr, ptr %2, align 8
+  %220 = getelementptr inbounds %struct.Agobj_s, ptr %219, i32 0, i32 1
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %221, i32 0, i32 25
+  %223 = load i32, ptr %222, align 4
+  %224 = add nsw i32 %218, %223
+  %225 = icmp sgt i32 %200, %224
+  br i1 %225, label %226, label %228
 
-222:                                              ; preds = %207
-  %223 = load i32, ptr %3, align 4
-  br label %249
+226:                                              ; preds = %211
+  %227 = load i32, ptr %3, align 4
+  br label %253
 
-224:                                              ; preds = %207
-  %225 = load ptr, ptr %2, align 8
-  %226 = getelementptr inbounds %struct.Agobj_s, ptr %225, i32 0, i32 0
-  %227 = load i32, ptr %226, align 8
-  %228 = and i32 %227, 3
-  %229 = icmp eq i32 %228, 3
-  br i1 %229, label %230, label %232
+228:                                              ; preds = %211
+  %229 = load ptr, ptr %2, align 8
+  %230 = getelementptr inbounds %struct.Agobj_s, ptr %229, i32 0, i32 0
+  %231 = load i32, ptr %230, align 8
+  %232 = and i32 %231, 3
+  %233 = icmp eq i32 %232, 3
+  br i1 %233, label %234, label %236
 
-230:                                              ; preds = %224
-  %231 = load ptr, ptr %2, align 8
-  br label %235
+234:                                              ; preds = %228
+  %235 = load ptr, ptr %2, align 8
+  br label %239
 
-232:                                              ; preds = %224
-  %233 = load ptr, ptr %2, align 8
-  %234 = getelementptr inbounds %struct.Agedge_s, ptr %233, i64 1
-  br label %235
+236:                                              ; preds = %228
+  %237 = load ptr, ptr %2, align 8
+  %238 = getelementptr inbounds %struct.Agedge_s, ptr %237, i64 1
+  br label %239
 
-235:                                              ; preds = %232, %230
-  %236 = phi ptr [ %231, %230 ], [ %234, %232 ]
-  %237 = getelementptr inbounds %struct.Agedge_s, ptr %236, i32 0, i32 3
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.Agobj_s, ptr %238, i32 0, i32 1
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %240, i32 0, i32 43
-  %242 = load i32, ptr %241, align 8
-  %243 = load ptr, ptr %2, align 8
-  %244 = getelementptr inbounds %struct.Agobj_s, ptr %243, i32 0, i32 1
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %245, i32 0, i32 25
-  %247 = load i32, ptr %246, align 4
-  %248 = add nsw i32 %242, %247
-  br label %249
+239:                                              ; preds = %236, %234
+  %240 = phi ptr [ %235, %234 ], [ %238, %236 ]
+  %241 = getelementptr inbounds %struct.Agedge_s, ptr %240, i32 0, i32 3
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds %struct.Agobj_s, ptr %242, i32 0, i32 1
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %244, i32 0, i32 43
+  %246 = load i32, ptr %245, align 8
+  %247 = load ptr, ptr %2, align 8
+  %248 = getelementptr inbounds %struct.Agobj_s, ptr %247, i32 0, i32 1
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %249, i32 0, i32 25
+  %251 = load i32, ptr %250, align 4
+  %252 = add nsw i32 %246, %251
+  br label %253
 
-249:                                              ; preds = %235, %222
-  %250 = phi i32 [ %223, %222 ], [ %248, %235 ]
-  store i32 %250, ptr %3, align 4
-  br label %251
+253:                                              ; preds = %239, %226
+  %254 = phi i32 [ %227, %226 ], [ %252, %239 ]
+  store i32 %254, ptr %3, align 4
+  br label %255
 
-251:                                              ; preds = %249
-  %252 = load i64, ptr %14, align 8
-  %253 = add i64 %252, 1
-  store i64 %253, ptr %14, align 8
-  br label %177
+255:                                              ; preds = %253
+  %256 = load i64, ptr %14, align 8
+  %257 = add i64 %256, 1
+  store i64 %257, ptr %14, align 8
+  br label %181
 
-254:                                              ; preds = %177
+258:                                              ; preds = %181
   store i64 0, ptr %15, align 8
-  br label %255
+  br label %259
 
-255:                                              ; preds = %329, %254
-  %256 = load ptr, ptr %1, align 8
-  %257 = getelementptr inbounds %struct.Agobj_s, ptr %256, i32 0, i32 1
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %258, i32 0, i32 36
-  %260 = getelementptr inbounds %struct.elist, ptr %259, i32 0, i32 0
-  %261 = load ptr, ptr %260, align 8
-  %262 = load i64, ptr %15, align 8
-  %263 = getelementptr inbounds ptr, ptr %261, i64 %262
-  %264 = load ptr, ptr %263, align 8
-  store ptr %264, ptr %2, align 8
-  %265 = icmp ne ptr %264, null
-  br i1 %265, label %266, label %332
+259:                                              ; preds = %333, %258
+  %260 = load ptr, ptr %1, align 8
+  %261 = getelementptr inbounds %struct.Agobj_s, ptr %260, i32 0, i32 1
+  %262 = load ptr, ptr %261, align 8
+  %263 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %262, i32 0, i32 36
+  %264 = getelementptr inbounds %struct.elist, ptr %263, i32 0, i32 0
+  %265 = load ptr, ptr %264, align 8
+  %266 = load i64, ptr %15, align 8
+  %267 = getelementptr inbounds ptr, ptr %265, i64 %266
+  %268 = load ptr, ptr %267, align 8
+  store ptr %268, ptr %2, align 8
+  %269 = icmp ne ptr %268, null
+  br i1 %269, label %270, label %336
 
-266:                                              ; preds = %255
-  %267 = load ptr, ptr %2, align 8
-  %268 = getelementptr inbounds %struct.Agobj_s, ptr %267, i32 0, i32 1
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %269, i32 0, i32 21
-  %271 = load i32, ptr %270, align 4
-  %272 = load i32, ptr %7, align 4
-  %273 = add nsw i32 %272, %271
-  store i32 %273, ptr %7, align 4
-  %274 = load i32, ptr %4, align 4
-  %275 = load ptr, ptr %2, align 8
-  %276 = getelementptr inbounds %struct.Agobj_s, ptr %275, i32 0, i32 0
-  %277 = load i32, ptr %276, align 8
-  %278 = and i32 %277, 3
-  %279 = icmp eq i32 %278, 2
-  br i1 %279, label %280, label %282
+270:                                              ; preds = %259
+  %271 = load ptr, ptr %2, align 8
+  %272 = getelementptr inbounds %struct.Agobj_s, ptr %271, i32 0, i32 1
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %273, i32 0, i32 21
+  %275 = load i32, ptr %274, align 4
+  %276 = load i32, ptr %7, align 4
+  %277 = add nsw i32 %276, %275
+  store i32 %277, ptr %7, align 4
+  %278 = load i32, ptr %4, align 4
+  %279 = load ptr, ptr %2, align 8
+  %280 = getelementptr inbounds %struct.Agobj_s, ptr %279, i32 0, i32 0
+  %281 = load i32, ptr %280, align 8
+  %282 = and i32 %281, 3
+  %283 = icmp eq i32 %282, 2
+  br i1 %283, label %284, label %286
 
-280:                                              ; preds = %266
-  %281 = load ptr, ptr %2, align 8
-  br label %285
+284:                                              ; preds = %270
+  %285 = load ptr, ptr %2, align 8
+  br label %289
 
-282:                                              ; preds = %266
-  %283 = load ptr, ptr %2, align 8
-  %284 = getelementptr inbounds %struct.Agedge_s, ptr %283, i64 -1
-  br label %285
+286:                                              ; preds = %270
+  %287 = load ptr, ptr %2, align 8
+  %288 = getelementptr inbounds %struct.Agedge_s, ptr %287, i64 -1
+  br label %289
 
-285:                                              ; preds = %282, %280
-  %286 = phi ptr [ %281, %280 ], [ %284, %282 ]
-  %287 = getelementptr inbounds %struct.Agedge_s, ptr %286, i32 0, i32 3
-  %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds %struct.Agobj_s, ptr %288, i32 0, i32 1
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %290, i32 0, i32 43
-  %292 = load i32, ptr %291, align 8
-  %293 = load ptr, ptr %2, align 8
-  %294 = getelementptr inbounds %struct.Agobj_s, ptr %293, i32 0, i32 1
-  %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %295, i32 0, i32 25
-  %297 = load i32, ptr %296, align 4
-  %298 = sub nsw i32 %292, %297
-  %299 = icmp slt i32 %274, %298
-  br i1 %299, label %300, label %302
+289:                                              ; preds = %286, %284
+  %290 = phi ptr [ %285, %284 ], [ %288, %286 ]
+  %291 = getelementptr inbounds %struct.Agedge_s, ptr %290, i32 0, i32 3
+  %292 = load ptr, ptr %291, align 8
+  %293 = getelementptr inbounds %struct.Agobj_s, ptr %292, i32 0, i32 1
+  %294 = load ptr, ptr %293, align 8
+  %295 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %294, i32 0, i32 43
+  %296 = load i32, ptr %295, align 8
+  %297 = load ptr, ptr %2, align 8
+  %298 = getelementptr inbounds %struct.Agobj_s, ptr %297, i32 0, i32 1
+  %299 = load ptr, ptr %298, align 8
+  %300 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %299, i32 0, i32 25
+  %301 = load i32, ptr %300, align 4
+  %302 = sub nsw i32 %296, %301
+  %303 = icmp slt i32 %278, %302
+  br i1 %303, label %304, label %306
 
-300:                                              ; preds = %285
-  %301 = load i32, ptr %4, align 4
-  br label %327
+304:                                              ; preds = %289
+  %305 = load i32, ptr %4, align 4
+  br label %331
 
-302:                                              ; preds = %285
-  %303 = load ptr, ptr %2, align 8
-  %304 = getelementptr inbounds %struct.Agobj_s, ptr %303, i32 0, i32 0
-  %305 = load i32, ptr %304, align 8
-  %306 = and i32 %305, 3
-  %307 = icmp eq i32 %306, 2
-  br i1 %307, label %308, label %310
+306:                                              ; preds = %289
+  %307 = load ptr, ptr %2, align 8
+  %308 = getelementptr inbounds %struct.Agobj_s, ptr %307, i32 0, i32 0
+  %309 = load i32, ptr %308, align 8
+  %310 = and i32 %309, 3
+  %311 = icmp eq i32 %310, 2
+  br i1 %311, label %312, label %314
 
-308:                                              ; preds = %302
-  %309 = load ptr, ptr %2, align 8
-  br label %313
+312:                                              ; preds = %306
+  %313 = load ptr, ptr %2, align 8
+  br label %317
 
-310:                                              ; preds = %302
-  %311 = load ptr, ptr %2, align 8
-  %312 = getelementptr inbounds %struct.Agedge_s, ptr %311, i64 -1
-  br label %313
+314:                                              ; preds = %306
+  %315 = load ptr, ptr %2, align 8
+  %316 = getelementptr inbounds %struct.Agedge_s, ptr %315, i64 -1
+  br label %317
 
-313:                                              ; preds = %310, %308
-  %314 = phi ptr [ %309, %308 ], [ %312, %310 ]
-  %315 = getelementptr inbounds %struct.Agedge_s, ptr %314, i32 0, i32 3
-  %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds %struct.Agobj_s, ptr %316, i32 0, i32 1
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %318, i32 0, i32 43
-  %320 = load i32, ptr %319, align 8
-  %321 = load ptr, ptr %2, align 8
-  %322 = getelementptr inbounds %struct.Agobj_s, ptr %321, i32 0, i32 1
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %323, i32 0, i32 25
-  %325 = load i32, ptr %324, align 4
-  %326 = sub nsw i32 %320, %325
-  br label %327
+317:                                              ; preds = %314, %312
+  %318 = phi ptr [ %313, %312 ], [ %316, %314 ]
+  %319 = getelementptr inbounds %struct.Agedge_s, ptr %318, i32 0, i32 3
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds %struct.Agobj_s, ptr %320, i32 0, i32 1
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %322, i32 0, i32 43
+  %324 = load i32, ptr %323, align 8
+  %325 = load ptr, ptr %2, align 8
+  %326 = getelementptr inbounds %struct.Agobj_s, ptr %325, i32 0, i32 1
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %327, i32 0, i32 25
+  %329 = load i32, ptr %328, align 4
+  %330 = sub nsw i32 %324, %329
+  br label %331
 
-327:                                              ; preds = %313, %300
-  %328 = phi i32 [ %301, %300 ], [ %326, %313 ]
-  store i32 %328, ptr %4, align 4
-  br label %329
+331:                                              ; preds = %317, %304
+  %332 = phi i32 [ %305, %304 ], [ %330, %317 ]
+  store i32 %332, ptr %4, align 4
+  br label %333
 
-329:                                              ; preds = %327
-  %330 = load i64, ptr %15, align 8
-  %331 = add i64 %330, 1
-  store i64 %331, ptr %15, align 8
-  br label %255
+333:                                              ; preds = %331
+  %334 = load i64, ptr %15, align 8
+  %335 = add i64 %334, 1
+  store i64 %335, ptr %15, align 8
+  br label %259
 
-332:                                              ; preds = %255
-  %333 = load i32, ptr %3, align 4
-  %334 = icmp slt i32 %333, 0
-  br i1 %334, label %335, label %336
-
-335:                                              ; preds = %332
-  store i32 0, ptr %3, align 4
-  br label %336
-
-336:                                              ; preds = %335, %332
-  %337 = load i32, ptr %8, align 4
-  %338 = icmp ne i32 %337, 0
-  br i1 %338, label %339, label %357
+336:                                              ; preds = %259
+  %337 = load i32, ptr %3, align 4
+  %338 = icmp slt i32 %337, 0
+  br i1 %338, label %339, label %340
 
 339:                                              ; preds = %336
-  %340 = load i32, ptr %6, align 4
-  %341 = load i32, ptr %7, align 4
-  %342 = icmp eq i32 %340, %341
-  br i1 %342, label %343, label %356
+  store i32 0, ptr %3, align 4
+  br label %340
 
-343:                                              ; preds = %339
-  %344 = load i32, ptr %8, align 4
-  %345 = icmp eq i32 %344, 1
-  br i1 %345, label %346, label %348
+340:                                              ; preds = %339, %336
+  %341 = load i32, ptr %8, align 4
+  %342 = icmp ne i32 %341, 0
+  br i1 %342, label %343, label %361
 
-346:                                              ; preds = %343
-  %347 = load i32, ptr %3, align 4
-  br label %350
+343:                                              ; preds = %340
+  %344 = load i32, ptr %6, align 4
+  %345 = load i32, ptr %7, align 4
+  %346 = icmp eq i32 %344, %345
+  br i1 %346, label %347, label %360
 
-348:                                              ; preds = %343
-  %349 = load i32, ptr %4, align 4
-  br label %350
+347:                                              ; preds = %343
+  %348 = load i32, ptr %8, align 4
+  %349 = icmp eq i32 %348, 1
+  br i1 %349, label %350, label %352
 
-350:                                              ; preds = %348, %346
-  %351 = phi i32 [ %347, %346 ], [ %349, %348 ]
-  %352 = load ptr, ptr %1, align 8
-  %353 = getelementptr inbounds %struct.Agobj_s, ptr %352, i32 0, i32 1
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %354, i32 0, i32 43
-  store i32 %351, ptr %355, align 8
-  br label %356
+350:                                              ; preds = %347
+  %351 = load i32, ptr %3, align 4
+  br label %354
 
-356:                                              ; preds = %350, %339
-  br label %410
+352:                                              ; preds = %347
+  %353 = load i32, ptr %4, align 4
+  br label %354
 
-357:                                              ; preds = %336
-  %358 = load i32, ptr %6, align 4
-  %359 = load i32, ptr %7, align 4
-  %360 = icmp eq i32 %358, %359
-  br i1 %360, label %361, label %409
+354:                                              ; preds = %352, %350
+  %355 = phi i32 [ %351, %350 ], [ %353, %352 ]
+  %356 = load ptr, ptr %1, align 8
+  %357 = getelementptr inbounds %struct.Agobj_s, ptr %356, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %358, i32 0, i32 43
+  store i32 %355, ptr %359, align 8
+  br label %360
 
-361:                                              ; preds = %357
-  %362 = load i32, ptr %3, align 4
-  store i32 %362, ptr %5, align 4
-  %363 = load i32, ptr %3, align 4
-  %364 = add nsw i32 %363, 1
-  store i32 %364, ptr %16, align 4
-  br label %365
+360:                                              ; preds = %354, %343
+  br label %414
 
-365:                                              ; preds = %384, %361
-  %366 = load i32, ptr %16, align 4
-  %367 = load i32, ptr %4, align 4
-  %368 = icmp sle i32 %366, %367
-  br i1 %368, label %369, label %387
+361:                                              ; preds = %340
+  %362 = load i32, ptr %6, align 4
+  %363 = load i32, ptr %7, align 4
+  %364 = icmp eq i32 %362, %363
+  br i1 %364, label %365, label %413
 
-369:                                              ; preds = %365
-  %370 = load ptr, ptr %11, align 8
-  %371 = load i32, ptr %16, align 4
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds i32, ptr %370, i64 %372
-  %374 = load i32, ptr %373, align 4
-  %375 = load ptr, ptr %11, align 8
-  %376 = load i32, ptr %5, align 4
-  %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds i32, ptr %375, i64 %377
-  %379 = load i32, ptr %378, align 4
-  %380 = icmp slt i32 %374, %379
-  br i1 %380, label %381, label %383
+365:                                              ; preds = %361
+  %366 = load i32, ptr %3, align 4
+  store i32 %366, ptr %5, align 4
+  %367 = load i32, ptr %3, align 4
+  %368 = add nsw i32 %367, 1
+  store i32 %368, ptr %16, align 4
+  br label %369
 
-381:                                              ; preds = %369
-  %382 = load i32, ptr %16, align 4
-  store i32 %382, ptr %5, align 4
-  br label %383
+369:                                              ; preds = %388, %365
+  %370 = load i32, ptr %16, align 4
+  %371 = load i32, ptr %4, align 4
+  %372 = icmp sle i32 %370, %371
+  br i1 %372, label %373, label %391
 
-383:                                              ; preds = %381, %369
-  br label %384
+373:                                              ; preds = %369
+  %374 = load ptr, ptr %11, align 8
+  %375 = load i32, ptr %16, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr inbounds i32, ptr %374, i64 %376
+  %378 = load i32, ptr %377, align 4
+  %379 = load ptr, ptr %11, align 8
+  %380 = load i32, ptr %5, align 4
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds i32, ptr %379, i64 %381
+  %383 = load i32, ptr %382, align 4
+  %384 = icmp slt i32 %378, %383
+  br i1 %384, label %385, label %387
 
-384:                                              ; preds = %383
-  %385 = load i32, ptr %16, align 4
-  %386 = add nsw i32 %385, 1
-  store i32 %386, ptr %16, align 4
-  br label %365
+385:                                              ; preds = %373
+  %386 = load i32, ptr %16, align 4
+  store i32 %386, ptr %5, align 4
+  br label %387
 
-387:                                              ; preds = %365
-  %388 = load ptr, ptr %11, align 8
-  %389 = load ptr, ptr %1, align 8
-  %390 = getelementptr inbounds %struct.Agobj_s, ptr %389, i32 0, i32 1
-  %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %391, i32 0, i32 43
-  %393 = load i32, ptr %392, align 8
-  %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds i32, ptr %388, i64 %394
-  %396 = load i32, ptr %395, align 4
-  %397 = add nsw i32 %396, -1
-  store i32 %397, ptr %395, align 4
-  %398 = load ptr, ptr %11, align 8
-  %399 = load i32, ptr %5, align 4
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds i32, ptr %398, i64 %400
-  %402 = load i32, ptr %401, align 4
-  %403 = add nsw i32 %402, 1
-  store i32 %403, ptr %401, align 4
-  %404 = load i32, ptr %5, align 4
-  %405 = load ptr, ptr %1, align 8
-  %406 = getelementptr inbounds %struct.Agobj_s, ptr %405, i32 0, i32 1
-  %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %407, i32 0, i32 43
-  store i32 %404, ptr %408, align 8
-  br label %409
+387:                                              ; preds = %385, %373
+  br label %388
 
-409:                                              ; preds = %387, %357
-  br label %410
+388:                                              ; preds = %387
+  %389 = load i32, ptr %16, align 4
+  %390 = add nsw i32 %389, 1
+  store i32 %390, ptr %16, align 4
+  br label %369
 
-410:                                              ; preds = %409, %356
-  %411 = load ptr, ptr %1, align 8
-  %412 = getelementptr inbounds %struct.Agobj_s, ptr %411, i32 0, i32 1
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %413, i32 0, i32 48
-  %415 = getelementptr inbounds %struct.elist, ptr %414, i32 0, i32 0
-  %416 = load ptr, ptr %415, align 8
-  call void @free(ptr noundef %416) #9
-  %417 = load ptr, ptr %1, align 8
-  %418 = getelementptr inbounds %struct.Agobj_s, ptr %417, i32 0, i32 1
-  %419 = load ptr, ptr %418, align 8
-  %420 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %419, i32 0, i32 49
-  %421 = getelementptr inbounds %struct.elist, ptr %420, i32 0, i32 0
-  %422 = load ptr, ptr %421, align 8
-  call void @free(ptr noundef %422) #9
-  %423 = load ptr, ptr %1, align 8
-  %424 = getelementptr inbounds %struct.Agobj_s, ptr %423, i32 0, i32 1
-  %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %425, i32 0, i32 29
-  store i64 0, ptr %426, align 8
-  br label %427
+391:                                              ; preds = %369
+  %392 = load ptr, ptr %11, align 8
+  %393 = load ptr, ptr %1, align 8
+  %394 = getelementptr inbounds %struct.Agobj_s, ptr %393, i32 0, i32 1
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %395, i32 0, i32 43
+  %397 = load i32, ptr %396, align 8
+  %398 = sext i32 %397 to i64
+  %399 = getelementptr inbounds i32, ptr %392, i64 %398
+  %400 = load i32, ptr %399, align 4
+  %401 = add nsw i32 %400, -1
+  store i32 %401, ptr %399, align 4
+  %402 = load ptr, ptr %11, align 8
+  %403 = load i32, ptr %5, align 4
+  %404 = sext i32 %403 to i64
+  %405 = getelementptr inbounds i32, ptr %402, i64 %404
+  %406 = load i32, ptr %405, align 4
+  %407 = add nsw i32 %406, 1
+  store i32 %407, ptr %405, align 4
+  %408 = load i32, ptr %5, align 4
+  %409 = load ptr, ptr %1, align 8
+  %410 = getelementptr inbounds %struct.Agobj_s, ptr %409, i32 0, i32 1
+  %411 = load ptr, ptr %410, align 8
+  %412 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %411, i32 0, i32 43
+  store i32 %408, ptr %412, align 8
+  br label %413
 
-427:                                              ; preds = %410, %174
-  %428 = load i64, ptr %12, align 8
-  %429 = add i64 %428, 1
-  store i64 %429, ptr %12, align 8
-  br label %158
+413:                                              ; preds = %391, %361
+  br label %414
 
-430:                                              ; preds = %158
-  %431 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %431) #9
+414:                                              ; preds = %413, %360
+  %415 = load ptr, ptr %1, align 8
+  %416 = getelementptr inbounds %struct.Agobj_s, ptr %415, i32 0, i32 1
+  %417 = load ptr, ptr %416, align 8
+  %418 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %417, i32 0, i32 48
+  %419 = getelementptr inbounds %struct.elist, ptr %418, i32 0, i32 0
+  %420 = load ptr, ptr %419, align 8
+  call void @free(ptr noundef %420) #9
+  %421 = load ptr, ptr %1, align 8
+  %422 = getelementptr inbounds %struct.Agobj_s, ptr %421, i32 0, i32 1
+  %423 = load ptr, ptr %422, align 8
+  %424 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %423, i32 0, i32 49
+  %425 = getelementptr inbounds %struct.elist, ptr %424, i32 0, i32 0
+  %426 = load ptr, ptr %425, align 8
+  call void @free(ptr noundef %426) #9
+  %427 = load ptr, ptr %1, align 8
+  %428 = getelementptr inbounds %struct.Agobj_s, ptr %427, i32 0, i32 1
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %429, i32 0, i32 29
+  store i64 0, ptr %430, align 8
+  br label %431
+
+431:                                              ; preds = %414, %178
+  %432 = load i64, ptr %12, align 8
+  %433 = add i64 %432, 1
+  store i64 %433, ptr %12, align 8
+  br label %161
+
+434:                                              ; preds = %161
+  %435 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %435) #9
   ret void
 }
 
@@ -2791,221 +2796,222 @@ define internal void @LR_balance() #0 {
   store i64 0, ptr %4, align 8
   br label %5
 
-5:                                                ; preds = %148, %0
+5:                                                ; preds = %149, %0
   %6 = load i64, ptr %4, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.elist, ptr @Tree_edge, i32 0, i32 1), align 8
-  %8 = icmp ult i64 %6, %7
-  br i1 %8, label %9, label %151
+  %7 = getelementptr inbounds %struct.elist, ptr @Tree_edge, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ult i64 %6, %8
+  br i1 %9, label %10, label %152
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr @Tree_edge, align 8
-  %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %2, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.Agobj_s, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %16, i32 0, i32 22
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %147
+10:                                               ; preds = %5
+  %11 = load ptr, ptr @Tree_edge, align 8
+  %12 = load i64, ptr %4, align 8
+  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.Agobj_s, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %17, i32 0, i32 22
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %148
 
-20:                                               ; preds = %9
-  %21 = load ptr, ptr %2, align 8
-  %22 = call ptr @enter_edge(ptr noundef %21)
-  store ptr %22, ptr %3, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %2, align 8
+  %23 = call ptr @enter_edge(ptr noundef %22)
+  store ptr %23, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %20
-  br label %148
+26:                                               ; preds = %21
+  br label %149
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.Agobj_s, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 3
-  %31 = icmp eq i32 %30, 2
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.Agobj_s, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 3
+  %32 = icmp eq i32 %31, 2
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %3, align 8
-  br label %37
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %3, align 8
+  br label %38
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.Agedge_s, ptr %35, i64 -1
-  br label %37
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.Agedge_s, ptr %36, i64 -1
+  br label %38
 
-37:                                               ; preds = %34, %32
-  %38 = phi ptr [ %33, %32 ], [ %36, %34 ]
-  %39 = getelementptr inbounds %struct.Agedge_s, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Agobj_s, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %42, i32 0, i32 43
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.Agobj_s, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = and i32 %47, 3
-  %49 = icmp eq i32 %48, 3
-  br i1 %49, label %50, label %52
+38:                                               ; preds = %35, %33
+  %39 = phi ptr [ %34, %33 ], [ %37, %35 ]
+  %40 = getelementptr inbounds %struct.Agedge_s, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.Agobj_s, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %43, i32 0, i32 43
+  %45 = load i32, ptr %44, align 8
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.Agobj_s, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8
+  %49 = and i32 %48, 3
+  %50 = icmp eq i32 %49, 3
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %3, align 8
-  br label %55
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %3, align 8
+  br label %56
 
-52:                                               ; preds = %37
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.Agedge_s, ptr %53, i64 1
-  br label %55
+53:                                               ; preds = %38
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds %struct.Agedge_s, ptr %54, i64 1
+  br label %56
 
-55:                                               ; preds = %52, %50
-  %56 = phi ptr [ %51, %50 ], [ %54, %52 ]
-  %57 = getelementptr inbounds %struct.Agedge_s, ptr %56, i32 0, i32 3
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.Agobj_s, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %60, i32 0, i32 43
-  %62 = load i32, ptr %61, align 8
-  %63 = sub nsw i32 %44, %62
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.Agobj_s, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %66, i32 0, i32 25
-  %68 = load i32, ptr %67, align 4
-  %69 = sub nsw i32 %63, %68
-  store i32 %69, ptr %1, align 4
-  %70 = load i32, ptr %1, align 4
-  %71 = icmp sle i32 %70, 1
-  br i1 %71, label %72, label %73
+56:                                               ; preds = %53, %51
+  %57 = phi ptr [ %52, %51 ], [ %55, %53 ]
+  %58 = getelementptr inbounds %struct.Agedge_s, ptr %57, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.Agobj_s, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %61, i32 0, i32 43
+  %63 = load i32, ptr %62, align 8
+  %64 = sub nsw i32 %45, %63
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.Agobj_s, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %67, i32 0, i32 25
+  %69 = load i32, ptr %68, align 4
+  %70 = sub nsw i32 %64, %69
+  store i32 %70, ptr %1, align 4
+  %71 = load i32, ptr %1, align 4
+  %72 = icmp sle i32 %71, 1
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %55
-  br label %148
+73:                                               ; preds = %56
+  br label %149
 
-73:                                               ; preds = %55
-  %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds %struct.Agobj_s, ptr %74, i32 0, i32 0
-  %76 = load i32, ptr %75, align 8
-  %77 = and i32 %76, 3
-  %78 = icmp eq i32 %77, 3
-  br i1 %78, label %79, label %81
+74:                                               ; preds = %56
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds %struct.Agobj_s, ptr %75, i32 0, i32 0
+  %77 = load i32, ptr %76, align 8
+  %78 = and i32 %77, 3
+  %79 = icmp eq i32 %78, 3
+  br i1 %79, label %80, label %82
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %2, align 8
-  br label %84
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %2, align 8
+  br label %85
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.Agedge_s, ptr %82, i64 1
-  br label %84
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds %struct.Agedge_s, ptr %83, i64 1
+  br label %85
 
-84:                                               ; preds = %81, %79
-  %85 = phi ptr [ %80, %79 ], [ %83, %81 ]
-  %86 = getelementptr inbounds %struct.Agedge_s, ptr %85, i32 0, i32 3
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.Agobj_s, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %89, i32 0, i32 52
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.Agobj_s, ptr %92, i32 0, i32 0
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 3
-  %96 = icmp eq i32 %95, 2
-  br i1 %96, label %97, label %99
+85:                                               ; preds = %82, %80
+  %86 = phi ptr [ %81, %80 ], [ %84, %82 ]
+  %87 = getelementptr inbounds %struct.Agedge_s, ptr %86, i32 0, i32 3
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds %struct.Agobj_s, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %90, i32 0, i32 52
+  %92 = load i32, ptr %91, align 4
+  %93 = load ptr, ptr %2, align 8
+  %94 = getelementptr inbounds %struct.Agobj_s, ptr %93, i32 0, i32 0
+  %95 = load i32, ptr %94, align 8
+  %96 = and i32 %95, 3
+  %97 = icmp eq i32 %96, 2
+  br i1 %97, label %98, label %100
 
-97:                                               ; preds = %84
-  %98 = load ptr, ptr %2, align 8
-  br label %102
+98:                                               ; preds = %85
+  %99 = load ptr, ptr %2, align 8
+  br label %103
 
-99:                                               ; preds = %84
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.Agedge_s, ptr %100, i64 -1
-  br label %102
+100:                                              ; preds = %85
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds %struct.Agedge_s, ptr %101, i64 -1
+  br label %103
 
-102:                                              ; preds = %99, %97
-  %103 = phi ptr [ %98, %97 ], [ %101, %99 ]
-  %104 = getelementptr inbounds %struct.Agedge_s, ptr %103, i32 0, i32 3
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %struct.Agobj_s, ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %107, i32 0, i32 52
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp slt i32 %91, %109
-  br i1 %110, label %111, label %128
+103:                                              ; preds = %100, %98
+  %104 = phi ptr [ %99, %98 ], [ %102, %100 ]
+  %105 = getelementptr inbounds %struct.Agedge_s, ptr %104, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.Agobj_s, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %108, i32 0, i32 52
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp slt i32 %92, %110
+  br i1 %111, label %112, label %129
 
-111:                                              ; preds = %102
-  %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds %struct.Agobj_s, ptr %112, i32 0, i32 0
-  %114 = load i32, ptr %113, align 8
-  %115 = and i32 %114, 3
-  %116 = icmp eq i32 %115, 3
-  br i1 %116, label %117, label %119
+112:                                              ; preds = %103
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds %struct.Agobj_s, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, 3
+  %117 = icmp eq i32 %116, 3
+  br i1 %117, label %118, label %120
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %2, align 8
-  br label %122
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %2, align 8
+  br label %123
 
-119:                                              ; preds = %111
-  %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds %struct.Agedge_s, ptr %120, i64 1
-  br label %122
+120:                                              ; preds = %112
+  %121 = load ptr, ptr %2, align 8
+  %122 = getelementptr inbounds %struct.Agedge_s, ptr %121, i64 1
+  br label %123
 
-122:                                              ; preds = %119, %117
-  %123 = phi ptr [ %118, %117 ], [ %121, %119 ]
-  %124 = getelementptr inbounds %struct.Agedge_s, ptr %123, i32 0, i32 3
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %1, align 4
-  %127 = sdiv i32 %126, 2
-  call void @rerank(ptr noundef %125, i32 noundef %127)
-  br label %146
-
-128:                                              ; preds = %102
-  %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds %struct.Agobj_s, ptr %129, i32 0, i32 0
-  %131 = load i32, ptr %130, align 8
-  %132 = and i32 %131, 3
-  %133 = icmp eq i32 %132, 2
-  br i1 %133, label %134, label %136
-
-134:                                              ; preds = %128
-  %135 = load ptr, ptr %2, align 8
-  br label %139
-
-136:                                              ; preds = %128
-  %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds %struct.Agedge_s, ptr %137, i64 -1
-  br label %139
-
-139:                                              ; preds = %136, %134
-  %140 = phi ptr [ %135, %134 ], [ %138, %136 ]
-  %141 = getelementptr inbounds %struct.Agedge_s, ptr %140, i32 0, i32 3
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i32, ptr %1, align 4
-  %144 = sub nsw i32 0, %143
-  %145 = sdiv i32 %144, 2
-  call void @rerank(ptr noundef %142, i32 noundef %145)
-  br label %146
-
-146:                                              ; preds = %139, %122
+123:                                              ; preds = %120, %118
+  %124 = phi ptr [ %119, %118 ], [ %122, %120 ]
+  %125 = getelementptr inbounds %struct.Agedge_s, ptr %124, i32 0, i32 3
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i32, ptr %1, align 4
+  %128 = sdiv i32 %127, 2
+  call void @rerank(ptr noundef %126, i32 noundef %128)
   br label %147
 
-147:                                              ; preds = %146, %9
+129:                                              ; preds = %103
+  %130 = load ptr, ptr %2, align 8
+  %131 = getelementptr inbounds %struct.Agobj_s, ptr %130, i32 0, i32 0
+  %132 = load i32, ptr %131, align 8
+  %133 = and i32 %132, 3
+  %134 = icmp eq i32 %133, 2
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %2, align 8
+  br label %140
+
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %2, align 8
+  %139 = getelementptr inbounds %struct.Agedge_s, ptr %138, i64 -1
+  br label %140
+
+140:                                              ; preds = %137, %135
+  %141 = phi ptr [ %136, %135 ], [ %139, %137 ]
+  %142 = getelementptr inbounds %struct.Agedge_s, ptr %141, i32 0, i32 3
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i32, ptr %1, align 4
+  %145 = sub nsw i32 0, %144
+  %146 = sdiv i32 %145, 2
+  call void @rerank(ptr noundef %143, i32 noundef %146)
+  br label %147
+
+147:                                              ; preds = %140, %123
   br label %148
 
-148:                                              ; preds = %147, %72, %25
-  %149 = load i64, ptr %4, align 8
-  %150 = add i64 %149, 1
-  store i64 %150, ptr %4, align 8
+148:                                              ; preds = %147, %10
+  br label %149
+
+149:                                              ; preds = %148, %73, %26
+  %150 = load i64, ptr %4, align 8
+  %151 = add i64 %150, 1
+  store i64 %151, ptr %4, align 8
   br label %5
 
-151:                                              ; preds = %5
-  %152 = load ptr, ptr @G, align 8
-  call void @freeTreeList(ptr noundef %152)
+152:                                              ; preds = %5
+  %153 = load ptr, ptr @G, align 8
+  call void @freeTreeList(ptr noundef %153)
   ret void
 }
 
@@ -4272,305 +4278,312 @@ define internal i32 @add_tree_edge(ptr noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.9)
   store i32 -1, ptr %2, align 4
-  br label %233
+  br label %240
 
 13:                                               ; preds = %1
-  %14 = load i64, ptr getelementptr inbounds (%struct.elist, ptr @Tree_edge, i32 0, i32 1), align 8
-  %15 = trunc i64 %14 to i32
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Agobj_s, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %18, i32 0, i32 23
-  store i32 %15, ptr %19, align 4
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr @Tree_edge, align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.elist, ptr @Tree_edge, i32 0, i32 1), align 8
-  %23 = add i64 %22, 1
-  store i64 %23, ptr getelementptr inbounds (%struct.elist, ptr @Tree_edge, i32 0, i32 1), align 8
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %22
-  store ptr %20, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Agobj_s, ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 3
-  %29 = icmp eq i32 %28, 3
-  br i1 %29, label %30, label %32
+  %14 = getelementptr inbounds %struct.elist, ptr @Tree_edge, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.Agobj_s, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %19, i32 0, i32 23
+  store i32 %16, ptr %20, align 4
+  %21 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr @Tree_edge, align 8
+  %23 = getelementptr inbounds %struct.elist, ptr @Tree_edge, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  %25 = add i64 %24, 1
+  %26 = getelementptr inbounds %struct.elist, ptr @Tree_edge, i32 0, i32 1
+  store i64 %25, ptr %26, align 8
+  %27 = getelementptr inbounds ptr, ptr %22, i64 %24
+  store ptr %21, ptr %27, align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.Agobj_s, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 3
+  %32 = icmp eq i32 %31, 3
+  br i1 %32, label %33, label %35
 
-30:                                               ; preds = %13
-  %31 = load ptr, ptr %3, align 8
-  br label %35
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %3, align 8
+  br label %38
 
-32:                                               ; preds = %13
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.Agedge_s, ptr %33, i64 1
-  br label %35
+35:                                               ; preds = %13
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.Agedge_s, ptr %36, i64 1
+  br label %38
 
-35:                                               ; preds = %32, %30
-  %36 = phi ptr [ %31, %30 ], [ %34, %32 ]
-  %37 = getelementptr inbounds %struct.Agedge_s, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.Agobj_s, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %40, i32 0, i32 29
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp ne i64 %42, 0
-  br i1 %43, label %63, label %44
+38:                                               ; preds = %35, %33
+  %39 = phi ptr [ %34, %33 ], [ %37, %35 ]
+  %40 = getelementptr inbounds %struct.Agedge_s, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.Agobj_s, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %43, i32 0, i32 29
+  %45 = load i64, ptr %44, align 8
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %68, label %47
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.Agobj_s, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = and i32 %47, 3
-  %49 = icmp eq i32 %48, 3
-  br i1 %49, label %50, label %52
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.Agobj_s, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 8
+  %51 = and i32 %50, 3
+  %52 = icmp eq i32 %51, 3
+  br i1 %52, label %53, label %55
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %3, align 8
-  br label %55
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %3, align 8
+  br label %58
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.Agedge_s, ptr %53, i64 1
-  br label %55
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.Agedge_s, ptr %56, i64 1
+  br label %58
 
-55:                                               ; preds = %52, %50
-  %56 = phi ptr [ %51, %50 ], [ %54, %52 ]
-  %57 = getelementptr inbounds %struct.Agedge_s, ptr %56, i32 0, i32 3
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr @Tree_node, align 8
-  %60 = load i64, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %62 = getelementptr inbounds ptr, ptr %59, i64 %60
-  store ptr %58, ptr %62, align 8
-  br label %63
+58:                                               ; preds = %55, %53
+  %59 = phi ptr [ %54, %53 ], [ %57, %55 ]
+  %60 = getelementptr inbounds %struct.Agedge_s, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr @Tree_node, align 8
+  %63 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  %64 = load i64, ptr %63, align 8
+  %65 = add i64 %64, 1
+  %66 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds ptr, ptr %62, i64 %64
+  store ptr %61, ptr %67, align 8
+  br label %68
 
-63:                                               ; preds = %55, %35
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.Agobj_s, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 3
-  %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %71
+68:                                               ; preds = %58, %38
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds %struct.Agobj_s, ptr %69, i32 0, i32 0
+  %71 = load i32, ptr %70, align 8
+  %72 = and i32 %71, 3
+  %73 = icmp eq i32 %72, 2
+  br i1 %73, label %74, label %76
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %3, align 8
-  br label %74
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %3, align 8
+  br label %79
 
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.Agedge_s, ptr %72, i64 -1
-  br label %74
+76:                                               ; preds = %68
+  %77 = load ptr, ptr %3, align 8
+  %78 = getelementptr inbounds %struct.Agedge_s, ptr %77, i64 -1
+  br label %79
 
-74:                                               ; preds = %71, %69
-  %75 = phi ptr [ %70, %69 ], [ %73, %71 ]
-  %76 = getelementptr inbounds %struct.Agedge_s, ptr %75, i32 0, i32 3
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.Agobj_s, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %79, i32 0, i32 29
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp ne i64 %81, 0
-  br i1 %82, label %102, label %83
+79:                                               ; preds = %76, %74
+  %80 = phi ptr [ %75, %74 ], [ %78, %76 ]
+  %81 = getelementptr inbounds %struct.Agedge_s, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct.Agobj_s, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %84, i32 0, i32 29
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ne i64 %86, 0
+  br i1 %87, label %109, label %88
 
-83:                                               ; preds = %74
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.Agobj_s, ptr %84, i32 0, i32 0
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 3
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %89, label %91
+88:                                               ; preds = %79
+  %89 = load ptr, ptr %3, align 8
+  %90 = getelementptr inbounds %struct.Agobj_s, ptr %89, i32 0, i32 0
+  %91 = load i32, ptr %90, align 8
+  %92 = and i32 %91, 3
+  %93 = icmp eq i32 %92, 2
+  br i1 %93, label %94, label %96
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %3, align 8
-  br label %94
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %3, align 8
+  br label %99
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.Agedge_s, ptr %92, i64 -1
-  br label %94
+96:                                               ; preds = %88
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds %struct.Agedge_s, ptr %97, i64 -1
+  br label %99
 
-94:                                               ; preds = %91, %89
-  %95 = phi ptr [ %90, %89 ], [ %93, %91 ]
-  %96 = getelementptr inbounds %struct.Agedge_s, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr @Tree_node, align 8
-  %99 = load i64, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %100 = add i64 %99, 1
-  store i64 %100, ptr getelementptr inbounds (%struct.nlist_t, ptr @Tree_node, i32 0, i32 1), align 8
-  %101 = getelementptr inbounds ptr, ptr %98, i64 %99
-  store ptr %97, ptr %101, align 8
-  br label %102
+99:                                               ; preds = %96, %94
+  %100 = phi ptr [ %95, %94 ], [ %98, %96 ]
+  %101 = getelementptr inbounds %struct.Agedge_s, ptr %100, i32 0, i32 3
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr @Tree_node, align 8
+  %104 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  %105 = load i64, ptr %104, align 8
+  %106 = add i64 %105, 1
+  %107 = getelementptr inbounds %struct.nlist_t, ptr @Tree_node, i32 0, i32 1
+  store i64 %106, ptr %107, align 8
+  %108 = getelementptr inbounds ptr, ptr %103, i64 %105
+  store ptr %102, ptr %108, align 8
+  br label %109
 
-102:                                              ; preds = %94, %74
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.Agobj_s, ptr %103, i32 0, i32 0
-  %105 = load i32, ptr %104, align 8
-  %106 = and i32 %105, 3
-  %107 = icmp eq i32 %106, 3
-  br i1 %107, label %108, label %110
+109:                                              ; preds = %99, %79
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds %struct.Agobj_s, ptr %110, i32 0, i32 0
+  %112 = load i32, ptr %111, align 8
+  %113 = and i32 %112, 3
+  %114 = icmp eq i32 %113, 3
+  br i1 %114, label %115, label %117
 
-108:                                              ; preds = %102
-  %109 = load ptr, ptr %3, align 8
-  br label %113
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %3, align 8
+  br label %120
 
-110:                                              ; preds = %102
-  %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds %struct.Agedge_s, ptr %111, i64 1
-  br label %113
+117:                                              ; preds = %109
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds %struct.Agedge_s, ptr %118, i64 1
+  br label %120
 
-113:                                              ; preds = %110, %108
-  %114 = phi ptr [ %109, %108 ], [ %112, %110 ]
-  %115 = getelementptr inbounds %struct.Agedge_s, ptr %114, i32 0, i32 3
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %4, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.Agobj_s, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %119, i32 0, i32 29
-  store i64 1, ptr %120, align 8
-  %121 = load ptr, ptr %3, align 8
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds %struct.Agobj_s, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %124, i32 0, i32 49
-  %126 = getelementptr inbounds %struct.elist, ptr %125, i32 0, i32 0
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr inbounds %struct.Agobj_s, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %130, i32 0, i32 49
-  %132 = getelementptr inbounds %struct.elist, ptr %131, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %132, align 8
-  %135 = getelementptr inbounds ptr, ptr %127, i64 %133
-  store ptr %121, ptr %135, align 8
-  %136 = load ptr, ptr %4, align 8
-  %137 = getelementptr inbounds %struct.Agobj_s, ptr %136, i32 0, i32 1
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %138, i32 0, i32 49
-  %140 = getelementptr inbounds %struct.elist, ptr %139, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %4, align 8
-  %143 = getelementptr inbounds %struct.Agobj_s, ptr %142, i32 0, i32 1
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %144, i32 0, i32 49
-  %146 = getelementptr inbounds %struct.elist, ptr %145, i32 0, i32 1
-  %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds ptr, ptr %141, i64 %147
-  store ptr null, ptr %148, align 8
+120:                                              ; preds = %117, %115
+  %121 = phi ptr [ %116, %115 ], [ %119, %117 ]
+  %122 = getelementptr inbounds %struct.Agedge_s, ptr %121, i32 0, i32 3
+  %123 = load ptr, ptr %122, align 8
+  store ptr %123, ptr %4, align 8
+  %124 = load ptr, ptr %4, align 8
+  %125 = getelementptr inbounds %struct.Agobj_s, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %126, i32 0, i32 29
+  store i64 1, ptr %127, align 8
+  %128 = load ptr, ptr %3, align 8
+  %129 = load ptr, ptr %4, align 8
+  %130 = getelementptr inbounds %struct.Agobj_s, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %131, i32 0, i32 49
+  %133 = getelementptr inbounds %struct.elist, ptr %132, i32 0, i32 0
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds %struct.Agobj_s, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %137, i32 0, i32 49
+  %139 = getelementptr inbounds %struct.elist, ptr %138, i32 0, i32 1
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, 1
+  store i64 %141, ptr %139, align 8
+  %142 = getelementptr inbounds ptr, ptr %134, i64 %140
+  store ptr %128, ptr %142, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = getelementptr inbounds %struct.Agobj_s, ptr %143, i32 0, i32 1
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %145, i32 0, i32 49
+  %147 = getelementptr inbounds %struct.elist, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %4, align 8
   %150 = getelementptr inbounds %struct.Agobj_s, ptr %149, i32 0, i32 1
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %151, i32 0, i32 36
-  %153 = getelementptr inbounds %struct.elist, ptr %152, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %4, align 8
-  %156 = getelementptr inbounds %struct.Agobj_s, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %157, i32 0, i32 49
-  %159 = getelementptr inbounds %struct.elist, ptr %158, i32 0, i32 1
-  %160 = load i64, ptr %159, align 8
-  %161 = sub i64 %160, 1
-  %162 = getelementptr inbounds ptr, ptr %154, i64 %161
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %167
+  %152 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %151, i32 0, i32 49
+  %153 = getelementptr inbounds %struct.elist, ptr %152, i32 0, i32 1
+  %154 = load i64, ptr %153, align 8
+  %155 = getelementptr inbounds ptr, ptr %148, i64 %154
+  store ptr null, ptr %155, align 8
+  %156 = load ptr, ptr %4, align 8
+  %157 = getelementptr inbounds %struct.Agobj_s, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %158, i32 0, i32 36
+  %160 = getelementptr inbounds %struct.elist, ptr %159, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %4, align 8
+  %163 = getelementptr inbounds %struct.Agobj_s, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %164, i32 0, i32 49
+  %166 = getelementptr inbounds %struct.elist, ptr %165, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = sub i64 %167, 1
+  %169 = getelementptr inbounds ptr, ptr %161, i64 %168
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %174
 
-165:                                              ; preds = %113
-  %166 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.10)
+172:                                              ; preds = %120
+  %173 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.10)
   store i32 -1, ptr %2, align 4
-  br label %233
+  br label %240
 
-167:                                              ; preds = %113
-  %168 = load ptr, ptr %3, align 8
-  %169 = getelementptr inbounds %struct.Agobj_s, ptr %168, i32 0, i32 0
-  %170 = load i32, ptr %169, align 8
-  %171 = and i32 %170, 3
-  %172 = icmp eq i32 %171, 2
-  br i1 %172, label %173, label %175
+174:                                              ; preds = %120
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds %struct.Agobj_s, ptr %175, i32 0, i32 0
+  %177 = load i32, ptr %176, align 8
+  %178 = and i32 %177, 3
+  %179 = icmp eq i32 %178, 2
+  br i1 %179, label %180, label %182
 
-173:                                              ; preds = %167
-  %174 = load ptr, ptr %3, align 8
-  br label %178
+180:                                              ; preds = %174
+  %181 = load ptr, ptr %3, align 8
+  br label %185
 
-175:                                              ; preds = %167
-  %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds %struct.Agedge_s, ptr %176, i64 -1
-  br label %178
+182:                                              ; preds = %174
+  %183 = load ptr, ptr %3, align 8
+  %184 = getelementptr inbounds %struct.Agedge_s, ptr %183, i64 -1
+  br label %185
 
-178:                                              ; preds = %175, %173
-  %179 = phi ptr [ %174, %173 ], [ %177, %175 ]
-  %180 = getelementptr inbounds %struct.Agedge_s, ptr %179, i32 0, i32 3
-  %181 = load ptr, ptr %180, align 8
-  store ptr %181, ptr %4, align 8
-  %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds %struct.Agobj_s, ptr %182, i32 0, i32 1
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %184, i32 0, i32 29
-  store i64 1, ptr %185, align 8
-  %186 = load ptr, ptr %3, align 8
-  %187 = load ptr, ptr %4, align 8
-  %188 = getelementptr inbounds %struct.Agobj_s, ptr %187, i32 0, i32 1
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %189, i32 0, i32 48
-  %191 = getelementptr inbounds %struct.elist, ptr %190, i32 0, i32 0
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %4, align 8
-  %194 = getelementptr inbounds %struct.Agobj_s, ptr %193, i32 0, i32 1
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %195, i32 0, i32 48
-  %197 = getelementptr inbounds %struct.elist, ptr %196, i32 0, i32 1
-  %198 = load i64, ptr %197, align 8
-  %199 = add i64 %198, 1
-  store i64 %199, ptr %197, align 8
-  %200 = getelementptr inbounds ptr, ptr %192, i64 %198
-  store ptr %186, ptr %200, align 8
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %struct.Agobj_s, ptr %201, i32 0, i32 1
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %203, i32 0, i32 48
-  %205 = getelementptr inbounds %struct.elist, ptr %204, i32 0, i32 0
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds %struct.Agobj_s, ptr %207, i32 0, i32 1
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %209, i32 0, i32 48
-  %211 = getelementptr inbounds %struct.elist, ptr %210, i32 0, i32 1
-  %212 = load i64, ptr %211, align 8
-  %213 = getelementptr inbounds ptr, ptr %206, i64 %212
-  store ptr null, ptr %213, align 8
+185:                                              ; preds = %182, %180
+  %186 = phi ptr [ %181, %180 ], [ %184, %182 ]
+  %187 = getelementptr inbounds %struct.Agedge_s, ptr %186, i32 0, i32 3
+  %188 = load ptr, ptr %187, align 8
+  store ptr %188, ptr %4, align 8
+  %189 = load ptr, ptr %4, align 8
+  %190 = getelementptr inbounds %struct.Agobj_s, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %191, i32 0, i32 29
+  store i64 1, ptr %192, align 8
+  %193 = load ptr, ptr %3, align 8
+  %194 = load ptr, ptr %4, align 8
+  %195 = getelementptr inbounds %struct.Agobj_s, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %196, i32 0, i32 48
+  %198 = getelementptr inbounds %struct.elist, ptr %197, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8
+  %200 = load ptr, ptr %4, align 8
+  %201 = getelementptr inbounds %struct.Agobj_s, ptr %200, i32 0, i32 1
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %202, i32 0, i32 48
+  %204 = getelementptr inbounds %struct.elist, ptr %203, i32 0, i32 1
+  %205 = load i64, ptr %204, align 8
+  %206 = add i64 %205, 1
+  store i64 %206, ptr %204, align 8
+  %207 = getelementptr inbounds ptr, ptr %199, i64 %205
+  store ptr %193, ptr %207, align 8
+  %208 = load ptr, ptr %4, align 8
+  %209 = getelementptr inbounds %struct.Agobj_s, ptr %208, i32 0, i32 1
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %210, i32 0, i32 48
+  %212 = getelementptr inbounds %struct.elist, ptr %211, i32 0, i32 0
+  %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr %4, align 8
   %215 = getelementptr inbounds %struct.Agobj_s, ptr %214, i32 0, i32 1
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %216, i32 0, i32 35
-  %218 = getelementptr inbounds %struct.elist, ptr %217, i32 0, i32 0
-  %219 = load ptr, ptr %218, align 8
-  %220 = load ptr, ptr %4, align 8
-  %221 = getelementptr inbounds %struct.Agobj_s, ptr %220, i32 0, i32 1
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %222, i32 0, i32 48
-  %224 = getelementptr inbounds %struct.elist, ptr %223, i32 0, i32 1
-  %225 = load i64, ptr %224, align 8
-  %226 = sub i64 %225, 1
-  %227 = getelementptr inbounds ptr, ptr %219, i64 %226
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %232
+  %217 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %216, i32 0, i32 48
+  %218 = getelementptr inbounds %struct.elist, ptr %217, i32 0, i32 1
+  %219 = load i64, ptr %218, align 8
+  %220 = getelementptr inbounds ptr, ptr %213, i64 %219
+  store ptr null, ptr %220, align 8
+  %221 = load ptr, ptr %4, align 8
+  %222 = getelementptr inbounds %struct.Agobj_s, ptr %221, i32 0, i32 1
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %223, i32 0, i32 35
+  %225 = getelementptr inbounds %struct.elist, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8
+  %227 = load ptr, ptr %4, align 8
+  %228 = getelementptr inbounds %struct.Agobj_s, ptr %227, i32 0, i32 1
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %229, i32 0, i32 48
+  %231 = getelementptr inbounds %struct.elist, ptr %230, i32 0, i32 1
+  %232 = load i64, ptr %231, align 8
+  %233 = sub i64 %232, 1
+  %234 = getelementptr inbounds ptr, ptr %226, i64 %233
+  %235 = load ptr, ptr %234, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %237, label %239
 
-230:                                              ; preds = %178
-  %231 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.11)
+237:                                              ; preds = %185
+  %238 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.11)
   store i32 -1, ptr %2, align 4
-  br label %233
+  br label %240
 
-232:                                              ; preds = %178
+239:                                              ; preds = %185
   store i32 0, ptr %2, align 4
-  br label %233
+  br label %240
 
-233:                                              ; preds = %232, %230, %165, %11
-  %234 = load i32, ptr %2, align 4
-  ret i32 %234
+240:                                              ; preds = %239, %237, %172, %11
+  %241 = load i32, ptr %2, align 4
+  ret i32 %241
 }
 
 ; Function Attrs: nounwind uwtable

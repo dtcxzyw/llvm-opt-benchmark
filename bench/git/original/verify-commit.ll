@@ -117,25 +117,26 @@ if.then28:                                        ; preds = %if.end
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %if.end
-  %call30 = call ptr @signal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr)) #6
+  %7 = inttoptr i64 1 to ptr
+  %call30 = call ptr @signal(i32 noundef 13, ptr noundef %7) #6
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end35, %if.end29
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %argc.addr, align 4
-  %cmp31 = icmp slt i32 %7, %8
+  %8 = load i32, ptr %i, align 4
+  %9 = load i32, ptr %argc.addr, align 4
+  %cmp31 = icmp slt i32 %8, %9
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %9 = load ptr, ptr %argv.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %10, 1
+  %10 = load ptr, ptr %argv.addr, align 8
+  %11 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  %12 = load i32, ptr %flags, align 4
-  %call32 = call i32 @verify_commit(ptr noundef %11, i32 noundef %12)
+  %idxprom = sext i32 %11 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
+  %12 = load ptr, ptr %arrayidx, align 8
+  %13 = load i32, ptr %flags, align 4
+  %call32 = call i32 @verify_commit(ptr noundef %12, i32 noundef %13)
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.then34, label %if.end35
 
@@ -147,8 +148,8 @@ if.end35:                                         ; preds = %if.then34, %while.b
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
-  %13 = load i32, ptr %had_error, align 4
-  ret i32 %13
+  %14 = load i32, ptr %had_error, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

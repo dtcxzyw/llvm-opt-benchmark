@@ -348,105 +348,106 @@ define ptr @Abc_CexDup(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, inttoptr (i64 1 to ptr)
-  br i1 %9, label %10, label %12
+  %9 = inttoptr i64 1 to ptr
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %3, align 8
-  br label %74
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %3, align 8
+  br label %75
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %5, align 4
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %19
+13:                                               ; preds = %2
+  %14 = load i32, ptr %5, align 4
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %5, align 4
-  br label %19
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 4
+  store i32 %19, ptr %5, align 4
+  br label %20
 
-19:                                               ; preds = %15, %12
-  %20 = load i32, ptr %5, align 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %21, i32 0, i32 3
-  %23 = load i32, ptr %22, align 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4
-  %27 = add nsw i32 %26, 1
-  %28 = call ptr @Abc_CexAlloc(i32 noundef %20, i32 noundef %23, i32 noundef %27)
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %32, i32 0, i32 0
-  store i32 %31, ptr %33, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %37, i32 0, i32 1
-  store i32 %36, ptr %38, align 4
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %7, align 4
-  br label %42
+20:                                               ; preds = %16, %13
+  %21 = load i32, ptr %5, align 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = add nsw i32 %27, 1
+  %29 = call ptr @Abc_CexAlloc(i32 noundef %21, i32 noundef %24, i32 noundef %28)
+  store ptr %29, ptr %6, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %33, i32 0, i32 0
+  store i32 %32, ptr %34, align 4
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %38, i32 0, i32 1
+  store i32 %37, ptr %39, align 4
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %40, i32 0, i32 2
+  %42 = load i32, ptr %41, align 4
+  store i32 %42, ptr %7, align 4
+  br label %43
 
-42:                                               ; preds = %69, %19
-  %43 = load i32, ptr %7, align 4
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %44, i32 0, i32 4
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp slt i32 %43, %46
-  br i1 %47, label %48, label %72
+43:                                               ; preds = %70, %20
+  %44 = load i32, ptr %7, align 4
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp slt i32 %44, %47
+  br i1 %48, label %49, label %73
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %49, i32 0, i32 5
-  %51 = getelementptr inbounds [0 x i32], ptr %50, i64 0, i64 0
-  %52 = load i32, ptr %7, align 4
-  %53 = call i32 @Abc_InfoHasBit(ptr noundef %51, i32 noundef %52)
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %68
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %50, i32 0, i32 5
+  %52 = getelementptr inbounds [0 x i32], ptr %51, i64 0, i64 0
+  %53 = load i32, ptr %7, align 4
+  %54 = call i32 @Abc_InfoHasBit(ptr noundef %52, i32 noundef %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %69
 
-55:                                               ; preds = %48
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %56, i32 0, i32 5
-  %58 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 0
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %59, i32 0, i32 2
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr %7, align 4
-  %63 = add nsw i32 %61, %62
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 4
-  %67 = sub nsw i32 %63, %66
-  call void @Abc_InfoSetBit(ptr noundef %58, i32 noundef %67)
-  br label %68
-
-68:                                               ; preds = %55, %48
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %57, i32 0, i32 5
+  %59 = getelementptr inbounds [0 x i32], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %60, i32 0, i32 2
+  %62 = load i32, ptr %61, align 4
+  %63 = load i32, ptr %7, align 4
+  %64 = add nsw i32 %62, %63
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 4
+  %68 = sub nsw i32 %64, %67
+  call void @Abc_InfoSetBit(ptr noundef %59, i32 noundef %68)
   br label %69
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %7, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %7, align 4
-  br label %42, !llvm.loop !7
+69:                                               ; preds = %56, %49
+  br label %70
 
-72:                                               ; preds = %42
-  %73 = load ptr, ptr %6, align 8
-  store ptr %73, ptr %3, align 8
-  br label %74
+70:                                               ; preds = %69
+  %71 = load i32, ptr %7, align 4
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %7, align 4
+  br label %43, !llvm.loop !7
 
-74:                                               ; preds = %72, %10
-  %75 = load ptr, ptr %3, align 8
-  ret ptr %75
+73:                                               ; preds = %43
+  %74 = load ptr, ptr %6, align 8
+  store ptr %74, ptr %3, align 8
+  br label %75
+
+75:                                               ; preds = %73, %11
+  %76 = load ptr, ptr %3, align 8
+  ret ptr %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -938,79 +939,80 @@ define void @Abc_CexPrintStats(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  br label %62
+  br label %63
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
-  %11 = icmp eq ptr %10, inttoptr (i64 1 to ptr)
-  br i1 %11, label %12, label %14
+  %11 = inttoptr i64 1 to ptr
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %9
-  %13 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %62
+13:                                               ; preds = %9
+  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  br label %63
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   store i32 0, ptr %3, align 4
-  br label %15
+  br label %16
 
-15:                                               ; preds = %29, %14
-  %16 = load i32, ptr %3, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp slt i32 %16, %19
-  br i1 %20, label %21, label %32
+16:                                               ; preds = %30, %15
+  %17 = load i32, ptr %3, align 4
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp slt i32 %17, %20
+  br i1 %21, label %22, label %33
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %22, i32 0, i32 5
-  %24 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 0
-  %25 = load i32, ptr %3, align 4
-  %26 = call i32 @Abc_InfoHasBit(ptr noundef %24, i32 noundef %25)
-  %27 = load i32, ptr %4, align 4
-  %28 = add nsw i32 %27, %26
-  store i32 %28, ptr %4, align 4
-  br label %29
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %23, i32 0, i32 5
+  %25 = getelementptr inbounds [0 x i32], ptr %24, i64 0, i64 0
+  %26 = load i32, ptr %3, align 4
+  %27 = call i32 @Abc_InfoHasBit(ptr noundef %25, i32 noundef %26)
+  %28 = load i32, ptr %4, align 4
+  %29 = add nsw i32 %28, %27
+  store i32 %29, ptr %4, align 4
+  br label %30
 
-29:                                               ; preds = %21
-  %30 = load i32, ptr %3, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %3, align 4
-  br label %15, !llvm.loop !16
+30:                                               ; preds = %22
+  %31 = load i32, ptr %3, align 4
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %3, align 4
+  br label %16, !llvm.loop !16
 
-32:                                               ; preds = %15
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 4
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 4
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %45, i32 0, i32 4
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %4, align 4
+33:                                               ; preds = %16
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %40, i32 0, i32 2
+  %42 = load i32, ptr %41, align 4
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %46, i32 0, i32 4
+  %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %4, align 4
-  %50 = sitofp i32 %49 to double
-  %51 = fmul double 1.000000e+02, %50
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %52, i32 0, i32 4
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 4
-  %58 = sub nsw i32 %54, %57
-  %59 = sitofp i32 %58 to double
-  %60 = fdiv double %51, %59
-  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %35, i32 noundef %38, i32 noundef %41, i32 noundef %44, i32 noundef %47, i32 noundef %48, double noundef %60)
-  br label %62
+  %50 = load i32, ptr %4, align 4
+  %51 = sitofp i32 %50 to double
+  %52 = fmul double 1.000000e+02, %51
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %53, i32 0, i32 4
+  %55 = load i32, ptr %54, align 4
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 4
+  %59 = sub nsw i32 %55, %58
+  %60 = sitofp i32 %59 to double
+  %61 = fdiv double %52, %60
+  %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %49, double noundef %61)
+  br label %63
 
-62:                                               ; preds = %32, %12, %7
+63:                                               ; preds = %33, %13, %7
   ret void
 }
 
@@ -1033,168 +1035,169 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) #0 {
 
 11:                                               ; preds = %2
   %12 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  br label %139
+  br label %140
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %3, align 8
-  %15 = icmp eq ptr %14, inttoptr (i64 1 to ptr)
-  br i1 %15, label %16, label %18
+  %15 = inttoptr i64 1 to ptr
+  %16 = icmp eq ptr %14, %15
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %139
+17:                                               ; preds = %13
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  br label %140
 
-18:                                               ; preds = %13
+19:                                               ; preds = %13
   store i32 0, ptr %5, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %68, %18
-  %20 = load i32, ptr %5, align 4
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %21, i32 0, i32 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp slt i32 %20, %23
-  br i1 %24, label %25, label %71
+20:                                               ; preds = %69, %19
+  %21 = load i32, ptr %5, align 4
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp slt i32 %21, %24
+  br i1 %25, label %26, label %72
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %26, i32 0, i32 5
-  %28 = getelementptr inbounds [0 x i32], ptr %27, i64 0, i64 0
-  %29 = load i32, ptr %5, align 4
-  %30 = call i32 @Abc_InfoHasBit(ptr noundef %28, i32 noundef %29)
-  %31 = load i32, ptr %6, align 4
-  %32 = add nsw i32 %31, %30
-  store i32 %32, ptr %6, align 4
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %34, i32 0, i32 3
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %33, %36
-  br i1 %37, label %38, label %39
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %27, i32 0, i32 5
+  %29 = getelementptr inbounds [0 x i32], ptr %28, i64 0, i64 0
+  %30 = load i32, ptr %5, align 4
+  %31 = call i32 @Abc_InfoHasBit(ptr noundef %29, i32 noundef %30)
+  %32 = load i32, ptr %6, align 4
+  %33 = add nsw i32 %32, %31
+  store i32 %33, ptr %6, align 4
+  %34 = load i32, ptr %4, align 4
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %34, %37
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %25
+39:                                               ; preds = %26
+  br label %69
+
+40:                                               ; preds = %26
+  %41 = load i32, ptr %5, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 4
+  %45 = sub nsw i32 %41, %44
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %46, i32 0, i32 3
+  %48 = load i32, ptr %47, align 4
+  %49 = srem i32 %45, %48
+  %50 = load i32, ptr %4, align 4
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %60
+
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %53, i32 0, i32 5
+  %55 = getelementptr inbounds [0 x i32], ptr %54, i64 0, i64 0
+  %56 = load i32, ptr %5, align 4
+  %57 = call i32 @Abc_InfoHasBit(ptr noundef %55, i32 noundef %56)
+  %58 = load i32, ptr %7, align 4
+  %59 = add nsw i32 %58, %57
+  store i32 %59, ptr %7, align 4
   br label %68
 
-39:                                               ; preds = %25
-  %40 = load i32, ptr %5, align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 4
-  %44 = sub nsw i32 %40, %43
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 4
-  %48 = srem i32 %44, %47
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %51, label %59
-
-51:                                               ; preds = %39
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %52, i32 0, i32 5
-  %54 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 0
-  %55 = load i32, ptr %5, align 4
-  %56 = call i32 @Abc_InfoHasBit(ptr noundef %54, i32 noundef %55)
-  %57 = load i32, ptr %7, align 4
-  %58 = add nsw i32 %57, %56
-  store i32 %58, ptr %7, align 4
-  br label %67
-
-59:                                               ; preds = %39
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %60, i32 0, i32 5
-  %62 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 0
-  %63 = load i32, ptr %5, align 4
-  %64 = call i32 @Abc_InfoHasBit(ptr noundef %62, i32 noundef %63)
-  %65 = load i32, ptr %8, align 4
-  %66 = add nsw i32 %65, %64
-  store i32 %66, ptr %8, align 4
-  br label %67
-
-67:                                               ; preds = %59, %51
+60:                                               ; preds = %40
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %61, i32 0, i32 5
+  %63 = getelementptr inbounds [0 x i32], ptr %62, i64 0, i64 0
+  %64 = load i32, ptr %5, align 4
+  %65 = call i32 @Abc_InfoHasBit(ptr noundef %63, i32 noundef %64)
+  %66 = load i32, ptr %8, align 4
+  %67 = add nsw i32 %66, %65
+  store i32 %67, ptr %8, align 4
   br label %68
 
-68:                                               ; preds = %67, %38
-  %69 = load i32, ptr %5, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %5, align 4
-  br label %19, !llvm.loop !17
+68:                                               ; preds = %60, %52
+  br label %69
 
-71:                                               ; preds = %19
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %72, i32 0, i32 0
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %75, i32 0, i32 1
-  %77 = load i32, ptr %76, align 4
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %78, i32 0, i32 2
-  %80 = load i32, ptr %79, align 4
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 4
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %84, i32 0, i32 4
-  %86 = load i32, ptr %85, align 4
-  %87 = load i32, ptr %6, align 4
+69:                                               ; preds = %68, %39
+  %70 = load i32, ptr %5, align 4
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %5, align 4
+  br label %20, !llvm.loop !17
+
+72:                                               ; preds = %20
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %76, i32 0, i32 1
+  %78 = load i32, ptr %77, align 4
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %79, i32 0, i32 2
+  %81 = load i32, ptr %80, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 4
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %85, i32 0, i32 4
+  %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %6, align 4
-  %89 = sitofp i32 %88 to double
-  %90 = fmul double 1.000000e+02, %89
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %91, i32 0, i32 1
-  %93 = load i32, ptr %92, align 4
-  %94 = add nsw i32 %93, 1
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %95, i32 0, i32 3
-  %97 = load i32, ptr %96, align 4
-  %98 = mul nsw i32 %94, %97
-  %99 = sitofp i32 %98 to double
-  %100 = fdiv double %90, %99
-  %101 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %74, i32 noundef %77, i32 noundef %80, i32 noundef %83, i32 noundef %86, i32 noundef %87, double noundef %100)
-  %102 = load i32, ptr %4, align 4
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %103, i32 0, i32 3
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp slt i32 %102, %105
-  br i1 %106, label %107, label %137
+  %89 = load i32, ptr %6, align 4
+  %90 = sitofp i32 %89 to double
+  %91 = fmul double 1.000000e+02, %90
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 4
+  %95 = add nsw i32 %94, 1
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %96, i32 0, i32 3
+  %98 = load i32, ptr %97, align 4
+  %99 = mul nsw i32 %95, %98
+  %100 = sitofp i32 %99 to double
+  %101 = fdiv double %91, %100
+  %102 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %75, i32 noundef %78, i32 noundef %81, i32 noundef %84, i32 noundef %87, i32 noundef %88, double noundef %101)
+  %103 = load i32, ptr %4, align 4
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %104, i32 0, i32 3
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp slt i32 %103, %106
+  br i1 %107, label %108, label %138
 
-107:                                              ; preds = %71
-  %108 = load i32, ptr %7, align 4
+108:                                              ; preds = %72
   %109 = load i32, ptr %7, align 4
-  %110 = sitofp i32 %109 to double
-  %111 = fmul double 1.000000e+02, %110
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %112, i32 0, i32 1
-  %114 = load i32, ptr %113, align 4
-  %115 = add nsw i32 %114, 1
-  %116 = load i32, ptr %4, align 4
-  %117 = mul nsw i32 %115, %116
-  %118 = sitofp i32 %117 to double
-  %119 = fdiv double %111, %118
-  %120 = load i32, ptr %8, align 4
+  %110 = load i32, ptr %7, align 4
+  %111 = sitofp i32 %110 to double
+  %112 = fmul double 1.000000e+02, %111
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %113, i32 0, i32 1
+  %115 = load i32, ptr %114, align 4
+  %116 = add nsw i32 %115, 1
+  %117 = load i32, ptr %4, align 4
+  %118 = mul nsw i32 %116, %117
+  %119 = sitofp i32 %118 to double
+  %120 = fdiv double %112, %119
   %121 = load i32, ptr %8, align 4
-  %122 = sitofp i32 %121 to double
-  %123 = fmul double 1.000000e+02, %122
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %124, i32 0, i32 1
-  %126 = load i32, ptr %125, align 4
-  %127 = add nsw i32 %126, 1
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %128, i32 0, i32 3
-  %130 = load i32, ptr %129, align 4
-  %131 = load i32, ptr %4, align 4
-  %132 = sub nsw i32 %130, %131
-  %133 = mul nsw i32 %127, %132
-  %134 = sitofp i32 %133 to double
-  %135 = fdiv double %123, %134
-  %136 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %108, double noundef %119, i32 noundef %120, double noundef %135)
-  br label %137
+  %122 = load i32, ptr %8, align 4
+  %123 = sitofp i32 %122 to double
+  %124 = fmul double 1.000000e+02, %123
+  %125 = load ptr, ptr %3, align 8
+  %126 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 4
+  %128 = add nsw i32 %127, 1
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %129, i32 0, i32 3
+  %131 = load i32, ptr %130, align 4
+  %132 = load i32, ptr %4, align 4
+  %133 = sub nsw i32 %131, %132
+  %134 = mul nsw i32 %128, %133
+  %135 = sitofp i32 %134 to double
+  %136 = fdiv double %124, %135
+  %137 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %109, double noundef %120, i32 noundef %121, double noundef %136)
+  br label %138
 
-137:                                              ; preds = %107, %71
-  %138 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %139
+138:                                              ; preds = %108, %72
+  %139 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+  br label %140
 
-139:                                              ; preds = %137, %16, %11
+140:                                              ; preds = %138, %17, %11
   ret void
 }
 
@@ -1211,102 +1214,103 @@ define void @Abc_CexPrint(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  br label %67
+  br label %68
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %11, inttoptr (i64 1 to ptr)
-  br i1 %12, label %13, label %15
+  %12 = inttoptr i64 1 to ptr
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %10
-  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %67
+14:                                               ; preds = %10
+  %15 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  br label %68
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %2, align 8
-  call void @Abc_CexPrintStats(ptr noundef %16)
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %2, align 8
+  call void @Abc_CexPrintStats(ptr noundef %17)
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
   store i32 0, ptr %5, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %31, %15
-  %19 = load i32, ptr %5, align 4
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %20, i32 0, i32 2
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp slt i32 %19, %22
-  br i1 %23, label %24, label %34
+19:                                               ; preds = %32, %16
+  %20 = load i32, ptr %5, align 4
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp slt i32 %20, %23
+  br i1 %24, label %25, label %35
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %25, i32 0, i32 5
-  %27 = getelementptr inbounds [0 x i32], ptr %26, i64 0, i64 0
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 @Abc_InfoHasBit(ptr noundef %27, i32 noundef %28)
-  %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %29)
-  br label %31
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds [0 x i32], ptr %27, i64 0, i64 0
+  %29 = load i32, ptr %5, align 4
+  %30 = call i32 @Abc_InfoHasBit(ptr noundef %28, i32 noundef %29)
+  %31 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %30)
+  br label %32
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %5, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %5, align 4
-  br label %18, !llvm.loop !18
+32:                                               ; preds = %25
+  %33 = load i32, ptr %5, align 4
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %5, align 4
+  br label %19, !llvm.loop !18
 
-34:                                               ; preds = %18
-  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+35:                                               ; preds = %19
+  %36 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
   store i32 0, ptr %4, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %64, %34
-  %37 = load i32, ptr %4, align 4
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sle i32 %37, %40
-  br i1 %41, label %42, label %67
+37:                                               ; preds = %65, %35
+  %38 = load i32, ptr %4, align 4
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sle i32 %38, %41
+  br i1 %42, label %43, label %68
 
-42:                                               ; preds = %36
-  %43 = load i32, ptr %4, align 4
-  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %43)
+43:                                               ; preds = %37
+  %44 = load i32, ptr %4, align 4
+  %45 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %44)
   store i32 0, ptr %3, align 4
-  br label %45
+  br label %46
 
-45:                                               ; preds = %59, %42
-  %46 = load i32, ptr %3, align 4
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %47, i32 0, i32 3
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp slt i32 %46, %49
-  br i1 %50, label %51, label %62
+46:                                               ; preds = %60, %43
+  %47 = load i32, ptr %3, align 4
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %48, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %47, %50
+  br i1 %51, label %52, label %63
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %52, i32 0, i32 5
-  %54 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 0
-  %55 = load i32, ptr %5, align 4
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %5, align 4
-  %57 = call i32 @Abc_InfoHasBit(ptr noundef %54, i32 noundef %55)
-  %58 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %57)
-  br label %59
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %53, i32 0, i32 5
+  %55 = getelementptr inbounds [0 x i32], ptr %54, i64 0, i64 0
+  %56 = load i32, ptr %5, align 4
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %5, align 4
+  %58 = call i32 @Abc_InfoHasBit(ptr noundef %55, i32 noundef %56)
+  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %58)
+  br label %60
 
-59:                                               ; preds = %51
-  %60 = load i32, ptr %3, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %3, align 4
-  br label %45, !llvm.loop !19
+60:                                               ; preds = %52
+  %61 = load i32, ptr %3, align 4
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %3, align 4
+  br label %46, !llvm.loop !19
 
-62:                                               ; preds = %45
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %64
+63:                                               ; preds = %46
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+  br label %65
 
-64:                                               ; preds = %62
-  %65 = load i32, ptr %4, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %4, align 4
-  br label %36, !llvm.loop !20
+65:                                               ; preds = %63
+  %66 = load i32, ptr %4, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %4, align 4
+  br label %37, !llvm.loop !20
 
-67:                                               ; preds = %36, %13, %8
+68:                                               ; preds = %37, %14, %8
   ret void
 }
 
@@ -1320,40 +1324,41 @@ define void @Abc_CexFreeP(ptr noundef %0) #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  br label %23
+  br label %24
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, inttoptr (i64 1 to ptr)
-  br i1 %10, label %11, label %13
+  %10 = inttoptr i64 1 to ptr
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %2, align 8
-  store ptr null, ptr %12, align 8
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %2, align 8
+  store ptr null, ptr %13, align 8
+  br label %24
+
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %2, align 8
+  %20 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %20) #7
+  %21 = load ptr, ptr %2, align 8
+  store ptr null, ptr %21, align 8
   br label %23
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %2, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %21
-
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %2, align 8
-  %19 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %19) #7
-  %20 = load ptr, ptr %2, align 8
-  store ptr null, ptr %20, align 8
-  br label %22
-
-21:                                               ; preds = %13
-  br label %22
-
-22:                                               ; preds = %21, %17
+22:                                               ; preds = %14
   br label %23
 
-23:                                               ; preds = %22, %11, %6
+23:                                               ; preds = %22, %18
+  br label %24
+
+24:                                               ; preds = %23, %12, %6
   ret void
 }
 
@@ -1365,30 +1370,31 @@ define void @Abc_CexFree(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %1
-  br label %13
+  %4 = inttoptr i64 1 to ptr
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %11
+  br label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %10) #7
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %11) #7
   store ptr null, ptr %2, align 8
-  br label %12
-
-11:                                               ; preds = %6
-  br label %12
-
-12:                                               ; preds = %11, %9
   br label %13
 
-13:                                               ; preds = %12, %5
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %10
+  br label %14
+
+14:                                               ; preds = %13, %6
   ret void
 }
 

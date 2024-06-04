@@ -330,109 +330,110 @@ define dso_local void @_ZN13StatusPrinterC2ERK11BuildConfig(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN6StatusC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 2
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 4
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 5
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 6
-  store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 7
-  invoke void @_ZN11LinePrinterC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %15)
-          to label %16 unwind label %31
+  %8 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 2
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 4
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 5
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 6
+  store i64 0, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 7
+  invoke void @_ZN11LinePrinterC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %16)
+          to label %17 unwind label %32
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 9
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.BuildConfig, ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 8
-  invoke void @_ZN13StatusPrinter15SlidingRateInfoC2Ei(ptr noundef nonnull align 8 dereferenceable(100) %18, i32 noundef %21)
-          to label %22 unwind label %35
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 9
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %struct.BuildConfig, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 8
+  invoke void @_ZN13StatusPrinter15SlidingRateInfoC2Ei(ptr noundef nonnull align 8 dereferenceable(100) %19, i32 noundef %22)
+          to label %23 unwind label %36
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.BuildConfig, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ne i32 %26, 2
-  br i1 %27, label %28, label %43
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.BuildConfig, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %27, 2
+  br i1 %28, label %29, label %44
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 7
-  invoke void @_ZN11LinePrinter18set_smart_terminalEb(ptr noundef nonnull align 8 dereferenceable(80) %29, i1 noundef zeroext false)
-          to label %30 unwind label %39
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 7
+  invoke void @_ZN11LinePrinter18set_smart_terminalEb(ptr noundef nonnull align 8 dereferenceable(80) %30, i1 noundef zeroext false)
+          to label %31 unwind label %40
 
-30:                                               ; preds = %28
-  br label %43
+31:                                               ; preds = %29
+  br label %44
 
-31:                                               ; preds = %2
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %2
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  br label %53
-
-35:                                               ; preds = %16
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  br label %52
-
-39:                                               ; preds = %28
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
-  call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %18) #12
-  br label %52
-
-43:                                               ; preds = %30, %22
-  %44 = call ptr @getenv(ptr noundef @.str) #12
-  %45 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %51, label %49
-
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
-  store ptr @.str.1, ptr %50, align 8
-  br label %51
-
-51:                                               ; preds = %49, %43
-  ret void
-
-52:                                               ; preds = %39, %35
-  call void @_ZN11LinePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #12
-  br label %53
-
-53:                                               ; preds = %52, %31
-  call void @_ZN6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
   br label %54
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i32, ptr %6, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+36:                                               ; preds = %17
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  br label %53
+
+40:                                               ; preds = %29
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %19) #12
+  br label %53
+
+44:                                               ; preds = %31, %23
+  %45 = call ptr @getenv(ptr noundef @.str) #12
+  %46 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
+  store ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %52, label %50
+
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 8
+  store ptr @.str.1, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %50, %44
+  ret void
+
+53:                                               ; preds = %40, %36
+  call void @_ZN11LinePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #12
+  br label %54
+
+54:                                               ; preds = %53, %32
+  call void @_ZN6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i32, ptr %6, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -440,7 +441,8 @@ define linkonce_odr dso_local void @_ZN6StatusC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV6Status, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV6Status, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2007,22 +2009,16 @@ define dso_local void @_ZN13StatusPrinter7WarningEPKcz(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @_Z7WarningPKcP13__va_list_tag(ptr noundef %7, ptr noundef %8)
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %9)
+  call void @llvm.va_end.p0(ptr %9)
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare void @_Z7WarningPKcP13__va_list_tag(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13StatusPrinter5ErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ...) unnamed_addr #0 align 2 {
@@ -2032,12 +2028,12 @@ define dso_local void @_ZN13StatusPrinter5ErrorEPKcz(ptr noundef nonnull align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @_Z5ErrorPKcP13__va_list_tag(ptr noundef %7, ptr noundef %8)
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %9)
+  call void @llvm.va_end.p0(ptr %9)
   ret void
 }
 
@@ -2051,12 +2047,12 @@ define dso_local void @_ZN13StatusPrinter4InfoEPKcz(ptr noundef nonnull align 8 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @_Z4InfoPKcP13__va_list_tag(ptr noundef %7, ptr noundef %8)
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %9)
+  call void @llvm.va_end.p0(ptr %9)
   ret void
 }
 
@@ -2067,11 +2063,12 @@ define linkonce_odr dso_local void @_ZN13StatusPrinterD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 9
-  call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %4) #12
-  %5 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 7
-  call void @_ZN11LinePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #12
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 9
+  call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %5) #12
+  %6 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 7
+  call void @_ZN11LinePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #12
   call void @_ZN6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -2104,7 +2101,7 @@ define linkonce_odr dso_local void @_ZN6StatusD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5queueIdSt5dequeIdSaIdEEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
@@ -2118,7 +2115,7 @@ define linkonce_odr dso_local void @_ZNSt5queueIdSt5dequeIdSaIdEEEC2IS2_vEEv(ptr
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
@@ -2592,7 +2589,7 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #12
   call void @_ZSt9terminatev() #15
   unreachable
@@ -2731,7 +2728,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() #4
 declare void @_ZSt17__throw_bad_allocv() #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorIPdED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
@@ -2893,7 +2890,7 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIdE10deallocateEPdm(pt
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPv(ptr noundef) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIPdEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
@@ -3918,7 +3915,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt22__copy_move_backward_aILb0EPPdS1_ET1_T0_S3_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat {
@@ -4339,18 +4336,24 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn }
 attributes #14 = { builtin nounwind }

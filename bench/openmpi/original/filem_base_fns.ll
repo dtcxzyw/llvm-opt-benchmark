@@ -138,35 +138,33 @@ define internal void @req_construct(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds %struct.pmix_object_t, ptr %12, i32 0, i32 1
-  store ptr @pmix_list_t_class, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.pmix_object_t, ptr %15, i32 0, i32 2
-  store i32 1, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %17, i32 0, i32 1
-  call void @pmix_obj_construct_tma(ptr noundef %18, ptr noundef null)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %19, i32 0, i32 1
-  call void @pmix_obj_run_constructors(ptr noundef %20)
-  br label %21
-
-21:                                               ; preds = %10
+11:                                               ; preds = %10, %5
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds %struct.pmix_object_t, ptr %13, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %14, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.pmix_object_t, ptr %16, i32 0, i32 2
+  store i32 1, ptr %17, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %18, i32 0, i32 1
+  call void @pmix_obj_construct_tma(ptr noundef %19, ptr noundef null)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %20, i32 0, i32 1
+  call void @pmix_obj_run_constructors(ptr noundef %21)
   br label %22
 
-22:                                               ; preds = %21
+22:                                               ; preds = %11
   br label %23
 
 23:                                               ; preds = %22
@@ -179,54 +177,58 @@ define internal void @req_construct(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load i32, ptr @pmix_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %29 = icmp ne i32 %27, %28
-  br i1 %29, label %30, label %31
+  br label %27
 
-30:                                               ; preds = %26
+27:                                               ; preds = %26
+  %28 = load i32, ptr @pmix_class_init_epoch, align 4
+  %29 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %28, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %26
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %32, i32 0, i32 2
-  %34 = getelementptr inbounds %struct.pmix_object_t, ptr %33, i32 0, i32 1
-  store ptr @pmix_list_t_class, ptr %34, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %35, i32 0, i32 2
-  %37 = getelementptr inbounds %struct.pmix_object_t, ptr %36, i32 0, i32 2
-  store i32 1, ptr %37, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %38, i32 0, i32 2
-  call void @pmix_obj_construct_tma(ptr noundef %39, ptr noundef null)
+33:                                               ; preds = %32, %27
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %34, i32 0, i32 2
+  %36 = getelementptr inbounds %struct.pmix_object_t, ptr %35, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %36, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds %struct.pmix_object_t, ptr %38, i32 0, i32 2
+  store i32 1, ptr %39, align 8
   %40 = load ptr, ptr %2, align 8
   %41 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %40, i32 0, i32 2
-  call void @pmix_obj_run_constructors(ptr noundef %41)
-  br label %42
-
-42:                                               ; preds = %31
-  br label %43
-
-43:                                               ; preds = %42
+  call void @pmix_obj_construct_tma(ptr noundef %41, ptr noundef null)
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %42, i32 0, i32 2
+  call void @pmix_obj_run_constructors(ptr noundef %43)
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %45, i32 0, i32 3
-  store i32 0, ptr %46, align 8
+44:                                               ; preds = %33
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %47, i32 0, i32 4
-  store ptr null, ptr %48, align 8
+  %48 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %47, i32 0, i32 3
+  store i32 0, ptr %48, align 8
   %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %49, i32 0, i32 5
+  %50 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %49, i32 0, i32 4
   store ptr null, ptr %50, align 8
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %51, i32 0, i32 6
+  %52 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %51, i32 0, i32 5
   store ptr null, ptr %52, align 8
   %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %53, i32 0, i32 7
-  store i32 3, ptr %54, align 8
+  %54 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %53, i32 0, i32 6
+  store ptr null, ptr %54, align 8
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds %struct.prte_filem_base_request_1_0_0_t, ptr %55, i32 0, i32 7
+  store i32 3, ptr %56, align 8
   ret void
 }
 

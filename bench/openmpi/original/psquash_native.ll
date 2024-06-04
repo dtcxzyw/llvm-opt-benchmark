@@ -37,59 +37,67 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @native_init() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %2 = icmp sge i32 %1, 0
-  br i1 %2, label %3, label %15
+  %1 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp sge i32 %2, 0
+  br i1 %3, label %4, label %19
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %5 = icmp slt i32 %4, 64
-  br i1 %5, label %6, label %15
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp slt i32 %6, 64
+  br i1 %7, label %8, label %19
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8
-  %10 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sge i32 %11, 2
-  br i1 %12, label %13, label %15
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %10 = load i32, ptr %9, align 8
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11
+  %13 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sge i32 %14, 2
+  br i1 %15, label %16, label %19
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %14, ptr noundef @.str.1)
-  br label %15
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %18 = load i32, ptr %17, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef @.str.1)
+  br label %19
 
-15:                                               ; preds = %13, %6, %3, %0
+19:                                               ; preds = %16, %8, %4, %0
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @native_finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %2 = icmp sge i32 %1, 0
-  br i1 %2, label %3, label %15
+  %1 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp sge i32 %2, 0
+  br i1 %3, label %4, label %19
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %5 = icmp slt i32 %4, 64
-  br i1 %5, label %6, label %15
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp slt i32 %6, 64
+  br i1 %7, label %8, label %19
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8
-  %10 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sge i32 %11, 2
-  br i1 %12, label %13, label %15
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %10 = load i32, ptr %9, align 8
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11
+  %13 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sge i32 %14, 2
+  br i1 %15, label %16, label %19
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15), align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %14, ptr noundef @.str.2)
-  br label %15
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 15
+  %18 = load i32, ptr %17, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef @.str.2)
+  br label %19
 
-15:                                               ; preds = %13, %6, %3, %0
+19:                                               ; preds = %16, %8, %4, %0
   ret void
 }
 

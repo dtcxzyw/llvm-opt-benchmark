@@ -143,13 +143,14 @@ if.then:                                          ; preds = %entry
   store ptr %1, ptr @_ZL5g_obj, align 8
   %m_old_handler = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this1, i32 0, i32 4
   %2 = load ptr, ptr %m_old_handler, align 8
-  %cmp = icmp ne ptr %2, inttoptr (i64 -1 to ptr)
+  %3 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %m_old_handler3 = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %m_old_handler3, align 8
-  %call = call ptr @signal(i32 noundef 2, ptr noundef %3) #3
+  %4 = load ptr, ptr %m_old_handler3, align 8
+  %call = call ptr @signal(i32 noundef 2, ptr noundef %4) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then

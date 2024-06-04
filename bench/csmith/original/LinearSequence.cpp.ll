@@ -285,12 +285,13 @@ define dso_local void @_ZN14LinearSequenceC2Ec(ptr noundef nonnull align 8 deref
   store i8 %1, ptr %4, align 1
   %5 = load ptr, ptr %3, align 8
   call void @_ZN8SequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV14LinearSequence, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.LinearSequence, ptr %5, i32 0, i32 1
-  call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.LinearSequence, ptr %5, i32 0, i32 2
-  %8 = load i8, ptr %4, align 1
-  store i8 %8, ptr %7, align 8
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV14LinearSequence, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.LinearSequence, ptr %5, i32 0, i32 1
+  call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.LinearSequence, ptr %5, i32 0, i32 2
+  %9 = load i8, ptr %4, align 1
+  store i8 %9, ptr %8, align 8
   ret void
 }
 
@@ -311,9 +312,10 @@ define dso_local void @_ZN14LinearSequenceD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV14LinearSequence, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.LinearSequence, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV14LinearSequence, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.LinearSequence, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN8SequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

@@ -8027,7 +8027,8 @@ define linkonce_odr dso_local void @_ZN4absl7debian213hash_internal9HashStateC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.absl::debian2::hash_internal::HashState", ptr %3, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr %4, align 8
+  %5 = ptrtoint ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64
+  store i64 %5, ptr %4, align 8
   ret void
 }
 

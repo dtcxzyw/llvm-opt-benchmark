@@ -100,97 +100,98 @@ define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr noundef %1, p
   store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i32 0, i32 1), align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %17, label %14
+  %12 = getelementptr inbounds %struct._address, ptr @bs_address, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 16
-  call void @copy_address(ptr noundef @bs_address, ptr noundef %16)
-  br label %17
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 16
+  call void @copy_address(ptr noundef @bs_address, ptr noundef %17)
+  br label %18
 
-17:                                               ; preds = %14, %4
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %20, i32 noundef 25, ptr noundef null, ptr noundef @.str.34)
-  %21 = load ptr, ptr %7, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %87
+18:                                               ; preds = %15, %4
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef null, ptr noundef @.str.34)
+  %22 = load ptr, ptr %7, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %88
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr @proto_wimax_fch_decoder, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 3, ptr noundef @.str.35)
-  store ptr %28, ptr %10, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr @ett_wimax_fch_decoder, align 4
-  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr %11, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load i32, ptr @hf_fch_used_subchannel_group0, align 4
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %9, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 3, i32 noundef 0)
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr @hf_fch_used_subchannel_group1, align 4
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 3, i32 noundef 0)
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr @hf_fch_used_subchannel_group2, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %9, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 3, i32 noundef 0)
-  %47 = load ptr, ptr %11, align 8
-  %48 = load i32, ptr @hf_fch_used_subchannel_group3, align 4
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %9, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 3, i32 noundef 0)
-  %52 = load ptr, ptr %11, align 8
-  %53 = load i32, ptr @hf_fch_used_subchannel_group4, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i32, ptr %9, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 3, i32 noundef 0)
-  %57 = load ptr, ptr %11, align 8
-  %58 = load i32, ptr @hf_fch_used_subchannel_group5, align 4
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i32, ptr %9, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 3, i32 noundef 0)
-  %62 = load ptr, ptr %11, align 8
-  %63 = load i32, ptr @hf_fch_reserved_1, align 4
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %9, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 3, i32 noundef 0)
-  %67 = load ptr, ptr %11, align 8
-  %68 = load i32, ptr @hf_fch_repetition_coding_indication, align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = load i32, ptr %9, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 3, i32 noundef 0)
-  %72 = load ptr, ptr %11, align 8
-  %73 = load i32, ptr @hf_fch_coding_indication, align 4
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr %9, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef 3, i32 noundef 0)
-  %77 = load ptr, ptr %11, align 8
-  %78 = load i32, ptr @hf_fch_dlmap_length, align 4
-  %79 = load ptr, ptr %5, align 8
-  %80 = load i32, ptr %9, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 3, i32 noundef 0)
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr @hf_fch_reserved_2, align 4
-  %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr %9, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 3, i32 noundef 0)
-  br label %87
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr @proto_wimax_fch_decoder, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %9, align 4
+  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 3, ptr noundef @.str.35)
+  store ptr %29, ptr %10, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr @ett_wimax_fch_decoder, align 4
+  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
+  store ptr %32, ptr %11, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr @hf_fch_used_subchannel_group0, align 4
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 3, i32 noundef 0)
+  %38 = load ptr, ptr %11, align 8
+  %39 = load i32, ptr @hf_fch_used_subchannel_group1, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 3, i32 noundef 0)
+  %43 = load ptr, ptr %11, align 8
+  %44 = load i32, ptr @hf_fch_used_subchannel_group2, align 4
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 3, i32 noundef 0)
+  %48 = load ptr, ptr %11, align 8
+  %49 = load i32, ptr @hf_fch_used_subchannel_group3, align 4
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 3, i32 noundef 0)
+  %53 = load ptr, ptr %11, align 8
+  %54 = load i32, ptr @hf_fch_used_subchannel_group4, align 4
+  %55 = load ptr, ptr %5, align 8
+  %56 = load i32, ptr %9, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 3, i32 noundef 0)
+  %58 = load ptr, ptr %11, align 8
+  %59 = load i32, ptr @hf_fch_used_subchannel_group5, align 4
+  %60 = load ptr, ptr %5, align 8
+  %61 = load i32, ptr %9, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 3, i32 noundef 0)
+  %63 = load ptr, ptr %11, align 8
+  %64 = load i32, ptr @hf_fch_reserved_1, align 4
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 3, i32 noundef 0)
+  %68 = load ptr, ptr %11, align 8
+  %69 = load i32, ptr @hf_fch_repetition_coding_indication, align 4
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i32, ptr %9, align 4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 3, i32 noundef 0)
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr @hf_fch_coding_indication, align 4
+  %75 = load ptr, ptr %5, align 8
+  %76 = load i32, ptr %9, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 3, i32 noundef 0)
+  %78 = load ptr, ptr %11, align 8
+  %79 = load i32, ptr @hf_fch_dlmap_length, align 4
+  %80 = load ptr, ptr %5, align 8
+  %81 = load i32, ptr %9, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 3, i32 noundef 0)
+  %83 = load ptr, ptr %11, align 8
+  %84 = load i32, ptr @hf_fch_reserved_2, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = load i32, ptr %9, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 3, i32 noundef 0)
+  br label %88
 
-87:                                               ; preds = %23, %17
-  %88 = load ptr, ptr %5, align 8
-  %89 = call i32 @tvb_captured_length(ptr noundef %88)
-  ret i32 %89
+88:                                               ; preds = %24, %18
+  %89 = load ptr, ptr %5, align 8
+  %90 = call i32 @tvb_captured_length(ptr noundef %89)
+  ret i32 %90
 }
 
 ; Function Attrs: nounwind uwtable

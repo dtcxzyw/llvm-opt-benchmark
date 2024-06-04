@@ -272,40 +272,41 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %17 = load i64, ptr %4, align 8, !noundef !3
   %18 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %2
   %21 = load i64, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, align 8, !range !6, !noundef !3
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8), align 8
+  %22 = getelementptr inbounds i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8
+  %23 = load i64, ptr %22, align 8
   store i64 %21, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8
-  br label %31
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %23, ptr %24, align 8
+  br label %32
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = load i64, ptr %1, align 8, !noundef !3
-  %28 = call i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
-  store i64 %28, ptr %3, align 8
-  %29 = load i64, ptr %3, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %29, ptr %30, align 8
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = load i64, ptr %1, align 8, !noundef !3
+  %29 = call i64 @llvm.usub.sat.i64(i64 %27, i64 %28)
+  store i64 %29, ptr %3, align 8
+  %30 = load i64, ptr %3, align 8, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %30, ptr %31, align 8
   store i64 1, ptr %5, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %24, %20
-  %32 = load i64, ptr %5, align 8, !range !6, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = load i64, ptr %33, align 8
+32:                                               ; preds = %25, %20
+  %33 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8
   store i64 %17, ptr %0, align 8
-  %35 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %34, ptr %36, align 8
+  %36 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 %35, ptr %37, align 8
   ret void
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 
@@ -332,40 +333,41 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %17 = load i64, ptr %4, align 8, !noundef !3
   %18 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %2
   %21 = load i64, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, align 8, !range !6, !noundef !3
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8), align 8
+  %22 = getelementptr inbounds i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8
+  %23 = load i64, ptr %22, align 8
   store i64 %21, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8
-  br label %31
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %23, ptr %24, align 8
+  br label %32
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = load i64, ptr %1, align 8, !noundef !3
-  %28 = call i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
-  store i64 %28, ptr %3, align 8
-  %29 = load i64, ptr %3, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %29, ptr %30, align 8
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = load i64, ptr %1, align 8, !noundef !3
+  %29 = call i64 @llvm.usub.sat.i64(i64 %27, i64 %28)
+  store i64 %29, ptr %3, align 8
+  %30 = load i64, ptr %3, align 8, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %30, ptr %31, align 8
   store i64 1, ptr %5, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %24, %20
-  %32 = load i64, ptr %5, align 8, !range !6, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = load i64, ptr %33, align 8
+32:                                               ; preds = %25, %20
+  %33 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8
   store i64 %17, ptr %0, align 8
-  %35 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %34, ptr %36, align 8
+  %36 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 %35, ptr %37, align 8
   ret void
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 
@@ -392,40 +394,41 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %17 = load i64, ptr %4, align 8, !noundef !3
   %18 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %2
   %21 = load i64, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, align 8, !range !6, !noundef !3
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8), align 8
+  %22 = getelementptr inbounds i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8
+  %23 = load i64, ptr %22, align 8
   store i64 %21, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8
-  br label %31
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %23, ptr %24, align 8
+  br label %32
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = load i64, ptr %1, align 8, !noundef !3
-  %28 = call i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
-  store i64 %28, ptr %3, align 8
-  %29 = load i64, ptr %3, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %29, ptr %30, align 8
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = load i64, ptr %1, align 8, !noundef !3
+  %29 = call i64 @llvm.usub.sat.i64(i64 %27, i64 %28)
+  store i64 %29, ptr %3, align 8
+  %30 = load i64, ptr %3, align 8, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %30, ptr %31, align 8
   store i64 1, ptr %5, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %24, %20
-  %32 = load i64, ptr %5, align 8, !range !6, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = load i64, ptr %33, align 8
+32:                                               ; preds = %25, %20
+  %33 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8
   store i64 %17, ptr %0, align 8
-  %35 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %34, ptr %36, align 8
+  %36 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 %35, ptr %37, align 8
   ret void
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 
@@ -452,40 +455,41 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %17 = load i64, ptr %4, align 8, !noundef !3
   %18 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %2
   %21 = load i64, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, align 8, !range !6, !noundef !3
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8), align 8
+  %22 = getelementptr inbounds i8, ptr @anon.c6f2fcfefe82435ab44b9dabc9e38d06.0, i64 8
+  %23 = load i64, ptr %22, align 8
   store i64 %21, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8
-  br label %31
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %23, ptr %24, align 8
+  br label %32
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = load i64, ptr %1, align 8, !noundef !3
-  %28 = call i64 @llvm.usub.sat.i64(i64 %26, i64 %27)
-  store i64 %28, ptr %3, align 8
-  %29 = load i64, ptr %3, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %29, ptr %30, align 8
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = load i64, ptr %1, align 8, !noundef !3
+  %29 = call i64 @llvm.usub.sat.i64(i64 %27, i64 %28)
+  store i64 %29, ptr %3, align 8
+  %30 = load i64, ptr %3, align 8, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %30, ptr %31, align 8
   store i64 1, ptr %5, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %24, %20
-  %32 = load i64, ptr %5, align 8, !range !6, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = load i64, ptr %33, align 8
+32:                                               ; preds = %25, %20
+  %33 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8
   store i64 %17, ptr %0, align 8
-  %35 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %34, ptr %36, align 8
+  %36 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 %35, ptr %37, align 8
   ret void
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 

@@ -905,7 +905,7 @@ define internal i32 @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 0, ptr %10, align 4
   br label %14
 
-14:                                               ; preds = %30, %3
+14:                                               ; preds = %31, %3
   %15 = load i32, ptr %5, align 4
   %16 = load ptr, ptr %4, align 8
   %17 = call i32 @slurm_forward_data(ptr noundef %8, ptr noundef @tree_sock_addr, i32 noundef %15, ptr noundef %16)
@@ -915,7 +915,7 @@ define internal i32 @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14
-  br label %35
+  br label %36
 
 21:                                               ; preds = %14
   %22 = load i32, ptr %10, align 4
@@ -923,27 +923,28 @@ define internal i32 @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 %23, ptr %10, align 4
   %24 = load i32, ptr %10, align 4
   %25 = icmp sge i32 %24, 5
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %21
   %27 = load i32, ptr @job_info, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.slurm_step_id_msg, ptr @job_info, i32 0, i32 2), align 8
-  %29 = call i32 @slurm_kill_job_step(i32 noundef %27, i32 noundef %28, i16 noundef zeroext 9, i16 noundef zeroext 0)
-  br label %30
+  %28 = getelementptr inbounds %struct.slurm_step_id_msg, ptr @job_info, i32 0, i32 2
+  %29 = load i32, ptr %28, align 8
+  %30 = call i32 @slurm_kill_job_step(i32 noundef %27, i32 noundef %29, i16 noundef zeroext 9, i16 noundef zeroext 0)
+  br label %31
 
-30:                                               ; preds = %26, %21
-  %31 = load i32, ptr %9, align 4
-  %32 = call i32 @sleep(i32 noundef %31)
-  %33 = load i32, ptr %9, align 4
-  %34 = mul i32 %33, 2
-  store i32 %34, ptr %9, align 4
+31:                                               ; preds = %26, %21
+  %32 = load i32, ptr %9, align 4
+  %33 = call i32 @sleep(i32 noundef %32)
+  %34 = load i32, ptr %9, align 4
+  %35 = mul i32 %34, 2
+  store i32 %35, ptr %9, align 4
   br label %14
 
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %36) #5
-  %37 = load i32, ptr %7, align 4
-  ret i32 %37
+36:                                               ; preds = %20
+  %37 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %37) #5
+  %38 = load i32, ptr %7, align 4
+  ret i32 %38
 }
 
 declare void @slurm_free_buf(ptr noundef) #1

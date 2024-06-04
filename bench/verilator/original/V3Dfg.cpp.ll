@@ -4679,44 +4679,45 @@ define dso_local void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDT
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %14 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgVertex, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 1
-  call void @_ZN11V3ListLinksI9DfgVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  %16 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 2
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 3
-  %18 = load ptr, ptr %9, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 4
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 2 %6, i64 2, i1 false)
-  %22 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 7
-  store i32 0, ptr %22, align 4
-  %23 = load ptr, ptr %8, align 8
-  invoke void @_ZN8DfgGraph9addVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %23, ptr noundef nonnull align 8 dereferenceable(72) %14)
-          to label %24 unwind label %25
-
-24:                                               ; preds = %5
-  ret void
+  %15 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgVertex, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 1
+  call void @_ZN11V3ListLinksI9DfgVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %17 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 2
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 3
+  %19 = load ptr, ptr %9, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 4
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 2 %6, i64 2, i1 false)
+  %23 = getelementptr inbounds %class.DfgVertex, ptr %14, i32 0, i32 7
+  store i32 0, ptr %23, align 4
+  %24 = load ptr, ptr %8, align 8
+  invoke void @_ZN8DfgGraph9addVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(72) %14)
+          to label %25 unwind label %26
 
 25:                                               ; preds = %5
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %11, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %12, align 4
-  call void @_ZN11V3ListLinksI9DfgVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %29
+  ret void
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i32, ptr %12, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+26:                                               ; preds = %5
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %11, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %12, align 4
+  call void @_ZN11V3ListLinksI9DfgVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %30
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %11, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4805,9 +4806,10 @@ define dso_local void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgVertex, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DfgVertex, ptr %3, i32 0, i32 1
-  call void @_ZN11V3ListLinksI9DfgVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgVertex, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DfgVertex, ptr %3, i32 0, i32 1
+  call void @_ZN11V3ListLinksI9DfgVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -14343,47 +14345,48 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12DfgVertexVar4keepEv(ptr 
 
 6:                                                ; preds = %1
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
 7:                                                ; preds = %1
-  %8 = call noundef zeroext i1 @_ZNK9V3Options5traceEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %8, label %9, label %13
+  %8 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %9 = call noundef zeroext i1 @_ZNK9V3Options5traceEv(ptr noundef nonnull align 8 dereferenceable(1560) %8)
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %7
-  %10 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
-  %11 = call noundef zeroext i1 @_ZNK6AstVar7isTraceEv(ptr noundef nonnull align 8 dereferenceable(280) %10)
-  br i1 %11, label %12, label %13
+10:                                               ; preds = %7
+  %11 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
+  %12 = call noundef zeroext i1 @_ZNK6AstVar7isTraceEv(ptr noundef nonnull align 8 dereferenceable(280) %11)
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
-13:                                               ; preds = %9, %7
-  %14 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
-  %15 = call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %14)
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %10, %7
+  %15 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
+  %16 = call noundef zeroext i1 @_ZNK6AstVar11isSigPublicEv(ptr noundef nonnull align 8 dereferenceable(280) %15)
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
-17:                                               ; preds = %13
-  %18 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
-  %19 = call noundef i32 @_ZNK7AstNode5user3Ev(ptr noundef nonnull align 8 dereferenceable(152) %18)
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %22
+18:                                               ; preds = %14
+  %19 = call noundef ptr @_ZNK12DfgVertexVar4varpEv(ptr noundef nonnull align 8 dereferenceable(99) %4)
+  %20 = call noundef i32 @_ZNK7AstNode5user3Ev(ptr noundef nonnull align 8 dereferenceable(152) %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store i1 false, ptr %2, align 1
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %21, %16, %12, %6
-  %24 = load i1, ptr %2, align 1
-  ret i1 %24
+24:                                               ; preds = %23, %22, %17, %13, %6
+  %25 = load i1, ptr %2, align 1
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17237,17 +17240,18 @@ define linkonce_odr dso_local void @_ZN17DfgVertexVariadicD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DfgVertexVariadic, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DfgVertexVariadic, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #18
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #18
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }

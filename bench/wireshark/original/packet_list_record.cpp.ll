@@ -778,22 +778,23 @@ define void @_ZN16PacketListRecordC2EP11_frame_data(ptr noundef nonnull align 8 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16PacketListRecord, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 2
-  store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 3
-  store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 5
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 6
-  store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 8
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 9
-  store i8 0, ptr %13, align 4
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV16PacketListRecord, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 2
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 4
+  %11 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 5
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 6
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 8
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 9
+  store i8 0, ptr %14, align 4
   ret void
 }
 

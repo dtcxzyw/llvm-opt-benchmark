@@ -73,24 +73,25 @@ define ptr @osqp_error_message(i64 noundef %0) #0 {
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sge i64 %4, 12
-  br i1 %5, label %6, label %8
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 11), align 8
-  store ptr %7, ptr %2, align 8
-  br label %13
+  %7 = getelementptr inbounds [0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 11
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %2, align 8
+  br label %14
 
-8:                                                ; preds = %1
-  %9 = load i64, ptr %3, align 8
-  %10 = sub nsw i64 %9, 1
-  %11 = getelementptr inbounds [0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %2, align 8
-  br label %13
+9:                                                ; preds = %1
+  %10 = load i64, ptr %3, align 8
+  %11 = sub nsw i64 %10, 1
+  %12 = getelementptr inbounds [0 x ptr], ptr @OSQP_ERROR_MESSAGE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %2, align 8
+  br label %14
 
-13:                                               ; preds = %8, %6
-  %14 = load ptr, ptr %2, align 8
-  ret ptr %14
+14:                                               ; preds = %9, %6
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable

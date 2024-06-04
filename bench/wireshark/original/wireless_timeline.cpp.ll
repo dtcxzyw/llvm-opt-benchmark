@@ -1487,7 +1487,7 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr noundef
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %2
-  br label %52
+  br label %53
 
 24:                                               ; preds = %2
   %25 = call noundef double @_ZNK7QPointF1xEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
@@ -1498,41 +1498,42 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr noundef
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
-  br label %52
+  br label %53
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4), align 8
-  %32 = load i32, ptr %7, align 4
-  %33 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef %32)
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct._frame_data, ptr %34, i32 0, i32 9
-  %36 = load i16, ptr %35, align 2
-  %37 = and i16 %36, 1
-  %38 = zext i16 %37 to i32
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %49, label %40
+  %31 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %7, align 4
+  %34 = call ptr @frame_data_sequence_find(ptr noundef %32, i32 noundef %33)
+  store ptr %34, ptr %8, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct._frame_data, ptr %35, i32 0, i32 9
+  %37 = load i16, ptr %36, align 2
+  %38 = and i16 %37, 1
+  %39 = zext i16 %38 to i32
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %50, label %41
 
-40:                                               ; preds = %30
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct._frame_data, ptr %41, i32 0, i32 13
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp ugt i32 %43, 0
-  br i1 %44, label %45, label %49
+41:                                               ; preds = %30
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct._frame_data, ptr %42, i32 0, i32 13
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp ugt i32 %44, 0
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct._frame_data, ptr %46, i32 0, i32 13
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %7, align 4
-  br label %49
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds %struct._frame_data, ptr %47, i32 0, i32 13
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %7, align 4
+  br label %50
 
-49:                                               ; preds = %45, %40, %30
-  %50 = load i32, ptr %7, align 4
-  %51 = call i32 @cf_goto_frame(ptr noundef @cfile, i32 noundef %50)
-  br label %52
+50:                                               ; preds = %46, %41, %30
+  %51 = load i32, ptr %7, align 4
+  %52 = call i32 @cf_goto_frame(ptr noundef @cfile, i32 noundef %51)
+  br label %53
 
-52:                                               ; preds = %49, %29, %23
+53:                                               ; preds = %50, %29, %23
   ret void
 }
 
@@ -1597,182 +1598,184 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %2
-  br label %141
+  br label %143
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 46), align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %141
+  %17 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 46
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %143
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 46), align 8
-  %21 = getelementptr inbounds %struct._frame_data, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %13, i32 noundef %22)
-  store ptr %23, ptr %5, align 8
-  %24 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  %25 = load i64, ptr %24, align 8
-  %26 = uitofp i64 %25 to double
-  %27 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  %28 = load i64, ptr %27, align 8
-  %29 = uitofp i64 %28 to double
-  %30 = fmul double 1.000000e-01, %29
-  %31 = call double @llvm.fmuladd.f64(double 9.000000e-01, double %26, double %30)
-  %32 = fptoui double %31 to i32
-  store i32 %32, ptr %6, align 4
-  %33 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  %34 = load i64, ptr %33, align 8
-  %35 = uitofp i64 %34 to double
-  %36 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  %37 = load i64, ptr %36, align 8
-  %38 = uitofp i64 %37 to double
-  %39 = fmul double 9.000000e-01, %38
-  %40 = call double @llvm.fmuladd.f64(double 1.000000e-01, double %35, double %39)
-  %41 = fptoui double %40 to i32
-  store i32 %41, ptr %7, align 4
-  %42 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 46
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct._frame_data, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8
+  %25 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %13, i32 noundef %24)
+  store ptr %25, ptr %5, align 8
+  %26 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  %27 = load i64, ptr %26, align 8
+  %28 = uitofp i64 %27 to double
+  %29 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  %30 = load i64, ptr %29, align 8
+  %31 = uitofp i64 %30 to double
+  %32 = fmul double 1.000000e-01, %31
+  %33 = call double @llvm.fmuladd.f64(double 9.000000e-01, double %28, double %32)
+  %34 = fptoui double %33 to i32
+  store i32 %34, ptr %6, align 4
+  %35 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  %36 = load i64, ptr %35, align 8
+  %37 = uitofp i64 %36 to double
+  %38 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  %39 = load i64, ptr %38, align 8
+  %40 = uitofp i64 %39 to double
+  %41 = fmul double 9.000000e-01, %40
+  %42 = call double @llvm.fmuladd.f64(double 1.000000e-01, double %37, double %41)
+  %43 = fptoui double %42 to i32
+  store i32 %43, ptr %7, align 4
+  %44 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
   %45 = load i64, ptr %44, align 8
-  %46 = sub i64 %43, %45
-  %47 = udiv i64 %46, 2
-  store i64 %47, ptr %8, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %140
+  %46 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  %47 = load i64, ptr %46, align 8
+  %48 = sub i64 %45, %47
+  %49 = udiv i64 %48, 2
+  store i64 %49, ptr %8, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %142
 
-50:                                               ; preds = %19
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.wlan_radio, ptr %51, i32 0, i32 2
-  %53 = load i64, ptr %52, align 8
-  %54 = load i32, ptr %6, align 4
-  %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %53, %55
-  br i1 %56, label %57, label %94
+52:                                               ; preds = %20
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds %struct.wlan_radio, ptr %53, i32 0, i32 2
+  %55 = load i64, ptr %54, align 8
+  %56 = load i32, ptr %6, align 4
+  %57 = zext i32 %56 to i64
+  %58 = icmp ult i64 %55, %57
+  br i1 %58, label %59, label %96
 
-57:                                               ; preds = %50
-  %58 = load i32, ptr %6, align 4
-  %59 = zext i32 %58 to i64
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.wlan_radio, ptr %60, i32 0, i32 2
-  %62 = load i64, ptr %61, align 8
-  %63 = sub i64 %59, %62
-  store i64 %63, ptr %9, align 8
-  %64 = load i64, ptr %9, align 8
-  %65 = load i64, ptr %8, align 8
-  %66 = icmp ult i64 %64, %65
-  br i1 %66, label %67, label %76
+59:                                               ; preds = %52
+  %60 = load i32, ptr %6, align 4
+  %61 = zext i32 %60 to i64
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %struct.wlan_radio, ptr %62, i32 0, i32 2
+  %64 = load i64, ptr %63, align 8
+  %65 = sub i64 %61, %64
+  store i64 %65, ptr %9, align 8
+  %66 = load i64, ptr %9, align 8
+  %67 = load i64, ptr %8, align 8
+  %68 = icmp ult i64 %66, %67
+  br i1 %68, label %69, label %78
 
-67:                                               ; preds = %57
-  %68 = load i64, ptr %9, align 8
-  %69 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  %70 = load i64, ptr %69, align 8
-  %71 = sub i64 %70, %68
-  store i64 %71, ptr %69, align 8
-  %72 = load i64, ptr %9, align 8
-  %73 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  %74 = load i64, ptr %73, align 8
-  %75 = sub i64 %74, %72
-  store i64 %75, ptr %73, align 8
-  br label %93
+69:                                               ; preds = %59
+  %70 = load i64, ptr %9, align 8
+  %71 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 %72, %70
+  store i64 %73, ptr %71, align 8
+  %74 = load i64, ptr %9, align 8
+  %75 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  %76 = load i64, ptr %75, align 8
+  %77 = sub i64 %76, %74
+  store i64 %77, ptr %75, align 8
+  br label %95
 
-76:                                               ; preds = %57
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds %struct.wlan_radio, ptr %77, i32 0, i32 2
-  %79 = load i64, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.wlan_radio, ptr %80, i32 0, i32 3
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %79, %82
-  %84 = udiv i64 %83, 2
-  store i64 %84, ptr %10, align 8
-  %85 = load i64, ptr %10, align 8
-  %86 = load i64, ptr %8, align 8
-  %87 = sub i64 %85, %86
-  %88 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  store i64 %87, ptr %88, align 8
-  %89 = load i64, ptr %10, align 8
-  %90 = load i64, ptr %8, align 8
-  %91 = add i64 %89, %90
-  %92 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  store i64 %91, ptr %92, align 8
-  br label %93
+78:                                               ; preds = %59
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct.wlan_radio, ptr %79, i32 0, i32 2
+  %81 = load i64, ptr %80, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds %struct.wlan_radio, ptr %82, i32 0, i32 3
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %81, %84
+  %86 = udiv i64 %85, 2
+  store i64 %86, ptr %10, align 8
+  %87 = load i64, ptr %10, align 8
+  %88 = load i64, ptr %8, align 8
+  %89 = sub i64 %87, %88
+  %90 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  store i64 %89, ptr %90, align 8
+  %91 = load i64, ptr %10, align 8
+  %92 = load i64, ptr %8, align 8
+  %93 = add i64 %91, %92
+  %94 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  store i64 %93, ptr %94, align 8
+  br label %95
 
-93:                                               ; preds = %76, %67
-  br label %139
-
-94:                                               ; preds = %50
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct.wlan_radio, ptr %95, i32 0, i32 3
-  %97 = load i64, ptr %96, align 8
-  %98 = load i32, ptr %7, align 4
-  %99 = zext i32 %98 to i64
-  %100 = icmp ugt i64 %97, %99
-  br i1 %100, label %101, label %138
-
-101:                                              ; preds = %94
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.wlan_radio, ptr %102, i32 0, i32 3
-  %104 = load i64, ptr %103, align 8
-  %105 = load i32, ptr %7, align 4
-  %106 = zext i32 %105 to i64
-  %107 = sub i64 %104, %106
-  store i64 %107, ptr %11, align 8
-  %108 = load i64, ptr %11, align 8
-  %109 = load i64, ptr %8, align 8
-  %110 = icmp ult i64 %108, %109
-  br i1 %110, label %111, label %120
-
-111:                                              ; preds = %101
-  %112 = load i64, ptr %11, align 8
-  %113 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  %114 = load i64, ptr %113, align 8
-  %115 = add i64 %114, %112
-  store i64 %115, ptr %113, align 8
-  %116 = load i64, ptr %11, align 8
-  %117 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  %118 = load i64, ptr %117, align 8
-  %119 = add i64 %118, %116
-  store i64 %119, ptr %117, align 8
-  br label %137
-
-120:                                              ; preds = %101
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct.wlan_radio, ptr %121, i32 0, i32 2
-  %123 = load i64, ptr %122, align 8
-  %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds %struct.wlan_radio, ptr %124, i32 0, i32 3
-  %126 = load i64, ptr %125, align 8
-  %127 = add i64 %123, %126
-  %128 = udiv i64 %127, 2
-  store i64 %128, ptr %12, align 8
-  %129 = load i64, ptr %12, align 8
-  %130 = load i64, ptr %8, align 8
-  %131 = sub i64 %129, %130
-  %132 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
-  store i64 %131, ptr %132, align 8
-  %133 = load i64, ptr %12, align 8
-  %134 = load i64, ptr %8, align 8
-  %135 = add i64 %133, %134
-  %136 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
-  store i64 %135, ptr %136, align 8
-  br label %137
-
-137:                                              ; preds = %120, %111
-  br label %138
-
-138:                                              ; preds = %137, %94
-  br label %139
-
-139:                                              ; preds = %138, %93
-  call void @_ZN16WirelessTimeline8clip_tsfEv(ptr noundef nonnull align 8 dereferenceable(896) %13)
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
-  br label %140
-
-140:                                              ; preds = %139, %19
+95:                                               ; preds = %78, %69
   br label %141
 
-141:                                              ; preds = %140, %16, %15
+96:                                               ; preds = %52
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds %struct.wlan_radio, ptr %97, i32 0, i32 3
+  %99 = load i64, ptr %98, align 8
+  %100 = load i32, ptr %7, align 4
+  %101 = zext i32 %100 to i64
+  %102 = icmp ugt i64 %99, %101
+  br i1 %102, label %103, label %140
+
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr inbounds %struct.wlan_radio, ptr %104, i32 0, i32 3
+  %106 = load i64, ptr %105, align 8
+  %107 = load i32, ptr %7, align 4
+  %108 = zext i32 %107 to i64
+  %109 = sub i64 %106, %108
+  store i64 %109, ptr %11, align 8
+  %110 = load i64, ptr %11, align 8
+  %111 = load i64, ptr %8, align 8
+  %112 = icmp ult i64 %110, %111
+  br i1 %112, label %113, label %122
+
+113:                                              ; preds = %103
+  %114 = load i64, ptr %11, align 8
+  %115 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  %116 = load i64, ptr %115, align 8
+  %117 = add i64 %116, %114
+  store i64 %117, ptr %115, align 8
+  %118 = load i64, ptr %11, align 8
+  %119 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  %120 = load i64, ptr %119, align 8
+  %121 = add i64 %120, %118
+  store i64 %121, ptr %119, align 8
+  br label %139
+
+122:                                              ; preds = %103
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds %struct.wlan_radio, ptr %123, i32 0, i32 2
+  %125 = load i64, ptr %124, align 8
+  %126 = load ptr, ptr %5, align 8
+  %127 = getelementptr inbounds %struct.wlan_radio, ptr %126, i32 0, i32 3
+  %128 = load i64, ptr %127, align 8
+  %129 = add i64 %125, %128
+  %130 = udiv i64 %129, 2
+  store i64 %130, ptr %12, align 8
+  %131 = load i64, ptr %12, align 8
+  %132 = load i64, ptr %8, align 8
+  %133 = sub i64 %131, %132
+  %134 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 6
+  store i64 %133, ptr %134, align 8
+  %135 = load i64, ptr %12, align 8
+  %136 = load i64, ptr %8, align 8
+  %137 = add i64 %135, %136
+  %138 = getelementptr inbounds %class.WirelessTimeline, ptr %13, i32 0, i32 7
+  store i64 %137, ptr %138, align 8
+  br label %139
+
+139:                                              ; preds = %122, %113
+  br label %140
+
+140:                                              ; preds = %139, %96
+  br label %141
+
+141:                                              ; preds = %140, %95
+  call void @_ZN16WirelessTimeline8clip_tsfEv(ptr noundef nonnull align 8 dereferenceable(896) %13)
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
+  br label %142
+
+142:                                              ; preds = %141, %20
+  br label %143
+
+143:                                              ; preds = %142, %16, %15
   ret void
 }
 
@@ -1818,111 +1821,114 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef nonnull
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %14 = icmp ult i32 %13, 1
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %70
+  %13 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ult i32 %14, 1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %2
-  %17 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %18 = icmp ult i32 %17, 2
-  br i1 %18, label %19, label %20
+  store i32 0, ptr %3, align 4
+  br label %73
 
-19:                                               ; preds = %16
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ult i32 %19, 2
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store i32 1, ptr %3, align 4
-  br label %70
+  br label %73
 
-20:                                               ; preds = %16
+22:                                               ; preds = %17
   store i32 1, ptr %6, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %22 = sub i32 %21, 1
-  store i32 %22, ptr %7, align 4
-  %23 = load i32, ptr %6, align 4
-  %24 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %23)
-  %25 = getelementptr inbounds %struct.wlan_radio, ptr %24, i32 0, i32 3
-  %26 = load i64, ptr %25, align 8
-  store i64 %26, ptr %8, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %27)
-  %29 = getelementptr inbounds %struct.wlan_radio, ptr %28, i32 0, i32 3
-  %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr %9, align 8
-  br label %31
+  %23 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %24 = load i32, ptr %23, align 8
+  %25 = sub i32 %24, 1
+  store i32 %25, ptr %7, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %26)
+  %28 = getelementptr inbounds %struct.wlan_radio, ptr %27, i32 0, i32 3
+  %29 = load i64, ptr %28, align 8
+  store i64 %29, ptr %8, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %30)
+  %32 = getelementptr inbounds %struct.wlan_radio, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8
+  store i64 %33, ptr %9, align 8
+  br label %34
 
-31:                                               ; preds = %69, %20
-  %32 = load i64, ptr %5, align 8
-  %33 = load i64, ptr %9, align 8
-  %34 = icmp uge i64 %32, %33
-  br i1 %34, label %35, label %38
+34:                                               ; preds = %72, %22
+  %35 = load i64, ptr %5, align 8
+  %36 = load i64, ptr %9, align 8
+  %37 = icmp uge i64 %35, %36
+  br i1 %37, label %38, label %41
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %7, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %3, align 4
-  br label %70
+38:                                               ; preds = %34
+  %39 = load i32, ptr %7, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %3, align 4
+  br label %73
 
-38:                                               ; preds = %31
-  %39 = load i64, ptr %5, align 8
-  %40 = load i64, ptr %8, align 8
-  %41 = icmp ult i64 %39, %40
-  br i1 %41, label %42, label %44
+41:                                               ; preds = %34
+  %42 = load i64, ptr %5, align 8
+  %43 = load i64, ptr %8, align 8
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %45, label %47
 
-42:                                               ; preds = %38
-  %43 = load i32, ptr %6, align 4
-  store i32 %43, ptr %3, align 4
-  br label %70
+45:                                               ; preds = %41
+  %46 = load i32, ptr %6, align 4
+  store i32 %46, ptr %3, align 4
+  br label %73
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr %6, align 4
-  %46 = load i32, ptr %7, align 4
-  %47 = add i32 %45, %46
-  %48 = udiv i32 %47, 2
-  store i32 %48, ptr %10, align 4
-  %49 = load i32, ptr %10, align 4
-  %50 = load i32, ptr %6, align 4
-  %51 = icmp eq i32 %49, %50
-  br i1 %51, label %52, label %55
+47:                                               ; preds = %41
+  %48 = load i32, ptr %6, align 4
+  %49 = load i32, ptr %7, align 4
+  %50 = add i32 %48, %49
+  %51 = udiv i32 %50, 2
+  store i32 %51, ptr %10, align 4
+  %52 = load i32, ptr %10, align 4
+  %53 = load i32, ptr %6, align 4
+  %54 = icmp eq i32 %52, %53
+  br i1 %54, label %55, label %58
 
-52:                                               ; preds = %44
-  %53 = load i32, ptr %10, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %3, align 4
-  br label %70
-
-55:                                               ; preds = %44
+55:                                               ; preds = %47
   %56 = load i32, ptr %10, align 4
-  %57 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %56)
-  %58 = getelementptr inbounds %struct.wlan_radio, ptr %57, i32 0, i32 3
-  %59 = load i64, ptr %58, align 8
-  store i64 %59, ptr %11, align 8
-  %60 = load i64, ptr %5, align 8
-  %61 = load i64, ptr %11, align 8
-  %62 = icmp uge i64 %60, %61
-  br i1 %62, label %63, label %66
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %3, align 4
+  br label %73
 
-63:                                               ; preds = %55
-  %64 = load i32, ptr %10, align 4
-  store i32 %64, ptr %6, align 4
-  %65 = load i64, ptr %11, align 8
-  store i64 %65, ptr %8, align 8
-  br label %69
+58:                                               ; preds = %47
+  %59 = load i32, ptr %10, align 4
+  %60 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %12, i32 noundef %59)
+  %61 = getelementptr inbounds %struct.wlan_radio, ptr %60, i32 0, i32 3
+  %62 = load i64, ptr %61, align 8
+  store i64 %62, ptr %11, align 8
+  %63 = load i64, ptr %5, align 8
+  %64 = load i64, ptr %11, align 8
+  %65 = icmp uge i64 %63, %64
+  br i1 %65, label %66, label %69
 
-66:                                               ; preds = %55
+66:                                               ; preds = %58
   %67 = load i32, ptr %10, align 4
-  store i32 %67, ptr %7, align 4
+  store i32 %67, ptr %6, align 4
   %68 = load i64, ptr %11, align 8
-  store i64 %68, ptr %9, align 8
-  br label %69
+  store i64 %68, ptr %8, align 8
+  br label %72
 
-69:                                               ; preds = %66, %63
-  br label %31, !llvm.loop !4
+69:                                               ; preds = %58
+  %70 = load i32, ptr %10, align 4
+  store i32 %70, ptr %7, align 4
+  %71 = load i64, ptr %11, align 8
+  store i64 %71, ptr %9, align 8
+  br label %72
 
-70:                                               ; preds = %52, %42, %35, %19, %15
-  %71 = load i32, ptr %3, align 4
-  ret i32 %71
+72:                                               ; preds = %69, %66
+  br label %34, !llvm.loop !4
+
+73:                                               ; preds = %55, %45, %38, %21, %16
+  %74 = load i32, ptr %3, align 4
+  ret i32 %74
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1961,206 +1967,210 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   %17 = alloca %class.QList.4, align 8
   store ptr %0, ptr %2, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %27, label %21
+  %19 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %29, label %22
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 12
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @g_hash_table_size(ptr noundef %23)
-  %25 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %26 = icmp ne i32 %24, %25
-  br i1 %26, label %27, label %28
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 12
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @g_hash_table_size(ptr noundef %24)
+  %26 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %25, %27
+  br i1 %28, label %29, label %30
 
-27:                                               ; preds = %21, %1
-  br label %106
+29:                                               ; preds = %22, %1
+  br label %110
 
-28:                                               ; preds = %21
+30:                                               ; preds = %22
   store i32 1, ptr %3, align 4
-  br label %29
+  br label %31
 
-29:                                               ; preds = %85, %28
-  %30 = load i32, ptr %3, align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %33, label %88
+31:                                               ; preds = %88, %30
+  %32 = load i32, ptr %3, align 4
+  %33 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp ult i32 %32, %34
+  br i1 %35, label %36, label %91
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %3, align 4
-  %35 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef %34)
-  store ptr %35, ptr %4, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.wlan_radio, ptr %36, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %45, label %40
+36:                                               ; preds = %31
+  %37 = load i32, ptr %3, align 4
+  %38 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef %37)
+  store ptr %38, ptr %4, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct.wlan_radio, ptr %39, i32 0, i32 2
+  %41 = load i64, ptr %40, align 8
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %48, label %43
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.wlan_radio, ptr %41, i32 0, i32 3
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %62
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %struct.wlan_radio, ptr %44, i32 0, i32 3
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %65
 
-45:                                               ; preds = %40, %33
+48:                                               ; preds = %43, %36
   call void @_ZN16WirelessTimeline2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %6, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-  %46 = load i32, ptr %3, align 4
+  %49 = load i32, ptr %3, align 4
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 noundef signext 32) #13
-  %47 = getelementptr inbounds %struct.QLatin1Char, ptr %8, i32 0, i32 0
-  %48 = load i8, ptr %47, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %7, i8 %48) #13
-  %49 = getelementptr inbounds %class.QChar, ptr %7, i32 0, i32 0
-  %50 = load i16, ptr %49, align 2
-  invoke void @_ZNK7QString3argEjii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %46, i32 noundef 0, i32 noundef 10, i16 %50)
-          to label %51 unwind label %54
+  %50 = getelementptr inbounds %struct.QLatin1Char, ptr %8, i32 0, i32 0
+  %51 = load i8, ptr %50, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %7, i8 %51) #13
+  %52 = getelementptr inbounds %class.QChar, ptr %7, i32 0, i32 0
+  %53 = load i16, ptr %52, align 2
+  invoke void @_ZNK7QString3argEjii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %49, i32 noundef 0, i32 noundef 10, i16 %53)
+          to label %54 unwind label %57
 
-51:                                               ; preds = %45
+54:                                               ; preds = %48
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  %52 = load ptr, ptr @mainApp, align 8
+  %55 = load ptr, ptr @mainApp, align 8
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
-  invoke void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(216) %52, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %53 unwind label %58
+  invoke void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(216) %55, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %56 unwind label %61
 
-53:                                               ; preds = %51
+56:                                               ; preds = %54
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  br label %106
+  br label %110
 
-54:                                               ; preds = %45
-  %55 = landingpad { ptr, i32 }
+57:                                               ; preds = %48
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %9, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %10, align 4
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %9, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  br label %111
+  br label %115
 
-58:                                               ; preds = %51
-  %59 = landingpad { ptr, i32 }
+61:                                               ; preds = %54
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %9, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %10, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %9, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  br label %111
+  br label %115
 
-62:                                               ; preds = %40
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.wlan_radio, ptr %63, i32 0, i32 4
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp slt i64 %65, -40000
-  br i1 %66, label %67, label %84
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct.wlan_radio, ptr %66, i32 0, i32 4
+  %68 = load i64, ptr %67, align 8
+  %69 = icmp slt i64 %68, -40000
+  br i1 %69, label %70, label %87
 
-67:                                               ; preds = %62
+70:                                               ; preds = %65
   call void @_ZN16WirelessTimeline2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-  %68 = load i32, ptr %3, align 4
+  %71 = load i32, ptr %3, align 4
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %15, i8 noundef signext 32) #13
-  %69 = getelementptr inbounds %struct.QLatin1Char, ptr %15, i32 0, i32 0
-  %70 = load i8, ptr %69, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %14, i8 %70) #13
-  %71 = getelementptr inbounds %class.QChar, ptr %14, i32 0, i32 0
-  %72 = load i16, ptr %71, align 2
-  invoke void @_ZNK7QString3argEjii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %68, i32 noundef 0, i32 noundef 10, i16 %72)
-          to label %73 unwind label %76
+  %72 = getelementptr inbounds %struct.QLatin1Char, ptr %15, i32 0, i32 0
+  %73 = load i8, ptr %72, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %14, i8 %73) #13
+  %74 = getelementptr inbounds %class.QChar, ptr %14, i32 0, i32 0
+  %75 = load i16, ptr %74, align 2
+  invoke void @_ZNK7QString3argEjii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %71, i32 noundef 0, i32 noundef 10, i16 %75)
+          to label %76 unwind label %79
 
-73:                                               ; preds = %67
+76:                                               ; preds = %70
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %74 = load ptr, ptr @mainApp, align 8
+  %77 = load ptr, ptr @mainApp, align 8
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
-  invoke void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(216) %74, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %75 unwind label %80
+  invoke void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(216) %77, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %78 unwind label %83
 
-75:                                               ; preds = %73
+78:                                               ; preds = %76
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  br label %106
+  br label %110
 
-76:                                               ; preds = %67
-  %77 = landingpad { ptr, i32 }
+79:                                               ; preds = %70
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %9, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %10, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %9, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %111
+  br label %115
 
-80:                                               ; preds = %73
-  %81 = landingpad { ptr, i32 }
+83:                                               ; preds = %76
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %9, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %10, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %9, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  br label %111
+  br label %115
 
-84:                                               ; preds = %62
-  br label %85
+87:                                               ; preds = %65
+  br label %88
 
-85:                                               ; preds = %84
-  %86 = load i32, ptr %3, align 4
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %3, align 4
-  br label %29, !llvm.loop !6
+88:                                               ; preds = %87
+  %89 = load i32, ptr %3, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %3, align 4
+  br label %31, !llvm.loop !6
 
-88:                                               ; preds = %29
-  %89 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef 1)
-  %90 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 9
-  store ptr %89, ptr %90, align 8
-  %91 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %92 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef %91)
-  %93 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 10
+91:                                               ; preds = %31
+  %92 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef 1)
+  %93 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 9
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 9
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.wlan_radio, ptr %95, i32 0, i32 2
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 6
-  store i64 %97, ptr %98, align 8
-  %99 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 10
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.wlan_radio, ptr %100, i32 0, i32 3
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 7
-  store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 1
-  store double 0.000000e+00, ptr %104, align 8
+  %94 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %95 = load i32, ptr %94, align 8
+  %96 = call noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %18, i32 noundef %95)
+  %97 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 10
+  store ptr %96, ptr %97, align 8
+  %98 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 9
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.wlan_radio, ptr %99, i32 0, i32 2
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 6
+  store i64 %101, ptr %102, align 8
+  %103 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 10
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.wlan_radio, ptr %104, i32 0, i32 3
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 7
+  store i64 %106, ptr %107, align 8
+  %108 = getelementptr inbounds %class.WirelessTimeline, ptr %18, i32 0, i32 1
+  store double 0.000000e+00, ptr %108, align 8
   call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   invoke void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(896) %18, ptr noundef %17)
-          to label %105 unwind label %107
+          to label %109 unwind label %111
 
-105:                                              ; preds = %88
+109:                                              ; preds = %91
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
-  br label %106
+  br label %110
 
-106:                                              ; preds = %105, %75, %53, %27
+110:                                              ; preds = %109, %78, %56, %29
   ret void
 
-107:                                              ; preds = %88
-  %108 = landingpad { ptr, i32 }
+111:                                              ; preds = %91
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %9, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %10, align 4
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %9, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %10, align 4
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
-  br label %111
+  br label %115
 
-111:                                              ; preds = %107, %80, %76, %58, %54
-  %112 = load ptr, ptr %9, align 8
-  %113 = load i32, ptr %10, align 4
-  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
-  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
-  resume { ptr, i32 } %115
+115:                                              ; preds = %111, %83, %79, %61, %57
+  %116 = load ptr, ptr %9, align 8
+  %117 = load i32, ptr %10, align 4
+  %118 = insertvalue { ptr, i32 } poison, ptr %116, 0
+  %119 = insertvalue { ptr, i32 } %118, i32 %117, 1
+  resume { ptr, i32 } %119
 }
 
 declare i32 @g_hash_table_size(ptr noundef) #2
@@ -2556,77 +2566,79 @@ define void @_ZN16WirelessTimelineC2EP7QWidget(ptr noundef nonnull align 8 deref
   %13 = getelementptr inbounds %class.QFlags.17, ptr %5, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12, i32 %14)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 1, i32 2), ptr %15, align 8
+  %15 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 1, i32 2
+  store ptr %17, ptr %16, align 8
   invoke void @_ZN7QWidget9setHiddenEb(ptr noundef nonnull align 8 dereferenceable(40) %11, i1 noundef zeroext true)
-          to label %16 unwind label %38
+          to label %18 unwind label %40
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 1
-  store double 1.000000e+00, ptr %17, align 8
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 1
+  store double 1.000000e+00, ptr %19, align 8
   invoke void @_ZN7QWidget14setFixedHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 64)
-          to label %18 unwind label %38
-
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 8
-  store i32 1, ptr %19, align 8
-  invoke void @_ZN7QWidget16setMouseTrackingEb(ptr noundef nonnull align 8 dereferenceable(40) %11, i1 noundef zeroext true)
-          to label %20 unwind label %38
+          to label %20 unwind label %40
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 2
-  store double 0.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 3
-  store double 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 4
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 6
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 7
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 9
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 10
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 11
+  %21 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 8
+  store i32 1, ptr %21, align 8
+  invoke void @_ZN7QWidget16setMouseTrackingEb(ptr noundef nonnull align 8 dereferenceable(40) %11, i1 noundef zeroext true)
+          to label %22 unwind label %40
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 2
+  store double 0.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 3
+  store double 0.000000e+00, ptr %24, align 8
+  %25 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 4
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 7
+  store i64 0, ptr %27, align 8
+  %28 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 9
   store ptr null, ptr %28, align 8
-  %29 = invoke ptr @g_hash_table_new(ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
-          to label %30 unwind label %38
+  %29 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 10
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 11
+  store ptr null, ptr %30, align 8
+  %31 = invoke ptr @g_hash_table_new(ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
+          to label %32 unwind label %40
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 12
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr @mainApp, align 8
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds %class.WirelessTimeline, ptr %11, i32 0, i32 12
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication14appInitializedEv to i64), i64 0 }, ptr %9, align 8
-  %33 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %35 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
   %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), i64 0 }, ptr %10, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %32, i64 %34, i64 %36, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
-          to label %37 unwind label %38
+  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %34, i64 %36, i64 %38, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
+          to label %39 unwind label %40
 
-37:                                               ; preds = %30
+39:                                               ; preds = %32
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   ret void
 
-38:                                               ; preds = %30, %20, %18, %16, %2
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %32, %22, %20, %18, %2
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %6, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %7, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %6, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %7, align 4
   call void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #13
-  br label %42
+  br label %44
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %7, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2754,32 +2766,34 @@ define void @_ZN16WirelessTimelineD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WirelessTimeline, ptr %3, i32 0, i32 12
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %12
+  %4 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV16WirelessTimeline, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WirelessTimeline, ptr %3, i32 0, i32 12
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %class.WirelessTimeline, ptr %3, i32 0, i32 12
-  %10 = load ptr, ptr %9, align 8
-  invoke void @g_hash_table_destroy(ptr noundef %10)
-          to label %11 unwind label %13
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %class.WirelessTimeline, ptr %3, i32 0, i32 12
+  %12 = load ptr, ptr %11, align 8
+  invoke void @g_hash_table_destroy(ptr noundef %12)
+          to label %13 unwind label %15
 
-11:                                               ; preds = %8
-  br label %12
+13:                                               ; preds = %10
+  br label %14
 
-12:                                               ; preds = %11, %1
+14:                                               ; preds = %13, %1
   call void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   ret void
 
-13:                                               ; preds = %8
-  %14 = landingpad { ptr, i32 }
+15:                                               ; preds = %10
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #20
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 }
 
@@ -3721,16 +3735,16 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnul
 
 127:                                              ; preds = %124, %121
   store i32 1, ptr %24, align 4
-  br label %558
+  br label %562
 
-128:                                              ; preds = %219, %203, %197, %191, %183, %165, %159, %154, %151, %141, %136, %116, %110, %106, %104, %97, %91, %90, %77, %75, %68, %60, %56, %54, %2
+128:                                              ; preds = %221, %205, %199, %193, %184, %165, %159, %154, %151, %141, %136, %116, %110, %106, %104, %97, %91, %90, %77, %75, %68, %60, %56, %54, %2
   %129 = landingpad { ptr, i32 }
           cleanup
   %130 = extractvalue { ptr, i32 } %129, 0
   store ptr %130, ptr %7, align 8
   %131 = extractvalue { ptr, i32 } %129, 1
   store i32 %131, ptr %8, align 4
-  br label %562
+  br label %566
 
 132:                                              ; preds = %124
   %133 = load i32, ptr %16, align 4
@@ -3809,609 +3823,613 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnul
           to label %180 unwind label %128
 
 180:                                              ; preds = %165
-  %181 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 46), align 8
-  %182 = icmp ne ptr %181, null
-  br i1 %182, label %183, label %219
+  %181 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 46
+  %182 = load ptr, ptr %181, align 8
+  %183 = icmp ne ptr %182, null
+  br i1 %183, label %184, label %221
 
-183:                                              ; preds = %180
-  %184 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 46), align 8
-  %185 = getelementptr inbounds %struct._frame_data, ptr %184, i32 0, i32 0
-  %186 = load i32, ptr %185, align 8
-  %187 = invoke noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %51, i32 noundef %186)
-          to label %188 unwind label %128
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 46
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds %struct._frame_data, ptr %186, i32 0, i32 0
+  %188 = load i32, ptr %187, align 8
+  %189 = invoke noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %51, i32 noundef %188)
+          to label %190 unwind label %128
 
-188:                                              ; preds = %183
-  store ptr %187, ptr %28, align 8
-  %189 = load ptr, ptr %28, align 8
-  %190 = icmp ne ptr %189, null
-  br i1 %190, label %191, label %218
+190:                                              ; preds = %184
+  store ptr %189, ptr %28, align 8
+  %191 = load ptr, ptr %28, align 8
+  %192 = icmp ne ptr %191, null
+  br i1 %192, label %193, label %220
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %28, align 8
-  %193 = getelementptr inbounds %struct.wlan_radio, ptr %192, i32 0, i32 2
-  %194 = load i64, ptr %193, align 8
-  %195 = load float, ptr %6, align 4
-  %196 = invoke noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %194, float noundef %195)
-          to label %197 unwind label %128
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %28, align 8
+  %195 = getelementptr inbounds %struct.wlan_radio, ptr %194, i32 0, i32 2
+  %196 = load i64, ptr %195, align 8
+  %197 = load float, ptr %6, align 4
+  %198 = invoke noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %196, float noundef %197)
+          to label %199 unwind label %128
 
-197:                                              ; preds = %191
-  store i32 %196, ptr %25, align 4
-  %198 = load ptr, ptr %28, align 8
-  %199 = getelementptr inbounds %struct.wlan_radio, ptr %198, i32 0, i32 3
-  %200 = load i64, ptr %199, align 8
-  %201 = load float, ptr %6, align 4
-  %202 = invoke noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %200, float noundef %201)
-          to label %203 unwind label %128
+199:                                              ; preds = %193
+  store i32 %198, ptr %25, align 4
+  %200 = load ptr, ptr %28, align 8
+  %201 = getelementptr inbounds %struct.wlan_radio, ptr %200, i32 0, i32 3
+  %202 = load i64, ptr %201, align 8
+  %203 = load float, ptr %6, align 4
+  %204 = invoke noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %202, float noundef %203)
+          to label %205 unwind label %128
 
-203:                                              ; preds = %197
-  store i32 %202, ptr %26, align 4
-  %204 = load i32, ptr %25, align 4
-  %205 = sitofp i32 %204 to float
-  %206 = load float, ptr %6, align 4
-  %207 = fdiv float %205, %206
-  %208 = fpext float %207 to double
-  %209 = load i32, ptr %26, align 4
-  %210 = load i32, ptr %25, align 4
-  %211 = sub i32 %209, %210
-  %212 = add i32 %211, 1
-  %213 = sitofp i32 %212 to float
-  %214 = load float, ptr %6, align 4
-  %215 = fdiv float %213, %214
-  %216 = fpext float %215 to double
-  call void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %29, double noundef %208, double noundef 0.000000e+00, double noundef %216, double noundef 6.400000e+01) #13
+205:                                              ; preds = %199
+  store i32 %204, ptr %26, align 4
+  %206 = load i32, ptr %25, align 4
+  %207 = sitofp i32 %206 to float
+  %208 = load float, ptr %6, align 4
+  %209 = fdiv float %207, %208
+  %210 = fpext float %209 to double
+  %211 = load i32, ptr %26, align 4
+  %212 = load i32, ptr %25, align 4
+  %213 = sub i32 %211, %212
+  %214 = add i32 %213, 1
+  %215 = sitofp i32 %214 to float
+  %216 = load float, ptr %6, align 4
+  %217 = fdiv float %215, %216
+  %218 = fpext float %217 to double
+  call void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %29, double noundef %210, double noundef 0.000000e+00, double noundef %218, double noundef 6.400000e+01) #13
   invoke void @_ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 9)
-          to label %217 unwind label %128
+          to label %219 unwind label %128
 
-217:                                              ; preds = %203
-  br label %218
+219:                                              ; preds = %205
+  br label %220
 
-218:                                              ; preds = %217, %188
-  br label %219
+220:                                              ; preds = %219, %190
+  br label %221
 
-219:                                              ; preds = %218, %180
+221:                                              ; preds = %220, %180
   invoke void @_ZN14QGraphicsSceneC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef null)
-          to label %220 unwind label %128
+          to label %222 unwind label %128
 
-220:                                              ; preds = %219
-  %221 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 6
-  %222 = load i64, ptr %221, align 8
-  %223 = uitofp i64 %222 to double
-  %224 = load i32, ptr %12, align 4
-  %225 = sitofp i32 %224 to double
-  %226 = load double, ptr %10, align 8
-  %227 = fdiv double %225, %226
-  %228 = fadd double %223, %227
-  %229 = fsub double %228, 4.000000e+04
-  %230 = fptoui double %229 to i64
-  %231 = invoke noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %230)
-          to label %232 unwind label %250
+222:                                              ; preds = %221
+  %223 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 6
+  %224 = load i64, ptr %223, align 8
+  %225 = uitofp i64 %224 to double
+  %226 = load i32, ptr %12, align 4
+  %227 = sitofp i32 %226 to double
+  %228 = load double, ptr %10, align 8
+  %229 = fdiv double %227, %228
+  %230 = fadd double %225, %229
+  %231 = fsub double %230, 4.000000e+04
+  %232 = fptoui double %231 to i64
+  %233 = invoke noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef nonnull align 8 dereferenceable(896) %51, i64 noundef %232)
+          to label %234 unwind label %254
 
-232:                                              ; preds = %220
-  store i32 %231, ptr %9, align 4
-  br label %233
+234:                                              ; preds = %222
+  store i32 %233, ptr %9, align 4
+  br label %235
 
-233:                                              ; preds = %541, %232
-  %234 = load i32, ptr %9, align 4
-  %235 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %236 = icmp ule i32 %234, %235
-  br i1 %236, label %237, label %544
+235:                                              ; preds = %545, %234
+  %236 = load i32, ptr %9, align 4
+  %237 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %238 = load i32, ptr %237, align 8
+  %239 = icmp ule i32 %236, %238
+  br i1 %239, label %240, label %548
 
-237:                                              ; preds = %233
-  %238 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4), align 8
-  %239 = load i32, ptr %9, align 4
-  %240 = invoke ptr @frame_data_sequence_find(ptr noundef %238, i32 noundef %239)
-          to label %241 unwind label %250
+240:                                              ; preds = %235
+  %241 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4
+  %242 = load ptr, ptr %241, align 8
+  %243 = load i32, ptr %9, align 4
+  %244 = invoke ptr @frame_data_sequence_find(ptr noundef %242, i32 noundef %243)
+          to label %245 unwind label %254
 
-241:                                              ; preds = %237
-  store ptr %240, ptr %31, align 8
-  %242 = load ptr, ptr %31, align 8
-  %243 = getelementptr inbounds %struct._frame_data, ptr %242, i32 0, i32 0
-  %244 = load i32, ptr %243, align 8
-  %245 = invoke noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %51, i32 noundef %244)
-          to label %246 unwind label %250
+245:                                              ; preds = %240
+  store ptr %244, ptr %31, align 8
+  %246 = load ptr, ptr %31, align 8
+  %247 = getelementptr inbounds %struct._frame_data, ptr %246, i32 0, i32 0
+  %248 = load i32, ptr %247, align 8
+  %249 = invoke noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull align 8 dereferenceable(896) %51, i32 noundef %248)
+          to label %250 unwind label %254
 
-246:                                              ; preds = %241
-  store ptr %245, ptr %32, align 8
-  %247 = load ptr, ptr %32, align 8
-  %248 = icmp eq ptr %247, null
-  br i1 %248, label %249, label %254
+250:                                              ; preds = %245
+  store ptr %249, ptr %32, align 8
+  %251 = load ptr, ptr %32, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %253, label %258
 
-249:                                              ; preds = %246
-  br label %541
+253:                                              ; preds = %250
+  br label %545
 
-250:                                              ; preds = %552, %546, %544, %524, %494, %479, %461, %446, %430, %426, %407, %311, %241, %237, %220
-  %251 = landingpad { ptr, i32 }
+254:                                              ; preds = %556, %550, %548, %528, %498, %483, %465, %450, %434, %430, %411, %315, %245, %240, %222
+  %255 = landingpad { ptr, i32 }
           cleanup
-  %252 = extractvalue { ptr, i32 } %251, 0
-  store ptr %252, ptr %7, align 8
-  %253 = extractvalue { ptr, i32 } %251, 1
-  store i32 %253, ptr %8, align 4
-  br label %561
+  %256 = extractvalue { ptr, i32 } %255, 0
+  store ptr %256, ptr %7, align 8
+  %257 = extractvalue { ptr, i32 } %255, 1
+  store i32 %257, ptr %8, align 4
+  br label %565
 
-254:                                              ; preds = %246
-  %255 = load ptr, ptr %32, align 8
-  %256 = getelementptr inbounds %struct.wlan_radio, ptr %255, i32 0, i32 0
-  %257 = load ptr, ptr %256, align 8
-  %258 = icmp ne ptr %257, null
-  br i1 %258, label %259, label %265
+258:                                              ; preds = %250
+  %259 = load ptr, ptr %32, align 8
+  %260 = getelementptr inbounds %struct.wlan_radio, ptr %259, i32 0, i32 0
+  %261 = load ptr, ptr %260, align 8
+  %262 = icmp ne ptr %261, null
+  br i1 %262, label %263, label %269
 
-259:                                              ; preds = %254
-  %260 = load ptr, ptr %32, align 8
-  %261 = getelementptr inbounds %struct.wlan_radio, ptr %260, i32 0, i32 0
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %struct.aggregate, ptr %262, i32 0, i32 2
-  %264 = load i8, ptr %263, align 4
-  br label %269
+263:                                              ; preds = %258
+  %264 = load ptr, ptr %32, align 8
+  %265 = getelementptr inbounds %struct.wlan_radio, ptr %264, i32 0, i32 0
+  %266 = load ptr, ptr %265, align 8
+  %267 = getelementptr inbounds %struct.aggregate, ptr %266, i32 0, i32 2
+  %268 = load i8, ptr %267, align 4
+  br label %273
 
-265:                                              ; preds = %254
-  %266 = load ptr, ptr %32, align 8
-  %267 = getelementptr inbounds %struct.wlan_radio, ptr %266, i32 0, i32 6
-  %268 = load i8, ptr %267, align 2
-  br label %269
+269:                                              ; preds = %258
+  %270 = load ptr, ptr %32, align 8
+  %271 = getelementptr inbounds %struct.wlan_radio, ptr %270, i32 0, i32 6
+  %272 = load i8, ptr %271, align 2
+  br label %273
 
-269:                                              ; preds = %265, %259
-  %270 = phi i8 [ %264, %259 ], [ %268, %265 ]
-  store i8 %270, ptr %38, align 1
-  %271 = load i8, ptr %38, align 1
-  %272 = sext i8 %271 to i32
-  %273 = add i32 %272, 100
-  %274 = sdiv i32 %273, 2
-  store i32 %274, ptr %39, align 4
-  %275 = load i32, ptr %39, align 4
-  %276 = icmp ugt i32 %275, 26
-  br i1 %276, label %277, label %278
-
-277:                                              ; preds = %269
-  store i32 26, ptr %39, align 4
-  br label %278
-
-278:                                              ; preds = %277, %269
+273:                                              ; preds = %269, %263
+  %274 = phi i8 [ %268, %263 ], [ %272, %269 ]
+  store i8 %274, ptr %38, align 1
+  %275 = load i8, ptr %38, align 1
+  %276 = sext i8 %275 to i32
+  %277 = add i32 %276, 100
+  %278 = sdiv i32 %277, 2
+  store i32 %278, ptr %39, align 4
   %279 = load i32, ptr %39, align 4
-  %280 = icmp ult i32 %279, 2
+  %280 = icmp ugt i32 %279, 26
   br i1 %280, label %281, label %282
 
-281:                                              ; preds = %278
-  store i32 2, ptr %39, align 4
+281:                                              ; preds = %273
+  store i32 26, ptr %39, align 4
   br label %282
 
-282:                                              ; preds = %281, %278
-  %283 = load ptr, ptr %32, align 8
-  %284 = getelementptr inbounds %struct.wlan_radio, ptr %283, i32 0, i32 2
-  %285 = load i64, ptr %284, align 8
-  %286 = icmp eq i64 %285, 0
-  br i1 %286, label %292, label %287
+282:                                              ; preds = %281, %273
+  %283 = load i32, ptr %39, align 4
+  %284 = icmp ult i32 %283, 2
+  br i1 %284, label %285, label %286
 
-287:                                              ; preds = %282
-  %288 = load ptr, ptr %32, align 8
-  %289 = getelementptr inbounds %struct.wlan_radio, ptr %288, i32 0, i32 3
-  %290 = load i64, ptr %289, align 8
-  %291 = icmp eq i64 %290, 0
-  br i1 %291, label %292, label %293
+285:                                              ; preds = %282
+  store i32 2, ptr %39, align 4
+  br label %286
 
-292:                                              ; preds = %287, %282
-  br label %541
+286:                                              ; preds = %285, %282
+  %287 = load ptr, ptr %32, align 8
+  %288 = getelementptr inbounds %struct.wlan_radio, ptr %287, i32 0, i32 2
+  %289 = load i64, ptr %288, align 8
+  %290 = icmp eq i64 %289, 0
+  br i1 %290, label %296, label %291
 
-293:                                              ; preds = %287
-  %294 = load ptr, ptr %32, align 8
-  %295 = getelementptr inbounds %struct.wlan_radio, ptr %294, i32 0, i32 2
-  %296 = load i64, ptr %295, align 8
-  %297 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 6
-  %298 = load i64, ptr %297, align 8
-  %299 = sub i64 %296, %298
-  %300 = sitofp i64 %299 to double
-  %301 = load double, ptr %10, align 8
-  %302 = fmul double %300, %301
-  %303 = fptrunc double %302 to float
-  store float %303, ptr %33, align 4
-  %304 = load i32, ptr %11, align 4
-  %305 = icmp sge i32 %304, 0
-  br i1 %305, label %306, label %316
+291:                                              ; preds = %286
+  %292 = load ptr, ptr %32, align 8
+  %293 = getelementptr inbounds %struct.wlan_radio, ptr %292, i32 0, i32 3
+  %294 = load i64, ptr %293, align 8
+  %295 = icmp eq i64 %294, 0
+  br i1 %295, label %296, label %297
 
-306:                                              ; preds = %293
-  %307 = load float, ptr %33, align 4
-  %308 = fptosi float %307 to i32
-  %309 = load i32, ptr %11, align 4
-  %310 = icmp ne i32 %308, %309
-  br i1 %310, label %311, label %316
+296:                                              ; preds = %291, %286
+  br label %545
 
-311:                                              ; preds = %306
-  %312 = load i32, ptr %11, align 4
-  %313 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
-  %314 = load float, ptr %6, align 4
-  invoke void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %312, i32 noundef 1, ptr noundef %313, float noundef %314)
-          to label %315 unwind label %250
+297:                                              ; preds = %291
+  %298 = load ptr, ptr %32, align 8
+  %299 = getelementptr inbounds %struct.wlan_radio, ptr %298, i32 0, i32 2
+  %300 = load i64, ptr %299, align 8
+  %301 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 6
+  %302 = load i64, ptr %301, align 8
+  %303 = sub i64 %300, %302
+  %304 = sitofp i64 %303 to double
+  %305 = load double, ptr %10, align 8
+  %306 = fmul double %304, %305
+  %307 = fptrunc double %306 to float
+  store float %307, ptr %33, align 4
+  %308 = load i32, ptr %11, align 4
+  %309 = icmp sge i32 %308, 0
+  br i1 %309, label %310, label %320
 
-315:                                              ; preds = %311
+310:                                              ; preds = %297
+  %311 = load float, ptr %33, align 4
+  %312 = fptosi float %311 to i32
+  %313 = load i32, ptr %11, align 4
+  %314 = icmp ne i32 %312, %313
+  br i1 %314, label %315, label %320
+
+315:                                              ; preds = %310
+  %316 = load i32, ptr %11, align 4
+  %317 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
+  %318 = load float, ptr %6, align 4
+  invoke void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %316, i32 noundef 1, ptr noundef %317, float noundef %318)
+          to label %319 unwind label %254
+
+319:                                              ; preds = %315
   store i32 -1, ptr %11, align 4
-  br label %316
+  br label %320
 
-316:                                              ; preds = %315, %306, %293
-  %317 = load float, ptr %33, align 4
-  %318 = load i32, ptr %13, align 4
-  %319 = sitofp i32 %318 to float
-  %320 = fcmp oge float %317, %319
-  br i1 %320, label %321, label %322
+320:                                              ; preds = %319, %310, %297
+  %321 = load float, ptr %33, align 4
+  %322 = load i32, ptr %13, align 4
+  %323 = sitofp i32 %322 to float
+  %324 = fcmp oge float %321, %323
+  br i1 %324, label %325, label %326
 
-321:                                              ; preds = %316
-  br label %544
+325:                                              ; preds = %320
+  br label %548
 
-322:                                              ; preds = %316
-  %323 = load ptr, ptr %32, align 8
-  %324 = getelementptr inbounds %struct.wlan_radio, ptr %323, i32 0, i32 3
-  %325 = load i64, ptr %324, align 8
-  %326 = load ptr, ptr %32, align 8
-  %327 = getelementptr inbounds %struct.wlan_radio, ptr %326, i32 0, i32 2
-  %328 = load i64, ptr %327, align 8
-  %329 = sub i64 %325, %328
-  %330 = uitofp i64 %329 to double
-  %331 = load double, ptr %10, align 8
-  %332 = fmul double %330, %331
-  %333 = fptrunc double %332 to float
-  store float %333, ptr %34, align 4
-  %334 = load float, ptr %34, align 4
-  %335 = fcmp olt float %334, 0.000000e+00
-  br i1 %335, label %336, label %337
+326:                                              ; preds = %320
+  %327 = load ptr, ptr %32, align 8
+  %328 = getelementptr inbounds %struct.wlan_radio, ptr %327, i32 0, i32 3
+  %329 = load i64, ptr %328, align 8
+  %330 = load ptr, ptr %32, align 8
+  %331 = getelementptr inbounds %struct.wlan_radio, ptr %330, i32 0, i32 2
+  %332 = load i64, ptr %331, align 8
+  %333 = sub i64 %329, %332
+  %334 = uitofp i64 %333 to double
+  %335 = load double, ptr %10, align 8
+  %336 = fmul double %334, %335
+  %337 = fptrunc double %336 to float
+  store float %337, ptr %34, align 4
+  %338 = load float, ptr %34, align 4
+  %339 = fcmp olt float %338, 0.000000e+00
+  br i1 %339, label %340, label %341
 
-336:                                              ; preds = %322
-  br label %541
+340:                                              ; preds = %326
+  br label %545
 
-337:                                              ; preds = %322
-  %338 = load float, ptr %33, align 4
-  %339 = load float, ptr %34, align 4
-  %340 = fadd float %338, %339
-  %341 = load i32, ptr %12, align 4
-  %342 = sitofp i32 %341 to float
-  %343 = fcmp olt float %340, %342
-  br i1 %343, label %344, label %345
+341:                                              ; preds = %326
+  %342 = load float, ptr %33, align 4
+  %343 = load float, ptr %34, align 4
+  %344 = fadd float %342, %343
+  %345 = load i32, ptr %12, align 4
+  %346 = sitofp i32 %345 to float
+  %347 = fcmp olt float %344, %346
+  br i1 %347, label %348, label %349
 
-344:                                              ; preds = %337
-  br label %541
+348:                                              ; preds = %341
+  br label %545
 
-345:                                              ; preds = %337
-  %346 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 8
-  %347 = load i32, ptr %346, align 8
-  %348 = icmp slt i32 %347, 0
-  br i1 %348, label %349, label %352
+349:                                              ; preds = %341
+  %350 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 8
+  %351 = load i32, ptr %350, align 8
+  %352 = icmp slt i32 %351, 0
+  br i1 %352, label %353, label %356
 
-349:                                              ; preds = %345
-  %350 = load i32, ptr %9, align 4
-  %351 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 8
-  store i32 %350, ptr %351, align 8
-  br label %352
+353:                                              ; preds = %349
+  %354 = load i32, ptr %9, align 4
+  %355 = getelementptr inbounds %class.WirelessTimeline, ptr %51, i32 0, i32 8
+  store i32 %354, ptr %355, align 8
+  br label %356
 
-352:                                              ; preds = %349, %345
-  %353 = load ptr, ptr %31, align 8
-  %354 = getelementptr inbounds %struct._frame_data, ptr %353, i32 0, i32 7
-  %355 = load ptr, ptr %354, align 8
-  %356 = icmp ne ptr %355, null
-  br i1 %356, label %357, label %383
+356:                                              ; preds = %353, %349
+  %357 = load ptr, ptr %31, align 8
+  %358 = getelementptr inbounds %struct._frame_data, ptr %357, i32 0, i32 7
+  %359 = load ptr, ptr %358, align 8
+  %360 = icmp ne ptr %359, null
+  br i1 %360, label %361, label %387
 
-357:                                              ; preds = %352
-  %358 = load ptr, ptr %31, align 8
-  %359 = getelementptr inbounds %struct._frame_data, ptr %358, i32 0, i32 7
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds %struct._color_filter, ptr %360, i32 0, i32 3
-  store ptr %361, ptr %41, align 8
-  %362 = load ptr, ptr %41, align 8
-  %363 = getelementptr inbounds %struct.color_t, ptr %362, i32 0, i32 0
-  %364 = load i16, ptr %363, align 2
-  %365 = zext i16 %364 to i32
-  %366 = sitofp i32 %365 to double
-  %367 = fdiv double %366, 6.553500e+04
-  %368 = fptrunc double %367 to float
-  store float %368, ptr %35, align 4
-  %369 = load ptr, ptr %41, align 8
-  %370 = getelementptr inbounds %struct.color_t, ptr %369, i32 0, i32 1
-  %371 = load i16, ptr %370, align 2
-  %372 = zext i16 %371 to i32
-  %373 = sitofp i32 %372 to double
-  %374 = fdiv double %373, 6.553500e+04
-  %375 = fptrunc double %374 to float
-  store float %375, ptr %36, align 4
-  %376 = load ptr, ptr %41, align 8
-  %377 = getelementptr inbounds %struct.color_t, ptr %376, i32 0, i32 2
-  %378 = load i16, ptr %377, align 2
-  %379 = zext i16 %378 to i32
-  %380 = sitofp i32 %379 to double
-  %381 = fdiv double %380, 6.553500e+04
-  %382 = fptrunc double %381 to float
-  store float %382, ptr %37, align 4
-  br label %384
+361:                                              ; preds = %356
+  %362 = load ptr, ptr %31, align 8
+  %363 = getelementptr inbounds %struct._frame_data, ptr %362, i32 0, i32 7
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds %struct._color_filter, ptr %364, i32 0, i32 3
+  store ptr %365, ptr %41, align 8
+  %366 = load ptr, ptr %41, align 8
+  %367 = getelementptr inbounds %struct.color_t, ptr %366, i32 0, i32 0
+  %368 = load i16, ptr %367, align 2
+  %369 = zext i16 %368 to i32
+  %370 = sitofp i32 %369 to double
+  %371 = fdiv double %370, 6.553500e+04
+  %372 = fptrunc double %371 to float
+  store float %372, ptr %35, align 4
+  %373 = load ptr, ptr %41, align 8
+  %374 = getelementptr inbounds %struct.color_t, ptr %373, i32 0, i32 1
+  %375 = load i16, ptr %374, align 2
+  %376 = zext i16 %375 to i32
+  %377 = sitofp i32 %376 to double
+  %378 = fdiv double %377, 6.553500e+04
+  %379 = fptrunc double %378 to float
+  store float %379, ptr %36, align 4
+  %380 = load ptr, ptr %41, align 8
+  %381 = getelementptr inbounds %struct.color_t, ptr %380, i32 0, i32 2
+  %382 = load i16, ptr %381, align 2
+  %383 = zext i16 %382 to i32
+  %384 = sitofp i32 %383 to double
+  %385 = fdiv double %384, 6.553500e+04
+  %386 = fptrunc double %385 to float
+  store float %386, ptr %37, align 4
+  br label %388
 
-383:                                              ; preds = %352
+387:                                              ; preds = %356
   store float 0.000000e+00, ptr %37, align 4
   store float 0.000000e+00, ptr %36, align 4
   store float 0.000000e+00, ptr %35, align 4
-  br label %384
+  br label %388
 
-384:                                              ; preds = %383, %357
-  %385 = load float, ptr %33, align 4
-  %386 = load float, ptr %34, align 4
-  %387 = fadd float %385, %386
-  %388 = fpext float %387 to double
-  %389 = load ptr, ptr %32, align 8
-  %390 = getelementptr inbounds %struct.wlan_radio, ptr %389, i32 0, i32 5
-  %391 = load i16, ptr %390, align 8
-  %392 = zext i16 %391 to i32
-  %393 = sitofp i32 %392 to double
-  %394 = load double, ptr %10, align 8
-  %395 = call double @llvm.fmuladd.f64(double %393, double %394, double %388)
-  %396 = fptosi double %395 to i32
-  store i32 %396, ptr %40, align 4
-  %397 = load double, ptr %10, align 8
-  %398 = fcmp oge double %397, 1.000000e-02
-  br i1 %398, label %399, label %438
+388:                                              ; preds = %387, %361
+  %389 = load float, ptr %33, align 4
+  %390 = load float, ptr %34, align 4
+  %391 = fadd float %389, %390
+  %392 = fpext float %391 to double
+  %393 = load ptr, ptr %32, align 8
+  %394 = getelementptr inbounds %struct.wlan_radio, ptr %393, i32 0, i32 5
+  %395 = load i16, ptr %394, align 8
+  %396 = zext i16 %395 to i32
+  %397 = sitofp i32 %396 to double
+  %398 = load double, ptr %10, align 8
+  %399 = call double @llvm.fmuladd.f64(double %397, double %398, double %392)
+  %400 = fptosi double %399 to i32
+  store i32 %400, ptr %40, align 4
+  %401 = load double, ptr %10, align 8
+  %402 = fcmp oge double %401, 1.000000e-02
+  br i1 %402, label %403, label %442
 
-399:                                              ; preds = %384
-  %400 = load ptr, ptr %32, align 8
-  %401 = getelementptr inbounds %struct.wlan_radio, ptr %400, i32 0, i32 5
-  %402 = load i16, ptr %401, align 8
-  %403 = icmp ne i16 %402, 0
-  br i1 %403, label %404, label %438
+403:                                              ; preds = %388
+  %404 = load ptr, ptr %32, align 8
+  %405 = getelementptr inbounds %struct.wlan_radio, ptr %404, i32 0, i32 5
+  %406 = load i16, ptr %405, align 8
+  %407 = icmp ne i16 %406, 0
+  br i1 %407, label %408, label %442
 
-404:                                              ; preds = %399
-  %405 = load i32, ptr %40, align 4
-  %406 = icmp sgt i32 %405, 0
-  br i1 %406, label %407, label %438
+408:                                              ; preds = %403
+  %409 = load i32, ptr %40, align 4
+  %410 = icmp sgt i32 %409, 0
+  br i1 %410, label %411, label %442
 
-407:                                              ; preds = %404
-  %408 = load i32, ptr %9, align 4
-  %409 = urem i32 %408, 32
-  %410 = mul i32 2, %409
-  store i32 %410, ptr %42, align 4
-  %411 = load float, ptr %33, align 4
-  %412 = load float, ptr %34, align 4
-  %413 = fadd float %411, %412
-  %414 = load float, ptr %6, align 4
-  %415 = fdiv float %413, %414
-  %416 = fpext float %415 to double
-  %417 = load i32, ptr %42, align 4
-  %418 = sitofp i32 %417 to double
-  %419 = load i32, ptr %40, align 4
-  %420 = sitofp i32 %419 to float
-  %421 = load float, ptr %6, align 4
-  %422 = fdiv float %420, %421
-  %423 = fpext float %422 to double
-  %424 = load i32, ptr %42, align 4
-  %425 = sitofp i32 %424 to double
-  invoke void @_ZN6QLineFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %43, double noundef %416, double noundef %418, double noundef %423, double noundef %425)
-          to label %426 unwind label %250
+411:                                              ; preds = %408
+  %412 = load i32, ptr %9, align 4
+  %413 = urem i32 %412, 32
+  %414 = mul i32 2, %413
+  store i32 %414, ptr %42, align 4
+  %415 = load float, ptr %33, align 4
+  %416 = load float, ptr %34, align 4
+  %417 = fadd float %415, %416
+  %418 = load float, ptr %6, align 4
+  %419 = fdiv float %417, %418
+  %420 = fpext float %419 to double
+  %421 = load i32, ptr %42, align 4
+  %422 = sitofp i32 %421 to double
+  %423 = load i32, ptr %40, align 4
+  %424 = sitofp i32 %423 to float
+  %425 = load float, ptr %6, align 4
+  %426 = fdiv float %424, %425
+  %427 = fpext float %426 to double
+  %428 = load i32, ptr %42, align 4
+  %429 = sitofp i32 %428 to double
+  invoke void @_ZN6QLineFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %43, double noundef %420, double noundef %422, double noundef %427, double noundef %429)
+          to label %430 unwind label %254
 
-426:                                              ; preds = %407
-  %427 = load float, ptr %35, align 4
-  %428 = load float, ptr %36, align 4
-  %429 = load float, ptr %37, align 4
-  invoke void @_ZN6pcolorC2Efff(ptr noundef nonnull align 4 dereferenceable(14) %45, float noundef %427, float noundef %428, float noundef %429)
-          to label %430 unwind label %250
+430:                                              ; preds = %411
+  %431 = load float, ptr %35, align 4
+  %432 = load float, ptr %36, align 4
+  %433 = load float, ptr %37, align 4
+  invoke void @_ZN6pcolorC2Efff(ptr noundef nonnull align 4 dereferenceable(14) %45, float noundef %431, float noundef %432, float noundef %433)
+          to label %434 unwind label %254
 
-430:                                              ; preds = %426
+434:                                              ; preds = %430
   invoke void @_ZN4QPenC1ERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 4 dereferenceable(14) %45)
-          to label %431 unwind label %250
+          to label %435 unwind label %254
 
-431:                                              ; preds = %430
-  %432 = invoke noundef ptr @_ZN14QGraphicsScene7addLineERK6QLineFRK4QPen(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %433 unwind label %434
+435:                                              ; preds = %434
+  %436 = invoke noundef ptr @_ZN14QGraphicsScene7addLineERK6QLineFRK4QPen(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+          to label %437 unwind label %438
 
-433:                                              ; preds = %431
+437:                                              ; preds = %435
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #13
-  br label %438
+  br label %442
 
-434:                                              ; preds = %431
-  %435 = landingpad { ptr, i32 }
+438:                                              ; preds = %435
+  %439 = landingpad { ptr, i32 }
           cleanup
-  %436 = extractvalue { ptr, i32 } %435, 0
-  store ptr %436, ptr %7, align 8
-  %437 = extractvalue { ptr, i32 } %435, 1
-  store i32 %437, ptr %8, align 4
+  %440 = extractvalue { ptr, i32 } %439, 0
+  store ptr %440, ptr %7, align 8
+  %441 = extractvalue { ptr, i32 } %439, 1
+  store i32 %441, ptr %8, align 4
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #13
-  br label %561
+  br label %565
 
-438:                                              ; preds = %433, %404, %399, %384
-  %439 = load float, ptr %33, align 4
-  %440 = fptosi float %439 to i32
-  %441 = load float, ptr %33, align 4
-  %442 = load float, ptr %34, align 4
-  %443 = fadd float %441, %442
+442:                                              ; preds = %437, %408, %403, %388
+  %443 = load float, ptr %33, align 4
   %444 = fptosi float %443 to i32
-  %445 = icmp eq i32 %440, %444
-  br i1 %445, label %446, label %461
-
-446:                                              ; preds = %438
-  %447 = load float, ptr %33, align 4
+  %445 = load float, ptr %33, align 4
+  %446 = load float, ptr %34, align 4
+  %447 = fadd float %445, %446
   %448 = fptosi float %447 to i32
-  store i32 %448, ptr %11, align 4
-  %449 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
-  %450 = load i32, ptr %39, align 4
-  %451 = load ptr, ptr %31, align 8
-  %452 = getelementptr inbounds %struct._frame_data, ptr %451, i32 0, i32 9
-  %453 = load i16, ptr %452, align 2
-  %454 = and i16 %453, 1
-  %455 = zext i16 %454 to i32
-  %456 = load float, ptr %34, align 4
-  %457 = load float, ptr %35, align 4
-  %458 = load float, ptr %36, align 4
-  %459 = load float, ptr %37, align 4
-  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %449, i32 noundef %450, i32 noundef %455, float noundef %456, float noundef %457, float noundef %458, float noundef %459)
-          to label %460 unwind label %250
+  %449 = icmp eq i32 %444, %448
+  br i1 %449, label %450, label %465
 
-460:                                              ; preds = %446
-  br label %540
+450:                                              ; preds = %442
+  %451 = load float, ptr %33, align 4
+  %452 = fptosi float %451 to i32
+  store i32 %452, ptr %11, align 4
+  %453 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
+  %454 = load i32, ptr %39, align 4
+  %455 = load ptr, ptr %31, align 8
+  %456 = getelementptr inbounds %struct._frame_data, ptr %455, i32 0, i32 9
+  %457 = load i16, ptr %456, align 2
+  %458 = and i16 %457, 1
+  %459 = zext i16 %458 to i32
+  %460 = load float, ptr %34, align 4
+  %461 = load float, ptr %35, align 4
+  %462 = load float, ptr %36, align 4
+  %463 = load float, ptr %37, align 4
+  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %453, i32 noundef %454, i32 noundef %459, float noundef %460, float noundef %461, float noundef %462, float noundef %463)
+          to label %464 unwind label %254
 
-461:                                              ; preds = %438
-  %462 = load float, ptr %33, align 4
-  %463 = fptosi float %462 to i32
-  %464 = add i32 %463, 1
-  %465 = sitofp i32 %464 to float
+464:                                              ; preds = %450
+  br label %544
+
+465:                                              ; preds = %442
   %466 = load float, ptr %33, align 4
-  %467 = fsub float %465, %466
-  store float %467, ptr %46, align 4
-  %468 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
-  %469 = load i32, ptr %39, align 4
-  %470 = load ptr, ptr %31, align 8
-  %471 = getelementptr inbounds %struct._frame_data, ptr %470, i32 0, i32 9
-  %472 = load i16, ptr %471, align 2
-  %473 = and i16 %472, 1
-  %474 = zext i16 %473 to i32
-  %475 = load float, ptr %46, align 4
-  %476 = load float, ptr %35, align 4
-  %477 = load float, ptr %36, align 4
-  %478 = load float, ptr %37, align 4
-  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %468, i32 noundef %469, i32 noundef %474, float noundef %475, float noundef %476, float noundef %477, float noundef %478)
-          to label %479 unwind label %250
+  %467 = fptosi float %466 to i32
+  %468 = add i32 %467, 1
+  %469 = sitofp i32 %468 to float
+  %470 = load float, ptr %33, align 4
+  %471 = fsub float %469, %470
+  store float %471, ptr %46, align 4
+  %472 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
+  %473 = load i32, ptr %39, align 4
+  %474 = load ptr, ptr %31, align 8
+  %475 = getelementptr inbounds %struct._frame_data, ptr %474, i32 0, i32 9
+  %476 = load i16, ptr %475, align 2
+  %477 = and i16 %476, 1
+  %478 = zext i16 %477 to i32
+  %479 = load float, ptr %46, align 4
+  %480 = load float, ptr %35, align 4
+  %481 = load float, ptr %36, align 4
+  %482 = load float, ptr %37, align 4
+  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %472, i32 noundef %473, i32 noundef %478, float noundef %479, float noundef %480, float noundef %481, float noundef %482)
+          to label %483 unwind label %254
 
-479:                                              ; preds = %461
-  %480 = load float, ptr %33, align 4
-  %481 = fptosi float %480 to i32
-  %482 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
-  %483 = load float, ptr %6, align 4
-  invoke void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %481, i32 noundef 1, ptr noundef %482, float noundef %483)
-          to label %484 unwind label %250
+483:                                              ; preds = %465
+  %484 = load float, ptr %33, align 4
+  %485 = fptosi float %484 to i32
+  %486 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
+  %487 = load float, ptr %6, align 4
+  invoke void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %485, i32 noundef 1, ptr noundef %486, float noundef %487)
+          to label %488 unwind label %254
 
-484:                                              ; preds = %479
+488:                                              ; preds = %483
   store i32 -1, ptr %11, align 4
-  %485 = load float, ptr %46, align 4
-  %486 = load float, ptr %33, align 4
-  %487 = fadd float %486, %485
-  store float %487, ptr %33, align 4
-  %488 = load float, ptr %46, align 4
-  %489 = load float, ptr %34, align 4
-  %490 = fsub float %489, %488
-  store float %490, ptr %34, align 4
-  %491 = load float, ptr %34, align 4
-  %492 = fpext float %491 to double
-  %493 = fcmp ogt double %492, 1.000000e+00
-  br i1 %493, label %494, label %520
+  %489 = load float, ptr %46, align 4
+  %490 = load float, ptr %33, align 4
+  %491 = fadd float %490, %489
+  store float %491, ptr %33, align 4
+  %492 = load float, ptr %46, align 4
+  %493 = load float, ptr %34, align 4
+  %494 = fsub float %493, %492
+  store float %494, ptr %34, align 4
+  %495 = load float, ptr %34, align 4
+  %496 = fpext float %495 to double
+  %497 = fcmp ogt double %496, 1.000000e+00
+  br i1 %497, label %498, label %524
 
-494:                                              ; preds = %484
-  %495 = load float, ptr %33, align 4
-  %496 = fptosi float %495 to i32
-  %497 = load float, ptr %34, align 4
-  %498 = fptosi float %497 to i32
-  %499 = load i32, ptr %39, align 4
-  %500 = load ptr, ptr %31, align 8
-  %501 = getelementptr inbounds %struct._frame_data, ptr %500, i32 0, i32 9
-  %502 = load i16, ptr %501, align 2
-  %503 = and i16 %502, 1
-  %504 = zext i16 %503 to i32
-  %505 = load float, ptr %35, align 4
-  %506 = load float, ptr %36, align 4
-  %507 = load float, ptr %37, align 4
-  %508 = load float, ptr %6, align 4
-  invoke void @_ZL16render_rectangleR8QPainteriijiffff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %496, i32 noundef %498, i32 noundef %499, i32 noundef %504, float noundef %505, float noundef %506, float noundef %507, float noundef %508)
-          to label %509 unwind label %250
+498:                                              ; preds = %488
+  %499 = load float, ptr %33, align 4
+  %500 = fptosi float %499 to i32
+  %501 = load float, ptr %34, align 4
+  %502 = fptosi float %501 to i32
+  %503 = load i32, ptr %39, align 4
+  %504 = load ptr, ptr %31, align 8
+  %505 = getelementptr inbounds %struct._frame_data, ptr %504, i32 0, i32 9
+  %506 = load i16, ptr %505, align 2
+  %507 = and i16 %506, 1
+  %508 = zext i16 %507 to i32
+  %509 = load float, ptr %35, align 4
+  %510 = load float, ptr %36, align 4
+  %511 = load float, ptr %37, align 4
+  %512 = load float, ptr %6, align 4
+  invoke void @_ZL16render_rectangleR8QPainteriijiffff(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %500, i32 noundef %502, i32 noundef %503, i32 noundef %508, float noundef %509, float noundef %510, float noundef %511, float noundef %512)
+          to label %513 unwind label %254
 
-509:                                              ; preds = %494
-  %510 = load float, ptr %34, align 4
-  %511 = fptosi float %510 to i32
-  %512 = sitofp i32 %511 to float
-  %513 = load float, ptr %33, align 4
-  %514 = fadd float %513, %512
-  store float %514, ptr %33, align 4
-  %515 = load float, ptr %34, align 4
-  %516 = fptosi float %515 to i32
-  %517 = sitofp i32 %516 to float
-  %518 = load float, ptr %34, align 4
-  %519 = fsub float %518, %517
-  store float %519, ptr %34, align 4
-  br label %520
+513:                                              ; preds = %498
+  %514 = load float, ptr %34, align 4
+  %515 = fptosi float %514 to i32
+  %516 = sitofp i32 %515 to float
+  %517 = load float, ptr %33, align 4
+  %518 = fadd float %517, %516
+  store float %518, ptr %33, align 4
+  %519 = load float, ptr %34, align 4
+  %520 = fptosi float %519 to i32
+  %521 = sitofp i32 %520 to float
+  %522 = load float, ptr %34, align 4
+  %523 = fsub float %522, %521
+  store float %523, ptr %34, align 4
+  br label %524
 
-520:                                              ; preds = %509, %484
-  %521 = load float, ptr %34, align 4
-  %522 = fpext float %521 to double
-  %523 = fcmp ogt double %522, 0.000000e+00
-  br i1 %523, label %524, label %539
+524:                                              ; preds = %513, %488
+  %525 = load float, ptr %34, align 4
+  %526 = fpext float %525 to double
+  %527 = fcmp ogt double %526, 0.000000e+00
+  br i1 %527, label %528, label %543
 
-524:                                              ; preds = %520
-  %525 = load float, ptr %33, align 4
-  %526 = fptosi float %525 to i32
-  store i32 %526, ptr %11, align 4
-  %527 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
-  %528 = load i32, ptr %39, align 4
-  %529 = load ptr, ptr %31, align 8
-  %530 = getelementptr inbounds %struct._frame_data, ptr %529, i32 0, i32 9
-  %531 = load i16, ptr %530, align 2
-  %532 = and i16 %531, 1
-  %533 = zext i16 %532 to i32
-  %534 = load float, ptr %34, align 4
-  %535 = load float, ptr %35, align 4
-  %536 = load float, ptr %36, align 4
-  %537 = load float, ptr %37, align 4
-  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %527, i32 noundef %528, i32 noundef %533, float noundef %534, float noundef %535, float noundef %536, float noundef %537)
-          to label %538 unwind label %250
+528:                                              ; preds = %524
+  %529 = load float, ptr %33, align 4
+  %530 = fptosi float %529 to i32
+  store i32 %530, ptr %11, align 4
+  %531 = getelementptr inbounds [64 x [3 x float]], ptr %14, i64 0, i64 0
+  %532 = load i32, ptr %39, align 4
+  %533 = load ptr, ptr %31, align 8
+  %534 = getelementptr inbounds %struct._frame_data, ptr %533, i32 0, i32 9
+  %535 = load i16, ptr %534, align 2
+  %536 = and i16 %535, 1
+  %537 = zext i16 %536 to i32
+  %538 = load float, ptr %34, align 4
+  %539 = load float, ptr %35, align 4
+  %540 = load float, ptr %36, align 4
+  %541 = load float, ptr %37, align 4
+  invoke void @_ZL14accumulate_rgbPA3_fiiffff(ptr noundef %531, i32 noundef %532, i32 noundef %537, float noundef %538, float noundef %539, float noundef %540, float noundef %541)
+          to label %542 unwind label %254
 
-538:                                              ; preds = %524
-  br label %539
+542:                                              ; preds = %528
+  br label %543
 
-539:                                              ; preds = %538, %520
-  br label %540
+543:                                              ; preds = %542, %524
+  br label %544
 
-540:                                              ; preds = %539, %460
-  br label %541
+544:                                              ; preds = %543, %464
+  br label %545
 
-541:                                              ; preds = %540, %344, %336, %292, %249
-  %542 = load i32, ptr %9, align 4
-  %543 = add i32 %542, 1
-  store i32 %543, ptr %9, align 4
-  br label %233, !llvm.loop !7
+545:                                              ; preds = %544, %348, %340, %296, %253
+  %546 = load i32, ptr %9, align 4
+  %547 = add i32 %546, 1
+  store i32 %547, ptr %9, align 4
+  br label %235, !llvm.loop !7
 
-544:                                              ; preds = %321, %233
-  %545 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %51)
-          to label %546 unwind label %250
+548:                                              ; preds = %325, %235
+  %549 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %51)
+          to label %550 unwind label %254
 
-546:                                              ; preds = %544
-  %547 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 0
-  %548 = extractvalue { i64, i64 } %545, 0
-  store i64 %548, ptr %547, align 4
-  %549 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 1
-  %550 = extractvalue { i64, i64 } %545, 1
-  store i64 %550, ptr %549, align 4
-  call void @_ZN6QRectFC2ERK5QRect(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 4 dereferenceable(16) %48) #13
-  %551 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %51)
-          to label %552 unwind label %250
-
-552:                                              ; preds = %546
-  %553 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 0
-  %554 = extractvalue { i64, i64 } %551, 0
+550:                                              ; preds = %548
+  %551 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 0
+  %552 = extractvalue { i64, i64 } %549, 0
+  store i64 %552, ptr %551, align 4
+  %553 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 1
+  %554 = extractvalue { i64, i64 } %549, 1
   store i64 %554, ptr %553, align 4
-  %555 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 1
-  %556 = extractvalue { i64, i64 } %551, 1
-  store i64 %556, ptr %555, align 4
+  call void @_ZN6QRectFC2ERK5QRect(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 4 dereferenceable(16) %48) #13
+  %555 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %51)
+          to label %556 unwind label %254
+
+556:                                              ; preds = %550
+  %557 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 0
+  %558 = extractvalue { i64, i64 } %555, 0
+  store i64 %558, ptr %557, align 4
+  %559 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 1
+  %560 = extractvalue { i64, i64 } %555, 1
+  store i64 %560, ptr %559, align 4
   call void @_ZN6QRectFC2ERK5QRect(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 4 dereferenceable(16) %50) #13
   invoke void @_ZN14QGraphicsScene6renderEP8QPainterRK6QRectFS4_N2Qt15AspectRatioModeE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 1)
-          to label %557 unwind label %250
+          to label %561 unwind label %254
 
-557:                                              ; preds = %552
+561:                                              ; preds = %556
   call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #13
   store i32 0, ptr %24, align 4
-  br label %558
-
-558:                                              ; preds = %557, %127
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  %559 = load i32, ptr %24, align 4
-  switch i32 %559, label %568 [
-    i32 0, label %560
-    i32 1, label %560
-  ]
-
-560:                                              ; preds = %558, %558
-  ret void
-
-561:                                              ; preds = %434, %250
-  call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #13
   br label %562
 
-562:                                              ; preds = %561, %128
+562:                                              ; preds = %561, %127
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  br label %563
+  %563 = load i32, ptr %24, align 4
+  switch i32 %563, label %572 [
+    i32 0, label %564
+    i32 1, label %564
+  ]
 
-563:                                              ; preds = %562
-  %564 = load ptr, ptr %7, align 8
-  %565 = load i32, ptr %8, align 4
-  %566 = insertvalue { ptr, i32 } poison, ptr %564, 0
-  %567 = insertvalue { ptr, i32 } %566, i32 %565, 1
-  resume { ptr, i32 } %567
+564:                                              ; preds = %562, %562
+  ret void
 
-568:                                              ; preds = %558
+565:                                              ; preds = %438, %254
+  call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #13
+  br label %566
+
+566:                                              ; preds = %565, %128
+  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %567
+
+567:                                              ; preds = %566
+  %568 = load ptr, ptr %7, align 8
+  %569 = load i32, ptr %8, align 4
+  %570 = insertvalue { ptr, i32 } poison, ptr %568, 0
+  %571 = insertvalue { ptr, i32 } %570, i32 %569, 1
+  resume { ptr, i32 } %571
+
+572:                                              ; preds = %562
   unreachable
 }
 
@@ -5957,42 +5975,43 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJ5QList
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !11
+  br i1 %4, label %5, label %12, !prof !11
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #13
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperI5QListIiELb1EE14qt_metatype_idEv()
-          to label %10 unwind label %12
+          to label %10 unwind label %13
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, i64 1), align 4
+  %11 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, i64 1
+  store i32 0, ptr %11, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #13
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %5, %0
+12:                                               ; preds = %10, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %1, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %2, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %1, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #13
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2

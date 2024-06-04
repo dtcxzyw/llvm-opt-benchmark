@@ -859,309 +859,595 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @proto_register_abis_oml() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 1), align 4
-  store i8 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 1, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 2), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 2, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 3), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 3, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 4), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 4, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 5), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 5, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 6), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 6, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 7), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 7, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 8), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 8, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 9), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 9, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 10), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 10, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 11), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 11, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 12), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 12, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 13), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 13, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 14), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 14, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 15), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 15, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 17), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 17, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 18), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 18, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 19), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 19, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 20), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 20, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 21), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 21, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 22), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 22, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 23), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 23, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 24), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 24, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 25), align 4
-  store i8 6, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 25, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 26), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 26, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 27), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 27, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 28), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 28, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 29), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 29, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 30), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 30, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 31), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 31, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 32), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 32, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 33), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 33, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 34), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 34, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 35), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 35, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 36), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 36, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 37), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 37, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 38), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 38, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 39), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 39, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 40), align 4
-  store i8 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 40, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 41), align 4
-  store i8 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 41, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 42), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 42, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 43), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 43, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 44), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 44, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 45), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 45, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 46), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 46, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 47), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 47, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 48), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 48, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 49), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 49, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 50), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 50, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 51), align 4
-  store i8 7, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 51, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 52), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 52, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 53), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 53, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 54), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 54, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 55), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 55, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 56), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 56, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 57), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 57, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 64), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 64, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 65), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 65, i32 1), align 4
-  store i32 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 66), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 66, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 67), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 67, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 68), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 68, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 69), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 69, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 70), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 70, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 71), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 71, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 72), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 72, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 70), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 70, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 23), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 23, i32 1), align 4
-  store i32 6, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 5), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 5, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 145), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 145, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 2), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 2, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 232), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 232, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 66), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 66, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 68), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 68, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 97), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 97, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 98), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 98, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 102), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 102, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 110), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 110, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 148), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 148, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 149), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 149, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 88), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 88, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 197), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 197, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 143), align 4
-  store i8 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 143, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 220), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 220, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 221), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 221, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 155), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 155, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 159), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 159, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 76), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 76, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 79), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 79, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 85), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 85, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 161), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 161, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 89), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 89, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 213), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 213, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 168), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 168, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 253), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 253, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 62), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 62, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 61), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 61, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 172), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 172, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 171), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 171, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 160), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 160, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 63), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 63, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 198), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 198, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 199), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 199, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 200), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 200, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 201), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 201, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 240), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 240, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 241), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 241, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 252), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 252, i32 1), align 4
-  store i32 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 242), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 242, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 163), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 163, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 164), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 164, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 128), align 4
-  store i8 4, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 128, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 129), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 129, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 136), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 136, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 134), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 134, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 135), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 135, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 137), align 4
-  store i8 6, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 137, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 138), align 4
-  store i8 8, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 138, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 139), align 4
-  store i8 12, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 139, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 142), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 142, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 145), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 145, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 147), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 147, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 148), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 148, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 149), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 149, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 164), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 164, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 151), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 151, i32 1), align 4
-  store i32 3, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 133), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 133, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 154), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 154, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 155), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 155, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 156), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 156, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 157), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 157, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 158), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 158, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 159), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 159, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 160), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 160, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 161), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 161, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 162), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 162, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 163), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 163, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 167), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 167, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 168), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 168, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 169), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 169, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 172), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 172, i32 1), align 4
-  store i32 1, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 143), align 4
-  store i8 2, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 143, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 144), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 144, i32 1), align 4
-  store i32 5, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 153), align 4
-  store i8 0, ptr getelementptr ([256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 153, i32 1), align 4
-  %3 = call i32 @proto_register_protocol(ptr noundef @.str.242, ptr noundef @.str.243, ptr noundef @.str.244)
-  store i32 %3, ptr @proto_abis_oml, align 4
-  %4 = load i32, ptr @proto_abis_oml, align 4
-  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_abis_oml.hf, i32 noundef 111)
+  %3 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 1
+  store i32 1, ptr %3, align 4
+  %4 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 1, i32 1
+  store i8 3, ptr %4, align 4
+  %5 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 2
+  store i32 5, ptr %5, align 4
+  %6 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 2, i32 1
+  store i8 0, ptr %6, align 4
+  %7 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 3
+  store i32 5, ptr %7, align 4
+  %8 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 3, i32 1
+  store i8 0, ptr %8, align 4
+  %9 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 4
+  store i32 3, ptr %9, align 4
+  %10 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 4, i32 1
+  store i8 0, ptr %10, align 4
+  %11 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 5
+  store i32 5, ptr %11, align 4
+  %12 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 5, i32 1
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 6
+  store i32 3, ptr %13, align 4
+  %14 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 6, i32 1
+  store i8 0, ptr %14, align 4
+  %15 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 7
+  store i32 5, ptr %15, align 4
+  %16 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 7, i32 1
+  store i8 0, ptr %16, align 4
+  %17 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 8
+  store i32 1, ptr %17, align 4
+  %18 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 8, i32 1
+  store i8 2, ptr %18, align 4
+  %19 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 9
+  store i32 3, ptr %19, align 4
+  %20 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 9, i32 1
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 10
+  store i32 3, ptr %21, align 4
+  %22 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 10, i32 1
+  store i8 0, ptr %22, align 4
+  %23 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 11
+  store i32 3, ptr %23, align 4
+  %24 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 11, i32 1
+  store i8 0, ptr %24, align 4
+  %25 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 12
+  store i32 3, ptr %25, align 4
+  %26 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 12, i32 1
+  store i8 0, ptr %26, align 4
+  %27 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 13
+  store i32 3, ptr %27, align 4
+  %28 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 13, i32 1
+  store i8 0, ptr %28, align 4
+  %29 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 14
+  store i32 5, ptr %29, align 4
+  %30 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 14, i32 1
+  store i8 0, ptr %30, align 4
+  %31 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 15
+  store i32 5, ptr %31, align 4
+  %32 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 15, i32 1
+  store i8 0, ptr %32, align 4
+  %33 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 17
+  store i32 3, ptr %33, align 4
+  %34 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 17, i32 1
+  store i8 0, ptr %34, align 4
+  %35 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 18
+  store i32 5, ptr %35, align 4
+  %36 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 18, i32 1
+  store i8 0, ptr %36, align 4
+  %37 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 19
+  store i32 5, ptr %37, align 4
+  %38 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 19, i32 1
+  store i8 0, ptr %38, align 4
+  %39 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 20
+  store i32 1, ptr %39, align 4
+  %40 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 20, i32 1
+  store i8 2, ptr %40, align 4
+  %41 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 21
+  store i32 3, ptr %41, align 4
+  %42 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 21, i32 1
+  store i8 0, ptr %42, align 4
+  %43 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 22
+  store i32 5, ptr %43, align 4
+  %44 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 22, i32 1
+  store i8 0, ptr %44, align 4
+  %45 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 23
+  store i32 4, ptr %45, align 4
+  %46 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 23, i32 1
+  store i8 0, ptr %46, align 4
+  %47 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 24
+  store i32 3, ptr %47, align 4
+  %48 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 24, i32 1
+  store i8 0, ptr %48, align 4
+  %49 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 25
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 25, i32 1
+  store i8 6, ptr %50, align 4
+  %51 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 26
+  store i32 5, ptr %51, align 4
+  %52 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 26, i32 1
+  store i8 0, ptr %52, align 4
+  %53 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 27
+  store i32 3, ptr %53, align 4
+  %54 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 27, i32 1
+  store i8 0, ptr %54, align 4
+  %55 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 28
+  store i32 3, ptr %55, align 4
+  %56 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 28, i32 1
+  store i8 0, ptr %56, align 4
+  %57 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 29
+  store i32 5, ptr %57, align 4
+  %58 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 29, i32 1
+  store i8 0, ptr %58, align 4
+  %59 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 30
+  store i32 5, ptr %59, align 4
+  %60 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 30, i32 1
+  store i8 0, ptr %60, align 4
+  %61 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 31
+  store i32 3, ptr %61, align 4
+  %62 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 31, i32 1
+  store i8 0, ptr %62, align 4
+  %63 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 32
+  store i32 1, ptr %63, align 4
+  %64 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 32, i32 1
+  store i8 2, ptr %64, align 4
+  %65 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 33
+  store i32 1, ptr %65, align 4
+  %66 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 33, i32 1
+  store i8 2, ptr %66, align 4
+  %67 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 34
+  store i32 3, ptr %67, align 4
+  %68 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 34, i32 1
+  store i8 0, ptr %68, align 4
+  %69 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 35
+  store i32 3, ptr %69, align 4
+  %70 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 35, i32 1
+  store i8 0, ptr %70, align 4
+  %71 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 36
+  store i32 3, ptr %71, align 4
+  %72 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 36, i32 1
+  store i8 0, ptr %72, align 4
+  %73 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 37
+  store i32 5, ptr %73, align 4
+  %74 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 37, i32 1
+  store i8 0, ptr %74, align 4
+  %75 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 38
+  store i32 5, ptr %75, align 4
+  %76 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 38, i32 1
+  store i8 0, ptr %76, align 4
+  %77 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 39
+  store i32 3, ptr %77, align 4
+  %78 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 39, i32 1
+  store i8 0, ptr %78, align 4
+  %79 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 40
+  store i32 1, ptr %79, align 4
+  %80 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 40, i32 1
+  store i8 3, ptr %80, align 4
+  %81 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 41
+  store i32 1, ptr %81, align 4
+  %82 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 41, i32 1
+  store i8 3, ptr %82, align 4
+  %83 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 42
+  store i32 3, ptr %83, align 4
+  %84 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 42, i32 1
+  store i8 0, ptr %84, align 4
+  %85 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 43
+  store i32 1, ptr %85, align 4
+  %86 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 43, i32 1
+  store i8 2, ptr %86, align 4
+  %87 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 44
+  store i32 3, ptr %87, align 4
+  %88 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 44, i32 1
+  store i8 0, ptr %88, align 4
+  %89 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 45
+  store i32 3, ptr %89, align 4
+  %90 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 45, i32 1
+  store i8 0, ptr %90, align 4
+  %91 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 46
+  store i32 5, ptr %91, align 4
+  %92 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 46, i32 1
+  store i8 0, ptr %92, align 4
+  %93 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 47
+  store i32 5, ptr %93, align 4
+  %94 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 47, i32 1
+  store i8 0, ptr %94, align 4
+  %95 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 48
+  store i32 5, ptr %95, align 4
+  %96 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 48, i32 1
+  store i8 0, ptr %96, align 4
+  %97 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 49
+  store i32 3, ptr %97, align 4
+  %98 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 49, i32 1
+  store i8 0, ptr %98, align 4
+  %99 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 50
+  store i32 1, ptr %99, align 4
+  %100 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 50, i32 1
+  store i8 2, ptr %100, align 4
+  %101 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 51
+  store i32 1, ptr %101, align 4
+  %102 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 51, i32 1
+  store i8 7, ptr %102, align 4
+  %103 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 52
+  store i32 3, ptr %103, align 4
+  %104 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 52, i32 1
+  store i8 0, ptr %104, align 4
+  %105 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 53
+  store i32 1, ptr %105, align 4
+  %106 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 53, i32 1
+  store i8 2, ptr %106, align 4
+  %107 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 54
+  store i32 3, ptr %107, align 4
+  %108 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 54, i32 1
+  store i8 0, ptr %108, align 4
+  %109 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 55
+  store i32 5, ptr %109, align 4
+  %110 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 55, i32 1
+  store i8 0, ptr %110, align 4
+  %111 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 56
+  store i32 1, ptr %111, align 4
+  %112 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 56, i32 1
+  store i8 2, ptr %112, align 4
+  %113 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 57
+  store i32 3, ptr %113, align 4
+  %114 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 57, i32 1
+  store i8 0, ptr %114, align 4
+  %115 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 64
+  store i32 3, ptr %115, align 4
+  %116 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 64, i32 1
+  store i8 0, ptr %116, align 4
+  %117 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 65
+  store i32 5, ptr %117, align 4
+  %118 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 65, i32 1
+  store i8 0, ptr %118, align 4
+  %119 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 66
+  store i32 2, ptr %119, align 4
+  %120 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 66, i32 1
+  store i8 0, ptr %120, align 4
+  %121 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 67
+  store i32 3, ptr %121, align 4
+  %122 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 67, i32 1
+  store i8 0, ptr %122, align 4
+  %123 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 68
+  store i32 5, ptr %123, align 4
+  %124 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 68, i32 1
+  store i8 0, ptr %124, align 4
+  %125 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 69
+  store i32 5, ptr %125, align 4
+  %126 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 69, i32 1
+  store i8 0, ptr %126, align 4
+  %127 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 70
+  store i32 3, ptr %127, align 4
+  %128 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 70, i32 1
+  store i8 0, ptr %128, align 4
+  %129 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 71
+  store i32 5, ptr %129, align 4
+  %130 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 71, i32 1
+  store i8 0, ptr %130, align 4
+  %131 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 72
+  store i32 5, ptr %131, align 4
+  %132 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_base, i64 0, i64 72, i32 1
+  store i8 0, ptr %132, align 4
+  %133 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 70
+  store i32 4, ptr %133, align 4
+  %134 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 70, i32 1
+  store i8 0, ptr %134, align 4
+  %135 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 23
+  store i32 5, ptr %135, align 4
+  %136 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 23, i32 1
+  store i8 0, ptr %136, align 4
+  %137 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 5
+  store i32 6, ptr %137, align 4
+  %138 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 5, i32 1
+  store i8 0, ptr %138, align 4
+  %139 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 145
+  store i32 4, ptr %139, align 4
+  %140 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 145, i32 1
+  store i8 0, ptr %140, align 4
+  %141 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 2
+  store i32 1, ptr %141, align 4
+  %142 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 2, i32 1
+  store i8 2, ptr %142, align 4
+  %143 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 232
+  store i32 4, ptr %143, align 4
+  %144 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 232, i32 1
+  store i8 0, ptr %144, align 4
+  %145 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 66
+  store i32 4, ptr %145, align 4
+  %146 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 66, i32 1
+  store i8 0, ptr %146, align 4
+  %147 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 68
+  store i32 4, ptr %147, align 4
+  %148 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 68, i32 1
+  store i8 0, ptr %148, align 4
+  %149 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 97
+  store i32 1, ptr %149, align 4
+  %150 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 97, i32 1
+  store i8 1, ptr %150, align 4
+  %151 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 98
+  store i32 1, ptr %151, align 4
+  %152 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 98, i32 1
+  store i8 1, ptr %152, align 4
+  %153 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 102
+  store i32 1, ptr %153, align 4
+  %154 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 102, i32 1
+  store i8 1, ptr %154, align 4
+  %155 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 110
+  store i32 1, ptr %155, align 4
+  %156 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 110, i32 1
+  store i8 1, ptr %156, align 4
+  %157 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 148
+  store i32 1, ptr %157, align 4
+  %158 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 148, i32 1
+  store i8 2, ptr %158, align 4
+  %159 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 149
+  store i32 1, ptr %159, align 4
+  %160 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 149, i32 1
+  store i8 2, ptr %160, align 4
+  %161 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 88
+  store i32 4, ptr %161, align 4
+  %162 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 88, i32 1
+  store i8 1, ptr %162, align 4
+  %163 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 197
+  store i32 4, ptr %163, align 4
+  %164 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 197, i32 1
+  store i8 1, ptr %164, align 4
+  %165 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 143
+  store i32 1, ptr %165, align 4
+  %166 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 143, i32 1
+  store i8 1, ptr %166, align 4
+  %167 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 220
+  store i32 4, ptr %167, align 4
+  %168 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 220, i32 1
+  store i8 0, ptr %168, align 4
+  %169 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 221
+  store i32 4, ptr %169, align 4
+  %170 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 221, i32 1
+  store i8 0, ptr %170, align 4
+  %171 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 155
+  store i32 4, ptr %171, align 4
+  %172 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 155, i32 1
+  store i8 0, ptr %172, align 4
+  %173 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 159
+  store i32 4, ptr %173, align 4
+  %174 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 159, i32 1
+  store i8 0, ptr %174, align 4
+  %175 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 76
+  store i32 4, ptr %175, align 4
+  %176 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 76, i32 1
+  store i8 0, ptr %176, align 4
+  %177 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 79
+  store i32 4, ptr %177, align 4
+  %178 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 79, i32 1
+  store i8 0, ptr %178, align 4
+  %179 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 85
+  store i32 4, ptr %179, align 4
+  %180 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 85, i32 1
+  store i8 0, ptr %180, align 4
+  %181 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 161
+  store i32 4, ptr %181, align 4
+  %182 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 161, i32 1
+  store i8 0, ptr %182, align 4
+  %183 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 89
+  store i32 4, ptr %183, align 4
+  %184 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 89, i32 1
+  store i8 0, ptr %184, align 4
+  %185 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 213
+  store i32 4, ptr %185, align 4
+  %186 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 213, i32 1
+  store i8 0, ptr %186, align 4
+  %187 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 168
+  store i32 4, ptr %187, align 4
+  %188 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 168, i32 1
+  store i8 0, ptr %188, align 4
+  %189 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 253
+  store i32 4, ptr %189, align 4
+  %190 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 253, i32 1
+  store i8 0, ptr %190, align 4
+  %191 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 62
+  store i32 4, ptr %191, align 4
+  %192 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 62, i32 1
+  store i8 0, ptr %192, align 4
+  %193 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 61
+  store i32 4, ptr %193, align 4
+  %194 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 61, i32 1
+  store i8 0, ptr %194, align 4
+  %195 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 172
+  store i32 3, ptr %195, align 4
+  %196 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 172, i32 1
+  store i8 0, ptr %196, align 4
+  %197 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 171
+  store i32 3, ptr %197, align 4
+  %198 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 171, i32 1
+  store i8 0, ptr %198, align 4
+  %199 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 160
+  store i32 1, ptr %199, align 4
+  %200 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 160, i32 1
+  store i8 2, ptr %200, align 4
+  %201 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 63
+  store i32 4, ptr %201, align 4
+  %202 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 63, i32 1
+  store i8 0, ptr %202, align 4
+  %203 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 198
+  store i32 4, ptr %203, align 4
+  %204 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 198, i32 1
+  store i8 0, ptr %204, align 4
+  %205 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 199
+  store i32 4, ptr %205, align 4
+  %206 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 199, i32 1
+  store i8 0, ptr %206, align 4
+  %207 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 200
+  store i32 4, ptr %207, align 4
+  %208 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 200, i32 1
+  store i8 0, ptr %208, align 4
+  %209 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 201
+  store i32 4, ptr %209, align 4
+  %210 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 201, i32 1
+  store i8 0, ptr %210, align 4
+  %211 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 240
+  store i32 4, ptr %211, align 4
+  %212 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 240, i32 1
+  store i8 0, ptr %212, align 4
+  %213 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 241
+  store i32 4, ptr %213, align 4
+  %214 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 241, i32 1
+  store i8 0, ptr %214, align 4
+  %215 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 252
+  store i32 4, ptr %215, align 4
+  %216 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 252, i32 1
+  store i8 0, ptr %216, align 4
+  %217 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 242
+  store i32 4, ptr %217, align 4
+  %218 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 242, i32 1
+  store i8 0, ptr %218, align 4
+  %219 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 163
+  store i32 3, ptr %219, align 4
+  %220 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 163, i32 1
+  store i8 0, ptr %220, align 4
+  %221 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 164
+  store i32 3, ptr %221, align 4
+  %222 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdev_bs11, i64 0, i64 164, i32 1
+  store i8 0, ptr %222, align 4
+  %223 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 128
+  store i32 1, ptr %223, align 4
+  %224 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 128, i32 1
+  store i8 4, ptr %224, align 4
+  %225 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 129
+  store i32 1, ptr %225, align 4
+  %226 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 129, i32 1
+  store i8 2, ptr %226, align 4
+  %227 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 136
+  store i32 5, ptr %227, align 4
+  %228 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 136, i32 1
+  store i8 0, ptr %228, align 4
+  %229 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 134
+  store i32 5, ptr %229, align 4
+  %230 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 134, i32 1
+  store i8 0, ptr %230, align 4
+  %231 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 135
+  store i32 1, ptr %231, align 4
+  %232 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 135, i32 1
+  store i8 2, ptr %232, align 4
+  %233 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 137
+  store i32 1, ptr %233, align 4
+  %234 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 137, i32 1
+  store i8 6, ptr %234, align 4
+  %235 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 138
+  store i32 1, ptr %235, align 4
+  %236 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 138, i32 1
+  store i8 8, ptr %236, align 4
+  %237 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 139
+  store i32 1, ptr %237, align 4
+  %238 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 139, i32 1
+  store i8 12, ptr %238, align 4
+  %239 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 142
+  store i32 5, ptr %239, align 4
+  %240 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 142, i32 1
+  store i8 0, ptr %240, align 4
+  %241 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 145
+  store i32 5, ptr %241, align 4
+  %242 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 145, i32 1
+  store i8 0, ptr %242, align 4
+  %243 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 147
+  store i32 5, ptr %243, align 4
+  %244 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 147, i32 1
+  store i8 0, ptr %244, align 4
+  %245 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 148
+  store i32 5, ptr %245, align 4
+  %246 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 148, i32 1
+  store i8 0, ptr %246, align 4
+  %247 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 149
+  store i32 5, ptr %247, align 4
+  %248 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 149, i32 1
+  store i8 0, ptr %248, align 4
+  %249 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 164
+  store i32 5, ptr %249, align 4
+  %250 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 164, i32 1
+  store i8 0, ptr %250, align 4
+  %251 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 151
+  store i32 5, ptr %251, align 4
+  %252 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 151, i32 1
+  store i8 0, ptr %252, align 4
+  %253 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 133
+  store i32 3, ptr %253, align 4
+  %254 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 133, i32 1
+  store i8 0, ptr %254, align 4
+  %255 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 154
+  store i32 5, ptr %255, align 4
+  %256 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 154, i32 1
+  store i8 0, ptr %256, align 4
+  %257 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 155
+  store i32 5, ptr %257, align 4
+  %258 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 155, i32 1
+  store i8 0, ptr %258, align 4
+  %259 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 156
+  store i32 5, ptr %259, align 4
+  %260 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 156, i32 1
+  store i8 0, ptr %260, align 4
+  %261 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 157
+  store i32 5, ptr %261, align 4
+  %262 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 157, i32 1
+  store i8 0, ptr %262, align 4
+  %263 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 158
+  store i32 5, ptr %263, align 4
+  %264 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 158, i32 1
+  store i8 0, ptr %264, align 4
+  %265 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 159
+  store i32 5, ptr %265, align 4
+  %266 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 159, i32 1
+  store i8 0, ptr %266, align 4
+  %267 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 160
+  store i32 5, ptr %267, align 4
+  %268 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 160, i32 1
+  store i8 0, ptr %268, align 4
+  %269 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 161
+  store i32 5, ptr %269, align 4
+  %270 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 161, i32 1
+  store i8 0, ptr %270, align 4
+  %271 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 162
+  store i32 5, ptr %271, align 4
+  %272 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 162, i32 1
+  store i8 0, ptr %272, align 4
+  %273 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 163
+  store i32 5, ptr %273, align 4
+  %274 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 163, i32 1
+  store i8 0, ptr %274, align 4
+  %275 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 167
+  store i32 5, ptr %275, align 4
+  %276 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 167, i32 1
+  store i8 0, ptr %276, align 4
+  %277 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 168
+  store i32 5, ptr %277, align 4
+  %278 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 168, i32 1
+  store i8 0, ptr %278, align 4
+  %279 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 169
+  store i32 5, ptr %279, align 4
+  %280 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 169, i32 1
+  store i8 0, ptr %280, align 4
+  %281 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 172
+  store i32 5, ptr %281, align 4
+  %282 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 172, i32 1
+  store i8 0, ptr %282, align 4
+  %283 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 143
+  store i32 1, ptr %283, align 4
+  %284 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 143, i32 1
+  store i8 2, ptr %284, align 4
+  %285 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 144
+  store i32 5, ptr %285, align 4
+  %286 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 144, i32 1
+  store i8 0, ptr %286, align 4
+  %287 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 153
+  store i32 5, ptr %287, align 4
+  %288 = getelementptr [256 x %struct.tlv_def], ptr @nm_att_tlvdef_ipa, i64 0, i64 153, i32 1
+  store i8 0, ptr %288, align 4
+  %289 = call i32 @proto_register_protocol(ptr noundef @.str.242, ptr noundef @.str.243, ptr noundef @.str.244)
+  store i32 %289, ptr @proto_abis_oml, align 4
+  %290 = load i32, ptr @proto_abis_oml, align 4
+  call void @proto_register_field_array(i32 noundef %290, ptr noundef @proto_register_abis_oml.hf, i32 noundef 111)
   call void @proto_register_subtree_array(ptr noundef @proto_register_abis_oml.ett, i32 noundef 3)
-  %5 = load i32, ptr @proto_abis_oml, align 4
-  %6 = call ptr @expert_register_protocol(i32 noundef %5)
-  store ptr %6, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  call void @expert_register_field_array(ptr noundef %7, ptr noundef @proto_register_abis_oml.ei, i32 noundef 3)
-  %8 = load i32, ptr @proto_abis_oml, align 4
-  %9 = call ptr @register_dissector(ptr noundef @.str.244, ptr noundef @dissect_abis_oml, i32 noundef %8)
-  %10 = load i32, ptr @proto_abis_oml, align 4
-  %11 = call ptr @prefs_register_protocol(i32 noundef %10, ptr noundef null)
-  store ptr %11, ptr %1, align 8
-  %12 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %12, ptr noundef @.str.245, ptr noundef @.str.246, ptr noundef @.str.247, ptr noundef @global_oml_dialect, ptr noundef @oml_dialect_enumvals, i32 noundef 1)
+  %291 = load i32, ptr @proto_abis_oml, align 4
+  %292 = call ptr @expert_register_protocol(i32 noundef %291)
+  store ptr %292, ptr %2, align 8
+  %293 = load ptr, ptr %2, align 8
+  call void @expert_register_field_array(ptr noundef %293, ptr noundef @proto_register_abis_oml.ei, i32 noundef 3)
+  %294 = load i32, ptr @proto_abis_oml, align 4
+  %295 = call ptr @register_dissector(ptr noundef @.str.244, ptr noundef @dissect_abis_oml, i32 noundef %294)
+  %296 = load i32, ptr @proto_abis_oml, align 4
+  %297 = call ptr @prefs_register_protocol(i32 noundef %296, ptr noundef null)
+  store ptr %297, ptr %1, align 8
+  %298 = load ptr, ptr %1, align 8
+  call void @prefs_register_enum_preference(ptr noundef %298, ptr noundef @.str.245, ptr noundef @.str.246, ptr noundef @.str.247, ptr noundef @global_oml_dialect, ptr noundef @oml_dialect_enumvals, i32 noundef 1)
   ret void
 }
 

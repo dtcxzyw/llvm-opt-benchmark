@@ -297,13 +297,15 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !67
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 424
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  %3 = getelementptr inbounds i8, ptr %this, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -340,23 +342,26 @@ entry:
   %IsDebugObject.i.i = getelementptr inbounds i8, ptr %this, i64 221
   store i8 0, ptr %IsDebugObject.i.i, align 1, !tbaa !42
   %tobool.not.i.i = icmp eq ptr %parent, null
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
   br i1 %tobool.not.i.i, label %_ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %vtable3.i.i = load ptr, ptr %parent, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 136
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #22
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #22
   %vtable4.i.i.pre = load ptr, ptr %this, align 8, !tbaa !3
   br label %_ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit
 
 _ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ %4, %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
-  %3 = load ptr, ptr %vfn5.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #22
-  store ptr getelementptr inbounds inrange(-24, 456) ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %6 = load ptr, ptr %vfn5.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(222) %this) #22
+  %7 = getelementptr inbounds { [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3
+  store ptr %7, ptr %this, align 8, !tbaa !3
+  %8 = getelementptr inbounds { [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3
+  store ptr %8, ptr %0, align 8, !tbaa !3
   %Materials = getelementptr inbounds i8, ptr %this, i64 224
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials, i8 0, i64 24, i1 false)
@@ -4420,13 +4425,15 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !67
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 424
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %4, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %5, ptr %call, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %6, ptr %4, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
-  %5 = getelementptr inbounds i8, ptr %call, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  %7 = getelementptr inbounds i8, ptr %call, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 56, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
@@ -4463,8 +4470,10 @@ entry:
   %IsDebugObject.i.i.i = getelementptr inbounds i8, ptr %call, i64 221
   store i8 0, ptr %IsDebugObject.i.i.i, align 1, !tbaa !42
   tail call void @_ZN3irr5scene10ISceneNode22updateAbsolutePositionEv(ptr noundef nonnull align 8 dereferenceable(222) %call) #22
-  store ptr getelementptr inbounds inrange(-24, 456) ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3), ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds { [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3
+  store ptr %8, ptr %call, align 8, !tbaa !3
+  %9 = getelementptr inbounds { [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3
+  store ptr %9, ptr %4, align 8, !tbaa !3
   %Materials.i = getelementptr inbounds i8, ptr %call, i64 224
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials.i, i8 0, i64 24, i1 false)
@@ -4498,15 +4507,15 @@ entry:
 if.then6:                                         ; preds = %entry
   %vtable = load ptr, ptr %call, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
-  %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(222) %call, ptr noundef nonnull %newParent.addr.0) #22
+  %10 = load ptr, ptr %vfn, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(222) %call, ptr noundef nonnull %newParent.addr.0) #22
   %vtable7 = load ptr, ptr %call, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable7, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %7 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !69
-  %dec.i = add nsw i32 %7, -1
+  %11 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !69
+  %dec.i = add nsw i32 %11, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !69
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %delete.notnull.i, label %if.end9
@@ -4514,8 +4523,8 @@ if.then6:                                         ; preds = %entry
 delete.notnull.i:                                 ; preds = %if.then6
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %8 = load ptr, ptr %vfn.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #22
+  %12 = load ptr, ptr %vfn.i, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #22
   br label %if.end9
 
 if.end9:                                          ; preds = %delete.notnull.i, %if.then6, %entry
@@ -4527,20 +4536,20 @@ if.end9:                                          ; preds = %delete.notnull.i, %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %RelativeTranslation.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %RelativeTranslation, i64 12, i1 false), !tbaa.struct !12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %RelativeRotation.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %RelativeRotation, i64 12, i1 false), !tbaa.struct !12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %RelativeScale.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %RelativeScale, i64 12, i1 false), !tbaa.struct !12
-  %9 = load <2 x i32>, ptr %ID, align 8, !tbaa !177
-  store <2 x i32> %9, ptr %ID.i.i.i, align 8, !tbaa !177
+  %13 = load <2 x i32>, ptr %ID, align 8, !tbaa !177
+  store <2 x i32> %13, ptr %ID.i.i.i, align 8, !tbaa !177
   %DebugDataVisible.i = getelementptr inbounds i8, ptr %this, i64 216
-  %10 = load i32, ptr %DebugDataVisible.i, align 8, !tbaa !40
-  store i32 %10, ptr %DebugDataVisible.i.i.i, align 8, !tbaa !40
+  %14 = load i32, ptr %DebugDataVisible.i, align 8, !tbaa !40
+  store i32 %14, ptr %DebugDataVisible.i.i.i, align 8, !tbaa !40
   %IsVisible.i = getelementptr inbounds i8, ptr %this, i64 220
-  %11 = load i8, ptr %IsVisible.i, align 4, !tbaa !41, !range !83, !noundef !84
-  store i8 %11, ptr %IsVisible.i.i.i, align 4, !tbaa !41
+  %15 = load i8, ptr %IsVisible.i, align 4, !tbaa !41, !range !83, !noundef !84
+  store i8 %15, ptr %IsVisible.i.i.i, align 4, !tbaa !41
   %IsDebugObject.i = getelementptr inbounds i8, ptr %this, i64 221
-  %12 = load i8, ptr %IsDebugObject.i, align 1, !tbaa !42, !range !83, !noundef !84
-  store i8 %12, ptr %IsDebugObject.i.i.i, align 1, !tbaa !42
+  %16 = load i8, ptr %IsDebugObject.i, align 1, !tbaa !42, !range !83, !noundef !84
+  store i8 %16, ptr %IsDebugObject.i.i.i, align 1, !tbaa !42
   %tobool14.not.i = icmp eq ptr %newManager.addr.0, null
-  %13 = load ptr, ptr %SceneManager, align 8
-  %spec.select = select i1 %tobool14.not.i, ptr %13, ptr %newManager.addr.0
+  %17 = load ptr, ptr %SceneManager, align 8
+  %spec.select = select i1 %tobool14.not.i, ptr %17, ptr %newManager.addr.0
   store ptr %spec.select, ptr %SceneManager.i.i.i, align 8
   %Children.i = getelementptr inbounds i8, ptr %this, i64 152
   %it.sroa.0.041.i = load ptr, ptr %Children.i, align 8, !tbaa !16
@@ -4550,11 +4559,11 @@ if.end9:                                          ; preds = %delete.notnull.i, %
 for.body.i:                                       ; preds = %for.body.i, %if.end9
   %it.sroa.0.043.i = phi ptr [ %it.sroa.0.0.i, %for.body.i ], [ %it.sroa.0.041.i, %if.end9 ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.043.i, i64 16
-  %14 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !94
-  %vtable.i77 = load ptr, ptr %14, align 8, !tbaa !3
+  %18 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !94
+  %vtable.i77 = load ptr, ptr %18, align 8, !tbaa !3
   %vfn.i78 = getelementptr inbounds i8, ptr %vtable.i77, i64 272
-  %15 = load ptr, ptr %vfn.i78, align 8
-  %call23.i = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef nonnull %call, ptr noundef %newManager.addr.0) #22
+  %19 = load ptr, ptr %vfn.i78, align 8
+  %call23.i = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(222) %18, ptr noundef nonnull %call, ptr noundef %newManager.addr.0) #22
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.043.i, align 8, !tbaa !16
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.0.i, %Children.i
   br i1 %cmp.i.not.i, label %_ZN3irr5scene10ISceneNode12cloneMembersEPS1_PNS0_13ISceneManagerE.exit, label %for.body.i, !llvm.loop !178
@@ -4567,87 +4576,87 @@ if.end.i79:                                       ; preds = %_ZN3irr5scene10ISce
   %Materials = getelementptr inbounds i8, ptr %this, i64 224
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3irr5video9SMaterialESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %Materials.i, ptr noundef nonnull align 8 dereferenceable(24) %Materials)
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 248
-  %16 = load i8, ptr %is_sorted.i, align 8, !tbaa !43, !range !83, !noundef !84
-  store i8 %16, ptr %is_sorted.i.i, align 8, !tbaa !43
+  %20 = load i8, ptr %is_sorted.i, align 8, !tbaa !43, !range !83, !noundef !84
+  store i8 %20, ptr %is_sorted.i.i, align 8, !tbaa !43
   br label %_ZN3irr4core5arrayINS_5video9SMaterialEEaSERKS4_.exit
 
 _ZN3irr4core5arrayINS_5video9SMaterialEEaSERKS4_.exit: ; preds = %if.end.i79, %_ZN3irr5scene10ISceneNode12cloneMembersEPS1_PNS0_13ISceneManagerE.exit
   %Box = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Box.i, ptr noundef nonnull align 8 dereferenceable(24) %Box, i64 24, i1 false), !tbaa.struct !118
-  %17 = load ptr, ptr %Mesh, align 8, !tbaa !71
-  store ptr %17, ptr %Mesh.i, align 8, !tbaa !71
+  %21 = load ptr, ptr %Mesh, align 8, !tbaa !71
+  store ptr %21, ptr %Mesh.i, align 8, !tbaa !71
   %StartFrame = getelementptr inbounds i8, ptr %this, i64 288
   %StartFrame15 = getelementptr inbounds i8, ptr %call, i64 288
-  %18 = load <2 x i32>, ptr %StartFrame, align 8, !tbaa !177
-  store <2 x i32> %18, ptr %StartFrame15, align 8, !tbaa !177
+  %22 = load <2 x i32>, ptr %StartFrame, align 8, !tbaa !177
+  store <2 x i32> %22, ptr %StartFrame15, align 8, !tbaa !177
   %FramesPerSecond = getelementptr inbounds i8, ptr %this, i64 296
-  %19 = load <2 x float>, ptr %FramesPerSecond, align 8, !tbaa !10
-  store <2 x float> %19, ptr %FramesPerSecond.i, align 8, !tbaa !10
+  %23 = load <2 x float>, ptr %FramesPerSecond, align 8, !tbaa !10
+  store <2 x float> %23, ptr %FramesPerSecond.i, align 8, !tbaa !10
   %JointMode = getelementptr inbounds i8, ptr %this, i64 320
-  %20 = load i32, ptr %JointMode, align 8, !tbaa !114
+  %24 = load i32, ptr %JointMode, align 8, !tbaa !114
   %JointMode19 = getelementptr inbounds i8, ptr %call, i64 320
-  store i32 %20, ptr %JointMode19, align 8, !tbaa !114
+  store i32 %24, ptr %JointMode19, align 8, !tbaa !114
   %JointsUsed = getelementptr inbounds i8, ptr %this, i64 324
-  %21 = load i8, ptr %JointsUsed, align 4, !tbaa !92, !range !83, !noundef !84
+  %25 = load i8, ptr %JointsUsed, align 4, !tbaa !92, !range !83, !noundef !84
   %JointsUsed21 = getelementptr inbounds i8, ptr %call, i64 324
-  store i8 %21, ptr %JointsUsed21, align 4, !tbaa !92
+  store i8 %25, ptr %JointsUsed21, align 4, !tbaa !92
   %TransitionTime = getelementptr inbounds i8, ptr %this, i64 308
-  %22 = load i32, ptr %TransitionTime, align 4, !tbaa !93
+  %26 = load i32, ptr %TransitionTime, align 4, !tbaa !93
   %TransitionTime22 = getelementptr inbounds i8, ptr %call, i64 308
-  store i32 %22, ptr %TransitionTime22, align 4, !tbaa !93
+  store i32 %26, ptr %TransitionTime22, align 4, !tbaa !93
   %Transiting = getelementptr inbounds i8, ptr %this, i64 312
   %Transiting23 = getelementptr inbounds i8, ptr %call, i64 312
-  %23 = load <2 x float>, ptr %Transiting, align 8, !tbaa !10
-  store <2 x float> %23, ptr %Transiting23, align 8, !tbaa !10
+  %27 = load <2 x float>, ptr %Transiting, align 8, !tbaa !10
+  store <2 x float> %27, ptr %Transiting23, align 8, !tbaa !10
   %Looping = getelementptr inbounds i8, ptr %this, i64 325
-  %24 = load i8, ptr %Looping, align 1, !tbaa !64, !range !83, !noundef !84
-  store i8 %24, ptr %Looping.i, align 1, !tbaa !64
+  %28 = load i8, ptr %Looping, align 1, !tbaa !64, !range !83, !noundef !84
+  store i8 %28, ptr %Looping.i, align 1, !tbaa !64
   %ReadOnlyMaterials = getelementptr inbounds i8, ptr %this, i64 326
-  %25 = load i8, ptr %ReadOnlyMaterials, align 2, !tbaa !111, !range !83, !noundef !84
-  store i8 %25, ptr %ReadOnlyMaterials.i, align 2, !tbaa !111
+  %29 = load i8, ptr %ReadOnlyMaterials, align 2, !tbaa !111, !range !83, !noundef !84
+  store i8 %29, ptr %ReadOnlyMaterials.i, align 2, !tbaa !111
   %LoopCallBack = getelementptr inbounds i8, ptr %this, i64 328
-  %26 = load ptr, ptr %LoopCallBack, align 8, !tbaa !70
+  %30 = load ptr, ptr %LoopCallBack, align 8, !tbaa !70
   %LoopCallBack31 = getelementptr inbounds i8, ptr %call, i64 328
-  store ptr %26, ptr %LoopCallBack31, align 8, !tbaa !70
-  %tobool33.not = icmp eq ptr %26, null
+  store ptr %30, ptr %LoopCallBack31, align 8, !tbaa !70
+  %tobool33.not = icmp eq ptr %30, null
   br i1 %tobool33.not, label %if.end40, label %if.then34
 
 if.then34:                                        ; preds = %_ZN3irr4core5arrayINS_5video9SMaterialEEaSERKS4_.exit
-  %vtable36 = load ptr, ptr %26, align 8, !tbaa !3
+  %vtable36 = load ptr, ptr %30, align 8, !tbaa !3
   %vbase.offset.ptr37 = getelementptr i8, ptr %vtable36, i64 -24
   %vbase.offset38 = load i64, ptr %vbase.offset.ptr37, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %26, i64 %vbase.offset38
+  %add.ptr39 = getelementptr inbounds i8, ptr %30, i64 %vbase.offset38
   %ReferenceCounter.i80 = getelementptr inbounds i8, ptr %add.ptr39, i64 16
-  %27 = load i32, ptr %ReferenceCounter.i80, align 8, !tbaa !69
-  %inc.i = add nsw i32 %27, 1
+  %31 = load i32, ptr %ReferenceCounter.i80, align 8, !tbaa !69
+  %inc.i = add nsw i32 %31, 1
   store i32 %inc.i, ptr %ReferenceCounter.i80, align 8, !tbaa !69
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then34, %_ZN3irr4core5arrayINS_5video9SMaterialEEaSERKS4_.exit
   %PassCount = getelementptr inbounds i8, ptr %this, i64 336
-  %28 = load i32, ptr %PassCount, align 8, !tbaa !110
+  %32 = load i32, ptr %PassCount, align 8, !tbaa !110
   %PassCount41 = getelementptr inbounds i8, ptr %call, i64 336
-  store i32 %28, ptr %PassCount41, align 8, !tbaa !110
+  store i32 %32, ptr %PassCount41, align 8, !tbaa !110
   br i1 %cmp.i, label %_ZN3irr4core5arrayINS0_8CMatrix4IfEEEaSERKS4_.exit, label %if.end.i87
 
 if.end.i87:                                       ; preds = %if.end40
   %JointChildSceneNodes = getelementptr inbounds i8, ptr %this, i64 344
   %call.i83 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN3irr5scene14IBoneSceneNodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %JointChildSceneNodes.i, ptr noundef nonnull align 8 dereferenceable(24) %JointChildSceneNodes)
   %is_sorted.i84 = getelementptr inbounds i8, ptr %this, i64 368
-  %29 = load i8, ptr %is_sorted.i84, align 8, !tbaa !65, !range !83, !noundef !84
-  store i8 %29, ptr %is_sorted.i2.i, align 8, !tbaa !65
+  %33 = load i8, ptr %is_sorted.i84, align 8, !tbaa !65, !range !83, !noundef !84
+  store i8 %33, ptr %is_sorted.i2.i, align 8, !tbaa !65
   %PretransitingSave = getelementptr inbounds i8, ptr %this, i64 376
   %call.i88 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3irr4core8CMatrix4IfEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %PretransitingSave.i, ptr noundef nonnull align 8 dereferenceable(24) %PretransitingSave)
   %is_sorted.i89 = getelementptr inbounds i8, ptr %this, i64 400
-  %30 = load i8, ptr %is_sorted.i89, align 8, !tbaa !66, !range !83, !noundef !84
-  store i8 %30, ptr %is_sorted.i3.i, align 8, !tbaa !66
+  %34 = load i8, ptr %is_sorted.i89, align 8, !tbaa !66, !range !83, !noundef !84
+  store i8 %34, ptr %is_sorted.i3.i, align 8, !tbaa !66
   br label %_ZN3irr4core5arrayINS0_8CMatrix4IfEEEaSERKS4_.exit
 
 _ZN3irr4core5arrayINS0_8CMatrix4IfEEEaSERKS4_.exit: ; preds = %if.end.i87, %if.end40
   %RenderFromIdentity = getelementptr inbounds i8, ptr %this, i64 327
-  %31 = load i8, ptr %RenderFromIdentity, align 1, !tbaa !119, !range !83, !noundef !84
+  %35 = load i8, ptr %RenderFromIdentity, align 1, !tbaa !119, !range !83, !noundef !84
   %RenderFromIdentity47 = getelementptr inbounds i8, ptr %call, i64 327
-  store i8 %31, ptr %RenderFromIdentity47, align 1, !tbaa !119
+  store i8 %35, ptr %RenderFromIdentity47, align 1, !tbaa !119
   ret ptr %call
 }
 

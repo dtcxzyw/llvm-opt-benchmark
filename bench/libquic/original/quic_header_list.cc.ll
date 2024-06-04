@@ -499,7 +499,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_)
           to label %invoke.cont unwind label %lpad
@@ -510,12 +511,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN3net27SpdyHeadersHandlerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -533,7 +534,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -561,28 +563,29 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %2, i32 0, i32 1
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %uncompressed_header_bytes_3, align 8
-  store i64 %3, ptr %uncompressed_header_bytes_, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %3, i32 0, i32 2
+  %4 = load i64, ptr %uncompressed_header_bytes_3, align 8
+  store i64 %4, ptr %uncompressed_header_bytes_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN3net27SpdyHeadersHandlerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -602,7 +605,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -631,28 +635,29 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %2, i32 0, i32 1
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %uncompressed_header_bytes_3, align 8
-  store i64 %3, ptr %uncompressed_header_bytes_, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %3, i32 0, i32 2
+  %4 = load i64, ptr %uncompressed_header_bytes_3, align 8
+  store i64 %4, ptr %uncompressed_header_bytes_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN3net27SpdyHeadersHandlerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -880,7 +885,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_) #11
   call void @_ZN3net27SpdyHeadersHandlerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

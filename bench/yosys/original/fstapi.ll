@@ -4149,22 +4149,23 @@ define internal void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %0, ptr noun
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
-  br i1 %10, label %11, label %19
+  %10 = inttoptr i64 -1 to ptr
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %12, label %20
 
-11:                                               ; preds = %4
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call ptr @__errno_location() #16
-  %15 = load i32, ptr %14, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.55, ptr noundef %13, i32 noundef %15, ptr noundef %16, i32 noundef %17) #13
+12:                                               ; preds = %4
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = call ptr @__errno_location() #16
+  %16 = load i32, ptr %15, align 4
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.55, ptr noundef %14, i32 noundef %16, ptr noundef %17, i32 noundef %18) #13
   call void @perror(ptr noundef @.str.56)
   store ptr null, ptr %5, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %11, %4
+20:                                               ; preds = %12, %4
   ret void
 }
 

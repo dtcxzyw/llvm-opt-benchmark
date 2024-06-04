@@ -2510,7 +2510,8 @@ entry:
   %3 = load ptr, ptr %qr.addr, align 8
   %4 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory17QuantifiersModuleC2ERNS0_3EnvERNS1_11quantifiers16QuantifiersStateERNS5_27QuantifiersInferenceManagerERNS5_19QuantifiersRegistryERNS5_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(208) %4)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16InstStrategyMbqiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16InstStrategyMbqiE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %d_quantChecked = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_quantChecked) #3
   %d_nonClosedKinds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 2
@@ -2521,45 +2522,45 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
-  %6 = extractvalue { ptr, i8 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
-  %8 = extractvalue { ptr, i8 } %call, 1
-  store i8 %8, ptr %7, align 8
+  %6 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
+  %7 = extractvalue { ptr, i8 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
+  %9 = extractvalue { ptr, i8 } %call, 1
+  store i8 %9, ptr %8, align 8
   %d_nonClosedKinds3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 2
   store i32 236, ptr %ref.tmp4, align 4
   %call6 = invoke { ptr, i8 } @_ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EE6insertEOS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_nonClosedKinds3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %9 = getelementptr inbounds { ptr, i8 }, ptr %coerce7, i32 0, i32 0
-  %10 = extractvalue { ptr, i8 } %call6, 0
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i8 }, ptr %coerce7, i32 0, i32 1
-  %12 = extractvalue { ptr, i8 } %call6, 1
-  store i8 %12, ptr %11, align 8
+  %10 = getelementptr inbounds { ptr, i8 }, ptr %coerce7, i32 0, i32 0
+  %11 = extractvalue { ptr, i8 } %call6, 0
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i8 }, ptr %coerce7, i32 0, i32 1
+  %13 = extractvalue { ptr, i8 } %call6, 1
+  store i8 %13, ptr %12, align 8
   %d_nonClosedKinds8 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 2
   store i32 3, ptr %ref.tmp9, align 4
   %call11 = invoke { ptr, i8 } @_ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EE6insertEOS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_nonClosedKinds8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont5
-  %13 = getelementptr inbounds { ptr, i8 }, ptr %coerce12, i32 0, i32 0
-  %14 = extractvalue { ptr, i8 } %call11, 0
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i8 }, ptr %coerce12, i32 0, i32 1
-  %16 = extractvalue { ptr, i8 } %call11, 1
-  store i8 %16, ptr %15, align 8
+  %14 = getelementptr inbounds { ptr, i8 }, ptr %coerce12, i32 0, i32 0
+  %15 = extractvalue { ptr, i8 } %call11, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i8 }, ptr %coerce12, i32 0, i32 1
+  %17 = extractvalue { ptr, i8 } %call11, 1
+  store i8 %17, ptr %16, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont, %entry
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_nonClosedKinds) #3
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_quantChecked) #3
   call void @_ZN4cvc58internal6theory17QuantifiersModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -5923,7 +5924,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4SubsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4SubsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_vars = getelementptr inbounds %"class.cvc5::internal::Subs", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_vars) #3
   %d_subs = getelementptr inbounds %"class.cvc5::internal::Subs", ptr %this1, i32 0, i32 2
@@ -11319,7 +11321,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4SubsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4SubsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_subs = getelementptr inbounds %"class.cvc5::internal::Subs", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_subs) #3
   %d_vars = getelementptr inbounds %"class.cvc5::internal::Subs", ptr %this1, i32 0, i32 1
@@ -12879,7 +12882,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16InstStrategyMbqiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16InstStrategyMbqiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_nonClosedKinds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_nonClosedKinds) #3
   %d_quantChecked = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyMbqi", ptr %this1, i32 0, i32 1

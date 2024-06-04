@@ -31,23 +31,24 @@ define internal i32 @mca_pml_cm_component_open() #0 {
   store i32 %2, ptr %1, align 4
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 0, %3
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %0
-  %6 = call i64 @opal_list_get_size(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i32 0, i32 12))
-  %7 = icmp eq i64 0, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_mtl_base_framework, i32 0, i32 12
+  %7 = call i64 @opal_list_get_size(ptr noundef %6)
+  %8 = icmp eq i64 0, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %5
+9:                                                ; preds = %5
   store i32 -16, ptr %1, align 4
-  br label %9
-
-9:                                                ; preds = %8, %5
   br label %10
 
-10:                                               ; preds = %9, %0
-  %11 = load i32, ptr %1, align 4
-  ret i32 %11
+10:                                               ; preds = %9, %5
+  br label %11
+
+11:                                               ; preds = %10, %0
+  %12 = load i32, ptr %1, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -58,12 +59,18 @@ define internal i32 @mca_pml_cm_component_close() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_pml_cm_component_register() #0 {
-  store i32 4, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 1), align 8
-  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 1))
-  store i32 -1, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 2), align 4
-  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 2))
-  store i32 64, ptr getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 3), align 8
-  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 3))
+  %1 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 1
+  store i32 4, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 1
+  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %2)
+  %4 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 2
+  store i32 -1, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 2
+  %6 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %5)
+  %7 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 3
+  store i32 64, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.ompi_pml_cm_t, ptr @ompi_pml_cm, i32 0, i32 3
+  %9 = call i32 @mca_base_component_var_register(ptr noundef @mca_pml_cm_component, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %8)
   ret i32 0
 }
 
@@ -110,7 +117,7 @@ define internal ptr @mca_pml_cm_component_init(ptr noundef %0, i1 noundef zeroex
 
 27:                                               ; preds = %18
   store ptr null, ptr %4, align 8
-  br label %53
+  br label %59
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr @ompi_mtl, align 8
@@ -118,43 +125,49 @@ define internal ptr @mca_pml_cm_component_init(ptr noundef %0, i1 noundef zeroex
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %37
+  br i1 %33, label %34, label %39
 
 34:                                               ; preds = %28
-  %35 = load i32, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23), align 8
-  %36 = or i32 %35, 1
-  store i32 %36, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23), align 8
-  br label %37
+  %35 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23
+  %36 = load i32, ptr %35, align 8
+  %37 = or i32 %36, 1
+  %38 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23
+  store i32 %37, ptr %38, align 8
+  br label %39
 
-37:                                               ; preds = %34, %28
-  %38 = load ptr, ptr @ompi_mtl, align 8
-  %39 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %38, i32 0, i32 3
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %46
+39:                                               ; preds = %34, %28
+  %40 = load ptr, ptr @ompi_mtl, align 8
+  %41 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %40, i32 0, i32 3
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %50
 
-43:                                               ; preds = %37
-  %44 = load i32, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23), align 8
-  %45 = or i32 %44, 2
-  store i32 %45, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23), align 8
-  br label %46
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23
+  %47 = load i32, ptr %46, align 8
+  %48 = or i32 %47, 2
+  %49 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 23
+  store i32 %48, ptr %49, align 8
+  br label %50
 
-46:                                               ; preds = %43, %37
-  %47 = load ptr, ptr @ompi_mtl, align 8
-  %48 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  store i32 %49, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 21), align 8
-  %50 = load ptr, ptr @ompi_mtl, align 8
-  %51 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 4
-  store i32 %52, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 22), align 4
+50:                                               ; preds = %45, %39
+  %51 = load ptr, ptr @ompi_mtl, align 8
+  %52 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 21
+  store i32 %53, ptr %54, align 8
+  %55 = load ptr, ptr @ompi_mtl, align 8
+  %56 = getelementptr inbounds %struct.mca_mtl_base_module_t, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @ompi_pml_cm, i32 0, i32 22
+  store i32 %57, ptr %58, align 4
   store ptr @ompi_pml_cm, ptr %4, align 8
-  br label %53
+  br label %59
 
-53:                                               ; preds = %46, %27
-  %54 = load ptr, ptr %4, align 8
-  ret ptr %54
+59:                                               ; preds = %50, %27
+  %60 = load ptr, ptr %4, align 8
+  ret ptr %60
 }
 
 ; Function Attrs: nounwind uwtable

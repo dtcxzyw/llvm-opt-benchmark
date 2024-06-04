@@ -598,36 +598,39 @@ define hidden void @proto_register_q932() #0 {
   call void @rose_ctx_init(ptr noundef @q932_rose_ctx)
   %12 = load i32, ptr @proto_q932, align 4
   %13 = call ptr @register_dissector_table(ptr noundef @.str.112, ptr noundef @.str.113, i32 noundef %12, i32 noundef 26, i32 noundef 0)
-  store ptr %13, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 1), align 8
-  %14 = load i32, ptr @proto_q932, align 4
-  %15 = call ptr @register_dissector_table(ptr noundef @.str.114, ptr noundef @.str.115, i32 noundef %14, i32 noundef 26, i32 noundef 0)
-  store ptr %15, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 3), align 8
-  %16 = load i32, ptr @proto_q932, align 4
-  %17 = call ptr @register_dissector_table(ptr noundef @.str.116, ptr noundef @.str.117, i32 noundef %16, i32 noundef 26, i32 noundef 0)
-  store ptr %17, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 5), align 8
+  %14 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 1
+  store ptr %13, ptr %14, align 8
+  %15 = load i32, ptr @proto_q932, align 4
+  %16 = call ptr @register_dissector_table(ptr noundef @.str.114, ptr noundef @.str.115, i32 noundef %15, i32 noundef 26, i32 noundef 0)
+  %17 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 3
+  store ptr %16, ptr %17, align 8
   %18 = load i32, ptr @proto_q932, align 4
-  %19 = call ptr @register_dissector_table(ptr noundef @.str.118, ptr noundef @.str.119, i32 noundef %18, i32 noundef 7, i32 noundef 2)
-  store ptr %19, ptr @qsig_arg_local_dissector_table, align 8
-  %20 = load i32, ptr @proto_q932, align 4
-  %21 = call ptr @register_dissector_table(ptr noundef @.str.120, ptr noundef @.str.121, i32 noundef %20, i32 noundef 7, i32 noundef 2)
-  store ptr %21, ptr @qsig_res_local_dissector_table, align 8
-  %22 = load i32, ptr @proto_q932, align 4
-  %23 = call ptr @register_dissector_table(ptr noundef @.str.122, ptr noundef @.str.123, i32 noundef %22, i32 noundef 7, i32 noundef 2)
-  store ptr %23, ptr @qsig_err_local_dissector_table, align 8
-  %24 = load i32, ptr @proto_q932, align 4
-  %25 = call ptr @register_dissector_table(ptr noundef @.str.124, ptr noundef @.str.125, i32 noundef %24, i32 noundef 7, i32 noundef 2)
-  store ptr %25, ptr @etsi_arg_local_dissector_table, align 8
-  %26 = load i32, ptr @proto_q932, align 4
-  %27 = call ptr @register_dissector_table(ptr noundef @.str.126, ptr noundef @.str.127, i32 noundef %26, i32 noundef 7, i32 noundef 2)
-  store ptr %27, ptr @etsi_res_local_dissector_table, align 8
-  %28 = load i32, ptr @proto_q932, align 4
-  %29 = call ptr @register_dissector_table(ptr noundef @.str.128, ptr noundef @.str.129, i32 noundef %28, i32 noundef 7, i32 noundef 2)
-  store ptr %29, ptr @etsi_err_local_dissector_table, align 8
-  %30 = load i32, ptr @proto_q932, align 4
-  %31 = call ptr @prefs_register_protocol(i32 noundef %30, ptr noundef @proto_reg_handoff_q932)
-  store ptr %31, ptr %1, align 8
-  %32 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %32, ptr noundef @.str.130, ptr noundef @.str.131, ptr noundef @.str.131, ptr noundef @g_facility_encoding, ptr noundef @proto_register_q932.facility_encoding, i32 noundef 0)
+  %19 = call ptr @register_dissector_table(ptr noundef @.str.116, ptr noundef @.str.117, i32 noundef %18, i32 noundef 26, i32 noundef 0)
+  %20 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 5
+  store ptr %19, ptr %20, align 8
+  %21 = load i32, ptr @proto_q932, align 4
+  %22 = call ptr @register_dissector_table(ptr noundef @.str.118, ptr noundef @.str.119, i32 noundef %21, i32 noundef 7, i32 noundef 2)
+  store ptr %22, ptr @qsig_arg_local_dissector_table, align 8
+  %23 = load i32, ptr @proto_q932, align 4
+  %24 = call ptr @register_dissector_table(ptr noundef @.str.120, ptr noundef @.str.121, i32 noundef %23, i32 noundef 7, i32 noundef 2)
+  store ptr %24, ptr @qsig_res_local_dissector_table, align 8
+  %25 = load i32, ptr @proto_q932, align 4
+  %26 = call ptr @register_dissector_table(ptr noundef @.str.122, ptr noundef @.str.123, i32 noundef %25, i32 noundef 7, i32 noundef 2)
+  store ptr %26, ptr @qsig_err_local_dissector_table, align 8
+  %27 = load i32, ptr @proto_q932, align 4
+  %28 = call ptr @register_dissector_table(ptr noundef @.str.124, ptr noundef @.str.125, i32 noundef %27, i32 noundef 7, i32 noundef 2)
+  store ptr %28, ptr @etsi_arg_local_dissector_table, align 8
+  %29 = load i32, ptr @proto_q932, align 4
+  %30 = call ptr @register_dissector_table(ptr noundef @.str.126, ptr noundef @.str.127, i32 noundef %29, i32 noundef 7, i32 noundef 2)
+  store ptr %30, ptr @etsi_res_local_dissector_table, align 8
+  %31 = load i32, ptr @proto_q932, align 4
+  %32 = call ptr @register_dissector_table(ptr noundef @.str.128, ptr noundef @.str.129, i32 noundef %31, i32 noundef 7, i32 noundef 2)
+  store ptr %32, ptr @etsi_err_local_dissector_table, align 8
+  %33 = load i32, ptr @proto_q932, align 4
+  %34 = call ptr @prefs_register_protocol(i32 noundef %33, ptr noundef @proto_reg_handoff_q932)
+  store ptr %34, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8
+  call void @prefs_register_enum_preference(ptr noundef %35, ptr noundef @.str.130, ptr noundef @.str.131, ptr noundef @.str.131, ptr noundef @g_facility_encoding, ptr noundef @proto_register_q932.facility_encoding, i32 noundef 0)
   ret void
 }
 
@@ -813,27 +816,33 @@ define hidden void @proto_reg_handoff_q932() #0 {
 8:                                                ; preds = %3, %0
   %9 = load i32, ptr @g_facility_encoding, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @qsig_arg_local_dissector_table, align 8
-  store ptr %12, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 2), align 8
-  %13 = load ptr, ptr @qsig_res_local_dissector_table, align 8
-  store ptr %13, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 4), align 8
-  %14 = load ptr, ptr @qsig_err_local_dissector_table, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 6), align 8
-  br label %19
+  %13 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 2
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr @qsig_res_local_dissector_table, align 8
+  %15 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 4
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr @qsig_err_local_dissector_table, align 8
+  %17 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 6
+  store ptr %16, ptr %17, align 8
+  br label %25
 
-15:                                               ; preds = %8
-  %16 = load ptr, ptr @etsi_arg_local_dissector_table, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 2), align 8
-  %17 = load ptr, ptr @etsi_res_local_dissector_table, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 4), align 8
-  %18 = load ptr, ptr @etsi_err_local_dissector_table, align 8
-  store ptr %18, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 6), align 8
-  br label %19
+18:                                               ; preds = %8
+  %19 = load ptr, ptr @etsi_arg_local_dissector_table, align 8
+  %20 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 2
+  store ptr %19, ptr %20, align 8
+  %21 = load ptr, ptr @etsi_res_local_dissector_table, align 8
+  %22 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 4
+  store ptr %21, ptr %22, align 8
+  %23 = load ptr, ptr @etsi_err_local_dissector_table, align 8
+  %24 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 6
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-19:                                               ; preds = %15, %11
+25:                                               ; preds = %18, %11
   ret void
 }
 
@@ -1306,11 +1315,11 @@ define internal void @dissect_q932_facility_ie(ptr noundef %0, i32 noundef %1, p
   store i32 %28, ptr %7, align 4
   br label %29
 
-29:                                               ; preds = %164, %5
+29:                                               ; preds = %165, %5
   %30 = load i32, ptr %7, align 4
   %31 = load i32, ptr %17, align 4
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %166
+  br i1 %32, label %33, label %167
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %7, align 4
@@ -1336,14 +1345,14 @@ define internal void @dissect_q932_facility_ie(ptr noundef %0, i32 noundef %1, p
   store ptr %49, ptr %18, align 8
   %50 = load i8, ptr %11, align 1
   %51 = sext i8 %50 to i32
-  switch i32 %51, label %147 [
+  switch i32 %51, label %148 [
     i32 2, label %52
-    i32 1, label %110
+    i32 1, label %111
   ]
 
 52:                                               ; preds = %33
   %53 = load i32, ptr %13, align 4
-  switch i32 %53, label %92 [
+  switch i32 %53, label %93 [
     i32 10, label %54
     i32 18, label %59
     i32 11, label %64
@@ -1351,10 +1360,10 @@ define internal void @dissect_q932_facility_ie(ptr noundef %0, i32 noundef %1, p
     i32 2, label %69
     i32 3, label %69
     i32 4, label %69
-    i32 12, label %75
-    i32 14, label %75
-    i32 15, label %75
-    i32 17, label %75
+    i32 12, label %76
+    i32 14, label %76
+    i32 15, label %76
+    i32 17, label %76
   ]
 
 54:                                               ; preds = %52
@@ -1362,158 +1371,159 @@ define internal void @dissect_q932_facility_ie(ptr noundef %0, i32 noundef %1, p
   %56 = load ptr, ptr %8, align 8
   %57 = load ptr, ptr %9, align 8
   %58 = call i32 @dissect_NetworkFacilityExtension_PDU(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef null)
-  br label %109
+  br label %110
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %18, align 8
   %61 = load ptr, ptr %8, align 8
   %62 = load ptr, ptr %9, align 8
   %63 = call i32 @dissect_NetworkProtocolProfile_PDU(ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef null)
-  br label %109
+  br label %110
 
 64:                                               ; preds = %52
   %65 = load ptr, ptr %18, align 8
   %66 = load ptr, ptr %8, align 8
   %67 = load ptr, ptr %9, align 8
   %68 = call i32 @dissect_InterpretationComponent_PDU(ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef null)
-  br label %109
+  br label %110
 
 69:                                               ; preds = %52, %52, %52, %52
-  store i32 1, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 7), align 8
-  %70 = load ptr, ptr @q932_ros_handle, align 8
-  %71 = load ptr, ptr %18, align 8
-  %72 = load ptr, ptr %8, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = call i32 @call_dissector_with_data(ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef @q932_rose_ctx)
-  br label %109
+  %70 = getelementptr inbounds %struct._rose_ctx_t, ptr @q932_rose_ctx, i32 0, i32 7
+  store i32 1, ptr %70, align 8
+  %71 = load ptr, ptr @q932_ros_handle, align 8
+  %72 = load ptr, ptr %18, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = call i32 @call_dissector_with_data(ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef @q932_rose_ctx)
+  br label %110
 
-75:                                               ; preds = %52, %52, %52, %52
-  %76 = load ptr, ptr %8, align 8
-  %77 = load ptr, ptr %9, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i32, ptr %15, align 4
-  %80 = call i32 @dissect_ber_identifier(ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %80, ptr %7, align 4
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = load i32, ptr %7, align 4
-  %85 = call i32 @dissect_ber_length(ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84, ptr noundef null, ptr noundef null)
-  store i32 %85, ptr %7, align 4
-  %86 = load ptr, ptr %9, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = load i32, ptr %7, align 4
-  %90 = load i32, ptr %14, align 4
-  %91 = call ptr @proto_tree_add_expert(ptr noundef %86, ptr noundef %87, ptr noundef @ei_q932_dse_not_supported, ptr noundef %88, i32 noundef %89, i32 noundef %90)
-  br label %109
+76:                                               ; preds = %52, %52, %52, %52
+  %77 = load ptr, ptr %8, align 8
+  %78 = load ptr, ptr %9, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %15, align 4
+  %81 = call i32 @dissect_ber_identifier(ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %81, ptr %7, align 4
+  %82 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %9, align 8
+  %84 = load ptr, ptr %6, align 8
+  %85 = load i32, ptr %7, align 4
+  %86 = call i32 @dissect_ber_length(ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef null, ptr noundef null)
+  store i32 %86, ptr %7, align 4
+  %87 = load ptr, ptr %9, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr %7, align 4
+  %91 = load i32, ptr %14, align 4
+  %92 = call ptr @proto_tree_add_expert(ptr noundef %87, ptr noundef %88, ptr noundef @ei_q932_dse_not_supported, ptr noundef %89, i32 noundef %90, i32 noundef %91)
+  br label %110
 
-92:                                               ; preds = %52
-  %93 = load ptr, ptr %8, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = load ptr, ptr %6, align 8
-  %96 = load i32, ptr %15, align 4
-  %97 = call i32 @dissect_ber_identifier(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %97, ptr %7, align 4
-  %98 = load ptr, ptr %8, align 8
-  %99 = load ptr, ptr %9, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = load i32, ptr %7, align 4
-  %102 = call i32 @dissect_ber_length(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, ptr noundef null, ptr noundef null)
-  store i32 %102, ptr %7, align 4
-  %103 = load ptr, ptr %9, align 8
-  %104 = load ptr, ptr %8, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %7, align 4
-  %107 = load i32, ptr %14, align 4
-  %108 = call ptr @proto_tree_add_expert(ptr noundef %103, ptr noundef %104, ptr noundef @ei_q932_unknown_component, ptr noundef %105, i32 noundef %106, i32 noundef %107)
-  br label %109
+93:                                               ; preds = %52
+  %94 = load ptr, ptr %8, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = load ptr, ptr %6, align 8
+  %97 = load i32, ptr %15, align 4
+  %98 = call i32 @dissect_ber_identifier(ptr noundef %94, ptr noundef %95, ptr noundef %96, i32 noundef %97, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %98, ptr %7, align 4
+  %99 = load ptr, ptr %8, align 8
+  %100 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %6, align 8
+  %102 = load i32, ptr %7, align 4
+  %103 = call i32 @dissect_ber_length(ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102, ptr noundef null, ptr noundef null)
+  store i32 %103, ptr %7, align 4
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %8, align 8
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr %7, align 4
+  %108 = load i32, ptr %14, align 4
+  %109 = call ptr @proto_tree_add_expert(ptr noundef %104, ptr noundef %105, ptr noundef @ei_q932_unknown_component, ptr noundef %106, i32 noundef %107, i32 noundef %108)
+  br label %110
 
-109:                                              ; preds = %92, %75, %69, %64, %59, %54
-  br label %164
+110:                                              ; preds = %93, %76, %69, %64, %59, %54
+  br label %165
 
-110:                                              ; preds = %33
-  %111 = load i32, ptr %13, align 4
-  switch i32 %111, label %129 [
-    i32 0, label %112
-    i32 1, label %112
-    i32 2, label %112
-    i32 3, label %112
-    i32 4, label %112
+111:                                              ; preds = %33
+  %112 = load i32, ptr %13, align 4
+  switch i32 %112, label %130 [
+    i32 0, label %113
+    i32 1, label %113
+    i32 2, label %113
+    i32 3, label %113
+    i32 4, label %113
   ]
 
-112:                                              ; preds = %110, %110, %110, %110, %110
-  %113 = load ptr, ptr %8, align 8
-  %114 = load ptr, ptr %9, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %15, align 4
-  %117 = call i32 @dissect_ber_identifier(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %117, ptr %7, align 4
-  %118 = load ptr, ptr %8, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = load ptr, ptr %6, align 8
-  %121 = load i32, ptr %7, align 4
-  %122 = call i32 @dissect_ber_length(ptr noundef %118, ptr noundef %119, ptr noundef %120, i32 noundef %121, ptr noundef null, ptr noundef null)
-  store i32 %122, ptr %7, align 4
-  %123 = load ptr, ptr %9, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %7, align 4
-  %127 = load i32, ptr %14, align 4
-  %128 = call ptr @proto_tree_add_expert(ptr noundef %123, ptr noundef %124, ptr noundef @ei_q932_acse_not_supported, ptr noundef %125, i32 noundef %126, i32 noundef %127)
-  br label %146
+113:                                              ; preds = %111, %111, %111, %111, %111
+  %114 = load ptr, ptr %8, align 8
+  %115 = load ptr, ptr %9, align 8
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %15, align 4
+  %118 = call i32 @dissect_ber_identifier(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %118, ptr %7, align 4
+  %119 = load ptr, ptr %8, align 8
+  %120 = load ptr, ptr %9, align 8
+  %121 = load ptr, ptr %6, align 8
+  %122 = load i32, ptr %7, align 4
+  %123 = call i32 @dissect_ber_length(ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef null, ptr noundef null)
+  store i32 %123, ptr %7, align 4
+  %124 = load ptr, ptr %9, align 8
+  %125 = load ptr, ptr %8, align 8
+  %126 = load ptr, ptr %6, align 8
+  %127 = load i32, ptr %7, align 4
+  %128 = load i32, ptr %14, align 4
+  %129 = call ptr @proto_tree_add_expert(ptr noundef %124, ptr noundef %125, ptr noundef @ei_q932_acse_not_supported, ptr noundef %126, i32 noundef %127, i32 noundef %128)
+  br label %147
 
-129:                                              ; preds = %110
-  %130 = load ptr, ptr %8, align 8
-  %131 = load ptr, ptr %9, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i32, ptr %15, align 4
-  %134 = call i32 @dissect_ber_identifier(ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %134, ptr %7, align 4
-  %135 = load ptr, ptr %8, align 8
-  %136 = load ptr, ptr %9, align 8
-  %137 = load ptr, ptr %6, align 8
-  %138 = load i32, ptr %7, align 4
-  %139 = call i32 @dissect_ber_length(ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef %138, ptr noundef null, ptr noundef null)
-  store i32 %139, ptr %7, align 4
-  %140 = load ptr, ptr %9, align 8
-  %141 = load ptr, ptr %8, align 8
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %7, align 4
-  %144 = load i32, ptr %14, align 4
-  %145 = call ptr @proto_tree_add_expert(ptr noundef %140, ptr noundef %141, ptr noundef @ei_q932_unknown_component, ptr noundef %142, i32 noundef %143, i32 noundef %144)
-  br label %146
+130:                                              ; preds = %111
+  %131 = load ptr, ptr %8, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = load i32, ptr %15, align 4
+  %135 = call i32 @dissect_ber_identifier(ptr noundef %131, ptr noundef %132, ptr noundef %133, i32 noundef %134, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %135, ptr %7, align 4
+  %136 = load ptr, ptr %8, align 8
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = load i32, ptr %7, align 4
+  %140 = call i32 @dissect_ber_length(ptr noundef %136, ptr noundef %137, ptr noundef %138, i32 noundef %139, ptr noundef null, ptr noundef null)
+  store i32 %140, ptr %7, align 4
+  %141 = load ptr, ptr %9, align 8
+  %142 = load ptr, ptr %8, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = load i32, ptr %7, align 4
+  %145 = load i32, ptr %14, align 4
+  %146 = call ptr @proto_tree_add_expert(ptr noundef %141, ptr noundef %142, ptr noundef @ei_q932_unknown_component, ptr noundef %143, i32 noundef %144, i32 noundef %145)
+  br label %147
 
-146:                                              ; preds = %129, %112
-  br label %164
+147:                                              ; preds = %130, %113
+  br label %165
 
-147:                                              ; preds = %33
-  %148 = load ptr, ptr %8, align 8
-  %149 = load ptr, ptr %9, align 8
-  %150 = load ptr, ptr %6, align 8
-  %151 = load i32, ptr %15, align 4
-  %152 = call i32 @dissect_ber_identifier(ptr noundef %148, ptr noundef %149, ptr noundef %150, i32 noundef %151, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %152, ptr %7, align 4
-  %153 = load ptr, ptr %8, align 8
-  %154 = load ptr, ptr %9, align 8
-  %155 = load ptr, ptr %6, align 8
-  %156 = load i32, ptr %7, align 4
-  %157 = call i32 @dissect_ber_length(ptr noundef %153, ptr noundef %154, ptr noundef %155, i32 noundef %156, ptr noundef null, ptr noundef null)
-  store i32 %157, ptr %7, align 4
-  %158 = load ptr, ptr %9, align 8
-  %159 = load ptr, ptr %8, align 8
-  %160 = load ptr, ptr %6, align 8
-  %161 = load i32, ptr %7, align 4
-  %162 = load i32, ptr %14, align 4
-  %163 = call ptr @proto_tree_add_expert(ptr noundef %158, ptr noundef %159, ptr noundef @ei_q932_unknown_component, ptr noundef %160, i32 noundef %161, i32 noundef %162)
-  br label %164
+148:                                              ; preds = %33
+  %149 = load ptr, ptr %8, align 8
+  %150 = load ptr, ptr %9, align 8
+  %151 = load ptr, ptr %6, align 8
+  %152 = load i32, ptr %15, align 4
+  %153 = call i32 @dissect_ber_identifier(ptr noundef %149, ptr noundef %150, ptr noundef %151, i32 noundef %152, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %153, ptr %7, align 4
+  %154 = load ptr, ptr %8, align 8
+  %155 = load ptr, ptr %9, align 8
+  %156 = load ptr, ptr %6, align 8
+  %157 = load i32, ptr %7, align 4
+  %158 = call i32 @dissect_ber_length(ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, ptr noundef null, ptr noundef null)
+  store i32 %158, ptr %7, align 4
+  %159 = load ptr, ptr %9, align 8
+  %160 = load ptr, ptr %8, align 8
+  %161 = load ptr, ptr %6, align 8
+  %162 = load i32, ptr %7, align 4
+  %163 = load i32, ptr %14, align 4
+  %164 = call ptr @proto_tree_add_expert(ptr noundef %159, ptr noundef %160, ptr noundef @ei_q932_unknown_component, ptr noundef %161, i32 noundef %162, i32 noundef %163)
+  br label %165
 
-164:                                              ; preds = %147, %146, %109
-  %165 = load i32, ptr %16, align 4
-  store i32 %165, ptr %7, align 4
+165:                                              ; preds = %148, %147, %110
+  %166 = load i32, ptr %16, align 4
+  store i32 %166, ptr %7, align 4
   br label %29, !llvm.loop !4
 
-166:                                              ; preds = %29
+167:                                              ; preds = %29
   ret void
 }
 

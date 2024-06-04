@@ -1842,1239 +1842,1240 @@ define weak_odr void @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
   %79 = load ptr, ptr %18, align 8
   %80 = load ptr, ptr %19, align 8
   call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %79, align 8
-  %81 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #25
-  %82 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 2
-  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %82) #25
-  %83 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 3
+  %81 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2
+  store ptr %81, ptr %79, align 8
+  %82 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #25
+  %83 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 2
   call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %83) #25
-  %84 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 4
-  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(161) %84) #25
-  %85 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 5
+  %84 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 3
+  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %84) #25
+  %85 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 4
   call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(161) %85) #25
-  %86 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 6
-  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(193) %86) #25
-  %87 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 2
-  %88 = invoke noundef i32 @_ZN7mitsubaorENS_9BSDFFlagsES0_(i32 noundef 8, i32 noundef 32768)
-          to label %89 unwind label %179
+  %86 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 5
+  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(161) %86) #25
+  %87 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 6
+  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(193) %87) #25
+  %88 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 2
+  %89 = invoke noundef i32 @_ZN7mitsubaorENS_9BSDFFlagsES0_(i32 noundef 8, i32 noundef 32768)
+          to label %90 unwind label %180
 
-89:                                               ; preds = %2
-  store i32 %88, ptr %20, align 4
-  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 4 dereferenceable(4) %20)
-          to label %90 unwind label %179
+90:                                               ; preds = %2
+  store i32 %89, ptr %20, align 4
+  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 4 dereferenceable(4) %20)
+          to label %91 unwind label %180
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 2
-  %92 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %91, i64 noundef 0) #25
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 1
-  store i32 %93, ptr %94, align 4
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 2
+  %93 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef 0) #25
+  %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 1
-  invoke void @_ZN5drjit8set_attrIN7mitsuba8MeasuredIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEjEEvPT_PKcRKT0_(ptr noundef %79, ptr noundef @.str, ptr noundef nonnull align 4 dereferenceable(4) %95)
-          to label %96 unwind label %179
+  store i32 %94, ptr %95, align 4
+  %96 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %79, i32 0, i32 1
+  invoke void @_ZN5drjit8set_attrIN7mitsuba8MeasuredIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEjEEvPT_PKcRKT0_(ptr noundef %79, ptr noundef @.str, ptr noundef nonnull align 4 dereferenceable(4) %96)
+          to label %97 unwind label %180
 
-96:                                               ; preds = %90
-  %97 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
-          to label %98 unwind label %179
+97:                                               ; preds = %91
+  %98 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
+          to label %99 unwind label %180
 
-98:                                               ; preds = %96
-  %99 = invoke noundef ptr @_ZN7mitsuba6Thread13file_resolverEv(ptr noundef nonnull align 8 dereferenceable(24) %97)
-          to label %100 unwind label %179
+99:                                               ; preds = %97
+  %100 = invoke noundef ptr @_ZN7mitsuba6Thread13file_resolverEv(ptr noundef nonnull align 8 dereferenceable(24) %98)
+          to label %101 unwind label %180
 
-100:                                              ; preds = %98
-  store ptr %99, ptr %23, align 8
-  %101 = load ptr, ptr %23, align 8
-  %102 = load ptr, ptr %19, align 8
+101:                                              ; preds = %99
+  store ptr %100, ptr %23, align 8
+  %102 = load ptr, ptr %23, align 8
+  %103 = load ptr, ptr %19, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef @.str.1)
-          to label %103 unwind label %179
+          to label %104 unwind label %180
 
-103:                                              ; preds = %100
-  %104 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties6stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %105 unwind label %183
+104:                                              ; preds = %101
+  %105 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties6stringERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %106 unwind label %184
 
-105:                                              ; preds = %103
-  invoke void @_ZN7mitsuba10filesystem4pathC2ERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(25) %25, ptr noundef nonnull align 8 dereferenceable(24) %104)
-          to label %106 unwind label %183
-
-106:                                              ; preds = %105
-  invoke void @_ZNK7mitsuba12FileResolver7resolveERKNS_10filesystem4pathE(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(25) %25)
-          to label %107 unwind label %187
+106:                                              ; preds = %104
+  invoke void @_ZN7mitsuba10filesystem4pathC2ERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(25) %25, ptr noundef nonnull align 8 dereferenceable(24) %105)
+          to label %107 unwind label %184
 
 107:                                              ; preds = %106
+  invoke void @_ZNK7mitsuba12FileResolver7resolveERKNS_10filesystem4pathE(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(25) %25)
+          to label %108 unwind label %188
+
+108:                                              ; preds = %107
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %25) #25
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
   invoke void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %28, ptr noundef nonnull align 8 dereferenceable(25) %24)
-          to label %108 unwind label %192
-
-108:                                              ; preds = %107
-  invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(25) %28)
-          to label %109 unwind label %196
+          to label %109 unwind label %193
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 1
-  %111 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(25) %28)
+          to label %110 unwind label %197
+
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 1
+  %112 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %27) #25
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %28) #25
-  %112 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #26
-          to label %113 unwind label %192
+  %113 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #26
+          to label %114 unwind label %193
 
-113:                                              ; preds = %109
-  invoke void @_ZN7mitsuba10TensorFileC1ERKNS_10filesystem4pathE(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef nonnull align 8 dereferenceable(25) %24)
-          to label %114 unwind label %200
-
-114:                                              ; preds = %113
-  invoke void @_ZN7mitsuba3refINS_10TensorFileEEC2IS1_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %112)
-          to label %115 unwind label %192
+114:                                              ; preds = %110
+  invoke void @_ZN7mitsuba10TensorFileC1ERKNS_10filesystem4pathE(ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull align 8 dereferenceable(25) %24)
+          to label %115 unwind label %201
 
 115:                                              ; preds = %114
-  %116 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %117 unwind label %204
+  invoke void @_ZN7mitsuba3refINS_10TensorFileEEC2IS1_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %113)
+          to label %116 unwind label %193
 
-117:                                              ; preds = %115
+116:                                              ; preds = %115
+  %117 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %118 unwind label %205
+
+118:                                              ; preds = %116
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef @.str.2)
-          to label %118 unwind label %204
+          to label %119 unwind label %205
 
-118:                                              ; preds = %117
-  %119 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %116, ptr noundef nonnull align 8 dereferenceable(24) %31)
-          to label %120 unwind label %208
+119:                                              ; preds = %118
+  %120 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %117, ptr noundef nonnull align 8 dereferenceable(24) %31)
+          to label %121 unwind label %209
 
-120:                                              ; preds = %118
+121:                                              ; preds = %119
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
-  store ptr %119, ptr %30, align 8
-  %121 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %122 unwind label %204
+  store ptr %120, ptr %30, align 8
+  %122 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %123 unwind label %205
 
-122:                                              ; preds = %120
+123:                                              ; preds = %121
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef @.str.3)
-          to label %123 unwind label %204
+          to label %124 unwind label %205
 
-123:                                              ; preds = %122
-  %124 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %121, ptr noundef nonnull align 8 dereferenceable(24) %33)
-          to label %125 unwind label %212
+124:                                              ; preds = %123
+  %125 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %122, ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %126 unwind label %213
 
-125:                                              ; preds = %123
+126:                                              ; preds = %124
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #25
-  store ptr %124, ptr %32, align 8
-  %126 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %127 unwind label %204
+  store ptr %125, ptr %32, align 8
+  %127 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %128 unwind label %205
 
-127:                                              ; preds = %125
+128:                                              ; preds = %126
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef @.str.4)
-          to label %128 unwind label %204
+          to label %129 unwind label %205
 
-128:                                              ; preds = %127
-  %129 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %126, ptr noundef nonnull align 8 dereferenceable(24) %35)
-          to label %130 unwind label %216
+129:                                              ; preds = %128
+  %130 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %127, ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %131 unwind label %217
 
-130:                                              ; preds = %128
+131:                                              ; preds = %129
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
-  store ptr %129, ptr %34, align 8
-  %131 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %132 unwind label %204
+  store ptr %130, ptr %34, align 8
+  %132 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %133 unwind label %205
 
-132:                                              ; preds = %130
+133:                                              ; preds = %131
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef @.str.5)
-          to label %133 unwind label %204
+          to label %134 unwind label %205
 
-133:                                              ; preds = %132
-  %134 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %131, ptr noundef nonnull align 8 dereferenceable(24) %37)
-          to label %135 unwind label %220
+134:                                              ; preds = %133
+  %135 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %132, ptr noundef nonnull align 8 dereferenceable(24) %37)
+          to label %136 unwind label %221
 
-135:                                              ; preds = %133
+136:                                              ; preds = %134
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #25
-  store ptr %134, ptr %36, align 8
-  %136 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %137 unwind label %204
+  store ptr %135, ptr %36, align 8
+  %137 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %138 unwind label %205
 
-137:                                              ; preds = %135
+138:                                              ; preds = %136
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef @.str.6)
-          to label %138 unwind label %204
+          to label %139 unwind label %205
 
-138:                                              ; preds = %137
-  %139 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %136, ptr noundef nonnull align 8 dereferenceable(24) %39)
-          to label %140 unwind label %224
+139:                                              ; preds = %138
+  %140 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef nonnull align 8 dereferenceable(24) %39)
+          to label %141 unwind label %225
 
-140:                                              ; preds = %138
+141:                                              ; preds = %139
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #25
-  store ptr %139, ptr %38, align 8
-  %141 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %142 unwind label %204
+  store ptr %140, ptr %38, align 8
+  %142 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %143 unwind label %205
 
-142:                                              ; preds = %140
+143:                                              ; preds = %141
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef @.str.7)
-          to label %143 unwind label %204
+          to label %144 unwind label %205
 
-143:                                              ; preds = %142
-  %144 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %141, ptr noundef nonnull align 8 dereferenceable(24) %41)
-          to label %145 unwind label %228
+144:                                              ; preds = %143
+  %145 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %142, ptr noundef nonnull align 8 dereferenceable(24) %41)
+          to label %146 unwind label %229
 
-145:                                              ; preds = %143
+146:                                              ; preds = %144
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #25
-  store ptr %144, ptr %40, align 8
-  %146 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %147 unwind label %204
+  store ptr %145, ptr %40, align 8
+  %147 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %148 unwind label %205
 
-147:                                              ; preds = %145
+148:                                              ; preds = %146
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef @.str.8)
-          to label %148 unwind label %204
+          to label %149 unwind label %205
 
-148:                                              ; preds = %147
-  %149 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %146, ptr noundef nonnull align 8 dereferenceable(24) %43)
-          to label %150 unwind label %232
+149:                                              ; preds = %148
+  %150 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %147, ptr noundef nonnull align 8 dereferenceable(24) %43)
+          to label %151 unwind label %233
 
-150:                                              ; preds = %148
+151:                                              ; preds = %149
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #25
-  store ptr %149, ptr %42, align 8
-  %151 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %152 unwind label %204
+  store ptr %150, ptr %42, align 8
+  %152 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %153 unwind label %205
 
-152:                                              ; preds = %150
+153:                                              ; preds = %151
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef @.str.9)
-          to label %153 unwind label %204
+          to label %154 unwind label %205
 
-153:                                              ; preds = %152
-  %154 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %151, ptr noundef nonnull align 8 dereferenceable(24) %45)
-          to label %155 unwind label %236
+154:                                              ; preds = %153
+  %155 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %152, ptr noundef nonnull align 8 dereferenceable(24) %45)
+          to label %156 unwind label %237
 
-155:                                              ; preds = %153
+156:                                              ; preds = %154
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #25
-  store ptr %154, ptr %44, align 8
+  store ptr %155, ptr %44, align 8
   call void @_ZN7mitsuba10TensorFile5FieldC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #25
   call void @_ZN7mitsuba10TensorFile5FieldC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
-  %156 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %157 unwind label %240
+  %157 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %158 unwind label %241
 
-157:                                              ; preds = %155
+158:                                              ; preds = %156
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef @.str.10)
-          to label %158 unwind label %240
+          to label %159 unwind label %241
 
-158:                                              ; preds = %157
-  %159 = invoke noundef zeroext i1 @_ZNK7mitsuba10TensorFile9has_fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %156, ptr noundef nonnull align 8 dereferenceable(24) %49)
-          to label %160 unwind label %244
+159:                                              ; preds = %158
+  %160 = invoke noundef zeroext i1 @_ZNK7mitsuba10TensorFile9has_fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %157, ptr noundef nonnull align 8 dereferenceable(24) %49)
+          to label %161 unwind label %245
 
-160:                                              ; preds = %158
+161:                                              ; preds = %159
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #25
-  %161 = zext i1 %159 to i8
-  store i8 %161, ptr %48, align 1
+  %162 = zext i1 %160 to i8
+  store i8 %162, ptr %48, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 @__const.Measured.rgb_wavelengths, i64 12, i1 false)
-  %162 = load i8, ptr %48, align 1
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %164, label %256
+  %163 = load i8, ptr %48, align 1
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %257
 
-164:                                              ; preds = %160
-  %165 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %166 unwind label %240
+165:                                              ; preds = %161
+  %166 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %167 unwind label %241
 
-166:                                              ; preds = %164
+167:                                              ; preds = %165
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef @.str.11)
-          to label %167 unwind label %240
+          to label %168 unwind label %241
 
-167:                                              ; preds = %166
-  %168 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %165, ptr noundef nonnull align 8 dereferenceable(24) %51)
-          to label %169 unwind label %248
+168:                                              ; preds = %167
+  %169 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 8 dereferenceable(24) %51)
+          to label %170 unwind label %249
 
-169:                                              ; preds = %167
-  %170 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %168)
-          to label %171 unwind label %248
+170:                                              ; preds = %168
+  %171 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %169)
+          to label %172 unwind label %249
 
-171:                                              ; preds = %169
+172:                                              ; preds = %170
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #25
-  %172 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %173 unwind label %240
+  %173 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %174 unwind label %241
 
-173:                                              ; preds = %171
+174:                                              ; preds = %172
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef @.str.10)
-          to label %174 unwind label %240
+          to label %175 unwind label %241
 
-174:                                              ; preds = %173
-  %175 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %172, ptr noundef nonnull align 8 dereferenceable(24) %52)
-          to label %176 unwind label %252
+175:                                              ; preds = %174
+  %176 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %173, ptr noundef nonnull align 8 dereferenceable(24) %52)
+          to label %177 unwind label %253
 
-176:                                              ; preds = %174
-  %177 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %175)
-          to label %178 unwind label %252
+177:                                              ; preds = %175
+  %178 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(48) %176)
+          to label %179 unwind label %253
 
-178:                                              ; preds = %176
+179:                                              ; preds = %177
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #25
-  br label %282
+  br label %283
 
-179:                                              ; preds = %100, %98, %96, %90, %89, %2
-  %180 = landingpad { ptr, i32 }
+180:                                              ; preds = %101, %99, %97, %91, %90, %2
+  %181 = landingpad { ptr, i32 }
           cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %21, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %22, align 4
-  br label %810
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %21, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %22, align 4
+  br label %811
 
-183:                                              ; preds = %105, %103
-  %184 = landingpad { ptr, i32 }
+184:                                              ; preds = %106, %104
+  %185 = landingpad { ptr, i32 }
           cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %21, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %22, align 4
-  br label %191
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %21, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %22, align 4
+  br label %192
 
-187:                                              ; preds = %106
-  %188 = landingpad { ptr, i32 }
+188:                                              ; preds = %107
+  %189 = landingpad { ptr, i32 }
           cleanup
-  %189 = extractvalue { ptr, i32 } %188, 0
-  store ptr %189, ptr %21, align 8
-  %190 = extractvalue { ptr, i32 } %188, 1
-  store i32 %190, ptr %22, align 4
+  %190 = extractvalue { ptr, i32 } %189, 0
+  store ptr %190, ptr %21, align 8
+  %191 = extractvalue { ptr, i32 } %189, 1
+  store i32 %191, ptr %22, align 4
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %25) #25
-  br label %191
+  br label %192
 
-191:                                              ; preds = %187, %183
+192:                                              ; preds = %188, %184
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
+  br label %811
+
+193:                                              ; preds = %115, %110, %108
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %21, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %22, align 4
   br label %810
 
-192:                                              ; preds = %114, %109, %107
-  %193 = landingpad { ptr, i32 }
+197:                                              ; preds = %109
+  %198 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %21, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %22, align 4
-  br label %809
-
-196:                                              ; preds = %108
-  %197 = landingpad { ptr, i32 }
-          cleanup
-  %198 = extractvalue { ptr, i32 } %197, 0
-  store ptr %198, ptr %21, align 8
-  %199 = extractvalue { ptr, i32 } %197, 1
-  store i32 %199, ptr %22, align 4
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %21, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %22, align 4
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %28) #25
+  br label %810
+
+201:                                              ; preds = %114
+  %202 = landingpad { ptr, i32 }
+          cleanup
+  %203 = extractvalue { ptr, i32 } %202, 0
+  store ptr %203, ptr %21, align 8
+  %204 = extractvalue { ptr, i32 } %202, 1
+  store i32 %204, ptr %22, align 4
+  call void @_ZdlPv(ptr noundef %113) #27
+  br label %810
+
+205:                                              ; preds = %153, %151, %148, %146, %143, %141, %138, %136, %133, %131, %128, %126, %123, %121, %118, %116
+  %206 = landingpad { ptr, i32 }
+          cleanup
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %21, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %22, align 4
   br label %809
 
-200:                                              ; preds = %113
-  %201 = landingpad { ptr, i32 }
+209:                                              ; preds = %119
+  %210 = landingpad { ptr, i32 }
           cleanup
-  %202 = extractvalue { ptr, i32 } %201, 0
-  store ptr %202, ptr %21, align 8
-  %203 = extractvalue { ptr, i32 } %201, 1
-  store i32 %203, ptr %22, align 4
-  call void @_ZdlPv(ptr noundef %112) #27
-  br label %809
-
-204:                                              ; preds = %152, %150, %147, %145, %142, %140, %137, %135, %132, %130, %127, %125, %122, %120, %117, %115
-  %205 = landingpad { ptr, i32 }
-          cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %21, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %22, align 4
-  br label %808
-
-208:                                              ; preds = %118
-  %209 = landingpad { ptr, i32 }
-          cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %21, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %22, align 4
+  %211 = extractvalue { ptr, i32 } %210, 0
+  store ptr %211, ptr %21, align 8
+  %212 = extractvalue { ptr, i32 } %210, 1
+  store i32 %212, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
-  br label %808
+  br label %809
 
-212:                                              ; preds = %123
-  %213 = landingpad { ptr, i32 }
+213:                                              ; preds = %124
+  %214 = landingpad { ptr, i32 }
           cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %21, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %22, align 4
+  %215 = extractvalue { ptr, i32 } %214, 0
+  store ptr %215, ptr %21, align 8
+  %216 = extractvalue { ptr, i32 } %214, 1
+  store i32 %216, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #25
-  br label %808
+  br label %809
 
-216:                                              ; preds = %128
-  %217 = landingpad { ptr, i32 }
+217:                                              ; preds = %129
+  %218 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %21, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %22, align 4
+  %219 = extractvalue { ptr, i32 } %218, 0
+  store ptr %219, ptr %21, align 8
+  %220 = extractvalue { ptr, i32 } %218, 1
+  store i32 %220, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
-  br label %808
+  br label %809
 
-220:                                              ; preds = %133
-  %221 = landingpad { ptr, i32 }
+221:                                              ; preds = %134
+  %222 = landingpad { ptr, i32 }
           cleanup
-  %222 = extractvalue { ptr, i32 } %221, 0
-  store ptr %222, ptr %21, align 8
-  %223 = extractvalue { ptr, i32 } %221, 1
-  store i32 %223, ptr %22, align 4
+  %223 = extractvalue { ptr, i32 } %222, 0
+  store ptr %223, ptr %21, align 8
+  %224 = extractvalue { ptr, i32 } %222, 1
+  store i32 %224, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #25
-  br label %808
+  br label %809
 
-224:                                              ; preds = %138
-  %225 = landingpad { ptr, i32 }
+225:                                              ; preds = %139
+  %226 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %21, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %22, align 4
+  %227 = extractvalue { ptr, i32 } %226, 0
+  store ptr %227, ptr %21, align 8
+  %228 = extractvalue { ptr, i32 } %226, 1
+  store i32 %228, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #25
-  br label %808
+  br label %809
 
-228:                                              ; preds = %143
-  %229 = landingpad { ptr, i32 }
+229:                                              ; preds = %144
+  %230 = landingpad { ptr, i32 }
           cleanup
-  %230 = extractvalue { ptr, i32 } %229, 0
-  store ptr %230, ptr %21, align 8
-  %231 = extractvalue { ptr, i32 } %229, 1
-  store i32 %231, ptr %22, align 4
+  %231 = extractvalue { ptr, i32 } %230, 0
+  store ptr %231, ptr %21, align 8
+  %232 = extractvalue { ptr, i32 } %230, 1
+  store i32 %232, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #25
-  br label %808
+  br label %809
 
-232:                                              ; preds = %148
-  %233 = landingpad { ptr, i32 }
+233:                                              ; preds = %149
+  %234 = landingpad { ptr, i32 }
           cleanup
-  %234 = extractvalue { ptr, i32 } %233, 0
-  store ptr %234, ptr %21, align 8
-  %235 = extractvalue { ptr, i32 } %233, 1
-  store i32 %235, ptr %22, align 4
+  %235 = extractvalue { ptr, i32 } %234, 0
+  store ptr %235, ptr %21, align 8
+  %236 = extractvalue { ptr, i32 } %234, 1
+  store i32 %236, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #25
-  br label %808
+  br label %809
 
-236:                                              ; preds = %153
-  %237 = landingpad { ptr, i32 }
+237:                                              ; preds = %154
+  %238 = landingpad { ptr, i32 }
           cleanup
-  %238 = extractvalue { ptr, i32 } %237, 0
-  store ptr %238, ptr %21, align 8
-  %239 = extractvalue { ptr, i32 } %237, 1
-  store i32 %239, ptr %22, align 4
+  %239 = extractvalue { ptr, i32 } %238, 0
+  store ptr %239, ptr %21, align 8
+  %240 = extractvalue { ptr, i32 } %238, 1
+  store i32 %240, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #25
+  br label %809
+
+241:                                              ; preds = %719, %685, %678, %652, %642, %616, %606, %602, %576, %572, %546, %497, %278, %265, %259, %257, %174, %172, %167, %165, %158, %156
+  %242 = landingpad { ptr, i32 }
+          cleanup
+  %243 = extractvalue { ptr, i32 } %242, 0
+  store ptr %243, ptr %21, align 8
+  %244 = extractvalue { ptr, i32 } %242, 1
+  store i32 %244, ptr %22, align 4
   br label %808
 
-240:                                              ; preds = %718, %684, %677, %651, %641, %615, %605, %601, %575, %571, %545, %496, %277, %264, %258, %256, %173, %171, %166, %164, %157, %155
-  %241 = landingpad { ptr, i32 }
+245:                                              ; preds = %159
+  %246 = landingpad { ptr, i32 }
           cleanup
-  %242 = extractvalue { ptr, i32 } %241, 0
-  store ptr %242, ptr %21, align 8
-  %243 = extractvalue { ptr, i32 } %241, 1
-  store i32 %243, ptr %22, align 4
-  br label %807
-
-244:                                              ; preds = %158
-  %245 = landingpad { ptr, i32 }
-          cleanup
-  %246 = extractvalue { ptr, i32 } %245, 0
-  store ptr %246, ptr %21, align 8
-  %247 = extractvalue { ptr, i32 } %245, 1
-  store i32 %247, ptr %22, align 4
+  %247 = extractvalue { ptr, i32 } %246, 0
+  store ptr %247, ptr %21, align 8
+  %248 = extractvalue { ptr, i32 } %246, 1
+  store i32 %248, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #25
-  br label %807
+  br label %808
 
-248:                                              ; preds = %169, %167
-  %249 = landingpad { ptr, i32 }
+249:                                              ; preds = %170, %168
+  %250 = landingpad { ptr, i32 }
           cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %21, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %22, align 4
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %21, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #25
-  br label %807
+  br label %808
 
-252:                                              ; preds = %176, %174
-  %253 = landingpad { ptr, i32 }
+253:                                              ; preds = %177, %175
+  %254 = landingpad { ptr, i32 }
           cleanup
-  %254 = extractvalue { ptr, i32 } %253, 0
-  store ptr %254, ptr %21, align 8
-  %255 = extractvalue { ptr, i32 } %253, 1
-  store i32 %255, ptr %22, align 4
+  %255 = extractvalue { ptr, i32 } %254, 0
+  store ptr %255, ptr %21, align 8
+  %256 = extractvalue { ptr, i32 } %254, 1
+  store i32 %256, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #25
-  br label %807
+  br label %808
 
-256:                                              ; preds = %160
-  %257 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %258 unwind label %240
+257:                                              ; preds = %161
+  %258 = invoke noundef ptr @_ZN7mitsuba3refINS_10TensorFileEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %259 unwind label %241
 
-258:                                              ; preds = %256
+259:                                              ; preds = %257
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef @.str.12)
-          to label %259 unwind label %240
+          to label %260 unwind label %241
 
-259:                                              ; preds = %258
-  %260 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %257, ptr noundef nonnull align 8 dereferenceable(24) %53)
-          to label %261 unwind label %268
+260:                                              ; preds = %259
+  %261 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7mitsuba10TensorFile5fieldERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %258, ptr noundef nonnull align 8 dereferenceable(24) %53)
+          to label %262 unwind label %269
 
-261:                                              ; preds = %259
-  %262 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %260)
-          to label %263 unwind label %268
+262:                                              ; preds = %260
+  %263 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba10TensorFile5FieldaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %261)
+          to label %264 unwind label %269
 
-263:                                              ; preds = %261
+264:                                              ; preds = %262
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #25
-  br label %264
+  br label %265
 
-264:                                              ; preds = %263
-  %265 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+265:                                              ; preds = %264
+  %266 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %54, ptr noundef @.str.14)
-          to label %266 unwind label %240
+          to label %267 unwind label %241
 
-266:                                              ; preds = %264
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %265, ptr noundef @.str.13, i32 noundef 114, ptr noundef nonnull align 8 dereferenceable(24) %54) #28
-          to label %267 unwind label %272
+267:                                              ; preds = %265
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %266, ptr noundef @.str.13, i32 noundef 114, ptr noundef nonnull align 8 dereferenceable(24) %54) #28
+          to label %268 unwind label %273
 
-267:                                              ; preds = %266
+268:                                              ; preds = %267
   unreachable
 
-268:                                              ; preds = %261, %259
-  %269 = landingpad { ptr, i32 }
+269:                                              ; preds = %262, %260
+  %270 = landingpad { ptr, i32 }
           cleanup
-  %270 = extractvalue { ptr, i32 } %269, 0
-  store ptr %270, ptr %21, align 8
-  %271 = extractvalue { ptr, i32 } %269, 1
-  store i32 %271, ptr %22, align 4
+  %271 = extractvalue { ptr, i32 } %270, 0
+  store ptr %271, ptr %21, align 8
+  %272 = extractvalue { ptr, i32 } %270, 1
+  store i32 %272, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #25
-  br label %807
+  br label %808
 
-272:                                              ; preds = %266
-  %273 = landingpad { ptr, i32 }
+273:                                              ; preds = %267
+  %274 = landingpad { ptr, i32 }
           cleanup
-  %274 = extractvalue { ptr, i32 } %273, 0
-  store ptr %274, ptr %21, align 8
-  %275 = extractvalue { ptr, i32 } %273, 1
-  store i32 %275, ptr %22, align 4
+  %275 = extractvalue { ptr, i32 } %274, 0
+  store ptr %275, ptr %21, align 8
+  %276 = extractvalue { ptr, i32 } %274, 1
+  store i32 %276, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #25
-  br label %807
+  br label %808
 
-276:                                              ; No predecessors!
-  br label %277
+277:                                              ; No predecessors!
+  br label %278
 
-277:                                              ; preds = %276
-  %278 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
+278:                                              ; preds = %277
+  %279 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
   store i64 3, ptr %55, align 8
-  invoke void @_ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr noundef nonnull align 8 dereferenceable(8) %55)
-          to label %279 unwind label %240
+  invoke void @_ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm(ptr noundef nonnull align 8 dereferenceable(24) %279, ptr noundef nonnull align 8 dereferenceable(8) %55)
+          to label %280 unwind label %241
 
-279:                                              ; preds = %277
-  %280 = getelementptr inbounds [3 x float], ptr %50, i64 0, i64 0
-  %281 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 3
-  store ptr %280, ptr %281, align 8
-  br label %282
+280:                                              ; preds = %278
+  %281 = getelementptr inbounds [3 x float], ptr %50, i64 0, i64 0
+  %282 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 3
+  store ptr %281, ptr %282, align 8
+  br label %283
 
-282:                                              ; preds = %279, %178
-  %283 = load ptr, ptr %42, align 8
-  %284 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %283, i32 0, i32 2
-  %285 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %284) #25
-  %286 = icmp eq i64 %285, 1
-  br i1 %286, label %287, label %495
+283:                                              ; preds = %280, %179
+  %284 = load ptr, ptr %42, align 8
+  %285 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %284, i32 0, i32 2
+  %286 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #25
+  %287 = icmp eq i64 %286, 1
+  br i1 %287, label %288, label %496
 
-287:                                              ; preds = %282
-  %288 = load ptr, ptr %42, align 8
-  %289 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %288, i32 0, i32 0
-  %290 = load i32, ptr %289, align 8
-  %291 = icmp eq i32 %290, 1
-  br i1 %291, label %292, label %495
+288:                                              ; preds = %283
+  %289 = load ptr, ptr %42, align 8
+  %290 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %289, i32 0, i32 0
+  %291 = load i32, ptr %290, align 8
+  %292 = icmp eq i32 %291, 1
+  br i1 %292, label %293, label %496
 
-292:                                              ; preds = %287
-  %293 = load ptr, ptr %30, align 8
-  %294 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %293, i32 0, i32 2
-  %295 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %294) #25
-  %296 = icmp eq i64 %295, 1
-  br i1 %296, label %297, label %495
+293:                                              ; preds = %288
+  %294 = load ptr, ptr %30, align 8
+  %295 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %294, i32 0, i32 2
+  %296 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #25
+  %297 = icmp eq i64 %296, 1
+  br i1 %297, label %298, label %496
 
-297:                                              ; preds = %292
-  %298 = load ptr, ptr %30, align 8
-  %299 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %298, i32 0, i32 0
-  %300 = load i32, ptr %299, align 8
-  %301 = icmp eq i32 %300, 10
-  br i1 %301, label %302, label %495
+298:                                              ; preds = %293
+  %299 = load ptr, ptr %30, align 8
+  %300 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %299, i32 0, i32 0
+  %301 = load i32, ptr %300, align 8
+  %302 = icmp eq i32 %301, 10
+  br i1 %302, label %303, label %496
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %32, align 8
-  %304 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %303, i32 0, i32 2
-  %305 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %304) #25
-  %306 = icmp eq i64 %305, 1
-  br i1 %306, label %307, label %495
+303:                                              ; preds = %298
+  %304 = load ptr, ptr %32, align 8
+  %305 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %304, i32 0, i32 2
+  %306 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %305) #25
+  %307 = icmp eq i64 %306, 1
+  br i1 %307, label %308, label %496
 
-307:                                              ; preds = %302
-  %308 = load ptr, ptr %32, align 8
-  %309 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %308, i32 0, i32 0
-  %310 = load i32, ptr %309, align 8
-  %311 = icmp eq i32 %310, 10
-  br i1 %311, label %312, label %495
+308:                                              ; preds = %303
+  %309 = load ptr, ptr %32, align 8
+  %310 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %309, i32 0, i32 0
+  %311 = load i32, ptr %310, align 8
+  %312 = icmp eq i32 %311, 10
+  br i1 %312, label %313, label %496
 
-312:                                              ; preds = %307
-  %313 = load i8, ptr %48, align 1
-  %314 = trunc i8 %313 to i1
-  br i1 %314, label %315, label %323
+313:                                              ; preds = %308
+  %314 = load i8, ptr %48, align 1
+  %315 = trunc i8 %314 to i1
+  br i1 %315, label %316, label %324
 
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
-  %317 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %316) #25
-  %318 = icmp eq i64 %317, 1
-  br i1 %318, label %319, label %495
+316:                                              ; preds = %313
+  %317 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
+  %318 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #25
+  %319 = icmp eq i64 %318, 1
+  br i1 %319, label %320, label %496
 
-319:                                              ; preds = %315
-  %320 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 0
-  %321 = load i32, ptr %320, align 8
-  %322 = icmp eq i32 %321, 10
-  br i1 %322, label %323, label %495
+320:                                              ; preds = %316
+  %321 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 0
+  %322 = load i32, ptr %321, align 8
+  %323 = icmp eq i32 %322, 10
+  br i1 %323, label %324, label %496
 
-323:                                              ; preds = %319, %312
-  %324 = load ptr, ptr %34, align 8
-  %325 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %324, i32 0, i32 2
-  %326 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %325) #25
-  %327 = icmp eq i64 %326, 2
-  br i1 %327, label %328, label %495
+324:                                              ; preds = %320, %313
+  %325 = load ptr, ptr %34, align 8
+  %326 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %325, i32 0, i32 2
+  %327 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %326) #25
+  %328 = icmp eq i64 %327, 2
+  br i1 %328, label %329, label %496
 
-328:                                              ; preds = %323
-  %329 = load ptr, ptr %34, align 8
-  %330 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %329, i32 0, i32 0
-  %331 = load i32, ptr %330, align 8
-  %332 = icmp eq i32 %331, 10
-  br i1 %332, label %333, label %495
+329:                                              ; preds = %324
+  %330 = load ptr, ptr %34, align 8
+  %331 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %330, i32 0, i32 0
+  %332 = load i32, ptr %331, align 8
+  %333 = icmp eq i32 %332, 10
+  br i1 %333, label %334, label %496
 
-333:                                              ; preds = %328
-  %334 = load ptr, ptr %36, align 8
-  %335 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %334, i32 0, i32 2
-  %336 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #25
-  %337 = icmp eq i64 %336, 2
-  br i1 %337, label %338, label %495
+334:                                              ; preds = %329
+  %335 = load ptr, ptr %36, align 8
+  %336 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %335, i32 0, i32 2
+  %337 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %336) #25
+  %338 = icmp eq i64 %337, 2
+  br i1 %338, label %339, label %496
 
-338:                                              ; preds = %333
-  %339 = load ptr, ptr %36, align 8
-  %340 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %339, i32 0, i32 0
-  %341 = load i32, ptr %340, align 8
-  %342 = icmp eq i32 %341, 10
-  br i1 %342, label %343, label %495
+339:                                              ; preds = %334
+  %340 = load ptr, ptr %36, align 8
+  %341 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %340, i32 0, i32 0
+  %342 = load i32, ptr %341, align 8
+  %343 = icmp eq i32 %342, 10
+  br i1 %343, label %344, label %496
 
-343:                                              ; preds = %338
-  %344 = load ptr, ptr %38, align 8
-  %345 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %344, i32 0, i32 2
-  %346 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %345) #25
-  %347 = icmp eq i64 %346, 4
-  br i1 %347, label %348, label %495
+344:                                              ; preds = %339
+  %345 = load ptr, ptr %38, align 8
+  %346 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %345, i32 0, i32 2
+  %347 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %346) #25
+  %348 = icmp eq i64 %347, 4
+  br i1 %348, label %349, label %496
 
-348:                                              ; preds = %343
-  %349 = load ptr, ptr %38, align 8
-  %350 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %349, i32 0, i32 0
-  %351 = load i32, ptr %350, align 8
-  %352 = icmp eq i32 %351, 10
-  br i1 %352, label %353, label %495
+349:                                              ; preds = %344
+  %350 = load ptr, ptr %38, align 8
+  %351 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %350, i32 0, i32 0
+  %352 = load i32, ptr %351, align 8
+  %353 = icmp eq i32 %352, 10
+  br i1 %353, label %354, label %496
 
-353:                                              ; preds = %348
-  %354 = load ptr, ptr %38, align 8
-  %355 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %354, i32 0, i32 2
-  %356 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %355, i64 noundef 0) #25
-  %357 = load i64, ptr %356, align 8
-  %358 = load ptr, ptr %32, align 8
-  %359 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %358, i32 0, i32 2
-  %360 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %359, i64 noundef 0) #25
-  %361 = load i64, ptr %360, align 8
-  %362 = icmp eq i64 %357, %361
-  br i1 %362, label %363, label %495
+354:                                              ; preds = %349
+  %355 = load ptr, ptr %38, align 8
+  %356 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %355, i32 0, i32 2
+  %357 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %356, i64 noundef 0) #25
+  %358 = load i64, ptr %357, align 8
+  %359 = load ptr, ptr %32, align 8
+  %360 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %359, i32 0, i32 2
+  %361 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %360, i64 noundef 0) #25
+  %362 = load i64, ptr %361, align 8
+  %363 = icmp eq i64 %358, %362
+  br i1 %363, label %364, label %496
 
-363:                                              ; preds = %353
-  %364 = load ptr, ptr %38, align 8
-  %365 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %364, i32 0, i32 2
-  %366 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %365, i64 noundef 1) #25
-  %367 = load i64, ptr %366, align 8
-  %368 = load ptr, ptr %30, align 8
-  %369 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %368, i32 0, i32 2
-  %370 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %369, i64 noundef 0) #25
-  %371 = load i64, ptr %370, align 8
-  %372 = icmp eq i64 %367, %371
-  br i1 %372, label %373, label %495
+364:                                              ; preds = %354
+  %365 = load ptr, ptr %38, align 8
+  %366 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %365, i32 0, i32 2
+  %367 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %366, i64 noundef 1) #25
+  %368 = load i64, ptr %367, align 8
+  %369 = load ptr, ptr %30, align 8
+  %370 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %369, i32 0, i32 2
+  %371 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %370, i64 noundef 0) #25
+  %372 = load i64, ptr %371, align 8
+  %373 = icmp eq i64 %368, %372
+  br i1 %373, label %374, label %496
 
-373:                                              ; preds = %363
-  %374 = load ptr, ptr %40, align 8
-  %375 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %374, i32 0, i32 2
-  %376 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %375) #25
-  %377 = icmp eq i64 %376, 4
-  br i1 %377, label %378, label %495
+374:                                              ; preds = %364
+  %375 = load ptr, ptr %40, align 8
+  %376 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %375, i32 0, i32 2
+  %377 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %376) #25
+  %378 = icmp eq i64 %377, 4
+  br i1 %378, label %379, label %496
 
-378:                                              ; preds = %373
-  %379 = load ptr, ptr %40, align 8
-  %380 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %379, i32 0, i32 0
-  %381 = load i32, ptr %380, align 8
-  %382 = icmp eq i32 %381, 10
-  br i1 %382, label %383, label %495
+379:                                              ; preds = %374
+  %380 = load ptr, ptr %40, align 8
+  %381 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %380, i32 0, i32 0
+  %382 = load i32, ptr %381, align 8
+  %383 = icmp eq i32 %382, 10
+  br i1 %383, label %384, label %496
 
-383:                                              ; preds = %378
-  %384 = load ptr, ptr %40, align 8
-  %385 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %384, i32 0, i32 2
-  %386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %385, i64 noundef 0) #25
-  %387 = load i64, ptr %386, align 8
-  %388 = load ptr, ptr %32, align 8
-  %389 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %388, i32 0, i32 2
-  %390 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %389, i64 noundef 0) #25
-  %391 = load i64, ptr %390, align 8
-  %392 = icmp eq i64 %387, %391
-  br i1 %392, label %393, label %495
+384:                                              ; preds = %379
+  %385 = load ptr, ptr %40, align 8
+  %386 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %385, i32 0, i32 2
+  %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %386, i64 noundef 0) #25
+  %388 = load i64, ptr %387, align 8
+  %389 = load ptr, ptr %32, align 8
+  %390 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %389, i32 0, i32 2
+  %391 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %390, i64 noundef 0) #25
+  %392 = load i64, ptr %391, align 8
+  %393 = icmp eq i64 %388, %392
+  br i1 %393, label %394, label %496
 
-393:                                              ; preds = %383
-  %394 = load ptr, ptr %40, align 8
-  %395 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %394, i32 0, i32 2
-  %396 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %395, i64 noundef 1) #25
-  %397 = load i64, ptr %396, align 8
-  %398 = load ptr, ptr %30, align 8
-  %399 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %398, i32 0, i32 2
-  %400 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %399, i64 noundef 0) #25
-  %401 = load i64, ptr %400, align 8
-  %402 = icmp eq i64 %397, %401
-  br i1 %402, label %403, label %495
+394:                                              ; preds = %384
+  %395 = load ptr, ptr %40, align 8
+  %396 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %395, i32 0, i32 2
+  %397 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %396, i64 noundef 1) #25
+  %398 = load i64, ptr %397, align 8
+  %399 = load ptr, ptr %30, align 8
+  %400 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %399, i32 0, i32 2
+  %401 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %400, i64 noundef 0) #25
+  %402 = load i64, ptr %401, align 8
+  %403 = icmp eq i64 %398, %402
+  br i1 %403, label %404, label %496
 
-403:                                              ; preds = %393
-  %404 = load ptr, ptr %40, align 8
-  %405 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %404, i32 0, i32 2
-  %406 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %405, i64 noundef 2) #25
-  %407 = load i64, ptr %406, align 8
-  %408 = load ptr, ptr %40, align 8
-  %409 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %408, i32 0, i32 2
-  %410 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %409, i64 noundef 3) #25
-  %411 = load i64, ptr %410, align 8
-  %412 = icmp eq i64 %407, %411
-  br i1 %412, label %413, label %495
+404:                                              ; preds = %394
+  %405 = load ptr, ptr %40, align 8
+  %406 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %405, i32 0, i32 2
+  %407 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %406, i64 noundef 2) #25
+  %408 = load i64, ptr %407, align 8
+  %409 = load ptr, ptr %40, align 8
+  %410 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %409, i32 0, i32 2
+  %411 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %410, i64 noundef 3) #25
+  %412 = load i64, ptr %411, align 8
+  %413 = icmp eq i64 %408, %412
+  br i1 %413, label %414, label %496
 
-413:                                              ; preds = %403
-  %414 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 0
-  %415 = load i32, ptr %414, align 8
-  %416 = icmp eq i32 %415, 10
-  br i1 %416, label %417, label %495
+414:                                              ; preds = %404
+  %415 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 0
+  %416 = load i32, ptr %415, align 8
+  %417 = icmp eq i32 %416, 10
+  br i1 %417, label %418, label %496
 
-417:                                              ; preds = %413
-  %418 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %419 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %418) #25
-  %420 = icmp eq i64 %419, 5
-  br i1 %420, label %421, label %495
+418:                                              ; preds = %414
+  %419 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %420 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %419) #25
+  %421 = icmp eq i64 %420, 5
+  br i1 %421, label %422, label %496
 
-421:                                              ; preds = %417
-  %422 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %423 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %422, i64 noundef 0) #25
-  %424 = load i64, ptr %423, align 8
-  %425 = load ptr, ptr %32, align 8
-  %426 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %425, i32 0, i32 2
-  %427 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %426, i64 noundef 0) #25
-  %428 = load i64, ptr %427, align 8
-  %429 = icmp eq i64 %424, %428
-  br i1 %429, label %430, label %495
+422:                                              ; preds = %418
+  %423 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %424 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %423, i64 noundef 0) #25
+  %425 = load i64, ptr %424, align 8
+  %426 = load ptr, ptr %32, align 8
+  %427 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %426, i32 0, i32 2
+  %428 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %427, i64 noundef 0) #25
+  %429 = load i64, ptr %428, align 8
+  %430 = icmp eq i64 %425, %429
+  br i1 %430, label %431, label %496
 
-430:                                              ; preds = %421
-  %431 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %432 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %431, i64 noundef 1) #25
-  %433 = load i64, ptr %432, align 8
-  %434 = load ptr, ptr %30, align 8
-  %435 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %434, i32 0, i32 2
-  %436 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %435, i64 noundef 0) #25
-  %437 = load i64, ptr %436, align 8
-  %438 = icmp eq i64 %433, %437
-  br i1 %438, label %439, label %495
+431:                                              ; preds = %422
+  %432 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %433 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %432, i64 noundef 1) #25
+  %434 = load i64, ptr %433, align 8
+  %435 = load ptr, ptr %30, align 8
+  %436 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %435, i32 0, i32 2
+  %437 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %436, i64 noundef 0) #25
+  %438 = load i64, ptr %437, align 8
+  %439 = icmp eq i64 %434, %438
+  br i1 %439, label %440, label %496
 
-439:                                              ; preds = %430
-  %440 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %441 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %440, i64 noundef 2) #25
-  %442 = load i64, ptr %441, align 8
-  %443 = load i8, ptr %48, align 1
-  %444 = trunc i8 %443 to i1
-  br i1 %444, label %445, label %449
+440:                                              ; preds = %431
+  %441 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %442 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %441, i64 noundef 2) #25
+  %443 = load i64, ptr %442, align 8
+  %444 = load i8, ptr %48, align 1
+  %445 = trunc i8 %444 to i1
+  br i1 %445, label %446, label %450
 
-445:                                              ; preds = %439
-  %446 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
-  %447 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %446, i64 noundef 0) #25
-  %448 = load i64, ptr %447, align 8
-  br label %450
+446:                                              ; preds = %440
+  %447 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
+  %448 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %447, i64 noundef 0) #25
+  %449 = load i64, ptr %448, align 8
+  br label %451
 
-449:                                              ; preds = %439
-  br label %450
+450:                                              ; preds = %440
+  br label %451
 
-450:                                              ; preds = %449, %445
-  %451 = phi i64 [ %448, %445 ], [ 3, %449 ]
-  %452 = icmp eq i64 %442, %451
-  br i1 %452, label %453, label %495
+451:                                              ; preds = %450, %446
+  %452 = phi i64 [ %449, %446 ], [ 3, %450 ]
+  %453 = icmp eq i64 %443, %452
+  br i1 %453, label %454, label %496
 
-453:                                              ; preds = %450
-  %454 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %455 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %454, i64 noundef 3) #25
-  %456 = load i64, ptr %455, align 8
-  %457 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %458 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %457, i64 noundef 4) #25
-  %459 = load i64, ptr %458, align 8
-  %460 = icmp eq i64 %456, %459
-  br i1 %460, label %461, label %495
+454:                                              ; preds = %451
+  %455 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %456 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %455, i64 noundef 3) #25
+  %457 = load i64, ptr %456, align 8
+  %458 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %459 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %458, i64 noundef 4) #25
+  %460 = load i64, ptr %459, align 8
+  %461 = icmp eq i64 %457, %460
+  br i1 %461, label %462, label %496
 
-461:                                              ; preds = %453
-  %462 = load ptr, ptr %40, align 8
-  %463 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %462, i32 0, i32 2
-  %464 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %463, i64 noundef 2) #25
-  %465 = load i64, ptr %464, align 8
-  %466 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %467 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %466, i64 noundef 3) #25
-  %468 = load i64, ptr %467, align 8
-  %469 = icmp eq i64 %465, %468
-  br i1 %469, label %470, label %495
+462:                                              ; preds = %454
+  %463 = load ptr, ptr %40, align 8
+  %464 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %463, i32 0, i32 2
+  %465 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %464, i64 noundef 2) #25
+  %466 = load i64, ptr %465, align 8
+  %467 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %468 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %467, i64 noundef 3) #25
+  %469 = load i64, ptr %468, align 8
+  %470 = icmp eq i64 %466, %469
+  br i1 %470, label %471, label %496
 
-470:                                              ; preds = %461
-  %471 = load ptr, ptr %40, align 8
-  %472 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %471, i32 0, i32 2
-  %473 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %472, i64 noundef 3) #25
-  %474 = load i64, ptr %473, align 8
-  %475 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %476 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef 4) #25
-  %477 = load i64, ptr %476, align 8
-  %478 = icmp eq i64 %474, %477
-  br i1 %478, label %479, label %495
+471:                                              ; preds = %462
+  %472 = load ptr, ptr %40, align 8
+  %473 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %472, i32 0, i32 2
+  %474 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %473, i64 noundef 3) #25
+  %475 = load i64, ptr %474, align 8
+  %476 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %477 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %476, i64 noundef 4) #25
+  %478 = load i64, ptr %477, align 8
+  %479 = icmp eq i64 %475, %478
+  br i1 %479, label %480, label %496
 
-479:                                              ; preds = %470
-  %480 = load ptr, ptr %44, align 8
-  %481 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %480, i32 0, i32 2
-  %482 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %481) #25
-  %483 = icmp eq i64 %482, 1
-  br i1 %483, label %484, label %495
+480:                                              ; preds = %471
+  %481 = load ptr, ptr %44, align 8
+  %482 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %481, i32 0, i32 2
+  %483 = call noundef i64 @_ZNKSt3__16vectorImNS_9allocatorImEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %482) #25
+  %484 = icmp eq i64 %483, 1
+  br i1 %484, label %485, label %496
 
-484:                                              ; preds = %479
-  %485 = load ptr, ptr %44, align 8
-  %486 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %485, i32 0, i32 2
-  %487 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %486, i64 noundef 0) #25
-  %488 = load i64, ptr %487, align 8
-  %489 = icmp eq i64 %488, 1
-  br i1 %489, label %490, label %495
+485:                                              ; preds = %480
+  %486 = load ptr, ptr %44, align 8
+  %487 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %486, i32 0, i32 2
+  %488 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %487, i64 noundef 0) #25
+  %489 = load i64, ptr %488, align 8
+  %490 = icmp eq i64 %489, 1
+  br i1 %490, label %491, label %496
 
-490:                                              ; preds = %484
-  %491 = load ptr, ptr %44, align 8
-  %492 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %491, i32 0, i32 0
-  %493 = load i32, ptr %492, align 8
-  %494 = icmp eq i32 %493, 1
-  br i1 %494, label %506, label %495
+491:                                              ; preds = %485
+  %492 = load ptr, ptr %44, align 8
+  %493 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %492, i32 0, i32 0
+  %494 = load i32, ptr %493, align 8
+  %495 = icmp eq i32 %494, 1
+  br i1 %495, label %507, label %496
 
-495:                                              ; preds = %490, %484, %479, %470, %461, %453, %450, %430, %421, %417, %413, %403, %393, %383, %378, %373, %363, %353, %348, %343, %338, %333, %328, %323, %319, %315, %307, %302, %297, %292, %287, %282
-  br label %496
+496:                                              ; preds = %491, %485, %480, %471, %462, %454, %451, %431, %422, %418, %414, %404, %394, %384, %379, %374, %364, %354, %349, %344, %339, %334, %329, %324, %320, %316, %308, %303, %298, %293, %288, %283
+  br label %497
 
-496:                                              ; preds = %495
-  %497 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+497:                                              ; preds = %496
+  %498 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJN7mitsuba3refINS1_10TensorFileEEEEEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %56, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %498 unwind label %240
+          to label %499 unwind label %241
 
-498:                                              ; preds = %496
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %497, ptr noundef @.str.13, i32 noundef 164, ptr noundef nonnull align 8 dereferenceable(24) %56) #28
-          to label %499 unwind label %500
+499:                                              ; preds = %497
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %498, ptr noundef @.str.13, i32 noundef 164, ptr noundef nonnull align 8 dereferenceable(24) %56) #28
+          to label %500 unwind label %501
 
-499:                                              ; preds = %498
+500:                                              ; preds = %499
   unreachable
 
-500:                                              ; preds = %498
-  %501 = landingpad { ptr, i32 }
+501:                                              ; preds = %499
+  %502 = landingpad { ptr, i32 }
           cleanup
-  %502 = extractvalue { ptr, i32 } %501, 0
-  store ptr %502, ptr %21, align 8
-  %503 = extractvalue { ptr, i32 } %501, 1
-  store i32 %503, ptr %22, align 4
+  %503 = extractvalue { ptr, i32 } %502, 0
+  store ptr %503, ptr %21, align 8
+  %504 = extractvalue { ptr, i32 } %502, 1
+  store i32 %504, ptr %22, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #25
-  br label %807
+  br label %808
 
-504:                                              ; No predecessors!
-  br label %505
-
-505:                                              ; preds = %504
+505:                                              ; No predecessors!
   br label %506
 
-506:                                              ; preds = %505, %490
-  %507 = load ptr, ptr %32, align 8
-  %508 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %507, i32 0, i32 2
-  %509 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %508, i64 noundef 0) #25
-  %510 = load i64, ptr %509, align 8
-  %511 = icmp ule i64 %510, 2
-  %512 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 7
-  %513 = zext i1 %511 to i8
-  store i8 %513, ptr %512, align 8
-  %514 = load ptr, ptr %44, align 8
-  %515 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %514, i32 0, i32 3
-  %516 = load ptr, ptr %515, align 8
-  %517 = getelementptr inbounds i8, ptr %516, i64 0
-  %518 = load i8, ptr %517, align 1
-  %519 = icmp ne i8 %518, 0
-  %520 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 8
-  %521 = zext i1 %519 to i8
-  store i8 %521, ptr %520, align 1
-  %522 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 7
-  %523 = load i8, ptr %522, align 8
-  %524 = trunc i8 %523 to i1
-  br i1 %524, label %545, label %525
+506:                                              ; preds = %505
+  br label %507
 
-525:                                              ; preds = %506
-  %526 = load ptr, ptr %32, align 8
-  %527 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %526, i32 0, i32 3
-  %528 = load ptr, ptr %527, align 8
-  store ptr %528, ptr %57, align 8
-  %529 = load ptr, ptr %57, align 8
-  %530 = load ptr, ptr %32, align 8
-  %531 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %530, i32 0, i32 2
-  %532 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %531, i64 noundef 0) #25
-  %533 = load i64, ptr %532, align 8
-  %534 = sub i64 %533, 1
-  %535 = getelementptr inbounds float, ptr %529, i64 %534
-  %536 = load float, ptr %535, align 4
-  %537 = load ptr, ptr %57, align 8
-  %538 = getelementptr inbounds float, ptr %537, i64 0
-  %539 = load float, ptr %538, align 4
-  %540 = fsub contract float %536, %539
-  %541 = fdiv contract float 0x401921FB60000000, %540
-  %542 = call contract noundef float @_ZNSt3__16__math4rintB8ne190000Ef(float noundef %541) #25
-  %543 = fptosi float %542 to i32
-  %544 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 9
-  store i32 %543, ptr %544, align 4
-  br label %545
+507:                                              ; preds = %506, %491
+  %508 = load ptr, ptr %32, align 8
+  %509 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %508, i32 0, i32 2
+  %510 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %509, i64 noundef 0) #25
+  %511 = load i64, ptr %510, align 8
+  %512 = icmp ule i64 %511, 2
+  %513 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 7
+  %514 = zext i1 %512 to i8
+  store i8 %514, ptr %513, align 8
+  %515 = load ptr, ptr %44, align 8
+  %516 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %515, i32 0, i32 3
+  %517 = load ptr, ptr %516, align 8
+  %518 = getelementptr inbounds i8, ptr %517, i64 0
+  %519 = load i8, ptr %518, align 1
+  %520 = icmp ne i8 %519, 0
+  %521 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 8
+  %522 = zext i1 %520 to i8
+  store i8 %522, ptr %521, align 1
+  %523 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 7
+  %524 = load i8, ptr %523, align 8
+  %525 = trunc i8 %524 to i1
+  br i1 %525, label %546, label %526
 
-545:                                              ; preds = %525, %506
-  %546 = load ptr, ptr %34, align 8
-  %547 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %546, i32 0, i32 3
-  %548 = load ptr, ptr %547, align 8
-  %549 = load ptr, ptr %34, align 8
-  %550 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %549, i32 0, i32 2
-  %551 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %550, i64 noundef 1) #25
-  %552 = load ptr, ptr %34, align 8
-  %553 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %552, i32 0, i32 2
-  %554 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %553, i64 noundef 0) #25
-  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %551, ptr noundef nonnull align 8 dereferenceable(8) %554)
-          to label %555 unwind label %240
+526:                                              ; preds = %507
+  %527 = load ptr, ptr %32, align 8
+  %528 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %527, i32 0, i32 3
+  %529 = load ptr, ptr %528, align 8
+  store ptr %529, ptr %57, align 8
+  %530 = load ptr, ptr %57, align 8
+  %531 = load ptr, ptr %32, align 8
+  %532 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %531, i32 0, i32 2
+  %533 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %532, i64 noundef 0) #25
+  %534 = load i64, ptr %533, align 8
+  %535 = sub i64 %534, 1
+  %536 = getelementptr inbounds float, ptr %530, i64 %535
+  %537 = load float, ptr %536, align 4
+  %538 = load ptr, ptr %57, align 8
+  %539 = getelementptr inbounds float, ptr %538, i64 0
+  %540 = load float, ptr %539, align 4
+  %541 = fsub contract float %537, %540
+  %542 = fdiv contract float 0x401921FB60000000, %541
+  %543 = call contract noundef float @_ZNSt3__16__math4rintB8ne190000Ef(float noundef %542) #25
+  %544 = fptosi float %543 to i32
+  %545 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 9
+  store i32 %544, ptr %545, align 4
+  br label %546
 
-555:                                              ; preds = %545
-  %556 = getelementptr inbounds %"struct.std::__1::array", ptr %60, i32 0, i32 0
-  %557 = getelementptr inbounds [4 x %"struct.std::__1::__empty"], ptr %556, i64 0, i64 0
-  %558 = getelementptr inbounds %"struct.std::__1::__empty", ptr %557, i64 4
-  br label %559
+546:                                              ; preds = %526, %507
+  %547 = load ptr, ptr %34, align 8
+  %548 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %547, i32 0, i32 3
+  %549 = load ptr, ptr %548, align 8
+  %550 = load ptr, ptr %34, align 8
+  %551 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %550, i32 0, i32 2
+  %552 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %551, i64 noundef 1) #25
+  %553 = load ptr, ptr %34, align 8
+  %554 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %553, i32 0, i32 2
+  %555 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %554, i64 noundef 0) #25
+  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %552, ptr noundef nonnull align 8 dereferenceable(8) %555)
+          to label %556 unwind label %241
 
-559:                                              ; preds = %559, %555
-  %560 = phi ptr [ %557, %555 ], [ %561, %559 ]
-  %561 = getelementptr inbounds %"struct.std::__1::__empty", ptr %560, i64 1
-  %562 = icmp eq ptr %561, %558
-  br i1 %562, label %563, label %559
+556:                                              ; preds = %546
+  %557 = getelementptr inbounds %"struct.std::__1::array", ptr %60, i32 0, i32 0
+  %558 = getelementptr inbounds [4 x %"struct.std::__1::__empty"], ptr %557, i64 0, i64 0
+  %559 = getelementptr inbounds %"struct.std::__1::__empty", ptr %558, i64 4
+  br label %560
 
-563:                                              ; preds = %559
-  %564 = getelementptr inbounds %"struct.std::__1::array.79", ptr %61, i32 0, i32 0
-  %565 = getelementptr inbounds [8 x %"struct.std::__1::__empty"], ptr %564, i64 0, i64 0
-  %566 = getelementptr inbounds %"struct.std::__1::__empty", ptr %565, i64 8
-  br label %567
+560:                                              ; preds = %560, %556
+  %561 = phi ptr [ %558, %556 ], [ %562, %560 ]
+  %562 = getelementptr inbounds %"struct.std::__1::__empty", ptr %561, i64 1
+  %563 = icmp eq ptr %562, %559
+  br i1 %563, label %564, label %560
 
-567:                                              ; preds = %567, %563
-  %568 = phi ptr [ %565, %563 ], [ %569, %567 ]
-  %569 = getelementptr inbounds %"struct.std::__1::__empty", ptr %568, i64 1
-  %570 = icmp eq ptr %569, %566
-  br i1 %570, label %571, label %567
+564:                                              ; preds = %560
+  %565 = getelementptr inbounds %"struct.std::__1::array.79", ptr %61, i32 0, i32 0
+  %566 = getelementptr inbounds [8 x %"struct.std::__1::__empty"], ptr %565, i64 0, i64 0
+  %567 = getelementptr inbounds %"struct.std::__1::__empty", ptr %566, i64 8
+  br label %568
 
-571:                                              ; preds = %567
-  invoke void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm0EEERKNS9_IS3_Lm0EEEbb(ptr noundef nonnull align 8 dereferenceable(105) %58, ptr noundef %548, ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(8) %61, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %572 unwind label %240
+568:                                              ; preds = %568, %564
+  %569 = phi ptr [ %566, %564 ], [ %570, %568 ]
+  %570 = getelementptr inbounds %"struct.std::__1::__empty", ptr %569, i64 1
+  %571 = icmp eq ptr %570, %567
+  br i1 %571, label %572, label %568
 
-572:                                              ; preds = %571
-  %573 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 2
-  %574 = invoke noundef nonnull align 8 dereferenceable(105) ptr @_ZN7mitsuba10Marginal2DIfLm0ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(105) %573, ptr noundef nonnull align 8 dereferenceable(105) %58)
-          to label %575 unwind label %781
+572:                                              ; preds = %568
+  invoke void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm0EEERKNS9_IS3_Lm0EEEbb(ptr noundef nonnull align 8 dereferenceable(105) %58, ptr noundef %549, ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(8) %61, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %573 unwind label %241
 
-575:                                              ; preds = %572
+573:                                              ; preds = %572
+  %574 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 2
+  %575 = invoke noundef nonnull align 8 dereferenceable(105) ptr @_ZN7mitsuba10Marginal2DIfLm0ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(105) %574, ptr noundef nonnull align 8 dereferenceable(105) %58)
+          to label %576 unwind label %782
+
+576:                                              ; preds = %573
   call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %58) #25
-  %576 = load ptr, ptr %36, align 8
-  %577 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %576, i32 0, i32 3
-  %578 = load ptr, ptr %577, align 8
-  %579 = load ptr, ptr %36, align 8
-  %580 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %579, i32 0, i32 2
-  %581 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %580, i64 noundef 1) #25
-  %582 = load ptr, ptr %36, align 8
-  %583 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %582, i32 0, i32 2
-  %584 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %583, i64 noundef 0) #25
-  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(8) %581, ptr noundef nonnull align 8 dereferenceable(8) %584)
-          to label %585 unwind label %240
+  %577 = load ptr, ptr %36, align 8
+  %578 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %577, i32 0, i32 3
+  %579 = load ptr, ptr %578, align 8
+  %580 = load ptr, ptr %36, align 8
+  %581 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %580, i32 0, i32 2
+  %582 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %581, i64 noundef 1) #25
+  %583 = load ptr, ptr %36, align 8
+  %584 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %583, i32 0, i32 2
+  %585 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %584, i64 noundef 0) #25
+  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(8) %582, ptr noundef nonnull align 8 dereferenceable(8) %585)
+          to label %586 unwind label %241
 
-585:                                              ; preds = %575
-  %586 = getelementptr inbounds %"struct.std::__1::array", ptr %64, i32 0, i32 0
-  %587 = getelementptr inbounds [4 x %"struct.std::__1::__empty"], ptr %586, i64 0, i64 0
-  %588 = getelementptr inbounds %"struct.std::__1::__empty", ptr %587, i64 4
-  br label %589
+586:                                              ; preds = %576
+  %587 = getelementptr inbounds %"struct.std::__1::array", ptr %64, i32 0, i32 0
+  %588 = getelementptr inbounds [4 x %"struct.std::__1::__empty"], ptr %587, i64 0, i64 0
+  %589 = getelementptr inbounds %"struct.std::__1::__empty", ptr %588, i64 4
+  br label %590
 
-589:                                              ; preds = %589, %585
-  %590 = phi ptr [ %587, %585 ], [ %591, %589 ]
-  %591 = getelementptr inbounds %"struct.std::__1::__empty", ptr %590, i64 1
-  %592 = icmp eq ptr %591, %588
-  br i1 %592, label %593, label %589
+590:                                              ; preds = %590, %586
+  %591 = phi ptr [ %588, %586 ], [ %592, %590 ]
+  %592 = getelementptr inbounds %"struct.std::__1::__empty", ptr %591, i64 1
+  %593 = icmp eq ptr %592, %589
+  br i1 %593, label %594, label %590
 
-593:                                              ; preds = %589
-  %594 = getelementptr inbounds %"struct.std::__1::array.79", ptr %65, i32 0, i32 0
-  %595 = getelementptr inbounds [8 x %"struct.std::__1::__empty"], ptr %594, i64 0, i64 0
-  %596 = getelementptr inbounds %"struct.std::__1::__empty", ptr %595, i64 8
-  br label %597
+594:                                              ; preds = %590
+  %595 = getelementptr inbounds %"struct.std::__1::array.79", ptr %65, i32 0, i32 0
+  %596 = getelementptr inbounds [8 x %"struct.std::__1::__empty"], ptr %595, i64 0, i64 0
+  %597 = getelementptr inbounds %"struct.std::__1::__empty", ptr %596, i64 8
+  br label %598
 
-597:                                              ; preds = %597, %593
-  %598 = phi ptr [ %595, %593 ], [ %599, %597 ]
-  %599 = getelementptr inbounds %"struct.std::__1::__empty", ptr %598, i64 1
-  %600 = icmp eq ptr %599, %596
-  br i1 %600, label %601, label %597
+598:                                              ; preds = %598, %594
+  %599 = phi ptr [ %596, %594 ], [ %600, %598 ]
+  %600 = getelementptr inbounds %"struct.std::__1::__empty", ptr %599, i64 1
+  %601 = icmp eq ptr %600, %597
+  br i1 %601, label %602, label %598
 
-601:                                              ; preds = %597
-  invoke void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm0EEERKNS9_IS3_Lm0EEEbb(ptr noundef nonnull align 8 dereferenceable(105) %62, ptr noundef %578, ptr noundef nonnull align 4 dereferenceable(8) %63, ptr noundef nonnull align 4 dereferenceable(4) %64, ptr noundef nonnull align 8 dereferenceable(8) %65, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %602 unwind label %240
+602:                                              ; preds = %598
+  invoke void @_ZN7mitsuba10Marginal2DIfLm0ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm0EEERKNS9_IS3_Lm0EEEbb(ptr noundef nonnull align 8 dereferenceable(105) %62, ptr noundef %579, ptr noundef nonnull align 4 dereferenceable(8) %63, ptr noundef nonnull align 4 dereferenceable(4) %64, ptr noundef nonnull align 8 dereferenceable(8) %65, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %603 unwind label %241
 
-602:                                              ; preds = %601
-  %603 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 3
-  %604 = invoke noundef nonnull align 8 dereferenceable(105) ptr @_ZN7mitsuba10Marginal2DIfLm0ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(105) %603, ptr noundef nonnull align 8 dereferenceable(105) %62)
-          to label %605 unwind label %785
+603:                                              ; preds = %602
+  %604 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 3
+  %605 = invoke noundef nonnull align 8 dereferenceable(105) ptr @_ZN7mitsuba10Marginal2DIfLm0ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(105) %604, ptr noundef nonnull align 8 dereferenceable(105) %62)
+          to label %606 unwind label %786
 
-605:                                              ; preds = %602
+606:                                              ; preds = %603
   call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %62) #25
-  %606 = load ptr, ptr %38, align 8
-  %607 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %606, i32 0, i32 3
-  %608 = load ptr, ptr %607, align 8
-  %609 = load ptr, ptr %38, align 8
-  %610 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %609, i32 0, i32 2
-  %611 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %610, i64 noundef 3) #25
-  %612 = load ptr, ptr %38, align 8
-  %613 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %612, i32 0, i32 2
-  %614 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %613, i64 noundef 2) #25
-  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %611, ptr noundef nonnull align 8 dereferenceable(8) %614)
-          to label %615 unwind label %240
+  %607 = load ptr, ptr %38, align 8
+  %608 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %607, i32 0, i32 3
+  %609 = load ptr, ptr %608, align 8
+  %610 = load ptr, ptr %38, align 8
+  %611 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %610, i32 0, i32 2
+  %612 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %611, i64 noundef 3) #25
+  %613 = load ptr, ptr %38, align 8
+  %614 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %613, i32 0, i32 2
+  %615 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %614, i64 noundef 2) #25
+  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %612, ptr noundef nonnull align 8 dereferenceable(8) %615)
+          to label %616 unwind label %241
 
-615:                                              ; preds = %605
-  %616 = getelementptr inbounds %"struct.std::__1::array.80", ptr %68, i32 0, i32 0
-  %617 = getelementptr inbounds [2 x i32], ptr %616, i64 0, i64 0
-  %618 = load ptr, ptr %32, align 8
-  %619 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %618, i32 0, i32 2
-  %620 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %619, i64 noundef 0) #25
-  %621 = load i64, ptr %620, align 8
-  %622 = trunc i64 %621 to i32
-  store i32 %622, ptr %617, align 4
-  %623 = getelementptr inbounds i32, ptr %617, i64 1
-  %624 = load ptr, ptr %30, align 8
-  %625 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %624, i32 0, i32 2
-  %626 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %625, i64 noundef 0) #25
-  %627 = load i64, ptr %626, align 8
-  %628 = trunc i64 %627 to i32
-  store i32 %628, ptr %623, align 4
-  %629 = getelementptr inbounds %"struct.std::__1::array.81", ptr %69, i32 0, i32 0
-  %630 = getelementptr inbounds [2 x ptr], ptr %629, i64 0, i64 0
-  %631 = load ptr, ptr %32, align 8
-  %632 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %631, i32 0, i32 3
-  %633 = load ptr, ptr %632, align 8
-  store ptr %633, ptr %630, align 8
-  %634 = getelementptr inbounds ptr, ptr %630, i64 1
-  %635 = load ptr, ptr %30, align 8
-  %636 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %635, i32 0, i32 3
-  %637 = load ptr, ptr %636, align 8
-  store ptr %637, ptr %634, align 8
-  invoke void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm2EEERKNS9_IS3_Lm2EEEbb(ptr noundef nonnull align 8 dereferenceable(161) %66, ptr noundef %608, ptr noundef nonnull align 4 dereferenceable(8) %67, ptr noundef nonnull align 4 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i1 noundef zeroext true, i1 noundef zeroext true)
-          to label %638 unwind label %240
+616:                                              ; preds = %606
+  %617 = getelementptr inbounds %"struct.std::__1::array.80", ptr %68, i32 0, i32 0
+  %618 = getelementptr inbounds [2 x i32], ptr %617, i64 0, i64 0
+  %619 = load ptr, ptr %32, align 8
+  %620 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %619, i32 0, i32 2
+  %621 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %620, i64 noundef 0) #25
+  %622 = load i64, ptr %621, align 8
+  %623 = trunc i64 %622 to i32
+  store i32 %623, ptr %618, align 4
+  %624 = getelementptr inbounds i32, ptr %618, i64 1
+  %625 = load ptr, ptr %30, align 8
+  %626 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %625, i32 0, i32 2
+  %627 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %626, i64 noundef 0) #25
+  %628 = load i64, ptr %627, align 8
+  %629 = trunc i64 %628 to i32
+  store i32 %629, ptr %624, align 4
+  %630 = getelementptr inbounds %"struct.std::__1::array.81", ptr %69, i32 0, i32 0
+  %631 = getelementptr inbounds [2 x ptr], ptr %630, i64 0, i64 0
+  %632 = load ptr, ptr %32, align 8
+  %633 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %632, i32 0, i32 3
+  %634 = load ptr, ptr %633, align 8
+  store ptr %634, ptr %631, align 8
+  %635 = getelementptr inbounds ptr, ptr %631, i64 1
+  %636 = load ptr, ptr %30, align 8
+  %637 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %636, i32 0, i32 3
+  %638 = load ptr, ptr %637, align 8
+  store ptr %638, ptr %635, align 8
+  invoke void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm2EEERKNS9_IS3_Lm2EEEbb(ptr noundef nonnull align 8 dereferenceable(161) %66, ptr noundef %609, ptr noundef nonnull align 4 dereferenceable(8) %67, ptr noundef nonnull align 4 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i1 noundef zeroext true, i1 noundef zeroext true)
+          to label %639 unwind label %241
 
-638:                                              ; preds = %615
-  %639 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 4
-  %640 = invoke noundef nonnull align 8 dereferenceable(161) ptr @_ZN7mitsuba10Marginal2DIfLm2ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(161) %639, ptr noundef nonnull align 8 dereferenceable(161) %66)
-          to label %641 unwind label %789
+639:                                              ; preds = %616
+  %640 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 4
+  %641 = invoke noundef nonnull align 8 dereferenceable(161) ptr @_ZN7mitsuba10Marginal2DIfLm2ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(161) %640, ptr noundef nonnull align 8 dereferenceable(161) %66)
+          to label %642 unwind label %790
 
-641:                                              ; preds = %638
+642:                                              ; preds = %639
   call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %66) #25
-  %642 = load ptr, ptr %40, align 8
-  %643 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %642, i32 0, i32 3
-  %644 = load ptr, ptr %643, align 8
-  %645 = load ptr, ptr %40, align 8
-  %646 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %645, i32 0, i32 2
-  %647 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %646, i64 noundef 3) #25
-  %648 = load ptr, ptr %40, align 8
-  %649 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %648, i32 0, i32 2
-  %650 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %649, i64 noundef 2) #25
-  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %647, ptr noundef nonnull align 8 dereferenceable(8) %650)
-          to label %651 unwind label %240
+  %643 = load ptr, ptr %40, align 8
+  %644 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %643, i32 0, i32 3
+  %645 = load ptr, ptr %644, align 8
+  %646 = load ptr, ptr %40, align 8
+  %647 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %646, i32 0, i32 2
+  %648 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %647, i64 noundef 3) #25
+  %649 = load ptr, ptr %40, align 8
+  %650 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %649, i32 0, i32 2
+  %651 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %650, i64 noundef 2) #25
+  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRKmS5_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS8_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS8_(ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %648, ptr noundef nonnull align 8 dereferenceable(8) %651)
+          to label %652 unwind label %241
 
-651:                                              ; preds = %641
-  %652 = getelementptr inbounds %"struct.std::__1::array.80", ptr %72, i32 0, i32 0
-  %653 = getelementptr inbounds [2 x i32], ptr %652, i64 0, i64 0
-  %654 = load ptr, ptr %32, align 8
-  %655 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %654, i32 0, i32 2
-  %656 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %655, i64 noundef 0) #25
-  %657 = load i64, ptr %656, align 8
-  %658 = trunc i64 %657 to i32
-  store i32 %658, ptr %653, align 4
-  %659 = getelementptr inbounds i32, ptr %653, i64 1
-  %660 = load ptr, ptr %30, align 8
-  %661 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %660, i32 0, i32 2
-  %662 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %661, i64 noundef 0) #25
-  %663 = load i64, ptr %662, align 8
-  %664 = trunc i64 %663 to i32
-  store i32 %664, ptr %659, align 4
-  %665 = getelementptr inbounds %"struct.std::__1::array.81", ptr %73, i32 0, i32 0
-  %666 = getelementptr inbounds [2 x ptr], ptr %665, i64 0, i64 0
-  %667 = load ptr, ptr %32, align 8
-  %668 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %667, i32 0, i32 3
-  %669 = load ptr, ptr %668, align 8
-  store ptr %669, ptr %666, align 8
-  %670 = getelementptr inbounds ptr, ptr %666, i64 1
-  %671 = load ptr, ptr %30, align 8
-  %672 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %671, i32 0, i32 3
-  %673 = load ptr, ptr %672, align 8
-  store ptr %673, ptr %670, align 8
-  invoke void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm2EEERKNS9_IS3_Lm2EEEbb(ptr noundef nonnull align 8 dereferenceable(161) %70, ptr noundef %644, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(16) %73, i1 noundef zeroext true, i1 noundef zeroext true)
-          to label %674 unwind label %240
+652:                                              ; preds = %642
+  %653 = getelementptr inbounds %"struct.std::__1::array.80", ptr %72, i32 0, i32 0
+  %654 = getelementptr inbounds [2 x i32], ptr %653, i64 0, i64 0
+  %655 = load ptr, ptr %32, align 8
+  %656 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %655, i32 0, i32 2
+  %657 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %656, i64 noundef 0) #25
+  %658 = load i64, ptr %657, align 8
+  %659 = trunc i64 %658 to i32
+  store i32 %659, ptr %654, align 4
+  %660 = getelementptr inbounds i32, ptr %654, i64 1
+  %661 = load ptr, ptr %30, align 8
+  %662 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %661, i32 0, i32 2
+  %663 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %662, i64 noundef 0) #25
+  %664 = load i64, ptr %663, align 8
+  %665 = trunc i64 %664 to i32
+  store i32 %665, ptr %660, align 4
+  %666 = getelementptr inbounds %"struct.std::__1::array.81", ptr %73, i32 0, i32 0
+  %667 = getelementptr inbounds [2 x ptr], ptr %666, i64 0, i64 0
+  %668 = load ptr, ptr %32, align 8
+  %669 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %668, i32 0, i32 3
+  %670 = load ptr, ptr %669, align 8
+  store ptr %670, ptr %667, align 8
+  %671 = getelementptr inbounds ptr, ptr %667, i64 1
+  %672 = load ptr, ptr %30, align 8
+  %673 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %672, i32 0, i32 3
+  %674 = load ptr, ptr %673, align 8
+  store ptr %674, ptr %671, align 8
+  invoke void @_ZN7mitsuba10Marginal2DIfLm2ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm2EEERKNS9_IS3_Lm2EEEbb(ptr noundef nonnull align 8 dereferenceable(161) %70, ptr noundef %645, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(16) %73, i1 noundef zeroext true, i1 noundef zeroext true)
+          to label %675 unwind label %241
 
-674:                                              ; preds = %651
-  %675 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 5
-  %676 = invoke noundef nonnull align 8 dereferenceable(161) ptr @_ZN7mitsuba10Marginal2DIfLm2ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(161) %675, ptr noundef nonnull align 8 dereferenceable(161) %70)
-          to label %677 unwind label %793
+675:                                              ; preds = %652
+  %676 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 5
+  %677 = invoke noundef nonnull align 8 dereferenceable(161) ptr @_ZN7mitsuba10Marginal2DIfLm2ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(161) %676, ptr noundef nonnull align 8 dereferenceable(161) %70)
+          to label %678 unwind label %794
 
-677:                                              ; preds = %674
+678:                                              ; preds = %675
   call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %70) #25
-  %678 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 3
-  %679 = load ptr, ptr %678, align 8
-  %680 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %681 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %680, i64 noundef 4) #25
-  %682 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %683 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %682, i64 noundef 3) #25
-  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRmS4_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS7_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS7_(ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(8) %681, ptr noundef nonnull align 8 dereferenceable(8) %683)
-          to label %684 unwind label %240
+  %679 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 3
+  %680 = load ptr, ptr %679, align 8
+  %681 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %682 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %681, i64 noundef 4) #25
+  %683 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %684 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %683, i64 noundef 3) #25
+  invoke void @_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIJRmS4_ETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS7_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS7_(ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(8) %682, ptr noundef nonnull align 8 dereferenceable(8) %684)
+          to label %685 unwind label %241
 
-684:                                              ; preds = %677
-  %685 = getelementptr inbounds %"struct.std::__1::array.82", ptr %76, i32 0, i32 0
-  %686 = getelementptr inbounds [3 x i32], ptr %685, i64 0, i64 0
-  %687 = load ptr, ptr %32, align 8
-  %688 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %687, i32 0, i32 2
-  %689 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %688, i64 noundef 0) #25
-  %690 = load i64, ptr %689, align 8
-  %691 = trunc i64 %690 to i32
-  store i32 %691, ptr %686, align 4
-  %692 = getelementptr inbounds i32, ptr %686, i64 1
-  %693 = load ptr, ptr %30, align 8
-  %694 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %693, i32 0, i32 2
-  %695 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %694, i64 noundef 0) #25
-  %696 = load i64, ptr %695, align 8
-  %697 = trunc i64 %696 to i32
-  store i32 %697, ptr %692, align 4
-  %698 = getelementptr inbounds i32, ptr %692, i64 1
-  %699 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
-  %700 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %699, i64 noundef 0) #25
-  %701 = load i64, ptr %700, align 8
-  %702 = trunc i64 %701 to i32
-  store i32 %702, ptr %698, align 4
-  %703 = getelementptr inbounds %"struct.std::__1::array.83", ptr %77, i32 0, i32 0
-  %704 = getelementptr inbounds [3 x ptr], ptr %703, i64 0, i64 0
-  %705 = load ptr, ptr %32, align 8
-  %706 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %705, i32 0, i32 3
-  %707 = load ptr, ptr %706, align 8
-  store ptr %707, ptr %704, align 8
-  %708 = getelementptr inbounds ptr, ptr %704, i64 1
-  %709 = load ptr, ptr %30, align 8
-  %710 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %709, i32 0, i32 3
-  %711 = load ptr, ptr %710, align 8
-  store ptr %711, ptr %708, align 8
-  %712 = getelementptr inbounds ptr, ptr %708, i64 1
-  %713 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 3
-  %714 = load ptr, ptr %713, align 8
-  store ptr %714, ptr %712, align 8
-  invoke void @_ZN7mitsuba10Marginal2DIfLm3ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm3EEERKNS9_IS3_Lm3EEEbb(ptr noundef nonnull align 8 dereferenceable(193) %74, ptr noundef %679, ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 8 dereferenceable(24) %77, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %715 unwind label %240
+685:                                              ; preds = %678
+  %686 = getelementptr inbounds %"struct.std::__1::array.82", ptr %76, i32 0, i32 0
+  %687 = getelementptr inbounds [3 x i32], ptr %686, i64 0, i64 0
+  %688 = load ptr, ptr %32, align 8
+  %689 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %688, i32 0, i32 2
+  %690 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %689, i64 noundef 0) #25
+  %691 = load i64, ptr %690, align 8
+  %692 = trunc i64 %691 to i32
+  store i32 %692, ptr %687, align 4
+  %693 = getelementptr inbounds i32, ptr %687, i64 1
+  %694 = load ptr, ptr %30, align 8
+  %695 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %694, i32 0, i32 2
+  %696 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %695, i64 noundef 0) #25
+  %697 = load i64, ptr %696, align 8
+  %698 = trunc i64 %697 to i32
+  store i32 %698, ptr %693, align 4
+  %699 = getelementptr inbounds i32, ptr %693, i64 1
+  %700 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 2
+  %701 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %700, i64 noundef 0) #25
+  %702 = load i64, ptr %701, align 8
+  %703 = trunc i64 %702 to i32
+  store i32 %703, ptr %699, align 4
+  %704 = getelementptr inbounds %"struct.std::__1::array.83", ptr %77, i32 0, i32 0
+  %705 = getelementptr inbounds [3 x ptr], ptr %704, i64 0, i64 0
+  %706 = load ptr, ptr %32, align 8
+  %707 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %706, i32 0, i32 3
+  %708 = load ptr, ptr %707, align 8
+  store ptr %708, ptr %705, align 8
+  %709 = getelementptr inbounds ptr, ptr %705, i64 1
+  %710 = load ptr, ptr %30, align 8
+  %711 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %710, i32 0, i32 3
+  %712 = load ptr, ptr %711, align 8
+  store ptr %712, ptr %709, align 8
+  %713 = getelementptr inbounds ptr, ptr %709, i64 1
+  %714 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %47, i32 0, i32 3
+  %715 = load ptr, ptr %714, align 8
+  store ptr %715, ptr %713, align 8
+  invoke void @_ZN7mitsuba10Marginal2DIfLm3ELb1EEC2EPKfRKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm3EEERKNS9_IS3_Lm3EEEbb(ptr noundef nonnull align 8 dereferenceable(193) %74, ptr noundef %680, ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 8 dereferenceable(24) %77, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %716 unwind label %241
 
-715:                                              ; preds = %684
-  %716 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 6
-  %717 = invoke noundef nonnull align 8 dereferenceable(193) ptr @_ZN7mitsuba10Marginal2DIfLm3ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(193) %716, ptr noundef nonnull align 8 dereferenceable(193) %74)
-          to label %718 unwind label %797
+716:                                              ; preds = %685
+  %717 = getelementptr inbounds %"class.mitsuba::Measured", ptr %79, i32 0, i32 6
+  %718 = invoke noundef nonnull align 8 dereferenceable(193) ptr @_ZN7mitsuba10Marginal2DIfLm3ELb1EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(193) %717, ptr noundef nonnull align 8 dereferenceable(193) %74)
+          to label %719 unwind label %798
 
-718:                                              ; preds = %715
+719:                                              ; preds = %716
   call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %74) #25
-  %719 = load ptr, ptr %42, align 8
-  %720 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %719, i32 0, i32 3
-  %721 = load ptr, ptr %720, align 8
-  %722 = load ptr, ptr %42, align 8
-  %723 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %722, i32 0, i32 3
-  %724 = load ptr, ptr %723, align 8
-  %725 = load ptr, ptr %42, align 8
-  %726 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %725, i32 0, i32 2
-  %727 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %726, i64 noundef 0) #25
-  %728 = load i64, ptr %727, align 8
-  %729 = getelementptr inbounds i8, ptr %724, i64 %728
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000IPKcTnNS_9enable_ifIXsr29__has_input_iterator_categoryIT_EE5valueEiE4typeELi0EEESA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef %721, ptr noundef %729)
-          to label %730 unwind label %240
+  %720 = load ptr, ptr %42, align 8
+  %721 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %720, i32 0, i32 3
+  %722 = load ptr, ptr %721, align 8
+  %723 = load ptr, ptr %42, align 8
+  %724 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %723, i32 0, i32 3
+  %725 = load ptr, ptr %724, align 8
+  %726 = load ptr, ptr %42, align 8
+  %727 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %726, i32 0, i32 2
+  %728 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %727, i64 noundef 0) #25
+  %729 = load i64, ptr %728, align 8
+  %730 = getelementptr inbounds i8, ptr %725, i64 %729
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000IPKcTnNS_9enable_ifIXsr29__has_input_iterator_categoryIT_EE5valueEiE4typeELi0EEESA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef %722, ptr noundef %730)
+          to label %731 unwind label %241
 
-730:                                              ; preds = %718
-  br label %731
+731:                                              ; preds = %719
+  br label %732
 
-731:                                              ; preds = %730
-  %732 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
-  %733 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %734 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %733, i64 noundef 0) #25
-  %735 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %736 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %735, i64 noundef 1) #25
-  %737 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %738 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %737, i64 noundef 3) #25
-  %739 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %740 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %739, i64 noundef 4) #25
-  %741 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
-  %742 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %741, i64 noundef 2) #25
+732:                                              ; preds = %731
+  %733 = load ptr, ptr @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  %734 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %735 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %734, i64 noundef 0) #25
+  %736 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %737 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %736, i64 noundef 1) #25
+  %738 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %739 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %738, i64 noundef 3) #25
+  %740 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %741 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %740, i64 noundef 4) #25
+  %742 = getelementptr inbounds %"struct.mitsuba::TensorFile::Field", ptr %46, i32 0, i32 2
+  %743 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16vectorImNS_9allocatorImEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %742, i64 noundef 2) #25
   store i32 200, ptr %3, align 4
-  store ptr %732, ptr %4, align 8
+  store ptr %733, ptr %4, align 8
   store ptr @.str.13, ptr %5, align 8
   store i32 229, ptr %6, align 4
   store ptr @.str.16, ptr %7, align 8
   store ptr %78, ptr %8, align 8
-  store ptr %734, ptr %9, align 8
-  store ptr %736, ptr %10, align 8
-  store ptr %738, ptr %11, align 8
-  store ptr %740, ptr %12, align 8
-  store ptr %742, ptr %13, align 8
-  %743 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
-          to label %744 unwind label %801
+  store ptr %735, ptr %9, align 8
+  store ptr %737, ptr %10, align 8
+  store ptr %739, ptr %11, align 8
+  store ptr %741, ptr %12, align 8
+  store ptr %743, ptr %13, align 8
+  %744 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
+          to label %745 unwind label %802
 
-744:                                              ; preds = %731
-  %745 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %743)
-          to label %746 unwind label %801
+745:                                              ; preds = %732
+  %746 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %744)
+          to label %747 unwind label %802
 
-746:                                              ; preds = %744
-  store ptr %745, ptr %14, align 8
-  %747 = load ptr, ptr %14, align 8
-  %748 = icmp ne ptr %747, null
-  br i1 %748, label %749, label %777
+747:                                              ; preds = %745
+  store ptr %746, ptr %14, align 8
+  %748 = load ptr, ptr %14, align 8
+  %749 = icmp ne ptr %748, null
+  br i1 %749, label %750, label %778
 
-749:                                              ; preds = %746
-  %750 = load i32, ptr %3, align 4
-  %751 = load ptr, ptr %14, align 8
-  %752 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %751)
-  %753 = icmp sge i32 %750, %752
-  br i1 %753, label %754, label %777
+750:                                              ; preds = %747
+  %751 = load i32, ptr %3, align 4
+  %752 = load ptr, ptr %14, align 8
+  %753 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %752)
+  %754 = icmp sge i32 %751, %753
+  br i1 %754, label %755, label %778
 
-754:                                              ; preds = %749
-  %755 = load ptr, ptr %14, align 8
-  %756 = load i32, ptr %3, align 4
-  %757 = load ptr, ptr %4, align 8
-  %758 = load ptr, ptr %5, align 8
-  %759 = load i32, ptr %6, align 4
-  %760 = load ptr, ptr %7, align 8
-  %761 = load ptr, ptr %8, align 8
-  %762 = load ptr, ptr %9, align 8
-  %763 = load ptr, ptr %10, align 8
-  %764 = load ptr, ptr %11, align 8
-  %765 = load ptr, ptr %12, align 8
-  %766 = load ptr, ptr %13, align 8
-  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEmmmmmEEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef %760, ptr noundef nonnull align 8 dereferenceable(24) %761, ptr noundef nonnull align 8 dereferenceable(8) %762, ptr noundef nonnull align 8 dereferenceable(8) %763, ptr noundef nonnull align 8 dereferenceable(8) %764, ptr noundef nonnull align 8 dereferenceable(8) %765, ptr noundef nonnull align 8 dereferenceable(8) %766)
-          to label %767 unwind label %801
+755:                                              ; preds = %750
+  %756 = load ptr, ptr %14, align 8
+  %757 = load i32, ptr %3, align 4
+  %758 = load ptr, ptr %4, align 8
+  %759 = load ptr, ptr %5, align 8
+  %760 = load i32, ptr %6, align 4
+  %761 = load ptr, ptr %7, align 8
+  %762 = load ptr, ptr %8, align 8
+  %763 = load ptr, ptr %9, align 8
+  %764 = load ptr, ptr %10, align 8
+  %765 = load ptr, ptr %11, align 8
+  %766 = load ptr, ptr %12, align 8
+  %767 = load ptr, ptr %13, align 8
+  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEmmmmmEEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef %761, ptr noundef nonnull align 8 dereferenceable(24) %762, ptr noundef nonnull align 8 dereferenceable(8) %763, ptr noundef nonnull align 8 dereferenceable(8) %764, ptr noundef nonnull align 8 dereferenceable(8) %765, ptr noundef nonnull align 8 dereferenceable(8) %766, ptr noundef nonnull align 8 dereferenceable(8) %767)
+          to label %768 unwind label %802
 
-767:                                              ; preds = %754
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %755, i32 noundef %756, ptr noundef %757, ptr noundef %758, i32 noundef %759, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %768 unwind label %769
+768:                                              ; preds = %755
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %756, i32 noundef %757, ptr noundef %758, ptr noundef %759, i32 noundef %760, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %769 unwind label %770
 
-768:                                              ; preds = %767
+769:                                              ; preds = %768
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #25
-  br label %777
-
-769:                                              ; preds = %767
-  %770 = landingpad { ptr, i32 }
-          cleanup
-  %771 = extractvalue { ptr, i32 } %770, 0
-  store ptr %771, ptr %16, align 8
-  %772 = extractvalue { ptr, i32 } %770, 1
-  store i32 %772, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #25
-  %773 = load ptr, ptr %16, align 8
-  %774 = load i32, ptr %17, align 4
-  %775 = insertvalue { ptr, i32 } poison, ptr %773, 0
-  %776 = insertvalue { ptr, i32 } %775, i32 %774, 1
-  br label %803
-
-777:                                              ; preds = %768, %749, %746
   br label %778
 
-778:                                              ; preds = %777
+770:                                              ; preds = %768
+  %771 = landingpad { ptr, i32 }
+          cleanup
+  %772 = extractvalue { ptr, i32 } %771, 0
+  store ptr %772, ptr %16, align 8
+  %773 = extractvalue { ptr, i32 } %771, 1
+  store i32 %773, ptr %17, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #25
+  %774 = load ptr, ptr %16, align 8
+  %775 = load i32, ptr %17, align 4
+  %776 = insertvalue { ptr, i32 } poison, ptr %774, 0
+  %777 = insertvalue { ptr, i32 } %776, i32 %775, 1
+  br label %804
+
+778:                                              ; preds = %769, %750, %747
   br label %779
 
 779:                                              ; preds = %778
   br label %780
 
 780:                                              ; preds = %779
+  br label %781
+
+781:                                              ; preds = %780
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #25
   call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
   call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #25
@@ -3082,99 +3083,99 @@ define weak_odr void @_ZN7mitsuba8MeasuredIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %24) #25
   ret void
 
-781:                                              ; preds = %572
-  %782 = landingpad { ptr, i32 }
+782:                                              ; preds = %573
+  %783 = landingpad { ptr, i32 }
           cleanup
-  %783 = extractvalue { ptr, i32 } %782, 0
-  store ptr %783, ptr %21, align 8
-  %784 = extractvalue { ptr, i32 } %782, 1
-  store i32 %784, ptr %22, align 4
+  %784 = extractvalue { ptr, i32 } %783, 0
+  store ptr %784, ptr %21, align 8
+  %785 = extractvalue { ptr, i32 } %783, 1
+  store i32 %785, ptr %22, align 4
   call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %58) #25
-  br label %807
-
-785:                                              ; preds = %602
-  %786 = landingpad { ptr, i32 }
-          cleanup
-  %787 = extractvalue { ptr, i32 } %786, 0
-  store ptr %787, ptr %21, align 8
-  %788 = extractvalue { ptr, i32 } %786, 1
-  store i32 %788, ptr %22, align 4
-  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %62) #25
-  br label %807
-
-789:                                              ; preds = %638
-  %790 = landingpad { ptr, i32 }
-          cleanup
-  %791 = extractvalue { ptr, i32 } %790, 0
-  store ptr %791, ptr %21, align 8
-  %792 = extractvalue { ptr, i32 } %790, 1
-  store i32 %792, ptr %22, align 4
-  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %66) #25
-  br label %807
-
-793:                                              ; preds = %674
-  %794 = landingpad { ptr, i32 }
-          cleanup
-  %795 = extractvalue { ptr, i32 } %794, 0
-  store ptr %795, ptr %21, align 8
-  %796 = extractvalue { ptr, i32 } %794, 1
-  store i32 %796, ptr %22, align 4
-  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %70) #25
-  br label %807
-
-797:                                              ; preds = %715
-  %798 = landingpad { ptr, i32 }
-          cleanup
-  %799 = extractvalue { ptr, i32 } %798, 0
-  store ptr %799, ptr %21, align 8
-  %800 = extractvalue { ptr, i32 } %798, 1
-  store i32 %800, ptr %22, align 4
-  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %74) #25
-  br label %807
-
-801:                                              ; preds = %754, %744, %731
-  %802 = landingpad { ptr, i32 }
-          cleanup
-  br label %803
-
-803:                                              ; preds = %801, %769
-  %804 = phi { ptr, i32 } [ %802, %801 ], [ %776, %769 ]
-  %805 = extractvalue { ptr, i32 } %804, 0
-  store ptr %805, ptr %21, align 8
-  %806 = extractvalue { ptr, i32 } %804, 1
-  store i32 %806, ptr %22, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #25
-  br label %807
-
-807:                                              ; preds = %803, %797, %793, %789, %785, %781, %500, %272, %268, %252, %248, %244, %240
-  call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
-  call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #25
   br label %808
 
-808:                                              ; preds = %807, %236, %232, %228, %224, %220, %216, %212, %208, %204
-  call void @_ZN7mitsuba3refINS_10TensorFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+786:                                              ; preds = %603
+  %787 = landingpad { ptr, i32 }
+          cleanup
+  %788 = extractvalue { ptr, i32 } %787, 0
+  store ptr %788, ptr %21, align 8
+  %789 = extractvalue { ptr, i32 } %787, 1
+  store i32 %789, ptr %22, align 4
+  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %62) #25
+  br label %808
+
+790:                                              ; preds = %639
+  %791 = landingpad { ptr, i32 }
+          cleanup
+  %792 = extractvalue { ptr, i32 } %791, 0
+  store ptr %792, ptr %21, align 8
+  %793 = extractvalue { ptr, i32 } %791, 1
+  store i32 %793, ptr %22, align 4
+  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %66) #25
+  br label %808
+
+794:                                              ; preds = %675
+  %795 = landingpad { ptr, i32 }
+          cleanup
+  %796 = extractvalue { ptr, i32 } %795, 0
+  store ptr %796, ptr %21, align 8
+  %797 = extractvalue { ptr, i32 } %795, 1
+  store i32 %797, ptr %22, align 4
+  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %70) #25
+  br label %808
+
+798:                                              ; preds = %716
+  %799 = landingpad { ptr, i32 }
+          cleanup
+  %800 = extractvalue { ptr, i32 } %799, 0
+  store ptr %800, ptr %21, align 8
+  %801 = extractvalue { ptr, i32 } %799, 1
+  store i32 %801, ptr %22, align 4
+  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %74) #25
+  br label %808
+
+802:                                              ; preds = %755, %745, %732
+  %803 = landingpad { ptr, i32 }
+          cleanup
+  br label %804
+
+804:                                              ; preds = %802, %770
+  %805 = phi { ptr, i32 } [ %803, %802 ], [ %777, %770 ]
+  %806 = extractvalue { ptr, i32 } %805, 0
+  store ptr %806, ptr %21, align 8
+  %807 = extractvalue { ptr, i32 } %805, 1
+  store i32 %807, ptr %22, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #25
+  br label %808
+
+808:                                              ; preds = %804, %798, %794, %790, %786, %782, %501, %273, %269, %253, %249, %245, %241
+  call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
+  call void @_ZN7mitsuba10TensorFile5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #25
   br label %809
 
-809:                                              ; preds = %808, %200, %196, %192
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %24) #25
+809:                                              ; preds = %808, %237, %233, %229, %225, %221, %217, %213, %209, %205
+  call void @_ZN7mitsuba3refINS_10TensorFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
   br label %810
 
-810:                                              ; preds = %809, %191, %179
-  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %86) #25
-  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %85) #25
-  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %84) #25
-  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %83) #25
-  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %82) #25
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #25
-  call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %79) #25
+810:                                              ; preds = %809, %201, %197, %193
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %24) #25
   br label %811
 
-811:                                              ; preds = %810
-  %812 = load ptr, ptr %21, align 8
-  %813 = load i32, ptr %22, align 4
-  %814 = insertvalue { ptr, i32 } poison, ptr %812, 0
-  %815 = insertvalue { ptr, i32 } %814, i32 %813, 1
-  resume { ptr, i32 } %815
+811:                                              ; preds = %810, %192, %180
+  call void @_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %87) #25
+  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %86) #25
+  call void @_ZN7mitsuba10Marginal2DIfLm2ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(161) %85) #25
+  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %84) #25
+  call void @_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %83) #25
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #25
+  call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %79) #25
+  br label %812
+
+812:                                              ; preds = %811
+  %813 = load ptr, ptr %21, align 8
+  %814 = load i32, ptr %22, align 4
+  %815 = insertvalue { ptr, i32 } poison, ptr %813, 0
+  %816 = insertvalue { ptr, i32 } %815, i32 %814, 1
+  resume { ptr, i32 } %816
 }
 
 declare void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -26031,54 +26032,60 @@ define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_trait
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
-          to label %9 unwind label %13
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %10)
+          to label %12 unwind label %18
 
-9:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
-          to label %12 unwind label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %16, i32 noundef 16)
+          to label %17 unwind label %22
 
-12:                                               ; preds = %9
+17:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #25
-  br label %21
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %26) #25
+  br label %27
 
-21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #25
-  br label %23
+27:                                               ; preds = %22, %18
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %28) #25
+  br label %29
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %4, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29103,7 +29110,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -31113,9 +31121,10 @@ define linkonce_odr void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #25
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #25
   ret void
 }
@@ -31196,7 +31205,8 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31236,14 +31246,15 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
-  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
   ret void
 }
 
@@ -31252,9 +31263,10 @@ define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -44925,32 +44937,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44965,7 +44978,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6Object
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45493,32 +45507,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -45948,32 +45963,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_8MeasuredIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable

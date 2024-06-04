@@ -1932,114 +1932,116 @@ define internal void @color_filters_add_tmp(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 22), align 8
-  %16 = call ptr @g_strsplit(ptr noundef %15, ptr noundef @.str.14, i32 noundef -1)
-  store ptr %16, ptr %6, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 23), align 8
-  %18 = call ptr @g_strsplit(ptr noundef %17, ptr noundef @.str.14, i32 noundef -1)
-  store ptr %18, ptr %5, align 8
+  %15 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 22
+  %16 = load ptr, ptr %15, align 8
+  %17 = call ptr @g_strsplit(ptr noundef %16, ptr noundef @.str.14, i32 noundef -1)
+  store ptr %17, ptr %6, align 8
+  %18 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 23
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @g_strsplit(ptr noundef %19, ptr noundef @.str.14, i32 noundef -1)
+  store ptr %20, ptr %5, align 8
   store i32 1, ptr %4, align 4
-  br label %19
+  br label %21
 
-19:                                               ; preds = %90, %14
-  %20 = load i32, ptr %4, align 4
-  %21 = icmp ule i32 %20, 10
-  br i1 %21, label %22, label %93
+21:                                               ; preds = %92, %14
+  %22 = load i32, ptr %4, align 4
+  %23 = icmp ule i32 %22, 10
+  br i1 %23, label %24, label %95
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %4, align 4
-  %24 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str, ptr noundef @.str.1, i32 noundef %23)
-  store ptr %24, ptr %3, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i32, ptr %4, align 4
-  %27 = sub i32 %26, 1
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %25, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i64 @strtoul(ptr noundef %30, ptr noundef null, i32 noundef 16) #12
-  store i64 %31, ptr %7, align 8
-  %32 = load i64, ptr %7, align 8
-  %33 = lshr i64 %32, 16
-  %34 = and i64 %33, 255
-  %35 = mul i64 %34, 65535
-  %36 = udiv i64 %35, 255
-  %37 = trunc i64 %36 to i16
-  %38 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 0
-  store i16 %37, ptr %38, align 2
-  %39 = load i64, ptr %7, align 8
-  %40 = lshr i64 %39, 8
-  %41 = and i64 %40, 255
-  %42 = mul i64 %41, 65535
-  %43 = udiv i64 %42, 255
-  %44 = trunc i64 %43 to i16
-  %45 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 1
-  store i16 %44, ptr %45, align 2
-  %46 = load i64, ptr %7, align 8
-  %47 = and i64 %46, 255
-  %48 = mul i64 %47, 65535
-  %49 = udiv i64 %48, 255
-  %50 = trunc i64 %49 to i16
-  %51 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 2
-  store i16 %50, ptr %51, align 2
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i32, ptr %4, align 4
-  %54 = sub i32 %53, 1
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %52, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i64 @strtoul(ptr noundef %57, ptr noundef null, i32 noundef 16) #12
-  store i64 %58, ptr %7, align 8
-  %59 = load i64, ptr %7, align 8
-  %60 = lshr i64 %59, 16
-  %61 = and i64 %60, 255
-  %62 = mul i64 %61, 65535
-  %63 = udiv i64 %62, 255
-  %64 = trunc i64 %63 to i16
-  %65 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 0
-  store i16 %64, ptr %65, align 2
-  %66 = load i64, ptr %7, align 8
-  %67 = lshr i64 %66, 8
-  %68 = and i64 %67, 255
-  %69 = mul i64 %68, 65535
-  %70 = udiv i64 %69, 255
-  %71 = trunc i64 %70 to i16
-  %72 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 1
-  store i16 %71, ptr %72, align 2
-  %73 = load i64, ptr %7, align 8
-  %74 = and i64 %73, 255
-  %75 = mul i64 %74, 65535
-  %76 = udiv i64 %75, 255
-  %77 = trunc i64 %76 to i16
-  %78 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 2
-  store i16 %77, ptr %78, align 2
-  %79 = load ptr, ptr %3, align 8
-  %80 = call ptr @color_filter_new(ptr noundef %79, ptr noundef null, ptr noundef %8, ptr noundef %9, i32 noundef 1)
-  store ptr %80, ptr %10, align 8
-  %81 = call noalias ptr @g_strdup(ptr noundef @.str.2)
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds %struct._color_filter, ptr %82, i32 0, i32 1
-  store ptr %81, ptr %83, align 8
-  %84 = load ptr, ptr %2, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = call ptr @g_slist_append(ptr noundef %85, ptr noundef %86)
-  %88 = load ptr, ptr %2, align 8
-  store ptr %87, ptr %88, align 8
-  %89 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %89)
-  br label %90
+24:                                               ; preds = %21
+  %25 = load i32, ptr %4, align 4
+  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str, ptr noundef @.str.1, i32 noundef %25)
+  store ptr %26, ptr %3, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = sub i32 %28, 1
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr ptr, ptr %27, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i64 @strtoul(ptr noundef %32, ptr noundef null, i32 noundef 16) #12
+  store i64 %33, ptr %7, align 8
+  %34 = load i64, ptr %7, align 8
+  %35 = lshr i64 %34, 16
+  %36 = and i64 %35, 255
+  %37 = mul i64 %36, 65535
+  %38 = udiv i64 %37, 255
+  %39 = trunc i64 %38 to i16
+  %40 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 0
+  store i16 %39, ptr %40, align 2
+  %41 = load i64, ptr %7, align 8
+  %42 = lshr i64 %41, 8
+  %43 = and i64 %42, 255
+  %44 = mul i64 %43, 65535
+  %45 = udiv i64 %44, 255
+  %46 = trunc i64 %45 to i16
+  %47 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 1
+  store i16 %46, ptr %47, align 2
+  %48 = load i64, ptr %7, align 8
+  %49 = and i64 %48, 255
+  %50 = mul i64 %49, 65535
+  %51 = udiv i64 %50, 255
+  %52 = trunc i64 %51 to i16
+  %53 = getelementptr inbounds %struct.color_t, ptr %9, i32 0, i32 2
+  store i16 %52, ptr %53, align 2
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %4, align 4
+  %56 = sub i32 %55, 1
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr ptr, ptr %54, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i64 @strtoul(ptr noundef %59, ptr noundef null, i32 noundef 16) #12
+  store i64 %60, ptr %7, align 8
+  %61 = load i64, ptr %7, align 8
+  %62 = lshr i64 %61, 16
+  %63 = and i64 %62, 255
+  %64 = mul i64 %63, 65535
+  %65 = udiv i64 %64, 255
+  %66 = trunc i64 %65 to i16
+  %67 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 0
+  store i16 %66, ptr %67, align 2
+  %68 = load i64, ptr %7, align 8
+  %69 = lshr i64 %68, 8
+  %70 = and i64 %69, 255
+  %71 = mul i64 %70, 65535
+  %72 = udiv i64 %71, 255
+  %73 = trunc i64 %72 to i16
+  %74 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 1
+  store i16 %73, ptr %74, align 2
+  %75 = load i64, ptr %7, align 8
+  %76 = and i64 %75, 255
+  %77 = mul i64 %76, 65535
+  %78 = udiv i64 %77, 255
+  %79 = trunc i64 %78 to i16
+  %80 = getelementptr inbounds %struct.color_t, ptr %8, i32 0, i32 2
+  store i16 %79, ptr %80, align 2
+  %81 = load ptr, ptr %3, align 8
+  %82 = call ptr @color_filter_new(ptr noundef %81, ptr noundef null, ptr noundef %8, ptr noundef %9, i32 noundef 1)
+  store ptr %82, ptr %10, align 8
+  %83 = call noalias ptr @g_strdup(ptr noundef @.str.2)
+  %84 = load ptr, ptr %10, align 8
+  %85 = getelementptr inbounds %struct._color_filter, ptr %84, i32 0, i32 1
+  store ptr %83, ptr %85, align 8
+  %86 = load ptr, ptr %2, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = call ptr @g_slist_append(ptr noundef %87, ptr noundef %88)
+  %90 = load ptr, ptr %2, align 8
+  store ptr %89, ptr %90, align 8
+  %91 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %91)
+  br label %92
 
-90:                                               ; preds = %22
-  %91 = load i32, ptr %4, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %4, align 4
-  br label %19, !llvm.loop !10
+92:                                               ; preds = %24
+  %93 = load i32, ptr %4, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %4, align 4
+  br label %21, !llvm.loop !10
 
-93:                                               ; preds = %19
-  %94 = load ptr, ptr %6, align 8
-  call void @g_strfreev(ptr noundef %94)
-  %95 = load ptr, ptr %5, align 8
-  call void @g_strfreev(ptr noundef %95)
+95:                                               ; preds = %21
+  %96 = load ptr, ptr %6, align 8
+  call void @g_strfreev(ptr noundef %96)
+  %97 = load ptr, ptr %5, align 8
+  call void @g_strfreev(ptr noundef %97)
   ret void
 }
 

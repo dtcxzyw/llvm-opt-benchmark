@@ -42,13 +42,15 @@ define internal void @mca_btl_self_frag_eager_constructor(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %3, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4), ptr %4, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %6, i32 0, i32 4
-  store i64 %5, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  call void @mca_btl_self_frag_constructor(ptr noundef %8)
+  %9 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %8, i32 0, i32 4
+  store i64 %7, ptr %9, align 8
+  %10 = load ptr, ptr %2, align 8
+  call void @mca_btl_self_frag_constructor(ptr noundef %10)
   ret void
 }
 
@@ -58,13 +60,15 @@ define internal void @mca_btl_self_frag_send_constructor(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %3, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5), ptr %4, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3), align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %6, i32 0, i32 4
-  store i64 %5, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3
+  %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  call void @mca_btl_self_frag_constructor(ptr noundef %8)
+  %9 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %8, i32 0, i32 4
+  store i64 %7, ptr %9, align 8
+  %10 = load ptr, ptr %2, align 8
+  call void @mca_btl_self_frag_constructor(ptr noundef %10)
   ret void
 }
 
@@ -74,12 +78,13 @@ define internal void @mca_btl_self_frag_rdma_constructor(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %3, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6), ptr %4, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %5, i32 0, i32 4
-  store i64 128, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  call void @mca_btl_self_frag_constructor(ptr noundef %7)
+  %5 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  store ptr %5, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %6, i32 0, i32 4
+  store i64 128, ptr %7, align 8
+  %8 = load ptr, ptr %2, align 8
+  call void @mca_btl_self_frag_constructor(ptr noundef %8)
   ret void
 }
 

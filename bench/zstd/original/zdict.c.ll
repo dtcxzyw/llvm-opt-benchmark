@@ -1599,29 +1599,31 @@ if.end338:                                        ; preds = %if.end321
   call void @MEM_writeLE32(ptr noundef %add.ptr339, i32 noundef %178)
   %179 = load ptr, ptr %dstPtr, align 8
   %add.ptr340 = getelementptr inbounds i8, ptr %179, i64 4
-  %180 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @repStartValue, i64 0, i64 1), align 4
-  call void @MEM_writeLE32(ptr noundef %add.ptr340, i32 noundef %180)
-  %181 = load ptr, ptr %dstPtr, align 8
-  %add.ptr341 = getelementptr inbounds i8, ptr %181, i64 8
-  %182 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @repStartValue, i64 0, i64 2), align 4
-  call void @MEM_writeLE32(ptr noundef %add.ptr341, i32 noundef %182)
-  %183 = load i64, ptr %eSize, align 8
-  %add342 = add i64 %183, 12
+  %180 = getelementptr inbounds [3 x i32], ptr @repStartValue, i64 0, i64 1
+  %181 = load i32, ptr %180, align 4
+  call void @MEM_writeLE32(ptr noundef %add.ptr340, i32 noundef %181)
+  %182 = load ptr, ptr %dstPtr, align 8
+  %add.ptr341 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = getelementptr inbounds [3 x i32], ptr @repStartValue, i64 0, i64 2
+  %184 = load i32, ptr %183, align 4
+  call void @MEM_writeLE32(ptr noundef %add.ptr341, i32 noundef %184)
+  %185 = load i64, ptr %eSize, align 8
+  %add342 = add i64 %185, 12
   store i64 %add342, ptr %eSize, align 8
   br label %_cleanup
 
 _cleanup:                                         ; preds = %if.end338, %do.end337, %do.end320, %do.end301, %do.end282, %do.end264, %do.end246, %do.end217, %do.end188, %do.end130, %do.end62, %if.then
   %dict343 = getelementptr inbounds %struct.EStats_ress_t, ptr %esr, i32 0, i32 0
-  %184 = load ptr, ptr %dict343, align 8
-  %call344 = call i64 @ZSTD_freeCDict(ptr noundef %184)
+  %186 = load ptr, ptr %dict343, align 8
+  %call344 = call i64 @ZSTD_freeCDict(ptr noundef %186)
   %zc345 = getelementptr inbounds %struct.EStats_ress_t, ptr %esr, i32 0, i32 1
-  %185 = load ptr, ptr %zc345, align 8
-  %call346 = call i64 @ZSTD_freeCCtx(ptr noundef %185)
+  %187 = load ptr, ptr %zc345, align 8
+  %call346 = call i64 @ZSTD_freeCCtx(ptr noundef %187)
   %workPlace347 = getelementptr inbounds %struct.EStats_ress_t, ptr %esr, i32 0, i32 2
-  %186 = load ptr, ptr %workPlace347, align 8
-  call void @free(ptr noundef %186) #9
-  %187 = load i64, ptr %eSize, align 8
-  ret i64 %187
+  %188 = load ptr, ptr %workPlace347, align 8
+  call void @free(ptr noundef %188) #9
+  %189 = load i64, ptr %eSize, align 8
+  ret i64 %189
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -696,128 +696,143 @@ define internal i32 @_cpuset_create(ptr noundef %0) #0 {
   %7 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr null, ptr %5, align 8
-  %8 = call i32 @common_cgroup_get_param(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1), ptr noundef @.str.25, ptr noundef %6, ptr noundef %7)
-  store i32 %8, ptr %4, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %14, label %11
+  %8 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1
+  %9 = call i32 @common_cgroup_get_param(ptr noundef %8, ptr noundef @.str.25, ptr noundef %6, ptr noundef %7)
+  store i32 %9, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %1
-  %12 = load i64, ptr %7, align 8
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %1
+  %13 = load i64, ptr %7, align 8
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %11, %1
-  %15 = call i32 @xcgroup_cpuset_init(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1))
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %12, %1
+  %16 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1
+  %17 = call i32 @xcgroup_cpuset_init(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   call void @slurm_xfree(ptr noundef %6)
   store i32 -1, ptr %2, align 4
-  br label %63
+  br label %78
 
-18:                                               ; preds = %14
-  br label %19
+20:                                               ; preds = %15
+  br label %21
 
-19:                                               ; preds = %18, %11
-  %20 = call i32 @common_cgroup_set_param(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1), ptr noundef @.str.81, ptr noundef @.str.12)
-  %21 = load ptr, ptr %3, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %57
+21:                                               ; preds = %20, %12
+  %22 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1
+  %23 = call i32 @common_cgroup_set_param(ptr noundef %22, ptr noundef @.str.81, ptr noundef @.str.12)
+  %24 = load ptr, ptr %3, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %67
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1, i32 1), align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %5, ptr noundef @.str.10, ptr noundef %24)
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @getuid() #6
-  %27 = call i32 @getgid() #6
-  %28 = call i32 @common_cgroup_create(ptr noundef getelementptr inbounds ([5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 1), ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8), ptr noundef %25, i32 noundef %26, i32 noundef %27)
-  store i32 %28, ptr %4, align 4
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %31
-
-30:                                               ; preds = %23
-  br label %61
-
-31:                                               ; preds = %23
-  %32 = call zeroext i1 @running_in_slurmd()
-  br i1 %32, label %33, label %43
-
-33:                                               ; preds = %31
-  %34 = call i32 @common_cgroup_instantiate(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8))
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 1, i32 1
+  %28 = load ptr, ptr %27, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %5, ptr noundef @.str.10, ptr noundef %28)
+  %29 = load ptr, ptr %5, align 8
+  %30 = call i32 @getuid() #6
+  %31 = call i32 @getgid() #6
+  %32 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 1
+  %33 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8
+  %34 = call i32 @common_cgroup_create(ptr noundef %32, ptr noundef %33, ptr noundef %29, i32 noundef %30, i32 noundef %31)
   store i32 %34, ptr %4, align 4
   %35 = icmp ne i32 %34, 0
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %33
-  br label %61
+36:                                               ; preds = %26
+  br label %76
 
-37:                                               ; preds = %33
-  %38 = call i32 @common_cgroup_set_param(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8), ptr noundef @.str.11, ptr noundef @.str.12)
-  %39 = call i32 @xcgroup_cpuset_init(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8))
-  store i32 %39, ptr %4, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
+37:                                               ; preds = %26
+  %38 = call zeroext i1 @running_in_slurmd()
+  br i1 %38, label %39, label %52
 
-41:                                               ; preds = %37
-  br label %61
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8
+  %41 = call i32 @common_cgroup_instantiate(ptr noundef %40)
+  store i32 %41, ptr %4, align 4
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %37
-  br label %43
+43:                                               ; preds = %39
+  br label %76
 
-43:                                               ; preds = %42, %31
-  br label %44
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8
+  %46 = call i32 @common_cgroup_set_param(ptr noundef %45, ptr noundef @.str.11, ptr noundef @.str.12)
+  %47 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1, i64 8
+  %48 = call i32 @xcgroup_cpuset_init(ptr noundef %47)
+  store i32 %48, ptr %4, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %51
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %46 = and i64 %45, 36028797018963968
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %55
+50:                                               ; preds = %44
+  br label %76
 
-48:                                               ; preds = %44
-  br label %49
+51:                                               ; preds = %44
+  br label %52
 
-49:                                               ; preds = %48
-  %50 = call i32 @get_log_level()
-  %51 = icmp sge i32 %50, 4
-  br i1 %51, label %52, label %53
-
-52:                                               ; preds = %49
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.82, ptr noundef @plugin_type, ptr noundef @__func__._cpuset_create)
+52:                                               ; preds = %51, %37
   br label %53
 
-53:                                               ; preds = %52, %49
-  br label %54
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 36028797018963968
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %65
 
-54:                                               ; preds = %53
-  br label %55
+58:                                               ; preds = %53
+  br label %59
 
-55:                                               ; preds = %54, %44
-  br label %56
+59:                                               ; preds = %58
+  %60 = call i32 @get_log_level()
+  %61 = icmp sge i32 %60, 4
+  br i1 %61, label %62, label %63
 
-56:                                               ; preds = %55
-  br label %60
-
-57:                                               ; preds = %19
-  %58 = load ptr, ptr %3, align 8
-  %59 = call i32 @xcgroup_create_hierarchy(ptr noundef @__func__._cpuset_create, ptr noundef %58, ptr noundef getelementptr inbounds ([5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 1), ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1), ptr noundef getelementptr inbounds ([5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 1), ptr noundef getelementptr inbounds ([5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 1), ptr noundef getelementptr inbounds ([5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 1))
-  store i32 %59, ptr %4, align 4
-  br label %60
-
-60:                                               ; preds = %57, %56
-  br label %61
-
-61:                                               ; preds = %60, %41, %36, %30
-  call void @slurm_xfree(ptr noundef %6)
-  call void @slurm_xfree(ptr noundef %5)
-  %62 = load i32, ptr %4, align 4
-  store i32 %62, ptr %2, align 4
+62:                                               ; preds = %59
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.82, ptr noundef @plugin_type, ptr noundef @__func__._cpuset_create)
   br label %63
 
-63:                                               ; preds = %61, %17
-  %64 = load i32, ptr %2, align 4
-  ret i32 %64
+63:                                               ; preds = %62, %59
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64, %53
+  br label %66
+
+66:                                               ; preds = %65
+  br label %75
+
+67:                                               ; preds = %21
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 1
+  %70 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 1
+  %71 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 1
+  %72 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 1
+  %73 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 1
+  %74 = call i32 @xcgroup_create_hierarchy(ptr noundef @__func__._cpuset_create, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73)
+  store i32 %74, ptr %4, align 4
+  br label %75
+
+75:                                               ; preds = %67, %66
+  br label %76
+
+76:                                               ; preds = %75, %50, %43, %36
+  call void @slurm_xfree(ptr noundef %6)
+  call void @slurm_xfree(ptr noundef %5)
+  %77 = load i32, ptr %4, align 4
+  store i32 %77, ptr %2, align 4
+  br label %78
+
+78:                                               ; preds = %76, %19
+  %79 = load i32, ptr %2, align 4
+  ret i32 %79
 }
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #1
@@ -925,7 +940,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) #0 {
 
 12:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %92
+  br label %93
 
 13:                                               ; preds = %1
   %14 = load i32, ptr %3, align 4
@@ -947,13 +962,13 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) #0 {
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 (ptr, ...) @error(ptr noundef @.str.16, ptr noundef %20)
   store i32 0, ptr %2, align 4
-  br label %92
+  br label %93
 
 22:                                               ; preds = %13
   %23 = load i32, ptr %3, align 4
   %24 = call i32 (ptr, ...) @error(ptr noundef @.str.9, i32 noundef %23)
   store i32 -1, ptr %2, align 4
-  br label %92
+  br label %93
 
 25:                                               ; preds = %15
   %26 = load i32, ptr %3, align 4
@@ -970,7 +985,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) #0 {
 34:                                               ; preds = %25
   %35 = call i32 @getpid() #6
   %36 = call i32 (ptr, ...) @error(ptr noundef @.str.17, i32 noundef %35)
-  br label %75
+  br label %76
 
 37:                                               ; preds = %25
   %38 = load i32, ptr %3, align 4
@@ -989,83 +1004,84 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) #0 {
   %50 = call i32 @common_cgroup_delete(ptr noundef %49)
   store i32 %50, ptr %4, align 4
   %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %70
+  br i1 %51, label %52, label %71
 
 52:                                               ; preds = %37
   br label %53
 
 53:                                               ; preds = %52
-  %54 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %55 = and i64 %54, 36028797018963968
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %68
+  %54 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 36028797018963968
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %69
 
-57:                                               ; preds = %53
-  br label %58
+58:                                               ; preds = %53
+  br label %59
 
-58:                                               ; preds = %57
-  %59 = call i32 @get_log_level()
-  %60 = icmp sge i32 %59, 4
-  br i1 %60, label %61, label %66
+59:                                               ; preds = %58
+  %60 = call i32 @get_log_level()
+  %61 = icmp sge i32 %60, 4
+  br i1 %61, label %62, label %67
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %3, align 4
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_system_destroy, ptr noundef %65)
-  br label %66
-
-66:                                               ; preds = %61, %58
+62:                                               ; preds = %59
+  %63 = load i32, ptr %3, align 4
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_system_destroy, ptr noundef %66)
   br label %67
 
-67:                                               ; preds = %66
+67:                                               ; preds = %62, %59
   br label %68
 
-68:                                               ; preds = %67, %53
+68:                                               ; preds = %67
   br label %69
 
-69:                                               ; preds = %68
-  br label %75
+69:                                               ; preds = %68, %53
+  br label %70
 
-70:                                               ; preds = %37
-  %71 = load i32, ptr %3, align 4
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %72
-  %74 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %73, i64 0, i64 8
-  call void @common_cgroup_destroy(ptr noundef %74)
-  br label %75
+70:                                               ; preds = %69
+  br label %76
 
-75:                                               ; preds = %70, %69, %34
-  %76 = load i32, ptr %4, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %90
+71:                                               ; preds = %37
+  %72 = load i32, ptr %3, align 4
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %73
+  %75 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %74, i64 0, i64 8
+  call void @common_cgroup_destroy(ptr noundef %75)
+  br label %76
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %3, align 4
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %80
-  %82 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %81, i64 0, i64 1
-  call void @common_cgroup_destroy(ptr noundef %82)
-  %83 = load i32, ptr %3, align 4
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %84
-  %86 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %85, i64 0, i64 0
-  call void @common_cgroup_destroy(ptr noundef %86)
-  %87 = load i32, ptr %3, align 4
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %88
-  call void @common_cgroup_ns_destroy(ptr noundef %89)
-  br label %90
+76:                                               ; preds = %71, %70, %34
+  %77 = load i32, ptr %4, align 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %91
 
-90:                                               ; preds = %78, %75
-  %91 = load i32, ptr %4, align 4
-  store i32 %91, ptr %2, align 4
-  br label %92
+79:                                               ; preds = %76
+  %80 = load i32, ptr %3, align 4
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %81
+  %83 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %82, i64 0, i64 1
+  call void @common_cgroup_destroy(ptr noundef %83)
+  %84 = load i32, ptr %3, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %85
+  %87 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %86, i64 0, i64 0
+  call void @common_cgroup_destroy(ptr noundef %87)
+  %88 = load i32, ptr %3, align 4
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %89
+  call void @common_cgroup_ns_destroy(ptr noundef %90)
+  br label %91
 
-92:                                               ; preds = %90, %22, %16, %12
-  %93 = load i32, ptr %2, align 4
-  ret i32 %93
+91:                                               ; preds = %79, %76
+  %92 = load i32, ptr %4, align 4
+  store i32 %92, ptr %2, align 4
+  br label %93
+
+93:                                               ; preds = %91, %22, %16, %12
+  %94 = load i32, ptr %2, align 4
+  ret i32 %94
 }
 
 declare i32 @common_cgroup_move_process(ptr noundef, i32 noundef) #1
@@ -1381,7 +1397,7 @@ define internal i32 @_step_destroy_internal(i32 noundef %0, i1 noundef zeroext %
 14:                                               ; preds = %2
   %15 = call i32 (ptr, ...) @error(ptr noundef @.str.83)
   store i32 0, ptr %3, align 4
-  br label %87
+  br label %88
 
 16:                                               ; preds = %2
   %17 = load i32, ptr %4, align 4
@@ -1390,7 +1406,7 @@ define internal i32 @_step_destroy_internal(i32 noundef %0, i1 noundef zeroext %
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %23, label %51
+  br i1 %22, label %23, label %52
 
 23:                                               ; preds = %16
   %24 = load i32, ptr %4, align 4
@@ -1402,115 +1418,116 @@ define internal i32 @_step_destroy_internal(i32 noundef %0, i1 noundef zeroext %
   br label %29
 
 29:                                               ; preds = %23
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %31 = and i64 %30, 36028797018963968
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %49
+  %30 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 36028797018963968
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %50
 
-33:                                               ; preds = %29
-  br label %34
+34:                                               ; preds = %29
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = call i32 @get_log_level()
-  %36 = icmp sge i32 %35, 4
-  br i1 %36, label %37, label %47
+35:                                               ; preds = %34
+  %36 = call i32 @get_log_level()
+  %37 = icmp sge i32 %36, 4
+  br i1 %37, label %38, label %48
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %4, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds [5 x i16], ptr @g_step_active_cnt, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %46 = zext i16 %45 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.84, ptr noundef @plugin_type, ptr noundef @__func__._step_destroy_internal, ptr noundef %41, i32 noundef %46)
-  br label %47
-
-47:                                               ; preds = %37, %34
+38:                                               ; preds = %35
+  %39 = load i32, ptr %4, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds [5 x i16], ptr @g_step_active_cnt, i64 0, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = zext i16 %46 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.84, ptr noundef @plugin_type, ptr noundef @__func__._step_destroy_internal, ptr noundef %42, i32 noundef %47)
   br label %48
 
-48:                                               ; preds = %47
+48:                                               ; preds = %38, %35
   br label %49
 
-49:                                               ; preds = %48, %29
+49:                                               ; preds = %48
   br label %50
 
-50:                                               ; preds = %49
-  store i32 0, ptr %3, align 4
-  br label %87
+50:                                               ; preds = %49, %29
+  br label %51
 
-51:                                               ; preds = %16
-  %52 = load i32, ptr %4, align 4
-  %53 = call i32 @_all_tasks_destroy(i32 noundef %52)
-  %54 = load i32, ptr %4, align 4
-  switch i32 %54, label %60 [
-    i32 0, label %55
-    i32 1, label %56
-    i32 2, label %57
-    i32 3, label %58
-    i32 4, label %59
+51:                                               ; preds = %50
+  store i32 0, ptr %3, align 4
+  br label %88
+
+52:                                               ; preds = %16
+  %53 = load i32, ptr %4, align 4
+  %54 = call i32 @_all_tasks_destroy(i32 noundef %53)
+  %55 = load i32, ptr %4, align 4
+  switch i32 %55, label %61 [
+    i32 0, label %56
+    i32 1, label %57
+    i32 2, label %58
+    i32 3, label %59
+    i32 4, label %60
   ]
 
-55:                                               ; preds = %51
-  br label %63
+56:                                               ; preds = %52
+  br label %64
 
-56:                                               ; preds = %51
-  br label %63
+57:                                               ; preds = %52
+  br label %64
 
-57:                                               ; preds = %51
-  br label %63
+58:                                               ; preds = %52
+  br label %64
 
-58:                                               ; preds = %51
-  br label %63
+59:                                               ; preds = %52
+  br label %64
 
-59:                                               ; preds = %51
-  br label %63
+60:                                               ; preds = %52
+  br label %64
 
-60:                                               ; preds = %51
-  %61 = load i32, ptr %4, align 4
-  %62 = call i32 (ptr, ...) @error(ptr noundef @.str.9, i32 noundef %61)
+61:                                               ; preds = %52
+  %62 = load i32, ptr %4, align 4
+  %63 = call i32 (ptr, ...) @error(ptr noundef @.str.9, i32 noundef %62)
   store i32 -1, ptr %3, align 4
-  br label %87
+  br label %88
 
-63:                                               ; preds = %59, %58, %57, %56, %55
-  %64 = load i32, ptr %4, align 4
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %65
-  %67 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %66, i64 0, i64 0
-  %68 = load i32, ptr %4, align 4
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %69
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i8, ptr %5, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = call i32 @_remove_cg_subsystem(ptr noundef %67, ptr noundef %71, i1 noundef zeroext %73)
-  store i32 %74, ptr %6, align 4
-  %75 = load i32, ptr %6, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %85
+64:                                               ; preds = %60, %59, %58, %57, %56
+  %65 = load i32, ptr %4, align 4
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 %66
+  %68 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr %67, i64 0, i64 0
+  %69 = load i32, ptr %4, align 4
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds [5 x ptr], ptr @g_cg_name, i64 0, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i8, ptr %5, align 1
+  %74 = trunc i8 %73 to i1
+  %75 = call i32 @_remove_cg_subsystem(ptr noundef %68, ptr noundef %72, i1 noundef zeroext %74)
+  store i32 %75, ptr %6, align 4
+  %76 = load i32, ptr %6, align 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %86
 
-77:                                               ; preds = %63
-  %78 = load i32, ptr %4, align 4
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds [5 x i16], ptr @g_step_active_cnt, i64 0, i64 %79
-  store i16 0, ptr %80, align 2
-  %81 = load i32, ptr %4, align 4
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %82
-  %84 = getelementptr inbounds [4096 x i8], ptr %83, i64 0, i64 0
-  store i8 0, ptr %84, align 16
-  br label %85
+78:                                               ; preds = %64
+  %79 = load i32, ptr %4, align 4
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds [5 x i16], ptr @g_step_active_cnt, i64 0, i64 %80
+  store i16 0, ptr %81, align 2
+  %82 = load i32, ptr %4, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %83
+  %85 = getelementptr inbounds [4096 x i8], ptr %84, i64 0, i64 0
+  store i8 0, ptr %85, align 16
+  br label %86
 
-85:                                               ; preds = %77, %63
-  %86 = load i32, ptr %6, align 4
-  store i32 %86, ptr %3, align 4
-  br label %87
+86:                                               ; preds = %78, %64
+  %87 = load i32, ptr %6, align 4
+  store i32 %87, ptr %3, align 4
+  br label %88
 
-87:                                               ; preds = %85, %60, %50, %14
-  %88 = load i32, ptr %3, align 4
-  ret i32 %88
+88:                                               ; preds = %86, %61, %51, %14
+  %89 = load i32, ptr %3, align 4
+  ret i32 %89
 }
 
 declare i32 @common_cgroup_unlock(ptr noundef) #1
@@ -1621,18 +1638,19 @@ define dso_local i32 @cgroup_p_step_get_pids(ptr noundef %0, ptr noundef %1) #0 
 
 9:                                                ; preds = %2
   store i32 -1, ptr %3, align 4
-  br label %14
+  br label %15
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = call i32 @common_cgroup_get_pids(ptr noundef getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4), ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %13 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4
+  %14 = call i32 @common_cgroup_get_pids(ptr noundef %13, ptr noundef %11, ptr noundef %12)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %10, %9
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %10, %9
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 declare i32 @common_cgroup_get_pids(ptr noundef, ptr noundef, ptr noundef) #1
@@ -1647,16 +1665,17 @@ define dso_local i32 @cgroup_p_step_suspend() #0 {
 
 5:                                                ; preds = %0
   store i32 -1, ptr %1, align 4
-  br label %8
+  br label %9
 
 6:                                                ; preds = %0
-  %7 = call i32 @common_cgroup_set_param(ptr noundef getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4), ptr noundef @.str.21, ptr noundef @.str.22)
-  store i32 %7, ptr %1, align 4
-  br label %8
+  %7 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4
+  %8 = call i32 @common_cgroup_set_param(ptr noundef %7, ptr noundef @.str.21, ptr noundef @.str.22)
+  store i32 %8, ptr %1, align 4
+  br label %9
 
-8:                                                ; preds = %6, %5
-  %9 = load i32, ptr %1, align 4
-  ret i32 %9
+9:                                                ; preds = %6, %5
+  %10 = load i32, ptr %1, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1669,16 +1688,17 @@ define dso_local i32 @cgroup_p_step_resume() #0 {
 
 5:                                                ; preds = %0
   store i32 -1, ptr %1, align 4
-  br label %8
+  br label %9
 
 6:                                                ; preds = %0
-  %7 = call i32 @common_cgroup_set_param(ptr noundef getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4), ptr noundef @.str.21, ptr noundef @.str.23)
-  store i32 %7, ptr %1, align 4
-  br label %8
+  %7 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4
+  %8 = call i32 @common_cgroup_set_param(ptr noundef %7, ptr noundef @.str.21, ptr noundef @.str.23)
+  store i32 %8, ptr %1, align 4
+  br label %9
 
-8:                                                ; preds = %6, %5
-  %9 = load i32, ptr %1, align 4
-  ret i32 %9
+9:                                                ; preds = %6, %5
+  %10 = load i32, ptr %1, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1707,31 +1727,32 @@ define dso_local zeroext i1 @cgroup_p_has_pid(i32 noundef %0) #0 {
 
 11:                                               ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %22
+  br label %23
 
 12:                                               ; preds = %1
   store i8 1, ptr %4, align 1
   %13 = getelementptr inbounds %struct.xcgroup_t, ptr %6, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4, i32 2), align 16
-  %16 = call i32 @xstrcmp(ptr noundef %14, ptr noundef %15)
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %19
+  %15 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4, i32 2
+  %16 = load ptr, ptr %15, align 16
+  %17 = call i32 @xstrcmp(ptr noundef %14, ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %12
+19:                                               ; preds = %12
   store i8 0, ptr %4, align 1
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %12
+20:                                               ; preds = %19, %12
   call void @common_cgroup_destroy(ptr noundef %6)
-  %20 = load i8, ptr %4, align 1
-  %21 = trunc i8 %20 to i1
-  store i1 %21, ptr %2, align 1
-  br label %22
+  %21 = load i8, ptr %4, align 1
+  %22 = trunc i8 %21 to i1
+  store i1 %22, ptr %2, align 1
+  br label %23
 
-22:                                               ; preds = %19, %11
-  %23 = load i1, ptr %2, align 1
-  ret i1 %23
+23:                                               ; preds = %20, %11
+  %24 = load i1, ptr %2, align 1
+  ret i1 %24
 }
 
 declare i32 @xcgroup_ns_find_by_pid(ptr noundef, ptr noundef, i32 noundef) #1
@@ -2331,393 +2352,398 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() #0 {
   store i32 -1, ptr %6, align 4
   store i32 -1, ptr %7, align 4
   store i32 -1, ptr %8, align 4
-  %19 = call i32 @common_cgroup_get_param(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4), ptr noundef @.str.14, ptr noundef %3, ptr noundef %10)
-  store i32 %19, ptr %5, align 4
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
+  %19 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %20 = call i32 @common_cgroup_get_param(ptr noundef %19, ptr noundef @.str.14, ptr noundef %3, ptr noundef %10)
+  store i32 %20, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %0
-  %23 = call i32 (ptr, ...) @error(ptr noundef @.str.34)
-  %24 = load i32, ptr %5, align 4
-  store i32 %24, ptr %1, align 4
-  br label %222
+23:                                               ; preds = %0
+  %24 = call i32 (ptr, ...) @error(ptr noundef @.str.34)
+  %25 = load i32, ptr %5, align 4
+  store i32 %25, ptr %1, align 4
+  br label %227
 
-25:                                               ; preds = %0
-  %26 = load ptr, ptr %3, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %35
+26:                                               ; preds = %0
+  %27 = load ptr, ptr %3, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %3, align 8
-  %30 = call ptr @xstrstr(ptr noundef %29, ptr noundef @.str.35)
-  store ptr %30, ptr %4, align 8
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %3, align 8
+  %31 = call ptr @xstrstr(ptr noundef %30, ptr noundef @.str.35)
+  store ptr %31, ptr %4, align 8
   call void @slurm_xfree(ptr noundef %3)
-  %31 = load ptr, ptr %4, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %34
+  %32 = load ptr, ptr %4, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   store i32 1, ptr @oom_kill_type, align 4
   store i32 0, ptr %1, align 4
-  br label %222
+  br label %227
 
-34:                                               ; preds = %28
-  br label %35
+35:                                               ; preds = %29
+  br label %36
 
-35:                                               ; preds = %34, %25
-  %36 = load ptr, ptr getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2), align 16
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2, ptr noundef @.str.36, ptr noundef %36, ptr noundef @.str.14)
-  %37 = load ptr, ptr %2, align 8
-  %38 = call i32 (ptr, i32, ...) @open(ptr noundef %37, i32 noundef 524288)
-  store i32 %38, ptr %7, align 4
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %43
+36:                                               ; preds = %35, %26
+  %37 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2
+  %38 = load ptr, ptr %37, align 16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2, ptr noundef @.str.36, ptr noundef %38, ptr noundef @.str.14)
+  %39 = load ptr, ptr %2, align 8
+  %40 = call i32 (ptr, i32, ...) @open(ptr noundef %39, i32 noundef 524288)
+  store i32 %40, ptr %7, align 4
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %45
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %2, align 8
-  %42 = call i32 (ptr, ...) @error(ptr noundef @.str.37, ptr noundef %41)
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %2, align 8
+  %44 = call i32 (ptr, ...) @error(ptr noundef @.str.37, ptr noundef %43)
   store i32 -1, ptr %5, align 4
-  br label %197
+  br label %200
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2), align 16
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %3, ptr noundef @.str.36, ptr noundef %44, ptr noundef @.str.38)
-  %45 = load ptr, ptr %3, align 8
-  %46 = call i32 (ptr, i32, ...) @open(ptr noundef %45, i32 noundef 524289)
-  store i32 %46, ptr %8, align 4
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2
+  %47 = load ptr, ptr %46, align 16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %3, ptr noundef @.str.36, ptr noundef %47, ptr noundef @.str.38)
+  %48 = load ptr, ptr %3, align 8
+  %49 = call i32 (ptr, i32, ...) @open(ptr noundef %48, i32 noundef 524289)
+  store i32 %49, ptr %8, align 4
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %54
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %3, align 8
-  %50 = call i32 (ptr, ...) @error(ptr noundef @.str.37, ptr noundef %49)
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %3, align 8
+  %53 = call i32 (ptr, ...) @error(ptr noundef @.str.37, ptr noundef %52)
   store i32 -1, ptr %5, align 4
-  br label %197
+  br label %200
 
-51:                                               ; preds = %43
-  %52 = call i32 @eventfd(i32 noundef 0, i32 noundef 524288) #6
-  store i32 %52, ptr %6, align 4
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %56
+54:                                               ; preds = %45
+  %55 = call i32 @eventfd(i32 noundef 0, i32 noundef 524288) #6
+  store i32 %55, ptr %6, align 4
+  %56 = icmp eq i32 %55, -1
+  br i1 %56, label %57, label %59
 
-54:                                               ; preds = %51
-  %55 = call i32 (ptr, ...) @error(ptr noundef @.str.39)
+57:                                               ; preds = %54
+  %58 = call i32 (ptr, ...) @error(ptr noundef @.str.39)
   store i32 -1, ptr %5, align 4
-  br label %197
+  br label %200
 
-56:                                               ; preds = %51
-  %57 = load i32, ptr %6, align 4
-  %58 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %4, ptr noundef @.str.40, i32 noundef %57, i32 noundef %58)
+59:                                               ; preds = %54
+  %60 = load i32, ptr %6, align 4
+  %61 = load i32, ptr %7, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %4, ptr noundef @.str.40, i32 noundef %60, i32 noundef %61)
   store i64 0, ptr @oom_kill_count, align 8
-  br label %59
+  br label %62
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %4, align 8
-  %61 = call i64 @strlen(ptr noundef %60) #7
-  %62 = add i64 %61, 1
-  %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %11, align 4
-  %64 = load ptr, ptr %4, align 8
-  store ptr %64, ptr %12, align 8
-  br label %65
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %4, align 8
+  %64 = call i64 @strlen(ptr noundef %63) #7
+  %65 = add i64 %64, 1
+  %66 = trunc i64 %65 to i32
+  store i32 %66, ptr %11, align 4
+  %67 = load ptr, ptr %4, align 8
+  store ptr %67, ptr %12, align 8
+  br label %68
 
-65:                                               ; preds = %125, %85, %59
-  %66 = load i32, ptr %11, align 4
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %126
+68:                                               ; preds = %128, %88, %62
+  %69 = load i32, ptr %11, align 4
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %129
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %8, align 4
-  %70 = load ptr, ptr %12, align 8
-  %71 = load i32, ptr %11, align 4
-  %72 = sext i32 %71 to i64
-  %73 = call i64 @write(i32 noundef %69, ptr noundef %70, i64 noundef %72)
-  %74 = trunc i64 %73 to i32
-  store i32 %74, ptr %13, align 4
-  %75 = load i32, ptr %13, align 4
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %77, label %100
+71:                                               ; preds = %68
+  %72 = load i32, ptr %8, align 4
+  %73 = load ptr, ptr %12, align 8
+  %74 = load i32, ptr %11, align 4
+  %75 = sext i32 %74 to i64
+  %76 = call i64 @write(i32 noundef %72, ptr noundef %73, i64 noundef %75)
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %13, align 4
+  %78 = load i32, ptr %13, align 4
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %80, label %103
 
-77:                                               ; preds = %68
-  %78 = call ptr @__errno_location() #8
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %79, 11
-  br i1 %80, label %85, label %81
+80:                                               ; preds = %71
+  %81 = call ptr @__errno_location() #8
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, 11
+  br i1 %83, label %88, label %84
 
-81:                                               ; preds = %77
-  %82 = call ptr @__errno_location() #8
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %83, 4
-  br i1 %84, label %85, label %86
+84:                                               ; preds = %80
+  %85 = call ptr @__errno_location() #8
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp eq i32 %86, 4
+  br i1 %87, label %88, label %89
 
-85:                                               ; preds = %81, %77
-  br label %65, !llvm.loop !10
+88:                                               ; preds = %84, %80
+  br label %68, !llvm.loop !10
 
-86:                                               ; preds = %81
-  br label %87
+89:                                               ; preds = %84
+  br label %90
 
-87:                                               ; preds = %86
-  br label %88
+90:                                               ; preds = %89
+  br label %91
 
-88:                                               ; preds = %87
-  %89 = call i32 @get_log_level()
-  %90 = icmp sge i32 %89, 5
-  br i1 %90, label %91, label %97
+91:                                               ; preds = %90
+  %92 = call i32 @get_log_level()
+  %93 = icmp sge i32 %92, 5
+  br i1 %93, label %94, label %100
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %11, align 4
-  %93 = load ptr, ptr %4, align 8
-  %94 = call i64 @strlen(ptr noundef %93) #7
-  %95 = trunc i64 %94 to i32
-  %96 = add nsw i32 %95, 1
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, ptr noundef @.str.24, i32 noundef 1240, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %92, i32 noundef %96)
-  br label %97
+94:                                               ; preds = %91
+  %95 = load i32, ptr %11, align 4
+  %96 = load ptr, ptr %4, align 8
+  %97 = call i64 @strlen(ptr noundef %96) #7
+  %98 = trunc i64 %97 to i32
+  %99 = add nsw i32 %98, 1
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, ptr noundef @.str.24, i32 noundef 1240, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %95, i32 noundef %99)
+  br label %100
 
-97:                                               ; preds = %91, %88
-  br label %98
+100:                                              ; preds = %94, %91
+  br label %101
 
-98:                                               ; preds = %97
-  br label %99
+101:                                              ; preds = %100
+  br label %102
 
-99:                                               ; preds = %98
-  br label %219
+102:                                              ; preds = %101
+  br label %224
 
-100:                                              ; preds = %68
-  %101 = load i32, ptr %13, align 4
-  %102 = load ptr, ptr %12, align 8
-  %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  store ptr %104, ptr %12, align 8
-  %105 = load i32, ptr %13, align 4
-  %106 = load i32, ptr %11, align 4
-  %107 = sub nsw i32 %106, %105
-  store i32 %107, ptr %11, align 4
-  %108 = load i32, ptr %11, align 4
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %110, label %124
+103:                                              ; preds = %71
+  %104 = load i32, ptr %13, align 4
+  %105 = load ptr, ptr %12, align 8
+  %106 = sext i32 %104 to i64
+  %107 = getelementptr inbounds i8, ptr %105, i64 %106
+  store ptr %107, ptr %12, align 8
+  %108 = load i32, ptr %13, align 4
+  %109 = load i32, ptr %11, align 4
+  %110 = sub nsw i32 %109, %108
+  store i32 %110, ptr %11, align 4
+  %111 = load i32, ptr %11, align 4
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %113, label %127
 
-110:                                              ; preds = %100
-  br label %111
+113:                                              ; preds = %103
+  br label %114
 
-111:                                              ; preds = %110
-  br label %112
+114:                                              ; preds = %113
+  br label %115
 
-112:                                              ; preds = %111
-  %113 = call i32 @get_log_level()
-  %114 = icmp sge i32 %113, 7
-  br i1 %114, label %115, label %121
+115:                                              ; preds = %114
+  %116 = call i32 @get_log_level()
+  %117 = icmp sge i32 %116, 7
+  br i1 %117, label %118, label %124
 
-115:                                              ; preds = %112
-  %116 = load i32, ptr %11, align 4
-  %117 = load ptr, ptr %4, align 8
-  %118 = call i64 @strlen(ptr noundef %117) #7
-  %119 = trunc i64 %118 to i32
-  %120 = add nsw i32 %119, 1
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.42, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, ptr noundef @.str.24, i32 noundef 1240, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %116, i32 noundef %120)
-  br label %121
-
-121:                                              ; preds = %115, %112
-  br label %122
-
-122:                                              ; preds = %121
-  br label %123
-
-123:                                              ; preds = %122
+118:                                              ; preds = %115
+  %119 = load i32, ptr %11, align 4
+  %120 = load ptr, ptr %4, align 8
+  %121 = call i64 @strlen(ptr noundef %120) #7
+  %122 = trunc i64 %121 to i32
+  %123 = add nsw i32 %122, 1
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.42, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, ptr noundef @.str.24, i32 noundef 1240, ptr noundef @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %119, i32 noundef %123)
   br label %124
 
-124:                                              ; preds = %123, %100
+124:                                              ; preds = %118, %115
   br label %125
 
 125:                                              ; preds = %124
-  br label %65, !llvm.loop !10
+  br label %126
 
-126:                                              ; preds = %65
+126:                                              ; preds = %125
   br label %127
 
-127:                                              ; preds = %126
-  %128 = call i32 @pipe2(ptr noundef @oom_pipe, i32 noundef 524288) #6
-  %129 = icmp eq i32 %128, -1
-  br i1 %129, label %130, label %132
+127:                                              ; preds = %126, %103
+  br label %128
 
-130:                                              ; preds = %127
-  %131 = call i32 (ptr, ...) @error(ptr noundef @.str.43)
+128:                                              ; preds = %127
+  br label %68, !llvm.loop !10
+
+129:                                              ; preds = %68
+  br label %130
+
+130:                                              ; preds = %129
+  %131 = call i32 @pipe2(ptr noundef @oom_pipe, i32 noundef 524288) #6
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %133, label %135
+
+133:                                              ; preds = %130
+  %134 = call i32 (ptr, ...) @error(ptr noundef @.str.43)
   store i32 -1, ptr %5, align 4
-  br label %197
+  br label %200
 
-132:                                              ; preds = %127
-  %133 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1252, ptr noundef @__func__.cgroup_p_step_start_oom_mgr)
-  store ptr %133, ptr %9, align 8
-  %134 = load i32, ptr %7, align 4
-  %135 = load ptr, ptr %9, align 8
-  %136 = getelementptr inbounds %struct.oom_event_args_t, ptr %135, i32 0, i32 0
-  store i32 %134, ptr %136, align 4
-  %137 = load i32, ptr %8, align 4
+135:                                              ; preds = %130
+  %136 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1252, ptr noundef @__func__.cgroup_p_step_start_oom_mgr)
+  store ptr %136, ptr %9, align 8
+  %137 = load i32, ptr %7, align 4
   %138 = load ptr, ptr %9, align 8
-  %139 = getelementptr inbounds %struct.oom_event_args_t, ptr %138, i32 0, i32 1
+  %139 = getelementptr inbounds %struct.oom_event_args_t, ptr %138, i32 0, i32 0
   store i32 %137, ptr %139, align 4
-  %140 = load i32, ptr %6, align 4
+  %140 = load i32, ptr %8, align 4
   %141 = load ptr, ptr %9, align 8
-  %142 = getelementptr inbounds %struct.oom_event_args_t, ptr %141, i32 0, i32 2
+  %142 = getelementptr inbounds %struct.oom_event_args_t, ptr %141, i32 0, i32 1
   store i32 %140, ptr %142, align 4
-  br label %143
+  %143 = load i32, ptr %6, align 4
+  %144 = load ptr, ptr %9, align 8
+  %145 = getelementptr inbounds %struct.oom_event_args_t, ptr %144, i32 0, i32 2
+  store i32 %143, ptr %145, align 4
+  br label %146
 
-143:                                              ; preds = %132
-  %144 = call i32 @pthread_mutex_init(ptr noundef @oom_mutex, ptr noundef null) #6
-  store i32 %144, ptr %14, align 4
-  %145 = load i32, ptr %14, align 4
-  %146 = icmp ne i32 %145, 0
-  br i1 %146, label %147, label %150
-
-147:                                              ; preds = %143
+146:                                              ; preds = %135
+  %147 = call i32 @pthread_mutex_init(ptr noundef @oom_mutex, ptr noundef null) #6
+  store i32 %147, ptr %14, align 4
   %148 = load i32, ptr %14, align 4
-  %149 = call ptr @__errno_location() #8
-  store i32 %148, ptr %149, align 4
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %153
+
+150:                                              ; preds = %146
+  %151 = load i32, ptr %14, align 4
+  %152 = call ptr @__errno_location() #8
+  store i32 %151, ptr %152, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.44, ptr noundef @.str.24, i32 noundef 1257, ptr noundef @__func__.cgroup_p_step_start_oom_mgr) #9
   unreachable
 
-150:                                              ; preds = %143
-  br label %151
+153:                                              ; preds = %146
+  br label %154
 
-151:                                              ; preds = %150
-  br label %152
+154:                                              ; preds = %153
+  br label %155
 
-152:                                              ; preds = %151
-  br label %153
+155:                                              ; preds = %154
+  br label %156
 
-153:                                              ; preds = %152
-  %154 = call i32 @pthread_attr_init(ptr noundef %15) #6
-  store i32 %154, ptr %17, align 4
-  %155 = load i32, ptr %17, align 4
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %160
-
-157:                                              ; preds = %153
+156:                                              ; preds = %155
+  %157 = call i32 @pthread_attr_init(ptr noundef %15) #6
+  store i32 %157, ptr %17, align 4
   %158 = load i32, ptr %17, align 4
-  %159 = call ptr @__errno_location() #8
-  store i32 %158, ptr %159, align 4
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %163
+
+160:                                              ; preds = %156
+  %161 = load i32, ptr %17, align 4
+  %162 = call ptr @__errno_location() #8
+  store i32 %161, ptr %162, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.45) #9
   unreachable
 
-160:                                              ; preds = %153
-  %161 = call i32 @pthread_attr_setscope(ptr noundef %15, i32 noundef 0) #6
-  store i32 %161, ptr %17, align 4
-  %162 = load i32, ptr %17, align 4
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %168
-
-164:                                              ; preds = %160
+163:                                              ; preds = %156
+  %164 = call i32 @pthread_attr_setscope(ptr noundef %15, i32 noundef 0) #6
+  store i32 %164, ptr %17, align 4
   %165 = load i32, ptr %17, align 4
-  %166 = call ptr @__errno_location() #8
-  store i32 %165, ptr %166, align 4
-  %167 = call i32 (ptr, ...) @error(ptr noundef @.str.46)
-  br label %168
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %171
 
-168:                                              ; preds = %164, %160
-  %169 = call i32 @pthread_attr_setstacksize(ptr noundef %15, i64 noundef 1048576) #6
-  store i32 %169, ptr %17, align 4
-  %170 = load i32, ptr %17, align 4
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %176
+167:                                              ; preds = %163
+  %168 = load i32, ptr %17, align 4
+  %169 = call ptr @__errno_location() #8
+  store i32 %168, ptr %169, align 4
+  %170 = call i32 (ptr, ...) @error(ptr noundef @.str.46)
+  br label %171
 
-172:                                              ; preds = %168
+171:                                              ; preds = %167, %163
+  %172 = call i32 @pthread_attr_setstacksize(ptr noundef %15, i64 noundef 1048576) #6
+  store i32 %172, ptr %17, align 4
   %173 = load i32, ptr %17, align 4
-  %174 = call ptr @__errno_location() #8
-  store i32 %173, ptr %174, align 4
-  %175 = call i32 (ptr, ...) @error(ptr noundef @.str.47)
-  br label %176
+  %174 = icmp ne i32 %173, 0
+  br i1 %174, label %175, label %179
 
-176:                                              ; preds = %172, %168
-  br label %177
+175:                                              ; preds = %171
+  %176 = load i32, ptr %17, align 4
+  %177 = call ptr @__errno_location() #8
+  store i32 %176, ptr %177, align 4
+  %178 = call i32 (ptr, ...) @error(ptr noundef @.str.47)
+  br label %179
 
-177:                                              ; preds = %176
-  %178 = load ptr, ptr %9, align 8
-  %179 = call i32 @pthread_create(ptr noundef @oom_thread, ptr noundef %15, ptr noundef @_oom_event_monitor, ptr noundef %178) #6
-  store i32 %179, ptr %16, align 4
-  %180 = load i32, ptr %16, align 4
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %182, label %185
+179:                                              ; preds = %175, %171
+  br label %180
 
-182:                                              ; preds = %177
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %9, align 8
+  %182 = call i32 @pthread_create(ptr noundef @oom_thread, ptr noundef %15, ptr noundef @_oom_event_monitor, ptr noundef %181) #6
+  store i32 %182, ptr %16, align 4
   %183 = load i32, ptr %16, align 4
-  %184 = call ptr @__errno_location() #8
-  store i32 %183, ptr %184, align 4
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %188
+
+185:                                              ; preds = %180
+  %186 = load i32, ptr %16, align 4
+  %187 = call ptr @__errno_location() #8
+  store i32 %186, ptr %187, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.48, ptr noundef @__func__.cgroup_p_step_start_oom_mgr) #9
   unreachable
 
-185:                                              ; preds = %177
-  br label %186
+188:                                              ; preds = %180
+  br label %189
 
-186:                                              ; preds = %185
-  %187 = call i32 @pthread_attr_destroy(ptr noundef %15) #6
-  store i32 %187, ptr %18, align 4
-  %188 = load i32, ptr %18, align 4
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %190, label %194
-
-190:                                              ; preds = %186
+189:                                              ; preds = %188
+  %190 = call i32 @pthread_attr_destroy(ptr noundef %15) #6
+  store i32 %190, ptr %18, align 4
   %191 = load i32, ptr %18, align 4
-  %192 = call ptr @__errno_location() #8
-  store i32 %191, ptr %192, align 4
-  %193 = call i32 (ptr, ...) @error(ptr noundef @.str.49)
-  br label %194
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %193, label %197
 
-194:                                              ; preds = %190, %186
-  br label %195
-
-195:                                              ; preds = %194
-  br label %196
-
-196:                                              ; preds = %195
-  store i32 2, ptr @oom_kill_type, align 4
+193:                                              ; preds = %189
+  %194 = load i32, ptr %18, align 4
+  %195 = call ptr @__errno_location() #8
+  store i32 %194, ptr %195, align 4
+  %196 = call i32 (ptr, ...) @error(ptr noundef @.str.49)
   br label %197
 
-197:                                              ; preds = %219, %196, %130, %54, %48, %40
+197:                                              ; preds = %193, %189
+  br label %198
+
+198:                                              ; preds = %197
+  br label %199
+
+199:                                              ; preds = %198
+  store i32 2, ptr @oom_kill_type, align 4
+  br label %200
+
+200:                                              ; preds = %224, %199, %133, %57, %51, %42
   call void @slurm_xfree(ptr noundef %4)
-  %198 = load i32, ptr @oom_kill_type, align 4
-  %199 = icmp ne i32 %198, 2
-  br i1 %199, label %200, label %211
+  %201 = load i32, ptr @oom_kill_type, align 4
+  %202 = icmp ne i32 %201, 2
+  br i1 %202, label %203, label %215
 
-200:                                              ; preds = %197
-  %201 = load i32, ptr %6, align 4
-  %202 = call i32 @close(i32 noundef %201)
-  %203 = load i32, ptr %8, align 4
-  %204 = call i32 @close(i32 noundef %203)
-  %205 = load i32, ptr %7, align 4
-  %206 = call i32 @close(i32 noundef %205)
-  %207 = load i32, ptr @oom_pipe, align 4
-  %208 = call i32 @close(i32 noundef %207)
-  %209 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @oom_pipe, i64 0, i64 1), align 4
-  %210 = call i32 @close(i32 noundef %209)
-  br label %211
+203:                                              ; preds = %200
+  %204 = load i32, ptr %6, align 4
+  %205 = call i32 @close(i32 noundef %204)
+  %206 = load i32, ptr %8, align 4
+  %207 = call i32 @close(i32 noundef %206)
+  %208 = load i32, ptr %7, align 4
+  %209 = call i32 @close(i32 noundef %208)
+  %210 = load i32, ptr @oom_pipe, align 4
+  %211 = call i32 @close(i32 noundef %210)
+  %212 = getelementptr inbounds [2 x i32], ptr @oom_pipe, i64 0, i64 1
+  %213 = load i32, ptr %212, align 4
+  %214 = call i32 @close(i32 noundef %213)
+  br label %215
 
-211:                                              ; preds = %200, %197
+215:                                              ; preds = %203, %200
   call void @slurm_xfree(ptr noundef %3)
   call void @slurm_xfree(ptr noundef %2)
-  %212 = load i32, ptr %5, align 4
-  %213 = icmp ne i32 %212, 0
-  br i1 %213, label %214, label %217
+  %216 = load i32, ptr %5, align 4
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %222
 
-214:                                              ; preds = %211
-  %215 = load ptr, ptr getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2), align 16
-  %216 = call i32 (ptr, ...) @error(ptr noundef @.str.50, ptr noundef %215)
-  br label %217
-
-217:                                              ; preds = %214, %211
-  %218 = load i32, ptr %5, align 4
-  store i32 %218, ptr %1, align 4
+218:                                              ; preds = %215
+  %219 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4, i32 2
+  %220 = load ptr, ptr %219, align 16
+  %221 = call i32 (ptr, ...) @error(ptr noundef @.str.50, ptr noundef %220)
   br label %222
 
-219:                                              ; preds = %99
-  %220 = load ptr, ptr %3, align 8
-  %221 = call i32 (ptr, ...) @error(ptr noundef @.str.51, ptr noundef %220)
-  store i32 -1, ptr %5, align 4
-  br label %197
+222:                                              ; preds = %218, %215
+  %223 = load i32, ptr %5, align 4
+  store i32 %223, ptr %1, align 4
+  br label %227
 
-222:                                              ; preds = %217, %33, %22
-  %223 = load i32, ptr %1, align 4
-  ret i32 %223
+224:                                              ; preds = %102
+  %225 = load ptr, ptr %3, align 8
+  %226 = call i32 (ptr, ...) @error(ptr noundef @.str.51, ptr noundef %225)
+  store i32 -1, ptr %5, align 4
+  br label %200
+
+227:                                              ; preds = %222, %34, %23
+  %228 = load i32, ptr %1, align 4
+  ret i32 %228
 }
 
 declare ptr @xstrstr(ptr noundef, ptr noundef) #1
@@ -2810,7 +2836,7 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
   store i16 8193, ptr %31, align 4
   br label %32
 
-32:                                               ; preds = %162, %41, %19
+32:                                               ; preds = %163, %41, %19
   %33 = getelementptr inbounds [2 x %struct.pollfd], ptr %6, i64 0, i64 0
   %34 = call i32 @poll(ptr noundef %33, i64 noundef 2, i32 noundef -1)
   store i32 %34, ptr %4, align 4
@@ -2829,7 +2855,7 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
 
 42:                                               ; preds = %37
   %43 = call i32 (ptr, ...) @error(ptr noundef @.str.88)
-  br label %163
+  br label %164
 
 44:                                               ; preds = %32
   %45 = load i32, ptr %4, align 4
@@ -2838,12 +2864,12 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
 
 47:                                               ; preds = %44
   %48 = call i32 (ptr, ...) @error(ptr noundef @.str.89)
-  br label %163
+  br label %164
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %4, align 4
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %160
+  br i1 %51, label %52, label %161
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds [2 x %struct.pollfd], ptr %6, i64 0, i64 0
@@ -2974,7 +3000,7 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
 
 116:                                              ; preds = %109
   %117 = call i32 (ptr, ...) @error(ptr noundef @.str.93)
-  br label %163
+  br label %164
 
 118:                                              ; preds = %109
   br label %119
@@ -2986,7 +3012,7 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
   %123 = sext i16 %122 to i32
   %124 = and i32 %123, 1
   %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %149
+  br i1 %125, label %126, label %150
 
 126:                                              ; preds = %119
   store i64 0, ptr %5, align 8
@@ -2995,183 +3021,184 @@ define internal ptr @_oom_event_monitor(ptr noundef %0) #0 {
   store i32 %128, ptr %4, align 4
   %129 = load i32, ptr %4, align 4
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %148
+  br i1 %130, label %131, label %149
 
 131:                                              ; preds = %126
   %132 = load i64, ptr %5, align 8
   %133 = icmp eq i64 %132, 1
-  br i1 %133, label %134, label %148
+  br i1 %133, label %134, label %149
 
 134:                                              ; preds = %131
   br label %135
 
 135:                                              ; preds = %134
-  %136 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %137 = and i64 %136, 36028797018963968
-  %138 = icmp ne i64 %137, 0
-  br i1 %138, label %139, label %146
+  %136 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %137 = load i64, ptr %136, align 8
+  %138 = and i64 %137, 36028797018963968
+  %139 = icmp ne i64 %138, 0
+  br i1 %139, label %140, label %147
 
-139:                                              ; preds = %135
-  br label %140
+140:                                              ; preds = %135
+  br label %141
 
-140:                                              ; preds = %139
-  %141 = call i32 @get_log_level()
-  %142 = icmp sge i32 %141, 4
-  br i1 %142, label %143, label %144
+141:                                              ; preds = %140
+  %142 = call i32 @get_log_level()
+  %143 = icmp sge i32 %142, 4
+  br i1 %143, label %144, label %145
 
-143:                                              ; preds = %140
+144:                                              ; preds = %141
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.94, ptr noundef @plugin_type, ptr noundef @__func__._oom_event_monitor)
-  br label %144
-
-144:                                              ; preds = %143, %140
   br label %145
 
-145:                                              ; preds = %144
+145:                                              ; preds = %144, %141
   br label %146
 
-146:                                              ; preds = %145, %135
+146:                                              ; preds = %145
   br label %147
 
-147:                                              ; preds = %146
-  br label %163
+147:                                              ; preds = %146, %135
+  br label %148
 
-148:                                              ; preds = %131, %126
-  br label %159
+148:                                              ; preds = %147
+  br label %164
 
-149:                                              ; preds = %119
-  %150 = getelementptr inbounds [2 x %struct.pollfd], ptr %6, i64 0, i64 1
-  %151 = getelementptr inbounds %struct.pollfd, ptr %150, i32 0, i32 2
-  %152 = load i16, ptr %151, align 2
-  %153 = sext i16 %152 to i32
-  %154 = and i32 %153, 8248
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %158
-
-156:                                              ; preds = %149
-  %157 = call i32 (ptr, ...) @error(ptr noundef @.str.95)
-  br label %163
-
-158:                                              ; preds = %149
-  br label %159
-
-159:                                              ; preds = %158, %148
+149:                                              ; preds = %131, %126
   br label %160
 
-160:                                              ; preds = %159, %49
+150:                                              ; preds = %119
+  %151 = getelementptr inbounds [2 x %struct.pollfd], ptr %6, i64 0, i64 1
+  %152 = getelementptr inbounds %struct.pollfd, ptr %151, i32 0, i32 2
+  %153 = load i16, ptr %152, align 2
+  %154 = sext i16 %153 to i32
+  %155 = and i32 %154, 8248
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %157, label %159
+
+157:                                              ; preds = %150
+  %158 = call i32 (ptr, ...) @error(ptr noundef @.str.95)
+  br label %164
+
+159:                                              ; preds = %150
+  br label %160
+
+160:                                              ; preds = %159, %149
   br label %161
 
-161:                                              ; preds = %160
+161:                                              ; preds = %160, %49
   br label %162
 
 162:                                              ; preds = %161
+  br label %163
+
+163:                                              ; preds = %162
   br label %32
 
-163:                                              ; preds = %156, %147, %116, %47, %42
-  br label %164
+164:                                              ; preds = %157, %148, %116, %47, %42
+  br label %165
 
-164:                                              ; preds = %163
-  %165 = call i32 @pthread_mutex_lock(ptr noundef @oom_mutex) #6
-  store i32 %165, ptr %9, align 4
-  %166 = load i32, ptr %9, align 4
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %171
+165:                                              ; preds = %164
+  %166 = call i32 @pthread_mutex_lock(ptr noundef @oom_mutex) #6
+  store i32 %166, ptr %9, align 4
+  %167 = load i32, ptr %9, align 4
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %169, label %172
 
-168:                                              ; preds = %164
-  %169 = load i32, ptr %9, align 4
-  %170 = call ptr @__errno_location() #8
-  store i32 %169, ptr %170, align 4
+169:                                              ; preds = %165
+  %170 = load i32, ptr %9, align 4
+  %171 = call ptr @__errno_location() #8
+  store i32 %170, ptr %171, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.59, ptr noundef @.str.24, i32 noundef 1162, ptr noundef @__func__._oom_event_monitor) #9
   unreachable
 
-171:                                              ; preds = %164
-  br label %172
+172:                                              ; preds = %165
+  br label %173
 
-172:                                              ; preds = %171
-  %173 = load i64, ptr @oom_kill_count, align 8
-  %174 = icmp ne i64 %173, 0
-  br i1 %174, label %184, label %175
+173:                                              ; preds = %172
+  %174 = load i64, ptr @oom_kill_count, align 8
+  %175 = icmp ne i64 %174, 0
+  br i1 %175, label %185, label %176
 
-175:                                              ; preds = %172
-  br label %176
-
-176:                                              ; preds = %175
+176:                                              ; preds = %173
   br label %177
 
 177:                                              ; preds = %176
-  %178 = call i32 @get_log_level()
-  %179 = icmp sge i32 %178, 5
-  br i1 %179, label %180, label %181
+  br label %178
 
-180:                                              ; preds = %177
+178:                                              ; preds = %177
+  %179 = call i32 @get_log_level()
+  %180 = icmp sge i32 %179, 5
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %178
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.96, ptr noundef @plugin_type, ptr noundef @__func__._oom_event_monitor)
-  br label %181
-
-181:                                              ; preds = %180, %177
   br label %182
 
-182:                                              ; preds = %181
+182:                                              ; preds = %181, %178
   br label %183
 
 183:                                              ; preds = %182
   br label %184
 
-184:                                              ; preds = %183, %172
+184:                                              ; preds = %183
   br label %185
 
-185:                                              ; preds = %184
-  %186 = call i32 @pthread_mutex_unlock(ptr noundef @oom_mutex) #6
-  store i32 %186, ptr %10, align 4
-  %187 = load i32, ptr %10, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %192
+185:                                              ; preds = %184, %173
+  br label %186
 
-189:                                              ; preds = %185
-  %190 = load i32, ptr %10, align 4
-  %191 = call ptr @__errno_location() #8
-  store i32 %190, ptr %191, align 4
+186:                                              ; preds = %185
+  %187 = call i32 @pthread_mutex_unlock(ptr noundef @oom_mutex) #6
+  store i32 %187, ptr %10, align 4
+  %188 = load i32, ptr %10, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %193
+
+190:                                              ; preds = %186
+  %191 = load i32, ptr %10, align 4
+  %192 = call ptr @__errno_location() #8
+  store i32 %191, ptr %192, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.60, ptr noundef @.str.24, i32 noundef 1165, ptr noundef @__func__._oom_event_monitor) #9
   unreachable
 
-192:                                              ; preds = %185
-  br label %193
+193:                                              ; preds = %186
+  br label %194
 
-193:                                              ; preds = %192
-  %194 = load ptr, ptr %3, align 8
-  %195 = getelementptr inbounds %struct.oom_event_args_t, ptr %194, i32 0, i32 2
-  %196 = load i32, ptr %195, align 4
-  %197 = call i32 @close(i32 noundef %196)
-  %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds %struct.oom_event_args_t, ptr %198, i32 0, i32 1
-  %200 = load i32, ptr %199, align 4
-  %201 = call i32 @close(i32 noundef %200)
-  %202 = load ptr, ptr %3, align 8
-  %203 = getelementptr inbounds %struct.oom_event_args_t, ptr %202, i32 0, i32 0
-  %204 = load i32, ptr %203, align 4
-  %205 = call i32 @close(i32 noundef %204)
-  %206 = load i32, ptr @oom_pipe, align 4
-  %207 = call i32 @close(i32 noundef %206)
+194:                                              ; preds = %193
+  %195 = load ptr, ptr %3, align 8
+  %196 = getelementptr inbounds %struct.oom_event_args_t, ptr %195, i32 0, i32 2
+  %197 = load i32, ptr %196, align 4
+  %198 = call i32 @close(i32 noundef %197)
+  %199 = load ptr, ptr %3, align 8
+  %200 = getelementptr inbounds %struct.oom_event_args_t, ptr %199, i32 0, i32 1
+  %201 = load i32, ptr %200, align 4
+  %202 = call i32 @close(i32 noundef %201)
+  %203 = load ptr, ptr %3, align 8
+  %204 = getelementptr inbounds %struct.oom_event_args_t, ptr %203, i32 0, i32 0
+  %205 = load i32, ptr %204, align 4
+  %206 = call i32 @close(i32 noundef %205)
+  %207 = load i32, ptr @oom_pipe, align 4
+  %208 = call i32 @close(i32 noundef %207)
   call void @slurm_xfree(ptr noundef %3)
-  br label %208
-
-208:                                              ; preds = %193
   br label %209
 
-209:                                              ; preds = %208
-  %210 = call i32 @get_log_level()
-  %211 = icmp sge i32 %210, 5
-  br i1 %211, label %212, label %213
+209:                                              ; preds = %194
+  br label %210
 
-212:                                              ; preds = %209
+210:                                              ; preds = %209
+  %211 = call i32 @get_log_level()
+  %212 = icmp sge i32 %211, 5
+  br i1 %212, label %213, label %214
+
+213:                                              ; preds = %210
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.97, ptr noundef @plugin_type, ptr noundef @__func__._oom_event_monitor)
-  br label %213
-
-213:                                              ; preds = %212, %209
   br label %214
 
-214:                                              ; preds = %213
+214:                                              ; preds = %213, %210
   br label %215
 
 215:                                              ; preds = %214
+  br label %216
+
+216:                                              ; preds = %215
   ret ptr null
 }
 
@@ -3206,359 +3233,371 @@ define dso_local ptr @cgroup_p_step_stop_oom_mgr(ptr noundef %0) #0 {
   %19 = call i32 (ptr, ...) @error(ptr noundef @.str.52, ptr noundef %18)
   %20 = load ptr, ptr %4, align 8
   store ptr %20, ptr %2, align 8
-  br label %196
+  br label %208
 
 21:                                               ; preds = %1
-  %22 = call i32 @common_cgroup_lock(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4))
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %26
+  %22 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %23 = call i32 @common_cgroup_lock(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %21
-  %25 = call i32 (ptr, ...) @error(ptr noundef @.str.53)
-  br label %183
+25:                                               ; preds = %21
+  %26 = call i32 (ptr, ...) @error(ptr noundef @.str.53)
+  br label %194
 
-26:                                               ; preds = %21
-  %27 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1340, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
-  store ptr %27, ptr %4, align 8
-  %28 = call zeroext i1 @cgroup_p_has_feature(i32 noundef 0)
-  br i1 %28, label %29, label %36
+27:                                               ; preds = %21
+  %28 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1340, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
+  store ptr %28, ptr %4, align 8
+  %29 = call zeroext i1 @cgroup_p_has_feature(i32 noundef 0)
+  br i1 %29, label %30, label %39
 
-29:                                               ; preds = %26
-  %30 = call i64 @_failcnt(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4), ptr noundef @.str.54)
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.cgroup_oom_t, ptr %31, i32 0, i32 1
-  store i64 %30, ptr %32, align 8
-  %33 = call i64 @_failcnt(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 3), ptr noundef @.str.54)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.cgroup_oom_t, ptr %34, i32 0, i32 3
-  store i64 %33, ptr %35, align 8
-  br label %36
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %32 = call i64 @_failcnt(ptr noundef %31, ptr noundef @.str.54)
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.cgroup_oom_t, ptr %33, i32 0, i32 1
+  store i64 %32, ptr %34, align 8
+  %35 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 3
+  %36 = call i64 @_failcnt(ptr noundef %35, ptr noundef @.str.54)
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.cgroup_oom_t, ptr %37, i32 0, i32 3
+  store i64 %36, ptr %38, align 8
+  br label %39
 
-36:                                               ; preds = %29, %26
-  %37 = call i64 @_failcnt(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4), ptr noundef @.str.55)
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.cgroup_oom_t, ptr %38, i32 0, i32 0
-  store i64 %37, ptr %39, align 8
-  %40 = call i64 @_failcnt(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 3), ptr noundef @.str.55)
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.cgroup_oom_t, ptr %41, i32 0, i32 2
-  store i64 %40, ptr %42, align 8
-  %43 = load i32, ptr @oom_kill_type, align 4
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %75
+39:                                               ; preds = %30, %27
+  %40 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %41 = call i64 @_failcnt(ptr noundef %40, ptr noundef @.str.55)
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds %struct.cgroup_oom_t, ptr %42, i32 0, i32 0
+  store i64 %41, ptr %43, align 8
+  %44 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 3
+  %45 = call i64 @_failcnt(ptr noundef %44, ptr noundef @.str.55)
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.cgroup_oom_t, ptr %46, i32 0, i32 2
+  store i64 %45, ptr %47, align 8
+  %48 = load i32, ptr @oom_kill_type, align 4
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %50, label %83
 
-45:                                               ; preds = %36
+50:                                               ; preds = %39
   store i32 2, ptr %6, align 4
-  %46 = load i32, ptr %6, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds [5 x ptr], ptr @g_task_list, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @list_for_each(ptr noundef %49, ptr noundef @_acct_task, ptr noundef %6)
-  %51 = call i32 @_get_oom_kill_from_file(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4))
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %69
+  %51 = load i32, ptr %6, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds [5 x ptr], ptr @g_task_list, i64 0, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 @list_for_each(ptr noundef %54, ptr noundef @_acct_task, ptr noundef %6)
+  %56 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %57 = call i32 @_get_oom_kill_from_file(ptr noundef %56)
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %76
 
-53:                                               ; preds = %45
-  br label %54
+59:                                               ; preds = %50
+  br label %60
 
-54:                                               ; preds = %53
-  %55 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %56 = and i64 %55, 36028797018963968
-  %57 = icmp ne i64 %56, 0
-  br i1 %57, label %58, label %67
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %62 = load i64, ptr %61, align 8
+  %63 = and i64 %62, 36028797018963968
+  %64 = icmp ne i64 %63, 0
+  br i1 %64, label %65, label %74
 
-58:                                               ; preds = %54
-  br label %59
-
-59:                                               ; preds = %58
-  %60 = call i32 @get_log_level()
-  %61 = icmp sge i32 %60, 4
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %63, i32 0, i32 5
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.56, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef %64)
-  br label %65
-
-65:                                               ; preds = %62, %59
+65:                                               ; preds = %60
   br label %66
 
 66:                                               ; preds = %65
-  br label %67
+  %67 = call i32 @get_log_level()
+  %68 = icmp sge i32 %67, 4
+  br i1 %68, label %69, label %72
 
-67:                                               ; preds = %66, %54
-  br label %68
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %70, i32 0, i32 5
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.56, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef %71)
+  br label %72
 
-68:                                               ; preds = %67
-  br label %69
+72:                                               ; preds = %69, %66
+  br label %73
 
-69:                                               ; preds = %68, %45
-  %70 = load i64, ptr @oom_kill_count, align 8
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.cgroup_oom_t, ptr %71, i32 0, i32 4
-  store i64 %70, ptr %72, align 8
-  %73 = call i32 @common_cgroup_unlock(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4))
-  %74 = load ptr, ptr %4, align 8
-  store ptr %74, ptr %2, align 8
-  br label %196
+73:                                               ; preds = %72
+  br label %74
 
-75:                                               ; preds = %36
-  %76 = call i32 @common_cgroup_unlock(ptr noundef getelementptr inbounds ([5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4))
+74:                                               ; preds = %73, %60
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75, %50
+  %77 = load i64, ptr @oom_kill_count, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %struct.cgroup_oom_t, ptr %78, i32 0, i32 4
+  store i64 %77, ptr %79, align 8
+  %80 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %81 = call i32 @common_cgroup_unlock(ptr noundef %80)
+  %82 = load ptr, ptr %4, align 8
+  store ptr %82, ptr %2, align 8
+  br label %208
+
+83:                                               ; preds = %39
+  %84 = getelementptr inbounds [5 x [9 x %struct.xcgroup_t]], ptr @int_cg, i64 0, i64 2, i64 4
+  %85 = call i32 @common_cgroup_unlock(ptr noundef %84)
   store i64 1, ptr %5, align 8
-  br label %77
+  br label %86
 
-77:                                               ; preds = %75
+86:                                               ; preds = %83
   store i32 8, ptr %7, align 4
   store ptr %5, ptr %8, align 8
-  br label %78
+  br label %87
 
-78:                                               ; preds = %130, %98, %77
-  %79 = load i32, ptr %7, align 4
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %131
+87:                                               ; preds = %140, %108, %86
+  %88 = load i32, ptr %7, align 4
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %90, label %141
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @oom_pipe, i64 0, i64 1), align 4
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i32, ptr %7, align 4
-  %85 = sext i32 %84 to i64
-  %86 = call i64 @write(i32 noundef %82, ptr noundef %83, i64 noundef %85)
-  %87 = trunc i64 %86 to i32
-  store i32 %87, ptr %9, align 4
-  %88 = load i32, ptr %9, align 4
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %90, label %109
-
-90:                                               ; preds = %81
-  %91 = call ptr @__errno_location() #8
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds [2 x i32], ptr @oom_pipe, i64 0, i64 1
   %92 = load i32, ptr %91, align 4
-  %93 = icmp eq i32 %92, 11
-  br i1 %93, label %98, label %94
+  %93 = load ptr, ptr %8, align 8
+  %94 = load i32, ptr %7, align 4
+  %95 = sext i32 %94 to i64
+  %96 = call i64 @write(i32 noundef %92, ptr noundef %93, i64 noundef %95)
+  %97 = trunc i64 %96 to i32
+  store i32 %97, ptr %9, align 4
+  %98 = load i32, ptr %9, align 4
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %119
 
-94:                                               ; preds = %90
-  %95 = call ptr @__errno_location() #8
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, 4
-  br i1 %97, label %98, label %99
+100:                                              ; preds = %90
+  %101 = call ptr @__errno_location() #8
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 11
+  br i1 %103, label %108, label %104
 
-98:                                               ; preds = %94, %90
-  br label %78, !llvm.loop !11
+104:                                              ; preds = %100
+  %105 = call ptr @__errno_location() #8
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp eq i32 %106, 4
+  br i1 %107, label %108, label %109
 
-99:                                               ; preds = %94
-  br label %100
+108:                                              ; preds = %104, %100
+  br label %87, !llvm.loop !11
 
-100:                                              ; preds = %99
-  br label %101
+109:                                              ; preds = %104
+  br label %110
 
-101:                                              ; preds = %100
-  %102 = call i32 @get_log_level()
-  %103 = icmp sge i32 %102, 5
-  br i1 %103, label %104, label %106
+110:                                              ; preds = %109
+  br label %111
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef @.str.24, i32 noundef 1383, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %105, i32 noundef 8)
-  br label %106
+111:                                              ; preds = %110
+  %112 = call i32 @get_log_level()
+  %113 = icmp sge i32 %112, 5
+  br i1 %113, label %114, label %116
 
-106:                                              ; preds = %104, %101
-  br label %107
-
-107:                                              ; preds = %106
-  br label %108
-
-108:                                              ; preds = %107
-  br label %133
-
-109:                                              ; preds = %81
-  %110 = load i32, ptr %9, align 4
-  %111 = load ptr, ptr %8, align 8
-  %112 = sext i32 %110 to i64
-  %113 = getelementptr inbounds i8, ptr %111, i64 %112
-  store ptr %113, ptr %8, align 8
-  %114 = load i32, ptr %9, align 4
+114:                                              ; preds = %111
   %115 = load i32, ptr %7, align 4
-  %116 = sub nsw i32 %115, %114
-  store i32 %116, ptr %7, align 4
-  %117 = load i32, ptr %7, align 4
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %119, label %129
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef @.str.24, i32 noundef 1383, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %115, i32 noundef 8)
+  br label %116
 
-119:                                              ; preds = %109
-  br label %120
+116:                                              ; preds = %114, %111
+  br label %117
 
-120:                                              ; preds = %119
-  br label %121
+117:                                              ; preds = %116
+  br label %118
 
-121:                                              ; preds = %120
-  %122 = call i32 @get_log_level()
-  %123 = icmp sge i32 %122, 7
-  br i1 %123, label %124, label %126
+118:                                              ; preds = %117
+  br label %143
 
-124:                                              ; preds = %121
+119:                                              ; preds = %90
+  %120 = load i32, ptr %9, align 4
+  %121 = load ptr, ptr %8, align 8
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds i8, ptr %121, i64 %122
+  store ptr %123, ptr %8, align 8
+  %124 = load i32, ptr %9, align 4
   %125 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.42, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef @.str.24, i32 noundef 1383, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %125, i32 noundef 8)
-  br label %126
+  %126 = sub nsw i32 %125, %124
+  store i32 %126, ptr %7, align 4
+  %127 = load i32, ptr %7, align 4
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %129, label %139
 
-126:                                              ; preds = %124, %121
-  br label %127
-
-127:                                              ; preds = %126
-  br label %128
-
-128:                                              ; preds = %127
-  br label %129
-
-129:                                              ; preds = %128, %109
+129:                                              ; preds = %119
   br label %130
 
 130:                                              ; preds = %129
-  br label %78, !llvm.loop !11
+  br label %131
 
-131:                                              ; preds = %78
-  br label %132
+131:                                              ; preds = %130
+  %132 = call i32 @get_log_level()
+  %133 = icmp sge i32 %132, 7
+  br i1 %133, label %134, label %136
 
-132:                                              ; preds = %131
-  br label %133
+134:                                              ; preds = %131
+  %135 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.42, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef @.str.24, i32 noundef 1383, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %135, i32 noundef 8)
+  br label %136
 
-133:                                              ; preds = %132, %108
-  br label %134
+136:                                              ; preds = %134, %131
+  br label %137
 
-134:                                              ; preds = %133
-  %135 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %136 = and i64 %135, 36028797018963968
-  %137 = icmp ne i64 %136, 0
-  br i1 %137, label %138, label %145
+137:                                              ; preds = %136
+  br label %138
 
-138:                                              ; preds = %134
+138:                                              ; preds = %137
   br label %139
 
-139:                                              ; preds = %138
-  %140 = call i32 @get_log_level()
-  %141 = icmp sge i32 %140, 4
-  br i1 %141, label %142, label %143
+139:                                              ; preds = %138, %119
+  br label %140
 
-142:                                              ; preds = %139
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.57, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
+140:                                              ; preds = %139
+  br label %87, !llvm.loop !11
+
+141:                                              ; preds = %87
+  br label %142
+
+142:                                              ; preds = %141
   br label %143
 
-143:                                              ; preds = %142, %139
+143:                                              ; preds = %142, %118
   br label %144
 
 144:                                              ; preds = %143
-  br label %145
+  %145 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %146 = load i64, ptr %145, align 8
+  %147 = and i64 %146, 36028797018963968
+  %148 = icmp ne i64 %147, 0
+  br i1 %148, label %149, label %156
 
-145:                                              ; preds = %144, %134
-  br label %146
+149:                                              ; preds = %144
+  br label %150
 
-146:                                              ; preds = %145
-  br label %147
+150:                                              ; preds = %149
+  %151 = call i32 @get_log_level()
+  %152 = icmp sge i32 %151, 4
+  br i1 %152, label %153, label %154
 
-147:                                              ; preds = %146
+153:                                              ; preds = %150
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.57, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
+  br label %154
+
+154:                                              ; preds = %153, %150
+  br label %155
+
+155:                                              ; preds = %154
+  br label %156
+
+156:                                              ; preds = %155, %144
+  br label %157
+
+157:                                              ; preds = %156
+  br label %158
+
+158:                                              ; preds = %157
   store i32 0, ptr %10, align 4
-  %148 = load i64, ptr @oom_thread, align 8
-  %149 = icmp ne i64 %148, 0
-  br i1 %149, label %150, label %153
+  %159 = load i64, ptr @oom_thread, align 8
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %161, label %164
 
-150:                                              ; preds = %147
-  %151 = load i64, ptr @oom_thread, align 8
-  %152 = call i32 @pthread_join(i64 noundef %151, ptr noundef null)
-  store i32 %152, ptr %10, align 4
+161:                                              ; preds = %158
+  %162 = load i64, ptr @oom_thread, align 8
+  %163 = call i32 @pthread_join(i64 noundef %162, ptr noundef null)
+  store i32 %163, ptr %10, align 4
   store i64 0, ptr @oom_thread, align 8
-  br label %153
+  br label %164
 
-153:                                              ; preds = %150, %147
-  %154 = load i32, ptr %10, align 4
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %160
+164:                                              ; preds = %161, %158
+  %165 = load i32, ptr %10, align 4
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %171
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %10, align 4
-  %158 = call ptr @__errno_location() #8
-  store i32 %157, ptr %158, align 4
-  %159 = call i32 (ptr, ...) @error(ptr noundef @.str.58, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
-  br label %160
+167:                                              ; preds = %164
+  %168 = load i32, ptr %10, align 4
+  %169 = call ptr @__errno_location() #8
+  store i32 %168, ptr %169, align 4
+  %170 = call i32 (ptr, ...) @error(ptr noundef @.str.58, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr)
+  br label %171
 
-160:                                              ; preds = %156, %153
-  br label %161
+171:                                              ; preds = %167, %164
+  br label %172
 
-161:                                              ; preds = %160
-  br label %162
+172:                                              ; preds = %171
+  br label %173
 
-162:                                              ; preds = %161
-  %163 = call i32 @pthread_mutex_lock(ptr noundef @oom_mutex) #6
-  store i32 %163, ptr %11, align 4
-  %164 = load i32, ptr %11, align 4
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %166, label %169
+173:                                              ; preds = %172
+  %174 = call i32 @pthread_mutex_lock(ptr noundef @oom_mutex) #6
+  store i32 %174, ptr %11, align 4
+  %175 = load i32, ptr %11, align 4
+  %176 = icmp ne i32 %175, 0
+  br i1 %176, label %177, label %180
 
-166:                                              ; preds = %162
-  %167 = load i32, ptr %11, align 4
-  %168 = call ptr @__errno_location() #8
-  store i32 %167, ptr %168, align 4
+177:                                              ; preds = %173
+  %178 = load i32, ptr %11, align 4
+  %179 = call ptr @__errno_location() #8
+  store i32 %178, ptr %179, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.59, ptr noundef @.str.24, i32 noundef 1389, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr) #9
   unreachable
 
-169:                                              ; preds = %162
-  br label %170
+180:                                              ; preds = %173
+  br label %181
 
-170:                                              ; preds = %169
-  %171 = load i64, ptr @oom_kill_count, align 8
-  %172 = load ptr, ptr %4, align 8
-  %173 = getelementptr inbounds %struct.cgroup_oom_t, ptr %172, i32 0, i32 4
-  store i64 %171, ptr %173, align 8
-  br label %174
+181:                                              ; preds = %180
+  %182 = load i64, ptr @oom_kill_count, align 8
+  %183 = load ptr, ptr %4, align 8
+  %184 = getelementptr inbounds %struct.cgroup_oom_t, ptr %183, i32 0, i32 4
+  store i64 %182, ptr %184, align 8
+  br label %185
 
-174:                                              ; preds = %170
-  %175 = call i32 @pthread_mutex_unlock(ptr noundef @oom_mutex) #6
-  store i32 %175, ptr %12, align 4
-  %176 = load i32, ptr %12, align 4
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %178, label %181
+185:                                              ; preds = %181
+  %186 = call i32 @pthread_mutex_unlock(ptr noundef @oom_mutex) #6
+  store i32 %186, ptr %12, align 4
+  %187 = load i32, ptr %12, align 4
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %192
 
-178:                                              ; preds = %174
-  %179 = load i32, ptr %12, align 4
-  %180 = call ptr @__errno_location() #8
-  store i32 %179, ptr %180, align 4
+189:                                              ; preds = %185
+  %190 = load i32, ptr %12, align 4
+  %191 = call ptr @__errno_location() #8
+  store i32 %190, ptr %191, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.60, ptr noundef @.str.24, i32 noundef 1391, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr) #9
   unreachable
 
-181:                                              ; preds = %174
-  br label %182
+192:                                              ; preds = %185
+  br label %193
 
-182:                                              ; preds = %181
-  br label %183
+193:                                              ; preds = %192
+  br label %194
 
-183:                                              ; preds = %182, %24
-  %184 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @oom_pipe, i64 0, i64 1), align 4
-  %185 = call i32 @close(i32 noundef %184)
-  br label %186
+194:                                              ; preds = %193, %25
+  %195 = getelementptr inbounds [2 x i32], ptr @oom_pipe, i64 0, i64 1
+  %196 = load i32, ptr %195, align 4
+  %197 = call i32 @close(i32 noundef %196)
+  br label %198
 
-186:                                              ; preds = %183
-  %187 = call i32 @pthread_mutex_destroy(ptr noundef @oom_mutex) #6
-  store i32 %187, ptr %13, align 4
-  %188 = load i32, ptr %13, align 4
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %190, label %193
+198:                                              ; preds = %194
+  %199 = call i32 @pthread_mutex_destroy(ptr noundef @oom_mutex) #6
+  store i32 %199, ptr %13, align 4
+  %200 = load i32, ptr %13, align 4
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %205
 
-190:                                              ; preds = %186
-  %191 = load i32, ptr %13, align 4
-  %192 = call ptr @__errno_location() #8
-  store i32 %191, ptr %192, align 4
+202:                                              ; preds = %198
+  %203 = load i32, ptr %13, align 4
+  %204 = call ptr @__errno_location() #8
+  store i32 %203, ptr %204, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.61, ptr noundef @.str.24, i32 noundef 1395, ptr noundef @__func__.cgroup_p_step_stop_oom_mgr) #9
   unreachable
 
-193:                                              ; preds = %186
-  br label %194
+205:                                              ; preds = %198
+  br label %206
 
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %4, align 8
-  store ptr %195, ptr %2, align 8
-  br label %196
+206:                                              ; preds = %205
+  %207 = load ptr, ptr %4, align 8
+  store ptr %207, ptr %2, align 8
+  br label %208
 
-196:                                              ; preds = %194, %69, %16
-  %197 = load ptr, ptr %2, align 8
-  ret ptr %197
+208:                                              ; preds = %206, %76, %16
+  %209 = load ptr, ptr %2, align 8
+  ret ptr %209
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3624,49 +3663,50 @@ define internal i64 @_failcnt(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = call i32 @xcgroup_get_uint64_param(ptr noundef %6, ptr noundef %7, ptr noundef %5)
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %28
+  br i1 %9, label %10, label %29
 
 10:                                               ; preds = %2
   br label %11
 
 11:                                               ; preds = %10
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %13 = and i64 %12, 36028797018963968
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %26
+  %12 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 36028797018963968
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %11
-  br label %16
+16:                                               ; preds = %11
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = call i32 @get_log_level()
-  %18 = icmp sge i32 %17, 4
-  br i1 %18, label %19, label %24
+17:                                               ; preds = %16
+  %18 = call i32 @get_log_level()
+  %19 = icmp sge i32 %18, 4
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.xcgroup_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.99, ptr noundef @plugin_type, ptr noundef @__func__._failcnt, ptr noundef %20, ptr noundef %23)
-  br label %24
-
-24:                                               ; preds = %19, %16
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.xcgroup_t, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.99, ptr noundef @plugin_type, ptr noundef @__func__._failcnt, ptr noundef %21, ptr noundef %24)
   br label %25
 
-25:                                               ; preds = %24
+25:                                               ; preds = %20, %17
   br label %26
 
-26:                                               ; preds = %25, %11
+26:                                               ; preds = %25
   br label %27
 
-27:                                               ; preds = %26
-  store i64 0, ptr %5, align 8
+27:                                               ; preds = %26, %11
   br label %28
 
-28:                                               ; preds = %27, %2
-  %29 = load i64, ptr %5, align 8
-  ret i64 %29
+28:                                               ; preds = %27
+  store i64 0, ptr %5, align 8
+  br label %29
+
+29:                                               ; preds = %28, %2
+  %30 = load i64, ptr %5, align 8
+  ret i64 %30
 }
 
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) #1
@@ -3726,12 +3766,12 @@ define internal i32 @_get_oom_kill_from_file(ptr noundef %0) #0 {
 
 11:                                               ; preds = %1
   store i32 -1, ptr %2, align 4
-  br label %51
+  br label %52
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %4, align 8
   %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %50
+  br i1 %14, label %15, label %51
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %4, align 8
@@ -3761,50 +3801,51 @@ define internal i32 @_get_oom_kill_from_file(ptr noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %29
-  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %32 = and i64 %31, 36028797018963968
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %45
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %32, 36028797018963968
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %46
 
-34:                                               ; preds = %30
-  br label %35
+35:                                               ; preds = %30
+  br label %36
 
-35:                                               ; preds = %34
-  %36 = call i32 @get_log_level()
-  %37 = icmp sge i32 %36, 4
-  br i1 %37, label %38, label %43
+36:                                               ; preds = %35
+  %37 = call i32 @get_log_level()
+  %38 = icmp sge i32 %37, 4
+  br i1 %38, label %39, label %44
 
-38:                                               ; preds = %35
-  %39 = load i64, ptr %7, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.xcgroup_t, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.102, ptr noundef @plugin_type, ptr noundef @__func__._get_oom_kill_from_file, i64 noundef %39, ptr noundef %42)
-  br label %43
-
-43:                                               ; preds = %38, %35
+39:                                               ; preds = %36
+  %40 = load i64, ptr %7, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct.xcgroup_t, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.102, ptr noundef @plugin_type, ptr noundef @__func__._get_oom_kill_from_file, i64 noundef %40, ptr noundef %43)
   br label %44
 
-44:                                               ; preds = %43
+44:                                               ; preds = %39, %36
   br label %45
 
-45:                                               ; preds = %44, %30
+45:                                               ; preds = %44
   br label %46
 
-46:                                               ; preds = %45
-  %47 = load i64, ptr %7, align 8
-  %48 = load i64, ptr @oom_kill_count, align 8
-  %49 = add i64 %48, %47
-  store i64 %49, ptr @oom_kill_count, align 8
-  br label %50
+46:                                               ; preds = %45, %30
+  br label %47
 
-50:                                               ; preds = %46, %12
-  store i32 0, ptr %2, align 4
+47:                                               ; preds = %46
+  %48 = load i64, ptr %7, align 8
+  %49 = load i64, ptr @oom_kill_count, align 8
+  %50 = add i64 %49, %48
+  store i64 %50, ptr @oom_kill_count, align 8
   br label %51
 
-51:                                               ; preds = %50, %11
-  %52 = load i32, ptr %2, align 4
-  ret i32 %52
+51:                                               ; preds = %47, %12
+  store i32 0, ptr %2, align 4
+  br label %52
+
+52:                                               ; preds = %51, %11
+  %53 = load i32, ptr %2, align 4
+  ret i32 %53
 }
 
 declare i32 @pthread_join(i64 noundef, ptr noundef) #1
@@ -3842,43 +3883,44 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %17 = and i64 %16, 36028797018963968
-  %18 = icmp ne i64 %17, 0
-  br i1 %18, label %19, label %30
+  %16 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, 36028797018963968
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %31
 
-19:                                               ; preds = %15
-  br label %20
+20:                                               ; preds = %15
+  br label %21
 
-20:                                               ; preds = %19
-  %21 = call i32 @get_log_level()
-  %22 = icmp sge i32 %21, 4
-  br i1 %22, label %23, label %28
+21:                                               ; preds = %20
+  %22 = call i32 @get_log_level()
+  %23 = icmp sge i32 %22, 4
+  br i1 %23, label %24, label %29
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %24, i32 0, i32 5
-  %26 = load i32, ptr %8, align 4
-  %27 = load i32, ptr @g_max_task_id, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.62, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_task_addto, ptr noundef %25, i32 noundef %26, i32 noundef %27)
-  br label %28
-
-28:                                               ; preds = %23, %20
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %25, i32 0, i32 5
+  %27 = load i32, ptr %8, align 4
+  %28 = load i32, ptr @g_max_task_id, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.62, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_p_task_addto, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %24, %21
   br label %30
 
-30:                                               ; preds = %29, %15
+30:                                               ; preds = %29
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %5, align 4
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = load i32, ptr %8, align 4
-  %36 = call i32 @_handle_task_cgroup(i32 noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef %35)
-  ret i32 %36
+31:                                               ; preds = %30, %15
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load i32, ptr %5, align 4
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %8, align 4
+  %37 = call i32 @_handle_task_cgroup(i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4052,180 +4094,182 @@ define dso_local ptr @cgroup_p_task_get_acct_data(i32 noundef %0) #0 {
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %14 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @g_task_list, i64 0, i64 2), align 16
-  %15 = call ptr @list_find_first(ptr noundef %14, ptr noundef @_find_task_cg_info, ptr noundef %3)
-  store ptr %15, ptr %11, align 8
-  %16 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @g_task_list, i64 0, i64 4), align 16
-  %17 = call ptr @list_find_first(ptr noundef %16, ptr noundef @_find_task_cg_info, ptr noundef %3)
-  store ptr %17, ptr %10, align 8
-  %18 = load ptr, ptr %10, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %22, label %20
-
-20:                                               ; preds = %1
-  %21 = call i32 (ptr, ...) @error(ptr noundef @.str.63)
-  store ptr null, ptr %2, align 8
-  br label %117
+  %14 = getelementptr inbounds [5 x ptr], ptr @g_task_list, i64 0, i64 2
+  %15 = load ptr, ptr %14, align 16
+  %16 = call ptr @list_find_first(ptr noundef %15, ptr noundef @_find_task_cg_info, ptr noundef %3)
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds [5 x ptr], ptr @g_task_list, i64 0, i64 4
+  %18 = load ptr, ptr %17, align 16
+  %19 = call ptr @list_find_first(ptr noundef %18, ptr noundef @_find_task_cg_info, ptr noundef %3)
+  store ptr %19, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %24, label %22
 
 22:                                               ; preds = %1
-  %23 = load ptr, ptr %11, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %27, label %25
-
-25:                                               ; preds = %22
-  %26 = call i32 (ptr, ...) @error(ptr noundef @.str.64)
+  %23 = call i32 (ptr, ...) @error(ptr noundef @.str.63)
   store ptr null, ptr %2, align 8
-  br label %117
+  br label %119
 
-27:                                               ; preds = %22
-  %28 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1449, ptr noundef @__func__.cgroup_p_task_get_acct_data)
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.cgroup_acct_t, ptr %29, i32 0, i32 0
-  store i64 -2, ptr %30, align 8
+24:                                               ; preds = %1
+  %25 = load ptr, ptr %11, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %29, label %27
+
+27:                                               ; preds = %24
+  %28 = call i32 (ptr, ...) @error(ptr noundef @.str.64)
+  store ptr null, ptr %2, align 8
+  br label %119
+
+29:                                               ; preds = %24
+  %30 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.24, i32 noundef 1449, ptr noundef @__func__.cgroup_p_task_get_acct_data)
+  store ptr %30, ptr %9, align 8
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct.cgroup_acct_t, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds %struct.cgroup_acct_t, ptr %31, i32 0, i32 0
   store i64 -2, ptr %32, align 8
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.cgroup_acct_t, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds %struct.cgroup_acct_t, ptr %33, i32 0, i32 1
   store i64 -2, ptr %34, align 8
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.cgroup_acct_t, ptr %35, i32 0, i32 3
+  %36 = getelementptr inbounds %struct.cgroup_acct_t, ptr %35, i32 0, i32 2
   store i64 -2, ptr %36, align 8
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.cgroup_acct_t, ptr %37, i32 0, i32 4
+  %38 = getelementptr inbounds %struct.cgroup_acct_t, ptr %37, i32 0, i32 3
   store i64 -2, ptr %38, align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = call i32 @common_cgroup_get_param(ptr noundef %39, ptr noundef @.str.65, ptr noundef %4, ptr noundef %7)
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %49
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds %struct.cgroup_acct_t, ptr %39, i32 0, i32 4
+  store i64 -2, ptr %40, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = call i32 @common_cgroup_get_param(ptr noundef %41, ptr noundef @.str.65, ptr noundef %4, ptr noundef %7)
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %51
 
-42:                                               ; preds = %27
-  %43 = load ptr, ptr %4, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.cgroup_acct_t, ptr %44, i32 0, i32 0
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds %struct.cgroup_acct_t, ptr %46, i32 0, i32 1
-  %48 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %43, ptr noundef @.str.66, ptr noundef %45, ptr noundef %47) #6
-  br label %49
+  %47 = getelementptr inbounds %struct.cgroup_acct_t, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds %struct.cgroup_acct_t, ptr %48, i32 0, i32 1
+  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %45, ptr noundef @.str.66, ptr noundef %47, ptr noundef %49) #6
+  br label %51
 
-49:                                               ; preds = %42, %27
-  %50 = load ptr, ptr %11, align 8
-  %51 = call i32 @common_cgroup_get_param(ptr noundef %50, ptr noundef @.str.67, ptr noundef %5, ptr noundef %8)
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %72
+51:                                               ; preds = %44, %29
+  %52 = load ptr, ptr %11, align 8
+  %53 = call i32 @common_cgroup_get_param(ptr noundef %52, ptr noundef @.str.67, ptr noundef %5, ptr noundef %8)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %74
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %5, align 8
-  %55 = call ptr @xstrstr(ptr noundef %54, ptr noundef @.str.68)
-  store ptr %55, ptr %6, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %62
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %5, align 8
+  %57 = call ptr @xstrstr(ptr noundef %56, ptr noundef @.str.68)
+  store ptr %57, ptr %6, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %64
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct.cgroup_acct_t, ptr %59, i32 0, i32 2
-  %61 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %58, ptr noundef @.str.69, ptr noundef %60) #6
-  br label %62
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds %struct.cgroup_acct_t, ptr %61, i32 0, i32 2
+  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %60, ptr noundef @.str.69, ptr noundef %62) #6
+  br label %64
 
-62:                                               ; preds = %57, %53
-  %63 = load ptr, ptr %5, align 8
-  %64 = call ptr @xstrstr(ptr noundef %63, ptr noundef @.str.70)
-  store ptr %64, ptr %6, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %71
+64:                                               ; preds = %59, %55
+  %65 = load ptr, ptr %5, align 8
+  %66 = call ptr @xstrstr(ptr noundef %65, ptr noundef @.str.70)
+  store ptr %66, ptr %6, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %73
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %6, align 8
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds %struct.cgroup_acct_t, ptr %68, i32 0, i32 3
-  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %67, ptr noundef @.str.71, ptr noundef %69) #6
-  br label %71
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %6, align 8
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds %struct.cgroup_acct_t, ptr %70, i32 0, i32 3
+  %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %69, ptr noundef @.str.71, ptr noundef %71) #6
+  br label %73
 
-71:                                               ; preds = %66, %62
-  br label %72
+73:                                               ; preds = %68, %64
+  br label %74
 
-72:                                               ; preds = %71, %49
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.cgroup_acct_t, ptr %73, i32 0, i32 2
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp ne i64 %75, -2
-  br i1 %76, label %77, label %115
+74:                                               ; preds = %73, %51
+  %75 = load ptr, ptr %9, align 8
+  %76 = getelementptr inbounds %struct.cgroup_acct_t, ptr %75, i32 0, i32 2
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp ne i64 %77, -2
+  br i1 %78, label %79, label %117
 
-77:                                               ; preds = %72
+79:                                               ; preds = %74
   store i64 -2, ptr %12, align 8
   store i64 -2, ptr %13, align 8
-  %78 = load ptr, ptr %5, align 8
-  %79 = call ptr @xstrstr(ptr noundef %78, ptr noundef @.str.72)
-  store ptr %79, ptr %6, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %84
+  %80 = load ptr, ptr %5, align 8
+  %81 = call ptr @xstrstr(ptr noundef %80, ptr noundef @.str.72)
+  store ptr %81, ptr %6, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %86
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %6, align 8
-  %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %82, ptr noundef @.str.73, ptr noundef %12) #6
-  br label %84
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %6, align 8
+  %85 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %84, ptr noundef @.str.73, ptr noundef %12) #6
+  br label %86
 
-84:                                               ; preds = %81, %77
-  %85 = load ptr, ptr %5, align 8
-  %86 = call ptr @xstrstr(ptr noundef %85, ptr noundef @.str.74)
-  store ptr %86, ptr %6, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %91
+86:                                               ; preds = %83, %79
+  %87 = load ptr, ptr %5, align 8
+  %88 = call ptr @xstrstr(ptr noundef %87, ptr noundef @.str.74)
+  store ptr %88, ptr %6, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %93
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %6, align 8
-  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %89, ptr noundef @.str.75, ptr noundef %13) #6
-  br label %91
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %6, align 8
+  %92 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %91, ptr noundef @.str.75, ptr noundef %13) #6
+  br label %93
 
-91:                                               ; preds = %88, %84
-  %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.cgroup_acct_t, ptr %92, i32 0, i32 2
-  %94 = load i64, ptr %93, align 8
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.cgroup_acct_t, ptr %95, i32 0, i32 4
-  store i64 %94, ptr %96, align 8
-  %97 = load i64, ptr %12, align 8
-  %98 = icmp ne i64 %97, -2
-  br i1 %98, label %99, label %105
+93:                                               ; preds = %90, %86
+  %94 = load ptr, ptr %9, align 8
+  %95 = getelementptr inbounds %struct.cgroup_acct_t, ptr %94, i32 0, i32 2
+  %96 = load i64, ptr %95, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds %struct.cgroup_acct_t, ptr %97, i32 0, i32 4
+  store i64 %96, ptr %98, align 8
+  %99 = load i64, ptr %12, align 8
+  %100 = icmp ne i64 %99, -2
+  br i1 %100, label %101, label %107
 
-99:                                               ; preds = %91
-  %100 = load i64, ptr %12, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct.cgroup_acct_t, ptr %101, i32 0, i32 4
-  %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, %100
-  store i64 %104, ptr %102, align 8
-  br label %105
+101:                                              ; preds = %93
+  %102 = load i64, ptr %12, align 8
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds %struct.cgroup_acct_t, ptr %103, i32 0, i32 4
+  %105 = load i64, ptr %104, align 8
+  %106 = add i64 %105, %102
+  store i64 %106, ptr %104, align 8
+  br label %107
 
-105:                                              ; preds = %99, %91
-  %106 = load i64, ptr %13, align 8
-  %107 = icmp ne i64 %106, -2
-  br i1 %107, label %108, label %114
+107:                                              ; preds = %101, %93
+  %108 = load i64, ptr %13, align 8
+  %109 = icmp ne i64 %108, -2
+  br i1 %109, label %110, label %116
 
-108:                                              ; preds = %105
-  %109 = load i64, ptr %13, align 8
-  %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds %struct.cgroup_acct_t, ptr %110, i32 0, i32 4
-  %112 = load i64, ptr %111, align 8
-  %113 = add i64 %112, %109
-  store i64 %113, ptr %111, align 8
-  br label %114
+110:                                              ; preds = %107
+  %111 = load i64, ptr %13, align 8
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds %struct.cgroup_acct_t, ptr %112, i32 0, i32 4
+  %114 = load i64, ptr %113, align 8
+  %115 = add i64 %114, %111
+  store i64 %115, ptr %113, align 8
+  br label %116
 
-114:                                              ; preds = %108, %105
-  br label %115
-
-115:                                              ; preds = %114, %72
-  call void @slurm_xfree(ptr noundef %4)
-  call void @slurm_xfree(ptr noundef %5)
-  %116 = load ptr, ptr %9, align 8
-  store ptr %116, ptr %2, align 8
+116:                                              ; preds = %110, %107
   br label %117
 
-117:                                              ; preds = %115, %25, %20
-  %118 = load ptr, ptr %2, align 8
-  ret ptr %118
+117:                                              ; preds = %116, %74
+  call void @slurm_xfree(ptr noundef %4)
+  call void @slurm_xfree(ptr noundef %5)
+  %118 = load ptr, ptr %9, align 8
+  store ptr %118, ptr %2, align 8
+  br label %119
+
+119:                                              ; preds = %117, %27, %22
+  %120 = load ptr, ptr %2, align 8
+  ret ptr %120
 }
 
 ; Function Attrs: nounwind
@@ -4411,49 +4455,50 @@ define internal i32 @_rmdir_task(ptr noundef %0, ptr noundef %1) #0 {
   %8 = getelementptr inbounds %struct.task_cg_info_t, ptr %7, i32 0, i32 0
   %9 = call i32 @common_cgroup_delete(ptr noundef %8)
   %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %32
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %2
   br label %12
 
 12:                                               ; preds = %11
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %14 = and i64 %13, 36028797018963968
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %30
+  %13 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 36028797018963968
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %31
 
-16:                                               ; preds = %12
-  br label %17
+17:                                               ; preds = %12
+  br label %18
 
-17:                                               ; preds = %16
-  %18 = call i32 @get_log_level()
-  %19 = icmp sge i32 %18, 4
-  br i1 %19, label %20, label %28
+18:                                               ; preds = %17
+  %19 = call i32 @get_log_level()
+  %20 = icmp sge i32 %19, 4
+  br i1 %20, label %21, label %29
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.task_cg_info_t, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.task_cg_info_t, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.xcgroup_t, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.85, ptr noundef @plugin_type, ptr noundef @__func__._rmdir_task, i32 noundef %23, ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %20, %17
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds %struct.task_cg_info_t, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %struct.task_cg_info_t, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %struct.xcgroup_t, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.85, ptr noundef @plugin_type, ptr noundef @__func__._rmdir_task, i32 noundef %24, ptr noundef %28)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %21, %18
   br label %30
 
-30:                                               ; preds = %29, %12
+30:                                               ; preds = %29
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %30, %12
   br label %32
 
-32:                                               ; preds = %31, %2
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32, %2
   ret i32 0
 }
 

@@ -432,145 +432,147 @@ define internal void @AssignTransactionId(ptr noundef %0) #0 {
 86:                                               ; preds = %84, %33, %30
   %87 = load i8, ptr %3, align 1
   %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %96
+  br i1 %88, label %89, label %97
 
 89:                                               ; preds = %86
   %90 = load i32, ptr @wal_level, align 4
   %91 = icmp sge i32 %90, 2
-  br i1 %91, label %92, label %96
+  br i1 %91, label %92, label %97
 
 92:                                               ; preds = %89
-  %93 = load i8, ptr getelementptr inbounds (%struct.TransactionStateData, ptr @TopTransactionStateData, i32 0, i32 17), align 2
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %96, label %95
+  %93 = getelementptr inbounds %struct.TransactionStateData, ptr @TopTransactionStateData, i32 0, i32 17
+  %94 = load i8, ptr %93, align 2
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %97, label %96
 
-95:                                               ; preds = %92
+96:                                               ; preds = %92
   store i8 1, ptr %5, align 1
-  br label %96
+  br label %97
 
-96:                                               ; preds = %95, %92, %89, %86
-  %97 = load ptr, ptr %2, align 8
-  %98 = getelementptr inbounds %struct.TransactionStateData, ptr %97, i32 0, i32 0
-  %99 = load i8, ptr %3, align 1
-  %100 = trunc i8 %99 to i1
-  %101 = call i64 @GetNewTransactionId(i1 noundef zeroext %100)
-  %102 = getelementptr inbounds %struct.FullTransactionId, ptr %9, i32 0, i32 0
-  store i64 %101, ptr %102, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr align 8 %9, i64 8, i1 false)
-  %103 = load i8, ptr %3, align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %108, label %105
+97:                                               ; preds = %96, %92, %89, %86
+  %98 = load ptr, ptr %2, align 8
+  %99 = getelementptr inbounds %struct.TransactionStateData, ptr %98, i32 0, i32 0
+  %100 = load i8, ptr %3, align 1
+  %101 = trunc i8 %100 to i1
+  %102 = call i64 @GetNewTransactionId(i1 noundef zeroext %101)
+  %103 = getelementptr inbounds %struct.FullTransactionId, ptr %9, i32 0, i32 0
+  store i64 %102, ptr %103, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %9, i64 8, i1 false)
+  %104 = load i8, ptr %3, align 1
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %109, label %106
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.TransactionStateData, ptr %106, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @XactTopFullTransactionId, ptr align 8 %107, i64 8, i1 false)
-  br label %108
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %2, align 8
+  %108 = getelementptr inbounds %struct.TransactionStateData, ptr %107, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @XactTopFullTransactionId, ptr align 8 %108, i64 8, i1 false)
+  br label %109
 
-108:                                              ; preds = %105, %96
-  %109 = load i8, ptr %3, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %124
+109:                                              ; preds = %106, %97
+  %110 = load i8, ptr %3, align 1
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %125
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds %struct.TransactionStateData, ptr %112, i32 0, i32 0
-  %114 = getelementptr inbounds %struct.FullTransactionId, ptr %113, i32 0, i32 0
-  %115 = load i64, ptr %114, align 8
-  %116 = trunc i64 %115 to i32
-  %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct.TransactionStateData, ptr %117, i32 0, i32 21
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.TransactionStateData, ptr %119, i32 0, i32 0
-  %121 = getelementptr inbounds %struct.FullTransactionId, ptr %120, i32 0, i32 0
-  %122 = load i64, ptr %121, align 8
-  %123 = trunc i64 %122 to i32
-  call void @SubTransSetParent(i32 noundef %116, i32 noundef %123)
-  br label %124
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds %struct.TransactionStateData, ptr %113, i32 0, i32 0
+  %115 = getelementptr inbounds %struct.FullTransactionId, ptr %114, i32 0, i32 0
+  %116 = load i64, ptr %115, align 8
+  %117 = trunc i64 %116 to i32
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds %struct.TransactionStateData, ptr %118, i32 0, i32 21
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds %struct.TransactionStateData, ptr %120, i32 0, i32 0
+  %122 = getelementptr inbounds %struct.FullTransactionId, ptr %121, i32 0, i32 0
+  %123 = load i64, ptr %122, align 8
+  %124 = trunc i64 %123 to i32
+  call void @SubTransSetParent(i32 noundef %117, i32 noundef %124)
+  br label %125
 
-124:                                              ; preds = %111, %108
-  %125 = load i8, ptr %3, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %133, label %127
+125:                                              ; preds = %112, %109
+  %126 = load i8, ptr %3, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %134, label %128
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %2, align 8
-  %129 = getelementptr inbounds %struct.TransactionStateData, ptr %128, i32 0, i32 0
-  %130 = getelementptr inbounds %struct.FullTransactionId, ptr %129, i32 0, i32 0
-  %131 = load i64, ptr %130, align 8
-  %132 = trunc i64 %131 to i32
-  call void @RegisterPredicateLockingXid(i32 noundef %132)
-  br label %133
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %2, align 8
+  %130 = getelementptr inbounds %struct.TransactionStateData, ptr %129, i32 0, i32 0
+  %131 = getelementptr inbounds %struct.FullTransactionId, ptr %130, i32 0, i32 0
+  %132 = load i64, ptr %131, align 8
+  %133 = trunc i64 %132 to i32
+  call void @RegisterPredicateLockingXid(i32 noundef %133)
+  br label %134
 
-133:                                              ; preds = %127, %124
-  %134 = load ptr, ptr @CurrentResourceOwner, align 8
-  store ptr %134, ptr %4, align 8
-  %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds %struct.TransactionStateData, ptr %135, i32 0, i32 9
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr @CurrentResourceOwner, align 8
-  %138 = load ptr, ptr %2, align 8
-  %139 = getelementptr inbounds %struct.TransactionStateData, ptr %138, i32 0, i32 0
-  %140 = getelementptr inbounds %struct.FullTransactionId, ptr %139, i32 0, i32 0
-  %141 = load i64, ptr %140, align 8
-  %142 = trunc i64 %141 to i32
-  call void @XactLockTableInsert(i32 noundef %142)
-  %143 = load ptr, ptr %4, align 8
-  store ptr %143, ptr @CurrentResourceOwner, align 8
-  %144 = load i8, ptr %3, align 1
-  %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %176
+134:                                              ; preds = %128, %125
+  %135 = load ptr, ptr @CurrentResourceOwner, align 8
+  store ptr %135, ptr %4, align 8
+  %136 = load ptr, ptr %2, align 8
+  %137 = getelementptr inbounds %struct.TransactionStateData, ptr %136, i32 0, i32 9
+  %138 = load ptr, ptr %137, align 8
+  store ptr %138, ptr @CurrentResourceOwner, align 8
+  %139 = load ptr, ptr %2, align 8
+  %140 = getelementptr inbounds %struct.TransactionStateData, ptr %139, i32 0, i32 0
+  %141 = getelementptr inbounds %struct.FullTransactionId, ptr %140, i32 0, i32 0
+  %142 = load i64, ptr %141, align 8
+  %143 = trunc i64 %142 to i32
+  call void @XactLockTableInsert(i32 noundef %143)
+  %144 = load ptr, ptr %4, align 8
+  store ptr %144, ptr @CurrentResourceOwner, align 8
+  %145 = load i8, ptr %3, align 1
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %147, label %178
 
-146:                                              ; preds = %133
-  %147 = load i32, ptr @wal_level, align 4
-  %148 = icmp sge i32 %147, 1
-  br i1 %148, label %149, label %176
+147:                                              ; preds = %134
+  %148 = load i32, ptr @wal_level, align 4
+  %149 = icmp sge i32 %148, 1
+  br i1 %149, label %150, label %178
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %2, align 8
-  %151 = getelementptr inbounds %struct.TransactionStateData, ptr %150, i32 0, i32 0
-  %152 = getelementptr inbounds %struct.FullTransactionId, ptr %151, i32 0, i32 0
-  %153 = load i64, ptr %152, align 8
-  %154 = trunc i64 %153 to i32
-  %155 = load i32, ptr @nUnreportedXids, align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr [64 x i32], ptr @unreportedXids, i64 0, i64 %156
-  store i32 %154, ptr %157, align 4
-  %158 = load i32, ptr @nUnreportedXids, align 4
-  %159 = add i32 %158, 1
-  store i32 %159, ptr @nUnreportedXids, align 4
-  %160 = load i32, ptr @nUnreportedXids, align 4
-  %161 = icmp sge i32 %160, 64
-  br i1 %161, label %165, label %162
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %2, align 8
+  %152 = getelementptr inbounds %struct.TransactionStateData, ptr %151, i32 0, i32 0
+  %153 = getelementptr inbounds %struct.FullTransactionId, ptr %152, i32 0, i32 0
+  %154 = load i64, ptr %153, align 8
+  %155 = trunc i64 %154 to i32
+  %156 = load i32, ptr @nUnreportedXids, align 4
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr [64 x i32], ptr @unreportedXids, i64 0, i64 %157
+  store i32 %155, ptr %158, align 4
+  %159 = load i32, ptr @nUnreportedXids, align 4
+  %160 = add i32 %159, 1
+  store i32 %160, ptr @nUnreportedXids, align 4
+  %161 = load i32, ptr @nUnreportedXids, align 4
+  %162 = icmp sge i32 %161, 64
+  br i1 %162, label %166, label %163
 
-162:                                              ; preds = %149
-  %163 = load i8, ptr %5, align 1
-  %164 = trunc i8 %163 to i1
-  br i1 %164, label %165, label %175
+163:                                              ; preds = %150
+  %164 = load i8, ptr %5, align 1
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %166, label %177
 
-165:                                              ; preds = %162, %149
-  %166 = call i32 @GetTopTransactionId()
-  %167 = getelementptr inbounds %struct.xl_xact_assignment, ptr %10, i32 0, i32 0
-  store i32 %166, ptr %167, align 4
-  %168 = load i32, ptr @nUnreportedXids, align 4
-  %169 = getelementptr inbounds %struct.xl_xact_assignment, ptr %10, i32 0, i32 1
-  store i32 %168, ptr %169, align 4
+166:                                              ; preds = %163, %150
+  %167 = call i32 @GetTopTransactionId()
+  %168 = getelementptr inbounds %struct.xl_xact_assignment, ptr %10, i32 0, i32 0
+  store i32 %167, ptr %168, align 4
+  %169 = load i32, ptr @nUnreportedXids, align 4
+  %170 = getelementptr inbounds %struct.xl_xact_assignment, ptr %10, i32 0, i32 1
+  store i32 %169, ptr %170, align 4
   call void @XLogBeginInsert()
   call void @XLogRegisterData(ptr noundef %10, i32 noundef 8)
-  %170 = load i32, ptr @nUnreportedXids, align 4
-  %171 = sext i32 %170 to i64
-  %172 = mul i64 %171, 4
-  %173 = trunc i64 %172 to i32
-  call void @XLogRegisterData(ptr noundef @unreportedXids, i32 noundef %173)
-  %174 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80)
+  %171 = load i32, ptr @nUnreportedXids, align 4
+  %172 = sext i32 %171 to i64
+  %173 = mul i64 %172, 4
+  %174 = trunc i64 %173 to i32
+  call void @XLogRegisterData(ptr noundef @unreportedXids, i32 noundef %174)
+  %175 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80)
   store i32 0, ptr @nUnreportedXids, align 4
-  store i8 1, ptr getelementptr inbounds (%struct.TransactionStateData, ptr @TopTransactionStateData, i32 0, i32 17), align 2
-  br label %175
+  %176 = getelementptr inbounds %struct.TransactionStateData, ptr @TopTransactionStateData, i32 0, i32 17
+  store i8 1, ptr %176, align 2
+  br label %177
 
-175:                                              ; preds = %165, %162
-  br label %176
+177:                                              ; preds = %166, %163
+  br label %178
 
-176:                                              ; preds = %175, %146, %133
+178:                                              ; preds = %177, %147, %134
   ret void
 }
 

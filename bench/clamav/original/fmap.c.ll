@@ -246,7 +246,7 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 27:                                               ; preds = %20, %5
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.7)
-  br label %146
+  br label %147
 
 28:                                               ; preds = %20
   %29 = load i64, ptr %8, align 8
@@ -255,7 +255,7 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 31:                                               ; preds = %28
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.1)
-  br label %146
+  br label %147
 
 32:                                               ; preds = %28
   %33 = load i64, ptr %7, align 8
@@ -265,7 +265,7 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 36:                                               ; preds = %32
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.2)
-  br label %146
+  br label %147
 
 37:                                               ; preds = %32
   %38 = load i64, ptr %8, align 8
@@ -289,7 +289,7 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 51:                                               ; preds = %37
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.8)
-  br label %146
+  br label %147
 
 52:                                               ; preds = %37
   %53 = load i64, ptr %14, align 8
@@ -305,12 +305,12 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 61:                                               ; preds = %52
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.8)
-  br label %146
+  br label %147
 
 62:                                               ; preds = %52
   %63 = load i32, ptr %10, align 4
   %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %78
+  br i1 %64, label %65, label %79
 
 65:                                               ; preds = %62
   %66 = call i32 @pthread_mutex_lock(ptr noundef @fmap_mutex) #8
@@ -319,137 +319,138 @@ define ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   %69 = load ptr, ptr %15, align 8
   %70 = getelementptr inbounds %struct.cl_fmap, ptr %69, i32 0, i32 2
   store ptr %68, ptr %70, align 8
-  %71 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
-  br i1 %71, label %72, label %75
+  %71 = inttoptr i64 -1 to ptr
+  %72 = icmp eq ptr %68, %71
+  br i1 %72, label %73, label %76
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %15, align 8
-  %74 = getelementptr inbounds %struct.cl_fmap, ptr %73, i32 0, i32 2
-  store ptr null, ptr %74, align 8
-  br label %76
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %15, align 8
+  %75 = getelementptr inbounds %struct.cl_fmap, ptr %74, i32 0, i32 2
+  store ptr null, ptr %75, align 8
+  br label %77
 
-75:                                               ; preds = %65
-  br label %76
+76:                                               ; preds = %65
+  br label %77
 
-76:                                               ; preds = %75, %72
-  %77 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
-  br label %78
+77:                                               ; preds = %76, %73
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
+  br label %79
 
-78:                                               ; preds = %76, %62
-  %79 = load i32, ptr %10, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %86, label %81
+79:                                               ; preds = %77, %62
+  %80 = load i32, ptr %10, align 4
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %87, label %82
 
-81:                                               ; preds = %78
-  %82 = load i64, ptr %13, align 8
-  %83 = call ptr @cli_max_malloc(i64 noundef %82)
-  %84 = load ptr, ptr %15, align 8
-  %85 = getelementptr inbounds %struct.cl_fmap, ptr %84, i32 0, i32 2
-  store ptr %83, ptr %85, align 8
-  br label %86
+82:                                               ; preds = %79
+  %83 = load i64, ptr %13, align 8
+  %84 = call ptr @cli_max_malloc(i64 noundef %83)
+  %85 = load ptr, ptr %15, align 8
+  %86 = getelementptr inbounds %struct.cl_fmap, ptr %85, i32 0, i32 2
+  store ptr %84, ptr %86, align 8
+  br label %87
 
-86:                                               ; preds = %81, %78
-  %87 = load ptr, ptr %15, align 8
-  %88 = getelementptr inbounds %struct.cl_fmap, ptr %87, i32 0, i32 2
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %92, label %91
+87:                                               ; preds = %82, %79
+  %88 = load ptr, ptr %15, align 8
+  %89 = getelementptr inbounds %struct.cl_fmap, ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %93, label %92
 
-91:                                               ; preds = %86
+92:                                               ; preds = %87
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.9)
-  br label %146
+  br label %147
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr %6, align 8
-  %94 = load ptr, ptr %15, align 8
-  %95 = getelementptr inbounds %struct.cl_fmap, ptr %94, i32 0, i32 0
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr %9, align 8
-  %97 = load ptr, ptr %15, align 8
-  %98 = getelementptr inbounds %struct.cl_fmap, ptr %97, i32 0, i32 1
-  store ptr %96, ptr %98, align 8
-  %99 = load i32, ptr %10, align 4
-  %100 = icmp ne i32 %99, 0
-  %101 = select i1 %100, i32 1, i32 0
-  %102 = icmp ne i32 %101, 0
-  %103 = load ptr, ptr %15, align 8
-  %104 = getelementptr inbounds %struct.cl_fmap, ptr %103, i32 0, i32 7
-  %105 = zext i1 %102 to i8
-  store i8 %105, ptr %104, align 8
-  %106 = load i64, ptr %7, align 8
-  %107 = load ptr, ptr %15, align 8
-  %108 = getelementptr inbounds %struct.cl_fmap, ptr %107, i32 0, i32 10
-  store i64 %106, ptr %108, align 8
-  %109 = load ptr, ptr %15, align 8
-  %110 = getelementptr inbounds %struct.cl_fmap, ptr %109, i32 0, i32 11
-  store i64 0, ptr %110, align 8
-  %111 = load i64, ptr %8, align 8
-  %112 = load ptr, ptr %15, align 8
-  %113 = getelementptr inbounds %struct.cl_fmap, ptr %112, i32 0, i32 13
-  store i64 %111, ptr %113, align 8
-  %114 = load i64, ptr %8, align 8
-  %115 = load ptr, ptr %15, align 8
-  %116 = getelementptr inbounds %struct.cl_fmap, ptr %115, i32 0, i32 12
-  store i64 %114, ptr %116, align 8
-  %117 = load i64, ptr %12, align 8
-  %118 = load ptr, ptr %15, align 8
-  %119 = getelementptr inbounds %struct.cl_fmap, ptr %118, i32 0, i32 4
-  store i64 %117, ptr %119, align 8
-  %120 = load i32, ptr %16, align 4
-  %121 = sext i32 %120 to i64
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds %struct.cl_fmap, ptr %122, i32 0, i32 5
-  store i64 %121, ptr %123, align 8
-  %124 = load ptr, ptr %15, align 8
-  %125 = getelementptr inbounds %struct.cl_fmap, ptr %124, i32 0, i32 6
-  store i64 0, ptr %125, align 8
-  %126 = load ptr, ptr %15, align 8
-  %127 = getelementptr inbounds %struct.cl_fmap, ptr %126, i32 0, i32 8
-  store i8 0, ptr %127, align 1
-  %128 = load ptr, ptr %15, align 8
-  %129 = getelementptr inbounds %struct.cl_fmap, ptr %128, i32 0, i32 14
-  store ptr @unmap_handle, ptr %129, align 8
-  %130 = load ptr, ptr %15, align 8
-  %131 = getelementptr inbounds %struct.cl_fmap, ptr %130, i32 0, i32 15
-  store ptr @handle_need, ptr %131, align 8
-  %132 = load ptr, ptr %15, align 8
-  %133 = getelementptr inbounds %struct.cl_fmap, ptr %132, i32 0, i32 16
-  store ptr @handle_need_offstr, ptr %133, align 8
-  %134 = load ptr, ptr %15, align 8
-  %135 = getelementptr inbounds %struct.cl_fmap, ptr %134, i32 0, i32 17
-  store ptr @handle_gets, ptr %135, align 8
-  %136 = load ptr, ptr %15, align 8
-  %137 = getelementptr inbounds %struct.cl_fmap, ptr %136, i32 0, i32 18
-  store ptr @handle_unneed_off, ptr %137, align 8
-  %138 = load ptr, ptr %15, align 8
-  %139 = getelementptr inbounds %struct.cl_fmap, ptr %138, i32 0, i32 9
-  store i8 1, ptr %139, align 2
-  %140 = load ptr, ptr %15, align 8
-  %141 = getelementptr inbounds %struct.cl_fmap, ptr %140, i32 0, i32 21
-  store i8 0, ptr %141, align 8
-  %142 = load ptr, ptr %15, align 8
-  %143 = getelementptr inbounds %struct.cl_fmap, ptr %142, i32 0, i32 23
-  store i8 0, ptr %143, align 1
-  %144 = load ptr, ptr %15, align 8
-  %145 = getelementptr inbounds %struct.cl_fmap, ptr %144, i32 0, i32 25
-  store i8 0, ptr %145, align 2
+93:                                               ; preds = %87
+  %94 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %15, align 8
+  %96 = getelementptr inbounds %struct.cl_fmap, ptr %95, i32 0, i32 0
+  store ptr %94, ptr %96, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = load ptr, ptr %15, align 8
+  %99 = getelementptr inbounds %struct.cl_fmap, ptr %98, i32 0, i32 1
+  store ptr %97, ptr %99, align 8
+  %100 = load i32, ptr %10, align 4
+  %101 = icmp ne i32 %100, 0
+  %102 = select i1 %101, i32 1, i32 0
+  %103 = icmp ne i32 %102, 0
+  %104 = load ptr, ptr %15, align 8
+  %105 = getelementptr inbounds %struct.cl_fmap, ptr %104, i32 0, i32 7
+  %106 = zext i1 %103 to i8
+  store i8 %106, ptr %105, align 8
+  %107 = load i64, ptr %7, align 8
+  %108 = load ptr, ptr %15, align 8
+  %109 = getelementptr inbounds %struct.cl_fmap, ptr %108, i32 0, i32 10
+  store i64 %107, ptr %109, align 8
+  %110 = load ptr, ptr %15, align 8
+  %111 = getelementptr inbounds %struct.cl_fmap, ptr %110, i32 0, i32 11
+  store i64 0, ptr %111, align 8
+  %112 = load i64, ptr %8, align 8
+  %113 = load ptr, ptr %15, align 8
+  %114 = getelementptr inbounds %struct.cl_fmap, ptr %113, i32 0, i32 13
+  store i64 %112, ptr %114, align 8
+  %115 = load i64, ptr %8, align 8
+  %116 = load ptr, ptr %15, align 8
+  %117 = getelementptr inbounds %struct.cl_fmap, ptr %116, i32 0, i32 12
+  store i64 %115, ptr %117, align 8
+  %118 = load i64, ptr %12, align 8
+  %119 = load ptr, ptr %15, align 8
+  %120 = getelementptr inbounds %struct.cl_fmap, ptr %119, i32 0, i32 4
+  store i64 %118, ptr %120, align 8
+  %121 = load i32, ptr %16, align 4
+  %122 = sext i32 %121 to i64
+  %123 = load ptr, ptr %15, align 8
+  %124 = getelementptr inbounds %struct.cl_fmap, ptr %123, i32 0, i32 5
+  store i64 %122, ptr %124, align 8
+  %125 = load ptr, ptr %15, align 8
+  %126 = getelementptr inbounds %struct.cl_fmap, ptr %125, i32 0, i32 6
+  store i64 0, ptr %126, align 8
+  %127 = load ptr, ptr %15, align 8
+  %128 = getelementptr inbounds %struct.cl_fmap, ptr %127, i32 0, i32 8
+  store i8 0, ptr %128, align 1
+  %129 = load ptr, ptr %15, align 8
+  %130 = getelementptr inbounds %struct.cl_fmap, ptr %129, i32 0, i32 14
+  store ptr @unmap_handle, ptr %130, align 8
+  %131 = load ptr, ptr %15, align 8
+  %132 = getelementptr inbounds %struct.cl_fmap, ptr %131, i32 0, i32 15
+  store ptr @handle_need, ptr %132, align 8
+  %133 = load ptr, ptr %15, align 8
+  %134 = getelementptr inbounds %struct.cl_fmap, ptr %133, i32 0, i32 16
+  store ptr @handle_need_offstr, ptr %134, align 8
+  %135 = load ptr, ptr %15, align 8
+  %136 = getelementptr inbounds %struct.cl_fmap, ptr %135, i32 0, i32 17
+  store ptr @handle_gets, ptr %136, align 8
+  %137 = load ptr, ptr %15, align 8
+  %138 = getelementptr inbounds %struct.cl_fmap, ptr %137, i32 0, i32 18
+  store ptr @handle_unneed_off, ptr %138, align 8
+  %139 = load ptr, ptr %15, align 8
+  %140 = getelementptr inbounds %struct.cl_fmap, ptr %139, i32 0, i32 9
+  store i8 1, ptr %140, align 2
+  %141 = load ptr, ptr %15, align 8
+  %142 = getelementptr inbounds %struct.cl_fmap, ptr %141, i32 0, i32 21
+  store i8 0, ptr %142, align 8
+  %143 = load ptr, ptr %15, align 8
+  %144 = getelementptr inbounds %struct.cl_fmap, ptr %143, i32 0, i32 23
+  store i8 0, ptr %144, align 1
+  %145 = load ptr, ptr %15, align 8
+  %146 = getelementptr inbounds %struct.cl_fmap, ptr %145, i32 0, i32 25
+  store i8 0, ptr %146, align 2
   store i32 0, ptr %11, align 4
-  br label %146
+  br label %147
 
-146:                                              ; preds = %92, %91, %61, %51, %36, %31, %27
-  %147 = load i32, ptr %11, align 4
-  %148 = icmp ne i32 0, %147
-  br i1 %148, label %149, label %151
+147:                                              ; preds = %93, %92, %61, %51, %36, %31, %27
+  %148 = load i32, ptr %11, align 4
+  %149 = icmp ne i32 0, %148
+  br i1 %149, label %150, label %152
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %15, align 8
-  call void @unmap_handle(ptr noundef %150)
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %15, align 8
+  call void @unmap_handle(ptr noundef %151)
   store ptr null, ptr %15, align 8
-  br label %151
+  br label %152
 
-151:                                              ; preds = %149, %146
-  %152 = load ptr, ptr %15, align 8
-  ret ptr %152
+152:                                              ; preds = %150, %147
+  %153 = load ptr, ptr %15, align 8
+  ret ptr %153
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3375,7 +3376,7 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %1
-  br label %256
+  br label %258
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr %2, align 8
@@ -3386,7 +3387,7 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   %24 = load i64, ptr %23, align 8
   %25 = mul i64 %21, %24
   %26 = icmp ugt i64 %25, 8388608
-  br i1 %26, label %27, label %256
+  br i1 %26, label %27, label %258
 
 27:                                               ; preds = %18
   store i64 0, ptr %4, align 8
@@ -3594,7 +3595,7 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
 162:                                              ; preds = %50
   %163 = load i64, ptr %4, align 8
   %164 = icmp ne i64 %163, 0
-  br i1 %164, label %165, label %255
+  br i1 %164, label %165, label %257
 
 165:                                              ; preds = %162
   store ptr null, ptr %10, align 8
@@ -3602,11 +3603,11 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   store i64 0, ptr %3, align 8
   br label %166
 
-166:                                              ; preds = %230, %165
+166:                                              ; preds = %231, %165
   %167 = load i64, ptr %3, align 8
   %168 = load i64, ptr %4, align 8
   %169 = icmp ult i64 %167, %168
-  br i1 %169, label %170, label %233
+  br i1 %169, label %170, label %234
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr %2, align 8
@@ -3646,7 +3647,7 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   %199 = load i64, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %196, i64 %199
   store ptr %200, ptr %10, align 8
-  br label %230
+  br label %231
 
 201:                                              ; preds = %191, %170
   %202 = load ptr, ptr %10, align 8
@@ -3662,7 +3663,7 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   %209 = load i64, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %206, i64 %209
   store ptr %210, ptr %10, align 8
-  br label %230
+  br label %231
 
 211:                                              ; preds = %201
   %212 = call i32 @pthread_mutex_lock(ptr noundef @fmap_mutex) #8
@@ -3673,69 +3674,71 @@ define internal void @fmap_aging(ptr noundef %0) #0 {
   %217 = ptrtoint ptr %215 to i64
   %218 = sub i64 %216, %217
   %219 = call ptr @mmap(ptr noundef %213, i64 noundef %218, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #8
-  %220 = icmp eq ptr %219, inttoptr (i64 -1 to ptr)
-  br i1 %220, label %221, label %222
+  %220 = inttoptr i64 -1 to ptr
+  %221 = icmp eq ptr %219, %220
+  br i1 %221, label %222, label %223
 
-221:                                              ; preds = %211
+222:                                              ; preds = %211
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.31)
-  br label %222
+  br label %223
 
-222:                                              ; preds = %221, %211
-  %223 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
-  %224 = load ptr, ptr %12, align 8
-  store ptr %224, ptr %11, align 8
+223:                                              ; preds = %222, %211
+  %224 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
   %225 = load ptr, ptr %12, align 8
-  %226 = load ptr, ptr %2, align 8
-  %227 = getelementptr inbounds %struct.cl_fmap, ptr %226, i32 0, i32 5
-  %228 = load i64, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %225, i64 %228
-  store ptr %229, ptr %10, align 8
-  br label %230
+  store ptr %225, ptr %11, align 8
+  %226 = load ptr, ptr %12, align 8
+  %227 = load ptr, ptr %2, align 8
+  %228 = getelementptr inbounds %struct.cl_fmap, ptr %227, i32 0, i32 5
+  %229 = load i64, ptr %228, align 8
+  %230 = getelementptr inbounds i8, ptr %226, i64 %229
+  store ptr %230, ptr %10, align 8
+  br label %231
 
-230:                                              ; preds = %222, %204, %195
-  %231 = load i64, ptr %3, align 8
-  %232 = add i64 %231, 1
-  store i64 %232, ptr %3, align 8
+231:                                              ; preds = %223, %204, %195
+  %232 = load i64, ptr %3, align 8
+  %233 = add i64 %232, 1
+  store i64 %233, ptr %3, align 8
   br label %166
 
-233:                                              ; preds = %166
-  %234 = load ptr, ptr %10, align 8
-  %235 = icmp ne ptr %234, null
-  br i1 %235, label %236, label %249
+234:                                              ; preds = %166
+  %235 = load ptr, ptr %10, align 8
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %237, label %251
 
-236:                                              ; preds = %233
-  %237 = call i32 @pthread_mutex_lock(ptr noundef @fmap_mutex) #8
-  %238 = load ptr, ptr %11, align 8
-  %239 = load ptr, ptr %10, align 8
-  %240 = load ptr, ptr %11, align 8
-  %241 = ptrtoint ptr %239 to i64
+237:                                              ; preds = %234
+  %238 = call i32 @pthread_mutex_lock(ptr noundef @fmap_mutex) #8
+  %239 = load ptr, ptr %11, align 8
+  %240 = load ptr, ptr %10, align 8
+  %241 = load ptr, ptr %11, align 8
   %242 = ptrtoint ptr %240 to i64
-  %243 = sub i64 %241, %242
-  %244 = call ptr @mmap(ptr noundef %238, i64 noundef %243, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #8
-  %245 = icmp eq ptr %244, inttoptr (i64 -1 to ptr)
-  br i1 %245, label %246, label %247
+  %243 = ptrtoint ptr %241 to i64
+  %244 = sub i64 %242, %243
+  %245 = call ptr @mmap(ptr noundef %239, i64 noundef %244, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #8
+  %246 = inttoptr i64 -1 to ptr
+  %247 = icmp eq ptr %245, %246
+  br i1 %247, label %248, label %249
 
-246:                                              ; preds = %236
+248:                                              ; preds = %237
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.31)
-  br label %247
-
-247:                                              ; preds = %246, %236
-  %248 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
   br label %249
 
-249:                                              ; preds = %247, %233
-  %250 = load i64, ptr %4, align 8
-  %251 = load ptr, ptr %2, align 8
-  %252 = getelementptr inbounds %struct.cl_fmap, ptr %251, i32 0, i32 6
-  %253 = load i64, ptr %252, align 8
-  %254 = sub i64 %253, %250
-  store i64 %254, ptr %252, align 8
-  br label %255
+249:                                              ; preds = %248, %237
+  %250 = call i32 @pthread_mutex_unlock(ptr noundef @fmap_mutex) #8
+  br label %251
 
-255:                                              ; preds = %249, %162
-  br label %256
+251:                                              ; preds = %249, %234
+  %252 = load i64, ptr %4, align 8
+  %253 = load ptr, ptr %2, align 8
+  %254 = getelementptr inbounds %struct.cl_fmap, ptr %253, i32 0, i32 6
+  %255 = load i64, ptr %254, align 8
+  %256 = sub i64 %255, %252
+  store i64 %256, ptr %254, align 8
+  br label %257
 
-256:                                              ; preds = %255, %18, %17
+257:                                              ; preds = %251, %162
+  br label %258
+
+258:                                              ; preds = %257, %18, %17
   ret void
 }
 

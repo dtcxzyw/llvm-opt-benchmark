@@ -269,38 +269,53 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.cond
   store i8 0, ptr @rop_to_index, align 16
-  store i8 1, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 5), align 1
-  store i8 2, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 6), align 2
-  store i8 3, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 9), align 1
-  store i8 4, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 11), align 1
-  store i8 5, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 13), align 1
-  store i8 6, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 14), align 2
-  store i8 7, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 80), align 16
-  store i8 8, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 89), align 1
-  store i8 9, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 109), align 1
-  store i8 10, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 144), align 16
-  store i8 11, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 149), align 1
-  store i8 12, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 173), align 1
-  store i8 13, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 208), align 16
-  store i8 14, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 214), align 2
-  store i8 15, ptr getelementptr inbounds ([256 x i8], ptr @rop_to_index, i64 0, i64 218), align 2
-  %4 = load i32, ptr %device_id.addr, align 4
-  %5 = load ptr, ptr %s.addr, align 8
-  %device_id1 = getelementptr inbounds %struct.CirrusVGAState, ptr %5, i32 0, i32 42
-  store i32 %4, ptr %device_id1, align 4
-  %6 = load i32, ptr %is_pci.addr, align 4
-  %tobool2 = icmp ne i32 %6, 0
+  %4 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 5
+  store i8 1, ptr %4, align 1
+  %5 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 6
+  store i8 2, ptr %5, align 2
+  %6 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 9
+  store i8 3, ptr %6, align 1
+  %7 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 11
+  store i8 4, ptr %7, align 1
+  %8 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 13
+  store i8 5, ptr %8, align 1
+  %9 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 14
+  store i8 6, ptr %9, align 2
+  %10 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 80
+  store i8 7, ptr %10, align 16
+  %11 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 89
+  store i8 8, ptr %11, align 1
+  %12 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 109
+  store i8 9, ptr %12, align 1
+  %13 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 144
+  store i8 10, ptr %13, align 16
+  %14 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 149
+  store i8 11, ptr %14, align 1
+  %15 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 173
+  store i8 12, ptr %15, align 1
+  %16 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 208
+  store i8 13, ptr %16, align 16
+  %17 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 214
+  store i8 14, ptr %17, align 2
+  %18 = getelementptr inbounds [256 x i8], ptr @rop_to_index, i64 0, i64 218
+  store i8 15, ptr %18, align 2
+  %19 = load i32, ptr %device_id.addr, align 4
+  %20 = load ptr, ptr %s.addr, align 8
+  %device_id1 = getelementptr inbounds %struct.CirrusVGAState, ptr %20, i32 0, i32 42
+  store i32 %19, ptr %device_id1, align 4
+  %21 = load i32, ptr %is_pci.addr, align 4
+  %tobool2 = icmp ne i32 %21, 0
   br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %for.end
-  %7 = load ptr, ptr %s.addr, align 8
-  %bustype = getelementptr inbounds %struct.CirrusVGAState, ptr %7, i32 0, i32 43
+  %22 = load ptr, ptr %s.addr, align 8
+  %bustype = getelementptr inbounds %struct.CirrusVGAState, ptr %22, i32 0, i32 43
   store i32 32, ptr %bustype, align 16
   br label %if.end
 
 if.else:                                          ; preds = %for.end
-  %8 = load ptr, ptr %s.addr, align 8
-  %bustype4 = getelementptr inbounds %struct.CirrusVGAState, ptr %8, i32 0, i32 43
+  %23 = load ptr, ptr %s.addr, align 8
+  %bustype4 = getelementptr inbounds %struct.CirrusVGAState, ptr %23, i32 0, i32 43
   store i32 56, ptr %bustype4, align 16
   br label %if.end
 
@@ -308,157 +323,157 @@ if.end:                                           ; preds = %if.else, %if.then3
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %9 = load ptr, ptr %s.addr, align 8
-  %cirrus_vga_io = getelementptr inbounds %struct.CirrusVGAState, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %owner.addr, align 8
-  %11 = load ptr, ptr %s.addr, align 8
-  call void @memory_region_init_io(ptr noundef %cirrus_vga_io, ptr noundef %10, ptr noundef @cirrus_vga_io_ops, ptr noundef %11, ptr noundef @.str.28, i64 noundef 48)
-  %12 = load ptr, ptr %s.addr, align 8
-  %cirrus_vga_io6 = getelementptr inbounds %struct.CirrusVGAState, ptr %12, i32 0, i32 1
+  %24 = load ptr, ptr %s.addr, align 8
+  %cirrus_vga_io = getelementptr inbounds %struct.CirrusVGAState, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %owner.addr, align 8
+  %26 = load ptr, ptr %s.addr, align 8
+  call void @memory_region_init_io(ptr noundef %cirrus_vga_io, ptr noundef %25, ptr noundef @cirrus_vga_io_ops, ptr noundef %26, ptr noundef @.str.28, i64 noundef 48)
+  %27 = load ptr, ptr %s.addr, align 8
+  %cirrus_vga_io6 = getelementptr inbounds %struct.CirrusVGAState, ptr %27, i32 0, i32 1
   call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_vga_io6)
-  %13 = load ptr, ptr %system_io.addr, align 8
-  %14 = load ptr, ptr %s.addr, align 8
-  %cirrus_vga_io7 = getelementptr inbounds %struct.CirrusVGAState, ptr %14, i32 0, i32 1
-  call void @memory_region_add_subregion(ptr noundef %13, i64 noundef 944, ptr noundef %cirrus_vga_io7)
-  %15 = load ptr, ptr %s.addr, align 8
-  %low_mem_container = getelementptr inbounds %struct.CirrusVGAState, ptr %15, i32 0, i32 7
-  %16 = load ptr, ptr %owner.addr, align 8
-  call void @memory_region_init(ptr noundef %low_mem_container, ptr noundef %16, ptr noundef @.str.29, i64 noundef 131072)
-  %17 = load ptr, ptr %s.addr, align 8
-  %low_mem = getelementptr inbounds %struct.CirrusVGAState, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %owner.addr, align 8
-  %19 = load ptr, ptr %s.addr, align 8
-  call void @memory_region_init_io(ptr noundef %low_mem, ptr noundef %18, ptr noundef @cirrus_vga_mem_ops, ptr noundef %19, ptr noundef @.str.30, i64 noundef 131072)
-  %20 = load ptr, ptr %s.addr, align 8
-  %low_mem_container8 = getelementptr inbounds %struct.CirrusVGAState, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %s.addr, align 8
-  %low_mem9 = getelementptr inbounds %struct.CirrusVGAState, ptr %21, i32 0, i32 8
+  %28 = load ptr, ptr %system_io.addr, align 8
+  %29 = load ptr, ptr %s.addr, align 8
+  %cirrus_vga_io7 = getelementptr inbounds %struct.CirrusVGAState, ptr %29, i32 0, i32 1
+  call void @memory_region_add_subregion(ptr noundef %28, i64 noundef 944, ptr noundef %cirrus_vga_io7)
+  %30 = load ptr, ptr %s.addr, align 8
+  %low_mem_container = getelementptr inbounds %struct.CirrusVGAState, ptr %30, i32 0, i32 7
+  %31 = load ptr, ptr %owner.addr, align 8
+  call void @memory_region_init(ptr noundef %low_mem_container, ptr noundef %31, ptr noundef @.str.29, i64 noundef 131072)
+  %32 = load ptr, ptr %s.addr, align 8
+  %low_mem = getelementptr inbounds %struct.CirrusVGAState, ptr %32, i32 0, i32 8
+  %33 = load ptr, ptr %owner.addr, align 8
+  %34 = load ptr, ptr %s.addr, align 8
+  call void @memory_region_init_io(ptr noundef %low_mem, ptr noundef %33, ptr noundef @cirrus_vga_mem_ops, ptr noundef %34, ptr noundef @.str.30, i64 noundef 131072)
+  %35 = load ptr, ptr %s.addr, align 8
+  %low_mem_container8 = getelementptr inbounds %struct.CirrusVGAState, ptr %35, i32 0, i32 7
+  %36 = load ptr, ptr %s.addr, align 8
+  %low_mem9 = getelementptr inbounds %struct.CirrusVGAState, ptr %36, i32 0, i32 8
   call void @memory_region_add_subregion(ptr noundef %low_mem_container8, i64 noundef 0, ptr noundef %low_mem9)
   store i32 0, ptr %i, align 4
   br label %for.cond10
 
 for.cond10:                                       ; preds = %for.inc18, %if.end5
-  %22 = load i32, ptr %i, align 4
-  %cmp11 = icmp slt i32 %22, 2
+  %37 = load i32, ptr %i, align 4
+  %cmp11 = icmp slt i32 %37, 2
   br i1 %cmp11, label %for.body12, label %for.end20
 
 for.body12:                                       ; preds = %for.cond10
-  %23 = load ptr, ptr %s.addr, align 8
-  %cirrus_bank = getelementptr inbounds %struct.CirrusVGAState, ptr %23, i32 0, i32 9
-  %24 = load i32, ptr %i, align 4
-  %idxprom13 = sext i32 %24 to i64
+  %38 = load ptr, ptr %s.addr, align 8
+  %cirrus_bank = getelementptr inbounds %struct.CirrusVGAState, ptr %38, i32 0, i32 9
+  %39 = load i32, ptr %i, align 4
+  %idxprom13 = sext i32 %39 to i64
   %arrayidx14 = getelementptr [2 x %struct.MemoryRegion], ptr %cirrus_bank, i64 0, i64 %idxprom13
   store ptr %arrayidx14, ptr %bank, align 8
-  %25 = load ptr, ptr %bank, align 8
-  %26 = load ptr, ptr %owner.addr, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom15 = sext i32 %27 to i64
+  %40 = load ptr, ptr %bank, align 8
+  %41 = load ptr, ptr %owner.addr, align 8
+  %42 = load i32, ptr %i, align 4
+  %idxprom15 = sext i32 %42 to i64
   %arrayidx16 = getelementptr [2 x ptr], ptr @cirrus_init_common.names, i64 0, i64 %idxprom15
-  %28 = load ptr, ptr %arrayidx16, align 8
-  %29 = load ptr, ptr %s.addr, align 8
-  %vga = getelementptr inbounds %struct.CirrusVGAState, ptr %29, i32 0, i32 0
+  %43 = load ptr, ptr %arrayidx16, align 8
+  %44 = load ptr, ptr %s.addr, align 8
+  %vga = getelementptr inbounds %struct.CirrusVGAState, ptr %44, i32 0, i32 0
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %vga, i32 0, i32 2
-  call void @memory_region_init_alias(ptr noundef %25, ptr noundef %26, ptr noundef %28, ptr noundef %vram, i64 noundef 0, i64 noundef 32768)
-  %30 = load ptr, ptr %bank, align 8
-  call void @memory_region_set_enabled(ptr noundef %30, i1 noundef zeroext false)
-  %31 = load ptr, ptr %s.addr, align 8
-  %low_mem_container17 = getelementptr inbounds %struct.CirrusVGAState, ptr %31, i32 0, i32 7
-  %32 = load i32, ptr %i, align 4
-  %mul = mul i32 %32, 32768
+  call void @memory_region_init_alias(ptr noundef %40, ptr noundef %41, ptr noundef %43, ptr noundef %vram, i64 noundef 0, i64 noundef 32768)
+  %45 = load ptr, ptr %bank, align 8
+  call void @memory_region_set_enabled(ptr noundef %45, i1 noundef zeroext false)
+  %46 = load ptr, ptr %s.addr, align 8
+  %low_mem_container17 = getelementptr inbounds %struct.CirrusVGAState, ptr %46, i32 0, i32 7
+  %47 = load i32, ptr %i, align 4
+  %mul = mul i32 %47, 32768
   %conv = sext i32 %mul to i64
-  %33 = load ptr, ptr %bank, align 8
-  call void @memory_region_add_subregion_overlap(ptr noundef %low_mem_container17, i64 noundef %conv, ptr noundef %33, i32 noundef 1)
+  %48 = load ptr, ptr %bank, align 8
+  call void @memory_region_add_subregion_overlap(ptr noundef %low_mem_container17, i64 noundef %conv, ptr noundef %48, i32 noundef 1)
   br label %for.inc18
 
 for.inc18:                                        ; preds = %for.body12
-  %34 = load i32, ptr %i, align 4
-  %inc19 = add i32 %34, 1
+  %49 = load i32, ptr %i, align 4
+  %inc19 = add i32 %49, 1
   store i32 %inc19, ptr %i, align 4
   br label %for.cond10, !llvm.loop !7
 
 for.end20:                                        ; preds = %for.cond10
-  %35 = load ptr, ptr %system_memory.addr, align 8
-  %36 = load ptr, ptr %s.addr, align 8
-  %low_mem_container21 = getelementptr inbounds %struct.CirrusVGAState, ptr %36, i32 0, i32 7
-  call void @memory_region_add_subregion_overlap(ptr noundef %35, i64 noundef 655360, ptr noundef %low_mem_container21, i32 noundef 1)
-  %37 = load ptr, ptr %s.addr, align 8
-  %low_mem22 = getelementptr inbounds %struct.CirrusVGAState, ptr %37, i32 0, i32 8
-  call void @memory_region_set_coalescing(ptr noundef %low_mem22)
-  %38 = load ptr, ptr %s.addr, align 8
-  %cirrus_linear_io = getelementptr inbounds %struct.CirrusVGAState, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %owner.addr, align 8
-  %40 = load ptr, ptr %s.addr, align 8
-  %41 = load ptr, ptr %s.addr, align 8
-  %vga23 = getelementptr inbounds %struct.CirrusVGAState, ptr %41, i32 0, i32 0
-  %vram_size_mb = getelementptr inbounds %struct.VGACommonState, ptr %vga23, i32 0, i32 4
-  %42 = load i32, ptr %vram_size_mb, align 4
-  %conv24 = zext i32 %42 to i64
-  %mul25 = mul i64 %conv24, 1048576
-  call void @memory_region_init_io(ptr noundef %cirrus_linear_io, ptr noundef %39, ptr noundef @cirrus_linear_io_ops, ptr noundef %40, ptr noundef @.str.33, i64 noundef %mul25)
-  %43 = load ptr, ptr %s.addr, align 8
-  %cirrus_linear_io26 = getelementptr inbounds %struct.CirrusVGAState, ptr %43, i32 0, i32 2
-  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_linear_io26)
-  %44 = load ptr, ptr %s.addr, align 8
-  %cirrus_linear_bitblt_io = getelementptr inbounds %struct.CirrusVGAState, ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %owner.addr, align 8
-  %46 = load ptr, ptr %s.addr, align 8
-  call void @memory_region_init_io(ptr noundef %cirrus_linear_bitblt_io, ptr noundef %45, ptr noundef @cirrus_linear_bitblt_io_ops, ptr noundef %46, ptr noundef @.str.34, i64 noundef 4194304)
-  %47 = load ptr, ptr %s.addr, align 8
-  %cirrus_linear_bitblt_io27 = getelementptr inbounds %struct.CirrusVGAState, ptr %47, i32 0, i32 3
-  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_linear_bitblt_io27)
-  %48 = load ptr, ptr %s.addr, align 8
-  %cirrus_mmio_io = getelementptr inbounds %struct.CirrusVGAState, ptr %48, i32 0, i32 4
-  %49 = load ptr, ptr %owner.addr, align 8
-  %50 = load ptr, ptr %s.addr, align 8
-  call void @memory_region_init_io(ptr noundef %cirrus_mmio_io, ptr noundef %49, ptr noundef @cirrus_mmio_io_ops, ptr noundef %50, ptr noundef @.str.35, i64 noundef 4096)
+  %50 = load ptr, ptr %system_memory.addr, align 8
   %51 = load ptr, ptr %s.addr, align 8
-  %cirrus_mmio_io28 = getelementptr inbounds %struct.CirrusVGAState, ptr %51, i32 0, i32 4
-  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_mmio_io28)
+  %low_mem_container21 = getelementptr inbounds %struct.CirrusVGAState, ptr %51, i32 0, i32 7
+  call void @memory_region_add_subregion_overlap(ptr noundef %50, i64 noundef 655360, ptr noundef %low_mem_container21, i32 noundef 1)
   %52 = load ptr, ptr %s.addr, align 8
-  %device_id29 = getelementptr inbounds %struct.CirrusVGAState, ptr %52, i32 0, i32 42
-  %53 = load i32, ptr %device_id29, align 4
-  %cmp30 = icmp eq i32 %53, 184
+  %low_mem22 = getelementptr inbounds %struct.CirrusVGAState, ptr %52, i32 0, i32 8
+  call void @memory_region_set_coalescing(ptr noundef %low_mem22)
+  %53 = load ptr, ptr %s.addr, align 8
+  %cirrus_linear_io = getelementptr inbounds %struct.CirrusVGAState, ptr %53, i32 0, i32 2
+  %54 = load ptr, ptr %owner.addr, align 8
+  %55 = load ptr, ptr %s.addr, align 8
+  %56 = load ptr, ptr %s.addr, align 8
+  %vga23 = getelementptr inbounds %struct.CirrusVGAState, ptr %56, i32 0, i32 0
+  %vram_size_mb = getelementptr inbounds %struct.VGACommonState, ptr %vga23, i32 0, i32 4
+  %57 = load i32, ptr %vram_size_mb, align 4
+  %conv24 = zext i32 %57 to i64
+  %mul25 = mul i64 %conv24, 1048576
+  call void @memory_region_init_io(ptr noundef %cirrus_linear_io, ptr noundef %54, ptr noundef @cirrus_linear_io_ops, ptr noundef %55, ptr noundef @.str.33, i64 noundef %mul25)
+  %58 = load ptr, ptr %s.addr, align 8
+  %cirrus_linear_io26 = getelementptr inbounds %struct.CirrusVGAState, ptr %58, i32 0, i32 2
+  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_linear_io26)
+  %59 = load ptr, ptr %s.addr, align 8
+  %cirrus_linear_bitblt_io = getelementptr inbounds %struct.CirrusVGAState, ptr %59, i32 0, i32 3
+  %60 = load ptr, ptr %owner.addr, align 8
+  %61 = load ptr, ptr %s.addr, align 8
+  call void @memory_region_init_io(ptr noundef %cirrus_linear_bitblt_io, ptr noundef %60, ptr noundef @cirrus_linear_bitblt_io_ops, ptr noundef %61, ptr noundef @.str.34, i64 noundef 4194304)
+  %62 = load ptr, ptr %s.addr, align 8
+  %cirrus_linear_bitblt_io27 = getelementptr inbounds %struct.CirrusVGAState, ptr %62, i32 0, i32 3
+  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_linear_bitblt_io27)
+  %63 = load ptr, ptr %s.addr, align 8
+  %cirrus_mmio_io = getelementptr inbounds %struct.CirrusVGAState, ptr %63, i32 0, i32 4
+  %64 = load ptr, ptr %owner.addr, align 8
+  %65 = load ptr, ptr %s.addr, align 8
+  call void @memory_region_init_io(ptr noundef %cirrus_mmio_io, ptr noundef %64, ptr noundef @cirrus_mmio_io_ops, ptr noundef %65, ptr noundef @.str.35, i64 noundef 4096)
+  %66 = load ptr, ptr %s.addr, align 8
+  %cirrus_mmio_io28 = getelementptr inbounds %struct.CirrusVGAState, ptr %66, i32 0, i32 4
+  call void @memory_region_set_flush_coalesced(ptr noundef %cirrus_mmio_io28)
+  %67 = load ptr, ptr %s.addr, align 8
+  %device_id29 = getelementptr inbounds %struct.CirrusVGAState, ptr %67, i32 0, i32 42
+  %68 = load i32, ptr %device_id29, align 4
+  %cmp30 = icmp eq i32 %68, 184
   %cond = select i1 %cmp30, i64 4194304, i64 2097152
   %conv32 = trunc i64 %cond to i32
-  %54 = load ptr, ptr %s.addr, align 8
-  %real_vram_size = getelementptr inbounds %struct.CirrusVGAState, ptr %54, i32 0, i32 41
+  %69 = load ptr, ptr %s.addr, align 8
+  %real_vram_size = getelementptr inbounds %struct.CirrusVGAState, ptr %69, i32 0, i32 41
   store i32 %conv32, ptr %real_vram_size, align 8
-  %55 = load ptr, ptr %s.addr, align 8
-  %real_vram_size33 = getelementptr inbounds %struct.CirrusVGAState, ptr %55, i32 0, i32 41
-  %56 = load i32, ptr %real_vram_size33, align 8
-  %sub = sub i32 %56, 1
-  %57 = load ptr, ptr %s.addr, align 8
-  %cirrus_addr_mask = getelementptr inbounds %struct.CirrusVGAState, ptr %57, i32 0, i32 10
+  %70 = load ptr, ptr %s.addr, align 8
+  %real_vram_size33 = getelementptr inbounds %struct.CirrusVGAState, ptr %70, i32 0, i32 41
+  %71 = load i32, ptr %real_vram_size33, align 8
+  %sub = sub i32 %71, 1
+  %72 = load ptr, ptr %s.addr, align 8
+  %cirrus_addr_mask = getelementptr inbounds %struct.CirrusVGAState, ptr %72, i32 0, i32 10
   store i32 %sub, ptr %cirrus_addr_mask, align 16
-  %58 = load ptr, ptr %s.addr, align 8
-  %real_vram_size34 = getelementptr inbounds %struct.CirrusVGAState, ptr %58, i32 0, i32 41
-  %59 = load i32, ptr %real_vram_size34, align 8
-  %sub35 = sub i32 %59, 256
-  %60 = load ptr, ptr %s.addr, align 8
-  %linear_mmio_mask = getelementptr inbounds %struct.CirrusVGAState, ptr %60, i32 0, i32 11
+  %73 = load ptr, ptr %s.addr, align 8
+  %real_vram_size34 = getelementptr inbounds %struct.CirrusVGAState, ptr %73, i32 0, i32 41
+  %74 = load i32, ptr %real_vram_size34, align 8
+  %sub35 = sub i32 %74, 256
+  %75 = load ptr, ptr %s.addr, align 8
+  %linear_mmio_mask = getelementptr inbounds %struct.CirrusVGAState, ptr %75, i32 0, i32 11
   store i32 %sub35, ptr %linear_mmio_mask, align 4
-  %61 = load ptr, ptr %s.addr, align 8
-  %vga36 = getelementptr inbounds %struct.CirrusVGAState, ptr %61, i32 0, i32 0
+  %76 = load ptr, ptr %s.addr, align 8
+  %vga36 = getelementptr inbounds %struct.CirrusVGAState, ptr %76, i32 0, i32 0
   %get_bpp = getelementptr inbounds %struct.VGACommonState, ptr %vga36, i32 0, i32 32
   store ptr @cirrus_get_bpp, ptr %get_bpp, align 16
-  %62 = load ptr, ptr %s.addr, align 8
-  %vga37 = getelementptr inbounds %struct.CirrusVGAState, ptr %62, i32 0, i32 0
+  %77 = load ptr, ptr %s.addr, align 8
+  %vga37 = getelementptr inbounds %struct.CirrusVGAState, ptr %77, i32 0, i32 0
   %get_offsets = getelementptr inbounds %struct.VGACommonState, ptr %vga37, i32 0, i32 33
   store ptr @cirrus_get_offsets, ptr %get_offsets, align 8
-  %63 = load ptr, ptr %s.addr, align 8
-  %vga38 = getelementptr inbounds %struct.CirrusVGAState, ptr %63, i32 0, i32 0
+  %78 = load ptr, ptr %s.addr, align 8
+  %vga38 = getelementptr inbounds %struct.CirrusVGAState, ptr %78, i32 0, i32 0
   %get_resolution = getelementptr inbounds %struct.VGACommonState, ptr %vga38, i32 0, i32 34
   store ptr @cirrus_get_resolution, ptr %get_resolution, align 16
-  %64 = load ptr, ptr %s.addr, align 8
-  %vga39 = getelementptr inbounds %struct.CirrusVGAState, ptr %64, i32 0, i32 0
+  %79 = load ptr, ptr %s.addr, align 8
+  %vga39 = getelementptr inbounds %struct.CirrusVGAState, ptr %79, i32 0, i32 0
   %cursor_invalidate = getelementptr inbounds %struct.VGACommonState, ptr %vga39, i32 0, i32 75
   store ptr @cirrus_cursor_invalidate, ptr %cursor_invalidate, align 8
-  %65 = load ptr, ptr %s.addr, align 8
-  %vga40 = getelementptr inbounds %struct.CirrusVGAState, ptr %65, i32 0, i32 0
+  %80 = load ptr, ptr %s.addr, align 8
+  %vga40 = getelementptr inbounds %struct.CirrusVGAState, ptr %80, i32 0, i32 0
   %cursor_draw_line = getelementptr inbounds %struct.VGACommonState, ptr %vga40, i32 0, i32 76
   store ptr @cirrus_cursor_draw_line, ptr %cursor_draw_line, align 16
-  %66 = load ptr, ptr %s.addr, align 8
-  call void @qemu_register_reset(ptr noundef @cirrus_reset, ptr noundef %66)
+  %81 = load ptr, ptr %s.addr, align 8
+  call void @qemu_register_reset(ptr noundef @cirrus_reset, ptr noundef %81)
   ret void
 }
 

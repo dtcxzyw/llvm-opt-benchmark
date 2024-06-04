@@ -25847,7 +25847,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28103,7 +28104,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -31363,42 +31365,43 @@ invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %keywords, align 8
   store ptr @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112kKeywordListE, ptr %__range4, align 8
   store ptr @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112kKeywordListE, ptr %__begin4, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112kKeywordListE, i64 94), ptr %__end4, align 8
+  %0 = getelementptr inbounds ptr, ptr @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112kKeywordListE, i64 94
+  store ptr %0, ptr %__end4, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont
-  %0 = load ptr, ptr %__begin4, align 8
-  %1 = load ptr, ptr %__end4, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin4, align 8
+  %2 = load ptr, ptr %__end4, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin4, align 8
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr %keyword, align 8
-  %4 = load ptr, ptr %keywords, align 8
-  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE7emplaceIJRKPKcETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbEDpOSJ_(ptr sret(%"struct.std::pair.228") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %keyword)
+  %3 = load ptr, ptr %__begin4, align 8
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %keyword, align 8
+  %5 = load ptr, ptr %keywords, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE7emplaceIJRKPKcETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbEDpOSJ_(ptr sret(%"struct.std::pair.228") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %keyword)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load ptr, ptr %__begin4, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %5, i32 1
+  %6 = load ptr, ptr %__begin4, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %6, i32 1
   store ptr %incdec.ptr, ptr %__begin4, align 8
   br label %for.cond
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #27
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
-  %9 = load ptr, ptr %keywords, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %keywords, align 8
+  ret ptr %10
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -45280,10 +45283,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -45305,7 +45309,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

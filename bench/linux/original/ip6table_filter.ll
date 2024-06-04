@@ -52,35 +52,36 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 define internal i32 @ip6table_filter_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @xt_register_template(ptr noundef nonnull @packet_filter, ptr noundef nonnull @ip6table_filter_table_init) #3
   %2 = icmp slt i32 %1, 0
-  br i1 %2, label %15, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @xt_hook_ops_alloc(ptr noundef nonnull @packet_filter, ptr noundef nonnull @ip6t_do_table) #3
   store ptr %4, ptr @filter_ops, align 8
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %6, label %10
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %7, label %11
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @xt_unregister_template(ptr noundef nonnull @packet_filter) #3
-  %7 = load ptr, ptr @filter_ops, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %9 = trunc i64 %8 to i32
-  br label %15
+  %8 = load ptr, ptr @filter_ops, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %10 = trunc i64 %9 to i32
+  br label %16
 
-10:                                               ; preds = %3
-  %11 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip6table_filter_net_ops) #3
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %15
+11:                                               ; preds = %3
+  %12 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip6table_filter_net_ops) #3
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   tail call void @xt_unregister_template(ptr noundef nonnull @packet_filter) #3
-  %14 = load ptr, ptr @filter_ops, align 8
-  tail call void @kfree(ptr noundef %14) #3
-  br label %15
+  %15 = load ptr, ptr @filter_ops, align 8
+  tail call void @kfree(ptr noundef %15) #3
+  br label %16
 
-15:                                               ; preds = %13, %10, %6, %0
-  %16 = phi i32 [ %9, %6 ], [ %11, %13 ], [ %1, %0 ], [ %11, %10 ]
-  ret i32 %16
+16:                                               ; preds = %14, %11, %7, %0
+  %17 = phi i32 [ %10, %7 ], [ %12, %14 ], [ %1, %0 ], [ %12, %11 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

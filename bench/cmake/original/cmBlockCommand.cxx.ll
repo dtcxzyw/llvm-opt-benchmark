@@ -7892,40 +7892,41 @@ define internal void @_ZN12_GLOBAL__N_122cmBlockFunctionBlockerC2EP10cmMakefileR
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %11) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122cmBlockFunctionBlockerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  call void @_ZN2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  invoke void @_ZN12_GLOBAL__N_117BlockScopePushPopC2EP10cmMakefileRKN2cm8enum_setINS_9ScopeTypeELi0EEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %19 unwind label %21
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122cmBlockFunctionBlockerE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZN2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
+  invoke void @_ZN12_GLOBAL__N_117BlockScopePushPopC2EP10cmMakefileRKN2cm8enum_setINS_9ScopeTypeELi0EEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %22
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %9, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %10, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
   call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %11) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8380,13 +8381,14 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
-  store i32 1, ptr %6, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
+  store i32 1, ptr %7, align 8
   ret void
 }
 
@@ -8495,37 +8497,38 @@ define internal void @_ZN12_GLOBAL__N_122cmBlockFunctionBlockerD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122cmBlockFunctionBlockerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 2
-  %5 = invoke noundef zeroext i1 @_ZNK2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EE8containsES2_(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef zeroext 0)
-          to label %6 unwind label %15
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122cmBlockFunctionBlockerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 2
+  %6 = invoke noundef zeroext i1 @_ZNK2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EE8containsES2_(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext 0)
+          to label %7 unwind label %16
 
-6:                                                ; preds = %1
-  br i1 %5, label %7, label %12
+7:                                                ; preds = %1
+  br i1 %6, label %8, label %13
 
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 4
-  invoke void @_ZN10cmMakefile10RaiseScopeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %11 unwind label %15
+8:                                                ; preds = %7
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 4
+  invoke void @_ZN10cmMakefile10RaiseScopeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %12 unwind label %16
 
-11:                                               ; preds = %7
-  br label %12
+12:                                               ; preds = %8
+  br label %13
 
-12:                                               ; preds = %11, %6
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 3
-  call void @_ZN12_GLOBAL__N_117BlockScopePushPopD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+13:                                               ; preds = %12, %7
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmBlockFunctionBlocker", ptr %3, i32 0, i32 3
+  call void @_ZN12_GLOBAL__N_117BlockScopePushPopD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
   call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %3) #3
   ret void
 
-15:                                               ; preds = %7, %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %8, %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #16
   unreachable
 }
 
@@ -8842,11 +8845,12 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #3
   ret void
 }
 

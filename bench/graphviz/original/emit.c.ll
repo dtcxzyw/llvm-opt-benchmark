@@ -965,14 +965,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -9282,9 +9282,6 @@ define internal zeroext i1 @agxbuf_is_inline(ptr noundef %0) #0 {
   ret i1 %8
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -9303,20 +9300,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #12
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -9403,12 +9400,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %80 = load i32, ptr %4, align 4
   ret i32 %80
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
@@ -9674,7 +9665,7 @@ define internal ptr @gv_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #10
+declare ptr @realloc(ptr noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind
 declare ptr @strtok(ptr noundef, ptr noundef) #3
@@ -9740,7 +9731,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) #6
 declare double @strtod(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #11
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
 
 declare double @ptToLine2(double, double, double, double, double, double) #1
 
@@ -17189,156 +17180,157 @@ define internal void @map_output_bspline(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %23, ptr %12, align 8
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds %struct.segitem_s, ptr %24, i32 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %25, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.bezier, ptr %26, i32 0, i32 1
-  %28 = load i64, ptr %27, align 8
-  %29 = sub i64 %28, 1
-  %30 = udiv i64 %29, 3
-  store i64 %30, ptr %19, align 8
+  %26 = inttoptr i64 1 to ptr
+  store ptr %26, ptr %25, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds %struct.bezier, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = sub i64 %29, 1
+  %31 = udiv i64 %30, 3
+  store i64 %31, ptr %19, align 8
   store i64 0, ptr %20, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %57, %5
-  %32 = load i64, ptr %20, align 8
-  %33 = load i64, ptr %19, align 8
-  %34 = icmp ult i64 %32, %33
-  br i1 %34, label %35, label %60
+32:                                               ; preds = %58, %5
+  %33 = load i64, ptr %20, align 8
+  %34 = load i64, ptr %19, align 8
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %36, label %61
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   store i64 0, ptr %21, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %50, %35
-  %37 = load i64, ptr %21, align 8
-  %38 = icmp ult i64 %37, 4
-  br i1 %38, label %39, label %53
+37:                                               ; preds = %51, %36
+  %38 = load i64, ptr %21, align 8
+  %39 = icmp ult i64 %38, 4
+  br i1 %39, label %40, label %54
 
-39:                                               ; preds = %36
-  %40 = load i64, ptr %21, align 8
-  %41 = getelementptr inbounds [4 x %struct.pointf_s], ptr %16, i64 0, i64 %40
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.bezier, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i64, ptr %20, align 8
-  %46 = mul i64 3, %45
-  %47 = load i64, ptr %21, align 8
-  %48 = add i64 %46, %47
-  %49 = getelementptr inbounds %struct.pointf_s, ptr %44, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %41, ptr align 8 %49, i64 16, i1 false)
-  br label %50
+40:                                               ; preds = %37
+  %41 = load i64, ptr %21, align 8
+  %42 = getelementptr inbounds [4 x %struct.pointf_s], ptr %16, i64 0, i64 %41
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds %struct.bezier, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i64, ptr %20, align 8
+  %47 = mul i64 3, %46
+  %48 = load i64, ptr %21, align 8
+  %49 = add i64 %47, %48
+  %50 = getelementptr inbounds %struct.pointf_s, ptr %45, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %42, ptr align 8 %50, i64 16, i1 false)
+  br label %51
 
-50:                                               ; preds = %39
-  %51 = load i64, ptr %21, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %21, align 8
-  br label %36
+51:                                               ; preds = %40
+  %52 = load i64, ptr %21, align 8
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %21, align 8
+  br label %37
 
-53:                                               ; preds = %36
-  %54 = getelementptr inbounds [4 x %struct.pointf_s], ptr %16, i64 0, i64 0
-  %55 = load ptr, ptr %12, align 8
-  %56 = call ptr @approx_bezier(ptr noundef %54, ptr noundef %55)
-  store ptr %56, ptr %12, align 8
-  br label %57
+54:                                               ; preds = %37
+  %55 = getelementptr inbounds [4 x %struct.pointf_s], ptr %16, i64 0, i64 0
+  %56 = load ptr, ptr %12, align 8
+  %57 = call ptr @approx_bezier(ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %12, align 8
+  br label %58
 
-57:                                               ; preds = %53
-  %58 = load i64, ptr %20, align 8
-  %59 = add i64 %58, 1
-  store i64 %59, ptr %20, align 8
-  br label %31
+58:                                               ; preds = %54
+  %59 = load i64, ptr %20, align 8
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %20, align 8
+  br label %32
 
-60:                                               ; preds = %31
-  %61 = load ptr, ptr %11, align 8
-  store ptr %61, ptr %12, align 8
+61:                                               ; preds = %32
+  %62 = load ptr, ptr %11, align 8
+  store ptr %62, ptr %12, align 8
   store ptr null, ptr %13, align 8
   store i32 0, ptr %15, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %105, %60
-  %63 = load ptr, ptr %12, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %108
+63:                                               ; preds = %106, %61
+  %64 = load ptr, ptr %12, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %109
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.segitem_s, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %14, align 8
-  %69 = load ptr, ptr %13, align 8
-  %70 = load ptr, ptr %12, align 8
-  %71 = load ptr, ptr %14, align 8
-  %72 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
-  %73 = load i32, ptr %15, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.pointf_s, ptr %72, i64 %74
-  %76 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
-  %77 = load i32, ptr %15, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.pointf_s, ptr %76, i64 %78
-  %80 = load double, ptr %10, align 8
-  call void @mkSegPts(ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %75, ptr noundef %79, double noundef %80)
-  %81 = load i32, ptr %15, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %15, align 4
-  %83 = load ptr, ptr %14, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %88, label %85
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds %struct.segitem_s, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %14, align 8
+  %70 = load ptr, ptr %13, align 8
+  %71 = load ptr, ptr %12, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
+  %74 = load i32, ptr %15, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.pointf_s, ptr %73, i64 %75
+  %77 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
+  %78 = load i32, ptr %15, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds %struct.pointf_s, ptr %77, i64 %79
+  %81 = load double, ptr %10, align 8
+  call void @mkSegPts(ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %76, ptr noundef %80, double noundef %81)
+  %82 = load i32, ptr %15, align 4
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %15, align 4
+  %84 = load ptr, ptr %14, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %89, label %86
 
-85:                                               ; preds = %65
-  %86 = load i32, ptr %15, align 4
-  %87 = icmp eq i32 %86, 50
-  br i1 %87, label %88, label %105
+86:                                               ; preds = %66
+  %87 = load i32, ptr %15, align 4
+  %88 = icmp eq i32 %87, 50
+  br i1 %88, label %89, label %106
 
-88:                                               ; preds = %85, %65
-  %89 = load ptr, ptr %6, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = load i32, ptr %15, align 4
-  %93 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
-  %94 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
-  call void @map_bspline_poly(ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef %92, ptr noundef %93, ptr noundef %94)
-  %95 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
-  %96 = load i32, ptr %15, align 4
-  %97 = sub nsw i32 %96, 1
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 %98
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %95, ptr align 16 %99, i64 16, i1 false)
-  %100 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
-  %101 = load i32, ptr %15, align 4
-  %102 = sub nsw i32 %101, 1
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 %103
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %100, ptr align 16 %104, i64 16, i1 false)
+89:                                               ; preds = %86, %66
+  %90 = load ptr, ptr %6, align 8
+  %91 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = load i32, ptr %15, align 4
+  %94 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
+  %95 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
+  call void @map_bspline_poly(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95)
+  %96 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 0
+  %97 = load i32, ptr %15, align 4
+  %98 = sub nsw i32 %97, 1
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [50 x %struct.pointf_s], ptr %17, i64 0, i64 %99
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %96, ptr align 16 %100, i64 16, i1 false)
+  %101 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 0
+  %102 = load i32, ptr %15, align 4
+  %103 = sub nsw i32 %102, 1
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds [50 x %struct.pointf_s], ptr %18, i64 0, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %101, ptr align 16 %105, i64 16, i1 false)
   store i32 1, ptr %15, align 4
-  br label %105
+  br label %106
 
-105:                                              ; preds = %88, %85
-  %106 = load ptr, ptr %12, align 8
-  store ptr %106, ptr %13, align 8
-  %107 = load ptr, ptr %14, align 8
-  store ptr %107, ptr %12, align 8
-  br label %62
+106:                                              ; preds = %89, %86
+  %107 = load ptr, ptr %12, align 8
+  store ptr %107, ptr %13, align 8
+  %108 = load ptr, ptr %14, align 8
+  store ptr %108, ptr %12, align 8
+  br label %63
 
-108:                                              ; preds = %62
-  br label %109
+109:                                              ; preds = %63
+  br label %110
 
-109:                                              ; preds = %112, %108
-  %110 = load ptr, ptr %11, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %112, label %118
+110:                                              ; preds = %113, %109
+  %111 = load ptr, ptr %11, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %119
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %11, align 8
-  %114 = getelementptr inbounds %struct.segitem_s, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  store ptr %115, ptr %12, align 8
-  %116 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %116) #12
-  %117 = load ptr, ptr %12, align 8
-  store ptr %117, ptr %11, align 8
-  br label %109
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %11, align 8
+  %115 = getelementptr inbounds %struct.segitem_s, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8
+  store ptr %116, ptr %12, align 8
+  %117 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %117) #12
+  %118 = load ptr, ptr %12, align 8
+  store ptr %118, ptr %11, align 8
+  br label %110
 
-118:                                              ; preds = %109
+119:                                              ; preds = %110
   ret void
 }
 
@@ -17355,62 +17347,63 @@ define internal ptr @approx_bezier(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = call zeroext i1 @check_control_points(ptr noundef %8)
-  br i1 %9, label %10, label %31
+  br i1 %9, label %10, label %32
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds %struct.segitem_s, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %15, label %22
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %23
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.segitem_s, ptr %16, i32 0, i32 1
-  store ptr null, ptr %17, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.segitem_s, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.pointf_s, ptr %20, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %21, i64 16, i1 false)
-  br label %22
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.segitem_s, ptr %17, i32 0, i32 1
+  store ptr null, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.segitem_s, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %22, i64 16, i1 false)
+  br label %23
 
-22:                                               ; preds = %15, %10
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.pointf_s, ptr %23, i64 3
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 0
-  %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 1
-  %29 = load double, ptr %28, align 8
-  %30 = call ptr @appendSeg(double %27, double %29, ptr noundef %25)
-  store ptr %30, ptr %4, align 8
-  br label %46
+23:                                               ; preds = %16, %10
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.pointf_s, ptr %24, i64 3
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 0
+  %28 = load double, ptr %27, align 8
+  %29 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 1
+  %30 = load double, ptr %29, align 8
+  %31 = call ptr @appendSeg(double %28, double %30, ptr noundef %26)
+  store ptr %31, ptr %4, align 8
+  br label %47
 
-31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 0
-  %34 = getelementptr inbounds [4 x %struct.pointf_s], ptr %6, i64 0, i64 0
-  %35 = call { double, double } @Bezier(ptr noundef %32, double noundef 5.000000e-01, ptr noundef %33, ptr noundef %34)
-  %36 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %37 = extractvalue { double, double } %35, 0
-  store double %37, ptr %36, align 8
-  %38 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %39 = extractvalue { double, double } %35, 1
-  store double %39, ptr %38, align 8
-  %40 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 0
-  %41 = load ptr, ptr %4, align 8
-  %42 = call ptr @approx_bezier(ptr noundef %40, ptr noundef %41)
-  store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds [4 x %struct.pointf_s], ptr %6, i64 0, i64 0
-  %44 = load ptr, ptr %4, align 8
-  %45 = call ptr @approx_bezier(ptr noundef %43, ptr noundef %44)
-  store ptr %45, ptr %4, align 8
-  br label %46
+32:                                               ; preds = %2
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 0
+  %35 = getelementptr inbounds [4 x %struct.pointf_s], ptr %6, i64 0, i64 0
+  %36 = call { double, double } @Bezier(ptr noundef %33, double noundef 5.000000e-01, ptr noundef %34, ptr noundef %35)
+  %37 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %38 = extractvalue { double, double } %36, 0
+  store double %38, ptr %37, align 8
+  %39 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %40 = extractvalue { double, double } %36, 1
+  store double %40, ptr %39, align 8
+  %41 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 0
+  %42 = load ptr, ptr %4, align 8
+  %43 = call ptr @approx_bezier(ptr noundef %41, ptr noundef %42)
+  store ptr %43, ptr %4, align 8
+  %44 = getelementptr inbounds [4 x %struct.pointf_s], ptr %6, i64 0, i64 0
+  %45 = load ptr, ptr %4, align 8
+  %46 = call ptr @approx_bezier(ptr noundef %44, ptr noundef %45)
+  store ptr %46, ptr %4, align 8
+  br label %47
 
-46:                                               ; preds = %31, %22
-  %47 = load ptr, ptr %4, align 8
-  ret ptr %47
+47:                                               ; preds = %32, %23
+  %48 = load ptr, ptr %4, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21210,6 +21203,15 @@ define internal i64 @pagecode(ptr noundef %0, i8 noundef signext %1) #0 {
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -21219,9 +21221,9 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn }

@@ -80,93 +80,94 @@ define internal { i64, i64 } @generate(ptr noundef %0) #0 {
   %33 = load i32, ptr %5, align 4
   %34 = load ptr, ptr %6, align 8
   call void @zend_call_known_function(ptr noundef %27, ptr noundef %28, ptr noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef null) #2
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %40
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %1
-  %38 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
-  store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
-  store i64 8, ptr %39, align 8
-  br label %82
+38:                                               ; preds = %1
+  %39 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
+  store i64 0, ptr %39, align 8
+  %40 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
+  store i64 8, ptr %40, align 8
+  br label %83
 
-40:                                               ; preds = %1
-  %41 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._zend_string, ptr %42, i32 0, i32 2
-  %44 = load i64, ptr %43, align 8
-  store i64 %44, ptr %14, align 8
-  %45 = load i64, ptr %14, align 8
-  %46 = icmp ugt i64 %45, 8
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %1
+  %42 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._zend_string, ptr %43, i32 0, i32 2
+  %45 = load i64, ptr %44, align 8
+  store i64 %45, ptr %14, align 8
+  %46 = load i64, ptr %14, align 8
+  %47 = icmp ugt i64 %46, 8
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %40
+48:                                               ; preds = %41
   store i64 8, ptr %14, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %40
-  %49 = load i64, ptr %14, align 8
-  %50 = icmp ugt i64 %49, 0
-  br i1 %50, label %51, label %73
+49:                                               ; preds = %48, %41
+  %50 = load i64, ptr %14, align 8
+  %51 = icmp ugt i64 %50, 0
+  br i1 %51, label %52, label %74
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   store i64 0, ptr %16, align 8
-  br label %52
+  br label %53
 
-52:                                               ; preds = %69, %51
-  %53 = load i64, ptr %16, align 8
-  %54 = load i64, ptr %14, align 8
-  %55 = icmp ult i64 %53, %54
-  br i1 %55, label %56, label %72
+53:                                               ; preds = %70, %52
+  %54 = load i64, ptr %16, align 8
+  %55 = load i64, ptr %14, align 8
+  %56 = icmp ult i64 %54, %55
+  br i1 %56, label %57, label %73
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._zend_string, ptr %58, i32 0, i32 3
-  %60 = load i64, ptr %16, align 8
-  %61 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i64
-  %64 = load i64, ptr %16, align 8
-  %65 = mul i64 8, %64
-  %66 = shl i64 %63, %65
-  %67 = load i64, ptr %13, align 8
-  %68 = add i64 %67, %66
-  store i64 %68, ptr %13, align 8
-  br label %69
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct._zend_string, ptr %59, i32 0, i32 3
+  %61 = load i64, ptr %16, align 8
+  %62 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i64
+  %65 = load i64, ptr %16, align 8
+  %66 = mul i64 8, %65
+  %67 = shl i64 %64, %66
+  %68 = load i64, ptr %13, align 8
+  %69 = add i64 %68, %67
+  store i64 %69, ptr %13, align 8
+  br label %70
 
-69:                                               ; preds = %56
-  %70 = load i64, ptr %16, align 8
-  %71 = add i64 %70, 1
-  store i64 %71, ptr %16, align 8
-  br label %52
+70:                                               ; preds = %57
+  %71 = load i64, ptr %16, align 8
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %16, align 8
+  br label %53
 
-72:                                               ; preds = %52
-  br label %77
+73:                                               ; preds = %53
+  br label %78
 
-73:                                               ; preds = %48
-  %74 = load ptr, ptr @random_ce_Random_BrokenRandomEngineError, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %74, ptr noundef @.str)
-  %75 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
-  store i64 0, ptr %75, align 8
-  %76 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
-  store i64 8, ptr %76, align 8
-  br label %82
+74:                                               ; preds = %49
+  %75 = load ptr, ptr @random_ce_Random_BrokenRandomEngineError, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %75, ptr noundef @.str)
+  %76 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
+  store i64 0, ptr %76, align 8
+  %77 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
+  store i64 8, ptr %77, align 8
+  br label %83
 
-77:                                               ; preds = %72
+78:                                               ; preds = %73
   call void @zval_ptr_dtor(ptr noundef %15)
-  %78 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
-  %79 = load i64, ptr %13, align 8
-  store i64 %79, ptr %78, align 8
-  %80 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
-  %81 = load i64, ptr %14, align 8
-  store i64 %81, ptr %80, align 8
-  br label %82
+  %79 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 0
+  %80 = load i64, ptr %13, align 8
+  store i64 %80, ptr %79, align 8
+  %81 = getelementptr inbounds %struct._php_random_result, ptr %10, i32 0, i32 1
+  %82 = load i64, ptr %14, align 8
+  store i64 %82, ptr %81, align 8
+  br label %83
 
-82:                                               ; preds = %77, %73, %37
-  %83 = load { i64, i64 }, ptr %10, align 8
-  ret { i64, i64 } %83
+83:                                               ; preds = %78, %74, %38
+  %84 = load { i64, i64 }, ptr %10, align 8
+  ret { i64, i64 } %84
 }
 
 ; Function Attrs: nounwind uwtable

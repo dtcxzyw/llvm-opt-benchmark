@@ -1711,25 +1711,26 @@ define ptr @get_gb18030_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %9 = load ptr, ptr %7, align 8
   %10 = call ptr @g_iconv_open(ptr noundef @.str.2, ptr noundef %9)
   store ptr %10, ptr %8, align 8
-  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %3
-  store ptr @.str.3, ptr %7, align 8
-  br label %16
+  %11 = inttoptr i64 -1 to ptr
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %8, align 8
-  %15 = call i32 @g_iconv_close(ptr noundef %14)
-  br label %16
+  store ptr @.str.3, ptr %7, align 8
+  br label %17
 
-16:                                               ; preds = %13, %12
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = load ptr, ptr %7, align 8
-  %21 = call ptr @get_string_enc_iconv(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
-  ret ptr %21
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %8, align 8
+  %16 = call i32 @g_iconv_close(ptr noundef %15)
+  br label %17
+
+17:                                               ; preds = %14, %13
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = call ptr @get_string_enc_iconv(ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
+  ret ptr %22
 }
 
 declare ptr @g_iconv_open(ptr noundef, ptr noundef) #1
@@ -1760,185 +1761,186 @@ define internal ptr @get_string_enc_iconv(ptr noundef %0, ptr noundef %1, i32 no
   %20 = load ptr, ptr %8, align 8
   %21 = call ptr @g_iconv_open(ptr noundef @.str.2, ptr noundef %20)
   store ptr %21, ptr %9, align 8
-  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
-  br i1 %22, label %23, label %25
+  %22 = inttoptr i64 -1 to ptr
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.5, ptr noundef %24) #5
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.5, ptr noundef %25) #5
   unreachable
 
-25:                                               ; preds = %4
-  %26 = load i32, ptr %7, align 4
-  %27 = sext i32 %26 to i64
-  store i64 %27, ptr %10, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %7, align 4
-  %30 = add i32 %29, 1
-  %31 = sext i32 %30 to i64
-  %32 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %28, i64 noundef %31)
-  store ptr %32, ptr %19, align 8
-  %33 = load i32, ptr %7, align 4
-  %34 = icmp sgt i32 8, %33
-  br i1 %34, label %35, label %36
+26:                                               ; preds = %4
+  %27 = load i32, ptr %7, align 4
+  %28 = sext i32 %27 to i64
+  store i64 %28, ptr %10, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = add i32 %30, 1
+  %32 = sext i32 %31 to i64
+  %33 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %29, i64 noundef %32)
+  store ptr %33, ptr %19, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp sgt i32 8, %34
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %25
-  br label %38
+36:                                               ; preds = %26
+  br label %39
 
-36:                                               ; preds = %25
-  %37 = load i32, ptr %7, align 4
-  br label %38
+37:                                               ; preds = %26
+  %38 = load i32, ptr %7, align 4
+  br label %39
 
-38:                                               ; preds = %36, %35
-  %39 = phi i32 [ 8, %35 ], [ %37, %36 ]
-  %40 = sext i32 %39 to i64
-  store i64 %40, ptr %12, align 8
-  store i64 %40, ptr %11, align 8
-  %41 = load i64, ptr %11, align 8
-  %42 = call noalias ptr @g_malloc(i64 noundef %41) #6
-  store ptr %42, ptr %18, align 8
-  store ptr %42, ptr %17, align 8
-  br label %43
+39:                                               ; preds = %37, %36
+  %40 = phi i32 [ 8, %36 ], [ %38, %37 ]
+  %41 = sext i32 %40 to i64
+  store i64 %41, ptr %12, align 8
+  store i64 %41, ptr %11, align 8
+  %42 = load i64, ptr %11, align 8
+  %43 = call noalias ptr @g_malloc(i64 noundef %42) #6
+  store ptr %43, ptr %18, align 8
+  store ptr %43, ptr %17, align 8
+  br label %44
 
-43:                                               ; preds = %111, %38
-  %44 = load i64, ptr %10, align 8
-  %45 = icmp ugt i64 %44, 0
-  br i1 %45, label %46, label %112
+44:                                               ; preds = %112, %39
+  %45 = load i64, ptr %10, align 8
+  %46 = icmp ugt i64 %45, 0
+  br i1 %46, label %47, label %113
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %9, align 8
-  %48 = call i64 @g_iconv(ptr noundef %47, ptr noundef %6, ptr noundef %10, ptr noundef %17, ptr noundef %11)
-  store i64 %48, ptr %14, align 8
-  %49 = load ptr, ptr %17, align 8
-  %50 = load ptr, ptr %18, align 8
-  %51 = ptrtoint ptr %49 to i64
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %9, align 8
+  %49 = call i64 @g_iconv(ptr noundef %48, ptr noundef %6, ptr noundef %10, ptr noundef %17, ptr noundef %11)
+  store i64 %49, ptr %14, align 8
+  %50 = load ptr, ptr %17, align 8
+  %51 = load ptr, ptr %18, align 8
   %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  store i64 %53, ptr %13, align 8
-  %54 = load ptr, ptr %19, align 8
-  %55 = load ptr, ptr %18, align 8
-  %56 = load i64, ptr %13, align 8
-  call void @wmem_strbuf_append_len(ptr noundef %54, ptr noundef %55, i64 noundef %56)
-  %57 = load ptr, ptr %18, align 8
-  store ptr %57, ptr %17, align 8
-  %58 = load i64, ptr %12, align 8
-  store i64 %58, ptr %11, align 8
-  %59 = load i64, ptr %14, align 8
-  %60 = icmp eq i64 %59, -1
-  br i1 %60, label %61, label %110
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  store i64 %54, ptr %13, align 8
+  %55 = load ptr, ptr %19, align 8
+  %56 = load ptr, ptr %18, align 8
+  %57 = load i64, ptr %13, align 8
+  call void @wmem_strbuf_append_len(ptr noundef %55, ptr noundef %56, i64 noundef %57)
+  %58 = load ptr, ptr %18, align 8
+  store ptr %58, ptr %17, align 8
+  %59 = load i64, ptr %12, align 8
+  store i64 %59, ptr %11, align 8
+  %60 = load i64, ptr %14, align 8
+  %61 = icmp eq i64 %60, -1
+  br i1 %61, label %62, label %111
 
-61:                                               ; preds = %46
-  %62 = call ptr @__errno_location() #7
-  %63 = load i32, ptr %62, align 4
-  switch i32 %63, label %104 [
-    i32 22, label %64
-    i32 7, label %66
-    i32 84, label %67
+62:                                               ; preds = %47
+  %63 = call ptr @__errno_location() #7
+  %64 = load i32, ptr %63, align 4
+  switch i32 %64, label %105 [
+    i32 22, label %65
+    i32 7, label %67
+    i32 84, label %68
   ]
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %19, align 8
-  call void @wmem_strbuf_append_unichar(ptr noundef %65, i32 noundef 65533)
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %19, align 8
+  call void @wmem_strbuf_append_unichar(ptr noundef %66, i32 noundef 65533)
   store i64 0, ptr %10, align 8
-  br label %109
+  br label %110
 
-66:                                               ; preds = %61
-  br label %109
+67:                                               ; preds = %62
+  br label %110
 
-67:                                               ; preds = %61
-  %68 = call ptr @__errno_location() #7
-  store i32 22, ptr %68, align 4
+68:                                               ; preds = %62
+  %69 = call ptr @__errno_location() #7
+  store i32 22, ptr %69, align 4
   store i64 1, ptr %15, align 8
-  br label %69
+  br label %70
 
-69:                                               ; preds = %82, %67
-  %70 = load i64, ptr %14, align 8
-  %71 = icmp eq i64 %70, -1
-  br i1 %71, label %72, label %76
+70:                                               ; preds = %83, %68
+  %71 = load i64, ptr %14, align 8
+  %72 = icmp eq i64 %71, -1
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %69
-  %73 = call ptr @__errno_location() #7
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, 22
-  br label %76
+73:                                               ; preds = %70
+  %74 = call ptr @__errno_location() #7
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %75, 22
+  br label %77
 
-76:                                               ; preds = %72, %69
-  %77 = phi i1 [ false, %69 ], [ %75, %72 ]
-  br i1 %77, label %78, label %85
+77:                                               ; preds = %73, %70
+  %78 = phi i1 [ false, %70 ], [ %76, %73 ]
+  br i1 %78, label %79, label %86
 
-78:                                               ; preds = %76
-  %79 = load i64, ptr %15, align 8
-  store i64 %79, ptr %16, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = call i64 @g_iconv(ptr noundef %80, ptr noundef %6, ptr noundef %16, ptr noundef %17, ptr noundef %11)
-  store i64 %81, ptr %14, align 8
-  br label %82
+79:                                               ; preds = %77
+  %80 = load i64, ptr %15, align 8
+  store i64 %80, ptr %16, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = call i64 @g_iconv(ptr noundef %81, ptr noundef %6, ptr noundef %16, ptr noundef %17, ptr noundef %11)
+  store i64 %82, ptr %14, align 8
+  br label %83
 
-82:                                               ; preds = %78
-  %83 = load i64, ptr %15, align 8
-  %84 = add i64 %83, 1
-  store i64 %84, ptr %15, align 8
-  br label %69, !llvm.loop !17
+83:                                               ; preds = %79
+  %84 = load i64, ptr %15, align 8
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %15, align 8
+  br label %70, !llvm.loop !17
 
-85:                                               ; preds = %76
-  %86 = load i64, ptr %15, align 8
-  %87 = sub i64 %86, 1
-  %88 = icmp ugt i64 1, %87
-  br i1 %88, label %89, label %90
+86:                                               ; preds = %77
+  %87 = load i64, ptr %15, align 8
+  %88 = sub i64 %87, 1
+  %89 = icmp ugt i64 1, %88
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %85
-  br label %93
+90:                                               ; preds = %86
+  br label %94
 
-90:                                               ; preds = %85
-  %91 = load i64, ptr %15, align 8
-  %92 = sub i64 %91, 1
-  br label %93
+91:                                               ; preds = %86
+  %92 = load i64, ptr %15, align 8
+  %93 = sub i64 %92, 1
+  br label %94
 
-93:                                               ; preds = %90, %89
-  %94 = phi i64 [ 1, %89 ], [ %92, %90 ]
-  store i64 %94, ptr %15, align 8
-  %95 = load i64, ptr %15, align 8
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr i8, ptr %96, i64 %95
-  store ptr %97, ptr %6, align 8
-  %98 = load i64, ptr %15, align 8
-  %99 = load i64, ptr %10, align 8
-  %100 = sub i64 %99, %98
-  store i64 %100, ptr %10, align 8
-  %101 = load ptr, ptr %19, align 8
-  call void @wmem_strbuf_append_unichar(ptr noundef %101, i32 noundef 65533)
-  %102 = load ptr, ptr %18, align 8
-  store ptr %102, ptr %17, align 8
-  %103 = load i64, ptr %12, align 8
-  store i64 %103, ptr %11, align 8
-  br label %109
+94:                                               ; preds = %91, %90
+  %95 = phi i64 [ 1, %90 ], [ %93, %91 ]
+  store i64 %95, ptr %15, align 8
+  %96 = load i64, ptr %15, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = getelementptr i8, ptr %97, i64 %96
+  store ptr %98, ptr %6, align 8
+  %99 = load i64, ptr %15, align 8
+  %100 = load i64, ptr %10, align 8
+  %101 = sub i64 %100, %99
+  store i64 %101, ptr %10, align 8
+  %102 = load ptr, ptr %19, align 8
+  call void @wmem_strbuf_append_unichar(ptr noundef %102, i32 noundef 65533)
+  %103 = load ptr, ptr %18, align 8
+  store ptr %103, ptr %17, align 8
+  %104 = load i64, ptr %12, align 8
+  store i64 %104, ptr %11, align 8
+  br label %110
 
-104:                                              ; preds = %61
-  %105 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %105)
-  %106 = load ptr, ptr %9, align 8
-  %107 = call i32 @g_iconv_close(ptr noundef %106)
-  %108 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.6, ptr noundef %108) #5
+105:                                              ; preds = %62
+  %106 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %106)
+  %107 = load ptr, ptr %9, align 8
+  %108 = call i32 @g_iconv_close(ptr noundef %107)
+  %109 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.6, ptr noundef %109) #5
   unreachable
 
-109:                                              ; preds = %93, %66, %64
-  br label %111
+110:                                              ; preds = %94, %67, %65
+  br label %112
 
-110:                                              ; preds = %46
-  br label %111
+111:                                              ; preds = %47
+  br label %112
 
-111:                                              ; preds = %110, %109
-  br label %43, !llvm.loop !18
+112:                                              ; preds = %111, %110
+  br label %44, !llvm.loop !18
 
-112:                                              ; preds = %43
-  %113 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %113)
-  %114 = load ptr, ptr %9, align 8
-  %115 = call i32 @g_iconv_close(ptr noundef %114)
-  %116 = load ptr, ptr %19, align 8
-  %117 = call ptr @wmem_strbuf_finalize(ptr noundef %116)
-  ret ptr %117
+113:                                              ; preds = %44
+  %114 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %114)
+  %115 = load ptr, ptr %9, align 8
+  %116 = call i32 @g_iconv_close(ptr noundef %115)
+  %117 = load ptr, ptr %19, align 8
+  %118 = call ptr @wmem_strbuf_finalize(ptr noundef %117)
+  ret ptr %118
 }
 
 ; Function Attrs: nounwind uwtable

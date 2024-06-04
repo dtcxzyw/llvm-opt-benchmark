@@ -403,55 +403,56 @@ define void @_ZN18InterfaceTreeModelC2EP7QObject(ptr noundef nonnull align 8 der
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 1
-  call void @_ZN4QMapI7QString5QListIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 2
-  call void @_ZN4QMapI7QStringbEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %17 = load ptr, ptr @mainApp, align 8
+  %15 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 1
+  call void @_ZN4QMapI7QString5QListIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  %17 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 2
+  call void @_ZN4QMapI7QStringbEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  %18 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication14appInitializedEv to i64), i64 0 }, ptr %6, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
+  %19 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18InterfaceTreeModel20interfaceListChangedEv to i64), i64 0 }, ptr %7, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18InterfaceTreeModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %17, i64 %19, i64 %21, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
-          to label %22 unwind label %29
+  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18InterfaceTreeModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %18, i64 %20, i64 %22, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
+          to label %23 unwind label %30
 
-22:                                               ; preds = %2
+23:                                               ; preds = %2
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %23 = load ptr, ptr @mainApp, align 8
+  %24 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication25localInterfaceListChangedEv to i64), i64 0 }, ptr %11, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
+  %25 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18InterfaceTreeModel20interfaceListChangedEv to i64), i64 0 }, ptr %12, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18InterfaceTreeModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %23, i64 %25, i64 %27, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %12, i32 noundef 0)
-          to label %28 unwind label %29
+  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18InterfaceTreeModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %24, i64 %26, i64 %28, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %12, i32 noundef 0)
+          to label %29 unwind label %30
 
-28:                                               ; preds = %22
+29:                                               ; preds = %23
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   ret void
 
-29:                                               ; preds = %22, %2
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %23, %2
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %8, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %9, align 4
-  call void @_ZN4QMapI7QStringbED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  call void @_ZN4QMapI7QString5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %8, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %9, align 4
+  call void @_ZN4QMapI7QStringbED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  call void @_ZN4QMapI7QString5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %8, align 8
-  %35 = load i32, ptr %9, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
@@ -604,11 +605,12 @@ define void @_ZN18InterfaceTreeModelD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 2
-  call void @_ZN4QMapI7QStringbED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 1
-  call void @_ZN4QMapI7QString5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 2
+  call void @_ZN4QMapI7QStringbED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 1
+  call void @_ZN4QMapI7QString5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }

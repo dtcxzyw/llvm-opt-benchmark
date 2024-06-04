@@ -62,9 +62,10 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef 80) #7
   %5 = tail call i64 @g_signal_connect_data(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull @_lib_filmstrip_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #7
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !13
-  %7 = getelementptr inbounds i8, ptr %6, i64 416
-  store ptr %0, ptr %7, align 8, !tbaa !23
+  %6 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = getelementptr inbounds i8, ptr %7, i64 416
+  store ptr %0, ptr %8, align 8, !tbaa !23
   ret void
 }
 
@@ -80,34 +81,36 @@ define internal noundef i32 @_lib_filmstrip_draw_callback(ptr noundef %0, ptr no
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #7
   %6 = tail call ptr @gtk_bin_get_child(ptr noundef %5) #7
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !37
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
-  %11 = tail call ptr @dt_ui_thumbtable(ptr noundef %10) #7
-  tail call void @dt_thumbtable_set_parent(ptr noundef %11, ptr noundef %0, i32 noundef 2) #7
+  %9 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = tail call ptr @dt_ui_thumbtable(ptr noundef %11) #7
+  tail call void @dt_thumbtable_set_parent(ptr noundef %12, ptr noundef %0, i32 noundef 2) #7
   tail call void @gtk_widget_show(ptr noundef %0) #7
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !42
-  tail call void @gtk_widget_show(ptr noundef %13) #7
-  %14 = load ptr, ptr %12, align 8, !tbaa !42
-  tail call void @gtk_widget_queue_draw(ptr noundef %14) #7
-  br label %15
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  tail call void @gtk_widget_show(ptr noundef %14) #7
+  %15 = load ptr, ptr %13, align 8, !tbaa !42
+  tail call void @gtk_widget_queue_draw(ptr noundef %15) #7
+  br label %16
 
-15:                                               ; preds = %8, %3
+16:                                               ; preds = %8, %3
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !13
-  %3 = getelementptr inbounds i8, ptr %2, i64 416
-  store ptr null, ptr %3, align 8, !tbaa !23
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
-  tail call void @free(ptr noundef %5) #7
-  store ptr null, ptr %4, align 8, !tbaa !46
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds i8, ptr %3, i64 416
+  store ptr null, ptr %4, align 8, !tbaa !23
+  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  tail call void @free(ptr noundef %6) #7
+  store ptr null, ptr %5, align 8, !tbaa !46
   ret void
 }
 

@@ -71,91 +71,92 @@ define dso_local i32 @hda_widget_sysfs_init(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %57
+  br i1 %4, label %5, label %58
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #7
-  store ptr %7, ptr %2, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %53, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 24) #7
+  store ptr %8, ptr %2, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %54, label %10
 
-9:                                                ; preds = %5
-  %10 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.12, ptr noundef %0) #8
-  store ptr %10, ptr %7, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %53, label %12
+10:                                               ; preds = %5
+  %11 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.12, ptr noundef %0) #8
+  store ptr %11, ptr %8, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %54, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 824
-  %14 = load i32, ptr %13, align 8
-  %15 = add i32 %14, 1
-  %16 = zext i32 %15 to i64
-  %17 = shl nuw nsw i64 %16, 3
-  %18 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %17, i32 noundef 3520) #9
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %18, ptr %19, align 8
-  %20 = icmp eq ptr %18, null
-  br i1 %20, label %53, label %21
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 824
+  %15 = load i32, ptr %14, align 8
+  %16 = add i32 %15, 1
+  %17 = zext i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %18, i32 noundef 3520) #9
+  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %19, ptr %20, align 8
+  %21 = icmp eq ptr %19, null
+  br i1 %21, label %54, label %22
 
-21:                                               ; preds = %12
-  %22 = load i32, ptr %13, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %41, label %24
+22:                                               ; preds = %13
+  %23 = load i32, ptr %14, align 8
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %42, label %25
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 828
-  %26 = load i16, ptr %25, align 4
-  br label %27
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 828
+  %27 = load i16, ptr %26, align 4
+  br label %28
 
-27:                                               ; preds = %36, %24
-  %28 = phi i16 [ %38, %36 ], [ %26, %24 ]
-  %29 = phi i32 [ %37, %36 ], [ 0, %24 ]
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %19, align 8
-  %32 = sext i32 %29 to i64
-  %33 = getelementptr ptr, ptr %31, i64 %32
-  %34 = tail call fastcc i32 @add_widget_node(ptr noundef %30, i16 noundef zeroext %28, ptr noundef nonnull @widget_node_group, ptr noundef %33), !range !5
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %53, label %36
+28:                                               ; preds = %37, %25
+  %29 = phi i16 [ %39, %37 ], [ %27, %25 ]
+  %30 = phi i32 [ %38, %37 ], [ 0, %25 ]
+  %31 = load ptr, ptr %8, align 8
+  %32 = load ptr, ptr %20, align 8
+  %33 = sext i32 %30 to i64
+  %34 = getelementptr ptr, ptr %32, i64 %33
+  %35 = tail call fastcc i32 @add_widget_node(ptr noundef %31, i16 noundef zeroext %29, ptr noundef nonnull @widget_node_group, ptr noundef %34), !range !5
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %54, label %37
 
-36:                                               ; preds = %27
-  %37 = add nuw i32 %29, 1
-  %38 = add i16 %28, 1
-  %39 = load i32, ptr %13, align 8
-  %40 = icmp ult i32 %37, %39
-  br i1 %40, label %27, label %41, !llvm.loop !6
+37:                                               ; preds = %28
+  %38 = add nuw i32 %30, 1
+  %39 = add i16 %29, 1
+  %40 = load i32, ptr %14, align 8
+  %41 = icmp ult i32 %38, %40
+  br i1 %41, label %28, label %42, !llvm.loop !6
 
-41:                                               ; preds = %36, %21
-  %42 = getelementptr inbounds i8, ptr %0, i64 768
-  %43 = load i16, ptr %42, align 8
-  %44 = icmp eq i16 %43, 0
-  br i1 %44, label %50, label %45
+42:                                               ; preds = %37, %22
+  %43 = getelementptr inbounds i8, ptr %0, i64 768
+  %44 = load i16, ptr %43, align 8
+  %45 = icmp eq i16 %44, 0
+  br i1 %45, label %51, label %46
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
-  %48 = tail call fastcc i32 @add_widget_node(ptr noundef %46, i16 noundef zeroext %43, ptr noundef nonnull @widget_afg_group, ptr noundef %47), !range !5
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %53, label %50
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %49 = tail call fastcc i32 @add_widget_node(ptr noundef %47, i16 noundef zeroext %44, ptr noundef nonnull @widget_afg_group, ptr noundef %48), !range !5
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %54, label %51
 
-50:                                               ; preds = %45, %41
-  %51 = load ptr, ptr %7, align 8
-  %52 = tail call i32 @kobject_uevent(ptr noundef %51, i32 noundef 2) #8
-  br label %53
+51:                                               ; preds = %46, %42
+  %52 = load ptr, ptr %8, align 8
+  %53 = tail call i32 @kobject_uevent(ptr noundef %52, i32 noundef 2) #8
+  br label %54
 
-53:                                               ; preds = %50, %45, %27, %12, %9, %5
-  %54 = phi i32 [ 0, %50 ], [ -12, %5 ], [ -12, %9 ], [ -12, %12 ], [ %48, %45 ], [ %34, %27 ]
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %57
+54:                                               ; preds = %51, %46, %28, %13, %10, %5
+  %55 = phi i32 [ 0, %51 ], [ -12, %5 ], [ -12, %10 ], [ -12, %13 ], [ %49, %46 ], [ %35, %28 ]
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %53
+57:                                               ; preds = %54
   tail call fastcc void @widget_tree_free(ptr noundef %0)
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %53, %1
-  %58 = phi i32 [ %54, %56 ], [ 0, %1 ], [ 0, %53 ]
-  ret i32 %58
+58:                                               ; preds = %57, %54, %1
+  %59 = phi i32 [ %55, %57 ], [ 0, %1 ], [ 0, %54 ]
+  ret i32 %59
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -375,38 +376,39 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @add_widget_node(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %6 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 64) #7
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %18, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #7
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %19, label %9
 
-8:                                                ; preds = %4
-  tail call void @kobject_init(ptr noundef nonnull %6, ptr noundef nonnull @widget_ktype) #8
-  %9 = zext i16 %1 to i32
-  %10 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %9) #8
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %4
+  tail call void @kobject_init(ptr noundef nonnull %7, ptr noundef nonnull @widget_ktype) #8
+  %10 = zext i16 %1 to i32
+  %11 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %10) #8
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
-  tail call void @kobject_put(ptr noundef nonnull %6) #8
-  br label %18
+13:                                               ; preds = %9
+  tail call void @kobject_put(ptr noundef nonnull %7) #8
+  br label %19
 
-13:                                               ; preds = %8
-  %14 = tail call i32 @sysfs_create_group(ptr noundef nonnull %6, ptr noundef %2) #8
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %9
+  %15 = tail call i32 @sysfs_create_group(ptr noundef nonnull %7, ptr noundef %2) #8
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
-  tail call void @kobject_put(ptr noundef nonnull %6) #8
-  br label %18
+17:                                               ; preds = %14
+  tail call void @kobject_put(ptr noundef nonnull %7) #8
+  br label %19
 
-17:                                               ; preds = %13
-  store ptr %6, ptr %3, align 8
-  br label %18
+18:                                               ; preds = %14
+  store ptr %7, ptr %3, align 8
+  br label %19
 
-18:                                               ; preds = %17, %16, %12, %4
-  %19 = phi i32 [ %10, %12 ], [ %14, %16 ], [ 0, %17 ], [ -12, %4 ]
-  ret i32 %19
+19:                                               ; preds = %18, %17, %13, %4
+  %20 = phi i32 [ %11, %13 ], [ %15, %17 ], [ 0, %18 ], [ -12, %4 ]
+  ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid

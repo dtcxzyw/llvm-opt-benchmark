@@ -291,24 +291,25 @@ define dso_local void @old_9_3_check_for_line_data_type_usage(ptr noundef %0) #0
   store ptr %0, ptr %2, align 8
   call void (ptr, ...) @prep_status(ptr noundef @.str.10)
   %4 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 4), align 8
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %5, ptr noundef @.str.12)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %9 = call zeroext i1 @check_for_data_type_usage(ptr noundef %7, ptr noundef @.str.13, ptr noundef %8)
-  br i1 %9, label %10, label %12
+  %5 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %6, ptr noundef @.str.12)
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %10 = call zeroext i1 @check_for_data_type_usage(ptr noundef %8, ptr noundef @.str.13, ptr noundef %9)
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.14)
-  %11 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.15, ptr noundef %11) #6
+  %12 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.15, ptr noundef %12) #6
   unreachable
 
-12:                                               ; preds = %1
+13:                                               ; preds = %1
   call void @check_ok()
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   ret void
 }
 
@@ -327,24 +328,25 @@ define dso_local void @old_9_6_check_for_unknown_data_type_usage(ptr noundef %0)
   store ptr %0, ptr %2, align 8
   call void (ptr, ...) @prep_status(ptr noundef @.str.16)
   %4 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 4), align 8
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %5, ptr noundef @.str.17)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %9 = call zeroext i1 @check_for_data_type_usage(ptr noundef %7, ptr noundef @.str.18, ptr noundef %8)
-  br i1 %9, label %10, label %12
+  %5 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %6, ptr noundef @.str.17)
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %10 = call zeroext i1 @check_for_data_type_usage(ptr noundef %8, ptr noundef @.str.18, ptr noundef %9)
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.14)
-  %11 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.19, ptr noundef %11) #6
+  %12 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.19, ptr noundef %12) #6
   unreachable
 
-12:                                               ; preds = %1
+13:                                               ; preds = %1
   call void @check_ok()
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   ret void
 }
 
@@ -575,24 +577,25 @@ define dso_local void @old_11_check_for_sql_identifier_data_type_usage(ptr nound
   store ptr %0, ptr %2, align 8
   call void (ptr, ...) @prep_status(ptr noundef @.str.28)
   %4 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 4), align 8
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %5, ptr noundef @.str.29)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %9 = call zeroext i1 @check_for_data_type_usage(ptr noundef %7, ptr noundef @.str.30, ptr noundef %8)
-  br i1 %9, label %10, label %12
+  %5 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %6, ptr noundef @.str.29)
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %10 = call zeroext i1 @check_for_data_type_usage(ptr noundef %8, ptr noundef @.str.30, ptr noundef %9)
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.14)
-  %11 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.31, ptr noundef %11) #6
+  %12 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.31, ptr noundef %12) #6
   unreachable
 
-12:                                               ; preds = %1
+13:                                               ; preds = %1
   call void @check_ok()
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   ret void
 }
 

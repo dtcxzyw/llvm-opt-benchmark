@@ -314,12 +314,13 @@ entry:
   store ptr %constructionInfo, ptr %constructionInfo.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24btCollisionConfigurationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store ptr null, ptr %mem, align 8
-  %0 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_useEpaPenetrationAlgorithm = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %0, i32 0, i32 5
-  %1 = load i32, ptr %m_useEpaPenetrationAlgorithm, align 4
-  %tobool = icmp ne i32 %1, 0
+  %1 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_useEpaPenetrationAlgorithm = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %1, i32 0, i32 5
+  %2 = load i32, ptr %m_useEpaPenetrationAlgorithm, align 4
+  %tobool = icmp ne i32 %2, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -328,22 +329,22 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr %call, ptr %mem, align 8
-  %2 = load ptr, ptr %mem, align 8
-  invoke void @_ZN30btGjkEpaPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = load ptr, ptr %mem, align 8
+  invoke void @_ZN30btGjkEpaPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_pdSolver = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 6
-  store ptr %2, ptr %m_pdSolver, align 8
+  store ptr %3, ptr %m_pdSolver, align 8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont77, %if.else74, %invoke.cont64, %if.else61, %invoke.cont53, %invoke.cont51, %invoke.cont49, %invoke.cont46, %invoke.cont44, %invoke.cont43, %invoke.cont41, %invoke.cont40, %invoke.cont38, %invoke.cont36, %invoke.cont34, %invoke.cont33, %invoke.cont31, %invoke.cont30, %invoke.cont28, %invoke.cont27, %invoke.cont25, %invoke.cont24, %invoke.cont22, %invoke.cont21, %invoke.cont19, %invoke.cont18, %invoke.cont16, %invoke.cont15, %invoke.cont13, %invoke.cont12, %invoke.cont10, %invoke.cont9, %invoke.cont6, %if.end, %if.else, %invoke.cont, %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN24btCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -353,10 +354,10 @@ if.else:                                          ; preds = %entry
 
 invoke.cont3:                                     ; preds = %if.else
   store ptr %call4, ptr %mem, align 8
-  %6 = load ptr, ptr %mem, align 8
-  call void @_ZN33btMinkowskiPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  %7 = load ptr, ptr %mem, align 8
+  call void @_ZN33btMinkowskiPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
   %m_pdSolver5 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 6
-  store ptr %6, ptr %m_pdSolver5, align 8
+  store ptr %7, ptr %m_pdSolver5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont3, %invoke.cont2
@@ -365,211 +366,211 @@ if.end:                                           ; preds = %invoke.cont3, %invo
 
 invoke.cont6:                                     ; preds = %if.end
   store ptr %call7, ptr %mem, align 8
-  %7 = load ptr, ptr %mem, align 8
+  %8 = load ptr, ptr %mem, align 8
   %m_pdSolver8 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 6
-  %8 = load ptr, ptr %m_pdSolver8, align 8
-  invoke void @_ZN23btConvexConvexAlgorithm10CreateFuncC1EP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8)
+  %9 = load ptr, ptr %m_pdSolver8, align 8
+  invoke void @_ZN23btConvexConvexAlgorithm10CreateFuncC1EP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %9)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %m_convexConvexCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 7
-  store ptr %7, ptr %m_convexConvexCreateFunc, align 8
+  store ptr %8, ptr %m_convexConvexCreateFunc, align 8
   %call11 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont9
   store ptr %call11, ptr %mem, align 8
-  %9 = load ptr, ptr %mem, align 8
-  invoke void @_ZN33btConvexConcaveCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9)
+  %10 = load ptr, ptr %mem, align 8
+  invoke void @_ZN33btConvexConcaveCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   %m_convexConcaveCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 8
-  store ptr %9, ptr %m_convexConcaveCreateFunc, align 8
+  store ptr %10, ptr %m_convexConcaveCreateFunc, align 8
   %call14 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
   store ptr %call14, ptr %mem, align 8
-  %10 = load ptr, ptr %mem, align 8
-  invoke void @_ZN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10)
+  %11 = load ptr, ptr %mem, align 8
+  invoke void @_ZN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %11)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   %m_swappedConvexConcaveCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 9
-  store ptr %10, ptr %m_swappedConvexConcaveCreateFunc, align 8
+  store ptr %11, ptr %m_swappedConvexConcaveCreateFunc, align 8
   %call17 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
   store ptr %call17, ptr %mem, align 8
-  %11 = load ptr, ptr %mem, align 8
-  invoke void @_ZN28btCompoundCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %11)
+  %12 = load ptr, ptr %mem, align 8
+  invoke void @_ZN28btCompoundCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %12)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %m_compoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 10
-  store ptr %11, ptr %m_compoundCreateFunc, align 8
+  store ptr %12, ptr %m_compoundCreateFunc, align 8
   %call20 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont18
   store ptr %call20, ptr %mem, align 8
-  %12 = load ptr, ptr %mem, align 8
-  invoke void @_ZN36btCompoundCompoundCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %12)
+  %13 = load ptr, ptr %mem, align 8
+  invoke void @_ZN36btCompoundCompoundCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %13)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %m_compoundCompoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 11
-  store ptr %12, ptr %m_compoundCompoundCreateFunc, align 8
+  store ptr %13, ptr %m_compoundCompoundCreateFunc, align 8
   %call23 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont21
   store ptr %call23, ptr %mem, align 8
-  %13 = load ptr, ptr %mem, align 8
-  invoke void @_ZN28btCompoundCollisionAlgorithm17SwappedCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %13)
+  %14 = load ptr, ptr %mem, align 8
+  invoke void @_ZN28btCompoundCollisionAlgorithm17SwappedCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %14)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont22
   %m_swappedCompoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 12
-  store ptr %13, ptr %m_swappedCompoundCreateFunc, align 8
+  store ptr %14, ptr %m_swappedCompoundCreateFunc, align 8
   %call26 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont24
   store ptr %call26, ptr %mem, align 8
-  %14 = load ptr, ptr %mem, align 8
-  invoke void @_ZN16btEmptyAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %14)
+  %15 = load ptr, ptr %mem, align 8
+  invoke void @_ZN16btEmptyAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %15)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %m_emptyCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 13
-  store ptr %14, ptr %m_emptyCreateFunc, align 8
+  store ptr %15, ptr %m_emptyCreateFunc, align 8
   %call29 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont27
   store ptr %call29, ptr %mem, align 8
-  %15 = load ptr, ptr %mem, align 8
-  invoke void @_ZN32btSphereSphereCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %15)
+  %16 = load ptr, ptr %mem, align 8
+  invoke void @_ZN32btSphereSphereCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %16)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   %m_sphereSphereCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 14
-  store ptr %15, ptr %m_sphereSphereCF, align 8
+  store ptr %16, ptr %m_sphereSphereCF, align 8
   %call32 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont30
   store ptr %call32, ptr %mem, align 8
-  %16 = load ptr, ptr %mem, align 8
-  invoke void @_ZN34btSphereTriangleCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %16)
+  %17 = load ptr, ptr %mem, align 8
+  invoke void @_ZN34btSphereTriangleCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %17)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   %m_sphereTriangleCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 18
-  store ptr %16, ptr %m_sphereTriangleCF, align 8
+  store ptr %17, ptr %m_sphereTriangleCF, align 8
   %call35 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont33
   store ptr %call35, ptr %mem, align 8
-  %17 = load ptr, ptr %mem, align 8
-  invoke void @_ZN34btSphereTriangleCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %17)
+  %18 = load ptr, ptr %mem, align 8
+  invoke void @_ZN34btSphereTriangleCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %18)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont34
   %m_triangleSphereCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 19
-  store ptr %17, ptr %m_triangleSphereCF, align 8
+  store ptr %18, ptr %m_triangleSphereCF, align 8
   %m_triangleSphereCF37 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 19
-  %18 = load ptr, ptr %m_triangleSphereCF37, align 8
-  %m_swapped = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %m_triangleSphereCF37, align 8
+  %m_swapped = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %19, i32 0, i32 1
   store i8 1, ptr %m_swapped, align 8
   %call39 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   store ptr %call39, ptr %mem, align 8
-  %19 = load ptr, ptr %mem, align 8
-  invoke void @_ZN26btBoxBoxCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %19)
+  %20 = load ptr, ptr %mem, align 8
+  invoke void @_ZN26btBoxBoxCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %20)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont38
   %m_boxBoxCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 17
-  store ptr %19, ptr %m_boxBoxCF, align 8
+  store ptr %20, ptr %m_boxBoxCF, align 8
   %call42 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont40
   store ptr %call42, ptr %mem, align 8
-  %20 = load ptr, ptr %mem, align 8
-  invoke void @_ZN31btConvexPlaneCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %20)
+  %21 = load ptr, ptr %mem, align 8
+  invoke void @_ZN31btConvexPlaneCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %21)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   %m_convexPlaneCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 21
-  store ptr %20, ptr %m_convexPlaneCF, align 8
+  store ptr %21, ptr %m_convexPlaneCF, align 8
   %call45 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %invoke.cont43
   store ptr %call45, ptr %mem, align 8
-  %21 = load ptr, ptr %mem, align 8
-  invoke void @_ZN31btConvexPlaneCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %21)
+  %22 = load ptr, ptr %mem, align 8
+  invoke void @_ZN31btConvexPlaneCollisionAlgorithm10CreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %22)
           to label %invoke.cont46 unwind label %lpad
 
 invoke.cont46:                                    ; preds = %invoke.cont44
   %m_planeConvexCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 20
-  store ptr %21, ptr %m_planeConvexCF, align 8
+  store ptr %22, ptr %m_planeConvexCF, align 8
   %m_planeConvexCF47 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 20
-  %22 = load ptr, ptr %m_planeConvexCF47, align 8
-  %m_swapped48 = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %22, i32 0, i32 1
+  %23 = load ptr, ptr %m_planeConvexCF47, align 8
+  %m_swapped48 = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %23, i32 0, i32 1
   store i8 1, ptr %m_swapped48, align 8
   store i32 120, ptr %maxSize, align 4
   store i32 120, ptr %maxSize2, align 4
   store i32 136, ptr %maxSize3, align 4
   store i32 184, ptr %maxSize4, align 4
-  %23 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_customCollisionAlgorithmMaxElementSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %23, i32 0, i32 4
+  %24 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_customCollisionAlgorithmMaxElementSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %24, i32 0, i32 4
   %call50 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_Z5btMaxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %maxSize, ptr noundef nonnull align 4 dereferenceable(4) %m_customCollisionAlgorithmMaxElementSize)
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont46
-  %24 = load i32, ptr %call50, align 4
-  store i32 %24, ptr %collisionAlgorithmMaxElementSize, align 4
+  %25 = load i32, ptr %call50, align 4
+  store i32 %25, ptr %collisionAlgorithmMaxElementSize, align 4
   %call52 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_Z5btMaxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %collisionAlgorithmMaxElementSize, ptr noundef nonnull align 4 dereferenceable(4) %maxSize2)
           to label %invoke.cont51 unwind label %lpad
 
 invoke.cont51:                                    ; preds = %invoke.cont49
-  %25 = load i32, ptr %call52, align 4
-  store i32 %25, ptr %collisionAlgorithmMaxElementSize, align 4
+  %26 = load i32, ptr %call52, align 4
+  store i32 %26, ptr %collisionAlgorithmMaxElementSize, align 4
   %call54 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_Z5btMaxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %collisionAlgorithmMaxElementSize, ptr noundef nonnull align 4 dereferenceable(4) %maxSize3)
           to label %invoke.cont53 unwind label %lpad
 
 invoke.cont53:                                    ; preds = %invoke.cont51
-  %26 = load i32, ptr %call54, align 4
-  store i32 %26, ptr %collisionAlgorithmMaxElementSize, align 4
+  %27 = load i32, ptr %call54, align 4
+  store i32 %27, ptr %collisionAlgorithmMaxElementSize, align 4
   %call56 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_Z5btMaxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %collisionAlgorithmMaxElementSize, ptr noundef nonnull align 4 dereferenceable(4) %maxSize4)
           to label %invoke.cont55 unwind label %lpad
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %27 = load i32, ptr %call56, align 4
-  store i32 %27, ptr %collisionAlgorithmMaxElementSize, align 4
-  %28 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_persistentManifoldPool = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %m_persistentManifoldPool, align 8
-  %tobool57 = icmp ne ptr %29, null
+  %28 = load i32, ptr %call56, align 4
+  store i32 %28, ptr %collisionAlgorithmMaxElementSize, align 4
+  %29 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_persistentManifoldPool = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %m_persistentManifoldPool, align 8
+  %tobool57 = icmp ne ptr %30, null
   br i1 %tobool57, label %if.then58, label %if.else61
 
 if.then58:                                        ; preds = %invoke.cont55
   %m_ownsPersistentManifoldPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 3
   store i8 0, ptr %m_ownsPersistentManifoldPool, align 8
-  %30 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_persistentManifoldPool59 = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %m_persistentManifoldPool59, align 8
+  %31 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_persistentManifoldPool59 = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %m_persistentManifoldPool59, align 8
   %m_persistentManifoldPool60 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 2
-  store ptr %31, ptr %m_persistentManifoldPool60, align 8
+  store ptr %32, ptr %m_persistentManifoldPool60, align 8
   br label %if.end68
 
 if.else61:                                        ; preds = %invoke.cont55
@@ -580,39 +581,39 @@ if.else61:                                        ; preds = %invoke.cont55
 
 invoke.cont64:                                    ; preds = %if.else61
   store ptr %call65, ptr %mem63, align 8
-  %32 = load ptr, ptr %mem63, align 8
-  %33 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_defaultMaxPersistentManifoldPoolSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %33, i32 0, i32 2
-  %34 = load i32, ptr %m_defaultMaxPersistentManifoldPoolSize, align 8
-  invoke void @_ZN15btPoolAllocatorC2Eii(ptr noundef nonnull align 8 dereferenceable(36) %32, i32 noundef 880, i32 noundef %34)
+  %33 = load ptr, ptr %mem63, align 8
+  %34 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_defaultMaxPersistentManifoldPoolSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %34, i32 0, i32 2
+  %35 = load i32, ptr %m_defaultMaxPersistentManifoldPoolSize, align 8
+  invoke void @_ZN15btPoolAllocatorC2Eii(ptr noundef nonnull align 8 dereferenceable(36) %33, i32 noundef 880, i32 noundef %35)
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %invoke.cont64
   %m_persistentManifoldPool67 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 2
-  store ptr %32, ptr %m_persistentManifoldPool67, align 8
+  store ptr %33, ptr %m_persistentManifoldPool67, align 8
   br label %if.end68
 
 if.end68:                                         ; preds = %invoke.cont66, %if.then58
-  %35 = load i32, ptr %collisionAlgorithmMaxElementSize, align 4
-  %add = add nsw i32 %35, 16
+  %36 = load i32, ptr %collisionAlgorithmMaxElementSize, align 4
+  %add = add nsw i32 %36, 16
   %conv = sext i32 %add to i64
   %and = and i64 %conv, 4503599627370480
   %conv69 = trunc i64 %and to i32
   store i32 %conv69, ptr %collisionAlgorithmMaxElementSize, align 4
-  %36 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_collisionAlgorithmPool = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  %tobool70 = icmp ne ptr %37, null
+  %37 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_collisionAlgorithmPool = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %37, i32 0, i32 1
+  %38 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  %tobool70 = icmp ne ptr %38, null
   br i1 %tobool70, label %if.then71, label %if.else74
 
 if.then71:                                        ; preds = %if.end68
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 5
   store i8 0, ptr %m_ownsCollisionAlgorithmPool, align 8
-  %38 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_collisionAlgorithmPool72 = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %m_collisionAlgorithmPool72, align 8
+  %39 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_collisionAlgorithmPool72 = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %39, i32 0, i32 1
+  %40 = load ptr, ptr %m_collisionAlgorithmPool72, align 8
   %m_collisionAlgorithmPool73 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 4
-  store ptr %39, ptr %m_collisionAlgorithmPool73, align 8
+  store ptr %40, ptr %m_collisionAlgorithmPool73, align 8
   br label %if.end81
 
 if.else74:                                        ; preds = %if.end68
@@ -623,17 +624,17 @@ if.else74:                                        ; preds = %if.end68
 
 invoke.cont77:                                    ; preds = %if.else74
   store ptr %call78, ptr %mem76, align 8
-  %40 = load ptr, ptr %mem76, align 8
-  %41 = load i32, ptr %collisionAlgorithmMaxElementSize, align 4
-  %42 = load ptr, ptr %constructionInfo.addr, align 8
-  %m_defaultMaxCollisionAlgorithmPoolSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %42, i32 0, i32 3
-  %43 = load i32, ptr %m_defaultMaxCollisionAlgorithmPoolSize, align 4
-  invoke void @_ZN15btPoolAllocatorC2Eii(ptr noundef nonnull align 8 dereferenceable(36) %40, i32 noundef %41, i32 noundef %43)
+  %41 = load ptr, ptr %mem76, align 8
+  %42 = load i32, ptr %collisionAlgorithmMaxElementSize, align 4
+  %43 = load ptr, ptr %constructionInfo.addr, align 8
+  %m_defaultMaxCollisionAlgorithmPoolSize = getelementptr inbounds %struct.btDefaultCollisionConstructionInfo, ptr %43, i32 0, i32 3
+  %44 = load i32, ptr %m_defaultMaxCollisionAlgorithmPoolSize, align 4
+  invoke void @_ZN15btPoolAllocatorC2Eii(ptr noundef nonnull align 8 dereferenceable(36) %41, i32 noundef %42, i32 noundef %44)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont77
   %m_collisionAlgorithmPool80 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 4
-  store ptr %40, ptr %m_collisionAlgorithmPool80, align 8
+  store ptr %41, ptr %m_collisionAlgorithmPool80, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %invoke.cont79, %if.then71
@@ -653,7 +654,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24btCollisionConfiguration, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV24btCollisionConfiguration, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -668,7 +670,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btConvexPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -679,7 +682,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btConvexPenetrationDepthSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -692,7 +696,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -703,7 +708,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -714,7 +720,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -725,7 +732,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN36btCompoundCompoundCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN36btCompoundCompoundCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -736,7 +744,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm17SwappedCreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm17SwappedCreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -747,7 +756,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN16btEmptyAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16btEmptyAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -758,7 +768,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN32btSphereSphereCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN32btSphereSphereCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -769,7 +780,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -780,7 +792,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN26btBoxBoxCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN26btBoxBoxCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -791,7 +804,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numPerturbationIterations = getelementptr inbounds %"struct.btConvexPlaneCollisionAlgorithm::CreateFunc", ptr %this1, i32 0, i32 1
   store i32 1, ptr %m_numPerturbationIterations, align 4
   %m_minimumPointsPerturbationThreshold = getelementptr inbounds %"struct.btConvexPlaneCollisionAlgorithm::CreateFunc", ptr %this1, i32 0, i32 2
@@ -905,19 +919,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %m_ownsCollisionAlgorithmPool, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownsCollisionAlgorithmPool, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_collisionAlgorithmPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  call void @_ZN15btPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #7
+  %2 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  call void @_ZN15btPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #7
   %m_collisionAlgorithmPool2 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %m_collisionAlgorithmPool2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
+  %3 = load ptr, ptr %m_collisionAlgorithmPool2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -925,17 +940,17 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %m_ownsPersistentManifoldPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 3
-  %3 = load i8, ptr %m_ownsPersistentManifoldPool, align 8
-  %tobool3 = trunc i8 %3 to i1
+  %4 = load i8, ptr %m_ownsPersistentManifoldPool, align 8
+  %tobool3 = trunc i8 %4 to i1
   br i1 %tobool3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
   %m_persistentManifoldPool = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %m_persistentManifoldPool, align 8
-  call void @_ZN15btPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #7
+  %5 = load ptr, ptr %m_persistentManifoldPool, align 8
+  call void @_ZN15btPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #7
   %m_persistentManifoldPool5 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m_persistentManifoldPool5, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
+  %6 = load ptr, ptr %m_persistentManifoldPool5, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then4
@@ -943,170 +958,170 @@ invoke.cont6:                                     ; preds = %if.then4
 
 if.end7:                                          ; preds = %invoke.cont6, %if.end
   %m_convexConvexCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %m_convexConvexCreateFunc, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %m_convexConvexCreateFunc, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(9) %6) #7
+  %8 = load ptr, ptr %vfn, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(9) %7) #7
   %m_convexConvexCreateFunc8 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 7
-  %8 = load ptr, ptr %m_convexConvexCreateFunc8, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
+  %9 = load ptr, ptr %m_convexConvexCreateFunc8, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %9)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %if.end7
   %m_convexConcaveCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 8
-  %9 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
-  %vtable10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
+  %vtable10 = load ptr, ptr %10, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 0
-  %10 = load ptr, ptr %vfn11, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(9) %9) #7
+  %11 = load ptr, ptr %vfn11, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(9) %10) #7
   %m_convexConcaveCreateFunc12 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 8
-  %11 = load ptr, ptr %m_convexConcaveCreateFunc12, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %11)
+  %12 = load ptr, ptr %m_convexConcaveCreateFunc12, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %12)
           to label %invoke.cont13 unwind label %terminate.lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_swappedConvexConcaveCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 9
-  %12 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
-  %vtable14 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
+  %vtable14 = load ptr, ptr %13, align 8
   %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 0
-  %13 = load ptr, ptr %vfn15, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #7
+  %14 = load ptr, ptr %vfn15, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(9) %13) #7
   %m_swappedConvexConcaveCreateFunc16 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 9
-  %14 = load ptr, ptr %m_swappedConvexConcaveCreateFunc16, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
+  %15 = load ptr, ptr %m_swappedConvexConcaveCreateFunc16, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
           to label %invoke.cont17 unwind label %terminate.lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %m_compoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 10
-  %15 = load ptr, ptr %m_compoundCreateFunc, align 8
-  %vtable18 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %m_compoundCreateFunc, align 8
+  %vtable18 = load ptr, ptr %16, align 8
   %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 0
-  %16 = load ptr, ptr %vfn19, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(9) %15) #7
+  %17 = load ptr, ptr %vfn19, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(9) %16) #7
   %m_compoundCreateFunc20 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 10
-  %17 = load ptr, ptr %m_compoundCreateFunc20, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %17)
+  %18 = load ptr, ptr %m_compoundCreateFunc20, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %18)
           to label %invoke.cont21 unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %m_compoundCompoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 11
-  %18 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
-  %vtable22 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
+  %vtable22 = load ptr, ptr %19, align 8
   %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 0
-  %19 = load ptr, ptr %vfn23, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(9) %18) #7
+  %20 = load ptr, ptr %vfn23, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(9) %19) #7
   %m_compoundCompoundCreateFunc24 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 11
-  %20 = load ptr, ptr %m_compoundCompoundCreateFunc24, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %20)
+  %21 = load ptr, ptr %m_compoundCompoundCreateFunc24, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %21)
           to label %invoke.cont25 unwind label %terminate.lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %m_swappedCompoundCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 12
-  %21 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
-  %vtable26 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
+  %vtable26 = load ptr, ptr %22, align 8
   %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 0
-  %22 = load ptr, ptr %vfn27, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(9) %21) #7
+  %23 = load ptr, ptr %vfn27, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(9) %22) #7
   %m_swappedCompoundCreateFunc28 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 12
-  %23 = load ptr, ptr %m_swappedCompoundCreateFunc28, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %23)
+  %24 = load ptr, ptr %m_swappedCompoundCreateFunc28, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %24)
           to label %invoke.cont29 unwind label %terminate.lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont25
   %m_emptyCreateFunc = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 13
-  %24 = load ptr, ptr %m_emptyCreateFunc, align 8
-  %vtable30 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %m_emptyCreateFunc, align 8
+  %vtable30 = load ptr, ptr %25, align 8
   %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 0
-  %25 = load ptr, ptr %vfn31, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(9) %24) #7
+  %26 = load ptr, ptr %vfn31, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(9) %25) #7
   %m_emptyCreateFunc32 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 13
-  %26 = load ptr, ptr %m_emptyCreateFunc32, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %26)
+  %27 = load ptr, ptr %m_emptyCreateFunc32, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %27)
           to label %invoke.cont33 unwind label %terminate.lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %m_sphereSphereCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 14
-  %27 = load ptr, ptr %m_sphereSphereCF, align 8
-  %vtable34 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %m_sphereSphereCF, align 8
+  %vtable34 = load ptr, ptr %28, align 8
   %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 0
-  %28 = load ptr, ptr %vfn35, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(9) %27) #7
+  %29 = load ptr, ptr %vfn35, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(9) %28) #7
   %m_sphereSphereCF36 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 14
-  %29 = load ptr, ptr %m_sphereSphereCF36, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %29)
+  %30 = load ptr, ptr %m_sphereSphereCF36, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %30)
           to label %invoke.cont37 unwind label %terminate.lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont33
   %m_sphereTriangleCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 18
-  %30 = load ptr, ptr %m_sphereTriangleCF, align 8
-  %vtable38 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %m_sphereTriangleCF, align 8
+  %vtable38 = load ptr, ptr %31, align 8
   %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 0
-  %31 = load ptr, ptr %vfn39, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(9) %30) #7
+  %32 = load ptr, ptr %vfn39, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(9) %31) #7
   %m_sphereTriangleCF40 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 18
-  %32 = load ptr, ptr %m_sphereTriangleCF40, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %32)
+  %33 = load ptr, ptr %m_sphereTriangleCF40, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %33)
           to label %invoke.cont41 unwind label %terminate.lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   %m_triangleSphereCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 19
-  %33 = load ptr, ptr %m_triangleSphereCF, align 8
-  %vtable42 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %m_triangleSphereCF, align 8
+  %vtable42 = load ptr, ptr %34, align 8
   %vfn43 = getelementptr inbounds ptr, ptr %vtable42, i64 0
-  %34 = load ptr, ptr %vfn43, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(9) %33) #7
+  %35 = load ptr, ptr %vfn43, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(9) %34) #7
   %m_triangleSphereCF44 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 19
-  %35 = load ptr, ptr %m_triangleSphereCF44, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %35)
+  %36 = load ptr, ptr %m_triangleSphereCF44, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %36)
           to label %invoke.cont45 unwind label %terminate.lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont41
   %m_boxBoxCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 17
-  %36 = load ptr, ptr %m_boxBoxCF, align 8
-  %vtable46 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %m_boxBoxCF, align 8
+  %vtable46 = load ptr, ptr %37, align 8
   %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 0
-  %37 = load ptr, ptr %vfn47, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(9) %36) #7
+  %38 = load ptr, ptr %vfn47, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(9) %37) #7
   %m_boxBoxCF48 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 17
-  %38 = load ptr, ptr %m_boxBoxCF48, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %38)
+  %39 = load ptr, ptr %m_boxBoxCF48, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %39)
           to label %invoke.cont49 unwind label %terminate.lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont45
   %m_convexPlaneCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 21
-  %39 = load ptr, ptr %m_convexPlaneCF, align 8
-  %vtable50 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %m_convexPlaneCF, align 8
+  %vtable50 = load ptr, ptr %40, align 8
   %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 0
-  %40 = load ptr, ptr %vfn51, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(9) %39) #7
+  %41 = load ptr, ptr %vfn51, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(9) %40) #7
   %m_convexPlaneCF52 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 21
-  %41 = load ptr, ptr %m_convexPlaneCF52, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %41)
+  %42 = load ptr, ptr %m_convexPlaneCF52, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %42)
           to label %invoke.cont53 unwind label %terminate.lpad
 
 invoke.cont53:                                    ; preds = %invoke.cont49
   %m_planeConvexCF = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 20
-  %42 = load ptr, ptr %m_planeConvexCF, align 8
-  %vtable54 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %m_planeConvexCF, align 8
+  %vtable54 = load ptr, ptr %43, align 8
   %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 0
-  %43 = load ptr, ptr %vfn55, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(9) %42) #7
+  %44 = load ptr, ptr %vfn55, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(9) %43) #7
   %m_planeConvexCF56 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 20
-  %44 = load ptr, ptr %m_planeConvexCF56, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %44)
+  %45 = load ptr, ptr %m_planeConvexCF56, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %45)
           to label %invoke.cont57 unwind label %terminate.lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont53
   %m_pdSolver = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 6
-  %45 = load ptr, ptr %m_pdSolver, align 8
-  %vtable58 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %m_pdSolver, align 8
+  %vtable58 = load ptr, ptr %46, align 8
   %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 0
-  %46 = load ptr, ptr %vfn59, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %45) #7
+  %47 = load ptr, ptr %vfn59, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46) #7
   %m_pdSolver60 = getelementptr inbounds %class.btDefaultCollisionConfiguration, ptr %this1, i32 0, i32 6
-  %47 = load ptr, ptr %m_pdSolver60, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %47)
+  %48 = load ptr, ptr %m_pdSolver60, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %48)
           to label %invoke.cont61 unwind label %terminate.lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont57
@@ -1114,10 +1129,10 @@ invoke.cont61:                                    ; preds = %invoke.cont57
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont57, %invoke.cont53, %invoke.cont49, %invoke.cont45, %invoke.cont41, %invoke.cont37, %invoke.cont33, %invoke.cont29, %invoke.cont25, %invoke.cont21, %invoke.cont17, %invoke.cont13, %invoke.cont9, %if.end7, %if.then4, %if.then
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #8
+  %50 = extractvalue { ptr, i32 } %49, 0
+  call void @__clang_call_terminate(ptr %50) #8
   unreachable
 }
 
@@ -1717,7 +1732,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btConvexPenetrationDepthSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV30btConvexPenetrationDepthSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1744,7 +1760,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btCollisionAlgorithmCreateFunc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV30btCollisionAlgorithmCreateFunc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_swapped = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_swapped, align 8
   ret void

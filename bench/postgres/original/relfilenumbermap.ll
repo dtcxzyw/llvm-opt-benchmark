@@ -434,17 +434,19 @@ define internal void @InitializeRelfilenumberMap() #0 {
   br label %47, !llvm.loop !9
 
 71:                                               ; preds = %47
-  store i16 9, ptr getelementptr inbounds (%struct.ScanKeyData, ptr @relfilenumber_skey, i32 0, i32 1), align 4
-  store i16 8, ptr getelementptr inbounds ([2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 1), align 4
-  %72 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 4
-  store i64 8, ptr %72, align 8
-  %73 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 5
-  store i64 12, ptr %73, align 8
-  %74 = load ptr, ptr @CacheMemoryContext, align 8
-  %75 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 10
-  store ptr %74, ptr %75, align 8
-  %76 = call ptr @hash_create(ptr noundef @.str.3, i64 noundef 64, ptr noundef %1, i32 noundef 1064)
-  store ptr %76, ptr @RelfilenumberMapHash, align 8
+  %72 = getelementptr inbounds %struct.ScanKeyData, ptr @relfilenumber_skey, i32 0, i32 1
+  store i16 9, ptr %72, align 4
+  %73 = getelementptr inbounds [2 x %struct.ScanKeyData], ptr @relfilenumber_skey, i64 0, i64 1, i32 1
+  store i16 8, ptr %73, align 4
+  %74 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 4
+  store i64 8, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 5
+  store i64 12, ptr %75, align 8
+  %76 = load ptr, ptr @CacheMemoryContext, align 8
+  %77 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 10
+  store ptr %76, ptr %77, align 8
+  %78 = call ptr @hash_create(ptr noundef @.str.3, i64 noundef 64, ptr noundef %1, i32 noundef 1064)
+  store ptr %78, ptr @RelfilenumberMapHash, align 8
   call void @CacheRegisterRelcacheCallback(ptr noundef @RelfilenumberMapInvalidateCallback, i64 noundef 0)
   ret void
 }

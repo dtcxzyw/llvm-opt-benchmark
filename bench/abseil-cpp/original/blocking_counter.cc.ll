@@ -82,8 +82,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 35, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %3 = getelementptr i8, ptr @.str, i64 120
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
+  %4 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 35, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body3
@@ -93,22 +95,22 @@ do.body4:                                         ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %do.body3
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   store ptr %lock_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i10, align 8
   br label %_ZN4absl5MutexD2Ev.exit
 
 terminate.lpad.i:                                 ; No predecessors!
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #5
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #5
   unreachable
 
 _ZN4absl5MutexD2Ev.exit:                          ; preds = %lpad
@@ -248,8 +250,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 41, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  %14 = getelementptr i8, ptr @.str, i64 120
+  store ptr %14, ptr %absl_raw_log_internal_basename, align 8
+  %15 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %15, i32 noundef 41, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body2
@@ -265,8 +269,8 @@ if.end:                                           ; preds = %do.end4, %do.body
   br label %do.end5
 
 do.end5:                                          ; preds = %if.end
-  %14 = load i32, ptr %count, align 4
-  %cmp6 = icmp eq i32 %14, 0
+  %16 = load i32, ptr %count, align 4
+  %cmp6 = icmp eq i32 %16, 0
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.end5
@@ -283,8 +287,8 @@ if.end8:                                          ; preds = %do.end5
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7
-  %15 = load i1, ptr %retval, align 1
-  ret i1 %15
+  %17 = load i1, ptr %retval, align 1
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -352,8 +356,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 55, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
+  %1 = getelementptr i8, ptr @.str, i64 120
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 55, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body2
@@ -363,12 +369,12 @@ do.body3:                                         ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont10, %do.end7, %do.body2
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4absl9MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l) #4
   br label %eh.resume
 
@@ -392,8 +398,8 @@ do.cond6:                                         ; preds = %if.end
 
 do.end7:                                          ; preds = %do.cond6
   %num_waiting_8 = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this1, i32 0, i32 2
-  %4 = load i32, ptr %num_waiting_8, align 4
-  %inc = add nsw i32 %4, 1
+  %6 = load i32, ptr %num_waiting_8, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %num_waiting_8, align 4
   %lock_9 = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this1, i32 0, i32 0
   %done_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this1, i32 0, i32 3

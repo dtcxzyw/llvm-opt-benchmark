@@ -144,7 +144,7 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
   %23 = call ptr @__errno_location() #7
   store i32 22, ptr %23, align 4
   store i32 -1, ptr %7, align 4
-  br label %97
+  br label %98
 
 24:                                               ; preds = %6
   %25 = load ptr, ptr %8, align 8
@@ -174,7 +174,7 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
 
 41:                                               ; preds = %24
   store i32 -1, ptr %7, align 4
-  br label %97
+  br label %98
 
 42:                                               ; preds = %24
   %43 = load i32, ptr %9, align 4
@@ -188,7 +188,7 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
 
 49:                                               ; preds = %42
   store i32 -1, ptr %7, align 4
-  br label %97
+  br label %98
 
 50:                                               ; preds = %42
   %51 = load i32, ptr %9, align 4
@@ -203,7 +203,7 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
 
 58:                                               ; preds = %50
   store i32 -1, ptr %7, align 4
-  br label %97
+  br label %98
 
 59:                                               ; preds = %50
   %60 = load ptr, ptr %11, align 8
@@ -213,66 +213,67 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
   %64 = call ptr @mmap(ptr noundef %60, i64 noundef %61, i32 noundef 3, i32 noundef 1, i32 noundef %62, i64 noundef %63) #6
   store ptr %64, ptr %18, align 8
   %65 = load ptr, ptr %18, align 8
-  %66 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %59
-  store i32 -1, ptr %7, align 4
-  br label %97
+  %66 = inttoptr i64 -1 to ptr
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %68, label %69
 
 68:                                               ; preds = %59
-  %69 = load ptr, ptr %18, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = icmp ne ptr %69, %70
-  br i1 %71, label %72, label %77
-
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %18, align 8
-  %74 = load i64, ptr %12, align 8
-  %75 = call i32 @munmap(ptr noundef %73, i64 noundef %74) #6
-  %76 = call ptr @__errno_location() #7
-  store i32 16, ptr %76, align 4
   store i32 -1, ptr %7, align 4
-  br label %97
+  br label %98
 
-77:                                               ; preds = %68
-  %78 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 0
-  store ptr @tma_shmem_malloc, ptr %78, align 8
-  %79 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 2
-  store i32 1, ptr %79, align 8
-  %80 = load ptr, ptr %18, align 8
-  %81 = load i32, ptr %17, align 4
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %80, i64 %82
-  %84 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 1
-  store ptr %83, ptr %84, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = call i32 @hwloc__topology_dup(ptr noundef %14, ptr noundef %85, ptr noundef %15)
-  store i32 %86, ptr %19, align 4
-  %87 = load i32, ptr %19, align 4
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %91
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %18, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = icmp ne ptr %70, %71
+  br i1 %72, label %73, label %78
 
-89:                                               ; preds = %77
-  %90 = load i32, ptr %19, align 4
-  store i32 %90, ptr %7, align 4
-  br label %97
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %18, align 8
+  %75 = load i64, ptr %12, align 8
+  %76 = call i32 @munmap(ptr noundef %74, i64 noundef %75) #6
+  %77 = call ptr @__errno_location() #7
+  store i32 16, ptr %77, align 4
+  store i32 -1, ptr %7, align 4
+  br label %98
 
-91:                                               ; preds = %77
-  %92 = load ptr, ptr %14, align 8
-  call void @hwloc_internal_distances_refresh(ptr noundef %92)
-  %93 = load ptr, ptr %8, align 8
-  call void @hwloc_internal_memattrs_refresh(ptr noundef %93)
-  %94 = load ptr, ptr %11, align 8
-  %95 = load i64, ptr %12, align 8
-  %96 = call i32 @munmap(ptr noundef %94, i64 noundef %95) #6
+78:                                               ; preds = %69
+  %79 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 0
+  store ptr @tma_shmem_malloc, ptr %79, align 8
+  %80 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 2
+  store i32 1, ptr %80, align 8
+  %81 = load ptr, ptr %18, align 8
+  %82 = load i32, ptr %17, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %81, i64 %83
+  %85 = getelementptr inbounds %struct.hwloc_tma, ptr %15, i32 0, i32 1
+  store ptr %84, ptr %85, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = call i32 @hwloc__topology_dup(ptr noundef %14, ptr noundef %86, ptr noundef %15)
+  store i32 %87, ptr %19, align 4
+  %88 = load i32, ptr %19, align 4
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %92
+
+90:                                               ; preds = %78
+  %91 = load i32, ptr %19, align 4
+  store i32 %91, ptr %7, align 4
+  br label %98
+
+92:                                               ; preds = %78
+  %93 = load ptr, ptr %14, align 8
+  call void @hwloc_internal_distances_refresh(ptr noundef %93)
+  %94 = load ptr, ptr %8, align 8
+  call void @hwloc_internal_memattrs_refresh(ptr noundef %94)
+  %95 = load ptr, ptr %11, align 8
+  %96 = load i64, ptr %12, align 8
+  %97 = call i32 @munmap(ptr noundef %95, i64 noundef %96) #6
   call void @hwloc_components_fini()
   store i32 0, ptr %7, align 4
-  br label %97
+  br label %98
 
-97:                                               ; preds = %91, %89, %72, %67, %58, %49, %41, %22
-  %98 = load i32, ptr %7, align 4
-  ret i32 %98
+98:                                               ; preds = %92, %90, %73, %68, %58, %49, %41, %22
+  %99 = load i32, ptr %7, align 4
+  ret i32 %99
 }
 
 declare void @hwloc_internal_distances_refresh(ptr noundef) #3
@@ -351,7 +352,7 @@ define i32 @hwloc_shmem_topology_adopt(ptr noundef %0, i32 noundef %1, i64 nound
   %23 = call ptr @__errno_location() #7
   store i32 22, ptr %23, align 4
   store i32 -1, ptr %7, align 4
-  br label %227
+  br label %228
 
 24:                                               ; preds = %6
   %25 = load i32, ptr %9, align 4
@@ -365,7 +366,7 @@ define i32 @hwloc_shmem_topology_adopt(ptr noundef %0, i32 noundef %1, i64 nound
 
 31:                                               ; preds = %24
   store i32 -1, ptr %7, align 4
-  br label %227
+  br label %228
 
 32:                                               ; preds = %24
   %33 = load i32, ptr %9, align 4
@@ -379,7 +380,7 @@ define i32 @hwloc_shmem_topology_adopt(ptr noundef %0, i32 noundef %1, i64 nound
 
 39:                                               ; preds = %32
   store i32 -1, ptr %7, align 4
-  br label %227
+  br label %228
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds %struct.hwloc_shmem_header, ptr %16, i32 0, i32 0
@@ -413,7 +414,7 @@ define i32 @hwloc_shmem_topology_adopt(ptr noundef %0, i32 noundef %1, i64 nound
   %61 = call ptr @__errno_location() #7
   store i32 22, ptr %61, align 4
   store i32 -1, ptr %7, align 4
-  br label %227
+  br label %228
 
 62:                                               ; preds = %55
   %63 = load ptr, ptr %11, align 8
@@ -423,240 +424,241 @@ define i32 @hwloc_shmem_topology_adopt(ptr noundef %0, i32 noundef %1, i64 nound
   %67 = call ptr @mmap(ptr noundef %63, i64 noundef %64, i32 noundef 1, i32 noundef 1, i32 noundef %65, i64 noundef %66) #6
   store ptr %67, ptr %18, align 8
   %68 = load ptr, ptr %18, align 8
-  %69 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %62
-  store i32 -1, ptr %7, align 4
-  br label %227
+  %69 = inttoptr i64 -1 to ptr
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %71, label %72
 
 71:                                               ; preds = %62
-  %72 = load ptr, ptr %18, align 8
-  %73 = load ptr, ptr %11, align 8
-  %74 = icmp ne ptr %72, %73
-  br i1 %74, label %75, label %77
-
-75:                                               ; preds = %71
-  %76 = call ptr @__errno_location() #7
-  store i32 16, ptr %76, align 4
-  br label %223
-
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i32, ptr %17, align 4
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %78, i64 %80
-  store ptr %81, ptr %15, align 8
-  %82 = load ptr, ptr %15, align 8
-  %83 = call i32 @hwloc_topology_abi_check(ptr noundef %82)
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %87
-
-85:                                               ; preds = %77
-  %86 = call ptr @__errno_location() #7
-  store i32 22, ptr %86, align 4
-  br label %223
-
-87:                                               ; preds = %77
-  call void @hwloc_components_init()
-  %88 = call noalias ptr @malloc(i64 noundef 936) #8
-  store ptr %88, ptr %14, align 8
-  %89 = load ptr, ptr %14, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %92, label %91
-
-91:                                               ; preds = %87
-  br label %222
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %14, align 8
-  %94 = load ptr, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %93, ptr align 8 %94, i64 936, i1 false)
-  %95 = load ptr, ptr %14, align 8
-  %96 = getelementptr inbounds %struct.hwloc_topology, ptr %95, i32 0, i32 41
-  store ptr null, ptr %96, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %14, align 8
-  %99 = getelementptr inbounds %struct.hwloc_topology, ptr %98, i32 0, i32 13
-  store ptr %97, ptr %99, align 8
-  %100 = load i64, ptr %12, align 8
-  %101 = load ptr, ptr %14, align 8
-  %102 = getelementptr inbounds %struct.hwloc_topology, ptr %101, i32 0, i32 14
-  store i64 %100, ptr %102, align 8
-  %103 = load ptr, ptr %14, align 8
-  %104 = getelementptr inbounds %struct.hwloc_topology, ptr %103, i32 0, i32 0
-  store i32 196608, ptr %104, align 8
-  %105 = call noalias ptr @malloc(i64 noundef 6) #8
-  %106 = load ptr, ptr %14, align 8
-  %107 = getelementptr inbounds %struct.hwloc_topology, ptr %106, i32 0, i32 19
-  %108 = getelementptr inbounds %struct.hwloc_topology_support, ptr %107, i32 0, i32 0
-  store ptr %105, ptr %108, align 8
-  %109 = call noalias ptr @malloc(i64 noundef 11) #8
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds %struct.hwloc_topology, ptr %110, i32 0, i32 19
-  %112 = getelementptr inbounds %struct.hwloc_topology_support, ptr %111, i32 0, i32 1
-  store ptr %109, ptr %112, align 8
-  %113 = call noalias ptr @malloc(i64 noundef 15) #8
-  %114 = load ptr, ptr %14, align 8
-  %115 = getelementptr inbounds %struct.hwloc_topology, ptr %114, i32 0, i32 19
-  %116 = getelementptr inbounds %struct.hwloc_topology_support, ptr %115, i32 0, i32 2
-  store ptr %113, ptr %116, align 8
-  %117 = call noalias ptr @malloc(i64 noundef 1) #8
-  %118 = load ptr, ptr %14, align 8
-  %119 = getelementptr inbounds %struct.hwloc_topology, ptr %118, i32 0, i32 19
-  %120 = getelementptr inbounds %struct.hwloc_topology_support, ptr %119, i32 0, i32 3
-  store ptr %117, ptr %120, align 8
-  %121 = load ptr, ptr %14, align 8
-  %122 = getelementptr inbounds %struct.hwloc_topology, ptr %121, i32 0, i32 19
-  %123 = getelementptr inbounds %struct.hwloc_topology_support, ptr %122, i32 0, i32 0
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp ne ptr %124, null
-  br i1 %125, label %126, label %144
-
-126:                                              ; preds = %92
-  %127 = load ptr, ptr %14, align 8
-  %128 = getelementptr inbounds %struct.hwloc_topology, ptr %127, i32 0, i32 19
-  %129 = getelementptr inbounds %struct.hwloc_topology_support, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %144
-
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %14, align 8
-  %134 = getelementptr inbounds %struct.hwloc_topology, ptr %133, i32 0, i32 19
-  %135 = getelementptr inbounds %struct.hwloc_topology_support, ptr %134, i32 0, i32 2
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp ne ptr %136, null
-  br i1 %137, label %138, label %144
-
-138:                                              ; preds = %132
-  %139 = load ptr, ptr %14, align 8
-  %140 = getelementptr inbounds %struct.hwloc_topology, ptr %139, i32 0, i32 19
-  %141 = getelementptr inbounds %struct.hwloc_topology_support, ptr %140, i32 0, i32 3
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp ne ptr %142, null
-  br i1 %143, label %145, label %144
-
-144:                                              ; preds = %138, %132, %126, %92
-  br label %204
-
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %14, align 8
-  %147 = getelementptr inbounds %struct.hwloc_topology, ptr %146, i32 0, i32 19
-  %148 = getelementptr inbounds %struct.hwloc_topology_support, ptr %147, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr %15, align 8
-  %151 = getelementptr inbounds %struct.hwloc_topology, ptr %150, i32 0, i32 19
-  %152 = getelementptr inbounds %struct.hwloc_topology_support, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 1 %153, i64 6, i1 false)
-  %154 = load ptr, ptr %14, align 8
-  %155 = getelementptr inbounds %struct.hwloc_topology, ptr %154, i32 0, i32 19
-  %156 = getelementptr inbounds %struct.hwloc_topology_support, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = load ptr, ptr %15, align 8
-  %159 = getelementptr inbounds %struct.hwloc_topology, ptr %158, i32 0, i32 19
-  %160 = getelementptr inbounds %struct.hwloc_topology_support, ptr %159, i32 0, i32 1
-  %161 = load ptr, ptr %160, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %161, i64 11, i1 false)
-  %162 = load ptr, ptr %14, align 8
-  %163 = getelementptr inbounds %struct.hwloc_topology, ptr %162, i32 0, i32 19
-  %164 = getelementptr inbounds %struct.hwloc_topology_support, ptr %163, i32 0, i32 2
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %15, align 8
-  %167 = getelementptr inbounds %struct.hwloc_topology, ptr %166, i32 0, i32 19
-  %168 = getelementptr inbounds %struct.hwloc_topology_support, ptr %167, i32 0, i32 2
-  %169 = load ptr, ptr %168, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr align 1 %169, i64 15, i1 false)
-  %170 = load ptr, ptr %14, align 8
-  %171 = getelementptr inbounds %struct.hwloc_topology, ptr %170, i32 0, i32 19
-  %172 = getelementptr inbounds %struct.hwloc_topology_support, ptr %171, i32 0, i32 3
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %15, align 8
-  %175 = getelementptr inbounds %struct.hwloc_topology, ptr %174, i32 0, i32 19
-  %176 = getelementptr inbounds %struct.hwloc_topology_support, ptr %175, i32 0, i32 3
-  %177 = load ptr, ptr %176, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %173, ptr align 1 %177, i64 1, i1 false)
-  %178 = load ptr, ptr %14, align 8
-  call void @hwloc_set_binding_hooks(ptr noundef %178)
-  %179 = load ptr, ptr %14, align 8
-  %180 = getelementptr inbounds %struct.hwloc_topology, ptr %179, i32 0, i32 21
-  store ptr null, ptr %180, align 8
-  %181 = load ptr, ptr %14, align 8
-  %182 = getelementptr inbounds %struct.hwloc_topology, ptr %181, i32 0, i32 22
-  store ptr null, ptr %182, align 8
-  %183 = load ptr, ptr %14, align 8
-  %184 = getelementptr inbounds %struct.hwloc_topology, ptr %183, i32 0, i32 20
-  %185 = getelementptr inbounds %struct.hwloc_infos_s, ptr %184, i32 0, i32 0
-  store ptr null, ptr %185, align 8
-  %186 = load ptr, ptr %14, align 8
-  %187 = getelementptr inbounds %struct.hwloc_topology, ptr %186, i32 0, i32 20
-  %188 = getelementptr inbounds %struct.hwloc_infos_s, ptr %187, i32 0, i32 1
-  store i32 0, ptr %188, align 8
-  %189 = load ptr, ptr %14, align 8
-  %190 = getelementptr inbounds %struct.hwloc_topology, ptr %189, i32 0, i32 20
-  %191 = getelementptr inbounds %struct.hwloc_infos_s, ptr %190, i32 0, i32 2
-  store i32 0, ptr %191, align 4
-  %192 = load ptr, ptr %14, align 8
-  %193 = getelementptr inbounds %struct.hwloc_topology, ptr %192, i32 0, i32 20
-  %194 = load ptr, ptr %15, align 8
-  %195 = getelementptr inbounds %struct.hwloc_topology, ptr %194, i32 0, i32 20
-  %196 = call i32 @hwloc__tma_dup_infos(ptr noundef null, ptr noundef %193, ptr noundef %195)
-  %197 = call ptr @getenv(ptr noundef @.str) #6
-  %198 = icmp ne ptr %197, null
-  br i1 %198, label %199, label %201
-
-199:                                              ; preds = %145
-  %200 = load ptr, ptr %14, align 8
-  call void @hwloc_topology_check(ptr noundef %200)
-  br label %201
-
-201:                                              ; preds = %199, %145
-  %202 = load ptr, ptr %14, align 8
-  %203 = load ptr, ptr %8, align 8
-  store ptr %202, ptr %203, align 8
-  store i32 0, ptr %7, align 4
-  br label %227
-
-204:                                              ; preds = %144
-  %205 = load ptr, ptr %14, align 8
-  %206 = getelementptr inbounds %struct.hwloc_topology, ptr %205, i32 0, i32 19
-  %207 = getelementptr inbounds %struct.hwloc_topology_support, ptr %206, i32 0, i32 0
-  %208 = load ptr, ptr %207, align 8
-  call void @free(ptr noundef %208) #6
-  %209 = load ptr, ptr %14, align 8
-  %210 = getelementptr inbounds %struct.hwloc_topology, ptr %209, i32 0, i32 19
-  %211 = getelementptr inbounds %struct.hwloc_topology_support, ptr %210, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  call void @free(ptr noundef %212) #6
-  %213 = load ptr, ptr %14, align 8
-  %214 = getelementptr inbounds %struct.hwloc_topology, ptr %213, i32 0, i32 19
-  %215 = getelementptr inbounds %struct.hwloc_topology_support, ptr %214, i32 0, i32 2
-  %216 = load ptr, ptr %215, align 8
-  call void @free(ptr noundef %216) #6
-  %217 = load ptr, ptr %14, align 8
-  %218 = getelementptr inbounds %struct.hwloc_topology, ptr %217, i32 0, i32 19
-  %219 = getelementptr inbounds %struct.hwloc_topology_support, ptr %218, i32 0, i32 3
-  %220 = load ptr, ptr %219, align 8
-  call void @free(ptr noundef %220) #6
-  %221 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %221) #6
-  br label %222
-
-222:                                              ; preds = %204, %91
-  call void @hwloc_components_fini()
-  br label %223
-
-223:                                              ; preds = %222, %85, %75
-  %224 = load ptr, ptr %18, align 8
-  %225 = load i64, ptr %12, align 8
-  %226 = call i32 @munmap(ptr noundef %224, i64 noundef %225) #6
   store i32 -1, ptr %7, align 4
-  br label %227
+  br label %228
 
-227:                                              ; preds = %223, %201, %70, %60, %39, %31, %22
-  %228 = load i32, ptr %7, align 4
-  ret i32 %228
+72:                                               ; preds = %62
+  %73 = load ptr, ptr %18, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = icmp ne ptr %73, %74
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %72
+  %77 = call ptr @__errno_location() #7
+  store i32 16, ptr %77, align 4
+  br label %224
+
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %11, align 8
+  %80 = load i32, ptr %17, align 4
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %79, i64 %81
+  store ptr %82, ptr %15, align 8
+  %83 = load ptr, ptr %15, align 8
+  %84 = call i32 @hwloc_topology_abi_check(ptr noundef %83)
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %86, label %88
+
+86:                                               ; preds = %78
+  %87 = call ptr @__errno_location() #7
+  store i32 22, ptr %87, align 4
+  br label %224
+
+88:                                               ; preds = %78
+  call void @hwloc_components_init()
+  %89 = call noalias ptr @malloc(i64 noundef 936) #8
+  store ptr %89, ptr %14, align 8
+  %90 = load ptr, ptr %14, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %93, label %92
+
+92:                                               ; preds = %88
+  br label %223
+
+93:                                               ; preds = %88
+  %94 = load ptr, ptr %14, align 8
+  %95 = load ptr, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %94, ptr align 8 %95, i64 936, i1 false)
+  %96 = load ptr, ptr %14, align 8
+  %97 = getelementptr inbounds %struct.hwloc_topology, ptr %96, i32 0, i32 41
+  store ptr null, ptr %97, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = load ptr, ptr %14, align 8
+  %100 = getelementptr inbounds %struct.hwloc_topology, ptr %99, i32 0, i32 13
+  store ptr %98, ptr %100, align 8
+  %101 = load i64, ptr %12, align 8
+  %102 = load ptr, ptr %14, align 8
+  %103 = getelementptr inbounds %struct.hwloc_topology, ptr %102, i32 0, i32 14
+  store i64 %101, ptr %103, align 8
+  %104 = load ptr, ptr %14, align 8
+  %105 = getelementptr inbounds %struct.hwloc_topology, ptr %104, i32 0, i32 0
+  store i32 196608, ptr %105, align 8
+  %106 = call noalias ptr @malloc(i64 noundef 6) #8
+  %107 = load ptr, ptr %14, align 8
+  %108 = getelementptr inbounds %struct.hwloc_topology, ptr %107, i32 0, i32 19
+  %109 = getelementptr inbounds %struct.hwloc_topology_support, ptr %108, i32 0, i32 0
+  store ptr %106, ptr %109, align 8
+  %110 = call noalias ptr @malloc(i64 noundef 11) #8
+  %111 = load ptr, ptr %14, align 8
+  %112 = getelementptr inbounds %struct.hwloc_topology, ptr %111, i32 0, i32 19
+  %113 = getelementptr inbounds %struct.hwloc_topology_support, ptr %112, i32 0, i32 1
+  store ptr %110, ptr %113, align 8
+  %114 = call noalias ptr @malloc(i64 noundef 15) #8
+  %115 = load ptr, ptr %14, align 8
+  %116 = getelementptr inbounds %struct.hwloc_topology, ptr %115, i32 0, i32 19
+  %117 = getelementptr inbounds %struct.hwloc_topology_support, ptr %116, i32 0, i32 2
+  store ptr %114, ptr %117, align 8
+  %118 = call noalias ptr @malloc(i64 noundef 1) #8
+  %119 = load ptr, ptr %14, align 8
+  %120 = getelementptr inbounds %struct.hwloc_topology, ptr %119, i32 0, i32 19
+  %121 = getelementptr inbounds %struct.hwloc_topology_support, ptr %120, i32 0, i32 3
+  store ptr %118, ptr %121, align 8
+  %122 = load ptr, ptr %14, align 8
+  %123 = getelementptr inbounds %struct.hwloc_topology, ptr %122, i32 0, i32 19
+  %124 = getelementptr inbounds %struct.hwloc_topology_support, ptr %123, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %127, label %145
+
+127:                                              ; preds = %93
+  %128 = load ptr, ptr %14, align 8
+  %129 = getelementptr inbounds %struct.hwloc_topology, ptr %128, i32 0, i32 19
+  %130 = getelementptr inbounds %struct.hwloc_topology_support, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %145
+
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %14, align 8
+  %135 = getelementptr inbounds %struct.hwloc_topology, ptr %134, i32 0, i32 19
+  %136 = getelementptr inbounds %struct.hwloc_topology_support, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %145
+
+139:                                              ; preds = %133
+  %140 = load ptr, ptr %14, align 8
+  %141 = getelementptr inbounds %struct.hwloc_topology, ptr %140, i32 0, i32 19
+  %142 = getelementptr inbounds %struct.hwloc_topology_support, ptr %141, i32 0, i32 3
+  %143 = load ptr, ptr %142, align 8
+  %144 = icmp ne ptr %143, null
+  br i1 %144, label %146, label %145
+
+145:                                              ; preds = %139, %133, %127, %93
+  br label %205
+
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %14, align 8
+  %148 = getelementptr inbounds %struct.hwloc_topology, ptr %147, i32 0, i32 19
+  %149 = getelementptr inbounds %struct.hwloc_topology_support, ptr %148, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8
+  %151 = load ptr, ptr %15, align 8
+  %152 = getelementptr inbounds %struct.hwloc_topology, ptr %151, i32 0, i32 19
+  %153 = getelementptr inbounds %struct.hwloc_topology_support, ptr %152, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %154, i64 6, i1 false)
+  %155 = load ptr, ptr %14, align 8
+  %156 = getelementptr inbounds %struct.hwloc_topology, ptr %155, i32 0, i32 19
+  %157 = getelementptr inbounds %struct.hwloc_topology_support, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  %159 = load ptr, ptr %15, align 8
+  %160 = getelementptr inbounds %struct.hwloc_topology, ptr %159, i32 0, i32 19
+  %161 = getelementptr inbounds %struct.hwloc_topology_support, ptr %160, i32 0, i32 1
+  %162 = load ptr, ptr %161, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %158, ptr align 1 %162, i64 11, i1 false)
+  %163 = load ptr, ptr %14, align 8
+  %164 = getelementptr inbounds %struct.hwloc_topology, ptr %163, i32 0, i32 19
+  %165 = getelementptr inbounds %struct.hwloc_topology_support, ptr %164, i32 0, i32 2
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr %15, align 8
+  %168 = getelementptr inbounds %struct.hwloc_topology, ptr %167, i32 0, i32 19
+  %169 = getelementptr inbounds %struct.hwloc_topology_support, ptr %168, i32 0, i32 2
+  %170 = load ptr, ptr %169, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %166, ptr align 1 %170, i64 15, i1 false)
+  %171 = load ptr, ptr %14, align 8
+  %172 = getelementptr inbounds %struct.hwloc_topology, ptr %171, i32 0, i32 19
+  %173 = getelementptr inbounds %struct.hwloc_topology_support, ptr %172, i32 0, i32 3
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %15, align 8
+  %176 = getelementptr inbounds %struct.hwloc_topology, ptr %175, i32 0, i32 19
+  %177 = getelementptr inbounds %struct.hwloc_topology_support, ptr %176, i32 0, i32 3
+  %178 = load ptr, ptr %177, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %174, ptr align 1 %178, i64 1, i1 false)
+  %179 = load ptr, ptr %14, align 8
+  call void @hwloc_set_binding_hooks(ptr noundef %179)
+  %180 = load ptr, ptr %14, align 8
+  %181 = getelementptr inbounds %struct.hwloc_topology, ptr %180, i32 0, i32 21
+  store ptr null, ptr %181, align 8
+  %182 = load ptr, ptr %14, align 8
+  %183 = getelementptr inbounds %struct.hwloc_topology, ptr %182, i32 0, i32 22
+  store ptr null, ptr %183, align 8
+  %184 = load ptr, ptr %14, align 8
+  %185 = getelementptr inbounds %struct.hwloc_topology, ptr %184, i32 0, i32 20
+  %186 = getelementptr inbounds %struct.hwloc_infos_s, ptr %185, i32 0, i32 0
+  store ptr null, ptr %186, align 8
+  %187 = load ptr, ptr %14, align 8
+  %188 = getelementptr inbounds %struct.hwloc_topology, ptr %187, i32 0, i32 20
+  %189 = getelementptr inbounds %struct.hwloc_infos_s, ptr %188, i32 0, i32 1
+  store i32 0, ptr %189, align 8
+  %190 = load ptr, ptr %14, align 8
+  %191 = getelementptr inbounds %struct.hwloc_topology, ptr %190, i32 0, i32 20
+  %192 = getelementptr inbounds %struct.hwloc_infos_s, ptr %191, i32 0, i32 2
+  store i32 0, ptr %192, align 4
+  %193 = load ptr, ptr %14, align 8
+  %194 = getelementptr inbounds %struct.hwloc_topology, ptr %193, i32 0, i32 20
+  %195 = load ptr, ptr %15, align 8
+  %196 = getelementptr inbounds %struct.hwloc_topology, ptr %195, i32 0, i32 20
+  %197 = call i32 @hwloc__tma_dup_infos(ptr noundef null, ptr noundef %194, ptr noundef %196)
+  %198 = call ptr @getenv(ptr noundef @.str) #6
+  %199 = icmp ne ptr %198, null
+  br i1 %199, label %200, label %202
+
+200:                                              ; preds = %146
+  %201 = load ptr, ptr %14, align 8
+  call void @hwloc_topology_check(ptr noundef %201)
+  br label %202
+
+202:                                              ; preds = %200, %146
+  %203 = load ptr, ptr %14, align 8
+  %204 = load ptr, ptr %8, align 8
+  store ptr %203, ptr %204, align 8
+  store i32 0, ptr %7, align 4
+  br label %228
+
+205:                                              ; preds = %145
+  %206 = load ptr, ptr %14, align 8
+  %207 = getelementptr inbounds %struct.hwloc_topology, ptr %206, i32 0, i32 19
+  %208 = getelementptr inbounds %struct.hwloc_topology_support, ptr %207, i32 0, i32 0
+  %209 = load ptr, ptr %208, align 8
+  call void @free(ptr noundef %209) #6
+  %210 = load ptr, ptr %14, align 8
+  %211 = getelementptr inbounds %struct.hwloc_topology, ptr %210, i32 0, i32 19
+  %212 = getelementptr inbounds %struct.hwloc_topology_support, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8
+  call void @free(ptr noundef %213) #6
+  %214 = load ptr, ptr %14, align 8
+  %215 = getelementptr inbounds %struct.hwloc_topology, ptr %214, i32 0, i32 19
+  %216 = getelementptr inbounds %struct.hwloc_topology_support, ptr %215, i32 0, i32 2
+  %217 = load ptr, ptr %216, align 8
+  call void @free(ptr noundef %217) #6
+  %218 = load ptr, ptr %14, align 8
+  %219 = getelementptr inbounds %struct.hwloc_topology, ptr %218, i32 0, i32 19
+  %220 = getelementptr inbounds %struct.hwloc_topology_support, ptr %219, i32 0, i32 3
+  %221 = load ptr, ptr %220, align 8
+  call void @free(ptr noundef %221) #6
+  %222 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %222) #6
+  br label %223
+
+223:                                              ; preds = %205, %92
+  call void @hwloc_components_fini()
+  br label %224
+
+224:                                              ; preds = %223, %86, %76
+  %225 = load ptr, ptr %18, align 8
+  %226 = load i64, ptr %12, align 8
+  %227 = call i32 @munmap(ptr noundef %225, i64 noundef %226) #6
+  store i32 -1, ptr %7, align 4
+  br label %228
+
+228:                                              ; preds = %224, %202, %71, %60, %39, %31, %22
+  %229 = load i32, ptr %7, align 4
+  ret i32 %229
 }
 
 declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #3

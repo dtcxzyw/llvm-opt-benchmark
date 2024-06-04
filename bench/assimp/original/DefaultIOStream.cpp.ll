@@ -56,16 +56,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %mFile, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %mFile, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %mFile2 = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %mFile2, align 8
-  %call = invoke i32 @fclose(ptr noundef %1)
+  %2 = load ptr, ptr %mFile2, align 8
+  %call = invoke i32 @fclose(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -78,10 +79,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #6
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #6
   unreachable
 }
 

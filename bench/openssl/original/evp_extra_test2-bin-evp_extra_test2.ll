@@ -1553,9 +1553,10 @@ entry:
   store i32 0, ptr %ret, align 4
   %0 = load ptr, ptr @keydata, align 16
   store ptr %0, ptr %pdata, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.APK_DATA_st, ptr @keydata, i32 0, i32 1), align 8
-  %2 = load ptr, ptr @mainctx, align 8
-  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %1, ptr noundef %2, ptr noundef null)
+  %1 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %3 = load ptr, ptr @mainctx, align 8
+  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %2, ptr noundef %3, ptr noundef null)
   store ptr %call, ptr %pkey, align 8
   %call1 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1166, ptr noundef @.str.163, ptr noundef %call)
   %tobool = icmp ne i32 %call1, 0
@@ -1568,20 +1569,20 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %3 = load ptr, ptr %pkey, align 8
-  %call5 = call i32 @EVP_PKEY_todata(ptr noundef %3, i32 noundef 135, ptr noundef null)
+  %4 = load ptr, ptr %pkey, align 8
+  %call5 = call i32 @EVP_PKEY_todata(ptr noundef %4, i32 noundef 135, ptr noundef null)
   %call6 = call i32 @test_int_eq(ptr noundef @.str.25, i32 noundef 1168, ptr noundef @.str.165, ptr noundef @.str.49, i32 noundef %call5, i32 noundef 0)
   %tobool7 = icmp ne i32 %call6, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %4 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool7, %land.rhs ]
-  %land.ext = zext i1 %4 to i32
+  %5 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool7, %land.rhs ]
+  %land.ext = zext i1 %5 to i32
   store i32 %land.ext, ptr %ret, align 4
-  %5 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load i32, ptr %ret, align 4
-  ret i32 %6
+  %6 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %6)
+  %7 = load i32, ptr %ret, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1594,9 +1595,10 @@ entry:
   store i32 0, ptr %ret, align 4
   %0 = load ptr, ptr @keydata, align 16
   store ptr %0, ptr %pdata, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.APK_DATA_st, ptr @keydata, i32 0, i32 1), align 8
-  %2 = load ptr, ptr @mainctx, align 8
-  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %1, ptr noundef %2, ptr noundef null)
+  %1 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %3 = load ptr, ptr @mainctx, align 8
+  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %2, ptr noundef %3, ptr noundef null)
   store ptr %call, ptr %pkey, align 8
   %call1 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1189, ptr noundef @.str.163, ptr noundef %call)
   %tobool = icmp ne i32 %call1, 0
@@ -1609,20 +1611,20 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %3 = load ptr, ptr %pkey, align 8
-  %call5 = call i32 @EVP_PKEY_export(ptr noundef %3, i32 noundef 135, ptr noundef null, ptr noundef null)
+  %4 = load ptr, ptr %pkey, align 8
+  %call5 = call i32 @EVP_PKEY_export(ptr noundef %4, i32 noundef 135, ptr noundef null, ptr noundef null)
   %call6 = call i32 @test_int_eq(ptr noundef @.str.25, i32 noundef 1192, ptr noundef @.str.167, ptr noundef @.str.49, i32 noundef %call5, i32 noundef 0)
   %tobool7 = icmp ne i32 %call6, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %4 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool7, %land.rhs ]
-  %land.ext = zext i1 %4 to i32
+  %5 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool7, %land.rhs ]
+  %land.ext = zext i1 %5 to i32
   store i32 %land.ext, ptr %ret, align 4
-  %5 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load i32, ptr %ret, align 4
-  ret i32 %6
+  %6 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %6)
+  %7 = load i32, ptr %ret, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1638,22 +1640,23 @@ entry:
   store i32 1, ptr %ret, align 4
   %0 = load ptr, ptr @keydata, align 16
   store ptr %0, ptr %pdata, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.APK_DATA_st, ptr @keydata, i32 0, i32 1), align 8
-  %conv = trunc i64 %1 to i32
+  %1 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %pdata_len, align 4
-  %2 = load i32, ptr %pdata_len, align 4
-  %conv1 = sext i32 %2 to i64
-  %3 = load ptr, ptr @mainctx, align 8
-  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %conv1, ptr noundef %3, ptr noundef null)
+  %3 = load i32, ptr %pdata_len, align 4
+  %conv1 = sext i32 %3 to i64
+  %4 = load ptr, ptr @mainctx, align 8
+  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %conv1, ptr noundef %4, ptr noundef null)
   store ptr %call, ptr %pkey, align 8
   %call2 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1208, ptr noundef @.str.168, ptr noundef %call)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %pkey, align 8
   %5 = load ptr, ptr %pkey, align 8
-  %call3 = call i32 @EVP_PKEY_export(ptr noundef %4, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef %5)
+  %6 = load ptr, ptr %pkey, align 8
+  %call3 = call i32 @EVP_PKEY_export(ptr noundef %5, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef %6)
   %cmp = icmp ne i32 %call3, 0
   %conv4 = zext i1 %cmp to i32
   %call5 = call i32 @test_true(ptr noundef @.str.25, i32 noundef 1210, ptr noundef @.str.169, i32 noundef %conv4)
@@ -1661,8 +1664,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool6, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %pkey, align 8
-  %call8 = call i32 @EVP_PKEY_export(ptr noundef %6, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef null)
+  %7 = load ptr, ptr %pkey, align 8
+  %call8 = call i32 @EVP_PKEY_export(ptr noundef %7, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef null)
   %cmp9 = icmp ne i32 %call8, 0
   %conv10 = zext i1 %cmp9 to i32
   %call11 = call i32 @test_false(ptr noundef @.str.25, i32 noundef 1212, ptr noundef @.str.170, i32 noundef %conv10)
@@ -1674,15 +1677,16 @@ if.then:                                          ; preds = %lor.lhs.false7, %lo
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false7
-  %7 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %7)
-  %8 = load ptr, ptr @keydata, align 16
-  store ptr %8, ptr %pdata, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.APK_DATA_st, ptr @keydata, i32 0, i32 1), align 8
-  %conv13 = trunc i64 %9 to i32
+  %8 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %8)
+  %9 = load ptr, ptr @keydata, align 16
+  store ptr %9, ptr %pdata, align 8
+  %10 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  %conv13 = trunc i64 %11 to i32
   store i32 %conv13, ptr %pdata_len, align 4
-  %10 = load i32, ptr %pdata_len, align 4
-  %conv14 = sext i32 %10 to i64
+  %12 = load i32, ptr %pdata_len, align 4
+  %conv14 = sext i32 %12 to i64
   %call15 = call ptr @d2i_RSAPrivateKey(ptr noundef null, ptr noundef %pdata, i64 noundef %conv14)
   store ptr %call15, ptr %rsa, align 8
   %call16 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1220, ptr noundef @.str.171, ptr noundef %call15)
@@ -1697,9 +1701,9 @@ lor.lhs.false18:                                  ; preds = %if.end
   br i1 %tobool21, label %lor.lhs.false22, label %if.then40
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false18
-  %11 = load ptr, ptr %pkey, align 8
-  %12 = load ptr, ptr %rsa, align 8
-  %call23 = call i32 @EVP_PKEY_assign(ptr noundef %11, i32 noundef 6, ptr noundef %12)
+  %13 = load ptr, ptr %pkey, align 8
+  %14 = load ptr, ptr %rsa, align 8
+  %call23 = call i32 @EVP_PKEY_assign(ptr noundef %13, i32 noundef 6, ptr noundef %14)
   %cmp24 = icmp ne i32 %call23, 0
   %conv25 = zext i1 %cmp24 to i32
   %call26 = call i32 @test_true(ptr noundef @.str.25, i32 noundef 1222, ptr noundef @.str.173, i32 noundef %conv25)
@@ -1707,9 +1711,9 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false18
   br i1 %tobool27, label %lor.lhs.false28, label %if.then40
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false22
-  %13 = load ptr, ptr %pkey, align 8
-  %14 = load ptr, ptr %pkey, align 8
-  %call29 = call i32 @EVP_PKEY_export(ptr noundef %13, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef %14)
+  %15 = load ptr, ptr %pkey, align 8
+  %16 = load ptr, ptr %pkey, align 8
+  %call29 = call i32 @EVP_PKEY_export(ptr noundef %15, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef %16)
   %cmp30 = icmp ne i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i32
   %call32 = call i32 @test_true(ptr noundef @.str.25, i32 noundef 1224, ptr noundef @.str.169, i32 noundef %conv31)
@@ -1717,8 +1721,8 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false22
   br i1 %tobool33, label %lor.lhs.false34, label %if.then40
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false28
-  %15 = load ptr, ptr %pkey, align 8
-  %call35 = call i32 @EVP_PKEY_export(ptr noundef %15, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef null)
+  %17 = load ptr, ptr %pkey, align 8
+  %call35 = call i32 @EVP_PKEY_export(ptr noundef %17, i32 noundef 135, ptr noundef @test_pkey_export_cb, ptr noundef null)
   %cmp36 = icmp ne i32 %call35, 0
   %conv37 = zext i1 %cmp36 to i32
   %call38 = call i32 @test_false(ptr noundef @.str.25, i32 noundef 1226, ptr noundef @.str.170, i32 noundef %conv37)
@@ -1730,10 +1734,10 @@ if.then40:                                        ; preds = %lor.lhs.false34, %l
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %lor.lhs.false34
-  %16 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %16)
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %18)
+  %19 = load i32, ptr %ret, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2108,75 +2112,76 @@ entry:
   %arrayidx3 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %sig_params, i64 0, i64 2
   call void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8 %tmp4)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx3, ptr align 8 %tmp4, i64 40, i1 false)
-  %2 = load i64, ptr getelementptr inbounds (%struct.APK_DATA_st, ptr @keydata, i32 0, i32 1), align 8
-  %3 = load ptr, ptr @mainctx, align 8
-  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %2, ptr noundef %3, ptr noundef null)
+  %2 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = load ptr, ptr @mainctx, align 8
+  %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef %pdata, i64 noundef %3, ptr noundef %4, ptr noundef null)
   store ptr %call, ptr %pkey, align 8
   %call5 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1253, ptr noundef @.str.163, ptr noundef %call)
   %tobool = icmp ne i32 %call5, 0
   br i1 %tobool, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr @mainctx, align 8
-  %5 = load ptr, ptr %pkey, align 8
-  %call6 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %4, ptr noundef %5, ptr noundef null)
+  %5 = load ptr, ptr @mainctx, align 8
+  %6 = load ptr, ptr %pkey, align 8
+  %call6 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %5, ptr noundef %6, ptr noundef null)
   store ptr %call6, ptr %pctx, align 8
   %call7 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1254, ptr noundef @.str.191, ptr noundef %call6)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %land.lhs.true9, label %land.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %6 = load ptr, ptr %pctx, align 8
+  %7 = load ptr, ptr %pctx, align 8
   %arraydecay = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %sig_params, i64 0, i64 0
-  %call10 = call i32 @EVP_PKEY_sign_init_ex(ptr noundef %6, ptr noundef %arraydecay)
+  %call10 = call i32 @EVP_PKEY_sign_init_ex(ptr noundef %7, ptr noundef %arraydecay)
   %call11 = call i32 @test_int_gt(ptr noundef @.str.25, i32 noundef 1255, ptr noundef @.str.192, ptr noundef @.str.49, i32 noundef %call10, i32 noundef 0)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true9
-  %7 = load ptr, ptr %pctx, align 8
+  %8 = load ptr, ptr %pctx, align 8
   %arraydecay14 = getelementptr inbounds [32 x i8], ptr %mdbuf, i64 0, i64 0
-  %call15 = call i32 @EVP_PKEY_sign(ptr noundef %7, ptr noundef null, ptr noundef %sig_len, ptr noundef %arraydecay14, i64 noundef 32)
+  %call15 = call i32 @EVP_PKEY_sign(ptr noundef %8, ptr noundef null, ptr noundef %sig_len, ptr noundef %arraydecay14, i64 noundef 32)
   %call16 = call i32 @test_int_gt(ptr noundef @.str.25, i32 noundef 1257, ptr noundef @.str.193, ptr noundef @.str.49, i32 noundef %call15, i32 noundef 0)
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %land.lhs.true18, label %land.end
 
 land.lhs.true18:                                  ; preds = %land.lhs.true13
-  %8 = load i64, ptr %sig_len, align 8
-  %conv = trunc i64 %8 to i32
+  %9 = load i64, ptr %sig_len, align 8
+  %conv = trunc i64 %9 to i32
   %call19 = call i32 @test_int_gt(ptr noundef @.str.25, i32 noundef 1258, ptr noundef @.str.194, ptr noundef @.str.49, i32 noundef %conv, i32 noundef 0)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %land.lhs.true21, label %land.end
 
 land.lhs.true21:                                  ; preds = %land.lhs.true18
-  %9 = load i64, ptr %sig_len, align 8
-  %call22 = call noalias ptr @CRYPTO_malloc(i64 noundef %9, ptr noundef @.str.25, i32 noundef 1259)
+  %10 = load i64, ptr %sig_len, align 8
+  %call22 = call noalias ptr @CRYPTO_malloc(i64 noundef %10, ptr noundef @.str.25, i32 noundef 1259)
   store ptr %call22, ptr %sig, align 8
   %call23 = call i32 @test_ptr(ptr noundef @.str.25, i32 noundef 1259, ptr noundef @.str.195, ptr noundef %call22)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true21
-  %10 = load ptr, ptr %pctx, align 8
-  %11 = load ptr, ptr %sig, align 8
+  %11 = load ptr, ptr %pctx, align 8
+  %12 = load ptr, ptr %sig, align 8
   %arraydecay25 = getelementptr inbounds [32 x i8], ptr %mdbuf, i64 0, i64 0
-  %call26 = call i32 @EVP_PKEY_sign(ptr noundef %10, ptr noundef %11, ptr noundef %sig_len, ptr noundef %arraydecay25, i64 noundef 32)
+  %call26 = call i32 @EVP_PKEY_sign(ptr noundef %11, ptr noundef %12, ptr noundef %sig_len, ptr noundef %arraydecay25, i64 noundef 32)
   %call27 = call i32 @test_int_gt(ptr noundef @.str.25, i32 noundef 1261, ptr noundef @.str.196, ptr noundef @.str.49, i32 noundef %call26, i32 noundef 0)
   %tobool28 = icmp ne i32 %call27, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true21, %land.lhs.true18, %land.lhs.true13, %land.lhs.true9, %land.lhs.true, %entry
-  %12 = phi i1 [ false, %land.lhs.true21 ], [ false, %land.lhs.true18 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool28, %land.rhs ]
-  %land.ext = zext i1 %12 to i32
+  %13 = phi i1 [ false, %land.lhs.true21 ], [ false, %land.lhs.true18 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool28, %land.rhs ]
+  %land.ext = zext i1 %13 to i32
   store i32 %land.ext, ptr %ret, align 4
-  %13 = load ptr, ptr %pctx, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %13)
-  %14 = load ptr, ptr %sig, align 8
-  call void @CRYPTO_free(ptr noundef %14, ptr noundef @.str.25, i32 noundef 1264)
-  %15 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %15)
-  %16 = load i32, ptr %ret, align 4
-  ret i32 %16
+  %14 = load ptr, ptr %pctx, align 8
+  call void @EVP_PKEY_CTX_free(ptr noundef %14)
+  %15 = load ptr, ptr %sig, align 8
+  call void @CRYPTO_free(ptr noundef %15, ptr noundef @.str.25, i32 noundef 1264)
+  %16 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %16)
+  %17 = load i32, ptr %ret, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1417,552 +1417,555 @@ define hidden i64 @ruby_sip_hash13(ptr noundef %0, ptr noundef %1, i64 noundef %
   store i64 %139, ptr %9, align 8
   %140 = load i64, ptr %8, align 8
   store i64 %140, ptr %10, align 8
-  %141 = load i64, ptr getelementptr ([4 x i64], ptr @sip_init_state_bin, i64 0, i64 1), align 8
-  %142 = load i64, ptr %10, align 8
-  %143 = xor i64 %142, %141
-  store i64 %143, ptr %10, align 8
-  %144 = load i64, ptr %7, align 8
-  store i64 %144, ptr %11, align 8
-  %145 = load i64, ptr getelementptr ([4 x i64], ptr @sip_init_state_bin, i64 0, i64 2), align 8
-  %146 = load i64, ptr %11, align 8
-  %147 = xor i64 %146, %145
-  store i64 %147, ptr %11, align 8
-  %148 = load i64, ptr %8, align 8
-  store i64 %148, ptr %12, align 8
-  %149 = load i64, ptr getelementptr ([4 x i64], ptr @sip_init_state_bin, i64 0, i64 3), align 8
-  %150 = load i64, ptr %12, align 8
-  %151 = xor i64 %150, %149
-  store i64 %151, ptr %12, align 8
-  %152 = load ptr, ptr %5, align 8
-  store ptr %152, ptr %16, align 8
-  br label %153
+  %141 = getelementptr [4 x i64], ptr @sip_init_state_bin, i64 0, i64 1
+  %142 = load i64, ptr %141, align 8
+  %143 = load i64, ptr %10, align 8
+  %144 = xor i64 %143, %142
+  store i64 %144, ptr %10, align 8
+  %145 = load i64, ptr %7, align 8
+  store i64 %145, ptr %11, align 8
+  %146 = getelementptr [4 x i64], ptr @sip_init_state_bin, i64 0, i64 2
+  %147 = load i64, ptr %146, align 8
+  %148 = load i64, ptr %11, align 8
+  %149 = xor i64 %148, %147
+  store i64 %149, ptr %11, align 8
+  %150 = load i64, ptr %8, align 8
+  store i64 %150, ptr %12, align 8
+  %151 = getelementptr [4 x i64], ptr @sip_init_state_bin, i64 0, i64 3
+  %152 = load i64, ptr %151, align 8
+  %153 = load i64, ptr %12, align 8
+  %154 = xor i64 %153, %152
+  store i64 %154, ptr %12, align 8
+  %155 = load ptr, ptr %5, align 8
+  store ptr %155, ptr %16, align 8
+  br label %156
 
-153:                                              ; preds = %224, %3
-  %154 = load ptr, ptr %16, align 8
-  %155 = load ptr, ptr %15, align 8
-  %156 = icmp ne ptr %154, %155
-  br i1 %156, label %157, label %225
+156:                                              ; preds = %227, %3
+  %157 = load ptr, ptr %16, align 8
+  %158 = load ptr, ptr %15, align 8
+  %159 = icmp ne ptr %157, %158
+  br i1 %159, label %160, label %228
 
-157:                                              ; preds = %153
-  %158 = load ptr, ptr %16, align 8
-  %159 = getelementptr i64, ptr %158, i32 1
-  store ptr %159, ptr %16, align 8
-  %160 = load i64, ptr %158, align 8
-  store i64 %160, ptr %13, align 8
-  br label %161
+160:                                              ; preds = %156
+  %161 = load ptr, ptr %16, align 8
+  %162 = getelementptr i64, ptr %161, i32 1
+  store ptr %162, ptr %16, align 8
+  %163 = load i64, ptr %161, align 8
+  store i64 %163, ptr %13, align 8
+  br label %164
 
-161:                                              ; preds = %157
-  %162 = load i64, ptr %13, align 8
-  %163 = load i64, ptr %12, align 8
-  %164 = xor i64 %163, %162
-  store i64 %164, ptr %12, align 8
-  br label %165
+164:                                              ; preds = %160
+  %165 = load i64, ptr %13, align 8
+  %166 = load i64, ptr %12, align 8
+  %167 = xor i64 %166, %165
+  store i64 %167, ptr %12, align 8
+  br label %168
 
-165:                                              ; preds = %161
-  %166 = load i64, ptr %10, align 8
-  %167 = load i64, ptr %9, align 8
-  %168 = add i64 %167, %166
-  store i64 %168, ptr %9, align 8
-  %169 = load i64, ptr %12, align 8
-  %170 = load i64, ptr %11, align 8
+168:                                              ; preds = %164
+  %169 = load i64, ptr %10, align 8
+  %170 = load i64, ptr %9, align 8
   %171 = add i64 %170, %169
-  store i64 %171, ptr %11, align 8
-  %172 = load i64, ptr %10, align 8
-  %173 = shl i64 %172, 13
-  %174 = load i64, ptr %10, align 8
-  %175 = lshr i64 %174, 51
-  %176 = or i64 %173, %175
-  store i64 %176, ptr %10, align 8
-  %177 = load i64, ptr %12, align 8
-  %178 = shl i64 %177, 16
-  %179 = load i64, ptr %12, align 8
-  %180 = lshr i64 %179, 48
-  %181 = or i64 %178, %180
-  store i64 %181, ptr %12, align 8
-  %182 = load i64, ptr %9, align 8
-  %183 = load i64, ptr %10, align 8
-  %184 = xor i64 %183, %182
-  store i64 %184, ptr %10, align 8
-  %185 = load i64, ptr %11, align 8
-  %186 = load i64, ptr %12, align 8
+  store i64 %171, ptr %9, align 8
+  %172 = load i64, ptr %12, align 8
+  %173 = load i64, ptr %11, align 8
+  %174 = add i64 %173, %172
+  store i64 %174, ptr %11, align 8
+  %175 = load i64, ptr %10, align 8
+  %176 = shl i64 %175, 13
+  %177 = load i64, ptr %10, align 8
+  %178 = lshr i64 %177, 51
+  %179 = or i64 %176, %178
+  store i64 %179, ptr %10, align 8
+  %180 = load i64, ptr %12, align 8
+  %181 = shl i64 %180, 16
+  %182 = load i64, ptr %12, align 8
+  %183 = lshr i64 %182, 48
+  %184 = or i64 %181, %183
+  store i64 %184, ptr %12, align 8
+  %185 = load i64, ptr %9, align 8
+  %186 = load i64, ptr %10, align 8
   %187 = xor i64 %186, %185
-  store i64 %187, ptr %12, align 8
-  %188 = load i64, ptr %9, align 8
-  %189 = shl i64 %188, 32
-  %190 = load i64, ptr %9, align 8
-  %191 = lshr i64 %190, 32
-  %192 = or i64 %189, %191
-  store i64 %192, ptr %9, align 8
-  %193 = load i64, ptr %10, align 8
-  %194 = load i64, ptr %11, align 8
-  %195 = add i64 %194, %193
-  store i64 %195, ptr %11, align 8
-  %196 = load i64, ptr %12, align 8
-  %197 = load i64, ptr %9, align 8
+  store i64 %187, ptr %10, align 8
+  %188 = load i64, ptr %11, align 8
+  %189 = load i64, ptr %12, align 8
+  %190 = xor i64 %189, %188
+  store i64 %190, ptr %12, align 8
+  %191 = load i64, ptr %9, align 8
+  %192 = shl i64 %191, 32
+  %193 = load i64, ptr %9, align 8
+  %194 = lshr i64 %193, 32
+  %195 = or i64 %192, %194
+  store i64 %195, ptr %9, align 8
+  %196 = load i64, ptr %10, align 8
+  %197 = load i64, ptr %11, align 8
   %198 = add i64 %197, %196
-  store i64 %198, ptr %9, align 8
-  %199 = load i64, ptr %10, align 8
-  %200 = shl i64 %199, 17
-  %201 = load i64, ptr %10, align 8
-  %202 = lshr i64 %201, 47
-  %203 = or i64 %200, %202
-  store i64 %203, ptr %10, align 8
-  %204 = load i64, ptr %12, align 8
-  %205 = shl i64 %204, 21
-  %206 = load i64, ptr %12, align 8
-  %207 = lshr i64 %206, 43
-  %208 = or i64 %205, %207
-  store i64 %208, ptr %12, align 8
-  %209 = load i64, ptr %11, align 8
-  %210 = load i64, ptr %10, align 8
-  %211 = xor i64 %210, %209
-  store i64 %211, ptr %10, align 8
-  %212 = load i64, ptr %9, align 8
-  %213 = load i64, ptr %12, align 8
+  store i64 %198, ptr %11, align 8
+  %199 = load i64, ptr %12, align 8
+  %200 = load i64, ptr %9, align 8
+  %201 = add i64 %200, %199
+  store i64 %201, ptr %9, align 8
+  %202 = load i64, ptr %10, align 8
+  %203 = shl i64 %202, 17
+  %204 = load i64, ptr %10, align 8
+  %205 = lshr i64 %204, 47
+  %206 = or i64 %203, %205
+  store i64 %206, ptr %10, align 8
+  %207 = load i64, ptr %12, align 8
+  %208 = shl i64 %207, 21
+  %209 = load i64, ptr %12, align 8
+  %210 = lshr i64 %209, 43
+  %211 = or i64 %208, %210
+  store i64 %211, ptr %12, align 8
+  %212 = load i64, ptr %11, align 8
+  %213 = load i64, ptr %10, align 8
   %214 = xor i64 %213, %212
-  store i64 %214, ptr %12, align 8
-  %215 = load i64, ptr %11, align 8
-  %216 = shl i64 %215, 32
-  %217 = load i64, ptr %11, align 8
-  %218 = lshr i64 %217, 32
-  %219 = or i64 %216, %218
-  store i64 %219, ptr %11, align 8
-  br label %220
+  store i64 %214, ptr %10, align 8
+  %215 = load i64, ptr %9, align 8
+  %216 = load i64, ptr %12, align 8
+  %217 = xor i64 %216, %215
+  store i64 %217, ptr %12, align 8
+  %218 = load i64, ptr %11, align 8
+  %219 = shl i64 %218, 32
+  %220 = load i64, ptr %11, align 8
+  %221 = lshr i64 %220, 32
+  %222 = or i64 %219, %221
+  store i64 %222, ptr %11, align 8
+  br label %223
 
-220:                                              ; preds = %165
-  %221 = load i64, ptr %13, align 8
-  %222 = load i64, ptr %9, align 8
-  %223 = xor i64 %222, %221
-  store i64 %223, ptr %9, align 8
-  br label %224
+223:                                              ; preds = %168
+  %224 = load i64, ptr %13, align 8
+  %225 = load i64, ptr %9, align 8
+  %226 = xor i64 %225, %224
+  store i64 %226, ptr %9, align 8
+  br label %227
 
-224:                                              ; preds = %220
-  br label %153, !llvm.loop !15
+227:                                              ; preds = %223
+  br label %156, !llvm.loop !15
 
-225:                                              ; preds = %153
-  %226 = load i64, ptr %6, align 8
-  %227 = shl i64 %226, 56
-  store i64 %227, ptr %14, align 8
-  %228 = load i64, ptr %6, align 8
-  %229 = urem i64 %228, 8
-  switch i64 %229, label %286 [
-    i64 7, label %230
-    i64 6, label %238
-    i64 5, label %246
-    i64 4, label %254
-    i64 3, label %261
-    i64 2, label %269
-    i64 1, label %277
-    i64 0, label %285
+228:                                              ; preds = %156
+  %229 = load i64, ptr %6, align 8
+  %230 = shl i64 %229, 56
+  store i64 %230, ptr %14, align 8
+  %231 = load i64, ptr %6, align 8
+  %232 = urem i64 %231, 8
+  switch i64 %232, label %289 [
+    i64 7, label %233
+    i64 6, label %241
+    i64 5, label %249
+    i64 4, label %257
+    i64 3, label %264
+    i64 2, label %272
+    i64 1, label %280
+    i64 0, label %288
   ]
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %15, align 8
-  %232 = getelementptr i8, ptr %231, i64 6
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i64
-  %235 = shl i64 %234, 48
-  %236 = load i64, ptr %14, align 8
-  %237 = or i64 %236, %235
-  store i64 %237, ptr %14, align 8
-  br label %238
+233:                                              ; preds = %228
+  %234 = load ptr, ptr %15, align 8
+  %235 = getelementptr i8, ptr %234, i64 6
+  %236 = load i8, ptr %235, align 1
+  %237 = zext i8 %236 to i64
+  %238 = shl i64 %237, 48
+  %239 = load i64, ptr %14, align 8
+  %240 = or i64 %239, %238
+  store i64 %240, ptr %14, align 8
+  br label %241
 
-238:                                              ; preds = %230, %225
-  %239 = load ptr, ptr %15, align 8
-  %240 = getelementptr i8, ptr %239, i64 5
-  %241 = load i8, ptr %240, align 1
-  %242 = zext i8 %241 to i64
-  %243 = shl i64 %242, 40
-  %244 = load i64, ptr %14, align 8
-  %245 = or i64 %244, %243
-  store i64 %245, ptr %14, align 8
-  br label %246
+241:                                              ; preds = %233, %228
+  %242 = load ptr, ptr %15, align 8
+  %243 = getelementptr i8, ptr %242, i64 5
+  %244 = load i8, ptr %243, align 1
+  %245 = zext i8 %244 to i64
+  %246 = shl i64 %245, 40
+  %247 = load i64, ptr %14, align 8
+  %248 = or i64 %247, %246
+  store i64 %248, ptr %14, align 8
+  br label %249
 
-246:                                              ; preds = %238, %225
-  %247 = load ptr, ptr %15, align 8
-  %248 = getelementptr i8, ptr %247, i64 4
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i64
-  %251 = shl i64 %250, 32
-  %252 = load i64, ptr %14, align 8
-  %253 = or i64 %252, %251
-  store i64 %253, ptr %14, align 8
-  br label %254
+249:                                              ; preds = %241, %228
+  %250 = load ptr, ptr %15, align 8
+  %251 = getelementptr i8, ptr %250, i64 4
+  %252 = load i8, ptr %251, align 1
+  %253 = zext i8 %252 to i64
+  %254 = shl i64 %253, 32
+  %255 = load i64, ptr %14, align 8
+  %256 = or i64 %255, %254
+  store i64 %256, ptr %14, align 8
+  br label %257
 
-254:                                              ; preds = %246, %225
-  %255 = load ptr, ptr %15, align 8
-  %256 = getelementptr i32, ptr %255, i64 0
-  %257 = load i32, ptr %256, align 4
-  %258 = zext i32 %257 to i64
-  %259 = load i64, ptr %14, align 8
-  %260 = or i64 %259, %258
-  store i64 %260, ptr %14, align 8
-  br label %286
+257:                                              ; preds = %249, %228
+  %258 = load ptr, ptr %15, align 8
+  %259 = getelementptr i32, ptr %258, i64 0
+  %260 = load i32, ptr %259, align 4
+  %261 = zext i32 %260 to i64
+  %262 = load i64, ptr %14, align 8
+  %263 = or i64 %262, %261
+  store i64 %263, ptr %14, align 8
+  br label %289
 
-261:                                              ; preds = %225
-  %262 = load ptr, ptr %15, align 8
-  %263 = getelementptr i8, ptr %262, i64 2
-  %264 = load i8, ptr %263, align 1
-  %265 = zext i8 %264 to i64
-  %266 = shl i64 %265, 16
-  %267 = load i64, ptr %14, align 8
-  %268 = or i64 %267, %266
-  store i64 %268, ptr %14, align 8
-  br label %269
+264:                                              ; preds = %228
+  %265 = load ptr, ptr %15, align 8
+  %266 = getelementptr i8, ptr %265, i64 2
+  %267 = load i8, ptr %266, align 1
+  %268 = zext i8 %267 to i64
+  %269 = shl i64 %268, 16
+  %270 = load i64, ptr %14, align 8
+  %271 = or i64 %270, %269
+  store i64 %271, ptr %14, align 8
+  br label %272
 
-269:                                              ; preds = %261, %225
-  %270 = load ptr, ptr %15, align 8
-  %271 = getelementptr i8, ptr %270, i64 1
-  %272 = load i8, ptr %271, align 1
-  %273 = zext i8 %272 to i64
-  %274 = shl i64 %273, 8
-  %275 = load i64, ptr %14, align 8
-  %276 = or i64 %275, %274
-  store i64 %276, ptr %14, align 8
-  br label %277
+272:                                              ; preds = %264, %228
+  %273 = load ptr, ptr %15, align 8
+  %274 = getelementptr i8, ptr %273, i64 1
+  %275 = load i8, ptr %274, align 1
+  %276 = zext i8 %275 to i64
+  %277 = shl i64 %276, 8
+  %278 = load i64, ptr %14, align 8
+  %279 = or i64 %278, %277
+  store i64 %279, ptr %14, align 8
+  br label %280
 
-277:                                              ; preds = %269, %225
-  %278 = load ptr, ptr %15, align 8
-  %279 = getelementptr i8, ptr %278, i64 0
-  %280 = load i8, ptr %279, align 1
-  %281 = zext i8 %280 to i64
-  %282 = shl i64 %281, 0
-  %283 = load i64, ptr %14, align 8
-  %284 = or i64 %283, %282
-  store i64 %284, ptr %14, align 8
-  br label %286
+280:                                              ; preds = %272, %228
+  %281 = load ptr, ptr %15, align 8
+  %282 = getelementptr i8, ptr %281, i64 0
+  %283 = load i8, ptr %282, align 1
+  %284 = zext i8 %283 to i64
+  %285 = shl i64 %284, 0
+  %286 = load i64, ptr %14, align 8
+  %287 = or i64 %286, %285
+  store i64 %287, ptr %14, align 8
+  br label %289
 
-285:                                              ; preds = %225
-  br label %286
+288:                                              ; preds = %228
+  br label %289
 
-286:                                              ; preds = %285, %277, %254, %225
-  br label %287
+289:                                              ; preds = %288, %280, %257, %228
+  br label %290
 
-287:                                              ; preds = %286
-  %288 = load i64, ptr %14, align 8
-  %289 = load i64, ptr %12, align 8
-  %290 = xor i64 %289, %288
-  store i64 %290, ptr %12, align 8
-  br label %291
+290:                                              ; preds = %289
+  %291 = load i64, ptr %14, align 8
+  %292 = load i64, ptr %12, align 8
+  %293 = xor i64 %292, %291
+  store i64 %293, ptr %12, align 8
+  br label %294
 
-291:                                              ; preds = %287
-  %292 = load i64, ptr %10, align 8
-  %293 = load i64, ptr %9, align 8
-  %294 = add i64 %293, %292
-  store i64 %294, ptr %9, align 8
-  %295 = load i64, ptr %12, align 8
-  %296 = load i64, ptr %11, align 8
+294:                                              ; preds = %290
+  %295 = load i64, ptr %10, align 8
+  %296 = load i64, ptr %9, align 8
   %297 = add i64 %296, %295
-  store i64 %297, ptr %11, align 8
-  %298 = load i64, ptr %10, align 8
-  %299 = shl i64 %298, 13
-  %300 = load i64, ptr %10, align 8
-  %301 = lshr i64 %300, 51
-  %302 = or i64 %299, %301
-  store i64 %302, ptr %10, align 8
-  %303 = load i64, ptr %12, align 8
-  %304 = shl i64 %303, 16
-  %305 = load i64, ptr %12, align 8
-  %306 = lshr i64 %305, 48
-  %307 = or i64 %304, %306
-  store i64 %307, ptr %12, align 8
-  %308 = load i64, ptr %9, align 8
-  %309 = load i64, ptr %10, align 8
-  %310 = xor i64 %309, %308
-  store i64 %310, ptr %10, align 8
-  %311 = load i64, ptr %11, align 8
-  %312 = load i64, ptr %12, align 8
+  store i64 %297, ptr %9, align 8
+  %298 = load i64, ptr %12, align 8
+  %299 = load i64, ptr %11, align 8
+  %300 = add i64 %299, %298
+  store i64 %300, ptr %11, align 8
+  %301 = load i64, ptr %10, align 8
+  %302 = shl i64 %301, 13
+  %303 = load i64, ptr %10, align 8
+  %304 = lshr i64 %303, 51
+  %305 = or i64 %302, %304
+  store i64 %305, ptr %10, align 8
+  %306 = load i64, ptr %12, align 8
+  %307 = shl i64 %306, 16
+  %308 = load i64, ptr %12, align 8
+  %309 = lshr i64 %308, 48
+  %310 = or i64 %307, %309
+  store i64 %310, ptr %12, align 8
+  %311 = load i64, ptr %9, align 8
+  %312 = load i64, ptr %10, align 8
   %313 = xor i64 %312, %311
-  store i64 %313, ptr %12, align 8
-  %314 = load i64, ptr %9, align 8
-  %315 = shl i64 %314, 32
-  %316 = load i64, ptr %9, align 8
-  %317 = lshr i64 %316, 32
-  %318 = or i64 %315, %317
-  store i64 %318, ptr %9, align 8
-  %319 = load i64, ptr %10, align 8
-  %320 = load i64, ptr %11, align 8
-  %321 = add i64 %320, %319
-  store i64 %321, ptr %11, align 8
-  %322 = load i64, ptr %12, align 8
-  %323 = load i64, ptr %9, align 8
+  store i64 %313, ptr %10, align 8
+  %314 = load i64, ptr %11, align 8
+  %315 = load i64, ptr %12, align 8
+  %316 = xor i64 %315, %314
+  store i64 %316, ptr %12, align 8
+  %317 = load i64, ptr %9, align 8
+  %318 = shl i64 %317, 32
+  %319 = load i64, ptr %9, align 8
+  %320 = lshr i64 %319, 32
+  %321 = or i64 %318, %320
+  store i64 %321, ptr %9, align 8
+  %322 = load i64, ptr %10, align 8
+  %323 = load i64, ptr %11, align 8
   %324 = add i64 %323, %322
-  store i64 %324, ptr %9, align 8
-  %325 = load i64, ptr %10, align 8
-  %326 = shl i64 %325, 17
-  %327 = load i64, ptr %10, align 8
-  %328 = lshr i64 %327, 47
-  %329 = or i64 %326, %328
-  store i64 %329, ptr %10, align 8
-  %330 = load i64, ptr %12, align 8
-  %331 = shl i64 %330, 21
-  %332 = load i64, ptr %12, align 8
-  %333 = lshr i64 %332, 43
-  %334 = or i64 %331, %333
-  store i64 %334, ptr %12, align 8
-  %335 = load i64, ptr %11, align 8
-  %336 = load i64, ptr %10, align 8
-  %337 = xor i64 %336, %335
-  store i64 %337, ptr %10, align 8
-  %338 = load i64, ptr %9, align 8
-  %339 = load i64, ptr %12, align 8
+  store i64 %324, ptr %11, align 8
+  %325 = load i64, ptr %12, align 8
+  %326 = load i64, ptr %9, align 8
+  %327 = add i64 %326, %325
+  store i64 %327, ptr %9, align 8
+  %328 = load i64, ptr %10, align 8
+  %329 = shl i64 %328, 17
+  %330 = load i64, ptr %10, align 8
+  %331 = lshr i64 %330, 47
+  %332 = or i64 %329, %331
+  store i64 %332, ptr %10, align 8
+  %333 = load i64, ptr %12, align 8
+  %334 = shl i64 %333, 21
+  %335 = load i64, ptr %12, align 8
+  %336 = lshr i64 %335, 43
+  %337 = or i64 %334, %336
+  store i64 %337, ptr %12, align 8
+  %338 = load i64, ptr %11, align 8
+  %339 = load i64, ptr %10, align 8
   %340 = xor i64 %339, %338
-  store i64 %340, ptr %12, align 8
-  %341 = load i64, ptr %11, align 8
-  %342 = shl i64 %341, 32
-  %343 = load i64, ptr %11, align 8
-  %344 = lshr i64 %343, 32
-  %345 = or i64 %342, %344
-  store i64 %345, ptr %11, align 8
-  br label %346
+  store i64 %340, ptr %10, align 8
+  %341 = load i64, ptr %9, align 8
+  %342 = load i64, ptr %12, align 8
+  %343 = xor i64 %342, %341
+  store i64 %343, ptr %12, align 8
+  %344 = load i64, ptr %11, align 8
+  %345 = shl i64 %344, 32
+  %346 = load i64, ptr %11, align 8
+  %347 = lshr i64 %346, 32
+  %348 = or i64 %345, %347
+  store i64 %348, ptr %11, align 8
+  br label %349
 
-346:                                              ; preds = %291
-  %347 = load i64, ptr %14, align 8
-  %348 = load i64, ptr %9, align 8
-  %349 = xor i64 %348, %347
-  store i64 %349, ptr %9, align 8
-  br label %350
-
-350:                                              ; preds = %346
-  %351 = load i64, ptr %11, align 8
-  %352 = xor i64 %351, 255
-  store i64 %352, ptr %11, align 8
+349:                                              ; preds = %294
+  %350 = load i64, ptr %14, align 8
+  %351 = load i64, ptr %9, align 8
+  %352 = xor i64 %351, %350
+  store i64 %352, ptr %9, align 8
   br label %353
 
-353:                                              ; preds = %350
-  %354 = load i64, ptr %10, align 8
-  %355 = load i64, ptr %9, align 8
-  %356 = add i64 %355, %354
-  store i64 %356, ptr %9, align 8
-  %357 = load i64, ptr %12, align 8
-  %358 = load i64, ptr %11, align 8
+353:                                              ; preds = %349
+  %354 = load i64, ptr %11, align 8
+  %355 = xor i64 %354, 255
+  store i64 %355, ptr %11, align 8
+  br label %356
+
+356:                                              ; preds = %353
+  %357 = load i64, ptr %10, align 8
+  %358 = load i64, ptr %9, align 8
   %359 = add i64 %358, %357
-  store i64 %359, ptr %11, align 8
-  %360 = load i64, ptr %10, align 8
-  %361 = shl i64 %360, 13
-  %362 = load i64, ptr %10, align 8
-  %363 = lshr i64 %362, 51
-  %364 = or i64 %361, %363
-  store i64 %364, ptr %10, align 8
-  %365 = load i64, ptr %12, align 8
-  %366 = shl i64 %365, 16
-  %367 = load i64, ptr %12, align 8
-  %368 = lshr i64 %367, 48
-  %369 = or i64 %366, %368
-  store i64 %369, ptr %12, align 8
-  %370 = load i64, ptr %9, align 8
-  %371 = load i64, ptr %10, align 8
-  %372 = xor i64 %371, %370
-  store i64 %372, ptr %10, align 8
-  %373 = load i64, ptr %11, align 8
-  %374 = load i64, ptr %12, align 8
+  store i64 %359, ptr %9, align 8
+  %360 = load i64, ptr %12, align 8
+  %361 = load i64, ptr %11, align 8
+  %362 = add i64 %361, %360
+  store i64 %362, ptr %11, align 8
+  %363 = load i64, ptr %10, align 8
+  %364 = shl i64 %363, 13
+  %365 = load i64, ptr %10, align 8
+  %366 = lshr i64 %365, 51
+  %367 = or i64 %364, %366
+  store i64 %367, ptr %10, align 8
+  %368 = load i64, ptr %12, align 8
+  %369 = shl i64 %368, 16
+  %370 = load i64, ptr %12, align 8
+  %371 = lshr i64 %370, 48
+  %372 = or i64 %369, %371
+  store i64 %372, ptr %12, align 8
+  %373 = load i64, ptr %9, align 8
+  %374 = load i64, ptr %10, align 8
   %375 = xor i64 %374, %373
-  store i64 %375, ptr %12, align 8
-  %376 = load i64, ptr %9, align 8
-  %377 = shl i64 %376, 32
-  %378 = load i64, ptr %9, align 8
-  %379 = lshr i64 %378, 32
-  %380 = or i64 %377, %379
-  store i64 %380, ptr %9, align 8
-  %381 = load i64, ptr %10, align 8
-  %382 = load i64, ptr %11, align 8
-  %383 = add i64 %382, %381
-  store i64 %383, ptr %11, align 8
-  %384 = load i64, ptr %12, align 8
-  %385 = load i64, ptr %9, align 8
+  store i64 %375, ptr %10, align 8
+  %376 = load i64, ptr %11, align 8
+  %377 = load i64, ptr %12, align 8
+  %378 = xor i64 %377, %376
+  store i64 %378, ptr %12, align 8
+  %379 = load i64, ptr %9, align 8
+  %380 = shl i64 %379, 32
+  %381 = load i64, ptr %9, align 8
+  %382 = lshr i64 %381, 32
+  %383 = or i64 %380, %382
+  store i64 %383, ptr %9, align 8
+  %384 = load i64, ptr %10, align 8
+  %385 = load i64, ptr %11, align 8
   %386 = add i64 %385, %384
-  store i64 %386, ptr %9, align 8
-  %387 = load i64, ptr %10, align 8
-  %388 = shl i64 %387, 17
-  %389 = load i64, ptr %10, align 8
-  %390 = lshr i64 %389, 47
-  %391 = or i64 %388, %390
-  store i64 %391, ptr %10, align 8
-  %392 = load i64, ptr %12, align 8
-  %393 = shl i64 %392, 21
-  %394 = load i64, ptr %12, align 8
-  %395 = lshr i64 %394, 43
-  %396 = or i64 %393, %395
-  store i64 %396, ptr %12, align 8
-  %397 = load i64, ptr %11, align 8
-  %398 = load i64, ptr %10, align 8
-  %399 = xor i64 %398, %397
-  store i64 %399, ptr %10, align 8
-  %400 = load i64, ptr %9, align 8
-  %401 = load i64, ptr %12, align 8
+  store i64 %386, ptr %11, align 8
+  %387 = load i64, ptr %12, align 8
+  %388 = load i64, ptr %9, align 8
+  %389 = add i64 %388, %387
+  store i64 %389, ptr %9, align 8
+  %390 = load i64, ptr %10, align 8
+  %391 = shl i64 %390, 17
+  %392 = load i64, ptr %10, align 8
+  %393 = lshr i64 %392, 47
+  %394 = or i64 %391, %393
+  store i64 %394, ptr %10, align 8
+  %395 = load i64, ptr %12, align 8
+  %396 = shl i64 %395, 21
+  %397 = load i64, ptr %12, align 8
+  %398 = lshr i64 %397, 43
+  %399 = or i64 %396, %398
+  store i64 %399, ptr %12, align 8
+  %400 = load i64, ptr %11, align 8
+  %401 = load i64, ptr %10, align 8
   %402 = xor i64 %401, %400
-  store i64 %402, ptr %12, align 8
-  %403 = load i64, ptr %11, align 8
-  %404 = shl i64 %403, 32
-  %405 = load i64, ptr %11, align 8
-  %406 = lshr i64 %405, 32
-  %407 = or i64 %404, %406
-  store i64 %407, ptr %11, align 8
-  br label %408
+  store i64 %402, ptr %10, align 8
+  %403 = load i64, ptr %9, align 8
+  %404 = load i64, ptr %12, align 8
+  %405 = xor i64 %404, %403
+  store i64 %405, ptr %12, align 8
+  %406 = load i64, ptr %11, align 8
+  %407 = shl i64 %406, 32
+  %408 = load i64, ptr %11, align 8
+  %409 = lshr i64 %408, 32
+  %410 = or i64 %407, %409
+  store i64 %410, ptr %11, align 8
+  br label %411
 
-408:                                              ; preds = %353
-  br label %409
+411:                                              ; preds = %356
+  br label %412
 
-409:                                              ; preds = %408
-  %410 = load i64, ptr %10, align 8
-  %411 = load i64, ptr %9, align 8
-  %412 = add i64 %411, %410
-  store i64 %412, ptr %9, align 8
-  %413 = load i64, ptr %12, align 8
-  %414 = load i64, ptr %11, align 8
+412:                                              ; preds = %411
+  %413 = load i64, ptr %10, align 8
+  %414 = load i64, ptr %9, align 8
   %415 = add i64 %414, %413
-  store i64 %415, ptr %11, align 8
-  %416 = load i64, ptr %10, align 8
-  %417 = shl i64 %416, 13
-  %418 = load i64, ptr %10, align 8
-  %419 = lshr i64 %418, 51
-  %420 = or i64 %417, %419
-  store i64 %420, ptr %10, align 8
-  %421 = load i64, ptr %12, align 8
-  %422 = shl i64 %421, 16
-  %423 = load i64, ptr %12, align 8
-  %424 = lshr i64 %423, 48
-  %425 = or i64 %422, %424
-  store i64 %425, ptr %12, align 8
-  %426 = load i64, ptr %9, align 8
-  %427 = load i64, ptr %10, align 8
-  %428 = xor i64 %427, %426
-  store i64 %428, ptr %10, align 8
-  %429 = load i64, ptr %11, align 8
-  %430 = load i64, ptr %12, align 8
+  store i64 %415, ptr %9, align 8
+  %416 = load i64, ptr %12, align 8
+  %417 = load i64, ptr %11, align 8
+  %418 = add i64 %417, %416
+  store i64 %418, ptr %11, align 8
+  %419 = load i64, ptr %10, align 8
+  %420 = shl i64 %419, 13
+  %421 = load i64, ptr %10, align 8
+  %422 = lshr i64 %421, 51
+  %423 = or i64 %420, %422
+  store i64 %423, ptr %10, align 8
+  %424 = load i64, ptr %12, align 8
+  %425 = shl i64 %424, 16
+  %426 = load i64, ptr %12, align 8
+  %427 = lshr i64 %426, 48
+  %428 = or i64 %425, %427
+  store i64 %428, ptr %12, align 8
+  %429 = load i64, ptr %9, align 8
+  %430 = load i64, ptr %10, align 8
   %431 = xor i64 %430, %429
-  store i64 %431, ptr %12, align 8
-  %432 = load i64, ptr %9, align 8
-  %433 = shl i64 %432, 32
-  %434 = load i64, ptr %9, align 8
-  %435 = lshr i64 %434, 32
-  %436 = or i64 %433, %435
-  store i64 %436, ptr %9, align 8
-  %437 = load i64, ptr %10, align 8
-  %438 = load i64, ptr %11, align 8
-  %439 = add i64 %438, %437
-  store i64 %439, ptr %11, align 8
-  %440 = load i64, ptr %12, align 8
-  %441 = load i64, ptr %9, align 8
+  store i64 %431, ptr %10, align 8
+  %432 = load i64, ptr %11, align 8
+  %433 = load i64, ptr %12, align 8
+  %434 = xor i64 %433, %432
+  store i64 %434, ptr %12, align 8
+  %435 = load i64, ptr %9, align 8
+  %436 = shl i64 %435, 32
+  %437 = load i64, ptr %9, align 8
+  %438 = lshr i64 %437, 32
+  %439 = or i64 %436, %438
+  store i64 %439, ptr %9, align 8
+  %440 = load i64, ptr %10, align 8
+  %441 = load i64, ptr %11, align 8
   %442 = add i64 %441, %440
-  store i64 %442, ptr %9, align 8
-  %443 = load i64, ptr %10, align 8
-  %444 = shl i64 %443, 17
-  %445 = load i64, ptr %10, align 8
-  %446 = lshr i64 %445, 47
-  %447 = or i64 %444, %446
-  store i64 %447, ptr %10, align 8
-  %448 = load i64, ptr %12, align 8
-  %449 = shl i64 %448, 21
-  %450 = load i64, ptr %12, align 8
-  %451 = lshr i64 %450, 43
-  %452 = or i64 %449, %451
-  store i64 %452, ptr %12, align 8
-  %453 = load i64, ptr %11, align 8
-  %454 = load i64, ptr %10, align 8
-  %455 = xor i64 %454, %453
-  store i64 %455, ptr %10, align 8
-  %456 = load i64, ptr %9, align 8
-  %457 = load i64, ptr %12, align 8
+  store i64 %442, ptr %11, align 8
+  %443 = load i64, ptr %12, align 8
+  %444 = load i64, ptr %9, align 8
+  %445 = add i64 %444, %443
+  store i64 %445, ptr %9, align 8
+  %446 = load i64, ptr %10, align 8
+  %447 = shl i64 %446, 17
+  %448 = load i64, ptr %10, align 8
+  %449 = lshr i64 %448, 47
+  %450 = or i64 %447, %449
+  store i64 %450, ptr %10, align 8
+  %451 = load i64, ptr %12, align 8
+  %452 = shl i64 %451, 21
+  %453 = load i64, ptr %12, align 8
+  %454 = lshr i64 %453, 43
+  %455 = or i64 %452, %454
+  store i64 %455, ptr %12, align 8
+  %456 = load i64, ptr %11, align 8
+  %457 = load i64, ptr %10, align 8
   %458 = xor i64 %457, %456
-  store i64 %458, ptr %12, align 8
-  %459 = load i64, ptr %11, align 8
-  %460 = shl i64 %459, 32
-  %461 = load i64, ptr %11, align 8
-  %462 = lshr i64 %461, 32
-  %463 = or i64 %460, %462
-  store i64 %463, ptr %11, align 8
-  br label %464
+  store i64 %458, ptr %10, align 8
+  %459 = load i64, ptr %9, align 8
+  %460 = load i64, ptr %12, align 8
+  %461 = xor i64 %460, %459
+  store i64 %461, ptr %12, align 8
+  %462 = load i64, ptr %11, align 8
+  %463 = shl i64 %462, 32
+  %464 = load i64, ptr %11, align 8
+  %465 = lshr i64 %464, 32
+  %466 = or i64 %463, %465
+  store i64 %466, ptr %11, align 8
+  br label %467
 
-464:                                              ; preds = %409
-  br label %465
+467:                                              ; preds = %412
+  br label %468
 
-465:                                              ; preds = %464
-  %466 = load i64, ptr %10, align 8
-  %467 = load i64, ptr %9, align 8
-  %468 = add i64 %467, %466
-  store i64 %468, ptr %9, align 8
-  %469 = load i64, ptr %12, align 8
-  %470 = load i64, ptr %11, align 8
+468:                                              ; preds = %467
+  %469 = load i64, ptr %10, align 8
+  %470 = load i64, ptr %9, align 8
   %471 = add i64 %470, %469
-  store i64 %471, ptr %11, align 8
-  %472 = load i64, ptr %10, align 8
-  %473 = shl i64 %472, 13
-  %474 = load i64, ptr %10, align 8
-  %475 = lshr i64 %474, 51
-  %476 = or i64 %473, %475
-  store i64 %476, ptr %10, align 8
-  %477 = load i64, ptr %12, align 8
-  %478 = shl i64 %477, 16
-  %479 = load i64, ptr %12, align 8
-  %480 = lshr i64 %479, 48
-  %481 = or i64 %478, %480
-  store i64 %481, ptr %12, align 8
-  %482 = load i64, ptr %9, align 8
-  %483 = load i64, ptr %10, align 8
-  %484 = xor i64 %483, %482
-  store i64 %484, ptr %10, align 8
-  %485 = load i64, ptr %11, align 8
-  %486 = load i64, ptr %12, align 8
+  store i64 %471, ptr %9, align 8
+  %472 = load i64, ptr %12, align 8
+  %473 = load i64, ptr %11, align 8
+  %474 = add i64 %473, %472
+  store i64 %474, ptr %11, align 8
+  %475 = load i64, ptr %10, align 8
+  %476 = shl i64 %475, 13
+  %477 = load i64, ptr %10, align 8
+  %478 = lshr i64 %477, 51
+  %479 = or i64 %476, %478
+  store i64 %479, ptr %10, align 8
+  %480 = load i64, ptr %12, align 8
+  %481 = shl i64 %480, 16
+  %482 = load i64, ptr %12, align 8
+  %483 = lshr i64 %482, 48
+  %484 = or i64 %481, %483
+  store i64 %484, ptr %12, align 8
+  %485 = load i64, ptr %9, align 8
+  %486 = load i64, ptr %10, align 8
   %487 = xor i64 %486, %485
-  store i64 %487, ptr %12, align 8
-  %488 = load i64, ptr %9, align 8
-  %489 = shl i64 %488, 32
-  %490 = load i64, ptr %9, align 8
-  %491 = lshr i64 %490, 32
-  %492 = or i64 %489, %491
-  store i64 %492, ptr %9, align 8
-  %493 = load i64, ptr %10, align 8
-  %494 = load i64, ptr %11, align 8
-  %495 = add i64 %494, %493
-  store i64 %495, ptr %11, align 8
-  %496 = load i64, ptr %12, align 8
-  %497 = load i64, ptr %9, align 8
+  store i64 %487, ptr %10, align 8
+  %488 = load i64, ptr %11, align 8
+  %489 = load i64, ptr %12, align 8
+  %490 = xor i64 %489, %488
+  store i64 %490, ptr %12, align 8
+  %491 = load i64, ptr %9, align 8
+  %492 = shl i64 %491, 32
+  %493 = load i64, ptr %9, align 8
+  %494 = lshr i64 %493, 32
+  %495 = or i64 %492, %494
+  store i64 %495, ptr %9, align 8
+  %496 = load i64, ptr %10, align 8
+  %497 = load i64, ptr %11, align 8
   %498 = add i64 %497, %496
-  store i64 %498, ptr %9, align 8
-  %499 = load i64, ptr %10, align 8
-  %500 = shl i64 %499, 17
-  %501 = load i64, ptr %10, align 8
-  %502 = lshr i64 %501, 47
-  %503 = or i64 %500, %502
-  store i64 %503, ptr %10, align 8
-  %504 = load i64, ptr %12, align 8
-  %505 = shl i64 %504, 21
-  %506 = load i64, ptr %12, align 8
-  %507 = lshr i64 %506, 43
-  %508 = or i64 %505, %507
-  store i64 %508, ptr %12, align 8
-  %509 = load i64, ptr %11, align 8
-  %510 = load i64, ptr %10, align 8
-  %511 = xor i64 %510, %509
-  store i64 %511, ptr %10, align 8
-  %512 = load i64, ptr %9, align 8
-  %513 = load i64, ptr %12, align 8
+  store i64 %498, ptr %11, align 8
+  %499 = load i64, ptr %12, align 8
+  %500 = load i64, ptr %9, align 8
+  %501 = add i64 %500, %499
+  store i64 %501, ptr %9, align 8
+  %502 = load i64, ptr %10, align 8
+  %503 = shl i64 %502, 17
+  %504 = load i64, ptr %10, align 8
+  %505 = lshr i64 %504, 47
+  %506 = or i64 %503, %505
+  store i64 %506, ptr %10, align 8
+  %507 = load i64, ptr %12, align 8
+  %508 = shl i64 %507, 21
+  %509 = load i64, ptr %12, align 8
+  %510 = lshr i64 %509, 43
+  %511 = or i64 %508, %510
+  store i64 %511, ptr %12, align 8
+  %512 = load i64, ptr %11, align 8
+  %513 = load i64, ptr %10, align 8
   %514 = xor i64 %513, %512
-  store i64 %514, ptr %12, align 8
-  %515 = load i64, ptr %11, align 8
-  %516 = shl i64 %515, 32
-  %517 = load i64, ptr %11, align 8
-  %518 = lshr i64 %517, 32
-  %519 = or i64 %516, %518
-  store i64 %519, ptr %11, align 8
-  br label %520
+  store i64 %514, ptr %10, align 8
+  %515 = load i64, ptr %9, align 8
+  %516 = load i64, ptr %12, align 8
+  %517 = xor i64 %516, %515
+  store i64 %517, ptr %12, align 8
+  %518 = load i64, ptr %11, align 8
+  %519 = shl i64 %518, 32
+  %520 = load i64, ptr %11, align 8
+  %521 = lshr i64 %520, 32
+  %522 = or i64 %519, %521
+  store i64 %522, ptr %11, align 8
+  br label %523
 
-520:                                              ; preds = %465
-  %521 = load i64, ptr %10, align 8
-  %522 = load i64, ptr %9, align 8
-  %523 = xor i64 %522, %521
-  store i64 %523, ptr %9, align 8
-  %524 = load i64, ptr %11, align 8
+523:                                              ; preds = %468
+  %524 = load i64, ptr %10, align 8
   %525 = load i64, ptr %9, align 8
   %526 = xor i64 %525, %524
   store i64 %526, ptr %9, align 8
-  %527 = load i64, ptr %12, align 8
+  %527 = load i64, ptr %11, align 8
   %528 = load i64, ptr %9, align 8
   %529 = xor i64 %528, %527
   store i64 %529, ptr %9, align 8
-  %530 = load i64, ptr %9, align 8
-  ret i64 %530
+  %530 = load i64, ptr %12, align 8
+  %531 = load i64, ptr %9, align 8
+  %532 = xor i64 %531, %530
+  store i64 %532, ptr %9, align 8
+  %533 = load i64, ptr %9, align 8
+  ret i64 %533
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1984,10 +1987,11 @@ define dso_local i64 @rb_memhash(ptr noundef %0, i64 noundef %1) #0 {
   store i64 %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @ruby_sip_hash13(ptr noundef getelementptr inbounds (%struct.hash_salt_t, ptr @hash_salt, i32 0, i32 1), ptr noundef %6, i64 noundef %7)
-  store i64 %8, ptr %5, align 8
-  %9 = load i64, ptr %5, align 8
-  ret i64 %9
+  %8 = getelementptr inbounds %struct.hash_salt_t, ptr @hash_salt, i32 0, i32 1
+  %9 = call i64 @ruby_sip_hash13(ptr noundef %8, ptr noundef %6, i64 noundef %7)
+  store i64 %9, ptr %5, align 8
+  %10 = load i64, ptr %5, align 8
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

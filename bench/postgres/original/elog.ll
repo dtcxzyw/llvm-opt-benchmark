@@ -539,7 +539,7 @@ define dso_local void @write_stderr(ptr noundef %0, ...) #0 {
   %5 = call ptr @err_gettext(ptr noundef %4)
   store ptr %5, ptr %2, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
@@ -547,7 +547,7 @@ define dso_local void @write_stderr(ptr noundef %0, ...) #0 {
   %11 = load ptr, ptr @stderr, align 8
   %12 = call i32 @fflush(ptr noundef %11)
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   ret void
 }
 
@@ -944,13 +944,13 @@ define dso_local i32 @errmsg_internal(ptr noundef %0, ...) #0 {
   %39 = call ptr @__errno_location() #14
   store i32 %38, ptr %39, align 4
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = load ptr, ptr %2, align 8
   %42 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %43 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %41, ptr noundef %42)
   store i32 %43, ptr %7, align 4
   %44 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %44)
+  call void @llvm.va_end.p0(ptr %44)
   %45 = load i32, ptr %7, align 4
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %48
@@ -2049,13 +2049,13 @@ define dso_local i32 @errmsg(ptr noundef %0, ...) #0 {
   %43 = call ptr @__errno_location() #14
   store i32 %42, ptr %43, align 4
   %44 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %44)
+  call void @llvm.va_start.p0(ptr %44)
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %47 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %45, ptr noundef %46)
   store i32 %47, ptr %7, align 4
   %48 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %48)
+  call void @llvm.va_end.p0(ptr %48)
   %49 = load i32, ptr %7, align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %52
@@ -2105,13 +2105,7 @@ declare void @initStringInfo(ptr noundef) #3
 ; Function Attrs: nounwind willreturn memory(none)
 declare ptr @__errno_location() #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare i32 @appendStringInfoVA(ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) #3
 
@@ -2299,13 +2293,13 @@ define dso_local i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 noundef 
   %64 = call ptr @__errno_location() #14
   store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %65)
+  call void @llvm.va_start.p0(ptr %65)
   %66 = load ptr, ptr %9, align 8
   %67 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
   %68 = call i32 @appendStringInfoVA(ptr noundef %10, ptr noundef %66, ptr noundef %67)
   store i32 %68, ptr %12, align 4
   %69 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %69)
+  call void @llvm.va_end.p0(ptr %69)
   %70 = load i32, ptr %12, align 4
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
@@ -2427,13 +2421,13 @@ define dso_local i32 @errdetail(ptr noundef %0, ...) #0 {
   %40 = call ptr @__errno_location() #14
   store i32 %39, ptr %40, align 4
   %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %41)
+  call void @llvm.va_start.p0(ptr %41)
   %42 = load ptr, ptr %2, align 8
   %43 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %44 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %42, ptr noundef %43)
   store i32 %44, ptr %7, align 4
   %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %45)
+  call void @llvm.va_end.p0(ptr %45)
   %46 = load i32, ptr %7, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
@@ -2546,13 +2540,13 @@ define dso_local i32 @errdetail_internal(ptr noundef %0, ...) #0 {
   %36 = call ptr @__errno_location() #14
   store i32 %35, ptr %36, align 4
   %37 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %37)
+  call void @llvm.va_start.p0(ptr %37)
   %38 = load ptr, ptr %2, align 8
   %39 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %40 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %38, ptr noundef %39)
   store i32 %40, ptr %7, align 4
   %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %41)
+  call void @llvm.va_end.p0(ptr %41)
   %42 = load i32, ptr %7, align 4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %45
@@ -2674,13 +2668,13 @@ define dso_local i32 @errdetail_log(ptr noundef %0, ...) #0 {
   %40 = call ptr @__errno_location() #14
   store i32 %39, ptr %40, align 4
   %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %41)
+  call void @llvm.va_start.p0(ptr %41)
   %42 = load ptr, ptr %2, align 8
   %43 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %44 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %42, ptr noundef %43)
   store i32 %44, ptr %7, align 4
   %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %45)
+  call void @llvm.va_end.p0(ptr %45)
   %46 = load i32, ptr %7, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
@@ -2838,13 +2832,13 @@ define dso_local i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %1, i64 n
   %61 = call ptr @__errno_location() #14
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %62)
+  call void @llvm.va_start.p0(ptr %62)
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
   %65 = call i32 @appendStringInfoVA(ptr noundef %10, ptr noundef %63, ptr noundef %64)
   store i32 %65, ptr %12, align 4
   %66 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %66)
+  call void @llvm.va_end.p0(ptr %66)
   %67 = load i32, ptr %12, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %70
@@ -3002,13 +2996,13 @@ define dso_local i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i64 nound
   %61 = call ptr @__errno_location() #14
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %62)
+  call void @llvm.va_start.p0(ptr %62)
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
   %65 = call i32 @appendStringInfoVA(ptr noundef %10, ptr noundef %63, ptr noundef %64)
   store i32 %65, ptr %12, align 4
   %66 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %66)
+  call void @llvm.va_end.p0(ptr %66)
   %67 = load i32, ptr %12, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %70
@@ -3130,13 +3124,13 @@ define dso_local i32 @errhint(ptr noundef %0, ...) #0 {
   %40 = call ptr @__errno_location() #14
   store i32 %39, ptr %40, align 4
   %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %41)
+  call void @llvm.va_start.p0(ptr %41)
   %42 = load ptr, ptr %2, align 8
   %43 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %44 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %42, ptr noundef %43)
   store i32 %44, ptr %7, align 4
   %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %45)
+  call void @llvm.va_end.p0(ptr %45)
   %46 = load i32, ptr %7, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
@@ -3294,13 +3288,13 @@ define dso_local i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64 noundef
   %61 = call ptr @__errno_location() #14
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %62)
+  call void @llvm.va_start.p0(ptr %62)
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
   %65 = call i32 @appendStringInfoVA(ptr noundef %10, ptr noundef %63, ptr noundef %64)
   store i32 %65, ptr %12, align 4
   %66 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %66)
+  call void @llvm.va_end.p0(ptr %66)
   %67 = load i32, ptr %12, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %70
@@ -3437,13 +3431,13 @@ define dso_local i32 @errcontext_msg(ptr noundef %0, ...) #0 {
   %49 = call ptr @__errno_location() #14
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %50)
+  call void @llvm.va_start.p0(ptr %50)
   %51 = load ptr, ptr %2, align 8
   %52 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %53 = call i32 @appendStringInfoVA(ptr noundef %5, ptr noundef %51, ptr noundef %52)
   store i32 %53, ptr %7, align 4
   %54 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %54)
+  call void @llvm.va_end.p0(ptr %54)
   %55 = load i32, ptr %7, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %58
@@ -4303,13 +4297,13 @@ define dso_local ptr @format_elog_string(ptr noundef %0, ...) #0 {
   %75 = call ptr @__errno_location() #14
   store i32 %74, ptr %75, align 4
   %76 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %76)
+  call void @llvm.va_start.p0(ptr %76)
   %77 = load ptr, ptr %2, align 8
   %78 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
   %79 = call i32 @appendStringInfoVA(ptr noundef %11, ptr noundef %77, ptr noundef %78)
   store i32 %79, ptr %13, align 4
   %80 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %80)
+  call void @llvm.va_end.p0(ptr %80)
   %81 = load i32, ptr %13, align 4
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %84
@@ -4355,7 +4349,7 @@ define dso_local ptr @format_elog_string(ptr noundef %0, ...) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @send_message_to_server_log(ptr noundef %0) #0 {
@@ -6166,7 +6160,7 @@ define dso_local void @DebugFileOpen() #0 {
 declare i32 @open(ptr noundef, i32 noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) #10
+declare i32 @isatty(i32 noundef) #9
 
 declare i32 @close(i32 noundef) #3
 
@@ -6351,10 +6345,10 @@ define dso_local zeroext i1 @check_backtrace_functions(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #11
+declare i64 @strlen(ptr noundef) #10
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strspn(ptr noundef, ptr noundef) #11
+declare i64 @strspn(ptr noundef, ptr noundef) #10
 
 declare ptr @guc_malloc(i32 noundef, i64 noundef) #3
 
@@ -6615,15 +6609,15 @@ define dso_local void @assign_syslog_ident(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #11
+declare i32 @strcmp(ptr noundef, ptr noundef) #10
 
 declare void @closelog() #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #10
+declare void @free(ptr noundef) #9
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #10
+declare noalias ptr @strdup(ptr noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_syslog_facility(i32 noundef %0, ptr noundef %1) #0 {
@@ -6667,7 +6661,7 @@ define dso_local ptr @get_formatted_log_time() #0 {
 
 7:                                                ; preds = %0
   store ptr @formatted_log_time, ptr %1, align 8
-  br label %24
+  br label %26
 
 8:                                                ; preds = %0
   %9 = load i8, ptr @saved_timeval_set, align 1
@@ -6686,22 +6680,24 @@ define dso_local ptr @get_formatted_log_time() #0 {
   %16 = call ptr @pg_localtime(ptr noundef %2, ptr noundef %15)
   %17 = call i64 @pg_strftime(ptr noundef @formatted_log_time, i64 noundef 128, ptr noundef @.str.18, ptr noundef %16)
   %18 = getelementptr inbounds [13 x i8], ptr %3, i64 0, i64 0
-  %19 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i32 0, i32 1), align 8
-  %20 = sdiv i64 %19, 1000
-  %21 = trunc i64 %20 to i32
-  %22 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %18, ptr noundef @.str.19, i32 noundef %21)
-  %23 = getelementptr inbounds [13 x i8], ptr %3, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr (i8, ptr @formatted_log_time, i64 19), ptr align 1 %23, i64 4, i1 false)
+  %19 = getelementptr inbounds %struct.timeval, ptr @saved_timeval, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = sdiv i64 %20, 1000
+  %22 = trunc i64 %21 to i32
+  %23 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %18, ptr noundef @.str.19, i32 noundef %22)
+  %24 = getelementptr inbounds [13 x i8], ptr %3, i64 0, i64 0
+  %25 = getelementptr i8, ptr @formatted_log_time, i64 19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %24, i64 4, i1 false)
   store ptr @formatted_log_time, ptr %1, align 8
-  br label %24
+  br label %26
 
-24:                                               ; preds = %13, %7
-  %25 = load ptr, ptr %1, align 8
-  ret ptr %25
+26:                                               ; preds = %13, %7
+  %27 = load ptr, ptr %1, align 8
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #10
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #9
 
 declare i64 @pg_strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
@@ -6959,19 +6955,19 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %28
-  br label %633
+  br label %634
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %5, align 8
   store ptr %35, ptr %8, align 8
   br label %36
 
-36:                                               ; preds = %630, %34
+36:                                               ; preds = %631, %34
   %37 = load ptr, ptr %8, align 8
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %633
+  br i1 %40, label %41, label %634
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %8, align 8
@@ -6985,7 +6981,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   %48 = load ptr, ptr %8, align 8
   %49 = load i8, ptr %48, align 1
   call void @appendStringInfoChar(ptr noundef %47, i8 noundef signext %49)
-  br label %630
+  br label %631
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr %8, align 8
@@ -6998,7 +6994,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %50
-  br label %633
+  br label %634
 
 58:                                               ; preds = %50
   %59 = load ptr, ptr %8, align 8
@@ -7010,7 +7006,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
 63:                                               ; preds = %58
   %64 = load ptr, ptr %4, align 8
   call void @appendStringInfoChar(ptr noundef %64, i8 noundef signext 37)
-  br label %630
+  br label %631
 
 65:                                               ; preds = %58
   br label %66
@@ -7034,7 +7030,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %72
-  br label %633
+  br label %634
 
 77:                                               ; preds = %72
   br label %78
@@ -7043,7 +7039,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   %79 = load ptr, ptr %8, align 8
   %80 = load i8, ptr %79, align 1
   %81 = sext i8 %80 to i32
-  switch i32 %81, label %628 [
+  switch i32 %81, label %629 [
     i32 97, label %82
     i32 98, label %123
     i32 117, label %135
@@ -7055,15 +7051,15 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
     i32 109, label %317
     i32 116, label %327
     i32 110, label %343
-    i32 115, label %365
-    i32 105, label %377
-    i32 114, label %409
-    i32 104, label %492
-    i32 113, label %531
-    i32 118, label %536
-    i32 120, label %589
-    i32 101, label %600
-    i32 81, label %617
+    i32 115, label %366
+    i32 105, label %378
+    i32 114, label %410
+    i32 104, label %493
+    i32 113, label %532
+    i32 118, label %537
+    i32 120, label %590
+    i32 101, label %601
+    i32 81, label %618
   ]
 
 82:                                               ; preds = %78
@@ -7140,7 +7136,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %122
 
 122:                                              ; preds = %121, %106
-  br label %629
+  br label %630
 
 123:                                              ; preds = %78
   %124 = call ptr @get_backend_type_for_log()
@@ -7163,7 +7159,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %134
 
 134:                                              ; preds = %131, %127
-  br label %629
+  br label %630
 
 135:                                              ; preds = %78
   %136 = load ptr, ptr @MyProcPort, align 8
@@ -7241,7 +7237,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %177
 
 177:                                              ; preds = %176, %161
-  br label %629
+  br label %630
 
 178:                                              ; preds = %78
   %179 = load ptr, ptr @MyProcPort, align 8
@@ -7319,7 +7315,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %220
 
 220:                                              ; preds = %219, %204
-  br label %629
+  br label %630
 
 221:                                              ; preds = %78
   %222 = load i32, ptr %7, align 4
@@ -7345,7 +7341,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %236
 
 236:                                              ; preds = %232, %224
-  br label %629
+  br label %630
 
 237:                                              ; preds = %78
   %238 = load i32, ptr %7, align 4
@@ -7366,7 +7362,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %247
 
 247:                                              ; preds = %244, %240
-  br label %629
+  br label %630
 
 248:                                              ; preds = %78
   %249 = load ptr, ptr @MyProc, align 8
@@ -7467,7 +7463,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %305
 
 305:                                              ; preds = %304, %289
-  br label %629
+  br label %630
 
 306:                                              ; preds = %78
   %307 = load i32, ptr %7, align 4
@@ -7488,7 +7484,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %316
 
 316:                                              ; preds = %313, %309
-  br label %629
+  br label %630
 
 317:                                              ; preds = %78
   store i8 0, ptr @formatted_log_time, align 16
@@ -7509,7 +7505,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %326
 
 326:                                              ; preds = %324, %321
-  br label %629
+  br label %630
 
 327:                                              ; preds = %78
   %328 = call i64 @time(ptr noundef null) #17
@@ -7536,7 +7532,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %342
 
 342:                                              ; preds = %339, %335
-  br label %629
+  br label %630
 
 343:                                              ; preds = %78
   %344 = load i8, ptr @saved_timeval_set, align 1
@@ -7551,486 +7547,487 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef %1, ptr nou
 348:                                              ; preds = %346, %343
   %349 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
   %350 = load i64, ptr @saved_timeval, align 8
-  %351 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i32 0, i32 1), align 8
-  %352 = sdiv i64 %351, 1000
-  %353 = trunc i64 %352 to i32
-  %354 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %349, i64 noundef 128, ptr noundef @.str.29, i64 noundef %350, i32 noundef %353)
-  %355 = load i32, ptr %7, align 4
-  %356 = icmp ne i32 %355, 0
-  br i1 %356, label %357, label %361
-
-357:                                              ; preds = %348
-  %358 = load ptr, ptr %4, align 8
-  %359 = load i32, ptr %7, align 4
-  %360 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %358, ptr noundef @.str.23, i32 noundef %359, ptr noundef %360)
-  br label %364
-
-361:                                              ; preds = %348
-  %362 = load ptr, ptr %4, align 8
-  %363 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
-  call void @appendStringInfoString(ptr noundef %362, ptr noundef %363)
-  br label %364
-
-364:                                              ; preds = %361, %357
-  br label %629
-
-365:                                              ; preds = %78
-  %366 = call ptr @get_formatted_start_time()
-  store ptr %366, ptr %18, align 8
-  %367 = load i32, ptr %7, align 4
-  %368 = icmp ne i32 %367, 0
-  br i1 %368, label %369, label %373
-
-369:                                              ; preds = %365
-  %370 = load ptr, ptr %4, align 8
-  %371 = load i32, ptr %7, align 4
-  %372 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %370, ptr noundef @.str.23, i32 noundef %371, ptr noundef %372)
-  br label %376
-
-373:                                              ; preds = %365
-  %374 = load ptr, ptr %4, align 8
-  %375 = load ptr, ptr %18, align 8
-  call void @appendStringInfoString(ptr noundef %374, ptr noundef %375)
-  br label %376
-
-376:                                              ; preds = %373, %369
-  br label %629
-
-377:                                              ; preds = %78
-  %378 = load ptr, ptr @MyProcPort, align 8
-  %379 = icmp ne ptr %378, null
-  br i1 %379, label %380, label %393
-
-380:                                              ; preds = %377
-  %381 = call ptr @get_ps_display(ptr noundef %20)
-  store ptr %381, ptr %19, align 8
-  %382 = load i32, ptr %7, align 4
-  %383 = icmp ne i32 %382, 0
-  br i1 %383, label %384, label %388
-
-384:                                              ; preds = %380
-  %385 = load ptr, ptr %4, align 8
-  %386 = load i32, ptr %7, align 4
-  %387 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %385, ptr noundef @.str.23, i32 noundef %386, ptr noundef %387)
-  br label %392
-
-388:                                              ; preds = %380
-  %389 = load ptr, ptr %4, align 8
-  %390 = load ptr, ptr %19, align 8
-  %391 = load i32, ptr %20, align 4
-  call void @appendBinaryStringInfo(ptr noundef %389, ptr noundef %390, i32 noundef %391)
-  br label %392
-
-392:                                              ; preds = %388, %384
-  br label %408
-
-393:                                              ; preds = %377
-  %394 = load i32, ptr %7, align 4
-  %395 = icmp ne i32 %394, 0
-  br i1 %395, label %396, label %407
-
-396:                                              ; preds = %393
-  %397 = load ptr, ptr %4, align 8
-  %398 = load i32, ptr %7, align 4
-  %399 = icmp sgt i32 %398, 0
-  br i1 %399, label %400, label %402
-
-400:                                              ; preds = %396
-  %401 = load i32, ptr %7, align 4
-  br label %405
-
-402:                                              ; preds = %396
-  %403 = load i32, ptr %7, align 4
-  %404 = sub i32 0, %403
-  br label %405
-
-405:                                              ; preds = %402, %400
-  %406 = phi i32 [ %401, %400 ], [ %404, %402 ]
-  call void @appendStringInfoSpaces(ptr noundef %397, i32 noundef %406)
-  br label %407
-
-407:                                              ; preds = %405, %393
-  br label %408
-
-408:                                              ; preds = %407, %392
-  br label %629
-
-409:                                              ; preds = %78
-  %410 = load ptr, ptr @MyProcPort, align 8
-  %411 = icmp ne ptr %410, null
-  br i1 %411, label %412, label %476
-
-412:                                              ; preds = %409
-  %413 = load ptr, ptr @MyProcPort, align 8
-  %414 = getelementptr inbounds %struct.Port, ptr %413, i32 0, i32 5
-  %415 = load ptr, ptr %414, align 8
-  %416 = icmp ne ptr %415, null
-  br i1 %416, label %417, label %476
-
-417:                                              ; preds = %412
-  %418 = load i32, ptr %7, align 4
-  %419 = icmp ne i32 %418, 0
-  br i1 %419, label %420, label %452
-
-420:                                              ; preds = %417
-  %421 = load ptr, ptr @MyProcPort, align 8
-  %422 = getelementptr inbounds %struct.Port, ptr %421, i32 0, i32 9
-  %423 = load ptr, ptr %422, align 8
-  %424 = icmp ne ptr %423, null
-  br i1 %424, label %425, label %445
-
-425:                                              ; preds = %420
-  %426 = load ptr, ptr @MyProcPort, align 8
-  %427 = getelementptr inbounds %struct.Port, ptr %426, i32 0, i32 9
-  %428 = load ptr, ptr %427, align 8
-  %429 = getelementptr i8, ptr %428, i64 0
-  %430 = load i8, ptr %429, align 1
-  %431 = sext i8 %430 to i32
-  %432 = icmp ne i32 %431, 0
-  br i1 %432, label %433, label %445
-
-433:                                              ; preds = %425
-  %434 = load ptr, ptr @MyProcPort, align 8
-  %435 = getelementptr inbounds %struct.Port, ptr %434, i32 0, i32 5
-  %436 = load ptr, ptr %435, align 8
-  %437 = load ptr, ptr @MyProcPort, align 8
-  %438 = getelementptr inbounds %struct.Port, ptr %437, i32 0, i32 9
-  %439 = load ptr, ptr %438, align 8
-  %440 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.30, ptr noundef %436, ptr noundef %439)
-  store ptr %440, ptr %21, align 8
-  %441 = load ptr, ptr %4, align 8
-  %442 = load i32, ptr %7, align 4
-  %443 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %441, ptr noundef @.str.23, i32 noundef %442, ptr noundef %443)
-  %444 = load ptr, ptr %21, align 8
-  call void @pfree(ptr noundef %444)
-  br label %451
-
-445:                                              ; preds = %425, %420
-  %446 = load ptr, ptr %4, align 8
-  %447 = load i32, ptr %7, align 4
-  %448 = load ptr, ptr @MyProcPort, align 8
-  %449 = getelementptr inbounds %struct.Port, ptr %448, i32 0, i32 5
-  %450 = load ptr, ptr %449, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %446, ptr noundef @.str.23, i32 noundef %447, ptr noundef %450)
-  br label %451
-
-451:                                              ; preds = %445, %433
-  br label %475
-
-452:                                              ; preds = %417
-  %453 = load ptr, ptr %4, align 8
-  %454 = load ptr, ptr @MyProcPort, align 8
-  %455 = getelementptr inbounds %struct.Port, ptr %454, i32 0, i32 5
-  %456 = load ptr, ptr %455, align 8
-  call void @appendStringInfoString(ptr noundef %453, ptr noundef %456)
-  %457 = load ptr, ptr @MyProcPort, align 8
-  %458 = getelementptr inbounds %struct.Port, ptr %457, i32 0, i32 9
-  %459 = load ptr, ptr %458, align 8
-  %460 = icmp ne ptr %459, null
-  br i1 %460, label %461, label %474
-
-461:                                              ; preds = %452
-  %462 = load ptr, ptr @MyProcPort, align 8
-  %463 = getelementptr inbounds %struct.Port, ptr %462, i32 0, i32 9
-  %464 = load ptr, ptr %463, align 8
-  %465 = getelementptr i8, ptr %464, i64 0
-  %466 = load i8, ptr %465, align 1
-  %467 = sext i8 %466 to i32
-  %468 = icmp ne i32 %467, 0
-  br i1 %468, label %469, label %474
-
-469:                                              ; preds = %461
-  %470 = load ptr, ptr %4, align 8
-  %471 = load ptr, ptr @MyProcPort, align 8
-  %472 = getelementptr inbounds %struct.Port, ptr %471, i32 0, i32 9
-  %473 = load ptr, ptr %472, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %470, ptr noundef @.str.31, ptr noundef %473)
-  br label %474
-
-474:                                              ; preds = %469, %461, %452
-  br label %475
-
-475:                                              ; preds = %474, %451
-  br label %491
-
-476:                                              ; preds = %412, %409
-  %477 = load i32, ptr %7, align 4
-  %478 = icmp ne i32 %477, 0
-  br i1 %478, label %479, label %490
-
-479:                                              ; preds = %476
-  %480 = load ptr, ptr %4, align 8
-  %481 = load i32, ptr %7, align 4
-  %482 = icmp sgt i32 %481, 0
-  br i1 %482, label %483, label %485
-
-483:                                              ; preds = %479
-  %484 = load i32, ptr %7, align 4
-  br label %488
-
-485:                                              ; preds = %479
-  %486 = load i32, ptr %7, align 4
-  %487 = sub i32 0, %486
-  br label %488
-
-488:                                              ; preds = %485, %483
-  %489 = phi i32 [ %484, %483 ], [ %487, %485 ]
-  call void @appendStringInfoSpaces(ptr noundef %480, i32 noundef %489)
-  br label %490
-
-490:                                              ; preds = %488, %476
-  br label %491
-
-491:                                              ; preds = %490, %475
-  br label %629
-
-492:                                              ; preds = %78
-  %493 = load ptr, ptr @MyProcPort, align 8
-  %494 = icmp ne ptr %493, null
-  br i1 %494, label %495, label %515
-
-495:                                              ; preds = %492
-  %496 = load ptr, ptr @MyProcPort, align 8
-  %497 = getelementptr inbounds %struct.Port, ptr %496, i32 0, i32 5
-  %498 = load ptr, ptr %497, align 8
-  %499 = icmp ne ptr %498, null
-  br i1 %499, label %500, label %515
-
-500:                                              ; preds = %495
-  %501 = load i32, ptr %7, align 4
-  %502 = icmp ne i32 %501, 0
-  br i1 %502, label %503, label %509
-
-503:                                              ; preds = %500
-  %504 = load ptr, ptr %4, align 8
-  %505 = load i32, ptr %7, align 4
-  %506 = load ptr, ptr @MyProcPort, align 8
-  %507 = getelementptr inbounds %struct.Port, ptr %506, i32 0, i32 5
-  %508 = load ptr, ptr %507, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %504, ptr noundef @.str.23, i32 noundef %505, ptr noundef %508)
-  br label %514
-
-509:                                              ; preds = %500
-  %510 = load ptr, ptr %4, align 8
-  %511 = load ptr, ptr @MyProcPort, align 8
-  %512 = getelementptr inbounds %struct.Port, ptr %511, i32 0, i32 5
-  %513 = load ptr, ptr %512, align 8
-  call void @appendStringInfoString(ptr noundef %510, ptr noundef %513)
-  br label %514
-
-514:                                              ; preds = %509, %503
-  br label %530
-
-515:                                              ; preds = %495, %492
-  %516 = load i32, ptr %7, align 4
-  %517 = icmp ne i32 %516, 0
-  br i1 %517, label %518, label %529
-
-518:                                              ; preds = %515
-  %519 = load ptr, ptr %4, align 8
-  %520 = load i32, ptr %7, align 4
-  %521 = icmp sgt i32 %520, 0
-  br i1 %521, label %522, label %524
-
-522:                                              ; preds = %518
-  %523 = load i32, ptr %7, align 4
-  br label %527
-
-524:                                              ; preds = %518
-  %525 = load i32, ptr %7, align 4
-  %526 = sub i32 0, %525
-  br label %527
-
-527:                                              ; preds = %524, %522
-  %528 = phi i32 [ %523, %522 ], [ %526, %524 ]
-  call void @appendStringInfoSpaces(ptr noundef %519, i32 noundef %528)
-  br label %529
-
-529:                                              ; preds = %527, %515
-  br label %530
-
-530:                                              ; preds = %529, %514
-  br label %629
-
-531:                                              ; preds = %78
-  %532 = load ptr, ptr @MyProcPort, align 8
-  %533 = icmp eq ptr %532, null
-  br i1 %533, label %534, label %535
-
-534:                                              ; preds = %531
-  br label %633
-
-535:                                              ; preds = %531
-  br label %629
-
-536:                                              ; preds = %78
-  %537 = load ptr, ptr @MyProc, align 8
-  %538 = icmp ne ptr %537, null
-  br i1 %538, label %539, label %573
-
-539:                                              ; preds = %536
-  %540 = load ptr, ptr @MyProc, align 8
-  %541 = getelementptr inbounds %struct.PGPROC, ptr %540, i32 0, i32 9
-  %542 = getelementptr inbounds %struct.anon, ptr %541, i32 0, i32 0
-  %543 = load i32, ptr %542, align 4
-  %544 = icmp ne i32 %543, -1
-  br i1 %544, label %545, label %573
-
-545:                                              ; preds = %539
-  %546 = load i32, ptr %7, align 4
-  %547 = icmp ne i32 %546, 0
-  br i1 %547, label %548, label %562
-
-548:                                              ; preds = %545
-  %549 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
-  %550 = load ptr, ptr @MyProc, align 8
-  %551 = getelementptr inbounds %struct.PGPROC, ptr %550, i32 0, i32 9
-  %552 = getelementptr inbounds %struct.anon, ptr %551, i32 0, i32 0
-  %553 = load i32, ptr %552, align 4
-  %554 = load ptr, ptr @MyProc, align 8
-  %555 = getelementptr inbounds %struct.PGPROC, ptr %554, i32 0, i32 9
-  %556 = getelementptr inbounds %struct.anon, ptr %555, i32 0, i32 1
-  %557 = load i32, ptr %556, align 4
-  %558 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %549, i64 noundef 127, ptr noundef @.str.32, i32 noundef %553, i32 noundef %557)
-  %559 = load ptr, ptr %4, align 8
-  %560 = load i32, ptr %7, align 4
-  %561 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %559, ptr noundef @.str.23, i32 noundef %560, ptr noundef %561)
-  br label %572
-
-562:                                              ; preds = %545
-  %563 = load ptr, ptr %4, align 8
-  %564 = load ptr, ptr @MyProc, align 8
-  %565 = getelementptr inbounds %struct.PGPROC, ptr %564, i32 0, i32 9
-  %566 = getelementptr inbounds %struct.anon, ptr %565, i32 0, i32 0
-  %567 = load i32, ptr %566, align 4
-  %568 = load ptr, ptr @MyProc, align 8
-  %569 = getelementptr inbounds %struct.PGPROC, ptr %568, i32 0, i32 9
-  %570 = getelementptr inbounds %struct.anon, ptr %569, i32 0, i32 1
-  %571 = load i32, ptr %570, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %563, ptr noundef @.str.32, i32 noundef %567, i32 noundef %571)
-  br label %572
-
-572:                                              ; preds = %562, %548
-  br label %588
-
-573:                                              ; preds = %539, %536
-  %574 = load i32, ptr %7, align 4
-  %575 = icmp ne i32 %574, 0
-  br i1 %575, label %576, label %587
-
-576:                                              ; preds = %573
-  %577 = load ptr, ptr %4, align 8
-  %578 = load i32, ptr %7, align 4
-  %579 = icmp sgt i32 %578, 0
-  br i1 %579, label %580, label %582
-
-580:                                              ; preds = %576
-  %581 = load i32, ptr %7, align 4
-  br label %585
-
-582:                                              ; preds = %576
-  %583 = load i32, ptr %7, align 4
-  %584 = sub i32 0, %583
-  br label %585
-
-585:                                              ; preds = %582, %580
-  %586 = phi i32 [ %581, %580 ], [ %584, %582 ]
-  call void @appendStringInfoSpaces(ptr noundef %577, i32 noundef %586)
-  br label %587
-
-587:                                              ; preds = %585, %573
-  br label %588
-
-588:                                              ; preds = %587, %572
-  br label %629
-
-589:                                              ; preds = %78
-  %590 = load i32, ptr %7, align 4
-  %591 = icmp ne i32 %590, 0
-  br i1 %591, label %592, label %596
-
-592:                                              ; preds = %589
-  %593 = load ptr, ptr %4, align 8
-  %594 = load i32, ptr %7, align 4
-  %595 = call i32 @GetTopTransactionIdIfAny()
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %593, ptr noundef @.str.33, i32 noundef %594, i32 noundef %595)
-  br label %599
-
-596:                                              ; preds = %589
-  %597 = load ptr, ptr %4, align 8
-  %598 = call i32 @GetTopTransactionIdIfAny()
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %597, ptr noundef @.str.34, i32 noundef %598)
-  br label %599
-
-599:                                              ; preds = %596, %592
-  br label %629
-
-600:                                              ; preds = %78
-  %601 = load i32, ptr %7, align 4
-  %602 = icmp ne i32 %601, 0
-  br i1 %602, label %603, label %610
-
-603:                                              ; preds = %600
-  %604 = load ptr, ptr %4, align 8
-  %605 = load i32, ptr %7, align 4
-  %606 = load ptr, ptr %6, align 8
-  %607 = getelementptr inbounds %struct.ErrorData, ptr %606, i32 0, i32 10
-  %608 = load i32, ptr %607, align 8
-  %609 = call ptr @unpack_sql_state(i32 noundef %608)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %604, ptr noundef @.str.23, i32 noundef %605, ptr noundef %609)
-  br label %616
-
-610:                                              ; preds = %600
-  %611 = load ptr, ptr %4, align 8
-  %612 = load ptr, ptr %6, align 8
-  %613 = getelementptr inbounds %struct.ErrorData, ptr %612, i32 0, i32 10
-  %614 = load i32, ptr %613, align 8
-  %615 = call ptr @unpack_sql_state(i32 noundef %614)
-  call void @appendStringInfoString(ptr noundef %611, ptr noundef %615)
-  br label %616
-
-616:                                              ; preds = %610, %603
-  br label %629
-
-617:                                              ; preds = %78
-  %618 = load i32, ptr %7, align 4
-  %619 = icmp ne i32 %618, 0
-  br i1 %619, label %620, label %624
-
-620:                                              ; preds = %617
-  %621 = load ptr, ptr %4, align 8
-  %622 = load i32, ptr %7, align 4
-  %623 = call i64 @pgstat_get_my_query_id()
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %621, ptr noundef @.str.35, i32 noundef %622, i64 noundef %623)
-  br label %627
-
-624:                                              ; preds = %617
-  %625 = load ptr, ptr %4, align 8
-  %626 = call i64 @pgstat_get_my_query_id()
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %625, ptr noundef @.str.36, i64 noundef %626)
-  br label %627
-
-627:                                              ; preds = %624, %620
-  br label %629
-
-628:                                              ; preds = %78
-  br label %629
-
-629:                                              ; preds = %628, %627, %616, %599, %588, %535, %530, %491, %408, %376, %364, %342, %326, %316, %305, %247, %236, %220, %177, %134, %122
+  %351 = getelementptr inbounds %struct.timeval, ptr @saved_timeval, i32 0, i32 1
+  %352 = load i64, ptr %351, align 8
+  %353 = sdiv i64 %352, 1000
+  %354 = trunc i64 %353 to i32
+  %355 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %349, i64 noundef 128, ptr noundef @.str.29, i64 noundef %350, i32 noundef %354)
+  %356 = load i32, ptr %7, align 4
+  %357 = icmp ne i32 %356, 0
+  br i1 %357, label %358, label %362
+
+358:                                              ; preds = %348
+  %359 = load ptr, ptr %4, align 8
+  %360 = load i32, ptr %7, align 4
+  %361 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %359, ptr noundef @.str.23, i32 noundef %360, ptr noundef %361)
+  br label %365
+
+362:                                              ; preds = %348
+  %363 = load ptr, ptr %4, align 8
+  %364 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
+  call void @appendStringInfoString(ptr noundef %363, ptr noundef %364)
+  br label %365
+
+365:                                              ; preds = %362, %358
   br label %630
 
-630:                                              ; preds = %629, %63, %46
-  %631 = load ptr, ptr %8, align 8
-  %632 = getelementptr i8, ptr %631, i32 1
-  store ptr %632, ptr %8, align 8
+366:                                              ; preds = %78
+  %367 = call ptr @get_formatted_start_time()
+  store ptr %367, ptr %18, align 8
+  %368 = load i32, ptr %7, align 4
+  %369 = icmp ne i32 %368, 0
+  br i1 %369, label %370, label %374
+
+370:                                              ; preds = %366
+  %371 = load ptr, ptr %4, align 8
+  %372 = load i32, ptr %7, align 4
+  %373 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %371, ptr noundef @.str.23, i32 noundef %372, ptr noundef %373)
+  br label %377
+
+374:                                              ; preds = %366
+  %375 = load ptr, ptr %4, align 8
+  %376 = load ptr, ptr %18, align 8
+  call void @appendStringInfoString(ptr noundef %375, ptr noundef %376)
+  br label %377
+
+377:                                              ; preds = %374, %370
+  br label %630
+
+378:                                              ; preds = %78
+  %379 = load ptr, ptr @MyProcPort, align 8
+  %380 = icmp ne ptr %379, null
+  br i1 %380, label %381, label %394
+
+381:                                              ; preds = %378
+  %382 = call ptr @get_ps_display(ptr noundef %20)
+  store ptr %382, ptr %19, align 8
+  %383 = load i32, ptr %7, align 4
+  %384 = icmp ne i32 %383, 0
+  br i1 %384, label %385, label %389
+
+385:                                              ; preds = %381
+  %386 = load ptr, ptr %4, align 8
+  %387 = load i32, ptr %7, align 4
+  %388 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %386, ptr noundef @.str.23, i32 noundef %387, ptr noundef %388)
+  br label %393
+
+389:                                              ; preds = %381
+  %390 = load ptr, ptr %4, align 8
+  %391 = load ptr, ptr %19, align 8
+  %392 = load i32, ptr %20, align 4
+  call void @appendBinaryStringInfo(ptr noundef %390, ptr noundef %391, i32 noundef %392)
+  br label %393
+
+393:                                              ; preds = %389, %385
+  br label %409
+
+394:                                              ; preds = %378
+  %395 = load i32, ptr %7, align 4
+  %396 = icmp ne i32 %395, 0
+  br i1 %396, label %397, label %408
+
+397:                                              ; preds = %394
+  %398 = load ptr, ptr %4, align 8
+  %399 = load i32, ptr %7, align 4
+  %400 = icmp sgt i32 %399, 0
+  br i1 %400, label %401, label %403
+
+401:                                              ; preds = %397
+  %402 = load i32, ptr %7, align 4
+  br label %406
+
+403:                                              ; preds = %397
+  %404 = load i32, ptr %7, align 4
+  %405 = sub i32 0, %404
+  br label %406
+
+406:                                              ; preds = %403, %401
+  %407 = phi i32 [ %402, %401 ], [ %405, %403 ]
+  call void @appendStringInfoSpaces(ptr noundef %398, i32 noundef %407)
+  br label %408
+
+408:                                              ; preds = %406, %394
+  br label %409
+
+409:                                              ; preds = %408, %393
+  br label %630
+
+410:                                              ; preds = %78
+  %411 = load ptr, ptr @MyProcPort, align 8
+  %412 = icmp ne ptr %411, null
+  br i1 %412, label %413, label %477
+
+413:                                              ; preds = %410
+  %414 = load ptr, ptr @MyProcPort, align 8
+  %415 = getelementptr inbounds %struct.Port, ptr %414, i32 0, i32 5
+  %416 = load ptr, ptr %415, align 8
+  %417 = icmp ne ptr %416, null
+  br i1 %417, label %418, label %477
+
+418:                                              ; preds = %413
+  %419 = load i32, ptr %7, align 4
+  %420 = icmp ne i32 %419, 0
+  br i1 %420, label %421, label %453
+
+421:                                              ; preds = %418
+  %422 = load ptr, ptr @MyProcPort, align 8
+  %423 = getelementptr inbounds %struct.Port, ptr %422, i32 0, i32 9
+  %424 = load ptr, ptr %423, align 8
+  %425 = icmp ne ptr %424, null
+  br i1 %425, label %426, label %446
+
+426:                                              ; preds = %421
+  %427 = load ptr, ptr @MyProcPort, align 8
+  %428 = getelementptr inbounds %struct.Port, ptr %427, i32 0, i32 9
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr i8, ptr %429, i64 0
+  %431 = load i8, ptr %430, align 1
+  %432 = sext i8 %431 to i32
+  %433 = icmp ne i32 %432, 0
+  br i1 %433, label %434, label %446
+
+434:                                              ; preds = %426
+  %435 = load ptr, ptr @MyProcPort, align 8
+  %436 = getelementptr inbounds %struct.Port, ptr %435, i32 0, i32 5
+  %437 = load ptr, ptr %436, align 8
+  %438 = load ptr, ptr @MyProcPort, align 8
+  %439 = getelementptr inbounds %struct.Port, ptr %438, i32 0, i32 9
+  %440 = load ptr, ptr %439, align 8
+  %441 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.30, ptr noundef %437, ptr noundef %440)
+  store ptr %441, ptr %21, align 8
+  %442 = load ptr, ptr %4, align 8
+  %443 = load i32, ptr %7, align 4
+  %444 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %442, ptr noundef @.str.23, i32 noundef %443, ptr noundef %444)
+  %445 = load ptr, ptr %21, align 8
+  call void @pfree(ptr noundef %445)
+  br label %452
+
+446:                                              ; preds = %426, %421
+  %447 = load ptr, ptr %4, align 8
+  %448 = load i32, ptr %7, align 4
+  %449 = load ptr, ptr @MyProcPort, align 8
+  %450 = getelementptr inbounds %struct.Port, ptr %449, i32 0, i32 5
+  %451 = load ptr, ptr %450, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %447, ptr noundef @.str.23, i32 noundef %448, ptr noundef %451)
+  br label %452
+
+452:                                              ; preds = %446, %434
+  br label %476
+
+453:                                              ; preds = %418
+  %454 = load ptr, ptr %4, align 8
+  %455 = load ptr, ptr @MyProcPort, align 8
+  %456 = getelementptr inbounds %struct.Port, ptr %455, i32 0, i32 5
+  %457 = load ptr, ptr %456, align 8
+  call void @appendStringInfoString(ptr noundef %454, ptr noundef %457)
+  %458 = load ptr, ptr @MyProcPort, align 8
+  %459 = getelementptr inbounds %struct.Port, ptr %458, i32 0, i32 9
+  %460 = load ptr, ptr %459, align 8
+  %461 = icmp ne ptr %460, null
+  br i1 %461, label %462, label %475
+
+462:                                              ; preds = %453
+  %463 = load ptr, ptr @MyProcPort, align 8
+  %464 = getelementptr inbounds %struct.Port, ptr %463, i32 0, i32 9
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr i8, ptr %465, i64 0
+  %467 = load i8, ptr %466, align 1
+  %468 = sext i8 %467 to i32
+  %469 = icmp ne i32 %468, 0
+  br i1 %469, label %470, label %475
+
+470:                                              ; preds = %462
+  %471 = load ptr, ptr %4, align 8
+  %472 = load ptr, ptr @MyProcPort, align 8
+  %473 = getelementptr inbounds %struct.Port, ptr %472, i32 0, i32 9
+  %474 = load ptr, ptr %473, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %471, ptr noundef @.str.31, ptr noundef %474)
+  br label %475
+
+475:                                              ; preds = %470, %462, %453
+  br label %476
+
+476:                                              ; preds = %475, %452
+  br label %492
+
+477:                                              ; preds = %413, %410
+  %478 = load i32, ptr %7, align 4
+  %479 = icmp ne i32 %478, 0
+  br i1 %479, label %480, label %491
+
+480:                                              ; preds = %477
+  %481 = load ptr, ptr %4, align 8
+  %482 = load i32, ptr %7, align 4
+  %483 = icmp sgt i32 %482, 0
+  br i1 %483, label %484, label %486
+
+484:                                              ; preds = %480
+  %485 = load i32, ptr %7, align 4
+  br label %489
+
+486:                                              ; preds = %480
+  %487 = load i32, ptr %7, align 4
+  %488 = sub i32 0, %487
+  br label %489
+
+489:                                              ; preds = %486, %484
+  %490 = phi i32 [ %485, %484 ], [ %488, %486 ]
+  call void @appendStringInfoSpaces(ptr noundef %481, i32 noundef %490)
+  br label %491
+
+491:                                              ; preds = %489, %477
+  br label %492
+
+492:                                              ; preds = %491, %476
+  br label %630
+
+493:                                              ; preds = %78
+  %494 = load ptr, ptr @MyProcPort, align 8
+  %495 = icmp ne ptr %494, null
+  br i1 %495, label %496, label %516
+
+496:                                              ; preds = %493
+  %497 = load ptr, ptr @MyProcPort, align 8
+  %498 = getelementptr inbounds %struct.Port, ptr %497, i32 0, i32 5
+  %499 = load ptr, ptr %498, align 8
+  %500 = icmp ne ptr %499, null
+  br i1 %500, label %501, label %516
+
+501:                                              ; preds = %496
+  %502 = load i32, ptr %7, align 4
+  %503 = icmp ne i32 %502, 0
+  br i1 %503, label %504, label %510
+
+504:                                              ; preds = %501
+  %505 = load ptr, ptr %4, align 8
+  %506 = load i32, ptr %7, align 4
+  %507 = load ptr, ptr @MyProcPort, align 8
+  %508 = getelementptr inbounds %struct.Port, ptr %507, i32 0, i32 5
+  %509 = load ptr, ptr %508, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %505, ptr noundef @.str.23, i32 noundef %506, ptr noundef %509)
+  br label %515
+
+510:                                              ; preds = %501
+  %511 = load ptr, ptr %4, align 8
+  %512 = load ptr, ptr @MyProcPort, align 8
+  %513 = getelementptr inbounds %struct.Port, ptr %512, i32 0, i32 5
+  %514 = load ptr, ptr %513, align 8
+  call void @appendStringInfoString(ptr noundef %511, ptr noundef %514)
+  br label %515
+
+515:                                              ; preds = %510, %504
+  br label %531
+
+516:                                              ; preds = %496, %493
+  %517 = load i32, ptr %7, align 4
+  %518 = icmp ne i32 %517, 0
+  br i1 %518, label %519, label %530
+
+519:                                              ; preds = %516
+  %520 = load ptr, ptr %4, align 8
+  %521 = load i32, ptr %7, align 4
+  %522 = icmp sgt i32 %521, 0
+  br i1 %522, label %523, label %525
+
+523:                                              ; preds = %519
+  %524 = load i32, ptr %7, align 4
+  br label %528
+
+525:                                              ; preds = %519
+  %526 = load i32, ptr %7, align 4
+  %527 = sub i32 0, %526
+  br label %528
+
+528:                                              ; preds = %525, %523
+  %529 = phi i32 [ %524, %523 ], [ %527, %525 ]
+  call void @appendStringInfoSpaces(ptr noundef %520, i32 noundef %529)
+  br label %530
+
+530:                                              ; preds = %528, %516
+  br label %531
+
+531:                                              ; preds = %530, %515
+  br label %630
+
+532:                                              ; preds = %78
+  %533 = load ptr, ptr @MyProcPort, align 8
+  %534 = icmp eq ptr %533, null
+  br i1 %534, label %535, label %536
+
+535:                                              ; preds = %532
+  br label %634
+
+536:                                              ; preds = %532
+  br label %630
+
+537:                                              ; preds = %78
+  %538 = load ptr, ptr @MyProc, align 8
+  %539 = icmp ne ptr %538, null
+  br i1 %539, label %540, label %574
+
+540:                                              ; preds = %537
+  %541 = load ptr, ptr @MyProc, align 8
+  %542 = getelementptr inbounds %struct.PGPROC, ptr %541, i32 0, i32 9
+  %543 = getelementptr inbounds %struct.anon, ptr %542, i32 0, i32 0
+  %544 = load i32, ptr %543, align 4
+  %545 = icmp ne i32 %544, -1
+  br i1 %545, label %546, label %574
+
+546:                                              ; preds = %540
+  %547 = load i32, ptr %7, align 4
+  %548 = icmp ne i32 %547, 0
+  br i1 %548, label %549, label %563
+
+549:                                              ; preds = %546
+  %550 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  %551 = load ptr, ptr @MyProc, align 8
+  %552 = getelementptr inbounds %struct.PGPROC, ptr %551, i32 0, i32 9
+  %553 = getelementptr inbounds %struct.anon, ptr %552, i32 0, i32 0
+  %554 = load i32, ptr %553, align 4
+  %555 = load ptr, ptr @MyProc, align 8
+  %556 = getelementptr inbounds %struct.PGPROC, ptr %555, i32 0, i32 9
+  %557 = getelementptr inbounds %struct.anon, ptr %556, i32 0, i32 1
+  %558 = load i32, ptr %557, align 4
+  %559 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %550, i64 noundef 127, ptr noundef @.str.32, i32 noundef %554, i32 noundef %558)
+  %560 = load ptr, ptr %4, align 8
+  %561 = load i32, ptr %7, align 4
+  %562 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %560, ptr noundef @.str.23, i32 noundef %561, ptr noundef %562)
+  br label %573
+
+563:                                              ; preds = %546
+  %564 = load ptr, ptr %4, align 8
+  %565 = load ptr, ptr @MyProc, align 8
+  %566 = getelementptr inbounds %struct.PGPROC, ptr %565, i32 0, i32 9
+  %567 = getelementptr inbounds %struct.anon, ptr %566, i32 0, i32 0
+  %568 = load i32, ptr %567, align 4
+  %569 = load ptr, ptr @MyProc, align 8
+  %570 = getelementptr inbounds %struct.PGPROC, ptr %569, i32 0, i32 9
+  %571 = getelementptr inbounds %struct.anon, ptr %570, i32 0, i32 1
+  %572 = load i32, ptr %571, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %564, ptr noundef @.str.32, i32 noundef %568, i32 noundef %572)
+  br label %573
+
+573:                                              ; preds = %563, %549
+  br label %589
+
+574:                                              ; preds = %540, %537
+  %575 = load i32, ptr %7, align 4
+  %576 = icmp ne i32 %575, 0
+  br i1 %576, label %577, label %588
+
+577:                                              ; preds = %574
+  %578 = load ptr, ptr %4, align 8
+  %579 = load i32, ptr %7, align 4
+  %580 = icmp sgt i32 %579, 0
+  br i1 %580, label %581, label %583
+
+581:                                              ; preds = %577
+  %582 = load i32, ptr %7, align 4
+  br label %586
+
+583:                                              ; preds = %577
+  %584 = load i32, ptr %7, align 4
+  %585 = sub i32 0, %584
+  br label %586
+
+586:                                              ; preds = %583, %581
+  %587 = phi i32 [ %582, %581 ], [ %585, %583 ]
+  call void @appendStringInfoSpaces(ptr noundef %578, i32 noundef %587)
+  br label %588
+
+588:                                              ; preds = %586, %574
+  br label %589
+
+589:                                              ; preds = %588, %573
+  br label %630
+
+590:                                              ; preds = %78
+  %591 = load i32, ptr %7, align 4
+  %592 = icmp ne i32 %591, 0
+  br i1 %592, label %593, label %597
+
+593:                                              ; preds = %590
+  %594 = load ptr, ptr %4, align 8
+  %595 = load i32, ptr %7, align 4
+  %596 = call i32 @GetTopTransactionIdIfAny()
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %594, ptr noundef @.str.33, i32 noundef %595, i32 noundef %596)
+  br label %600
+
+597:                                              ; preds = %590
+  %598 = load ptr, ptr %4, align 8
+  %599 = call i32 @GetTopTransactionIdIfAny()
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %598, ptr noundef @.str.34, i32 noundef %599)
+  br label %600
+
+600:                                              ; preds = %597, %593
+  br label %630
+
+601:                                              ; preds = %78
+  %602 = load i32, ptr %7, align 4
+  %603 = icmp ne i32 %602, 0
+  br i1 %603, label %604, label %611
+
+604:                                              ; preds = %601
+  %605 = load ptr, ptr %4, align 8
+  %606 = load i32, ptr %7, align 4
+  %607 = load ptr, ptr %6, align 8
+  %608 = getelementptr inbounds %struct.ErrorData, ptr %607, i32 0, i32 10
+  %609 = load i32, ptr %608, align 8
+  %610 = call ptr @unpack_sql_state(i32 noundef %609)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %605, ptr noundef @.str.23, i32 noundef %606, ptr noundef %610)
+  br label %617
+
+611:                                              ; preds = %601
+  %612 = load ptr, ptr %4, align 8
+  %613 = load ptr, ptr %6, align 8
+  %614 = getelementptr inbounds %struct.ErrorData, ptr %613, i32 0, i32 10
+  %615 = load i32, ptr %614, align 8
+  %616 = call ptr @unpack_sql_state(i32 noundef %615)
+  call void @appendStringInfoString(ptr noundef %612, ptr noundef %616)
+  br label %617
+
+617:                                              ; preds = %611, %604
+  br label %630
+
+618:                                              ; preds = %78
+  %619 = load i32, ptr %7, align 4
+  %620 = icmp ne i32 %619, 0
+  br i1 %620, label %621, label %625
+
+621:                                              ; preds = %618
+  %622 = load ptr, ptr %4, align 8
+  %623 = load i32, ptr %7, align 4
+  %624 = call i64 @pgstat_get_my_query_id()
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %622, ptr noundef @.str.35, i32 noundef %623, i64 noundef %624)
+  br label %628
+
+625:                                              ; preds = %618
+  %626 = load ptr, ptr %4, align 8
+  %627 = call i64 @pgstat_get_my_query_id()
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %626, ptr noundef @.str.36, i64 noundef %627)
+  br label %628
+
+628:                                              ; preds = %625, %621
+  br label %630
+
+629:                                              ; preds = %78
+  br label %630
+
+630:                                              ; preds = %629, %628, %617, %600, %589, %536, %531, %492, %409, %377, %365, %342, %326, %316, %305, %247, %236, %220, %177, %134, %122
+  br label %631
+
+631:                                              ; preds = %630, %63, %46
+  %632 = load ptr, ptr %8, align 8
+  %633 = getelementptr i8, ptr %632, i32 1
+  store ptr %633, ptr %8, align 8
   br label %36, !llvm.loop !13
 
-633:                                              ; preds = %534, %76, %57, %36, %33
+634:                                              ; preds = %535, %76, %57, %36, %33
   ret void
 }
 
@@ -8146,7 +8143,7 @@ declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #10
+declare i64 @time(ptr noundef) #9
 
 declare ptr @get_ps_display(ptr noundef) #3
 
@@ -8326,7 +8323,7 @@ define dso_local void @write_pipe_chunks(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind
-declare i32 @fileno(ptr noundef) #10
+declare i32 @fileno(ptr noundef) #9
 
 declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #3
 
@@ -8397,12 +8394,12 @@ define dso_local ptr @error_severity(i32 noundef %0) #0 {
 declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #11
+declare ptr @strrchr(ptr noundef, i32 noundef) #10
 
 declare i32 @backtrace(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare ptr @backtrace_symbols(ptr noundef, i32 noundef) #10
+declare ptr @backtrace_symbols(ptr noundef, i32 noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @log_line_prefix(ptr noundef %0, ptr noundef %1) #0 {
@@ -8853,7 +8850,7 @@ declare void @write_syslogger_file(ptr noundef, i32 noundef, i32 noundef) #3
 declare void @openlog(ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #11
+declare ptr @strchr(ptr noundef, i32 noundef) #10
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) #3
 
@@ -8951,6 +8948,12 @@ declare void @pq_send_ascii_string(ptr noundef, ptr noundef) #3
 
 declare void @pq_sendstring(ptr noundef, ptr noundef) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8959,10 +8962,10 @@ attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { cold }
 attributes #14 = { nounwind willreturn memory(none) }

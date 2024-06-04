@@ -687,23 +687,26 @@ do.body:                                          ; preds = %entry
   %4 = load ptr, ptr %s, align 8
   %next = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %4, i32 0, i32 2
   store ptr null, ptr %next, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @led_handlers, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %s, align 8
-  %next2 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %6, i32 0, i32 2
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next2, i32 0, i32 1
-  store ptr %5, ptr %tql_prev, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @led_handlers, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %s, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @led_handlers, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %tql_next, align 8
-  %9 = load ptr, ptr %s, align 8
-  %next3 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %9, i32 0, i32 2
-  store ptr %next3, ptr getelementptr inbounds (%struct.QTailQLink, ptr @led_handlers, i32 0, i32 1), align 8
+  %next2 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %7, i32 0, i32 2
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next2, i32 0, i32 1
+  store ptr %6, ptr %tql_prev, align 8
+  %8 = load ptr, ptr %s, align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @led_handlers, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
+  store ptr %8, ptr %tql_next, align 8
+  %11 = load ptr, ptr %s, align 8
+  %next3 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @led_handlers, i32 0, i32 1
+  store ptr %next3, ptr %12, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %10 = load ptr, ptr %s, align 8
-  ret ptr %10
+  %13 = load ptr, ptr %s, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -746,35 +749,36 @@ if.else:                                          ; preds = %do.body
   %next8 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %7, i32 0, i32 2
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %next8, i32 0, i32 1
   %8 = load ptr, ptr %tql_prev9, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.QTailQLink, ptr @led_handlers, i32 0, i32 1), align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @led_handlers, i32 0, i32 1
+  store ptr %8, ptr %9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then3
-  %9 = load ptr, ptr %entry.addr, align 8
-  %next11 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %next11, align 8
-  %11 = load ptr, ptr %entry.addr, align 8
-  %next12 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %11, i32 0, i32 2
+  %10 = load ptr, ptr %entry.addr, align 8
+  %next11 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %next11, align 8
+  %12 = load ptr, ptr %entry.addr, align 8
+  %next12 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %12, i32 0, i32 2
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 1
-  %12 = load ptr, ptr %tql_prev13, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
-  store ptr %10, ptr %tql_next, align 8
-  %13 = load ptr, ptr %entry.addr, align 8
-  %next14 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %13, i32 0, i32 2
+  %13 = load ptr, ptr %tql_prev13, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
+  store ptr %11, ptr %tql_next, align 8
+  %14 = load ptr, ptr %entry.addr, align 8
+  %next14 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %14, i32 0, i32 2
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %next14, i32 0, i32 1
   store ptr null, ptr %tql_prev15, align 8
-  %14 = load ptr, ptr %entry.addr, align 8
-  %next16 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %entry.addr, align 8
+  %next16 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %15, i32 0, i32 2
   %tql_next17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 0
   store ptr null, ptr %tql_next17, align 8
-  %15 = load ptr, ptr %entry.addr, align 8
-  %next18 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %15, i32 0, i32 2
+  %16 = load ptr, ptr %entry.addr, align 8
+  %next18 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %16, i32 0, i32 2
   store ptr null, ptr %next18, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end10
-  %16 = load ptr, ptr %entry.addr, align 8
-  call void @g_free(ptr noundef %16)
+  %17 = load ptr, ptr %entry.addr, align 8
+  call void @g_free(ptr noundef %17)
   br label %return
 
 return:                                           ; preds = %do.end, %if.then

@@ -90,7 +90,7 @@ define internal void @_get_joules_task(ptr noundef %0) #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  br label %95
+  br label %96
 
 12:                                               ; preds = %1
   %13 = call i64 @time(ptr noundef null) #4
@@ -157,68 +157,69 @@ define internal void @_get_joules_task(ptr noundef %0) #0 {
   br label %58
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %60 = and i64 %59, 262144
-  %61 = icmp ne i64 %60, 0
-  br i1 %61, label %62, label %87
+  %59 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %60 = load i64, ptr %59, align 8
+  %61 = and i64 %60, 262144
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %63, label %88
 
-62:                                               ; preds = %58
-  br label %63
+63:                                               ; preds = %58
+  br label %64
 
-63:                                               ; preds = %62
-  %64 = call i32 @slurm_get_log_level()
-  %65 = icmp sge i32 %64, 4
-  br i1 %65, label %66, label %85
+64:                                               ; preds = %63
+  %65 = call i32 @slurm_get_log_level()
+  %66 = icmp sge i32 %65, 4
+  br i1 %66, label %67, label %86
 
-66:                                               ; preds = %63
-  %67 = load i64, ptr %4, align 8
-  %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds %struct.acct_gather_energy, ptr %68, i32 0, i32 5
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %78
+67:                                               ; preds = %64
+  %68 = load i64, ptr %4, align 8
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds %struct.acct_gather_energy, ptr %69, i32 0, i32 5
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp ne i64 %71, 0
+  br i1 %72, label %73, label %79
 
-72:                                               ; preds = %66
-  %73 = load i64, ptr %6, align 8
-  %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds %struct.acct_gather_energy, ptr %74, i32 0, i32 5
-  %76 = load i64, ptr %75, align 8
-  %77 = sub nsw i64 %73, %76
-  br label %79
+73:                                               ; preds = %67
+  %74 = load i64, ptr %6, align 8
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds %struct.acct_gather_energy, ptr %75, i32 0, i32 5
+  %77 = load i64, ptr %76, align 8
+  %78 = sub nsw i64 %74, %77
+  br label %80
 
-78:                                               ; preds = %66
-  br label %79
+79:                                               ; preds = %67
+  br label %80
 
-79:                                               ; preds = %78, %72
-  %80 = phi i64 [ %77, %72 ], [ 0, %78 ]
-  %81 = load i32, ptr %5, align 4
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.acct_gather_energy, ptr %82, i32 0, i32 0
-  %84 = load i32, ptr %83, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__._get_joules_task, ptr noundef @__func__._get_joules_task, i64 noundef %67, i64 noundef %80, i32 noundef %81, i32 noundef %84)
-  br label %85
-
-85:                                               ; preds = %79, %63
+80:                                               ; preds = %79, %73
+  %81 = phi i64 [ %78, %73 ], [ 0, %79 ]
+  %82 = load i32, ptr %5, align 4
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds %struct.acct_gather_energy, ptr %83, i32 0, i32 0
+  %85 = load i32, ptr %84, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__._get_joules_task, ptr noundef @__func__._get_joules_task, i64 noundef %68, i64 noundef %81, i32 noundef %82, i32 noundef %85)
   br label %86
 
-86:                                               ; preds = %85
+86:                                               ; preds = %80, %64
   br label %87
 
-87:                                               ; preds = %86, %58
+87:                                               ; preds = %86
   br label %88
 
-88:                                               ; preds = %87
-  %89 = load i64, ptr %3, align 8
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.acct_gather_energy, ptr %90, i32 0, i32 4
-  store i64 %89, ptr %91, align 8
-  %92 = load i64, ptr %6, align 8
-  %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds %struct.acct_gather_energy, ptr %93, i32 0, i32 5
-  store i64 %92, ptr %94, align 8
-  br label %95
+88:                                               ; preds = %87, %58
+  br label %89
 
-95:                                               ; preds = %88, %11
+89:                                               ; preds = %88
+  %90 = load i64, ptr %3, align 8
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds %struct.acct_gather_energy, ptr %91, i32 0, i32 4
+  store i64 %90, ptr %92, align 8
+  %93 = load i64, ptr %6, align 8
+  %94 = load ptr, ptr %2, align 8
+  %95 = getelementptr inbounds %struct.acct_gather_energy, ptr %94, i32 0, i32 5
+  store i64 %93, ptr %95, align 8
+  br label %96
+
+96:                                               ; preds = %89, %11
   ret void
 }
 
@@ -477,143 +478,146 @@ define internal i32 @_send_profile() #0 {
 
 6:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %74
+  br label %77
 
 7:                                                ; preds = %0
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %10 = and i64 %9, 262144
-  %11 = icmp ne i64 %10, 0
-  br i1 %11, label %12, label %22
+  %9 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 262144
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %23
 
-12:                                               ; preds = %8
-  br label %13
+13:                                               ; preds = %8
+  br label %14
 
-13:                                               ; preds = %12
-  %14 = call i32 @slurm_get_log_level()
-  %15 = icmp sge i32 %14, 4
-  br i1 %15, label %16, label %20
+14:                                               ; preds = %13
+  %15 = call i32 @slurm_get_log_level()
+  %16 = icmp sge i32 %15, 4
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr @local_energy, align 8
-  %18 = getelementptr inbounds %struct.acct_gather_energy, ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, ptr noundef @__func__._send_profile, i32 noundef %19)
-  br label %20
-
-20:                                               ; preds = %16, %13
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @local_energy, align 8
+  %19 = getelementptr inbounds %struct.acct_gather_energy, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, ptr noundef @__func__._send_profile, i32 noundef %20)
   br label %21
 
-21:                                               ; preds = %20
+21:                                               ; preds = %17, %14
   br label %22
 
-22:                                               ; preds = %21, %8
+22:                                               ; preds = %21
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load i32, ptr @_send_profile.dataset_id, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %48
+23:                                               ; preds = %22, %8
+  br label %24
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds [2 x %struct.acct_gather_profile_dataset_t], ptr %3, i64 0, i64 0
-  %28 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef @.str.7, i64 noundef -1, ptr noundef %27)
-  store i32 %28, ptr @_send_profile.dataset_id, align 4
-  br label %29
+24:                                               ; preds = %23
+  %25 = load i32, ptr @_send_profile.dataset_id, align 4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %50
 
-29:                                               ; preds = %26
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %31 = and i64 %30, 262144
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %41
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds [2 x %struct.acct_gather_profile_dataset_t], ptr %3, i64 0, i64 0
+  %29 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef @.str.7, i64 noundef -1, ptr noundef %28)
+  store i32 %29, ptr @_send_profile.dataset_id, align 4
+  br label %30
 
-33:                                               ; preds = %29
-  br label %34
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %32, 262144
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %33
-  %35 = call i32 @slurm_get_log_level()
-  %36 = icmp sge i32 %35, 4
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30
+  br label %36
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr @_send_profile.dataset_id, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, i32 noundef %38)
-  br label %39
+36:                                               ; preds = %35
+  %37 = call i32 @slurm_get_log_level()
+  %38 = icmp sge i32 %37, 4
+  br i1 %38, label %39, label %41
 
-39:                                               ; preds = %37, %34
-  br label %40
-
-40:                                               ; preds = %39
+39:                                               ; preds = %36
+  %40 = load i32, ptr @_send_profile.dataset_id, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, i32 noundef %40)
   br label %41
 
-41:                                               ; preds = %40, %29
+41:                                               ; preds = %39, %36
   br label %42
 
 42:                                               ; preds = %41
-  %43 = load i32, ptr @_send_profile.dataset_id, align 4
-  %44 = icmp eq i32 %43, -1
-  br i1 %44, label %45, label %47
+  br label %43
 
-45:                                               ; preds = %42
-  %46 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9)
+43:                                               ; preds = %42, %30
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load i32, ptr @_send_profile.dataset_id, align 4
+  %46 = icmp eq i32 %45, -1
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9)
   store i32 -1, ptr %1, align 4
-  br label %74
+  br label %77
 
-47:                                               ; preds = %42
-  br label %48
+49:                                               ; preds = %44
+  br label %50
 
-48:                                               ; preds = %47, %23
-  %49 = load ptr, ptr @local_energy, align 8
-  %50 = getelementptr inbounds %struct.acct_gather_energy, ptr %49, i32 0, i32 3
-  %51 = load i32, ptr %50, align 8
-  %52 = zext i32 %51 to i64
-  store i64 %52, ptr %2, align 8
-  br label %53
+50:                                               ; preds = %49, %24
+  %51 = load ptr, ptr @local_energy, align 8
+  %52 = getelementptr inbounds %struct.acct_gather_energy, ptr %51, i32 0, i32 3
+  %53 = load i32, ptr %52, align 8
+  %54 = zext i32 %53 to i64
+  store i64 %54, ptr %2, align 8
+  br label %55
 
-53:                                               ; preds = %48
-  %54 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %55 = and i64 %54, 2097152
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %67
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %57, 2097152
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %70
 
-57:                                               ; preds = %53
-  br label %58
+60:                                               ; preds = %55
+  br label %61
 
-58:                                               ; preds = %57
-  %59 = call i32 @slurm_get_log_level()
-  %60 = icmp sge i32 %59, 4
-  br i1 %60, label %61, label %65
+61:                                               ; preds = %60
+  %62 = call i32 @slurm_get_log_level()
+  %63 = icmp sge i32 %62, 4
+  br i1 %63, label %64, label %68
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr @local_energy, align 8
-  %63 = getelementptr inbounds %struct.acct_gather_energy, ptr %62, i32 0, i32 3
-  %64 = load i32, ptr %63, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, i32 noundef %64)
-  br label %65
-
-65:                                               ; preds = %61, %58
-  br label %66
-
-66:                                               ; preds = %65
-  br label %67
-
-67:                                               ; preds = %66, %53
+64:                                               ; preds = %61
+  %65 = load ptr, ptr @local_energy, align 8
+  %66 = getelementptr inbounds %struct.acct_gather_energy, ptr %65, i32 0, i32 3
+  %67 = load i32, ptr %66, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__._send_profile, i32 noundef %67)
   br label %68
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr @_send_profile.dataset_id, align 4
-  %70 = load ptr, ptr @local_energy, align 8
-  %71 = getelementptr inbounds %struct.acct_gather_energy, ptr %70, i32 0, i32 5
-  %72 = load i64, ptr %71, align 8
-  %73 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %69, ptr noundef %2, i64 noundef %72)
-  store i32 %73, ptr %1, align 4
-  br label %74
+68:                                               ; preds = %64, %61
+  br label %69
 
-74:                                               ; preds = %68, %45, %6
-  %75 = load i32, ptr %1, align 4
-  ret i32 %75
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69, %55
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load i32, ptr @_send_profile.dataset_id, align 4
+  %73 = load ptr, ptr @local_energy, align 8
+  %74 = getelementptr inbounds %struct.acct_gather_energy, ptr %73, i32 0, i32 5
+  %75 = load i64, ptr %74, align 8
+  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %72, ptr noundef %2, i64 noundef %75)
+  store i32 %76, ptr %1, align 4
+  br label %77
+
+77:                                               ; preds = %71, %47, %6
+  %78 = load i32, ptr %1, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable

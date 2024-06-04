@@ -23,41 +23,43 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nfs3_set_ds_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @nfs3_create_server(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @nfs_create_server(ptr noundef %0) #5
-  %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  br i1 %3, label %23, label %4
+  %3 = inttoptr i64 -4096 to ptr
+  %4 = icmp ugt ptr %2, %3
+  br i1 %4, label %25, label %5
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 84
-  %6 = load i32, ptr %5, align 4
-  %7 = and i32 %6, 2048
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %19
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %2, i64 84
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 2048
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %21
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @rpc_bind_new_program(ptr noundef %11, ptr noundef nonnull @nfsacl_program, i32 noundef 3) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %12, ptr %13, align 8
-  %14 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %19, label %15
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call ptr @rpc_bind_new_program(ptr noundef %12, ptr noundef nonnull @nfsacl_program, i32 noundef 3) #5
+  %14 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %13, ptr %14, align 8
+  %15 = inttoptr i64 -4096 to ptr
+  %16 = icmp ugt ptr %13, %15
+  br i1 %16, label %21, label %17
 
-15:                                               ; preds = %9
-  tail call void @nfs_sysfs_link_rpc_client(ptr noundef %2, ptr noundef %12, ptr noundef null) #5
-  %16 = getelementptr inbounds i8, ptr %2, i64 92
-  %17 = load i32, ptr %16, align 4
-  %18 = or i32 %17, 8
-  store i32 %18, ptr %16, align 4
-  br label %23
+17:                                               ; preds = %10
+  tail call void @nfs_sysfs_link_rpc_client(ptr noundef %2, ptr noundef %13, ptr noundef null) #5
+  %18 = getelementptr inbounds i8, ptr %2, i64 92
+  %19 = load i32, ptr %18, align 4
+  %20 = or i32 %19, 8
+  store i32 %20, ptr %18, align 4
+  br label %25
 
-19:                                               ; preds = %9, %4
-  %20 = getelementptr inbounds i8, ptr %2, i64 92
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, -9
-  store i32 %22, ptr %20, align 4
-  br label %23
+21:                                               ; preds = %10, %5
+  %22 = getelementptr inbounds i8, ptr %2, i64 92
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, -9
+  store i32 %24, ptr %22, align 4
+  br label %25
 
-23:                                               ; preds = %19, %15, %1
+25:                                               ; preds = %21, %17, %1
   ret ptr %2
 }
 
@@ -73,47 +75,50 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @nfs3_clone_server(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @nfs_clone_server(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %30, label %7
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %33, label %8
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %30, label %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = load ptr, ptr %9, align 8
+  %11 = inttoptr i64 -4096 to ptr
+  %12 = icmp ugt ptr %10, %11
+  br i1 %12, label %33, label %13
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 84
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 2048
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %26
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %5, i64 84
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, 2048
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %29
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @rpc_bind_new_program(ptr noundef %18, ptr noundef nonnull @nfsacl_program, i32 noundef 3) #5
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr %19, ptr %20, align 8
-  %21 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %21, label %26, label %22
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %5, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call ptr @rpc_bind_new_program(ptr noundef %20, ptr noundef nonnull @nfsacl_program, i32 noundef 3) #5
+  %22 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr %21, ptr %22, align 8
+  %23 = inttoptr i64 -4096 to ptr
+  %24 = icmp ugt ptr %21, %23
+  br i1 %24, label %29, label %25
 
-22:                                               ; preds = %16
-  tail call void @nfs_sysfs_link_rpc_client(ptr noundef %5, ptr noundef %19, ptr noundef null) #5
-  %23 = getelementptr inbounds i8, ptr %5, i64 92
-  %24 = load i32, ptr %23, align 4
-  %25 = or i32 %24, 8
-  store i32 %25, ptr %23, align 4
-  br label %30
+25:                                               ; preds = %18
+  tail call void @nfs_sysfs_link_rpc_client(ptr noundef %5, ptr noundef %21, ptr noundef null) #5
+  %26 = getelementptr inbounds i8, ptr %5, i64 92
+  %27 = load i32, ptr %26, align 4
+  %28 = or i32 %27, 8
+  store i32 %28, ptr %26, align 4
+  br label %33
 
-26:                                               ; preds = %16, %11
-  %27 = getelementptr inbounds i8, ptr %5, i64 92
-  %28 = load i32, ptr %27, align 4
-  %29 = and i32 %28, -9
-  store i32 %29, ptr %27, align 4
-  br label %30
+29:                                               ; preds = %18, %13
+  %30 = getelementptr inbounds i8, ptr %5, i64 92
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, -9
+  store i32 %32, ptr %30, align 4
+  br label %33
 
-30:                                               ; preds = %26, %22, %7, %4
+33:                                               ; preds = %29, %25, %8, %4
   ret ptr %5
 }
 
@@ -179,49 +184,50 @@ define dso_local ptr @nfs3_set_ds_client(ptr nocapture noundef readonly %0, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %9, i8 0, i64 49, i1 false), !annotation !5
   %41 = call i64 @rpc_ntop(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 49) #5
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %58, label %43
+  %43 = inttoptr i64 -22 to ptr
+  br i1 %42, label %59, label %44
 
-43:                                               ; preds = %6
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %9, ptr %44, align 8
-  switch i32 %3, label %50 [
-    i32 6, label %45
-    i32 258, label %45
+44:                                               ; preds = %6
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %9, ptr %45, align 8
+  switch i32 %3, label %51 [
+    i32 6, label %46
+    i32 258, label %46
   ]
 
-45:                                               ; preds = %43, %43
-  %46 = getelementptr inbounds i8, ptr %15, i64 252
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ugt i32 %47, 1
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %44, %44
+  %47 = getelementptr inbounds i8, ptr %15, i64 252
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ugt i32 %48, 1
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
-  store i32 %47, ptr %28, align 8
-  br label %50
+50:                                               ; preds = %46
+  store i32 %48, ptr %28, align 8
+  br label %51
 
-50:                                               ; preds = %49, %45, %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 84
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 262144
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %56, label %55
+51:                                               ; preds = %50, %46, %44
+  %52 = getelementptr inbounds i8, ptr %0, i64 84
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 262144
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %57, label %56
 
-55:                                               ; preds = %50
+56:                                               ; preds = %51
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 0) #5, !srcloc !6
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %50
+57:                                               ; preds = %56, %51
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 7) #5, !srcloc !6
   call void @nfs_init_timeout_values(ptr noundef nonnull %7, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5
-  %57 = call ptr @nfs_get_client(ptr noundef nonnull %8) #5
-  br label %58
+  %58 = call ptr @nfs_get_client(ptr noundef nonnull %8) #5
+  br label %59
 
-58:                                               ; preds = %56, %6
-  %59 = phi ptr [ %57, %56 ], [ inttoptr (i64 -22 to ptr), %6 ]
+59:                                               ; preds = %57, %6
+  %60 = phi ptr [ %58, %57 ], [ %43, %6 ]
   call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
-  ret ptr %59
+  ret ptr %60
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

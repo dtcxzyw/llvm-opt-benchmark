@@ -5354,34 +5354,37 @@ if.end1450:                                       ; preds = %if.end1449, %if.the
   %661 = load i8, ptr %coerce.dive1454, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %pos.coerce1455, ptr align 1 %pos, i64 3, i1 false)
   %662 = load i24, ptr %pos.coerce1455, align 4
-  call void @stbvox_make_mesh_for_face(ptr noundef %657, i8 %661, i32 noundef 1, i32 noundef %658, i24 %662, i32 noundef %659, ptr noundef getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 1), i8 noundef zeroext %660, i32 noundef 24)
-  %663 = load ptr, ptr %mm.addr, align 8
-  %664 = load i32, ptr %v_off.addr, align 4
-  %665 = load i32, ptr %basevert1332, align 4
-  %666 = load i8, ptr %mesh1348, align 1
+  %663 = getelementptr inbounds [6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 1
+  call void @stbvox_make_mesh_for_face(ptr noundef %657, i8 %661, i32 noundef 1, i32 noundef %658, i24 %662, i32 noundef %659, ptr noundef %663, i8 noundef zeroext %660, i32 noundef 24)
+  %664 = load ptr, ptr %mm.addr, align 8
+  %665 = load i32, ptr %v_off.addr, align 4
+  %666 = load i32, ptr %basevert1332, align 4
+  %667 = load i8, ptr %mesh1348, align 1
   %coerce.dive1456 = getelementptr inbounds %struct.stbvox_rotate, ptr %rot1347, i32 0, i32 0
-  %667 = load i8, ptr %coerce.dive1456, align 1
+  %668 = load i8, ptr %coerce.dive1456, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %pos.coerce1457, ptr align 1 %pos, i64 3, i1 false)
-  %668 = load i24, ptr %pos.coerce1457, align 4
-  call void @stbvox_make_mesh_for_face(ptr noundef %663, i8 %667, i32 noundef 3, i32 noundef %664, i24 %668, i32 noundef %665, ptr noundef getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 3), i8 noundef zeroext %666, i32 noundef 26)
-  %669 = load ptr, ptr %mm.addr, align 8
-  %670 = load i32, ptr %v_off.addr, align 4
-  %671 = load i32, ptr %basevert1332, align 4
-  %672 = load i8, ptr %mesh1348, align 1
+  %669 = load i24, ptr %pos.coerce1457, align 4
+  %670 = getelementptr inbounds [6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 3
+  call void @stbvox_make_mesh_for_face(ptr noundef %664, i8 %668, i32 noundef 3, i32 noundef %665, i24 %669, i32 noundef %666, ptr noundef %670, i8 noundef zeroext %667, i32 noundef 26)
+  %671 = load ptr, ptr %mm.addr, align 8
+  %672 = load i32, ptr %v_off.addr, align 4
+  %673 = load i32, ptr %basevert1332, align 4
+  %674 = load i8, ptr %mesh1348, align 1
   %coerce.dive1458 = getelementptr inbounds %struct.stbvox_rotate, ptr %rot1347, i32 0, i32 0
-  %673 = load i8, ptr %coerce.dive1458, align 1
+  %675 = load i8, ptr %coerce.dive1458, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %pos.coerce1459, ptr align 1 %pos, i64 3, i1 false)
-  %674 = load i24, ptr %pos.coerce1459, align 4
-  call void @stbvox_make_mesh_for_face(ptr noundef %669, i8 %673, i32 noundef 0, i32 noundef %670, i24 %674, i32 noundef %671, ptr noundef @stbvox_vmesh_crossed_pair, i8 noundef zeroext %672, i32 noundef 27)
-  %675 = load ptr, ptr %mm.addr, align 8
-  %676 = load i32, ptr %v_off.addr, align 4
-  %677 = load i32, ptr %basevert1332, align 4
-  %678 = load i8, ptr %mesh1348, align 1
+  %676 = load i24, ptr %pos.coerce1459, align 4
+  call void @stbvox_make_mesh_for_face(ptr noundef %671, i8 %675, i32 noundef 0, i32 noundef %672, i24 %676, i32 noundef %673, ptr noundef @stbvox_vmesh_crossed_pair, i8 noundef zeroext %674, i32 noundef 27)
+  %677 = load ptr, ptr %mm.addr, align 8
+  %678 = load i32, ptr %v_off.addr, align 4
+  %679 = load i32, ptr %basevert1332, align 4
+  %680 = load i8, ptr %mesh1348, align 1
   %coerce.dive1460 = getelementptr inbounds %struct.stbvox_rotate, ptr %rot1347, i32 0, i32 0
-  %679 = load i8, ptr %coerce.dive1460, align 1
+  %681 = load i8, ptr %coerce.dive1460, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %pos.coerce1461, ptr align 1 %pos, i64 3, i1 false)
-  %680 = load i24, ptr %pos.coerce1461, align 4
-  call void @stbvox_make_mesh_for_face(ptr noundef %675, i8 %679, i32 noundef 2, i32 noundef %676, i24 %680, i32 noundef %677, ptr noundef getelementptr inbounds ([6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 2), i8 noundef zeroext %678, i32 noundef 25)
+  %682 = load i24, ptr %pos.coerce1461, align 4
+  %683 = getelementptr inbounds [6 x [4 x i32]], ptr @stbvox_vmesh_crossed_pair, i64 0, i64 2
+  call void @stbvox_make_mesh_for_face(ptr noundef %677, i8 %681, i32 noundef 2, i32 noundef %678, i24 %682, i32 noundef %679, ptr noundef %683, i8 noundef zeroext %680, i32 noundef 25)
   br label %if.end1462
 
 if.end1462:                                       ; preds = %if.end1450, %if.then1392, %if.end1327, %if.then1076, %if.then591, %if.then501

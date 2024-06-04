@@ -217,18 +217,19 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   store ptr %channel_args, ptr %channel_args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  store ptr %0, ptr %name_, align 8
+  %1 = load ptr, ptr %name.addr, align 8
+  store ptr %1, ptr %name_, align 8
   %type_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %type.addr, align 4
-  store i32 %1, ptr %type_, align 8
+  %2 = load i32, ptr %type.addr, align 4
+  store i32 %2, ptr %type_, align 8
   %target_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core19ChannelStackBuilder14unknown_targetB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %target_)
   %args_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %channel_args.addr, align 8
-  invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = load ptr, ptr %channel_args.addr, align 8
+  invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -237,12 +238,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_) #3
   br label %eh.resume
 

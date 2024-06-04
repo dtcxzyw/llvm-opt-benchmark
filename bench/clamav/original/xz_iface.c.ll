@@ -73,24 +73,25 @@ define i32 @cli_XzInit(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   store i32 1, ptr %2, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %1
-  %10 = load i64, ptr getelementptr inbounds ([0 x i64], ptr @g_Crc64Table, i64 0, i64 1), align 8
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds [0 x i64], ptr @g_Crc64Table, i64 0, i64 1
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %9
   call void @Crc64GenerateTable()
-  br label %13
-
-13:                                               ; preds = %12, %9
-  store i32 0, ptr %2, align 4
   br label %14
 
-14:                                               ; preds = %13, %8
-  %15 = load i32, ptr %2, align 4
-  ret i32 %15
+14:                                               ; preds = %13, %9
+  store i32 0, ptr %2, align 4
+  br label %15
+
+15:                                               ; preds = %14, %8
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
 }
 
 declare i32 @XzUnpacker_Create(ptr noundef, ptr noundef) #1

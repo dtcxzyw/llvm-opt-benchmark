@@ -794,11 +794,13 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  store ptr getelementptr inbounds ([3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 1), ptr %retval, align 8
+  %1 = getelementptr inbounds [3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 1
+  store ptr %1, ptr %retval, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  store ptr getelementptr inbounds ([3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 2), ptr %retval, align 8
+  %2 = getelementptr inbounds [3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 2
+  store ptr %2, ptr %retval, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -806,8 +808,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %sw.bb1, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+  %3 = load ptr, ptr %retval, align 8
+  ret ptr %3
 }
 
 declare ptr @EVP_CIPHER_meth_new(i32 noundef, i32 noundef, i32 noundef) #1

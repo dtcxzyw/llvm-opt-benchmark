@@ -209,39 +209,41 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load i64, ptr %maxsize, align 8
-  %call1 = call i64 @queue_create(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %2)
+  %3 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i64 @queue_create(ptr noundef %3, i64 noundef %2)
   store i64 %call1, ptr %qid, align 8
-  %3 = load i64, ptr %qid, align 8
-  %cmp = icmp slt i64 %3, 0
+  %4 = load i64, ptr %qid, align 8
+  %cmp = icmp slt i64 %4, 0
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %4 = load i64, ptr %qid, align 8
-  %conv = trunc i64 %4 to i32
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call3 = call i32 @handle_queue_error(i32 noundef %conv, ptr noundef %5, i64 noundef %6)
+  %5 = load i64, ptr %qid, align 8
+  %conv = trunc i64 %5 to i32
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call3 = call i32 @handle_queue_error(i32 noundef %conv, ptr noundef %6, i64 noundef %7)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %7 = load i64, ptr %qid, align 8
-  %call5 = call ptr @PyLong_FromLongLong(i64 noundef %7)
+  %8 = load i64, ptr %qid, align 8
+  %call5 = call ptr @PyLong_FromLongLong(i64 noundef %8)
   store ptr %call5, ptr %qidobj, align 8
-  %8 = load ptr, ptr %qidobj, align 8
-  %cmp6 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %qidobj, align 8
+  %cmp6 = icmp eq ptr %9, null
   br i1 %cmp6, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %if.end4
   %call9 = call ptr @PyErr_GetRaisedException()
   store ptr %call9, ptr %exc, align 8
-  %9 = load i64, ptr %qid, align 8
-  %call10 = call i32 @queue_destroy(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %9)
+  %10 = load i64, ptr %qid, align 8
+  %11 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call10 = call i32 @queue_destroy(ptr noundef %11, i64 noundef %10)
   store i32 %call10, ptr %err, align 4
-  %10 = load i32, ptr %err, align 4
-  %11 = load ptr, ptr %self.addr, align 8
-  %12 = load i64, ptr %qid, align 8
-  %call11 = call i32 @handle_queue_error(i32 noundef %10, ptr noundef %11, i64 noundef %12)
+  %12 = load i32, ptr %err, align 4
+  %13 = load ptr, ptr %self.addr, align 8
+  %14 = load i64, ptr %qid, align 8
+  %call11 = call i32 @handle_queue_error(i32 noundef %12, ptr noundef %13, i64 noundef %14)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.end14
 
@@ -250,19 +252,19 @@ if.then13:                                        ; preds = %if.then8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.then8
-  %13 = load ptr, ptr %exc, align 8
-  call void @PyErr_SetRaisedException(ptr noundef %13)
+  %15 = load ptr, ptr %exc, align 8
+  call void @PyErr_SetRaisedException(ptr noundef %15)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end4
-  %14 = load ptr, ptr %qidobj, align 8
-  store ptr %14, ptr %retval, align 8
+  %16 = load ptr, ptr %qidobj, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end15, %if.end14, %if.then2, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -293,12 +295,13 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %id, align 8
   store i64 %2, ptr %qid, align 8
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @queue_destroy(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_destroy(ptr noundef %4, i64 noundef %3)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr %err, align 4
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -311,8 +314,8 @@ if.end5:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -334,15 +337,16 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
   store i64 0, ptr %count, align 8
-  %call = call ptr @_queues_list_all(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), ptr noundef %count)
+  %0 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call = call ptr @_queues_list_all(ptr noundef %0, ptr noundef %count)
   store ptr %call, ptr %qids, align 8
-  %0 = load ptr, ptr %qids, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %qids, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %count, align 8
-  %cmp1 = icmp eq i64 %1, 0
+  %2 = load i64, ptr %count, align 8
+  %cmp1 = icmp eq i64 %2, 0
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -355,35 +359,35 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %2 = load i64, ptr %count, align 8
-  %call5 = call ptr @PyList_New(i64 noundef %2)
+  %3 = load i64, ptr %count, align 8
+  %call5 = call ptr @PyList_New(i64 noundef %3)
   store ptr %call5, ptr %ids, align 8
-  %3 = load ptr, ptr %ids, align 8
-  %cmp6 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %ids, align 8
+  %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
   br label %finally
 
 if.end8:                                          ; preds = %if.end4
-  %4 = load ptr, ptr %qids, align 8
-  store ptr %4, ptr %cur, align 8
+  %5 = load ptr, ptr %qids, align 8
+  store ptr %5, ptr %cur, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end8
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %count, align 8
-  %cmp9 = icmp slt i64 %5, %6
+  %6 = load i64, ptr %i, align 8
+  %7 = load i64, ptr %count, align 8
+  %cmp9 = icmp slt i64 %6, %7
   br i1 %cmp9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %cur, align 8
-  %8 = load i64, ptr %7, align 8
-  %call10 = call ptr @PyLong_FromLongLong(i64 noundef %8)
+  %8 = load ptr, ptr %cur, align 8
+  %9 = load i64, ptr %8, align 8
+  %call10 = call ptr @PyLong_FromLongLong(i64 noundef %9)
   store ptr %call10, ptr %qidobj, align 8
-  %9 = load ptr, ptr %qidobj, align 8
-  %cmp11 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %qidobj, align 8
+  %cmp11 = icmp eq ptr %10, null
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %for.body
@@ -391,18 +395,18 @@ if.then12:                                        ; preds = %for.body
 
 do.body:                                          ; preds = %if.then12
   store ptr %ids, ptr %_tmp_dst_ptr, align 8
-  %10 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %_tmp_old_dst, align 8
-  %12 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %_tmp_old_dst, align 8
-  store ptr %13, ptr %op.addr.i, align 8
-  %14 = load ptr, ptr %op.addr.i, align 8
-  store ptr %14, ptr %op.addr.i14, align 8
-  %15 = load ptr, ptr %op.addr.i14, align 8
-  %16 = load i64, ptr %15, align 8
-  %conv.i = trunc i64 %16 to i32
+  %11 = load ptr, ptr %_tmp_dst_ptr, align 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %_tmp_old_dst, align 8
+  %13 = load ptr, ptr %_tmp_dst_ptr, align 8
+  store ptr null, ptr %13, align 8
+  %14 = load ptr, ptr %_tmp_old_dst, align 8
+  store ptr %14, ptr %op.addr.i, align 8
+  %15 = load ptr, ptr %op.addr.i, align 8
+  store ptr %15, ptr %op.addr.i14, align 8
+  %16 = load ptr, ptr %op.addr.i14, align 8
+  %17 = load i64, ptr %16, align 8
+  %conv.i = trunc i64 %17 to i32
   %cmp.i15 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i15 to i32
   %tobool.i = icmp ne i32 %conv1.i, 0
@@ -412,16 +416,16 @@ if.then.i:                                        ; preds = %do.body
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %do.body
-  %17 = load ptr, ptr %op.addr.i, align 8
-  %18 = load i64, ptr %17, align 8
-  %dec.i = add i64 %18, -1
-  store i64 %dec.i, ptr %17, align 8
+  %18 = load ptr, ptr %op.addr.i, align 8
+  %19 = load i64, ptr %18, align 8
+  %dec.i = add i64 %19, -1
+  store i64 %dec.i, ptr %18, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %19 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %19) #4
+  %20 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %20) #4
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -431,18 +435,18 @@ do.end:                                           ; preds = %Py_DECREF.exit
   br label %for.end
 
 if.end13:                                         ; preds = %for.body
-  %20 = load ptr, ptr %ids, align 8
-  %21 = load i64, ptr %i, align 8
-  %22 = load ptr, ptr %qidobj, align 8
-  call void @PyList_SET_ITEM(ptr noundef %20, i64 noundef %21, ptr noundef %22)
+  %21 = load ptr, ptr %ids, align 8
+  %22 = load i64, ptr %i, align 8
+  %23 = load ptr, ptr %qidobj, align 8
+  call void @PyList_SET_ITEM(ptr noundef %21, i64 noundef %22, ptr noundef %23)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13
-  %23 = load ptr, ptr %cur, align 8
-  %incdec.ptr = getelementptr i64, ptr %23, i32 1
+  %24 = load ptr, ptr %cur, align 8
+  %incdec.ptr = getelementptr i64, ptr %24, i32 1
   store ptr %incdec.ptr, ptr %cur, align 8
-  %24 = load i64, ptr %i, align 8
-  %inc = add i64 %24, 1
+  %25 = load i64, ptr %i, align 8
+  %inc = add i64 %25, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
@@ -450,15 +454,15 @@ for.end:                                          ; preds = %do.end, %for.cond
   br label %finally
 
 finally:                                          ; preds = %for.end, %if.then7
-  %25 = load ptr, ptr %qids, align 8
-  call void @PyMem_Free(ptr noundef %25)
-  %26 = load ptr, ptr %ids, align 8
-  store ptr %26, ptr %retval, align 8
+  %26 = load ptr, ptr %qids, align 8
+  call void @PyMem_Free(ptr noundef %26)
+  %27 = load ptr, ptr %ids, align 8
+  store ptr %27, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %finally, %if.end, %if.then2
-  %27 = load ptr, ptr %retval, align 8
-  ret ptr %27
+  %28 = load ptr, ptr %retval, align 8
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -491,12 +495,13 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %qid, align 8
   %3 = load i64, ptr %qid, align 8
   %4 = load ptr, ptr %obj, align 8
-  %call1 = call i32 @queue_put(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3, ptr noundef %4)
+  %5 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_put(ptr noundef %5, i64 noundef %3, ptr noundef %4)
   store i32 %call1, ptr %err, align 4
-  %5 = load i32, ptr %err, align 4
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
+  %6 = load i32, ptr %err, align 4
+  %7 = load ptr, ptr %self.addr, align 8
+  %8 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %6, ptr noundef %7, i64 noundef %8)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -509,8 +514,8 @@ if.end5:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -545,28 +550,29 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %qid, align 8
   store ptr null, ptr %obj, align 8
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @queue_get(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3, ptr noundef %obj)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_get(ptr noundef %4, i64 noundef %3, ptr noundef %obj)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %4, -21
+  %5 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %5, -21
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %5 = load ptr, ptr %dflt, align 8
-  %cmp2 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %dflt, align 8
+  %cmp2 = icmp ne ptr %6, null
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %land.lhs.true
-  %6 = load ptr, ptr %dflt, align 8
-  %call4 = call ptr @_Py_NewRef(ptr noundef %6)
+  %7 = load ptr, ptr %dflt, align 8
+  %call4 = call ptr @_Py_NewRef(ptr noundef %7)
   store ptr %call4, ptr %obj, align 8
   br label %if.end9
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %7 = load i32, ptr %err, align 4
-  %8 = load ptr, ptr %self.addr, align 8
-  %9 = load i64, ptr %qid, align 8
-  %call5 = call i32 @handle_queue_error(i32 noundef %7, ptr noundef %8, i64 noundef %9)
+  %8 = load i32, ptr %err, align 4
+  %9 = load ptr, ptr %self.addr, align 8
+  %10 = load i64, ptr %qid, align 8
+  %call5 = call i32 @handle_queue_error(i32 noundef %8, ptr noundef %9, i64 noundef %10)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.end8
 
@@ -578,13 +584,13 @@ if.end8:                                          ; preds = %if.else
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %if.then3
-  %10 = load ptr, ptr %obj, align 8
-  store ptr %10, ptr %retval, align 8
+  %11 = load ptr, ptr %obj, align 8
+  store ptr %11, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then7, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %retval, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -615,12 +621,13 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %id, align 8
   store i64 %2, ptr %qid, align 8
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @_queues_incref(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @_queues_incref(ptr noundef %4, i64 noundef %3)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr %err, align 4
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -633,8 +640,8 @@ if.end5:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -664,13 +671,14 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %id, align 8
   store i64 %2, ptr %qid, align 8
   %3 = load i64, ptr %qid, align 8
-  call void @_queues_decref(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_queues_decref(ptr noundef %4, i64 noundef %3)
   store ptr @_Py_NoneStruct, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+  %5 = load ptr, ptr %retval, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -703,12 +711,13 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %qid, align 8
   store i64 -1, ptr %maxsize, align 8
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @queue_get_maxsize(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3, ptr noundef %maxsize)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_get_maxsize(ptr noundef %4, i64 noundef %3, ptr noundef %maxsize)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr %err, align 4
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -717,14 +726,14 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %7 = load i64, ptr %maxsize, align 8
-  %call6 = call ptr @PyLong_FromLongLong(i64 noundef %7)
+  %8 = load i64, ptr %maxsize, align 8
+  %call6 = call ptr @PyLong_FromLongLong(i64 noundef %8)
   store ptr %call6, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -757,12 +766,13 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %qid, align 8
   store i32 0, ptr %is_full, align 4
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @queue_is_full(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3, ptr noundef %is_full)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_is_full(ptr noundef %4, i64 noundef %3, ptr noundef %is_full)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr %err, align 4
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -771,8 +781,8 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %7 = load i32, ptr %is_full, align 4
-  %tobool6 = icmp ne i32 %7, 0
+  %8 = load i32, ptr %is_full, align 4
+  %tobool6 = icmp ne i32 %8, 0
   br i1 %tobool6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
@@ -784,8 +794,8 @@ if.end8:                                          ; preds = %if.end5
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7, %if.then4, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -818,12 +828,13 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %qid, align 8
   store i64 -1, ptr %count, align 8
   %3 = load i64, ptr %qid, align 8
-  %call1 = call i32 @queue_get_count(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3, ptr noundef %count)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call1 = call i32 @queue_get_count(ptr noundef %4, i64 noundef %3, ptr noundef %count)
   store i32 %call1, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i64, ptr %qid, align 8
-  %call2 = call i32 @handle_queue_error(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr %err, align 4
+  %6 = load ptr, ptr %self.addr, align 8
+  %7 = load i64, ptr %qid, align 8
+  %call2 = call i32 @handle_queue_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -832,14 +843,14 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %7 = load i64, ptr %count, align 8
-  %call6 = call ptr @PyLong_FromSsize_t(i64 noundef %7)
+  %8 = load i64, ptr %count, align 8
+  %call6 = call ptr @PyLong_FromSsize_t(i64 noundef %8)
   store ptr %call6, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3675,7 +3686,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @_get_global_queues() #0 {
 entry:
-  ret ptr getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1)
+  %0 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3913,13 +3925,14 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %3 = load ptr, ptr %mutex, align 8
-  call void @_queues_init(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), ptr noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_queues_init(ptr noundef %4, ptr noundef %3)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4028,7 +4041,8 @@ if.end:                                           ; preds = %entry
   %call = call i64 @PyInterpreterState_GetID(ptr noundef %2)
   store i64 %call, ptr %interpid, align 8
   %3 = load i64, ptr %interpid, align 8
-  call void @_queues_clear_interpreter(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_queues_clear_interpreter(ptr noundef %4, i64 noundef %3)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -4049,7 +4063,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_queues_fini(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1))
+  %2 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_queues_fini(ptr noundef %2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

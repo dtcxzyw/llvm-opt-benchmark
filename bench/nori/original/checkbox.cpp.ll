@@ -143,56 +143,57 @@ define hidden void @_ZN7nanogui8CheckBoxC2EPNS_6WidgetERKNSt7__cxx1112basic_stri
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8CheckBoxE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %15 unwind label %22
+  %13 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui8CheckBoxE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %16 unwind label %23
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 2
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 3
-  store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 4
-  %19 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt8functionIFvbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %20 unwind label %26
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 2
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 3
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %11, i32 0, i32 4
+  %20 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt8functionIFvbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %21 unwind label %27
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds %"class.nanogui::Widget", ptr %11, i32 0, i32 16
-  store float 0x3FF3333340000000, ptr %21, align 4
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds %"class.nanogui::Widget", ptr %11, i32 0, i32 16
+  store float 0x3FF3333340000000, ptr %22, align 4
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %9, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %10, align 4
-  br label %30
-
-26:                                               ; preds = %15
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %9, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %11) #11
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %9, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %10, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %10, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #11
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %11) #11
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
@@ -978,11 +979,12 @@ define linkonce_odr hidden void @_ZN7nanogui8CheckBoxD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8CheckBoxE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %3, i32 0, i32 4
-  call void @_ZNSt8functionIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %5 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui8CheckBoxE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %3, i32 0, i32 4
+  call void @_ZNSt8functionIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %6 = getelementptr inbounds %"class.nanogui::CheckBox", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11
   ret void
 }

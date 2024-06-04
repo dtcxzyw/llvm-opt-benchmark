@@ -1033,7 +1033,7 @@ define hidden void @dasm_put(ptr noundef %0, i32 noundef %1, ...) #0 {
   %113 = getelementptr inbounds i32, ptr %109, i64 %112
   store i32 %108, ptr %113, align 4
   %114 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %114)
+  call void @llvm.va_start.p0(ptr %114)
   br label %115
 
 115:                                              ; preds = %472, %276, %104
@@ -1647,7 +1647,7 @@ define hidden void @dasm_put(ptr noundef %0, i32 noundef %1, ...) #0 {
 
 473:                                              ; preds = %470
   %474 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %474)
+  call void @llvm.va_end.p0(ptr %474)
   %475 = load i32, ptr %9, align 4
   %476 = load ptr, ptr %8, align 8
   %477 = getelementptr inbounds %struct.dasm_Section, ptr %476, i32 0, i32 3
@@ -1658,12 +1658,6 @@ define hidden void @dasm_put(ptr noundef %0, i32 noundef %1, ...) #0 {
   store i32 %478, ptr %480, align 8
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dasm_link(ptr noundef %0, ptr noundef %1) #0 {
@@ -4929,7 +4923,7 @@ define internal i32 @ir_add_const_tmp_reg(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ir_get_args_regs(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -79713,7 +79707,7 @@ define internal void @ir_emit_alloca(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %42
-  br label %319
+  br label %323
 
 55:                                               ; preds = %42
   %56 = load ptr, ptr %6, align 8
@@ -79721,7 +79715,7 @@ define internal void @ir_emit_alloca(ptr noundef %0, i32 noundef %1, ptr noundef
   %58 = getelementptr inbounds %struct.anon.7, ptr %57, i32 0, i32 0
   %59 = load i32, ptr %58, align 8
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %61, label %119
+  br i1 %60, label %61, label %120
 
 61:                                               ; preds = %55
   %62 = load ptr, ptr %4, align 8
@@ -79761,372 +79755,376 @@ define internal void @ir_emit_alloca(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %88
 
 88:                                               ; preds = %84, %80
-  %89 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %90 = zext i8 %89 to i32
-  switch i32 %90, label %91 [
-    i32 1, label %92
-    i32 2, label %96
-    i32 4, label %100
-    i32 8, label %103
+  %89 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  switch i32 %91, label %92 [
+    i32 1, label %93
+    i32 2, label %97
+    i32 4, label %101
+    i32 8, label %104
   ]
 
-91:                                               ; preds = %88
-  br label %92
+92:                                               ; preds = %88
+  br label %93
 
-92:                                               ; preds = %91, %88
-  %93 = load ptr, ptr %8, align 8
-  %94 = load i32, ptr %11, align 4
-  %95 = and i32 %94, 255
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %93, i32 noundef 2476, i32 noundef 4, i32 noundef %95)
-  br label %106
+93:                                               ; preds = %92, %88
+  %94 = load ptr, ptr %8, align 8
+  %95 = load i32, ptr %11, align 4
+  %96 = and i32 %95, 255
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %94, i32 noundef 2476, i32 noundef 4, i32 noundef %96)
+  br label %107
 
-96:                                               ; preds = %88
-  %97 = load ptr, ptr %8, align 8
-  %98 = load i32, ptr %11, align 4
-  %99 = and i32 %98, 65535
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %97, i32 noundef 2483, i32 noundef 4, i32 noundef %99)
-  br label %106
+97:                                               ; preds = %88
+  %98 = load ptr, ptr %8, align 8
+  %99 = load i32, ptr %11, align 4
+  %100 = and i32 %99, 65535
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %98, i32 noundef 2483, i32 noundef 4, i32 noundef %100)
+  br label %107
 
-100:                                              ; preds = %88
-  %101 = load ptr, ptr %8, align 8
-  %102 = load i32, ptr %11, align 4
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %101, i32 noundef 2491, i32 noundef 4, i32 noundef %102)
-  br label %106
+101:                                              ; preds = %88
+  %102 = load ptr, ptr %8, align 8
+  %103 = load i32, ptr %11, align 4
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %102, i32 noundef 2491, i32 noundef 4, i32 noundef %103)
+  br label %107
 
-103:                                              ; preds = %88
-  %104 = load ptr, ptr %8, align 8
-  %105 = load i32, ptr %11, align 4
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %104, i32 noundef 2251, i32 noundef 4, i32 noundef %105)
-  br label %106
+104:                                              ; preds = %88
+  %105 = load ptr, ptr %8, align 8
+  %106 = load i32, ptr %11, align 4
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %105, i32 noundef 2251, i32 noundef 4, i32 noundef %106)
+  br label %107
 
-106:                                              ; preds = %103, %100, %96, %92
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct._ir_ctx, ptr %107, i32 0, i32 5
-  %109 = load i32, ptr %108, align 8
-  %110 = and i32 %109, 512
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %118, label %112
+107:                                              ; preds = %104, %101, %97, %93
+  %108 = load ptr, ptr %4, align 8
+  %109 = getelementptr inbounds %struct._ir_ctx, ptr %108, i32 0, i32 5
+  %110 = load i32, ptr %109, align 8
+  %111 = and i32 %110, 512
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %119, label %113
 
-112:                                              ; preds = %106
-  %113 = load i32, ptr %11, align 4
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct._ir_ctx, ptr %114, i32 0, i32 44
-  %116 = load i32, ptr %115, align 8
-  %117 = add nsw i32 %116, %113
-  store i32 %117, ptr %115, align 8
-  br label %118
+113:                                              ; preds = %107
+  %114 = load i32, ptr %11, align 4
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds %struct._ir_ctx, ptr %115, i32 0, i32 44
+  %117 = load i32, ptr %116, align 8
+  %118 = add nsw i32 %117, %114
+  store i32 %118, ptr %116, align 8
+  br label %119
 
-118:                                              ; preds = %112, %106
-  br label %285
+119:                                              ; preds = %113, %107
+  br label %289
 
-119:                                              ; preds = %55
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct._ir_ctx, ptr %120, i32 0, i32 6
-  %122 = load i32, ptr %121, align 4
-  %123 = and i32 %122, 8
-  %124 = icmp ne i32 %123, 0
-  %125 = select i1 %124, i32 16, i32 8
-  store i32 %125, ptr %12, align 4
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct._ir_ctx, ptr %126, i32 0, i32 37
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %5, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds [4 x i8], ptr %128, i64 %130
-  %132 = getelementptr inbounds [4 x i8], ptr %131, i64 0, i64 2
-  %133 = load i8, ptr %132, align 1
-  store i8 %133, ptr %13, align 1
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct._ir_ctx, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct._ir_insn, ptr %137, i32 0, i32 1
-  %139 = getelementptr inbounds %struct.anon.7, ptr %138, i32 0, i32 0
-  %140 = load i32, ptr %139, align 8
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds %struct._ir_insn, ptr %136, i64 %141
-  %143 = getelementptr inbounds %struct._ir_insn, ptr %142, i32 0, i32 0
-  %144 = getelementptr inbounds %struct.anon, ptr %143, i32 0, i32 0
-  %145 = getelementptr inbounds %struct.anon.1, ptr %144, i32 0, i32 0
-  %146 = getelementptr inbounds %struct.anon.3, ptr %145, i32 0, i32 1
-  %147 = load i8, ptr %146, align 1
-  %148 = zext i8 %147 to i32
-  store i32 %148, ptr %14, align 4
-  %149 = load i8, ptr %13, align 1
-  %150 = sext i8 %149 to i32
-  %151 = icmp ne i32 %150, -1
-  br i1 %151, label %152, label %176
+120:                                              ; preds = %55
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds %struct._ir_ctx, ptr %121, i32 0, i32 6
+  %123 = load i32, ptr %122, align 4
+  %124 = and i32 %123, 8
+  %125 = icmp ne i32 %124, 0
+  %126 = select i1 %125, i32 16, i32 8
+  store i32 %126, ptr %12, align 4
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds %struct._ir_ctx, ptr %127, i32 0, i32 37
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i32, ptr %5, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds [4 x i8], ptr %129, i64 %131
+  %133 = getelementptr inbounds [4 x i8], ptr %132, i64 0, i64 2
+  %134 = load i8, ptr %133, align 1
+  store i8 %134, ptr %13, align 1
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds %struct._ir_ctx, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = getelementptr inbounds %struct._ir_insn, ptr %138, i32 0, i32 1
+  %140 = getelementptr inbounds %struct.anon.7, ptr %139, i32 0, i32 0
+  %141 = load i32, ptr %140, align 8
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct._ir_insn, ptr %137, i64 %142
+  %144 = getelementptr inbounds %struct._ir_insn, ptr %143, i32 0, i32 0
+  %145 = getelementptr inbounds %struct.anon, ptr %144, i32 0, i32 0
+  %146 = getelementptr inbounds %struct.anon.1, ptr %145, i32 0, i32 0
+  %147 = getelementptr inbounds %struct.anon.3, ptr %146, i32 0, i32 1
+  %148 = load i8, ptr %147, align 1
+  %149 = zext i8 %148 to i32
+  store i32 %149, ptr %14, align 4
+  %150 = load i8, ptr %13, align 1
+  %151 = sext i8 %150 to i32
+  %152 = icmp ne i32 %151, -1
+  br i1 %152, label %153, label %177
 
-152:                                              ; preds = %119
-  %153 = load i8, ptr %13, align 1
-  %154 = sext i8 %153 to i32
-  %155 = and i32 %154, 192
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %176
+153:                                              ; preds = %120
+  %154 = load i8, ptr %13, align 1
+  %155 = sext i8 %154 to i32
+  %156 = and i32 %155, 192
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %177
 
-157:                                              ; preds = %152
-  %158 = load i8, ptr %13, align 1
-  %159 = sext i8 %158 to i32
-  %160 = icmp eq i32 %159, -1
-  br i1 %160, label %161, label %162
+158:                                              ; preds = %153
+  %159 = load i8, ptr %13, align 1
+  %160 = sext i8 %159 to i32
+  %161 = icmp eq i32 %160, -1
+  br i1 %161, label %162, label %163
 
-161:                                              ; preds = %157
-  br label %166
+162:                                              ; preds = %158
+  br label %167
 
-162:                                              ; preds = %157
-  %163 = load i8, ptr %13, align 1
-  %164 = sext i8 %163 to i32
-  %165 = and i32 %164, -193
-  br label %166
+163:                                              ; preds = %158
+  %164 = load i8, ptr %13, align 1
+  %165 = sext i8 %164 to i32
+  %166 = and i32 %165, -193
+  br label %167
 
-166:                                              ; preds = %162, %161
-  %167 = phi i32 [ -1, %161 ], [ %165, %162 ]
-  %168 = trunc i32 %167 to i8
-  store i8 %168, ptr %13, align 1
-  %169 = load ptr, ptr %4, align 8
-  %170 = load i32, ptr %14, align 4
-  %171 = load i8, ptr %13, align 1
-  %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct._ir_insn, ptr %172, i32 0, i32 1
-  %174 = getelementptr inbounds %struct.anon.7, ptr %173, i32 0, i32 0
-  %175 = load i32, ptr %174, align 8
-  call void @ir_emit_load(ptr noundef %169, i32 noundef %170, i8 noundef signext %171, i32 noundef %175)
-  br label %176
+167:                                              ; preds = %163, %162
+  %168 = phi i32 [ -1, %162 ], [ %166, %163 ]
+  %169 = trunc i32 %168 to i8
+  store i8 %169, ptr %13, align 1
+  %170 = load ptr, ptr %4, align 8
+  %171 = load i32, ptr %14, align 4
+  %172 = load i8, ptr %13, align 1
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds %struct._ir_insn, ptr %173, i32 0, i32 1
+  %175 = getelementptr inbounds %struct.anon.7, ptr %174, i32 0, i32 0
+  %176 = load i32, ptr %175, align 8
+  call void @ir_emit_load(ptr noundef %170, i32 noundef %171, i8 noundef signext %172, i32 noundef %176)
+  br label %177
 
-176:                                              ; preds = %166, %152, %119
-  %177 = load i8, ptr %9, align 1
-  %178 = sext i8 %177 to i32
-  %179 = load i8, ptr %13, align 1
-  %180 = sext i8 %179 to i32
-  %181 = icmp ne i32 %178, %180
-  br i1 %181, label %182, label %200
+177:                                              ; preds = %167, %153, %120
+  %178 = load i8, ptr %9, align 1
+  %179 = sext i8 %178 to i32
+  %180 = load i8, ptr %13, align 1
+  %181 = sext i8 %180 to i32
+  %182 = icmp ne i32 %179, %181
+  br i1 %182, label %183, label %201
 
-182:                                              ; preds = %176
-  %183 = load i8, ptr %13, align 1
-  %184 = sext i8 %183 to i32
-  %185 = icmp ne i32 %184, -1
-  br i1 %185, label %186, label %191
+183:                                              ; preds = %177
+  %184 = load i8, ptr %13, align 1
+  %185 = sext i8 %184 to i32
+  %186 = icmp ne i32 %185, -1
+  br i1 %186, label %187, label %192
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr %4, align 8
-  %188 = load i32, ptr %14, align 4
-  %189 = load i8, ptr %9, align 1
-  %190 = load i8, ptr %13, align 1
-  call void @ir_emit_mov(ptr noundef %187, i32 noundef %188, i8 noundef signext %189, i8 noundef signext %190)
-  br label %199
-
-191:                                              ; preds = %182
-  %192 = load ptr, ptr %4, align 8
-  %193 = load i32, ptr %14, align 4
-  %194 = load i8, ptr %9, align 1
-  %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds %struct._ir_insn, ptr %195, i32 0, i32 1
-  %197 = getelementptr inbounds %struct.anon.7, ptr %196, i32 0, i32 0
-  %198 = load i32, ptr %197, align 8
-  call void @ir_emit_load(ptr noundef %192, i32 noundef %193, i8 noundef signext %194, i32 noundef %198)
-  br label %199
-
-199:                                              ; preds = %191, %186
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %4, align 8
+  %189 = load i32, ptr %14, align 4
+  %190 = load i8, ptr %9, align 1
+  %191 = load i8, ptr %13, align 1
+  call void @ir_emit_mov(ptr noundef %188, i32 noundef %189, i8 noundef signext %190, i8 noundef signext %191)
   br label %200
 
-200:                                              ; preds = %199, %176
-  %201 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %202 = zext i8 %201 to i32
-  switch i32 %202, label %203 [
-    i32 1, label %204
-    i32 2, label %211
-    i32 4, label %218
-    i32 8, label %224
+192:                                              ; preds = %183
+  %193 = load ptr, ptr %4, align 8
+  %194 = load i32, ptr %14, align 4
+  %195 = load i8, ptr %9, align 1
+  %196 = load ptr, ptr %6, align 8
+  %197 = getelementptr inbounds %struct._ir_insn, ptr %196, i32 0, i32 1
+  %198 = getelementptr inbounds %struct.anon.7, ptr %197, i32 0, i32 0
+  %199 = load i32, ptr %198, align 8
+  call void @ir_emit_load(ptr noundef %193, i32 noundef %194, i8 noundef signext %195, i32 noundef %199)
+  br label %200
+
+200:                                              ; preds = %192, %187
+  br label %201
+
+201:                                              ; preds = %200, %177
+  %202 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %203 = load i8, ptr %202, align 1
+  %204 = zext i8 %203 to i32
+  switch i32 %204, label %205 [
+    i32 1, label %206
+    i32 2, label %213
+    i32 4, label %220
+    i32 8, label %226
   ]
 
-203:                                              ; preds = %200
-  br label %204
+205:                                              ; preds = %201
+  br label %206
 
-204:                                              ; preds = %203, %200
-  %205 = load ptr, ptr %8, align 8
-  %206 = load i8, ptr %9, align 1
-  %207 = sext i8 %206 to i32
-  %208 = load i32, ptr %12, align 4
-  %209 = sub nsw i32 %208, 1
-  %210 = and i32 %209, 255
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %205, i32 noundef 2454, i32 noundef %207, i32 noundef %210)
-  br label %230
+206:                                              ; preds = %205, %201
+  %207 = load ptr, ptr %8, align 8
+  %208 = load i8, ptr %9, align 1
+  %209 = sext i8 %208 to i32
+  %210 = load i32, ptr %12, align 4
+  %211 = sub nsw i32 %210, 1
+  %212 = and i32 %211, 255
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %207, i32 noundef 2454, i32 noundef %209, i32 noundef %212)
+  br label %232
 
-211:                                              ; preds = %200
-  %212 = load ptr, ptr %8, align 8
-  %213 = load i8, ptr %9, align 1
-  %214 = sext i8 %213 to i32
-  %215 = load i32, ptr %12, align 4
-  %216 = sub nsw i32 %215, 1
-  %217 = and i32 %216, 65535
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %212, i32 noundef 2461, i32 noundef %214, i32 noundef %217)
-  br label %230
+213:                                              ; preds = %201
+  %214 = load ptr, ptr %8, align 8
+  %215 = load i8, ptr %9, align 1
+  %216 = sext i8 %215 to i32
+  %217 = load i32, ptr %12, align 4
+  %218 = sub nsw i32 %217, 1
+  %219 = and i32 %218, 65535
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %214, i32 noundef 2461, i32 noundef %216, i32 noundef %219)
+  br label %232
 
-218:                                              ; preds = %200
-  %219 = load ptr, ptr %8, align 8
-  %220 = load i8, ptr %9, align 1
-  %221 = sext i8 %220 to i32
-  %222 = load i32, ptr %12, align 4
-  %223 = sub nsw i32 %222, 1
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %219, i32 noundef 2469, i32 noundef %221, i32 noundef %223)
-  br label %230
+220:                                              ; preds = %201
+  %221 = load ptr, ptr %8, align 8
+  %222 = load i8, ptr %9, align 1
+  %223 = sext i8 %222 to i32
+  %224 = load i32, ptr %12, align 4
+  %225 = sub nsw i32 %224, 1
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %221, i32 noundef 2469, i32 noundef %223, i32 noundef %225)
+  br label %232
 
-224:                                              ; preds = %200
-  %225 = load ptr, ptr %8, align 8
-  %226 = load i8, ptr %9, align 1
-  %227 = sext i8 %226 to i32
-  %228 = load i32, ptr %12, align 4
-  %229 = sub nsw i32 %228, 1
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %225, i32 noundef 2328, i32 noundef %227, i32 noundef %229)
-  br label %230
+226:                                              ; preds = %201
+  %227 = load ptr, ptr %8, align 8
+  %228 = load i8, ptr %9, align 1
+  %229 = sext i8 %228 to i32
+  %230 = load i32, ptr %12, align 4
+  %231 = sub nsw i32 %230, 1
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %227, i32 noundef 2328, i32 noundef %229, i32 noundef %231)
+  br label %232
 
-230:                                              ; preds = %224, %218, %211, %204
-  %231 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %232 = zext i8 %231 to i32
-  switch i32 %232, label %233 [
-    i32 1, label %234
-    i32 2, label %242
-    i32 4, label %250
-    i32 8, label %257
+232:                                              ; preds = %226, %220, %213, %206
+  %233 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %234 = load i8, ptr %233, align 1
+  %235 = zext i8 %234 to i32
+  switch i32 %235, label %236 [
+    i32 1, label %237
+    i32 2, label %245
+    i32 4, label %253
+    i32 8, label %260
   ]
 
-233:                                              ; preds = %230
-  br label %234
+236:                                              ; preds = %232
+  br label %237
 
-234:                                              ; preds = %233, %230
-  %235 = load ptr, ptr %8, align 8
-  %236 = load i8, ptr %9, align 1
-  %237 = sext i8 %236 to i32
-  %238 = load i32, ptr %12, align 4
-  %239 = sub nsw i32 %238, 1
-  %240 = xor i32 %239, -1
-  %241 = and i32 %240, 255
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %235, i32 noundef 2555, i32 noundef %237, i32 noundef %241)
-  br label %264
+237:                                              ; preds = %236, %232
+  %238 = load ptr, ptr %8, align 8
+  %239 = load i8, ptr %9, align 1
+  %240 = sext i8 %239 to i32
+  %241 = load i32, ptr %12, align 4
+  %242 = sub nsw i32 %241, 1
+  %243 = xor i32 %242, -1
+  %244 = and i32 %243, 255
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %238, i32 noundef 2555, i32 noundef %240, i32 noundef %244)
+  br label %267
 
-242:                                              ; preds = %230
-  %243 = load ptr, ptr %8, align 8
-  %244 = load i8, ptr %9, align 1
-  %245 = sext i8 %244 to i32
-  %246 = load i32, ptr %12, align 4
-  %247 = sub nsw i32 %246, 1
-  %248 = xor i32 %247, -1
-  %249 = and i32 %248, 65535
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %243, i32 noundef 2562, i32 noundef %245, i32 noundef %249)
-  br label %264
+245:                                              ; preds = %232
+  %246 = load ptr, ptr %8, align 8
+  %247 = load i8, ptr %9, align 1
+  %248 = sext i8 %247 to i32
+  %249 = load i32, ptr %12, align 4
+  %250 = sub nsw i32 %249, 1
+  %251 = xor i32 %250, -1
+  %252 = and i32 %251, 65535
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %246, i32 noundef 2562, i32 noundef %248, i32 noundef %252)
+  br label %267
 
-250:                                              ; preds = %230
-  %251 = load ptr, ptr %8, align 8
-  %252 = load i8, ptr %9, align 1
-  %253 = sext i8 %252 to i32
-  %254 = load i32, ptr %12, align 4
-  %255 = sub nsw i32 %254, 1
-  %256 = xor i32 %255, -1
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %251, i32 noundef 2570, i32 noundef %253, i32 noundef %256)
-  br label %264
+253:                                              ; preds = %232
+  %254 = load ptr, ptr %8, align 8
+  %255 = load i8, ptr %9, align 1
+  %256 = sext i8 %255 to i32
+  %257 = load i32, ptr %12, align 4
+  %258 = sub nsw i32 %257, 1
+  %259 = xor i32 %258, -1
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %254, i32 noundef 2570, i32 noundef %256, i32 noundef %259)
+  br label %267
 
-257:                                              ; preds = %230
-  %258 = load ptr, ptr %8, align 8
-  %259 = load i8, ptr %9, align 1
-  %260 = sext i8 %259 to i32
-  %261 = load i32, ptr %12, align 4
-  %262 = sub nsw i32 %261, 1
-  %263 = xor i32 %262, -1
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %258, i32 noundef 2577, i32 noundef %260, i32 noundef %263)
-  br label %264
+260:                                              ; preds = %232
+  %261 = load ptr, ptr %8, align 8
+  %262 = load i8, ptr %9, align 1
+  %263 = sext i8 %262 to i32
+  %264 = load i32, ptr %12, align 4
+  %265 = sub nsw i32 %264, 1
+  %266 = xor i32 %265, -1
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %261, i32 noundef 2577, i32 noundef %263, i32 noundef %266)
+  br label %267
 
-264:                                              ; preds = %257, %250, %242, %234
-  %265 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %266 = zext i8 %265 to i32
-  switch i32 %266, label %267 [
-    i32 1, label %268
-    i32 2, label %272
-    i32 4, label %276
-    i32 8, label %280
+267:                                              ; preds = %260, %253, %245, %237
+  %268 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %269 = load i8, ptr %268, align 1
+  %270 = zext i8 %269 to i32
+  switch i32 %270, label %271 [
+    i32 1, label %272
+    i32 2, label %276
+    i32 4, label %280
+    i32 8, label %284
   ]
 
-267:                                              ; preds = %264
-  br label %268
+271:                                              ; preds = %267
+  br label %272
 
-268:                                              ; preds = %267, %264
-  %269 = load ptr, ptr %8, align 8
-  %270 = load i8, ptr %9, align 1
-  %271 = sext i8 %270 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %269, i32 noundef 2360, i32 noundef %271, i32 noundef 4)
-  br label %284
-
-272:                                              ; preds = %264
+272:                                              ; preds = %271, %267
   %273 = load ptr, ptr %8, align 8
   %274 = load i8, ptr %9, align 1
   %275 = sext i8 %274 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %273, i32 noundef 2368, i32 noundef %275, i32 noundef 4)
-  br label %284
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %273, i32 noundef 2360, i32 noundef %275, i32 noundef 4)
+  br label %288
 
-276:                                              ; preds = %264
+276:                                              ; preds = %267
   %277 = load ptr, ptr %8, align 8
   %278 = load i8, ptr %9, align 1
   %279 = sext i8 %278 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %277, i32 noundef 2369, i32 noundef %279, i32 noundef 4)
-  br label %284
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %277, i32 noundef 2368, i32 noundef %279, i32 noundef 4)
+  br label %288
 
-280:                                              ; preds = %264
+280:                                              ; preds = %267
   %281 = load ptr, ptr %8, align 8
   %282 = load i8, ptr %9, align 1
   %283 = sext i8 %282 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %281, i32 noundef 2377, i32 noundef %283, i32 noundef 4)
-  br label %284
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %281, i32 noundef 2369, i32 noundef %283, i32 noundef 4)
+  br label %288
 
-284:                                              ; preds = %280, %276, %272, %268
-  br label %285
-
-285:                                              ; preds = %284, %118
+284:                                              ; preds = %267
+  %285 = load ptr, ptr %8, align 8
   %286 = load i8, ptr %9, align 1
   %287 = sext i8 %286 to i32
-  %288 = icmp ne i32 %287, -1
-  br i1 %288, label %289, label %316
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %285, i32 noundef 2377, i32 noundef %287, i32 noundef 4)
+  br label %288
 
-289:                                              ; preds = %285
-  %290 = load ptr, ptr %8, align 8
-  %291 = load i8, ptr %9, align 1
-  %292 = sext i8 %291 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %290, i32 noundef 2140, i32 noundef 4, i32 noundef %292)
-  %293 = load ptr, ptr %4, align 8
-  %294 = getelementptr inbounds %struct._ir_ctx, ptr %293, i32 0, i32 37
-  %295 = load ptr, ptr %294, align 8
-  %296 = load i32, ptr %5, align 4
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds [4 x i8], ptr %295, i64 %297
-  %299 = getelementptr inbounds [4 x i8], ptr %298, i64 0, i64 0
-  %300 = load i8, ptr %299, align 1
-  %301 = sext i8 %300 to i32
-  %302 = and i32 %301, 192
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %304, label %315
+288:                                              ; preds = %284, %280, %276, %272
+  br label %289
 
-304:                                              ; preds = %289
-  %305 = load ptr, ptr %4, align 8
-  %306 = load ptr, ptr %6, align 8
-  %307 = getelementptr inbounds %struct._ir_insn, ptr %306, i32 0, i32 0
-  %308 = getelementptr inbounds %struct.anon, ptr %307, i32 0, i32 0
-  %309 = getelementptr inbounds %struct.anon.1, ptr %308, i32 0, i32 0
-  %310 = getelementptr inbounds %struct.anon.3, ptr %309, i32 0, i32 1
-  %311 = load i8, ptr %310, align 1
-  %312 = zext i8 %311 to i32
-  %313 = load i32, ptr %5, align 4
-  %314 = load i8, ptr %9, align 1
-  call void @ir_emit_store(ptr noundef %305, i32 noundef %312, i32 noundef %313, i8 noundef signext %314)
-  br label %315
+289:                                              ; preds = %288, %119
+  %290 = load i8, ptr %9, align 1
+  %291 = sext i8 %290 to i32
+  %292 = icmp ne i32 %291, -1
+  br i1 %292, label %293, label %320
 
-315:                                              ; preds = %304, %289
+293:                                              ; preds = %289
+  %294 = load ptr, ptr %8, align 8
+  %295 = load i8, ptr %9, align 1
+  %296 = sext i8 %295 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %294, i32 noundef 2140, i32 noundef 4, i32 noundef %296)
+  %297 = load ptr, ptr %4, align 8
+  %298 = getelementptr inbounds %struct._ir_ctx, ptr %297, i32 0, i32 37
+  %299 = load ptr, ptr %298, align 8
+  %300 = load i32, ptr %5, align 4
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds [4 x i8], ptr %299, i64 %301
+  %303 = getelementptr inbounds [4 x i8], ptr %302, i64 0, i64 0
+  %304 = load i8, ptr %303, align 1
+  %305 = sext i8 %304 to i32
+  %306 = and i32 %305, 192
+  %307 = icmp ne i32 %306, 0
+  br i1 %307, label %308, label %319
+
+308:                                              ; preds = %293
+  %309 = load ptr, ptr %4, align 8
+  %310 = load ptr, ptr %6, align 8
+  %311 = getelementptr inbounds %struct._ir_insn, ptr %310, i32 0, i32 0
+  %312 = getelementptr inbounds %struct.anon, ptr %311, i32 0, i32 0
+  %313 = getelementptr inbounds %struct.anon.1, ptr %312, i32 0, i32 0
+  %314 = getelementptr inbounds %struct.anon.3, ptr %313, i32 0, i32 1
+  %315 = load i8, ptr %314, align 1
+  %316 = zext i8 %315 to i32
+  %317 = load i32, ptr %5, align 4
+  %318 = load i8, ptr %9, align 1
+  call void @ir_emit_store(ptr noundef %309, i32 noundef %316, i32 noundef %317, i8 noundef signext %318)
   br label %319
 
-316:                                              ; preds = %285
-  %317 = load ptr, ptr %4, align 8
-  %318 = load i32, ptr %5, align 4
-  call void @ir_emit_store(ptr noundef %317, i32 noundef 6, i32 noundef %318, i8 noundef signext 4)
-  br label %319
+319:                                              ; preds = %308, %293
+  br label %323
 
-319:                                              ; preds = %316, %315, %54
+320:                                              ; preds = %289
+  %321 = load ptr, ptr %4, align 8
+  %322 = load i32, ptr %5, align 4
+  call void @ir_emit_store(ptr noundef %321, i32 noundef 6, i32 noundef %322, i8 noundef signext 4)
+  br label %323
+
+323:                                              ; preds = %320, %319, %54
   ret void
 }
 
@@ -80687,7 +80685,7 @@ define internal void @ir_emit_afree(ptr noundef %0, i32 noundef %1, ptr noundef 
   %20 = getelementptr inbounds %struct.anon.7, ptr %19, i32 0, i32 0
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %81
+  br i1 %22, label %23, label %82
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %4, align 8
@@ -80727,176 +80725,178 @@ define internal void @ir_emit_afree(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %50
 
 50:                                               ; preds = %46, %42
-  %51 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %52 = zext i8 %51 to i32
-  switch i32 %52, label %53 [
-    i32 1, label %54
-    i32 2, label %58
-    i32 4, label %62
-    i32 8, label %65
+  %51 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  switch i32 %53, label %54 [
+    i32 1, label %55
+    i32 2, label %59
+    i32 4, label %63
+    i32 8, label %66
   ]
 
-53:                                               ; preds = %50
-  br label %54
+54:                                               ; preds = %50
+  br label %55
 
-54:                                               ; preds = %53, %50
-  %55 = load ptr, ptr %8, align 8
-  %56 = load i32, ptr %10, align 4
-  %57 = and i32 %56, 255
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %55, i32 noundef 2454, i32 noundef 4, i32 noundef %57)
-  br label %68
+55:                                               ; preds = %54, %50
+  %56 = load ptr, ptr %8, align 8
+  %57 = load i32, ptr %10, align 4
+  %58 = and i32 %57, 255
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %56, i32 noundef 2454, i32 noundef 4, i32 noundef %58)
+  br label %69
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr %10, align 4
-  %61 = and i32 %60, 65535
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %59, i32 noundef 2461, i32 noundef 4, i32 noundef %61)
-  br label %68
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr %10, align 4
+  %62 = and i32 %61, 65535
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %60, i32 noundef 2461, i32 noundef 4, i32 noundef %62)
+  br label %69
 
-62:                                               ; preds = %50
-  %63 = load ptr, ptr %8, align 8
-  %64 = load i32, ptr %10, align 4
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %63, i32 noundef 2469, i32 noundef 4, i32 noundef %64)
-  br label %68
+63:                                               ; preds = %50
+  %64 = load ptr, ptr %8, align 8
+  %65 = load i32, ptr %10, align 4
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %64, i32 noundef 2469, i32 noundef 4, i32 noundef %65)
+  br label %69
 
-65:                                               ; preds = %50
-  %66 = load ptr, ptr %8, align 8
-  %67 = load i32, ptr %10, align 4
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %66, i32 noundef 2328, i32 noundef 4, i32 noundef %67)
-  br label %68
+66:                                               ; preds = %50
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr %10, align 4
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %67, i32 noundef 2328, i32 noundef 4, i32 noundef %68)
+  br label %69
 
-68:                                               ; preds = %65, %62, %58, %54
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct._ir_ctx, ptr %69, i32 0, i32 5
-  %71 = load i32, ptr %70, align 8
-  %72 = and i32 %71, 512
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %80, label %74
+69:                                               ; preds = %66, %63, %59, %55
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %struct._ir_ctx, ptr %70, i32 0, i32 5
+  %72 = load i32, ptr %71, align 8
+  %73 = and i32 %72, 512
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %81, label %75
 
-74:                                               ; preds = %68
-  %75 = load i32, ptr %10, align 4
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct._ir_ctx, ptr %76, i32 0, i32 44
-  %78 = load i32, ptr %77, align 8
-  %79 = sub nsw i32 %78, %75
-  store i32 %79, ptr %77, align 8
-  br label %80
+75:                                               ; preds = %69
+  %76 = load i32, ptr %10, align 4
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds %struct._ir_ctx, ptr %77, i32 0, i32 44
+  %79 = load i32, ptr %78, align 8
+  %80 = sub nsw i32 %79, %76
+  store i32 %80, ptr %78, align 8
+  br label %81
 
-80:                                               ; preds = %74, %68
-  br label %153
+81:                                               ; preds = %75, %69
+  br label %155
 
-81:                                               ; preds = %3
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct._ir_ctx, ptr %82, i32 0, i32 37
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %5, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [4 x i8], ptr %84, i64 %86
-  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 0, i64 2
-  %89 = load i8, ptr %88, align 1
-  store i8 %89, ptr %11, align 1
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct._ir_ctx, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct._ir_insn, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.anon.7, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr %95, align 8
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct._ir_insn, ptr %92, i64 %97
-  %99 = getelementptr inbounds %struct._ir_insn, ptr %98, i32 0, i32 0
-  %100 = getelementptr inbounds %struct.anon, ptr %99, i32 0, i32 0
-  %101 = getelementptr inbounds %struct.anon.1, ptr %100, i32 0, i32 0
-  %102 = getelementptr inbounds %struct.anon.3, ptr %101, i32 0, i32 1
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  store i32 %104, ptr %12, align 4
-  %105 = load i8, ptr %11, align 1
-  %106 = sext i8 %105 to i32
-  %107 = icmp ne i32 %106, -1
-  br i1 %107, label %108, label %132
+82:                                               ; preds = %3
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct._ir_ctx, ptr %83, i32 0, i32 37
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %5, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [4 x i8], ptr %85, i64 %87
+  %89 = getelementptr inbounds [4 x i8], ptr %88, i64 0, i64 2
+  %90 = load i8, ptr %89, align 1
+  store i8 %90, ptr %11, align 1
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds %struct._ir_ctx, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds %struct._ir_insn, ptr %94, i32 0, i32 1
+  %96 = getelementptr inbounds %struct.anon.7, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds %struct._ir_insn, ptr %93, i64 %98
+  %100 = getelementptr inbounds %struct._ir_insn, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds %struct.anon, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds %struct.anon.1, ptr %101, i32 0, i32 0
+  %103 = getelementptr inbounds %struct.anon.3, ptr %102, i32 0, i32 1
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  store i32 %105, ptr %12, align 4
+  %106 = load i8, ptr %11, align 1
+  %107 = sext i8 %106 to i32
+  %108 = icmp ne i32 %107, -1
+  br i1 %108, label %109, label %133
 
-108:                                              ; preds = %81
-  %109 = load i8, ptr %11, align 1
-  %110 = sext i8 %109 to i32
-  %111 = and i32 %110, 192
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %132
+109:                                              ; preds = %82
+  %110 = load i8, ptr %11, align 1
+  %111 = sext i8 %110 to i32
+  %112 = and i32 %111, 192
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %133
 
-113:                                              ; preds = %108
-  %114 = load i8, ptr %11, align 1
-  %115 = sext i8 %114 to i32
-  %116 = icmp eq i32 %115, -1
-  br i1 %116, label %117, label %118
+114:                                              ; preds = %109
+  %115 = load i8, ptr %11, align 1
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %116, -1
+  br i1 %117, label %118, label %119
 
-117:                                              ; preds = %113
-  br label %122
+118:                                              ; preds = %114
+  br label %123
 
-118:                                              ; preds = %113
-  %119 = load i8, ptr %11, align 1
-  %120 = sext i8 %119 to i32
-  %121 = and i32 %120, -193
-  br label %122
+119:                                              ; preds = %114
+  %120 = load i8, ptr %11, align 1
+  %121 = sext i8 %120 to i32
+  %122 = and i32 %121, -193
+  br label %123
 
-122:                                              ; preds = %118, %117
-  %123 = phi i32 [ -1, %117 ], [ %121, %118 ]
-  %124 = trunc i32 %123 to i8
-  store i8 %124, ptr %11, align 1
-  %125 = load ptr, ptr %4, align 8
-  %126 = load i32, ptr %12, align 4
-  %127 = load i8, ptr %11, align 1
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct._ir_insn, ptr %128, i32 0, i32 1
-  %130 = getelementptr inbounds %struct.anon.7, ptr %129, i32 0, i32 0
-  %131 = load i32, ptr %130, align 8
-  call void @ir_emit_load(ptr noundef %125, i32 noundef %126, i8 noundef signext %127, i32 noundef %131)
-  br label %132
+123:                                              ; preds = %119, %118
+  %124 = phi i32 [ -1, %118 ], [ %122, %119 ]
+  %125 = trunc i32 %124 to i8
+  store i8 %125, ptr %11, align 1
+  %126 = load ptr, ptr %4, align 8
+  %127 = load i32, ptr %12, align 4
+  %128 = load i8, ptr %11, align 1
+  %129 = load ptr, ptr %6, align 8
+  %130 = getelementptr inbounds %struct._ir_insn, ptr %129, i32 0, i32 1
+  %131 = getelementptr inbounds %struct.anon.7, ptr %130, i32 0, i32 0
+  %132 = load i32, ptr %131, align 8
+  call void @ir_emit_load(ptr noundef %126, i32 noundef %127, i8 noundef signext %128, i32 noundef %132)
+  br label %133
 
-132:                                              ; preds = %122, %108, %81
-  %133 = load i8, ptr getelementptr inbounds ([14 x i8], ptr @ir_type_size, i64 0, i64 6), align 1
-  %134 = zext i8 %133 to i32
-  switch i32 %134, label %135 [
-    i32 1, label %136
-    i32 2, label %140
-    i32 4, label %144
-    i32 8, label %148
+133:                                              ; preds = %123, %109, %82
+  %134 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 6
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  switch i32 %136, label %137 [
+    i32 1, label %138
+    i32 2, label %142
+    i32 4, label %146
+    i32 8, label %150
   ]
 
-135:                                              ; preds = %132
-  br label %136
+137:                                              ; preds = %133
+  br label %138
 
-136:                                              ; preds = %135, %132
-  %137 = load ptr, ptr %8, align 8
-  %138 = load i8, ptr %11, align 1
-  %139 = sext i8 %138 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %137, i32 noundef 2335, i32 noundef %139, i32 noundef 4)
-  br label %152
+138:                                              ; preds = %137, %133
+  %139 = load ptr, ptr %8, align 8
+  %140 = load i8, ptr %11, align 1
+  %141 = sext i8 %140 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %139, i32 noundef 2335, i32 noundef %141, i32 noundef 4)
+  br label %154
 
-140:                                              ; preds = %132
-  %141 = load ptr, ptr %8, align 8
-  %142 = load i8, ptr %11, align 1
-  %143 = sext i8 %142 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %141, i32 noundef 2343, i32 noundef %143, i32 noundef 4)
-  br label %152
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %8, align 8
+  %144 = load i8, ptr %11, align 1
+  %145 = sext i8 %144 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %143, i32 noundef 2343, i32 noundef %145, i32 noundef 4)
+  br label %154
 
-144:                                              ; preds = %132
-  %145 = load ptr, ptr %8, align 8
-  %146 = load i8, ptr %11, align 1
-  %147 = sext i8 %146 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %145, i32 noundef 2344, i32 noundef %147, i32 noundef 4)
-  br label %152
+146:                                              ; preds = %133
+  %147 = load ptr, ptr %8, align 8
+  %148 = load i8, ptr %11, align 1
+  %149 = sext i8 %148 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %147, i32 noundef 2344, i32 noundef %149, i32 noundef 4)
+  br label %154
 
-148:                                              ; preds = %132
-  %149 = load ptr, ptr %8, align 8
-  %150 = load i8, ptr %11, align 1
-  %151 = sext i8 %150 to i32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %149, i32 noundef 2352, i32 noundef %151, i32 noundef 4)
-  br label %152
+150:                                              ; preds = %133
+  %151 = load ptr, ptr %8, align 8
+  %152 = load i8, ptr %11, align 1
+  %153 = sext i8 %152 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %151, i32 noundef 2352, i32 noundef %153, i32 noundef 4)
+  br label %154
 
-152:                                              ; preds = %148, %144, %140, %136
-  br label %153
+154:                                              ; preds = %150, %146, %142, %138
+  br label %155
 
-153:                                              ; preds = %152, %80
+155:                                              ; preds = %154, %81
   ret void
 }
 
@@ -83992,12 +83992,12 @@ define hidden i32 @ir_match(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) #7
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) #6
 
 declare void @ir_build_prev_refs(ptr noundef) #4
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #8
+declare i1 @llvm.is.constant.i64(i64) #7
 
 declare noalias ptr @_emalloc_8() #4
 
@@ -84060,13 +84060,13 @@ declare noalias ptr @_emalloc_2560() #4
 declare noalias ptr @_emalloc_3072() #4
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_large(i64 noundef) #9
+declare noalias ptr @_emalloc_large(i64 noundef) #8
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_huge(i64 noundef) #9
+declare noalias ptr @_emalloc_huge(i64 noundef) #8
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) #9
+declare noalias ptr @_emalloc(i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ir_match_insn(ptr noundef %0, i32 noundef %1) #0 {
@@ -91649,7 +91649,7 @@ define internal ptr @ir_sym_addr(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ir_call_used_stack(ptr noundef %0, ptr noundef %1) #0 {
@@ -110100,7 +110100,7 @@ define internal zeroext i1 @ir_may_avoid_spill_load(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 declare i32 @ir_hashtab_find(ptr noundef, i32 noundef) #4
 
@@ -114311,17 +114311,23 @@ define internal zeroext i1 @ir_match_try_revert_lea_to_add(ptr noundef %0, i32 n
   ret i1 %58
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { allocsize(1) }
 attributes #13 = { nounwind allocsize(0,1) }

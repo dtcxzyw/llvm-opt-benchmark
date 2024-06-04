@@ -13940,7 +13940,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %parser_buffer = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this3, i32 0, i32 1
   call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer) #3
   %parser_buffer_in_use = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this3, i32 0, i32 2
@@ -14025,7 +14026,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %parser_buffer = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -14942,7 +14944,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -14953,14 +14956,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -15015,7 +15018,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17019,9 +17023,11 @@ entry:
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %fields_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this3, i32 0, i32 3
   %array.begin = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin, i64 32
@@ -17063,8 +17069,8 @@ arrayctor.cont13:                                 ; preds = %arrayctor.loop9
   %header_nread_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this3, i32 0, i32 15
   store i64 0, ptr %header_nread_, align 8
   %binding_data_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this3, i32 0, i32 19
-  %3 = load ptr, ptr %binding_data.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_12_GLOBAL__N_111BindingDataELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %binding_data_, ptr noundef %3)
+  %5 = load ptr, ptr %binding_data.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_12_GLOBAL__N_111BindingDataELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %binding_data_, ptr noundef %5)
   ret void
 }
 
@@ -17166,7 +17172,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -17245,9 +17252,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %binding_data_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 19
   call void @_ZN4node17BaseObjectPtrImplINS_12_GLOBAL__N_111BindingDataELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %binding_data_) #3
   %status_message_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 6
@@ -17256,11 +17265,11 @@ entry:
   call void @_ZN4node12_GLOBAL__N_19StringPtrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %url_) #3
   %values_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 4
   %array.begin = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_, i32 0, i32 0
-  %0 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin, i64 32
+  %2 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin, i64 32
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %2, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN4node12_GLOBAL__N_19StringPtrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -17269,19 +17278,19 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
 arraydestroy.done2:                               ; preds = %arraydestroy.body
   %fields_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 3
   %array.begin3 = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_, i32 0, i32 0
-  %1 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin3, i64 32
+  %3 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin3, i64 32
   br label %arraydestroy.body4
 
 arraydestroy.body4:                               ; preds = %arraydestroy.body4, %arraydestroy.done2
-  %arraydestroy.elementPast5 = phi ptr [ %1, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
+  %arraydestroy.elementPast5 = phi ptr [ %3, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
   %arraydestroy.element6 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %arraydestroy.elementPast5, i64 -1
   call void @_ZN4node12_GLOBAL__N_19StringPtrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element6) #3
   %arraydestroy.done7 = icmp eq ptr %arraydestroy.element6, %array.begin3
   br i1 %arraydestroy.done7, label %arraydestroy.done8, label %arraydestroy.body4
 
 arraydestroy.done8:                               ; preds = %arraydestroy.body4
-  %2 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
+  %4 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   ret void
 }
@@ -23082,30 +23091,32 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv, %memptr.nonvirtual ]
-  %call2 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv, %memptr.nonvirtual ]
+  %call2 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2)
   store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %5, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %6 = load ptr, ptr %parser, align 8
-  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %6)
+  %8 = load ptr, ptr %parser, align 8
+  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
   store i32 %call3, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %7 = load i32, ptr %rv, align 4
-  ret i32 %7
+  %9 = load i32, ptr %rv, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23132,32 +23143,34 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser6on_urlEPKcm to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser6on_urlEPKcm to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser6on_urlEPKcm, %memptr.nonvirtual ]
-  %5 = load ptr, ptr %args.addr, align 8
-  %6 = load i64, ptr %args.addr2, align 8
-  %call4 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %5, i64 noundef %6)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser6on_urlEPKcm, %memptr.nonvirtual ]
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load i64, ptr %args.addr2, align 8
+  %call4 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %7, i64 noundef %8)
   store i32 %call4, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %7, 0
+  %9 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %8 = load ptr, ptr %parser, align 8
-  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
+  %10 = load ptr, ptr %parser, align 8
+  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %10)
   store i32 %call5, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %9 = load i32, ptr %rv, align 4
-  ret i32 %9
+  %11 = load i32, ptr %rv, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23184,32 +23197,34 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser9on_statusEPKcm to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser9on_statusEPKcm to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser9on_statusEPKcm, %memptr.nonvirtual ]
-  %5 = load ptr, ptr %args.addr, align 8
-  %6 = load i64, ptr %args.addr2, align 8
-  %call4 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %5, i64 noundef %6)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser9on_statusEPKcm, %memptr.nonvirtual ]
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load i64, ptr %args.addr2, align 8
+  %call4 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %7, i64 noundef %8)
   store i32 %call4, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %7, 0
+  %9 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %8 = load ptr, ptr %parser, align 8
-  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
+  %10 = load ptr, ptr %parser, align 8
+  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %10)
   store i32 %call5, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %9 = load i32, ptr %rv, align 4
-  ret i32 %9
+  %11 = load i32, ptr %rv, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23236,32 +23251,34 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser15on_header_fieldEPKcm to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser15on_header_fieldEPKcm to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_header_fieldEPKcm, %memptr.nonvirtual ]
-  %5 = load ptr, ptr %args.addr, align 8
-  %6 = load i64, ptr %args.addr2, align 8
-  %call4 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %5, i64 noundef %6)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_header_fieldEPKcm, %memptr.nonvirtual ]
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load i64, ptr %args.addr2, align 8
+  %call4 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %7, i64 noundef %8)
   store i32 %call4, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %7, 0
+  %9 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %8 = load ptr, ptr %parser, align 8
-  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
+  %10 = load ptr, ptr %parser, align 8
+  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %10)
   store i32 %call5, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %9 = load i32, ptr %rv, align 4
-  ret i32 %9
+  %11 = load i32, ptr %rv, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23288,32 +23305,34 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser15on_header_valueEPKcm to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser15on_header_valueEPKcm to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_header_valueEPKcm, %memptr.nonvirtual ]
-  %5 = load ptr, ptr %args.addr, align 8
-  %6 = load i64, ptr %args.addr2, align 8
-  %call4 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %5, i64 noundef %6)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_header_valueEPKcm, %memptr.nonvirtual ]
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load i64, ptr %args.addr2, align 8
+  %call4 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %7, i64 noundef %8)
   store i32 %call4, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %7, 0
+  %9 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %8 = load ptr, ptr %parser, align 8
-  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
+  %10 = load ptr, ptr %parser, align 8
+  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %10)
   store i32 %call5, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %9 = load i32, ptr %rv, align 4
-  ret i32 %9
+  %11 = load i32, ptr %rv, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23336,30 +23355,32 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv, %memptr.nonvirtual ]
-  %call2 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv, %memptr.nonvirtual ]
+  %call2 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2)
   store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %5, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %6 = load ptr, ptr %parser, align 8
-  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %6)
+  %8 = load ptr, ptr %parser, align 8
+  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
   store i32 %call3, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %7 = load i32, ptr %rv, align 4
-  ret i32 %7
+  %9 = load i32, ptr %rv, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23386,32 +23407,34 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm, %memptr.nonvirtual ]
-  %5 = load ptr, ptr %args.addr, align 8
-  %6 = load i64, ptr %args.addr2, align 8
-  %call4 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %5, i64 noundef %6)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm, %memptr.nonvirtual ]
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load i64, ptr %args.addr2, align 8
+  %call4 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2, ptr noundef %7, i64 noundef %8)
   store i32 %call4, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %7, 0
+  %9 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %8 = load ptr, ptr %parser, align 8
-  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
+  %10 = load ptr, ptr %parser, align 8
+  %call5 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %10)
   store i32 %call5, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %9 = load i32, ptr %rv, align 4
-  ret i32 %9
+  %11 = load i32, ptr %rv, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23434,30 +23457,32 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser19on_message_completeEv to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser19on_message_completeEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser19on_message_completeEv, %memptr.nonvirtual ]
-  %call2 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser19on_message_completeEv, %memptr.nonvirtual ]
+  %call2 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2)
   store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %5, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %6 = load ptr, ptr %parser, align 8
-  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %6)
+  %8 = load ptr, ptr %parser, align 8
+  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
   store i32 %call3, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %7 = load i32, ptr %rv, align 4
-  ret i32 %7
+  %9 = load i32, ptr %rv, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23480,30 +23505,32 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser15on_chunk_headerEv to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser15on_chunk_headerEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_chunk_headerEv, %memptr.nonvirtual ]
-  %call2 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser15on_chunk_headerEv, %memptr.nonvirtual ]
+  %call2 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2)
   store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %5, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %6 = load ptr, ptr %parser, align 8
-  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %6)
+  %8 = load ptr, ptr %parser, align 8
+  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
   store i32 %call3, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %7 = load i32, ptr %rv, align 4
-  ret i32 %7
+  %9 = load i32, ptr %rv, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23526,30 +23553,32 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_16Parser17on_chunk_completeEv to i64), i64 1), !nosanitize !15
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !15
+  %3 = ptrtoint ptr @_ZN4node12_GLOBAL__N_16Parser17on_chunk_completeEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !15
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !15
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser17on_chunk_completeEv, %memptr.nonvirtual ]
-  %call2 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1848) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node12_GLOBAL__N_16Parser17on_chunk_completeEv, %memptr.nonvirtual ]
+  %call2 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1848) %2)
   store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp eq i32 %5, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memptr.end
-  %6 = load ptr, ptr %parser, align 8
-  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %6)
+  %8 = load ptr, ptr %parser, align 8
+  %call3 = call noundef i32 @_ZN4node12_GLOBAL__N_16Parser10MaybePauseEv(ptr noundef nonnull align 8 dereferenceable(1848) %8)
   store i32 %call3, ptr %rv, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %memptr.end
-  %7 = load i32, ptr %rv, align 4
-  ret i32 %7
+  %9 = load i32, ptr %rv, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27514,7 +27543,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %all_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this3, i32 0, i32 1
   call void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_) #3
   %active_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this3, i32 0, i32 2
@@ -27565,7 +27595,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %active_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this1, i32 0, i32 2
   call void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_) #3
   %all_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this1, i32 0, i32 1

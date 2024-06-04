@@ -64,69 +64,71 @@ define internal void @mca_rcache_grdma_cache_contructor(ptr noundef %0) #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %16, align 16
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %17, i32 0, i32 2
-  %19 = getelementptr inbounds %struct.opal_object_t, ptr %18, i32 0, i32 1
-  store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %20, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %21)
-  br label %22
-
-22:                                               ; preds = %13
+14:                                               ; preds = %13, %8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %17, align 16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %18, i32 0, i32 2
+  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 1
+  store volatile i32 1, ptr %20, align 8
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %21, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %22)
   br label %23
 
-23:                                               ; preds = %22
+23:                                               ; preds = %14
   br label %24
 
 24:                                               ; preds = %23
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_lifo_t_class, i32 0, i32 4), align 8
-  %28 = icmp ne i32 %26, %27
-  br i1 %28, label %29, label %30
+  br label %26
 
-29:                                               ; preds = %25
+26:                                               ; preds = %25
+  %27 = load i32, ptr @opal_class_init_epoch, align 4
+  %28 = getelementptr inbounds %struct.opal_class_t, ptr @opal_lifo_t_class, i32 0, i32 4
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp ne i32 %27, %29
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
   call void @opal_class_initialize(ptr noundef @opal_lifo_t_class)
-  br label %30
+  br label %32
 
-30:                                               ; preds = %29, %25
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %31, i32 0, i32 3
-  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 0
-  store ptr @opal_lifo_t_class, ptr %33, align 16
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %34, i32 0, i32 3
-  %36 = getelementptr inbounds %struct.opal_object_t, ptr %35, i32 0, i32 1
-  store volatile i32 1, ptr %36, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %37, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %38)
-  br label %39
+32:                                               ; preds = %31, %26
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds %struct.opal_object_t, ptr %34, i32 0, i32 0
+  store ptr @opal_lifo_t_class, ptr %35, align 16
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct.opal_object_t, ptr %37, i32 0, i32 1
+  store volatile i32 1, ptr %38, align 8
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %39, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %40)
+  br label %41
 
-39:                                               ; preds = %30
-  br label %40
+41:                                               ; preds = %32
+  br label %42
 
-40:                                               ; preds = %39
-  %41 = call ptr @mca_rcache_base_vma_module_alloc()
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %42, i32 0, i32 4
-  store ptr %41, ptr %43, align 16
+42:                                               ; preds = %41
+  %43 = call ptr @mca_rcache_base_vma_module_alloc()
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %44, i32 0, i32 4
+  store ptr %43, ptr %45, align 16
   ret void
 }
 
@@ -289,43 +291,44 @@ define void @mca_rcache_grdma_module_init(ptr noundef %0, ptr noundef %1) #0 {
 
 49:                                               ; preds = %48
   %50 = load i32, ptr @opal_class_init_epoch, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %52 = icmp ne i32 %50, %51
-  br i1 %52, label %53, label %54
+  %51 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ne i32 %50, %52
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %49
+54:                                               ; preds = %49
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %54
+  br label %55
 
-54:                                               ; preds = %53, %49
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %55, i32 0, i32 3
-  %57 = getelementptr inbounds %struct.opal_object_t, ptr %56, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %57, align 16
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %58, i32 0, i32 3
-  %60 = getelementptr inbounds %struct.opal_object_t, ptr %59, i32 0, i32 1
-  store volatile i32 1, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %61, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %62)
-  br label %63
-
-63:                                               ; preds = %54
+55:                                               ; preds = %54, %49
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %56, i32 0, i32 3
+  %58 = getelementptr inbounds %struct.opal_object_t, ptr %57, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %58, align 16
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds %struct.opal_object_t, ptr %60, i32 0, i32 1
+  store volatile i32 1, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %62, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %63)
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %67, i32 0, i32 1
-  %69 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %68, i32 0, i32 2
-  %70 = load i64, ptr %69, align 8
-  %71 = load i32, ptr @opal_cache_line_size, align 4
-  %72 = sext i32 %71 to i64
-  %73 = load i32, ptr @opal_cache_line_size, align 4
-  %74 = sext i32 %73 to i64
-  %75 = call i32 @opal_free_list_init(ptr noundef %66, i64 noundef %70, i64 noundef %72, ptr noundef @mca_rcache_base_registration_t_class, i64 noundef 0, i64 noundef %74, i32 noundef 0, i32 noundef -1, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+64:                                               ; preds = %55
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %68, i32 0, i32 1
+  %70 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %69, i32 0, i32 2
+  %71 = load i64, ptr %70, align 8
+  %72 = load i32, ptr @opal_cache_line_size, align 4
+  %73 = sext i32 %72 to i64
+  %74 = load i32, ptr @opal_cache_line_size, align 4
+  %75 = sext i32 %74 to i64
+  %76 = call i32 @opal_free_list_init(ptr noundef %67, i64 noundef %71, i64 noundef %73, ptr noundef @mca_rcache_base_registration_t_class, i64 noundef 0, i64 noundef %75, i32 noundef 0, i32 noundef -1, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
@@ -406,266 +409,268 @@ define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i
   %64 = load i32, ptr %11, align 4
   %65 = and i32 %64, 8
   %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %86
+  br i1 %66, label %67, label %87
 
 67:                                               ; preds = %6
   %68 = load i8, ptr %15, align 1
   %69 = trunc i8 %68 to i1
-  br i1 %69, label %86, label %70
+  br i1 %69, label %87, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 11), align 8
-  %72 = load ptr, ptr %9, align 8
-  %73 = call i32 %71(i32 noundef -1, ptr noundef %72, ptr noundef %19, ptr noundef %23)
-  store i32 %73, ptr %24, align 4
-  %74 = load i32, ptr %24, align 4
-  %75 = icmp ne i32 0, %74
-  br i1 %75, label %76, label %77
+  %71 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 11
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %9, align 8
+  %74 = call i32 %72(i32 noundef -1, ptr noundef %73, ptr noundef %19, ptr noundef %23)
+  store i32 %74, ptr %24, align 4
+  %75 = load i32, ptr %24, align 4
+  %76 = icmp ne i32 0, %75
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %70
+77:                                               ; preds = %70
   call void @abort() #6
   unreachable
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %19, align 8
-  %79 = load i64, ptr %23, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 -1
-  store ptr %81, ptr %20, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = load ptr, ptr %19, align 8
-  %84 = load i64, ptr %23, align 8
-  %85 = call i32 @check_for_accelerator_freed_memory(ptr noundef %82, ptr noundef %83, i64 noundef %84)
-  br label %86
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %19, align 8
+  %80 = load i64, ptr %23, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 -1
+  store ptr %82, ptr %20, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr %19, align 8
+  %85 = load i64, ptr %23, align 8
+  %86 = call i32 @check_for_accelerator_freed_memory(ptr noundef %83, ptr noundef %84, i64 noundef %85)
+  br label %87
 
-86:                                               ; preds = %77, %67, %6
-  %87 = load ptr, ptr %8, align 8
-  call void @do_unregistration_gc(ptr noundef %87)
-  %88 = load i8, ptr %15, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %123, label %90
+87:                                               ; preds = %78, %67, %6
+  %88 = load ptr, ptr %8, align 8
+  call void @do_unregistration_gc(ptr noundef %88)
+  %89 = load i8, ptr %15, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %124, label %91
 
-90:                                               ; preds = %86
-  %91 = load i8, ptr %16, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %123, label %93
+91:                                               ; preds = %87
+  %92 = load i8, ptr %16, align 1
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %124, label %94
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 0
-  store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 1
-  %96 = load ptr, ptr %14, align 8
-  store ptr %96, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 2
-  %98 = load ptr, ptr %19, align 8
-  store ptr %98, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 3
-  %100 = load ptr, ptr %20, align 8
-  store ptr %100, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 4
-  %102 = load i32, ptr %12, align 4
-  store i32 %102, ptr %101, align 8
-  %103 = load ptr, ptr %14, align 8
-  %104 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %103, i32 0, i32 2
-  %105 = load ptr, ptr %104, align 16
-  %106 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %105, i32 0, i32 4
-  %107 = load ptr, ptr %106, align 16
-  %108 = load ptr, ptr %19, align 8
-  %109 = load i64, ptr %10, align 8
-  %110 = call i32 @mca_rcache_base_vma_iterate(ptr noundef %107, ptr noundef %108, i64 noundef %109, i1 noundef zeroext false, ptr noundef @mca_rcache_grdma_check_cached, ptr noundef %25)
-  store i32 %110, ptr %22, align 4
-  %111 = load i32, ptr %22, align 4
-  %112 = icmp eq i32 1, %111
-  br i1 %112, label %113, label %117
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 0
+  store ptr null, ptr %95, align 8
+  %96 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 1
+  %97 = load ptr, ptr %14, align 8
+  store ptr %97, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 2
+  %99 = load ptr, ptr %19, align 8
+  store ptr %99, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 3
+  %101 = load ptr, ptr %20, align 8
+  store ptr %101, ptr %100, align 8
+  %102 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 4
+  %103 = load i32, ptr %12, align 4
+  store i32 %103, ptr %102, align 8
+  %104 = load ptr, ptr %14, align 8
+  %105 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 16
+  %107 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %106, i32 0, i32 4
+  %108 = load ptr, ptr %107, align 16
+  %109 = load ptr, ptr %19, align 8
+  %110 = load i64, ptr %10, align 8
+  %111 = call i32 @mca_rcache_base_vma_iterate(ptr noundef %108, ptr noundef %109, i64 noundef %110, i1 noundef zeroext false, ptr noundef @mca_rcache_grdma_check_cached, ptr noundef %25)
+  store i32 %111, ptr %22, align 4
+  %112 = load i32, ptr %22, align 4
+  %113 = icmp eq i32 1, %112
+  br i1 %113, label %114, label %118
 
-113:                                              ; preds = %93
-  %114 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %13, align 8
-  store ptr %115, ptr %116, align 8
+114:                                              ; preds = %94
+  %115 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %13, align 8
+  store ptr %116, ptr %117, align 8
   store i32 0, ptr %7, align 4
-  br label %240
+  br label %242
 
-117:                                              ; preds = %93
-  %118 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 4
-  %119 = load i32, ptr %118, align 8
-  store i32 %119, ptr %12, align 4
-  %120 = load ptr, ptr %14, align 8
-  %121 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %120, i32 0, i32 5
-  %122 = call i32 @opal_thread_add_fetch_32(ptr noundef %121, i32 noundef 1)
-  br label %123
+118:                                              ; preds = %94
+  %119 = getelementptr inbounds %struct.mca_rcache_base_find_args_t, ptr %25, i32 0, i32 4
+  %120 = load i32, ptr %119, align 8
+  store i32 %120, ptr %12, align 4
+  %121 = load ptr, ptr %14, align 8
+  %122 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %121, i32 0, i32 5
+  %123 = call i32 @opal_thread_add_fetch_32(ptr noundef %122, i32 noundef 1)
+  br label %124
 
-123:                                              ; preds = %117, %90, %86
-  %124 = load ptr, ptr %14, align 8
-  %125 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %124, i32 0, i32 3
-  %126 = call ptr @opal_free_list_get_mt(ptr noundef %125)
-  store ptr %126, ptr %18, align 8
-  %127 = load ptr, ptr %18, align 8
-  %128 = icmp eq ptr null, %127
-  br i1 %128, label %129, label %130
+124:                                              ; preds = %118, %91, %87
+  %125 = load ptr, ptr %14, align 8
+  %126 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %125, i32 0, i32 3
+  %127 = call ptr @opal_free_list_get_mt(ptr noundef %126)
+  store ptr %127, ptr %18, align 8
+  %128 = load ptr, ptr %18, align 8
+  %129 = icmp eq ptr null, %128
+  br i1 %129, label %130, label %131
 
-129:                                              ; preds = %123
+130:                                              ; preds = %124
   store i32 -2, ptr %7, align 4
-  br label %240
+  br label %242
 
-130:                                              ; preds = %123
-  %131 = load ptr, ptr %18, align 8
-  store ptr %131, ptr %17, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = load ptr, ptr %17, align 8
-  %134 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %133, i32 0, i32 1
-  store ptr %132, ptr %134, align 8
-  %135 = load ptr, ptr %19, align 8
-  %136 = load ptr, ptr %17, align 8
-  %137 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %136, i32 0, i32 2
-  store ptr %135, ptr %137, align 8
-  %138 = load ptr, ptr %20, align 8
-  %139 = load ptr, ptr %17, align 8
-  %140 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %139, i32 0, i32 3
-  store ptr %138, ptr %140, align 8
-  %141 = load i32, ptr %11, align 4
-  %142 = load ptr, ptr %17, align 8
-  %143 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %142, i32 0, i32 6
-  store volatile i32 %141, ptr %143, align 4
-  %144 = load i32, ptr %12, align 4
-  %145 = load ptr, ptr %17, align 8
-  %146 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %145, i32 0, i32 9
-  store i32 %144, ptr %146, align 8
-  %147 = load ptr, ptr %17, align 8
-  %148 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %147, i32 0, i32 5
-  store volatile i32 1, ptr %148, align 8
-  %149 = load i32, ptr %11, align 4
-  %150 = and i32 %149, 8
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %163
+131:                                              ; preds = %124
+  %132 = load ptr, ptr %18, align 8
+  store ptr %132, ptr %17, align 8
+  %133 = load ptr, ptr %8, align 8
+  %134 = load ptr, ptr %17, align 8
+  %135 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %134, i32 0, i32 1
+  store ptr %133, ptr %135, align 8
+  %136 = load ptr, ptr %19, align 8
+  %137 = load ptr, ptr %17, align 8
+  %138 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %137, i32 0, i32 2
+  store ptr %136, ptr %138, align 8
+  %139 = load ptr, ptr %20, align 8
+  %140 = load ptr, ptr %17, align 8
+  %141 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %140, i32 0, i32 3
+  store ptr %139, ptr %141, align 8
+  %142 = load i32, ptr %11, align 4
+  %143 = load ptr, ptr %17, align 8
+  %144 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %143, i32 0, i32 6
+  store volatile i32 %142, ptr %144, align 4
+  %145 = load i32, ptr %12, align 4
+  %146 = load ptr, ptr %17, align 8
+  %147 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %146, i32 0, i32 9
+  store i32 %145, ptr %147, align 8
+  %148 = load ptr, ptr %17, align 8
+  %149 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %148, i32 0, i32 5
+  store volatile i32 1, ptr %149, align 8
+  %150 = load i32, ptr %11, align 4
+  %151 = and i32 %150, 8
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %165
 
-152:                                              ; preds = %130
-  %153 = load i8, ptr %15, align 1
-  %154 = trunc i8 %153 to i1
-  br i1 %154, label %163, label %155
+153:                                              ; preds = %131
+  %154 = load i8, ptr %15, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %165, label %156
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25), align 8
-  %157 = load ptr, ptr %17, align 8
-  %158 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %157, i32 0, i32 2
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %17, align 8
-  %161 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %160, i32 0, i32 8
-  %162 = call i32 %156(i32 noundef -1, ptr noundef %159, ptr noundef %161)
-  br label %163
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25
+  %158 = load ptr, ptr %157, align 8
+  %159 = load ptr, ptr %17, align 8
+  %160 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %159, i32 0, i32 2
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %17, align 8
+  %163 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %162, i32 0, i32 8
+  %164 = call i32 %158(i32 noundef -1, ptr noundef %161, ptr noundef %163)
+  br label %165
 
-163:                                              ; preds = %155, %152, %130
-  br label %164
+165:                                              ; preds = %156, %153, %131
+  br label %166
 
-164:                                              ; preds = %187, %163
-  %165 = load ptr, ptr %14, align 8
-  %166 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %165, i32 0, i32 1
-  %167 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %166, i32 0, i32 3
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %14, align 8
-  %170 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %169, i32 0, i32 1
-  %171 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = load ptr, ptr %19, align 8
-  %174 = load ptr, ptr %20, align 8
+166:                                              ; preds = %189, %165
+  %167 = load ptr, ptr %14, align 8
+  %168 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %167, i32 0, i32 1
+  %169 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %168, i32 0, i32 3
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr %14, align 8
+  %172 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %171, i32 0, i32 1
+  %173 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %19, align 8
-  %176 = ptrtoint ptr %174 to i64
-  %177 = ptrtoint ptr %175 to i64
-  %178 = sub i64 %176, %177
-  %179 = add nsw i64 %178, 1
-  %180 = load ptr, ptr %17, align 8
-  %181 = call i32 %168(ptr noundef %172, ptr noundef %173, i64 noundef %179, ptr noundef %180)
-  store i32 %181, ptr %22, align 4
-  %182 = icmp eq i32 -2, %181
-  br i1 %182, label %183, label %188
+  %176 = load ptr, ptr %20, align 8
+  %177 = load ptr, ptr %19, align 8
+  %178 = ptrtoint ptr %176 to i64
+  %179 = ptrtoint ptr %177 to i64
+  %180 = sub i64 %178, %179
+  %181 = add nsw i64 %180, 1
+  %182 = load ptr, ptr %17, align 8
+  %183 = call i32 %170(ptr noundef %174, ptr noundef %175, i64 noundef %181, ptr noundef %182)
+  store i32 %183, ptr %22, align 4
+  %184 = icmp eq i32 -2, %183
+  br i1 %184, label %185, label %190
 
-183:                                              ; preds = %164
-  %184 = load ptr, ptr %8, align 8
-  %185 = call zeroext i1 @mca_rcache_grdma_evict(ptr noundef %184)
-  br i1 %185, label %187, label %186
+185:                                              ; preds = %166
+  %186 = load ptr, ptr %8, align 8
+  %187 = call zeroext i1 @mca_rcache_grdma_evict(ptr noundef %186)
+  br i1 %187, label %189, label %188
 
-186:                                              ; preds = %183
-  br label %188
+188:                                              ; preds = %185
+  br label %190
 
-187:                                              ; preds = %183
-  br label %164, !llvm.loop !6
+189:                                              ; preds = %185
+  br label %166, !llvm.loop !6
 
-188:                                              ; preds = %186, %164
-  %189 = load i32, ptr %22, align 4
-  %190 = icmp ne i32 %189, 0
-  %191 = xor i1 %190, true
-  %192 = xor i1 %191, true
-  %193 = zext i1 %192 to i32
-  %194 = sext i32 %193 to i64
-  %195 = icmp ne i64 %194, 0
-  br i1 %195, label %196, label %201
+190:                                              ; preds = %188, %166
+  %191 = load i32, ptr %22, align 4
+  %192 = icmp ne i32 %191, 0
+  %193 = xor i1 %192, true
+  %194 = xor i1 %193, true
+  %195 = zext i1 %194 to i32
+  %196 = sext i32 %195 to i64
+  %197 = icmp ne i64 %196, 0
+  br i1 %197, label %198, label %203
 
-196:                                              ; preds = %188
-  %197 = load ptr, ptr %14, align 8
-  %198 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %197, i32 0, i32 3
-  %199 = load ptr, ptr %18, align 8
-  call void @opal_free_list_return_mt(ptr noundef %198, ptr noundef %199)
-  %200 = load i32, ptr %22, align 4
-  store i32 %200, ptr %7, align 4
-  br label %240
+198:                                              ; preds = %190
+  %199 = load ptr, ptr %14, align 8
+  %200 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %199, i32 0, i32 3
+  %201 = load ptr, ptr %18, align 8
+  call void @opal_free_list_return_mt(ptr noundef %200, ptr noundef %201)
+  %202 = load i32, ptr %22, align 4
+  store i32 %202, ptr %7, align 4
+  br label %242
 
-201:                                              ; preds = %188
-  %202 = load i8, ptr %15, align 1
-  %203 = trunc i8 %202 to i1
-  %204 = zext i1 %203 to i32
-  %205 = icmp eq i32 0, %204
-  br i1 %205, label %206, label %237
+203:                                              ; preds = %190
+  %204 = load i8, ptr %15, align 1
+  %205 = trunc i8 %204 to i1
+  %206 = zext i1 %205 to i32
+  %207 = icmp eq i32 0, %206
+  br i1 %207, label %208, label %239
 
-206:                                              ; preds = %201
-  %207 = load ptr, ptr %14, align 8
-  %208 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %207, i32 0, i32 2
-  %209 = load ptr, ptr %208, align 16
-  %210 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %209, i32 0, i32 4
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %14, align 8
+  %210 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %209, i32 0, i32 2
   %211 = load ptr, ptr %210, align 16
-  %212 = load ptr, ptr %17, align 8
-  %213 = call i32 @mca_rcache_base_vma_insert(ptr noundef %211, ptr noundef %212, i64 noundef 0)
-  store i32 %213, ptr %22, align 4
-  %214 = load i32, ptr %22, align 4
-  %215 = icmp ne i32 %214, 0
-  %216 = xor i1 %215, true
-  %217 = xor i1 %216, true
-  %218 = zext i1 %217 to i32
-  %219 = sext i32 %218 to i64
-  %220 = icmp ne i64 %219, 0
-  br i1 %220, label %221, label %236
+  %212 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %211, i32 0, i32 4
+  %213 = load ptr, ptr %212, align 16
+  %214 = load ptr, ptr %17, align 8
+  %215 = call i32 @mca_rcache_base_vma_insert(ptr noundef %213, ptr noundef %214, i64 noundef 0)
+  store i32 %215, ptr %22, align 4
+  %216 = load i32, ptr %22, align 4
+  %217 = icmp ne i32 %216, 0
+  %218 = xor i1 %217, true
+  %219 = xor i1 %218, true
+  %220 = zext i1 %219 to i32
+  %221 = sext i32 %220 to i64
+  %222 = icmp ne i64 %221, 0
+  br i1 %222, label %223, label %238
 
-221:                                              ; preds = %206
-  %222 = load ptr, ptr %14, align 8
-  %223 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %222, i32 0, i32 1
-  %224 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %223, i32 0, i32 4
-  %225 = load ptr, ptr %224, align 8
-  %226 = load ptr, ptr %14, align 8
-  %227 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %226, i32 0, i32 1
-  %228 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %227, i32 0, i32 1
-  %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %17, align 8
-  %231 = call i32 %225(ptr noundef %229, ptr noundef %230)
-  %232 = load ptr, ptr %14, align 8
-  %233 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %232, i32 0, i32 3
-  %234 = load ptr, ptr %18, align 8
-  call void @opal_free_list_return_mt(ptr noundef %233, ptr noundef %234)
-  %235 = load i32, ptr %22, align 4
-  store i32 %235, ptr %7, align 4
-  br label %240
+223:                                              ; preds = %208
+  %224 = load ptr, ptr %14, align 8
+  %225 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %224, i32 0, i32 1
+  %226 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %225, i32 0, i32 4
+  %227 = load ptr, ptr %226, align 8
+  %228 = load ptr, ptr %14, align 8
+  %229 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %228, i32 0, i32 1
+  %230 = getelementptr inbounds %struct.mca_rcache_base_resources_t, ptr %229, i32 0, i32 1
+  %231 = load ptr, ptr %230, align 8
+  %232 = load ptr, ptr %17, align 8
+  %233 = call i32 %227(ptr noundef %231, ptr noundef %232)
+  %234 = load ptr, ptr %14, align 8
+  %235 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %234, i32 0, i32 3
+  %236 = load ptr, ptr %18, align 8
+  call void @opal_free_list_return_mt(ptr noundef %235, ptr noundef %236)
+  %237 = load i32, ptr %22, align 4
+  store i32 %237, ptr %7, align 4
+  br label %242
 
-236:                                              ; preds = %206
-  br label %237
+238:                                              ; preds = %208
+  br label %239
 
-237:                                              ; preds = %236, %201
-  %238 = load ptr, ptr %17, align 8
-  %239 = load ptr, ptr %13, align 8
-  store ptr %238, ptr %239, align 8
+239:                                              ; preds = %238, %203
+  %240 = load ptr, ptr %17, align 8
+  %241 = load ptr, ptr %13, align 8
+  store ptr %240, ptr %241, align 8
   store i32 0, ptr %7, align 4
-  br label %240
+  br label %242
 
-240:                                              ; preds = %237, %221, %196, %129, %113
-  %241 = load i32, ptr %7, align 4
-  ret i32 %241
+242:                                              ; preds = %239, %223, %198, %130, %114
+  %243 = load i32, ptr %7, align 4
+  ret i32 %243
 }
 
 ; Function Attrs: nounwind uwtable
@@ -735,93 +740,95 @@ define internal i32 @mca_rcache_grdma_find(ptr noundef %0, ptr noundef %1, i64 n
   %57 = load ptr, ptr %8, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ne ptr null, %58
-  br i1 %59, label %60, label %110
+  br i1 %59, label %60, label %112
 
 60:                                               ; preds = %4
-  %61 = load i32, ptr getelementptr inbounds (%struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4), align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %84, label %63
+  %61 = getelementptr inbounds %struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %85, label %64
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %8, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %65, i32 0, i32 6
-  %67 = load volatile i32, ptr %66, align 4
-  %68 = and i32 %67, 2
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %84, label %70
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %8, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %66, i32 0, i32 6
+  %68 = load volatile i32, ptr %67, align 4
+  %69 = and i32 %68, 2
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %85, label %71
 
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %8, align 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = icmp eq ptr %74, %75
-  br i1 %76, label %77, label %110
+71:                                               ; preds = %64
+  %72 = load ptr, ptr %8, align 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = icmp eq ptr %75, %76
+  br i1 %77, label %78, label %112
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %8, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = icmp eq ptr %81, %82
-  br i1 %83, label %84, label %110
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %8, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %12, align 8
+  %84 = icmp eq ptr %82, %83
+  br i1 %84, label %85, label %112
 
-84:                                               ; preds = %77, %63, %60
-  %85 = load ptr, ptr %8, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %86, i32 0, i32 5
-  %88 = load volatile i32, ptr %87, align 8
-  %89 = icmp eq i32 0, %88
-  br i1 %89, label %90, label %101
+85:                                               ; preds = %78, %64, %60
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %87, i32 0, i32 5
+  %89 = load volatile i32, ptr %88, align 8
+  %90 = icmp eq i32 0, %89
+  br i1 %90, label %91, label %103
 
-90:                                               ; preds = %84
-  %91 = load i32, ptr getelementptr inbounds (%struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4), align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %101
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds %struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %103
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %94, i32 0, i32 2
-  %96 = load ptr, ptr %95, align 16
-  %97 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %96, i32 0, i32 2
-  %98 = load ptr, ptr %8, align 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = call ptr @opal_list_remove_item(ptr noundef %97, ptr noundef %99)
-  br label %101
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 16
+  %99 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %98, i32 0, i32 2
+  %100 = load ptr, ptr %8, align 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = call ptr @opal_list_remove_item(ptr noundef %99, ptr noundef %101)
+  br label %103
 
-101:                                              ; preds = %93, %90, %84
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %102, i32 0, i32 7
-  %104 = load i32, ptr %103, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %103, align 4
-  %106 = load ptr, ptr %8, align 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %107, i32 0, i32 5
-  %109 = call i32 @opal_atomic_add_fetch_32(ptr noundef %108, i32 noundef 1)
-  br label %115
+103:                                              ; preds = %95, %91, %85
+  %104 = load ptr, ptr %9, align 8
+  %105 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %104, i32 0, i32 7
+  %106 = load i32, ptr %105, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %105, align 4
+  %108 = load ptr, ptr %8, align 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %109, i32 0, i32 5
+  %111 = call i32 @opal_atomic_add_fetch_32(ptr noundef %110, i32 noundef 1)
+  br label %117
 
-110:                                              ; preds = %77, %70, %4
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %111, i32 0, i32 8
-  %113 = load i32, ptr %112, align 16
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %112, align 16
-  br label %115
+112:                                              ; preds = %78, %71, %4
+  %113 = load ptr, ptr %9, align 8
+  %114 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %113, i32 0, i32 8
+  %115 = load i32, ptr %114, align 16
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %114, align 16
+  br label %117
 
-115:                                              ; preds = %110, %101
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 16
-  %119 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %118, i32 0, i32 4
+117:                                              ; preds = %112, %103
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %118, i32 0, i32 2
   %120 = load ptr, ptr %119, align 16
-  %121 = getelementptr inbounds %struct.mca_rcache_base_vma_module_t, ptr %120, i32 0, i32 5
-  call void @opal_mutex_unlock(ptr noundef %121)
-  %122 = load i32, ptr %13, align 4
-  ret i32 %122
+  %121 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %120, i32 0, i32 4
+  %122 = load ptr, ptr %121, align 16
+  %123 = getelementptr inbounds %struct.mca_rcache_base_vma_module_t, ptr %122, i32 0, i32 5
+  call void @opal_mutex_unlock(ptr noundef %123)
+  %124 = load i32, ptr %13, align 4
+  ret i32 %124
 }
 
 ; Function Attrs: nounwind uwtable
@@ -908,101 +915,102 @@ define internal void @mca_rcache_grdma_finalize(ptr noundef %0) #0 {
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  %7 = load i8, ptr getelementptr inbounds (%struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 3), align 8
-  %8 = trunc i8 %7 to i1
-  %9 = zext i1 %8 to i32
-  %10 = icmp eq i32 1, %9
-  br i1 %10, label %11, label %38
+  %7 = getelementptr inbounds %struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 3
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %10 = zext i1 %9 to i32
+  %11 = icmp eq i32 1, %10
+  br i1 %11, label %12, label %39
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr @opal_process_name_print, align 8
-  %13 = call ptr @opal_proc_local_get()
-  %14 = getelementptr inbounds %struct.opal_proc_t, ptr %13, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %16 = call ptr %12(i64 %15)
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 16
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %20, i32 0, i32 5
-  %22 = load i32, ptr %21, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %23, i32 0, i32 7
-  %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %26, i32 0, i32 8
-  %28 = load i32, ptr %27, align 16
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %29, i32 0, i32 6
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %34, i32 0, i32 4
-  %36 = load ptr, ptr %35, align 16
-  %37 = call i64 @mca_rcache_base_vma_size(ptr noundef %36)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i64 noundef %37)
-  br label %38
+12:                                               ; preds = %1
+  %13 = load ptr, ptr @opal_process_name_print, align 8
+  %14 = call ptr @opal_proc_local_get()
+  %15 = getelementptr inbounds %struct.opal_proc_t, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = call ptr %13(i64 %16)
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 16
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %21, i32 0, i32 5
+  %23 = load i32, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %24, i32 0, i32 7
+  %26 = load i32, ptr %25, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %27, i32 0, i32 8
+  %29 = load i32, ptr %28, align 16
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 16
+  %36 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %35, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 16
+  %38 = call i64 @mca_rcache_base_vma_size(ptr noundef %37)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef %32, i64 noundef %38)
+  br label %39
 
-38:                                               ; preds = %11, %1
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %39, i32 0, i32 0
-  call void @do_unregistration_gc(ptr noundef %40)
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %41, i32 0, i32 2
-  %43 = load ptr, ptr %42, align 16
-  %44 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 16
-  %46 = load ptr, ptr %4, align 8
-  %47 = call i32 @mca_rcache_base_vma_iterate(ptr noundef %45, ptr noundef null, i64 noundef -1, i1 noundef zeroext true, ptr noundef @gc_add, ptr noundef %46)
-  %48 = load ptr, ptr %4, align 8
-  call void @do_unregistration_gc(ptr noundef %48)
-  br label %49
+39:                                               ; preds = %12, %1
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %40, i32 0, i32 0
+  call void @do_unregistration_gc(ptr noundef %41)
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 16
+  %45 = getelementptr inbounds %struct.mca_rcache_grdma_cache_t, ptr %44, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 16
+  %47 = load ptr, ptr %4, align 8
+  %48 = call i32 @mca_rcache_base_vma_iterate(ptr noundef %46, ptr noundef null, i64 noundef -1, i1 noundef zeroext true, ptr noundef @gc_add, ptr noundef %47)
+  %49 = load ptr, ptr %4, align 8
+  call void @do_unregistration_gc(ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %38
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 16
-  store ptr %52, ptr %2, align 8
+50:                                               ; preds = %39
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 16
+  store ptr %53, ptr %2, align 8
   store i32 -1, ptr %3, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.opal_object_t, ptr %53, i32 0, i32 1
-  %55 = load i32, ptr %3, align 4
-  %56 = call i32 @opal_thread_add_fetch_32(ptr noundef %54, i32 noundef %55)
-  %57 = icmp eq i32 0, %56
-  br i1 %57, label %58, label %67
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.opal_object_t, ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %3, align 4
+  %57 = call i32 @opal_thread_add_fetch_32(ptr noundef %55, i32 noundef %56)
+  %58 = icmp eq i32 0, %57
+  br i1 %58, label %59, label %68
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %59, i32 0, i32 2
-  %61 = load ptr, ptr %60, align 16
-  call void @opal_obj_run_destructors(ptr noundef %61)
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %62, i32 0, i32 2
-  %64 = load ptr, ptr %63, align 16
-  call void @free(ptr noundef %64) #5
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %65, i32 0, i32 2
-  store ptr null, ptr %66, align 16
-  br label %67
-
-67:                                               ; preds = %58, %49
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 16
+  call void @opal_obj_run_destructors(ptr noundef %62)
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 16
+  call void @free(ptr noundef %65) #5
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %66, i32 0, i32 2
+  store ptr null, ptr %67, align 16
   br label %68
 
-68:                                               ; preds = %67
+68:                                               ; preds = %59, %50
   br label %69
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %70, i32 0, i32 3
-  call void @opal_obj_run_destructors(ptr noundef %71)
-  br label %72
+  br label %70
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %4, align 8
-  call void @mca_rcache_base_module_fini(ptr noundef %73)
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds %struct.mca_rcache_grdma_module_t, ptr %71, i32 0, i32 3
+  call void @opal_obj_run_destructors(ptr noundef %72)
+  br label %73
+
+73:                                               ; preds = %70
   %74 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %74) #5
+  call void @mca_rcache_base_module_fini(ptr noundef %74)
+  %75 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %75) #5
   ret void
 }
 
@@ -1901,42 +1909,43 @@ define internal zeroext i1 @mca_rcache_accelerator_previously_freed_memory(ptr n
   %8 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %7, i32 0, i32 2
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25), align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = call i32 %10(i32 noundef -1, ptr noundef %11, ptr noundef %5)
-  store i32 %12, ptr %4, align 4
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp ne i32 %13, 0
-  %15 = xor i1 %14, true
+  %10 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call i32 %11(i32 noundef -1, ptr noundef %12, ptr noundef %5)
+  store i32 %13, ptr %4, align 4
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp ne i32 %14, 0
   %16 = xor i1 %15, true
-  %17 = zext i1 %16 to i32
-  %18 = sext i32 %17 to i64
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %29
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %1
-  %22 = load i64, ptr %5, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %23, i32 0, i32 8
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ne i64 %22, %25
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %21
   store i1 true, ptr %2, align 1
-  br label %29
+  br label %30
 
-28:                                               ; preds = %21
+22:                                               ; preds = %1
+  %23 = load i64, ptr %5, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %24, i32 0, i32 8
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp ne i64 %23, %26
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  store i1 true, ptr %2, align 1
+  br label %30
+
+29:                                               ; preds = %22
   store i1 false, ptr %2, align 1
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %27, %20
-  %30 = load i1, ptr %2, align 1
-  ret i1 %30
+30:                                               ; preds = %29, %28, %21
+  %31 = load i1, ptr %2, align 1
+  ret i1 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2071,20 +2080,21 @@ define internal i32 @opal_atomic_fetch_or_32(ptr noundef %0, i32 noundef %1) #0 
 define internal zeroext i1 @registration_flags_cacheable(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4), align 4
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %5, label %10
+  %3 = getelementptr inbounds %struct.mca_rcache_grdma_component_t, ptr @mca_rcache_grdma_component, i32 0, i32 4
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %11
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
-  %7 = and i32 %6, 131
-  %8 = icmp ne i32 %7, 0
-  %9 = xor i1 %8, true
-  br label %10
+6:                                                ; preds = %1
+  %7 = load i32, ptr %2, align 4
+  %8 = and i32 %7, 131
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  br label %11
 
-10:                                               ; preds = %5, %1
-  %11 = phi i1 [ false, %1 ], [ %9, %5 ]
-  ret i1 %11
+11:                                               ; preds = %6, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %6 ]
+  ret i1 %12
 }
 
 ; Function Attrs: nounwind uwtable

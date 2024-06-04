@@ -224,10 +224,11 @@ entry:
   store i8 %direction, ptr %direction.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen9HTTPCodecC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %direction.addr, align 1
-  store i8 %0, ptr %transportDirection_, align 8
+  %1 = load i8, ptr %direction.addr, align 1
+  store i8 %1, ptr %transportDirection_, align 8
   %lastStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 4
   store i64 0, ptr %lastStreamID_, align 8
   %callback_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 5
@@ -245,8 +246,8 @@ entry:
   %sessionClosing_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 9
   store i32 0, ptr %sessionClosing_, align 8
   %transportDirection_4 = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %transportDirection_4, align 8
-  switch i8 %1, label %sw.default [
+  %2 = load i8, ptr %transportDirection_4, align 8
+  switch i8 %2, label %sw.default [
     i8 0, label %sw.bb
     i8 1, label %sw.bb5
   ]
@@ -278,31 +279,31 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   unreachable
 
 lpad:                                             ; preds = %sw.default
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #10
   unreachable
 
-8:                                                ; No predecessors!
+9:                                                ; No predecessors!
   br label %ehcleanup
 
 sw.epilog:                                        ; preds = %sw.bb5, %sw.bb
   ret void
 
-ehcleanup:                                        ; preds = %8, %lpad
+ehcleanup:                                        ; preds = %9, %lpad
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %goawayErrorMessage_) #3
   call void @_ZN8proxygen9HTTPCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
@@ -321,7 +322,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -609,7 +611,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %goawayErrorMessage_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this1, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %goawayErrorMessage_) #3
   call void @_ZN8proxygen9HTTPCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

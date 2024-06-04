@@ -199,17 +199,18 @@ entry:
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14btCapsuleShape, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load float, ptr %radius.addr, align 4
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV14btCapsuleShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load float, ptr %radius.addr, align 4
   %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 3
-  store float %0, ptr %m_collisionMargin, align 8
+  store float %1, ptr %m_collisionMargin, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 10, ptr %m_shapeType, align 8
   %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this1, i32 0, i32 1
   store i32 1, ptr %m_upAxis, align 8
   %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
-  %1 = load float, ptr %height.addr, align 4
-  %mul = fmul float 5.000000e-01, %1
+  %2 = load float, ptr %height.addr, align 4
+  %mul = fmul float 5.000000e-01, %2
   store float %mul, ptr %ref.tmp, align 4
   invoke void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr)
           to label %invoke.cont unwind label %lpad
@@ -218,12 +219,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN21btConvexInternalShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 
@@ -841,15 +842,16 @@ entry:
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btCapsuleShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btCapsuleShapeX, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load float, ptr %radius.addr, align 4
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV15btCapsuleShapeX, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load float, ptr %radius.addr, align 4
   %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 3
-  store float %0, ptr %m_collisionMargin, align 8
+  store float %1, ptr %m_collisionMargin, align 8
   %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_upAxis, align 8
   %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
-  %1 = load float, ptr %height.addr, align 4
-  %mul = fmul float 5.000000e-01, %1
+  %2 = load float, ptr %height.addr, align 4
+  %mul = fmul float 5.000000e-01, %2
   store float %mul, ptr %ref.tmp, align 4
   invoke void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr)
           to label %invoke.cont unwind label %lpad
@@ -858,12 +860,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN14btCapsuleShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #9
   br label %eh.resume
 
@@ -882,7 +884,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14btCapsuleShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV14btCapsuleShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 10, ptr %m_shapeType, align 8
   ret void
@@ -902,15 +905,16 @@ entry:
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btCapsuleShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btCapsuleShapeZ, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load float, ptr %radius.addr, align 4
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV15btCapsuleShapeZ, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load float, ptr %radius.addr, align 4
   %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 3
-  store float %0, ptr %m_collisionMargin, align 8
+  store float %1, ptr %m_collisionMargin, align 8
   %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_upAxis, align 8
   %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
-  %1 = load float, ptr %height.addr, align 4
-  %mul = fmul float 5.000000e-01, %1
+  %2 = load float, ptr %height.addr, align 4
+  %mul = fmul float 5.000000e-01, %2
   store float %mul, ptr %ref.tmp, align 4
   invoke void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr, ptr noundef nonnull align 4 dereferenceable(4) %radius.addr, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -919,12 +923,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN14btCapsuleShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #9
   br label %eh.resume
 

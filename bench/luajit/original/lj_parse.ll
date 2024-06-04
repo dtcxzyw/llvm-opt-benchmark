@@ -2409,7 +2409,8 @@ entry:
   %fs2 = getelementptr inbounds %struct.LexState, ptr %5, i32 0, i32 0
   %6 = load ptr, ptr %fs2, align 8
   %call = call i32 @bcemit_jmp(ptr noundef %6)
-  %call3 = call i32 @gola_new(ptr noundef %4, ptr noundef inttoptr (i64 1 to ptr), i8 noundef zeroext 2, i32 noundef %call)
+  %7 = inttoptr i64 1 to ptr
+  %call3 = call i32 @gola_new(ptr noundef %4, ptr noundef %7, i8 noundef zeroext 2, i32 noundef %call)
   ret void
 }
 
@@ -9134,40 +9135,41 @@ if.then18:                                        ; preds = %if.then13
   %23 = load ptr, ptr %fs.addr, align 8
   %pc = getelementptr inbounds %struct.FuncState, ptr %23, i32 0, i32 5
   %24 = load i32, ptr %pc, align 8
-  %call19 = call i32 @gola_new(ptr noundef %22, ptr noundef inttoptr (i64 1 to ptr), i8 noundef zeroext 4, i32 noundef %24)
+  %25 = inttoptr i64 1 to ptr
+  %call19 = call i32 @gola_new(ptr noundef %22, ptr noundef %25, i8 noundef zeroext 4, i32 noundef %24)
   store i32 %call19, ptr %idx, align 4
-  %25 = load i32, ptr %idx, align 4
-  %26 = load ptr, ptr %ls, align 8
-  %vtop = getelementptr inbounds %struct.LexState, ptr %26, i32 0, i32 19
-  store i32 %25, ptr %vtop, align 4
+  %26 = load i32, ptr %idx, align 4
   %27 = load ptr, ptr %ls, align 8
-  %28 = load ptr, ptr %bl, align 8
-  %29 = load i32, ptr %idx, align 4
-  call void @gola_resolve(ptr noundef %27, ptr noundef %28, i32 noundef %29)
+  %vtop = getelementptr inbounds %struct.LexState, ptr %27, i32 0, i32 19
+  store i32 %26, ptr %vtop, align 4
+  %28 = load ptr, ptr %ls, align 8
+  %29 = load ptr, ptr %bl, align 8
+  %30 = load i32, ptr %idx, align 4
+  call void @gola_resolve(ptr noundef %28, ptr noundef %29, i32 noundef %30)
   br label %if.end20
 
 if.else:                                          ; preds = %if.then13
-  %30 = load ptr, ptr %ls, align 8
-  %31 = load ptr, ptr %bl, align 8
-  call void @gola_fixup(ptr noundef %30, ptr noundef %31)
+  %31 = load ptr, ptr %ls, align 8
+  %32 = load ptr, ptr %bl, align 8
+  call void @gola_fixup(ptr noundef %31, ptr noundef %32)
   br label %if.end27
 
 if.end20:                                         ; preds = %if.then18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end20, %if.end
-  %32 = load ptr, ptr %bl, align 8
-  %flags22 = getelementptr inbounds %struct.FuncScope, ptr %32, i32 0, i32 3
-  %33 = load i8, ptr %flags22, align 1
-  %conv23 = zext i8 %33 to i32
+  %33 = load ptr, ptr %bl, align 8
+  %flags22 = getelementptr inbounds %struct.FuncScope, ptr %33, i32 0, i32 3
+  %34 = load i8, ptr %flags22, align 1
+  %conv23 = zext i8 %34 to i32
   %and24 = and i32 %conv23, 4
   %tobool25 = icmp ne i32 %and24, 0
   br i1 %tobool25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end21
-  %34 = load ptr, ptr %ls, align 8
-  %35 = load ptr, ptr %bl, align 8
-  call void @gola_fixup(ptr noundef %34, ptr noundef %35)
+  %35 = load ptr, ptr %ls, align 8
+  %36 = load ptr, ptr %bl, align 8
+  call void @gola_fixup(ptr noundef %35, ptr noundef %36)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end21, %if.else
@@ -9627,70 +9629,72 @@ if.then38:                                        ; preds = %if.else
 
 if.then40:                                        ; preds = %if.then38
   %42 = load ptr, ptr %name, align 8
-  %cmp41 = icmp eq ptr %42, inttoptr (i64 1 to ptr)
+  %43 = inttoptr i64 1 to ptr
+  %cmp41 = icmp eq ptr %42, %43
   %cond = select i1 %cmp41, i32 2, i32 4
-  %43 = load ptr, ptr %bl.addr, align 8
-  %prev43 = getelementptr inbounds %struct.FuncScope, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %prev43, align 8
-  %flags44 = getelementptr inbounds %struct.FuncScope, ptr %44, i32 0, i32 3
-  %45 = load i8, ptr %flags44, align 1
-  %conv45 = zext i8 %45 to i32
+  %44 = load ptr, ptr %bl.addr, align 8
+  %prev43 = getelementptr inbounds %struct.FuncScope, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %prev43, align 8
+  %flags44 = getelementptr inbounds %struct.FuncScope, ptr %45, i32 0, i32 3
+  %46 = load i8, ptr %flags44, align 1
+  %conv45 = zext i8 %46 to i32
   %or = or i32 %conv45, %cond
   %conv46 = trunc i32 %or to i8
   store i8 %conv46, ptr %flags44, align 1
-  %46 = load ptr, ptr %bl.addr, align 8
-  %nactvar = getelementptr inbounds %struct.FuncScope, ptr %46, i32 0, i32 2
-  %47 = load i8, ptr %nactvar, align 4
-  %48 = load ptr, ptr %v, align 8
-  %slot47 = getelementptr inbounds %struct.VarInfo, ptr %48, i32 0, i32 3
-  store i8 %47, ptr %slot47, align 8
-  %49 = load ptr, ptr %bl.addr, align 8
-  %flags48 = getelementptr inbounds %struct.FuncScope, ptr %49, i32 0, i32 3
-  %50 = load i8, ptr %flags48, align 1
-  %conv49 = zext i8 %50 to i32
+  %47 = load ptr, ptr %bl.addr, align 8
+  %nactvar = getelementptr inbounds %struct.FuncScope, ptr %47, i32 0, i32 2
+  %48 = load i8, ptr %nactvar, align 4
+  %49 = load ptr, ptr %v, align 8
+  %slot47 = getelementptr inbounds %struct.VarInfo, ptr %49, i32 0, i32 3
+  store i8 %48, ptr %slot47, align 8
+  %50 = load ptr, ptr %bl.addr, align 8
+  %flags48 = getelementptr inbounds %struct.FuncScope, ptr %50, i32 0, i32 3
+  %51 = load i8, ptr %flags48, align 1
+  %conv49 = zext i8 %51 to i32
   %and50 = and i32 %conv49, 8
   %tobool51 = icmp ne i32 %and50, 0
   br i1 %tobool51, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.then40
-  %51 = load ptr, ptr %ls.addr, align 8
-  %52 = load ptr, ptr %v, align 8
-  call void @gola_close(ptr noundef %51, ptr noundef %52)
+  %52 = load ptr, ptr %ls.addr, align 8
+  %53 = load ptr, ptr %v, align 8
+  call void @gola_close(ptr noundef %52, ptr noundef %53)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.then40
   br label %if.end60
 
 if.else54:                                        ; preds = %if.then38
-  %53 = load ptr, ptr %ls.addr, align 8
-  %fs = getelementptr inbounds %struct.LexState, ptr %53, i32 0, i32 0
-  %54 = load ptr, ptr %fs, align 8
-  %bcbase = getelementptr inbounds %struct.FuncState, ptr %54, i32 0, i32 13
-  %55 = load ptr, ptr %bcbase, align 8
-  %56 = load ptr, ptr %v, align 8
-  %startpc = getelementptr inbounds %struct.VarInfo, ptr %56, i32 0, i32 1
-  %57 = load i32, ptr %startpc, align 8
-  %idxprom = zext i32 %57 to i64
-  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %55, i64 %idxprom
+  %54 = load ptr, ptr %ls.addr, align 8
+  %fs = getelementptr inbounds %struct.LexState, ptr %54, i32 0, i32 0
+  %55 = load ptr, ptr %fs, align 8
+  %bcbase = getelementptr inbounds %struct.FuncState, ptr %55, i32 0, i32 13
+  %56 = load ptr, ptr %bcbase, align 8
+  %57 = load ptr, ptr %v, align 8
+  %startpc = getelementptr inbounds %struct.VarInfo, ptr %57, i32 0, i32 1
+  %58 = load i32, ptr %startpc, align 8
+  %idxprom = zext i32 %58 to i64
+  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %56, i64 %idxprom
   %line = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx, i32 0, i32 1
-  %58 = load i32, ptr %line, align 4
-  %59 = load ptr, ptr %ls.addr, align 8
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %59, i32 0, i32 12
-  store i32 %58, ptr %linenumber, align 8
-  %60 = load ptr, ptr %name, align 8
-  %cmp55 = icmp eq ptr %60, inttoptr (i64 1 to ptr)
+  %59 = load i32, ptr %line, align 4
+  %60 = load ptr, ptr %ls.addr, align 8
+  %linenumber = getelementptr inbounds %struct.LexState, ptr %60, i32 0, i32 12
+  store i32 %59, ptr %linenumber, align 8
+  %61 = load ptr, ptr %name, align 8
+  %62 = inttoptr i64 1 to ptr
+  %cmp55 = icmp eq ptr %61, %62
   br i1 %cmp55, label %if.then57, label %if.else58
 
 if.then57:                                        ; preds = %if.else54
-  %61 = load ptr, ptr %ls.addr, align 8
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef %61, i32 noundef 0, i32 noundef 2827) #8
+  %63 = load ptr, ptr %ls.addr, align 8
+  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef %63, i32 noundef 0, i32 noundef 2827) #8
   unreachable
 
 if.else58:                                        ; preds = %if.else54
-  %62 = load ptr, ptr %ls.addr, align 8
-  %63 = load ptr, ptr %name, align 8
-  %add.ptr59 = getelementptr inbounds %struct.GCstr, ptr %63, i64 1
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef %62, i32 noundef 0, i32 noundef 2844, ptr noundef %add.ptr59) #8
+  %64 = load ptr, ptr %ls.addr, align 8
+  %65 = load ptr, ptr %name, align 8
+  %add.ptr59 = getelementptr inbounds %struct.GCstr, ptr %65, i64 1
+  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef %64, i32 noundef 0, i32 noundef 2844, ptr noundef %add.ptr59) #8
   unreachable
 
 if.end60:                                         ; preds = %if.end53
@@ -9706,8 +9710,8 @@ if.end63:                                         ; preds = %if.end62, %for.body
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.end63
-  %64 = load ptr, ptr %v, align 8
-  %incdec.ptr65 = getelementptr inbounds %struct.VarInfo, ptr %64, i32 1
+  %66 = load ptr, ptr %v, align 8
+  %incdec.ptr65 = getelementptr inbounds %struct.VarInfo, ptr %66, i32 1
   store ptr %incdec.ptr65, ptr %v, align 8
   br label %for.cond, !llvm.loop !25
 
@@ -9852,94 +9856,97 @@ entry:
   %3 = load i32, ptr %freereg, align 4
   store i32 %3, ptr %base, align 4
   %4 = load ptr, ptr %ls.addr, align 8
-  call void @var_new(ptr noundef %4, i32 noundef 0, ptr noundef inttoptr (i64 1 to ptr))
-  %5 = load ptr, ptr %ls.addr, align 8
-  call void @var_new(ptr noundef %5, i32 noundef 1, ptr noundef inttoptr (i64 2 to ptr))
+  %5 = inttoptr i64 1 to ptr
+  call void @var_new(ptr noundef %4, i32 noundef 0, ptr noundef %5)
   %6 = load ptr, ptr %ls.addr, align 8
-  call void @var_new(ptr noundef %6, i32 noundef 2, ptr noundef inttoptr (i64 3 to ptr))
-  %7 = load ptr, ptr %ls.addr, align 8
-  %8 = load ptr, ptr %varname.addr, align 8
-  call void @var_new(ptr noundef %7, i32 noundef 3, ptr noundef %8)
-  %9 = load ptr, ptr %ls.addr, align 8
-  call void @lex_check(ptr noundef %9, i32 noundef 61)
+  %7 = inttoptr i64 2 to ptr
+  call void @var_new(ptr noundef %6, i32 noundef 1, ptr noundef %7)
+  %8 = load ptr, ptr %ls.addr, align 8
+  %9 = inttoptr i64 3 to ptr
+  call void @var_new(ptr noundef %8, i32 noundef 2, ptr noundef %9)
   %10 = load ptr, ptr %ls.addr, align 8
-  call void @expr_next(ptr noundef %10)
-  %11 = load ptr, ptr %ls.addr, align 8
-  call void @lex_check(ptr noundef %11, i32 noundef 44)
+  %11 = load ptr, ptr %varname.addr, align 8
+  call void @var_new(ptr noundef %10, i32 noundef 3, ptr noundef %11)
   %12 = load ptr, ptr %ls.addr, align 8
-  call void @expr_next(ptr noundef %12)
+  call void @lex_check(ptr noundef %12, i32 noundef 61)
   %13 = load ptr, ptr %ls.addr, align 8
-  %call = call i32 @lex_opt(ptr noundef %13, i32 noundef 44)
+  call void @expr_next(ptr noundef %13)
+  %14 = load ptr, ptr %ls.addr, align 8
+  call void @lex_check(ptr noundef %14, i32 noundef 44)
+  %15 = load ptr, ptr %ls.addr, align 8
+  call void @expr_next(ptr noundef %15)
+  %16 = load ptr, ptr %ls.addr, align 8
+  %call = call i32 @lex_opt(ptr noundef %16, i32 noundef 44)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %14 = load ptr, ptr %ls.addr, align 8
-  call void @expr_next(ptr noundef %14)
+  %17 = load ptr, ptr %ls.addr, align 8
+  call void @expr_next(ptr noundef %17)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %15 = load ptr, ptr %fs, align 8
-  %16 = load ptr, ptr %fs, align 8
-  %freereg2 = getelementptr inbounds %struct.FuncState, ptr %16, i32 0, i32 8
-  %17 = load i32, ptr %freereg2, align 4
-  %shl = shl i32 %17, 8
+  %18 = load ptr, ptr %fs, align 8
+  %19 = load ptr, ptr %fs, align 8
+  %freereg2 = getelementptr inbounds %struct.FuncState, ptr %19, i32 0, i32 8
+  %20 = load i32, ptr %freereg2, align 4
+  %shl = shl i32 %20, 8
   %or = or i32 41, %shl
   %or3 = or i32 %or, 65536
-  %call4 = call i32 @bcemit_INS(ptr noundef %15, i32 noundef %or3)
-  %18 = load ptr, ptr %fs, align 8
-  call void @bcreg_reserve(ptr noundef %18, i32 noundef 1)
+  %call4 = call i32 @bcemit_INS(ptr noundef %18, i32 noundef %or3)
+  %21 = load ptr, ptr %fs, align 8
+  call void @bcreg_reserve(ptr noundef %21, i32 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %19 = load ptr, ptr %ls.addr, align 8
-  call void @var_add(ptr noundef %19, i32 noundef 3)
-  %20 = load ptr, ptr %ls.addr, align 8
-  call void @lex_check(ptr noundef %20, i32 noundef 259)
-  %21 = load ptr, ptr %fs, align 8
-  %22 = load i32, ptr %base, align 4
-  %shl5 = shl i32 %22, 8
+  %22 = load ptr, ptr %ls.addr, align 8
+  call void @var_add(ptr noundef %22, i32 noundef 3)
+  %23 = load ptr, ptr %ls.addr, align 8
+  call void @lex_check(ptr noundef %23, i32 noundef 259)
+  %24 = load ptr, ptr %fs, align 8
+  %25 = load i32, ptr %base, align 4
+  %shl5 = shl i32 %25, 8
   %or6 = or i32 77, %shl5
   %or7 = or i32 %or6, 2147418112
-  %call8 = call i32 @bcemit_INS(ptr noundef %21, i32 noundef %or7)
+  %call8 = call i32 @bcemit_INS(ptr noundef %24, i32 noundef %or7)
   store i32 %call8, ptr %loop, align 4
-  %23 = load ptr, ptr %fs, align 8
-  call void @fscope_begin(ptr noundef %23, ptr noundef %bl, i32 noundef 0)
-  %24 = load ptr, ptr %ls.addr, align 8
-  call void @var_add(ptr noundef %24, i32 noundef 1)
-  %25 = load ptr, ptr %fs, align 8
-  call void @bcreg_reserve(ptr noundef %25, i32 noundef 1)
-  %26 = load ptr, ptr %ls.addr, align 8
-  call void @parse_block(ptr noundef %26)
-  %27 = load ptr, ptr %fs, align 8
-  call void @fscope_end(ptr noundef %27)
+  %26 = load ptr, ptr %fs, align 8
+  call void @fscope_begin(ptr noundef %26, ptr noundef %bl, i32 noundef 0)
+  %27 = load ptr, ptr %ls.addr, align 8
+  call void @var_add(ptr noundef %27, i32 noundef 1)
   %28 = load ptr, ptr %fs, align 8
-  %29 = load i32, ptr %base, align 4
-  %shl9 = shl i32 %29, 8
+  call void @bcreg_reserve(ptr noundef %28, i32 noundef 1)
+  %29 = load ptr, ptr %ls.addr, align 8
+  call void @parse_block(ptr noundef %29)
+  %30 = load ptr, ptr %fs, align 8
+  call void @fscope_end(ptr noundef %30)
+  %31 = load ptr, ptr %fs, align 8
+  %32 = load i32, ptr %base, align 4
+  %shl9 = shl i32 %32, 8
   %or10 = or i32 79, %shl9
   %or11 = or i32 %or10, 2147418112
-  %call12 = call i32 @bcemit_INS(ptr noundef %28, i32 noundef %or11)
+  %call12 = call i32 @bcemit_INS(ptr noundef %31, i32 noundef %or11)
   store i32 %call12, ptr %loopend, align 4
-  %30 = load i32, ptr %line.addr, align 4
-  %31 = load ptr, ptr %fs, align 8
-  %bcbase = getelementptr inbounds %struct.FuncState, ptr %31, i32 0, i32 13
-  %32 = load ptr, ptr %bcbase, align 8
-  %33 = load i32, ptr %loopend, align 4
-  %idxprom = zext i32 %33 to i64
-  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %32, i64 %idxprom
-  %line13 = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx, i32 0, i32 1
-  store i32 %30, ptr %line13, align 4
+  %33 = load i32, ptr %line.addr, align 4
   %34 = load ptr, ptr %fs, align 8
-  %35 = load i32, ptr %loopend, align 4
-  %36 = load i32, ptr %loop, align 4
-  %add = add i32 %36, 1
-  call void @jmp_patchins(ptr noundef %34, i32 noundef %35, i32 noundef %add)
+  %bcbase = getelementptr inbounds %struct.FuncState, ptr %34, i32 0, i32 13
+  %35 = load ptr, ptr %bcbase, align 8
+  %36 = load i32, ptr %loopend, align 4
+  %idxprom = zext i32 %36 to i64
+  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %35, i64 %idxprom
+  %line13 = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx, i32 0, i32 1
+  store i32 %33, ptr %line13, align 4
   %37 = load ptr, ptr %fs, align 8
-  %38 = load i32, ptr %loop, align 4
-  %39 = load ptr, ptr %fs, align 8
-  %pc = getelementptr inbounds %struct.FuncState, ptr %39, i32 0, i32 5
-  %40 = load i32, ptr %pc, align 8
-  call void @jmp_patchins(ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  %38 = load i32, ptr %loopend, align 4
+  %39 = load i32, ptr %loop, align 4
+  %add = add i32 %39, 1
+  call void @jmp_patchins(ptr noundef %37, i32 noundef %38, i32 noundef %add)
+  %40 = load ptr, ptr %fs, align 8
+  %41 = load i32, ptr %loop, align 4
+  %42 = load ptr, ptr %fs, align 8
+  %pc = getelementptr inbounds %struct.FuncState, ptr %42, i32 0, i32 5
+  %43 = load i32, ptr %pc, align 8
+  call void @jmp_patchins(ptr noundef %40, i32 noundef %41, i32 noundef %43)
   ret void
 }
 
@@ -9978,149 +9985,152 @@ entry:
   %7 = load i32, ptr %nvars, align 4
   %inc = add i32 %7, 1
   store i32 %inc, ptr %nvars, align 4
-  call void @var_new(ptr noundef %6, i32 noundef %7, ptr noundef inttoptr (i64 4 to ptr))
-  %8 = load ptr, ptr %ls.addr, align 8
-  %9 = load i32, ptr %nvars, align 4
-  %inc2 = add i32 %9, 1
+  %8 = inttoptr i64 4 to ptr
+  call void @var_new(ptr noundef %6, i32 noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %ls.addr, align 8
+  %10 = load i32, ptr %nvars, align 4
+  %inc2 = add i32 %10, 1
   store i32 %inc2, ptr %nvars, align 4
-  call void @var_new(ptr noundef %8, i32 noundef %9, ptr noundef inttoptr (i64 5 to ptr))
-  %10 = load ptr, ptr %ls.addr, align 8
-  %11 = load i32, ptr %nvars, align 4
-  %inc3 = add i32 %11, 1
-  store i32 %inc3, ptr %nvars, align 4
-  call void @var_new(ptr noundef %10, i32 noundef %11, ptr noundef inttoptr (i64 6 to ptr))
+  %11 = inttoptr i64 5 to ptr
+  call void @var_new(ptr noundef %9, i32 noundef %10, ptr noundef %11)
   %12 = load ptr, ptr %ls.addr, align 8
   %13 = load i32, ptr %nvars, align 4
-  %inc4 = add i32 %13, 1
-  store i32 %inc4, ptr %nvars, align 4
-  %14 = load ptr, ptr %indexname.addr, align 8
+  %inc3 = add i32 %13, 1
+  store i32 %inc3, ptr %nvars, align 4
+  %14 = inttoptr i64 6 to ptr
   call void @var_new(ptr noundef %12, i32 noundef %13, ptr noundef %14)
+  %15 = load ptr, ptr %ls.addr, align 8
+  %16 = load i32, ptr %nvars, align 4
+  %inc4 = add i32 %16, 1
+  store i32 %inc4, ptr %nvars, align 4
+  %17 = load ptr, ptr %indexname.addr, align 8
+  call void @var_new(ptr noundef %15, i32 noundef %16, ptr noundef %17)
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %15 = load ptr, ptr %ls.addr, align 8
-  %call = call i32 @lex_opt(ptr noundef %15, i32 noundef 44)
+  %18 = load ptr, ptr %ls.addr, align 8
+  %call = call i32 @lex_opt(ptr noundef %18, i32 noundef 44)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %16 = load ptr, ptr %ls.addr, align 8
-  %17 = load i32, ptr %nvars, align 4
-  %inc5 = add i32 %17, 1
+  %19 = load ptr, ptr %ls.addr, align 8
+  %20 = load i32, ptr %nvars, align 4
+  %inc5 = add i32 %20, 1
   store i32 %inc5, ptr %nvars, align 4
-  %18 = load ptr, ptr %ls.addr, align 8
-  %call6 = call ptr @lex_str(ptr noundef %18)
-  call void @var_new(ptr noundef %16, i32 noundef %17, ptr noundef %call6)
+  %21 = load ptr, ptr %ls.addr, align 8
+  %call6 = call ptr @lex_str(ptr noundef %21)
+  call void @var_new(ptr noundef %19, i32 noundef %20, ptr noundef %call6)
   br label %while.cond, !llvm.loop !26
 
 while.end:                                        ; preds = %while.cond
-  %19 = load ptr, ptr %ls.addr, align 8
-  call void @lex_check(ptr noundef %19, i32 noundef 268)
-  %20 = load ptr, ptr %ls.addr, align 8
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %20, i32 0, i32 12
-  %21 = load i32, ptr %linenumber, align 8
-  store i32 %21, ptr %line, align 4
   %22 = load ptr, ptr %ls.addr, align 8
+  call void @lex_check(ptr noundef %22, i32 noundef 268)
   %23 = load ptr, ptr %ls.addr, align 8
-  %call7 = call i32 @expr_list(ptr noundef %23, ptr noundef %e)
-  call void @assign_adjust(ptr noundef %22, i32 noundef 3, i32 noundef %call7, ptr noundef %e)
-  %24 = load ptr, ptr %fs, align 8
-  call void @bcreg_bump(ptr noundef %24, i32 noundef 4)
-  %25 = load i32, ptr %nvars, align 4
-  %cmp = icmp ule i32 %25, 5
+  %linenumber = getelementptr inbounds %struct.LexState, ptr %23, i32 0, i32 12
+  %24 = load i32, ptr %linenumber, align 8
+  store i32 %24, ptr %line, align 4
+  %25 = load ptr, ptr %ls.addr, align 8
+  %26 = load ptr, ptr %ls.addr, align 8
+  %call7 = call i32 @expr_list(ptr noundef %26, ptr noundef %e)
+  call void @assign_adjust(ptr noundef %25, i32 noundef 3, i32 noundef %call7, ptr noundef %e)
+  %27 = load ptr, ptr %fs, align 8
+  call void @bcreg_bump(ptr noundef %27, i32 noundef 4)
+  %28 = load i32, ptr %nvars, align 4
+  %cmp = icmp ule i32 %28, 5
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.end
-  %26 = load ptr, ptr %ls.addr, align 8
-  %27 = load ptr, ptr %fs, align 8
-  %28 = load i32, ptr %exprpc, align 4
-  %call8 = call i32 @predict_next(ptr noundef %26, ptr noundef %27, i32 noundef %28)
+  %29 = load ptr, ptr %ls.addr, align 8
+  %30 = load ptr, ptr %fs, align 8
+  %31 = load i32, ptr %exprpc, align 4
+  %call8 = call i32 @predict_next(ptr noundef %29, ptr noundef %30, i32 noundef %31)
   %tobool9 = icmp ne i32 %call8, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.end
-  %29 = phi i1 [ false, %while.end ], [ %tobool9, %land.rhs ]
-  %land.ext = zext i1 %29 to i32
+  %32 = phi i1 [ false, %while.end ], [ %tobool9, %land.rhs ]
+  %land.ext = zext i1 %32 to i32
   store i32 %land.ext, ptr %isnext, align 4
-  %30 = load ptr, ptr %ls.addr, align 8
-  call void @var_add(ptr noundef %30, i32 noundef 3)
-  %31 = load ptr, ptr %ls.addr, align 8
-  call void @lex_check(ptr noundef %31, i32 noundef 259)
-  %32 = load ptr, ptr %fs, align 8
-  %33 = load i32, ptr %isnext, align 4
-  %tobool10 = icmp ne i32 %33, 0
+  %33 = load ptr, ptr %ls.addr, align 8
+  call void @var_add(ptr noundef %33, i32 noundef 3)
+  %34 = load ptr, ptr %ls.addr, align 8
+  call void @lex_check(ptr noundef %34, i32 noundef 259)
+  %35 = load ptr, ptr %fs, align 8
+  %36 = load i32, ptr %isnext, align 4
+  %tobool10 = icmp ne i32 %36, 0
   %cond = select i1 %tobool10, i32 72, i32 88
-  %34 = load i32, ptr %base, align 4
-  %shl = shl i32 %34, 8
+  %37 = load i32, ptr %base, align 4
+  %shl = shl i32 %37, 8
   %or = or i32 %cond, %shl
   %or11 = or i32 %or, 2147418112
-  %call12 = call i32 @bcemit_INS(ptr noundef %32, i32 noundef %or11)
+  %call12 = call i32 @bcemit_INS(ptr noundef %35, i32 noundef %or11)
   store i32 %call12, ptr %loop, align 4
-  %35 = load ptr, ptr %fs, align 8
-  call void @fscope_begin(ptr noundef %35, ptr noundef %bl, i32 noundef 0)
-  %36 = load ptr, ptr %ls.addr, align 8
-  %37 = load i32, ptr %nvars, align 4
-  %sub = sub i32 %37, 3
-  call void @var_add(ptr noundef %36, i32 noundef %sub)
   %38 = load ptr, ptr %fs, align 8
-  %39 = load i32, ptr %nvars, align 4
-  %sub13 = sub i32 %39, 3
-  call void @bcreg_reserve(ptr noundef %38, i32 noundef %sub13)
-  %40 = load ptr, ptr %ls.addr, align 8
-  call void @parse_block(ptr noundef %40)
+  call void @fscope_begin(ptr noundef %38, ptr noundef %bl, i32 noundef 0)
+  %39 = load ptr, ptr %ls.addr, align 8
+  %40 = load i32, ptr %nvars, align 4
+  %sub = sub i32 %40, 3
+  call void @var_add(ptr noundef %39, i32 noundef %sub)
   %41 = load ptr, ptr %fs, align 8
-  call void @fscope_end(ptr noundef %41)
-  %42 = load ptr, ptr %fs, align 8
-  %43 = load i32, ptr %loop, align 4
+  %42 = load i32, ptr %nvars, align 4
+  %sub13 = sub i32 %42, 3
+  call void @bcreg_reserve(ptr noundef %41, i32 noundef %sub13)
+  %43 = load ptr, ptr %ls.addr, align 8
+  call void @parse_block(ptr noundef %43)
   %44 = load ptr, ptr %fs, align 8
-  %pc14 = getelementptr inbounds %struct.FuncState, ptr %44, i32 0, i32 5
-  %45 = load i32, ptr %pc14, align 8
-  call void @jmp_patchins(ptr noundef %42, i32 noundef %43, i32 noundef %45)
-  %46 = load ptr, ptr %fs, align 8
-  %47 = load i32, ptr %isnext, align 4
-  %tobool15 = icmp ne i32 %47, 0
+  call void @fscope_end(ptr noundef %44)
+  %45 = load ptr, ptr %fs, align 8
+  %46 = load i32, ptr %loop, align 4
+  %47 = load ptr, ptr %fs, align 8
+  %pc14 = getelementptr inbounds %struct.FuncState, ptr %47, i32 0, i32 5
+  %48 = load i32, ptr %pc14, align 8
+  call void @jmp_patchins(ptr noundef %45, i32 noundef %46, i32 noundef %48)
+  %49 = load ptr, ptr %fs, align 8
+  %50 = load i32, ptr %isnext, align 4
+  %tobool15 = icmp ne i32 %50, 0
   %cond16 = select i1 %tobool15, i32 70, i32 69
-  %48 = load i32, ptr %base, align 4
-  %shl17 = shl i32 %48, 8
+  %51 = load i32, ptr %base, align 4
+  %shl17 = shl i32 %51, 8
   %or18 = or i32 %cond16, %shl17
-  %49 = load i32, ptr %nvars, align 4
-  %sub19 = sub i32 %49, 3
+  %52 = load i32, ptr %nvars, align 4
+  %sub19 = sub i32 %52, 3
   %add20 = add i32 %sub19, 1
   %shl21 = shl i32 %add20, 24
   %or22 = or i32 %or18, %shl21
   %or23 = or i32 %or22, 196608
-  %call24 = call i32 @bcemit_INS(ptr noundef %46, i32 noundef %or23)
-  %50 = load ptr, ptr %fs, align 8
-  %51 = load i32, ptr %base, align 4
-  %shl25 = shl i32 %51, 8
+  %call24 = call i32 @bcemit_INS(ptr noundef %49, i32 noundef %or23)
+  %53 = load ptr, ptr %fs, align 8
+  %54 = load i32, ptr %base, align 4
+  %shl25 = shl i32 %54, 8
   %or26 = or i32 82, %shl25
   %or27 = or i32 %or26, 2147418112
-  %call28 = call i32 @bcemit_INS(ptr noundef %50, i32 noundef %or27)
+  %call28 = call i32 @bcemit_INS(ptr noundef %53, i32 noundef %or27)
   store i32 %call28, ptr %loopend, align 4
-  %52 = load i32, ptr %line, align 4
-  %53 = load ptr, ptr %fs, align 8
-  %bcbase = getelementptr inbounds %struct.FuncState, ptr %53, i32 0, i32 13
-  %54 = load ptr, ptr %bcbase, align 8
-  %55 = load i32, ptr %loopend, align 4
-  %sub29 = sub i32 %55, 1
+  %55 = load i32, ptr %line, align 4
+  %56 = load ptr, ptr %fs, align 8
+  %bcbase = getelementptr inbounds %struct.FuncState, ptr %56, i32 0, i32 13
+  %57 = load ptr, ptr %bcbase, align 8
+  %58 = load i32, ptr %loopend, align 4
+  %sub29 = sub i32 %58, 1
   %idxprom = zext i32 %sub29 to i64
-  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %54, i64 %idxprom
+  %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %57, i64 %idxprom
   %line30 = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx, i32 0, i32 1
-  store i32 %52, ptr %line30, align 4
-  %56 = load i32, ptr %line, align 4
-  %57 = load ptr, ptr %fs, align 8
-  %bcbase31 = getelementptr inbounds %struct.FuncState, ptr %57, i32 0, i32 13
-  %58 = load ptr, ptr %bcbase31, align 8
-  %59 = load i32, ptr %loopend, align 4
-  %idxprom32 = zext i32 %59 to i64
-  %arrayidx33 = getelementptr inbounds %struct.BCInsLine, ptr %58, i64 %idxprom32
-  %line34 = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx33, i32 0, i32 1
-  store i32 %56, ptr %line34, align 4
+  store i32 %55, ptr %line30, align 4
+  %59 = load i32, ptr %line, align 4
   %60 = load ptr, ptr %fs, align 8
-  %61 = load i32, ptr %loopend, align 4
-  %62 = load i32, ptr %loop, align 4
-  %add35 = add i32 %62, 1
-  call void @jmp_patchins(ptr noundef %60, i32 noundef %61, i32 noundef %add35)
+  %bcbase31 = getelementptr inbounds %struct.FuncState, ptr %60, i32 0, i32 13
+  %61 = load ptr, ptr %bcbase31, align 8
+  %62 = load i32, ptr %loopend, align 4
+  %idxprom32 = zext i32 %62 to i64
+  %arrayidx33 = getelementptr inbounds %struct.BCInsLine, ptr %61, i64 %idxprom32
+  %line34 = getelementptr inbounds %struct.BCInsLine, ptr %arrayidx33, i32 0, i32 1
+  store i32 %59, ptr %line34, align 4
+  %63 = load ptr, ptr %fs, align 8
+  %64 = load i32, ptr %loopend, align 4
+  %65 = load i32, ptr %loop, align 4
+  %add35 = add i32 %65, 1
+  call void @jmp_patchins(ptr noundef %63, i32 noundef %64, i32 noundef %add35)
   ret void
 }
 

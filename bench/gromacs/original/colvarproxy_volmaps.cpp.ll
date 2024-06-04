@@ -632,19 +632,20 @@ define void @_ZN19colvarproxy_volmapsC2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTV19colvarproxy_volmaps, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
-  %7 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV19colvarproxy_volmaps, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
-  %8 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 6
-  store double 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 5
+  %8 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
+  %9 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 6
   store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 5
+  store double 0.000000e+00, ptr %10, align 8
   ret void
 }
 
@@ -830,15 +831,16 @@ define void @_ZN19colvarproxy_volmapsD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTV19colvarproxy_volmaps, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV19colvarproxy_volmaps, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
-  %7 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
+  %6 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
+  %8 = getelementptr inbounds %class.colvarproxy_volmaps, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
   ret void
 }
 

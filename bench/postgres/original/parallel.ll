@@ -52,7 +52,8 @@ define dso_local void @on_exit_close_archive(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.ShutdownInformation, ptr @shutdown_info, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds %struct.ShutdownInformation, ptr @shutdown_info, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   call void @on_exit_nicely(ptr noundef @archive_close_connection, ptr noundef @shutdown_info)
   ret void
 }
@@ -193,18 +194,20 @@ define dso_local void @set_archive_cancel_info(ptr noundef %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_cancel_handler() #0 {
-  %1 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 2), align 8
-  %2 = trunc i8 %1 to i1
-  br i1 %2, label %7, label %3
+  %1 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 2
+  %2 = load volatile i8, ptr %1, align 8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %9, label %4
 
-3:                                                ; preds = %0
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 2), align 8
-  %4 = call ptr @pqsignal(i32 noundef 2, ptr noundef @sigTermHandler)
-  %5 = call ptr @pqsignal(i32 noundef 15, ptr noundef @sigTermHandler)
-  %6 = call ptr @pqsignal(i32 noundef 3, ptr noundef @sigTermHandler)
-  br label %7
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 2
+  store volatile i8 1, ptr %5, align 8
+  %6 = call ptr @pqsignal(i32 noundef 2, ptr noundef @sigTermHandler)
+  %7 = call ptr @pqsignal(i32 noundef 15, ptr noundef @sigTermHandler)
+  %8 = call ptr @pqsignal(i32 noundef 3, ptr noundef @sigTermHandler)
+  br label %9
 
-7:                                                ; preds = %3, %0
+9:                                                ; preds = %4, %0
   ret void
 }
 
@@ -249,7 +252,7 @@ define dso_local ptr @ParallelBackupStart(ptr noundef %0) #0 {
 27:                                               ; preds = %1
   %28 = load ptr, ptr %4, align 8
   store ptr %28, ptr %2, align 8
-  br label %161
+  br label %163
 
 29:                                               ; preds = %1
   %30 = load ptr, ptr %4, align 8
@@ -278,13 +281,13 @@ define dso_local ptr @ParallelBackupStart(ptr noundef %0) #0 {
   store i32 0, ptr %5, align 4
   br label %49
 
-49:                                               ; preds = %150, %29
+49:                                               ; preds = %151, %29
   %50 = load i32, ptr %5, align 4
   %51 = load ptr, ptr %4, align 8
   %52 = getelementptr inbounds %struct.ParallelState, ptr %51, i32 0, i32 0
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %50, %53
-  br i1 %54, label %55, label %153
+  br i1 %54, label %55, label %154
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %4, align 8
@@ -341,120 +344,122 @@ define dso_local ptr @ParallelBackupStart(ptr noundef %0) #0 {
   store i32 %89, ptr %6, align 4
   %90 = load i32, ptr %6, align 4
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %131
+  br i1 %91, label %92, label %132
 
 92:                                               ; preds = %72
   %93 = call i32 @getpid() #9
   %94 = load ptr, ptr %7, align 8
   %95 = getelementptr inbounds %struct.ParallelSlot, ptr %94, i32 0, i32 8
   store i32 %93, ptr %95, align 8
-  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 3), align 1
-  %96 = getelementptr [2 x i32], ptr %9, i64 0, i64 0
-  %97 = load i32, ptr %96, align 4
-  %98 = call i32 @close(i32 noundef %97)
-  %99 = getelementptr [2 x i32], ptr %8, i64 0, i64 1
-  %100 = load i32, ptr %99, align 4
-  %101 = call i32 @close(i32 noundef %100)
+  %96 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 3
+  store volatile i8 1, ptr %96, align 1
+  %97 = getelementptr [2 x i32], ptr %9, i64 0, i64 0
+  %98 = load i32, ptr %97, align 4
+  %99 = call i32 @close(i32 noundef %98)
+  %100 = getelementptr [2 x i32], ptr %8, i64 0, i64 1
+  %101 = load i32, ptr %100, align 4
+  %102 = call i32 @close(i32 noundef %101)
   store i32 0, ptr %10, align 4
-  br label %102
+  br label %103
 
-102:                                              ; preds = %125, %92
-  %103 = load i32, ptr %10, align 4
-  %104 = load i32, ptr %5, align 4
-  %105 = icmp slt i32 %103, %104
-  br i1 %105, label %106, label %128
+103:                                              ; preds = %126, %92
+  %104 = load i32, ptr %10, align 4
+  %105 = load i32, ptr %5, align 4
+  %106 = icmp slt i32 %104, %105
+  br i1 %106, label %107, label %129
 
-106:                                              ; preds = %102
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.ParallelState, ptr %107, i32 0, i32 2
-  %109 = load ptr, ptr %108, align 8
-  %110 = load i32, ptr %10, align 4
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr %struct.ParallelSlot, ptr %109, i64 %111
-  %113 = getelementptr inbounds %struct.ParallelSlot, ptr %112, i32 0, i32 4
-  %114 = load i32, ptr %113, align 8
-  %115 = call i32 @close(i32 noundef %114)
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.ParallelState, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %10, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr %struct.ParallelSlot, ptr %118, i64 %120
-  %122 = getelementptr inbounds %struct.ParallelSlot, ptr %121, i32 0, i32 5
-  %123 = load i32, ptr %122, align 4
-  %124 = call i32 @close(i32 noundef %123)
-  br label %125
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %4, align 8
+  %109 = getelementptr inbounds %struct.ParallelState, ptr %108, i32 0, i32 2
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %10, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr %struct.ParallelSlot, ptr %110, i64 %112
+  %114 = getelementptr inbounds %struct.ParallelSlot, ptr %113, i32 0, i32 4
+  %115 = load i32, ptr %114, align 8
+  %116 = call i32 @close(i32 noundef %115)
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds %struct.ParallelState, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i32, ptr %10, align 4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr %struct.ParallelSlot, ptr %119, i64 %121
+  %123 = getelementptr inbounds %struct.ParallelSlot, ptr %122, i32 0, i32 5
+  %124 = load i32, ptr %123, align 4
+  %125 = call i32 @close(i32 noundef %124)
+  br label %126
 
-125:                                              ; preds = %106
-  %126 = load i32, ptr %10, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %10, align 4
-  br label %102, !llvm.loop !5
+126:                                              ; preds = %107
+  %127 = load i32, ptr %10, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %10, align 4
+  br label %103, !llvm.loop !5
 
-128:                                              ; preds = %102
-  %129 = load ptr, ptr %3, align 8
-  %130 = load ptr, ptr %7, align 8
-  call void @RunWorker(ptr noundef %129, ptr noundef %130)
+129:                                              ; preds = %103
+  %130 = load ptr, ptr %3, align 8
+  %131 = load ptr, ptr %7, align 8
+  call void @RunWorker(ptr noundef %130, ptr noundef %131)
   call void @exit(i32 noundef 0) #11
   unreachable
 
-131:                                              ; preds = %72
-  %132 = load i32, ptr %6, align 4
-  %133 = icmp slt i32 %132, 0
-  br i1 %133, label %134, label %137
+132:                                              ; preds = %72
+  %133 = load i32, ptr %6, align 4
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %135, label %138
 
-134:                                              ; preds = %131
-  br label %135
+135:                                              ; preds = %132
+  br label %136
 
-135:                                              ; preds = %134
+136:                                              ; preds = %135
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.1)
   call void @exit_nicely(i32 noundef 1) #10
   unreachable
 
-136:                                              ; No predecessors!
-  br label %137
-
-137:                                              ; preds = %136, %131
+137:                                              ; No predecessors!
   br label %138
 
-138:                                              ; preds = %137
-  %139 = load i32, ptr %6, align 4
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.ParallelSlot, ptr %140, i32 0, i32 8
-  store i32 %139, ptr %141, align 8
-  %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct.ParallelSlot, ptr %142, i32 0, i32 0
-  store i32 1, ptr %143, align 8
-  %144 = getelementptr [2 x i32], ptr %8, i64 0, i64 0
-  %145 = load i32, ptr %144, align 4
-  %146 = call i32 @close(i32 noundef %145)
-  %147 = getelementptr [2 x i32], ptr %9, i64 0, i64 1
-  %148 = load i32, ptr %147, align 4
-  %149 = call i32 @close(i32 noundef %148)
-  br label %150
+138:                                              ; preds = %137, %132
+  br label %139
 
-150:                                              ; preds = %138
-  %151 = load i32, ptr %5, align 4
-  %152 = add i32 %151, 1
-  store i32 %152, ptr %5, align 4
+139:                                              ; preds = %138
+  %140 = load i32, ptr %6, align 4
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds %struct.ParallelSlot, ptr %141, i32 0, i32 8
+  store i32 %140, ptr %142, align 8
+  %143 = load ptr, ptr %7, align 8
+  %144 = getelementptr inbounds %struct.ParallelSlot, ptr %143, i32 0, i32 0
+  store i32 1, ptr %144, align 8
+  %145 = getelementptr [2 x i32], ptr %8, i64 0, i64 0
+  %146 = load i32, ptr %145, align 4
+  %147 = call i32 @close(i32 noundef %146)
+  %148 = getelementptr [2 x i32], ptr %9, i64 0, i64 1
+  %149 = load i32, ptr %148, align 4
+  %150 = call i32 @close(i32 noundef %149)
+  br label %151
+
+151:                                              ; preds = %139
+  %152 = load i32, ptr %5, align 4
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %5, align 4
   br label %49, !llvm.loop !7
 
-153:                                              ; preds = %49
-  %154 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %155 = load ptr, ptr %3, align 8
-  %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds %struct._archiveHandle, ptr %156, i32 0, i32 42
-  %158 = load ptr, ptr %157, align 8
-  call void @set_archive_cancel_info(ptr noundef %155, ptr noundef %158)
-  %159 = load ptr, ptr %4, align 8
-  call void @set_cancel_pstate(ptr noundef %159)
-  %160 = load ptr, ptr %4, align 8
-  store ptr %160, ptr %2, align 8
-  br label %161
+154:                                              ; preds = %49
+  %155 = inttoptr i64 1 to ptr
+  %156 = call ptr @pqsignal(i32 noundef 13, ptr noundef %155)
+  %157 = load ptr, ptr %3, align 8
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds %struct._archiveHandle, ptr %158, i32 0, i32 42
+  %160 = load ptr, ptr %159, align 8
+  call void @set_archive_cancel_info(ptr noundef %157, ptr noundef %160)
+  %161 = load ptr, ptr %4, align 8
+  call void @set_cancel_pstate(ptr noundef %161)
+  %162 = load ptr, ptr %4, align 8
+  store ptr %162, ptr %2, align 8
+  br label %163
 
-161:                                              ; preds = %153, %27
-  %162 = load ptr, ptr %2, align 8
-  ret ptr %162
+163:                                              ; preds = %154, %27
+  %164 = load ptr, ptr %2, align 8
+  ret ptr %164
 }
 
 declare ptr @pg_malloc(i64 noundef) #1
@@ -530,7 +535,8 @@ define internal void @set_cancel_pstate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store volatile ptr %3, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1
+  store volatile ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1328,139 +1334,146 @@ define internal void @sigTermHandler(i32 noundef %0) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %12 = call ptr @pqsignal(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  %13 = call ptr @pqsignal(i32 noundef 15, ptr noundef inttoptr (i64 1 to ptr))
-  %14 = call ptr @pqsignal(i32 noundef 3, ptr noundef inttoptr (i64 1 to ptr))
-  %15 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1), align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %43
+  %12 = inttoptr i64 1 to ptr
+  %13 = call ptr @pqsignal(i32 noundef 2, ptr noundef %12)
+  %14 = inttoptr i64 1 to ptr
+  %15 = call ptr @pqsignal(i32 noundef 15, ptr noundef %14)
+  %16 = inttoptr i64 1 to ptr
+  %17 = call ptr @pqsignal(i32 noundef 3, ptr noundef %16)
+  %18 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1
+  %19 = load volatile ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %49
 
-17:                                               ; preds = %1
+21:                                               ; preds = %1
   store i32 0, ptr %3, align 4
-  br label %18
+  br label %22
 
-18:                                               ; preds = %39, %17
-  %19 = load i32, ptr %3, align 4
-  %20 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1), align 8
-  %21 = getelementptr inbounds %struct.ParallelState, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp slt i32 %19, %22
-  br i1 %23, label %24, label %42
+22:                                               ; preds = %45, %21
+  %23 = load i32, ptr %3, align 4
+  %24 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1
+  %25 = load volatile ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.ParallelState, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp slt i32 %23, %27
+  br i1 %28, label %29, label %48
 
-24:                                               ; preds = %18
-  %25 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1), align 8
-  %26 = getelementptr inbounds %struct.ParallelState, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %3, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.ParallelSlot, ptr %27, i64 %29
-  %31 = getelementptr inbounds %struct.ParallelSlot, ptr %30, i32 0, i32 8
-  %32 = load i32, ptr %31, align 8
-  store i32 %32, ptr %5, align 4
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %38
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 1
+  %31 = load volatile ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.ParallelState, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %3, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr %struct.ParallelSlot, ptr %33, i64 %35
+  %37 = getelementptr inbounds %struct.ParallelSlot, ptr %36, i32 0, i32 8
+  %38 = load i32, ptr %37, align 8
+  store i32 %38, ptr %5, align 4
+  %39 = load i32, ptr %5, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %44
 
-35:                                               ; preds = %24
-  %36 = load i32, ptr %5, align 4
-  %37 = call i32 @kill(i32 noundef %36, i32 noundef 15) #9
-  br label %38
+41:                                               ; preds = %29
+  %42 = load i32, ptr %5, align 4
+  %43 = call i32 @kill(i32 noundef %42, i32 noundef 15) #9
+  br label %44
 
-38:                                               ; preds = %35, %24
-  br label %39
+44:                                               ; preds = %41, %29
+  br label %45
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr %3, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %3, align 4
-  br label %18, !llvm.loop !17
+45:                                               ; preds = %44
+  %46 = load i32, ptr %3, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %3, align 4
+  br label %22, !llvm.loop !17
 
-42:                                               ; preds = %18
-  br label %43
+48:                                               ; preds = %22
+  br label %49
 
-43:                                               ; preds = %42, %1
-  %44 = load volatile ptr, ptr @signal_info, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %57
+49:                                               ; preds = %48, %1
+  %50 = load volatile ptr, ptr @signal_info, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %63
 
-46:                                               ; preds = %43
-  %47 = load volatile ptr, ptr @signal_info, align 8
-  %48 = getelementptr inbounds %struct._archiveHandle, ptr %47, i32 0, i32 43
-  %49 = load volatile ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %57
+52:                                               ; preds = %49
+  %53 = load volatile ptr, ptr @signal_info, align 8
+  %54 = getelementptr inbounds %struct._archiveHandle, ptr %53, i32 0, i32 43
+  %55 = load volatile ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %63
 
-51:                                               ; preds = %46
-  %52 = load volatile ptr, ptr @signal_info, align 8
-  %53 = getelementptr inbounds %struct._archiveHandle, ptr %52, i32 0, i32 43
-  %54 = load volatile ptr, ptr %53, align 8
-  %55 = getelementptr inbounds [1 x i8], ptr %4, i64 0, i64 0
-  %56 = call i32 @PQcancel(ptr noundef %54, ptr noundef %55, i32 noundef 1)
-  br label %57
+57:                                               ; preds = %52
+  %58 = load volatile ptr, ptr @signal_info, align 8
+  %59 = getelementptr inbounds %struct._archiveHandle, ptr %58, i32 0, i32 43
+  %60 = load volatile ptr, ptr %59, align 8
+  %61 = getelementptr inbounds [1 x i8], ptr %4, i64 0, i64 0
+  %62 = call i32 @PQcancel(ptr noundef %60, ptr noundef %61, i32 noundef 1)
+  br label %63
 
-57:                                               ; preds = %51, %46, %43
-  %58 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 3), align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %93, label %60
+63:                                               ; preds = %57, %52, %49
+  %64 = getelementptr inbounds %struct.DumpSignalInformation, ptr @signal_info, i32 0, i32 3
+  %65 = load volatile i8, ptr %64, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %100, label %67
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr @progname, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %83
+67:                                               ; preds = %63
+  %68 = load ptr, ptr @progname, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %90
 
-63:                                               ; preds = %60
-  br label %64
+70:                                               ; preds = %67
+  br label %71
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr @progname, align 8
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr @stderr, align 8
-  %67 = call i32 @fileno(ptr noundef %66) #9
-  %68 = load ptr, ptr %6, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = call i64 @strlen(ptr noundef %69) #12
-  %71 = call i64 @write(i32 noundef %67, ptr noundef %68, i64 noundef %70)
-  %72 = trunc i64 %71 to i32
-  store i32 %72, ptr %7, align 4
-  br label %73
+71:                                               ; preds = %70
+  %72 = load ptr, ptr @progname, align 8
+  store ptr %72, ptr %6, align 8
+  %73 = load ptr, ptr @stderr, align 8
+  %74 = call i32 @fileno(ptr noundef %73) #9
+  %75 = load ptr, ptr %6, align 8
+  %76 = load ptr, ptr %6, align 8
+  %77 = call i64 @strlen(ptr noundef %76) #12
+  %78 = call i64 @write(i32 noundef %74, ptr noundef %75, i64 noundef %77)
+  %79 = trunc i64 %78 to i32
+  store i32 %79, ptr %7, align 4
+  br label %80
 
-73:                                               ; preds = %64
-  br label %74
+80:                                               ; preds = %71
+  br label %81
 
-74:                                               ; preds = %73
+81:                                               ; preds = %80
   store ptr @.str.2, ptr %8, align 8
-  %75 = load ptr, ptr @stderr, align 8
-  %76 = call i32 @fileno(ptr noundef %75) #9
-  %77 = load ptr, ptr %8, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = call i64 @strlen(ptr noundef %78) #12
-  %80 = call i64 @write(i32 noundef %76, ptr noundef %77, i64 noundef %79)
-  %81 = trunc i64 %80 to i32
-  store i32 %81, ptr %9, align 4
-  br label %82
+  %82 = load ptr, ptr @stderr, align 8
+  %83 = call i32 @fileno(ptr noundef %82) #9
+  %84 = load ptr, ptr %8, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = call i64 @strlen(ptr noundef %85) #12
+  %87 = call i64 @write(i32 noundef %83, ptr noundef %84, i64 noundef %86)
+  %88 = trunc i64 %87 to i32
+  store i32 %88, ptr %9, align 4
+  br label %89
 
-82:                                               ; preds = %74
-  br label %83
+89:                                               ; preds = %81
+  br label %90
 
-83:                                               ; preds = %82, %60
-  br label %84
+90:                                               ; preds = %89, %67
+  br label %91
 
-84:                                               ; preds = %83
+91:                                               ; preds = %90
   store ptr @.str.3, ptr %10, align 8
-  %85 = load ptr, ptr @stderr, align 8
-  %86 = call i32 @fileno(ptr noundef %85) #9
-  %87 = load ptr, ptr %10, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = call i64 @strlen(ptr noundef %88) #12
-  %90 = call i64 @write(i32 noundef %86, ptr noundef %87, i64 noundef %89)
-  %91 = trunc i64 %90 to i32
-  store i32 %91, ptr %11, align 4
-  br label %92
+  %92 = load ptr, ptr @stderr, align 8
+  %93 = call i32 @fileno(ptr noundef %92) #9
+  %94 = load ptr, ptr %10, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = call i64 @strlen(ptr noundef %95) #12
+  %97 = call i64 @write(i32 noundef %93, ptr noundef %94, i64 noundef %96)
+  %98 = trunc i64 %97 to i32
+  store i32 %98, ptr %11, align 4
+  br label %99
 
-92:                                               ; preds = %84
-  br label %93
+99:                                               ; preds = %91
+  br label %100
 
-93:                                               ; preds = %92, %57
+100:                                              ; preds = %99, %63
   call void @_exit(i32 noundef 1) #10
   unreachable
 }

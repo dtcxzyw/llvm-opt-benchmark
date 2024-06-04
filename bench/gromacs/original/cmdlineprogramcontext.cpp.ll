@@ -3666,48 +3666,49 @@ define void @_ZN3gmx25CommandLineProgramContextC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx15IProgramContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %5, i32 0, i32 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
-          to label %8 unwind label %10
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %5, i32 0, i32 1
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
+          to label %9 unwind label %11
 
-8:                                                ; preds = %1
-  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %7)
-          to label %9 unwind label %14
+9:                                                ; preds = %1
+  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %8)
+          to label %10 unwind label %15
 
-9:                                                ; preds = %8
-  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #13
+10:                                               ; preds = %9
+  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #13
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  br label %18
-
-14:                                               ; preds = %8
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %3, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %7) #14
-  br label %18
-
-18:                                               ; preds = %14, %10
-  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+15:                                               ; preds = %9
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %3, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %8) #14
+  br label %19
+
+19:                                               ; preds = %15, %11
+  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3715,7 +3716,8 @@ define linkonce_odr void @_ZN3gmx15IProgramContextC2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx15IProgramContextE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx15IProgramContextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3905,75 +3907,76 @@ define void @_ZN3gmx25CommandLineProgramContextC2EPKc(ptr noundef nonnull align 
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN3gmx15IProgramContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %9, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
-          to label %12 unwind label %15
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %9, i32 0, i32 1
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
+          to label %13 unwind label %16
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i1 true, ptr %8, align 1
   invoke void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironment6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %7)
-          to label %13 unwind label %19
-
-13:                                               ; preds = %12
-  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %11, i32 noundef 1, ptr noundef %4, ptr noundef %7)
-          to label %14 unwind label %23
+          to label %14 unwind label %20
 
 14:                                               ; preds = %13
+  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %12, i32 noundef 1, ptr noundef %4, ptr noundef %7)
+          to label %15 unwind label %24
+
+15:                                               ; preds = %14
   store i1 false, ptr %8, align 1
-  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #13
+  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #13
   call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  br label %31
-
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  br label %27
-
-23:                                               ; preds = %13
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  br label %27
-
-27:                                               ; preds = %23, %19
-  %28 = load i1, ptr %8, align 1
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %27
-  call void @_ZdlPv(ptr noundef %11) #14
-  br label %30
-
-30:                                               ; preds = %29, %27
-  br label %31
-
-31:                                               ; preds = %30, %15
-  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
+  br label %28
+
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  br label %28
+
+28:                                               ; preds = %24, %20
+  %29 = load i1, ptr %8, align 1
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %28
+  call void @_ZdlPv(ptr noundef %12) #14
+  br label %31
+
+31:                                               ; preds = %30, %28
+  br label %32
+
+32:                                               ; preds = %31, %16
+  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4016,30 +4019,31 @@ define internal void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentC2Ev(pt
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx22IExecutableEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::(anonymous namespace)::DefaultExecutableEnvironment", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::filesystem::__cxx11::path") align 8 %6)
-          to label %7 unwind label %8
-
-7:                                                ; preds = %1
-  ret void
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::(anonymous namespace)::DefaultExecutableEnvironment", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::filesystem::__cxx11::path") align 8 %7)
+          to label %8 unwind label %9
 
 8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %3, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %4, align 4
-  call void @_ZN3gmx22IExecutableEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  br label %12
+  ret void
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %3, align 8
-  %14 = load i32, ptr %4, align 4
-  %15 = insertvalue { ptr, i32 } poison, ptr %13, 0
-  %16 = insertvalue { ptr, i32 } %15, i32 %14, 1
-  resume { ptr, i32 } %16
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN3gmx22IExecutableEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %13
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4070,7 +4074,8 @@ define linkonce_odr void @_ZN3gmx22IExecutableEnvironmentC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22IExecutableEnvironmentE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx22IExecutableEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4081,9 +4086,10 @@ define internal void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::(anonymous namespace)::DefaultExecutableEnvironment", ptr %3, i32 0, i32 1
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::DefaultExecutableEnvironment", ptr %3, i32 0, i32 1
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   call void @_ZN3gmx22IExecutableEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -4178,77 +4184,78 @@ define void @_ZN3gmx25CommandLineProgramContextC2EiPKPKc(ptr noundef nonnull ali
   store ptr %2, ptr %6, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN3gmx15IProgramContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %11, i32 0, i32 1
-  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
-          to label %14 unwind label %19
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %11, i32 0, i32 1
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   store i1 true, ptr %10, align 1
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %6, align 8
   invoke void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironment6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %9)
-          to label %17 unwind label %23
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %13, i32 noundef %15, ptr noundef %16, ptr noundef %9)
-          to label %18 unwind label %27
+18:                                               ; preds = %15
+  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %14, i32 noundef %16, ptr noundef %17, ptr noundef %9)
+          to label %19 unwind label %28
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   store i1 false, ptr %10, align 1
-  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13) #13
+  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14) #13
   call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  br label %35
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %31
-
-27:                                               ; preds = %17
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %7, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %8, align 4
-  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  br label %31
-
-31:                                               ; preds = %27, %23
-  %32 = load i1, ptr %10, align 1
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef %13) #14
-  br label %34
-
-34:                                               ; preds = %33, %31
-  br label %35
-
-35:                                               ; preds = %34, %19
-  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr %8, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
+  br label %32
+
+28:                                               ; preds = %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %7, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %8, align 4
+  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  br label %32
+
+32:                                               ; preds = %28, %24
+  %33 = load i1, ptr %10, align 1
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %32
+  call void @_ZdlPv(ptr noundef %14) #14
+  br label %35
+
+35:                                               ; preds = %34, %32
+  br label %36
+
+36:                                               ; preds = %35, %20
+  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4267,62 +4274,63 @@ define void @_ZN3gmx25CommandLineProgramContextC2EiPKPKcSt10unique_ptrINS_22IExe
   store ptr %3, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   call void @_ZN3gmx15IProgramContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %13, i32 0, i32 1
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
-          to label %16 unwind label %20
+  %14 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %13, i32 0, i32 1
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #18
+          to label %17 unwind label %21
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   store i1 true, ptr %12, align 1
-  %17 = load i32, ptr %6, align 4
-  %18 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = load ptr, ptr %7, align 8
   call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %15, i32 noundef %17, ptr noundef %18, ptr noundef %11)
-          to label %19 unwind label %24
+  invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(272) %16, i32 noundef %18, ptr noundef %19, ptr noundef %11)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   store i1 false, ptr %12, align 1
-  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15) #13
+  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16) #13
   call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  br label %31
-
-24:                                               ; preds = %16
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %9, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %10, align 4
-  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  %28 = load i1, ptr %12, align 1
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %24
-  call void @_ZdlPv(ptr noundef %15) #14
-  br label %30
-
-30:                                               ; preds = %29, %24
-  br label %31
-
-31:                                               ; preds = %30, %20
-  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i32, ptr %10, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+25:                                               ; preds = %17
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %9, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %10, align 4
+  call void @_ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  %29 = load i1, ptr %12, align 1
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %25
+  call void @_ZdlPv(ptr noundef %16) #14
+  br label %31
+
+31:                                               ; preds = %30, %25
+  br label %32
+
+32:                                               ; preds = %31, %21
+  call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4330,9 +4338,10 @@ define void @_ZN3gmx25CommandLineProgramContextD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx25CommandLineProgramContextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::CommandLineProgramContext", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContext4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   call void @_ZN3gmx15IProgramContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }

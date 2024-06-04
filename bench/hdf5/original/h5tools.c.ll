@@ -2386,9 +2386,9 @@ define internal i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef %1) #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %7, i32 0, i32 0
   %9 = load i32, ptr %8, align 8
-  switch i32 %9, label %717 [
+  switch i32 %9, label %730 [
     i32 0, label %10
-    i32 1, label %636
+    i32 1, label %649
   ]
 
 10:                                               ; preds = %2
@@ -2453,7 +2453,7 @@ define internal i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef %1) #0 {
 
 46:                                               ; preds = %45
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
 47:                                               ; No predecessors!
   br label %48
@@ -2462,1315 +2462,1328 @@ define internal i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef %1) #0 {
   br label %49
 
 49:                                               ; preds = %48, %17
-  br label %635
+  br label %648
 
 50:                                               ; preds = %10
   %51 = load ptr, ptr %4, align 8
   %52 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %51, i32 0, i32 2
   %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 1), align 8
-  %55 = call i32 @strcmp(ptr noundef %53, ptr noundef %54) #9
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %85, label %57
+  %54 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 @strcmp(ptr noundef %53, ptr noundef %55) #9
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %86, label %58
 
-57:                                               ; preds = %50
-  br label %58
-
-58:                                               ; preds = %57
+58:                                               ; preds = %50
   br label %59
 
 59:                                               ; preds = %58
-  %60 = load i32, ptr @enable_error_stack, align 4
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %62, label %80
+  br label %60
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %64 = icmp sge i64 %63, 0
-  br i1 %64, label %65, label %74
+60:                                               ; preds = %59
+  %61 = load i32, ptr @enable_error_stack, align 4
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %63, label %81
 
-65:                                               ; preds = %62
-  %66 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %67 = icmp sge i64 %66, 0
-  br i1 %67, label %68, label %74
+63:                                               ; preds = %60
+  %64 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %65 = icmp sge i64 %64, 0
+  br i1 %65, label %66, label %75
 
-68:                                               ; preds = %65
-  %69 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %70 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %71 = load i64, ptr @H5E_tools_g, align 8
-  %72 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %73 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %69, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 491, i64 noundef %70, i64 noundef %71, i64 noundef %72, ptr noundef @.str.109)
-  br label %79
+66:                                               ; preds = %63
+  %67 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %68 = icmp sge i64 %67, 0
+  br i1 %68, label %69, label %75
 
-74:                                               ; preds = %65, %62
-  %75 = load ptr, ptr @stderr, align 8
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.109) #8
-  %77 = load ptr, ptr @stderr, align 8
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.31) #8
-  br label %79
-
-79:                                               ; preds = %74, %68
+69:                                               ; preds = %66
+  %70 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %71 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %72 = load i64, ptr @H5E_tools_g, align 8
+  %73 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %74 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %70, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 491, i64 noundef %71, i64 noundef %72, i64 noundef %73, ptr noundef @.str.109)
   br label %80
 
-80:                                               ; preds = %79, %59
+75:                                               ; preds = %66, %63
+  %76 = load ptr, ptr @stderr, align 8
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.109) #8
+  %78 = load ptr, ptr @stderr, align 8
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.31) #8
+  br label %80
+
+80:                                               ; preds = %75, %69
   br label %81
 
-81:                                               ; preds = %80
+81:                                               ; preds = %80, %60
   br label %82
 
 82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-83:                                               ; No predecessors!
-  br label %84
+84:                                               ; No predecessors!
+  br label %85
 
-84:                                               ; preds = %83
-  br label %634
+85:                                               ; preds = %84
+  br label %647
 
-85:                                               ; preds = %50
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 2), align 16
-  %90 = call i32 @strcmp(ptr noundef %88, ptr noundef %89) #9
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %126, label %92
+86:                                               ; preds = %50
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 2
+  %91 = load ptr, ptr %90, align 16
+  %92 = call i32 @strcmp(ptr noundef %89, ptr noundef %91) #9
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %128, label %94
 
-92:                                               ; preds = %85
+94:                                               ; preds = %86
   store i64 262158, ptr %6, align 8
-  %93 = load i64, ptr %3, align 8
-  %94 = load i64, ptr %6, align 8
-  %95 = call i32 @H5Pset_fapl_log(i64 noundef %93, ptr noundef null, i64 noundef %94, i64 noundef 0)
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %97, label %125
+  %95 = load i64, ptr %3, align 8
+  %96 = load i64, ptr %6, align 8
+  %97 = call i32 @H5Pset_fapl_log(i64 noundef %95, ptr noundef null, i64 noundef %96, i64 noundef 0)
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %127
 
-97:                                               ; preds = %92
-  br label %98
+99:                                               ; preds = %94
+  br label %100
 
-98:                                               ; preds = %97
-  br label %99
+100:                                              ; preds = %99
+  br label %101
 
-99:                                               ; preds = %98
-  %100 = load i32, ptr @enable_error_stack, align 4
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %102, label %120
+101:                                              ; preds = %100
+  %102 = load i32, ptr @enable_error_stack, align 4
+  %103 = icmp sgt i32 %102, 0
+  br i1 %103, label %104, label %122
 
-102:                                              ; preds = %99
-  %103 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %104 = icmp sge i64 %103, 0
-  br i1 %104, label %105, label %114
+104:                                              ; preds = %101
+  %105 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %106 = icmp sge i64 %105, 0
+  br i1 %106, label %107, label %116
 
-105:                                              ; preds = %102
-  %106 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %107 = icmp sge i64 %106, 0
-  br i1 %107, label %108, label %114
+107:                                              ; preds = %104
+  %108 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %109 = icmp sge i64 %108, 0
+  br i1 %109, label %110, label %116
 
-108:                                              ; preds = %105
-  %109 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %110 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %111 = load i64, ptr @H5E_tools_g, align 8
-  %112 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %113 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %109, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 499, i64 noundef %110, i64 noundef %111, i64 noundef %112, ptr noundef @.str.110)
-  br label %119
-
-114:                                              ; preds = %105, %102
-  %115 = load ptr, ptr @stderr, align 8
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef @.str.110) #8
-  %117 = load ptr, ptr @stderr, align 8
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef @.str.31) #8
-  br label %119
-
-119:                                              ; preds = %114, %108
-  br label %120
-
-120:                                              ; preds = %119, %99
+110:                                              ; preds = %107
+  %111 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %112 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %113 = load i64, ptr @H5E_tools_g, align 8
+  %114 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %115 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %111, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 499, i64 noundef %112, i64 noundef %113, i64 noundef %114, ptr noundef @.str.110)
   br label %121
 
-121:                                              ; preds = %120
+116:                                              ; preds = %107, %104
+  %117 = load ptr, ptr @stderr, align 8
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef @.str.110) #8
+  %119 = load ptr, ptr @stderr, align 8
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.31) #8
+  br label %121
+
+121:                                              ; preds = %116, %110
   br label %122
 
-122:                                              ; preds = %121
-  store i32 -1, ptr %5, align 4
-  br label %746
+122:                                              ; preds = %121, %101
+  br label %123
 
-123:                                              ; No predecessors!
+123:                                              ; preds = %122
   br label %124
 
 124:                                              ; preds = %123
-  br label %125
+  store i32 -1, ptr %5, align 4
+  br label %759
 
-125:                                              ; preds = %124, %92
-  br label %633
+125:                                              ; No predecessors!
+  br label %126
 
-126:                                              ; preds = %85
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %127, i32 0, i32 2
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 3), align 8
-  %131 = call i32 @strcmp(ptr noundef %129, ptr noundef %130) #9
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %161, label %133
+126:                                              ; preds = %125
+  br label %127
 
-133:                                              ; preds = %126
-  br label %134
+127:                                              ; preds = %126, %94
+  br label %646
 
-134:                                              ; preds = %133
-  br label %135
+128:                                              ; preds = %86
+  %129 = load ptr, ptr %4, align 8
+  %130 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %129, i32 0, i32 2
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 3
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i32 @strcmp(ptr noundef %131, ptr noundef %133) #9
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %164, label %136
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr @enable_error_stack, align 4
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %156
+136:                                              ; preds = %128
+  br label %137
 
-138:                                              ; preds = %135
-  %139 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %140 = icmp sge i64 %139, 0
-  br i1 %140, label %141, label %150
+137:                                              ; preds = %136
+  br label %138
+
+138:                                              ; preds = %137
+  %139 = load i32, ptr @enable_error_stack, align 4
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %141, label %159
 
 141:                                              ; preds = %138
-  %142 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %142 = load i64, ptr @H5tools_ERR_STACK_g, align 8
   %143 = icmp sge i64 %142, 0
-  br i1 %143, label %144, label %150
+  br i1 %143, label %144, label %153
 
 144:                                              ; preds = %141
-  %145 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %146 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %147 = load i64, ptr @H5E_tools_g, align 8
-  %148 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %149 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %145, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 507, i64 noundef %146, i64 noundef %147, i64 noundef %148, ptr noundef @.str.111)
-  br label %155
+  %145 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %146 = icmp sge i64 %145, 0
+  br i1 %146, label %147, label %153
 
-150:                                              ; preds = %141, %138
-  %151 = load ptr, ptr @stderr, align 8
-  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef @.str.111) #8
-  %153 = load ptr, ptr @stderr, align 8
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef @.str.31) #8
-  br label %155
-
-155:                                              ; preds = %150, %144
-  br label %156
-
-156:                                              ; preds = %155, %135
-  br label %157
-
-157:                                              ; preds = %156
+147:                                              ; preds = %144
+  %148 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %149 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %150 = load i64, ptr @H5E_tools_g, align 8
+  %151 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %152 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %148, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 507, i64 noundef %149, i64 noundef %150, i64 noundef %151, ptr noundef @.str.111)
   br label %158
 
-158:                                              ; preds = %157
-  store i32 -1, ptr %5, align 4
-  br label %746
+153:                                              ; preds = %144, %141
+  %154 = load ptr, ptr @stderr, align 8
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef @.str.111) #8
+  %156 = load ptr, ptr @stderr, align 8
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.31) #8
+  br label %158
 
-159:                                              ; No predecessors!
+158:                                              ; preds = %153, %147
+  br label %159
+
+159:                                              ; preds = %158, %138
   br label %160
 
 160:                                              ; preds = %159
-  br label %632
+  br label %161
 
-161:                                              ; preds = %126
-  %162 = load ptr, ptr %4, align 8
-  %163 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %162, i32 0, i32 2
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 4), align 16
-  %166 = call i32 @strcmp(ptr noundef %164, ptr noundef %165) #9
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %201, label %168
-
-168:                                              ; preds = %161
-  %169 = load i64, ptr %3, align 8
-  %170 = call i32 @H5Pset_fapl_stdio(i64 noundef %169)
-  %171 = icmp slt i32 %170, 0
-  br i1 %171, label %172, label %200
-
-172:                                              ; preds = %168
-  br label %173
-
-173:                                              ; preds = %172
-  br label %174
-
-174:                                              ; preds = %173
-  %175 = load i32, ptr @enable_error_stack, align 4
-  %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %177, label %195
-
-177:                                              ; preds = %174
-  %178 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %179 = icmp sge i64 %178, 0
-  br i1 %179, label %180, label %189
-
-180:                                              ; preds = %177
-  %181 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %182 = icmp sge i64 %181, 0
-  br i1 %182, label %183, label %189
-
-183:                                              ; preds = %180
-  %184 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %185 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %186 = load i64, ptr @H5E_tools_g, align 8
-  %187 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %188 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %184, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 513, i64 noundef %185, i64 noundef %186, i64 noundef %187, ptr noundef @.str.112)
-  br label %194
-
-189:                                              ; preds = %180, %177
-  %190 = load ptr, ptr @stderr, align 8
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef @.str.112) #8
-  %192 = load ptr, ptr @stderr, align 8
-  %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef @.str.31) #8
-  br label %194
-
-194:                                              ; preds = %189, %183
-  br label %195
-
-195:                                              ; preds = %194, %174
-  br label %196
-
-196:                                              ; preds = %195
-  br label %197
-
-197:                                              ; preds = %196
+161:                                              ; preds = %160
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-198:                                              ; No predecessors!
+162:                                              ; No predecessors!
+  br label %163
+
+163:                                              ; preds = %162
+  br label %645
+
+164:                                              ; preds = %128
+  %165 = load ptr, ptr %4, align 8
+  %166 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %165, i32 0, i32 2
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 4
+  %169 = load ptr, ptr %168, align 16
+  %170 = call i32 @strcmp(ptr noundef %167, ptr noundef %169) #9
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %205, label %172
+
+172:                                              ; preds = %164
+  %173 = load i64, ptr %3, align 8
+  %174 = call i32 @H5Pset_fapl_stdio(i64 noundef %173)
+  %175 = icmp slt i32 %174, 0
+  br i1 %175, label %176, label %204
+
+176:                                              ; preds = %172
+  br label %177
+
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177
+  %179 = load i32, ptr @enable_error_stack, align 4
+  %180 = icmp sgt i32 %179, 0
+  br i1 %180, label %181, label %199
+
+181:                                              ; preds = %178
+  %182 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %183 = icmp sge i64 %182, 0
+  br i1 %183, label %184, label %193
+
+184:                                              ; preds = %181
+  %185 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %186 = icmp sge i64 %185, 0
+  br i1 %186, label %187, label %193
+
+187:                                              ; preds = %184
+  %188 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %189 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %190 = load i64, ptr @H5E_tools_g, align 8
+  %191 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %192 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %188, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 513, i64 noundef %189, i64 noundef %190, i64 noundef %191, ptr noundef @.str.112)
+  br label %198
+
+193:                                              ; preds = %184, %181
+  %194 = load ptr, ptr @stderr, align 8
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.112) #8
+  %196 = load ptr, ptr @stderr, align 8
+  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef @.str.31) #8
+  br label %198
+
+198:                                              ; preds = %193, %187
   br label %199
 
-199:                                              ; preds = %198
+199:                                              ; preds = %198, %178
   br label %200
 
-200:                                              ; preds = %199, %168
-  br label %631
+200:                                              ; preds = %199
+  br label %201
 
-201:                                              ; preds = %161
-  %202 = load ptr, ptr %4, align 8
-  %203 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %202, i32 0, i32 2
-  %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 5), align 8
-  %206 = call i32 @strcmp(ptr noundef %204, ptr noundef %205) #9
-  %207 = icmp ne i32 %206, 0
-  br i1 %207, label %241, label %208
-
-208:                                              ; preds = %201
-  %209 = load i64, ptr %3, align 8
-  %210 = call i32 @H5Pset_fapl_core(i64 noundef %209, i64 noundef 1048576, i1 noundef zeroext true)
-  %211 = icmp slt i32 %210, 0
-  br i1 %211, label %212, label %240
-
-212:                                              ; preds = %208
-  br label %213
-
-213:                                              ; preds = %212
-  br label %214
-
-214:                                              ; preds = %213
-  %215 = load i32, ptr @enable_error_stack, align 4
-  %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %217, label %235
-
-217:                                              ; preds = %214
-  %218 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %219 = icmp sge i64 %218, 0
-  br i1 %219, label %220, label %229
-
-220:                                              ; preds = %217
-  %221 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %222 = icmp sge i64 %221, 0
-  br i1 %222, label %223, label %229
-
-223:                                              ; preds = %220
-  %224 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %225 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %226 = load i64, ptr @H5E_tools_g, align 8
-  %227 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %228 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %224, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 518, i64 noundef %225, i64 noundef %226, i64 noundef %227, ptr noundef @.str.113)
-  br label %234
-
-229:                                              ; preds = %220, %217
-  %230 = load ptr, ptr @stderr, align 8
-  %231 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef @.str.113) #8
-  %232 = load ptr, ptr @stderr, align 8
-  %233 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef @.str.31) #8
-  br label %234
-
-234:                                              ; preds = %229, %223
-  br label %235
-
-235:                                              ; preds = %234, %214
-  br label %236
-
-236:                                              ; preds = %235
-  br label %237
-
-237:                                              ; preds = %236
+201:                                              ; preds = %200
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-238:                                              ; No predecessors!
+202:                                              ; No predecessors!
+  br label %203
+
+203:                                              ; preds = %202
+  br label %204
+
+204:                                              ; preds = %203, %172
+  br label %644
+
+205:                                              ; preds = %164
+  %206 = load ptr, ptr %4, align 8
+  %207 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %206, i32 0, i32 2
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 5
+  %210 = load ptr, ptr %209, align 8
+  %211 = call i32 @strcmp(ptr noundef %208, ptr noundef %210) #9
+  %212 = icmp ne i32 %211, 0
+  br i1 %212, label %246, label %213
+
+213:                                              ; preds = %205
+  %214 = load i64, ptr %3, align 8
+  %215 = call i32 @H5Pset_fapl_core(i64 noundef %214, i64 noundef 1048576, i1 noundef zeroext true)
+  %216 = icmp slt i32 %215, 0
+  br i1 %216, label %217, label %245
+
+217:                                              ; preds = %213
+  br label %218
+
+218:                                              ; preds = %217
+  br label %219
+
+219:                                              ; preds = %218
+  %220 = load i32, ptr @enable_error_stack, align 4
+  %221 = icmp sgt i32 %220, 0
+  br i1 %221, label %222, label %240
+
+222:                                              ; preds = %219
+  %223 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %224 = icmp sge i64 %223, 0
+  br i1 %224, label %225, label %234
+
+225:                                              ; preds = %222
+  %226 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %227 = icmp sge i64 %226, 0
+  br i1 %227, label %228, label %234
+
+228:                                              ; preds = %225
+  %229 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %230 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %231 = load i64, ptr @H5E_tools_g, align 8
+  %232 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %233 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %229, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 518, i64 noundef %230, i64 noundef %231, i64 noundef %232, ptr noundef @.str.113)
   br label %239
 
-239:                                              ; preds = %238
+234:                                              ; preds = %225, %222
+  %235 = load ptr, ptr @stderr, align 8
+  %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef @.str.113) #8
+  %237 = load ptr, ptr @stderr, align 8
+  %238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef @.str.31) #8
+  br label %239
+
+239:                                              ; preds = %234, %228
   br label %240
 
-240:                                              ; preds = %239, %208
-  br label %630
+240:                                              ; preds = %239, %219
+  br label %241
 
-241:                                              ; preds = %201
-  %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %242, i32 0, i32 2
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 6), align 16
-  %246 = call i32 @strcmp(ptr noundef %244, ptr noundef %245) #9
-  %247 = icmp ne i32 %246, 0
-  br i1 %247, label %281, label %248
+241:                                              ; preds = %240
+  br label %242
 
-248:                                              ; preds = %241
-  %249 = load i64, ptr %3, align 8
-  %250 = call i32 @H5Pset_fapl_family(i64 noundef %249, i64 noundef 0, i64 noundef 0)
-  %251 = icmp slt i32 %250, 0
-  br i1 %251, label %252, label %280
+242:                                              ; preds = %241
+  store i32 -1, ptr %5, align 4
+  br label %759
 
-252:                                              ; preds = %248
-  br label %253
+243:                                              ; No predecessors!
+  br label %244
 
-253:                                              ; preds = %252
-  br label %254
+244:                                              ; preds = %243
+  br label %245
 
-254:                                              ; preds = %253
-  %255 = load i32, ptr @enable_error_stack, align 4
-  %256 = icmp sgt i32 %255, 0
-  br i1 %256, label %257, label %275
+245:                                              ; preds = %244, %213
+  br label %643
 
-257:                                              ; preds = %254
-  %258 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %259 = icmp sge i64 %258, 0
-  br i1 %259, label %260, label %269
+246:                                              ; preds = %205
+  %247 = load ptr, ptr %4, align 8
+  %248 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %247, i32 0, i32 2
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 6
+  %251 = load ptr, ptr %250, align 16
+  %252 = call i32 @strcmp(ptr noundef %249, ptr noundef %251) #9
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %287, label %254
 
-260:                                              ; preds = %257
-  %261 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %262 = icmp sge i64 %261, 0
-  br i1 %262, label %263, label %269
+254:                                              ; preds = %246
+  %255 = load i64, ptr %3, align 8
+  %256 = call i32 @H5Pset_fapl_family(i64 noundef %255, i64 noundef 0, i64 noundef 0)
+  %257 = icmp slt i32 %256, 0
+  br i1 %257, label %258, label %286
+
+258:                                              ; preds = %254
+  br label %259
+
+259:                                              ; preds = %258
+  br label %260
+
+260:                                              ; preds = %259
+  %261 = load i32, ptr @enable_error_stack, align 4
+  %262 = icmp sgt i32 %261, 0
+  br i1 %262, label %263, label %281
 
 263:                                              ; preds = %260
   %264 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %265 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %266 = load i64, ptr @H5E_tools_g, align 8
-  %267 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %268 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %264, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 526, i64 noundef %265, i64 noundef %266, i64 noundef %267, ptr noundef @.str.114)
-  br label %274
+  %265 = icmp sge i64 %264, 0
+  br i1 %265, label %266, label %275
 
-269:                                              ; preds = %260, %257
-  %270 = load ptr, ptr @stderr, align 8
-  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef @.str.114) #8
-  %272 = load ptr, ptr @stderr, align 8
-  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef @.str.31) #8
-  br label %274
+266:                                              ; preds = %263
+  %267 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %268 = icmp sge i64 %267, 0
+  br i1 %268, label %269, label %275
 
-274:                                              ; preds = %269, %263
-  br label %275
-
-275:                                              ; preds = %274, %254
-  br label %276
-
-276:                                              ; preds = %275
-  br label %277
-
-277:                                              ; preds = %276
-  store i32 -1, ptr %5, align 4
-  br label %746
-
-278:                                              ; No predecessors!
-  br label %279
-
-279:                                              ; preds = %278
+269:                                              ; preds = %266
+  %270 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %271 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %272 = load i64, ptr @H5E_tools_g, align 8
+  %273 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %274 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %270, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 526, i64 noundef %271, i64 noundef %272, i64 noundef %273, ptr noundef @.str.114)
   br label %280
 
-280:                                              ; preds = %279, %248
-  br label %629
+275:                                              ; preds = %266, %263
+  %276 = load ptr, ptr @stderr, align 8
+  %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef @.str.114) #8
+  %278 = load ptr, ptr @stderr, align 8
+  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef @.str.31) #8
+  br label %280
 
-281:                                              ; preds = %241
-  %282 = load ptr, ptr %4, align 8
-  %283 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %282, i32 0, i32 2
-  %284 = load ptr, ptr %283, align 8
-  %285 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 7), align 8
-  %286 = call i32 @strcmp(ptr noundef %284, ptr noundef %285) #9
-  %287 = icmp ne i32 %286, 0
-  br i1 %287, label %321, label %288
+280:                                              ; preds = %275, %269
+  br label %281
 
-288:                                              ; preds = %281
-  %289 = load i64, ptr %3, align 8
-  %290 = call i32 @H5Pset_fapl_split(i64 noundef %289, ptr noundef @.str.115, i64 noundef 0, ptr noundef @.str.116, i64 noundef 0)
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %292, label %320
+281:                                              ; preds = %280, %260
+  br label %282
 
-292:                                              ; preds = %288
-  br label %293
+282:                                              ; preds = %281
+  br label %283
 
-293:                                              ; preds = %292
-  br label %294
-
-294:                                              ; preds = %293
-  %295 = load i32, ptr @enable_error_stack, align 4
-  %296 = icmp sgt i32 %295, 0
-  br i1 %296, label %297, label %315
-
-297:                                              ; preds = %294
-  %298 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %299 = icmp sge i64 %298, 0
-  br i1 %299, label %300, label %309
-
-300:                                              ; preds = %297
-  %301 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %302 = icmp sge i64 %301, 0
-  br i1 %302, label %303, label %309
-
-303:                                              ; preds = %300
-  %304 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %305 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %306 = load i64, ptr @H5E_tools_g, align 8
-  %307 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %308 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %304, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 531, i64 noundef %305, i64 noundef %306, i64 noundef %307, ptr noundef @.str.117)
-  br label %314
-
-309:                                              ; preds = %300, %297
-  %310 = load ptr, ptr @stderr, align 8
-  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef @.str.117) #8
-  %312 = load ptr, ptr @stderr, align 8
-  %313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef @.str.31) #8
-  br label %314
-
-314:                                              ; preds = %309, %303
-  br label %315
-
-315:                                              ; preds = %314, %294
-  br label %316
-
-316:                                              ; preds = %315
-  br label %317
-
-317:                                              ; preds = %316
+283:                                              ; preds = %282
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-318:                                              ; No predecessors!
-  br label %319
+284:                                              ; No predecessors!
+  br label %285
 
-319:                                              ; preds = %318
-  br label %320
+285:                                              ; preds = %284
+  br label %286
 
-320:                                              ; preds = %319, %288
-  br label %628
+286:                                              ; preds = %285, %254
+  br label %642
 
-321:                                              ; preds = %281
-  %322 = load ptr, ptr %4, align 8
-  %323 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %322, i32 0, i32 2
-  %324 = load ptr, ptr %323, align 8
-  %325 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 8), align 16
-  %326 = call i32 @strcmp(ptr noundef %324, ptr noundef %325) #9
-  %327 = icmp ne i32 %326, 0
-  br i1 %327, label %361, label %328
+287:                                              ; preds = %246
+  %288 = load ptr, ptr %4, align 8
+  %289 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %288, i32 0, i32 2
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 7
+  %292 = load ptr, ptr %291, align 8
+  %293 = call i32 @strcmp(ptr noundef %290, ptr noundef %292) #9
+  %294 = icmp ne i32 %293, 0
+  br i1 %294, label %328, label %295
 
-328:                                              ; preds = %321
-  %329 = load i64, ptr %3, align 8
-  %330 = call i32 @H5Pset_fapl_multi(i64 noundef %329, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-  %331 = icmp slt i32 %330, 0
-  br i1 %331, label %332, label %360
+295:                                              ; preds = %287
+  %296 = load i64, ptr %3, align 8
+  %297 = call i32 @H5Pset_fapl_split(i64 noundef %296, ptr noundef @.str.115, i64 noundef 0, ptr noundef @.str.116, i64 noundef 0)
+  %298 = icmp slt i32 %297, 0
+  br i1 %298, label %299, label %327
 
-332:                                              ; preds = %328
-  br label %333
+299:                                              ; preds = %295
+  br label %300
 
-333:                                              ; preds = %332
-  br label %334
+300:                                              ; preds = %299
+  br label %301
 
-334:                                              ; preds = %333
-  %335 = load i32, ptr @enable_error_stack, align 4
-  %336 = icmp sgt i32 %335, 0
-  br i1 %336, label %337, label %355
+301:                                              ; preds = %300
+  %302 = load i32, ptr @enable_error_stack, align 4
+  %303 = icmp sgt i32 %302, 0
+  br i1 %303, label %304, label %322
 
-337:                                              ; preds = %334
-  %338 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %339 = icmp sge i64 %338, 0
-  br i1 %339, label %340, label %349
+304:                                              ; preds = %301
+  %305 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %306 = icmp sge i64 %305, 0
+  br i1 %306, label %307, label %316
 
-340:                                              ; preds = %337
-  %341 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %342 = icmp sge i64 %341, 0
-  br i1 %342, label %343, label %349
+307:                                              ; preds = %304
+  %308 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %309 = icmp sge i64 %308, 0
+  br i1 %309, label %310, label %316
 
-343:                                              ; preds = %340
-  %344 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %345 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %346 = load i64, ptr @H5E_tools_g, align 8
-  %347 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %348 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %344, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 536, i64 noundef %345, i64 noundef %346, i64 noundef %347, ptr noundef @.str.118)
-  br label %354
+310:                                              ; preds = %307
+  %311 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %312 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %313 = load i64, ptr @H5E_tools_g, align 8
+  %314 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %315 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %311, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 531, i64 noundef %312, i64 noundef %313, i64 noundef %314, ptr noundef @.str.117)
+  br label %321
 
-349:                                              ; preds = %340, %337
-  %350 = load ptr, ptr @stderr, align 8
-  %351 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef @.str.118) #8
-  %352 = load ptr, ptr @stderr, align 8
-  %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %352, ptr noundef @.str.31) #8
-  br label %354
+316:                                              ; preds = %307, %304
+  %317 = load ptr, ptr @stderr, align 8
+  %318 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef @.str.117) #8
+  %319 = load ptr, ptr @stderr, align 8
+  %320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %319, ptr noundef @.str.31) #8
+  br label %321
 
-354:                                              ; preds = %349, %343
-  br label %355
+321:                                              ; preds = %316, %310
+  br label %322
 
-355:                                              ; preds = %354, %334
-  br label %356
+322:                                              ; preds = %321, %301
+  br label %323
 
-356:                                              ; preds = %355
-  br label %357
+323:                                              ; preds = %322
+  br label %324
 
-357:                                              ; preds = %356
+324:                                              ; preds = %323
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-358:                                              ; No predecessors!
-  br label %359
+325:                                              ; No predecessors!
+  br label %326
 
-359:                                              ; preds = %358
-  br label %360
+326:                                              ; preds = %325
+  br label %327
 
-360:                                              ; preds = %359, %328
-  br label %627
+327:                                              ; preds = %326, %295
+  br label %641
 
-361:                                              ; preds = %321
-  %362 = load ptr, ptr %4, align 8
-  %363 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %362, i32 0, i32 2
-  %364 = load ptr, ptr %363, align 8
-  %365 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 9), align 8
-  %366 = call i32 @strcmp(ptr noundef %364, ptr noundef %365) #9
-  %367 = icmp ne i32 %366, 0
-  br i1 %367, label %396, label %368
+328:                                              ; preds = %287
+  %329 = load ptr, ptr %4, align 8
+  %330 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %329, i32 0, i32 2
+  %331 = load ptr, ptr %330, align 8
+  %332 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 8
+  %333 = load ptr, ptr %332, align 16
+  %334 = call i32 @strcmp(ptr noundef %331, ptr noundef %333) #9
+  %335 = icmp ne i32 %334, 0
+  br i1 %335, label %369, label %336
 
-368:                                              ; preds = %361
-  br label %369
+336:                                              ; preds = %328
+  %337 = load i64, ptr %3, align 8
+  %338 = call i32 @H5Pset_fapl_multi(i64 noundef %337, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %339 = icmp slt i32 %338, 0
+  br i1 %339, label %340, label %368
 
-369:                                              ; preds = %368
-  br label %370
+340:                                              ; preds = %336
+  br label %341
 
-370:                                              ; preds = %369
-  %371 = load i32, ptr @enable_error_stack, align 4
-  %372 = icmp sgt i32 %371, 0
-  br i1 %372, label %373, label %391
+341:                                              ; preds = %340
+  br label %342
 
-373:                                              ; preds = %370
-  %374 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %375 = icmp sge i64 %374, 0
-  br i1 %375, label %376, label %385
+342:                                              ; preds = %341
+  %343 = load i32, ptr @enable_error_stack, align 4
+  %344 = icmp sgt i32 %343, 0
+  br i1 %344, label %345, label %363
 
-376:                                              ; preds = %373
-  %377 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %378 = icmp sge i64 %377, 0
-  br i1 %378, label %379, label %385
+345:                                              ; preds = %342
+  %346 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %347 = icmp sge i64 %346, 0
+  br i1 %347, label %348, label %357
 
-379:                                              ; preds = %376
-  %380 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %381 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %382 = load i64, ptr @H5E_tools_g, align 8
-  %383 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %384 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %380, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 553, i64 noundef %381, i64 noundef %382, i64 noundef %383, ptr noundef @.str.119)
-  br label %390
+348:                                              ; preds = %345
+  %349 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %350 = icmp sge i64 %349, 0
+  br i1 %350, label %351, label %357
 
-385:                                              ; preds = %376, %373
-  %386 = load ptr, ptr @stderr, align 8
-  %387 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef @.str.119) #8
-  %388 = load ptr, ptr @stderr, align 8
-  %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef @.str.31) #8
-  br label %390
+351:                                              ; preds = %348
+  %352 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %353 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %354 = load i64, ptr @H5E_tools_g, align 8
+  %355 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %356 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %352, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 536, i64 noundef %353, i64 noundef %354, i64 noundef %355, ptr noundef @.str.118)
+  br label %362
 
-390:                                              ; preds = %385, %379
-  br label %391
+357:                                              ; preds = %348, %345
+  %358 = load ptr, ptr @stderr, align 8
+  %359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef @.str.118) #8
+  %360 = load ptr, ptr @stderr, align 8
+  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef @.str.31) #8
+  br label %362
 
-391:                                              ; preds = %390, %370
-  br label %392
+362:                                              ; preds = %357, %351
+  br label %363
 
-392:                                              ; preds = %391
-  br label %393
+363:                                              ; preds = %362, %342
+  br label %364
 
-393:                                              ; preds = %392
+364:                                              ; preds = %363
+  br label %365
+
+365:                                              ; preds = %364
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-394:                                              ; No predecessors!
-  br label %395
+366:                                              ; No predecessors!
+  br label %367
 
-395:                                              ; preds = %394
-  br label %626
+367:                                              ; preds = %366
+  br label %368
 
-396:                                              ; preds = %361
-  %397 = load ptr, ptr %4, align 8
-  %398 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %397, i32 0, i32 2
-  %399 = load ptr, ptr %398, align 8
-  %400 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 12), align 16
-  %401 = call i32 @strcmp(ptr noundef %399, ptr noundef %400) #9
-  %402 = icmp ne i32 %401, 0
-  br i1 %402, label %431, label %403
+368:                                              ; preds = %367, %336
+  br label %640
 
-403:                                              ; preds = %396
+369:                                              ; preds = %328
+  %370 = load ptr, ptr %4, align 8
+  %371 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %370, i32 0, i32 2
+  %372 = load ptr, ptr %371, align 8
+  %373 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 9
+  %374 = load ptr, ptr %373, align 8
+  %375 = call i32 @strcmp(ptr noundef %372, ptr noundef %374) #9
+  %376 = icmp ne i32 %375, 0
+  br i1 %376, label %405, label %377
+
+377:                                              ; preds = %369
+  br label %378
+
+378:                                              ; preds = %377
+  br label %379
+
+379:                                              ; preds = %378
+  %380 = load i32, ptr @enable_error_stack, align 4
+  %381 = icmp sgt i32 %380, 0
+  br i1 %381, label %382, label %400
+
+382:                                              ; preds = %379
+  %383 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %384 = icmp sge i64 %383, 0
+  br i1 %384, label %385, label %394
+
+385:                                              ; preds = %382
+  %386 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %387 = icmp sge i64 %386, 0
+  br i1 %387, label %388, label %394
+
+388:                                              ; preds = %385
+  %389 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %390 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %391 = load i64, ptr @H5E_tools_g, align 8
+  %392 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %393 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %389, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 553, i64 noundef %390, i64 noundef %391, i64 noundef %392, ptr noundef @.str.119)
+  br label %399
+
+394:                                              ; preds = %385, %382
+  %395 = load ptr, ptr @stderr, align 8
+  %396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %395, ptr noundef @.str.119) #8
+  %397 = load ptr, ptr @stderr, align 8
+  %398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.31) #8
+  br label %399
+
+399:                                              ; preds = %394, %388
+  br label %400
+
+400:                                              ; preds = %399, %379
+  br label %401
+
+401:                                              ; preds = %400
+  br label %402
+
+402:                                              ; preds = %401
+  store i32 -1, ptr %5, align 4
+  br label %759
+
+403:                                              ; No predecessors!
   br label %404
 
 404:                                              ; preds = %403
-  br label %405
+  br label %639
 
-405:                                              ; preds = %404
-  %406 = load i32, ptr @enable_error_stack, align 4
-  %407 = icmp sgt i32 %406, 0
-  br i1 %407, label %408, label %426
+405:                                              ; preds = %369
+  %406 = load ptr, ptr %4, align 8
+  %407 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %406, i32 0, i32 2
+  %408 = load ptr, ptr %407, align 8
+  %409 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 12
+  %410 = load ptr, ptr %409, align 16
+  %411 = call i32 @strcmp(ptr noundef %408, ptr noundef %410) #9
+  %412 = icmp ne i32 %411, 0
+  br i1 %412, label %441, label %413
 
-408:                                              ; preds = %405
-  %409 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %410 = icmp sge i64 %409, 0
-  br i1 %410, label %411, label %420
+413:                                              ; preds = %405
+  br label %414
 
-411:                                              ; preds = %408
-  %412 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %413 = icmp sge i64 %412, 0
-  br i1 %413, label %414, label %420
+414:                                              ; preds = %413
+  br label %415
 
-414:                                              ; preds = %411
-  %415 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %416 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %417 = load i64, ptr @H5E_tools_g, align 8
-  %418 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %419 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %415, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 567, i64 noundef %416, i64 noundef %417, i64 noundef %418, ptr noundef @.str.120)
-  br label %425
+415:                                              ; preds = %414
+  %416 = load i32, ptr @enable_error_stack, align 4
+  %417 = icmp sgt i32 %416, 0
+  br i1 %417, label %418, label %436
 
-420:                                              ; preds = %411, %408
-  %421 = load ptr, ptr @stderr, align 8
-  %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef @.str.120) #8
-  %423 = load ptr, ptr @stderr, align 8
-  %424 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %423, ptr noundef @.str.31) #8
-  br label %425
+418:                                              ; preds = %415
+  %419 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %420 = icmp sge i64 %419, 0
+  br i1 %420, label %421, label %430
 
-425:                                              ; preds = %420, %414
-  br label %426
+421:                                              ; preds = %418
+  %422 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %423 = icmp sge i64 %422, 0
+  br i1 %423, label %424, label %430
 
-426:                                              ; preds = %425, %405
-  br label %427
+424:                                              ; preds = %421
+  %425 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %426 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %427 = load i64, ptr @H5E_tools_g, align 8
+  %428 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %429 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %425, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 567, i64 noundef %426, i64 noundef %427, i64 noundef %428, ptr noundef @.str.120)
+  br label %435
 
-427:                                              ; preds = %426
-  br label %428
+430:                                              ; preds = %421, %418
+  %431 = load ptr, ptr @stderr, align 8
+  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef @.str.120) #8
+  %433 = load ptr, ptr @stderr, align 8
+  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef @.str.31) #8
+  br label %435
 
-428:                                              ; preds = %427
+435:                                              ; preds = %430, %424
+  br label %436
+
+436:                                              ; preds = %435, %415
+  br label %437
+
+437:                                              ; preds = %436
+  br label %438
+
+438:                                              ; preds = %437
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-429:                                              ; No predecessors!
-  br label %430
-
-430:                                              ; preds = %429
-  br label %625
-
-431:                                              ; preds = %396
-  %432 = load ptr, ptr %4, align 8
-  %433 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %432, i32 0, i32 2
-  %434 = load ptr, ptr %433, align 8
-  %435 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 13), align 8
-  %436 = call i32 @strcmp(ptr noundef %434, ptr noundef %435) #9
-  %437 = icmp ne i32 %436, 0
-  br i1 %437, label %466, label %438
-
-438:                                              ; preds = %431
-  br label %439
-
-439:                                              ; preds = %438
+439:                                              ; No predecessors!
   br label %440
 
 440:                                              ; preds = %439
-  %441 = load i32, ptr @enable_error_stack, align 4
-  %442 = icmp sgt i32 %441, 0
-  br i1 %442, label %443, label %461
+  br label %638
 
-443:                                              ; preds = %440
-  %444 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %445 = icmp sge i64 %444, 0
-  br i1 %445, label %446, label %455
+441:                                              ; preds = %405
+  %442 = load ptr, ptr %4, align 8
+  %443 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %442, i32 0, i32 2
+  %444 = load ptr, ptr %443, align 8
+  %445 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 13
+  %446 = load ptr, ptr %445, align 8
+  %447 = call i32 @strcmp(ptr noundef %444, ptr noundef %446) #9
+  %448 = icmp ne i32 %447, 0
+  br i1 %448, label %477, label %449
 
-446:                                              ; preds = %443
-  %447 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %448 = icmp sge i64 %447, 0
-  br i1 %448, label %449, label %455
+449:                                              ; preds = %441
+  br label %450
 
-449:                                              ; preds = %446
-  %450 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %451 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %452 = load i64, ptr @H5E_tools_g, align 8
-  %453 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %454 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %450, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 577, i64 noundef %451, i64 noundef %452, i64 noundef %453, ptr noundef @.str.121)
-  br label %460
+450:                                              ; preds = %449
+  br label %451
 
-455:                                              ; preds = %446, %443
-  %456 = load ptr, ptr @stderr, align 8
-  %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %456, ptr noundef @.str.121) #8
-  %458 = load ptr, ptr @stderr, align 8
-  %459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef @.str.31) #8
-  br label %460
+451:                                              ; preds = %450
+  %452 = load i32, ptr @enable_error_stack, align 4
+  %453 = icmp sgt i32 %452, 0
+  br i1 %453, label %454, label %472
 
-460:                                              ; preds = %455, %449
-  br label %461
+454:                                              ; preds = %451
+  %455 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %456 = icmp sge i64 %455, 0
+  br i1 %456, label %457, label %466
 
-461:                                              ; preds = %460, %440
-  br label %462
+457:                                              ; preds = %454
+  %458 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %459 = icmp sge i64 %458, 0
+  br i1 %459, label %460, label %466
 
-462:                                              ; preds = %461
-  br label %463
+460:                                              ; preds = %457
+  %461 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %462 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %463 = load i64, ptr @H5E_tools_g, align 8
+  %464 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %465 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %461, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 577, i64 noundef %462, i64 noundef %463, i64 noundef %464, ptr noundef @.str.121)
+  br label %471
 
-463:                                              ; preds = %462
-  store i32 -1, ptr %5, align 4
-  br label %746
+466:                                              ; preds = %457, %454
+  %467 = load ptr, ptr @stderr, align 8
+  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef @.str.121) #8
+  %469 = load ptr, ptr @stderr, align 8
+  %470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef @.str.31) #8
+  br label %471
 
-464:                                              ; No predecessors!
-  br label %465
+471:                                              ; preds = %466, %460
+  br label %472
 
-465:                                              ; preds = %464
-  br label %624
+472:                                              ; preds = %471, %451
+  br label %473
 
-466:                                              ; preds = %431
-  %467 = load ptr, ptr %4, align 8
-  %468 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %467, i32 0, i32 2
-  %469 = load ptr, ptr %468, align 8
-  %470 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 14), align 16
-  %471 = call i32 @strcmp(ptr noundef %469, ptr noundef %470) #9
-  %472 = icmp ne i32 %471, 0
-  br i1 %472, label %501, label %473
-
-473:                                              ; preds = %466
+473:                                              ; preds = %472
   br label %474
 
 474:                                              ; preds = %473
-  br label %475
-
-475:                                              ; preds = %474
-  %476 = load i32, ptr @enable_error_stack, align 4
-  %477 = icmp sgt i32 %476, 0
-  br i1 %477, label %478, label %496
-
-478:                                              ; preds = %475
-  %479 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %480 = icmp sge i64 %479, 0
-  br i1 %480, label %481, label %490
-
-481:                                              ; preds = %478
-  %482 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %483 = icmp sge i64 %482, 0
-  br i1 %483, label %484, label %490
-
-484:                                              ; preds = %481
-  %485 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %486 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %487 = load i64, ptr @H5E_tools_g, align 8
-  %488 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %489 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %485, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 585, i64 noundef %486, i64 noundef %487, i64 noundef %488, ptr noundef @.str.122)
-  br label %495
-
-490:                                              ; preds = %481, %478
-  %491 = load ptr, ptr @stderr, align 8
-  %492 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef @.str.122) #8
-  %493 = load ptr, ptr @stderr, align 8
-  %494 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %493, ptr noundef @.str.31) #8
-  br label %495
-
-495:                                              ; preds = %490, %484
-  br label %496
-
-496:                                              ; preds = %495, %475
-  br label %497
-
-497:                                              ; preds = %496
-  br label %498
-
-498:                                              ; preds = %497
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-499:                                              ; No predecessors!
-  br label %500
+475:                                              ; No predecessors!
+  br label %476
 
-500:                                              ; preds = %499
-  br label %623
+476:                                              ; preds = %475
+  br label %637
 
-501:                                              ; preds = %466
-  %502 = load ptr, ptr %4, align 8
-  %503 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %502, i32 0, i32 2
-  %504 = load ptr, ptr %503, align 8
-  %505 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 15), align 8
-  %506 = call i32 @strcmp(ptr noundef %504, ptr noundef %505) #9
-  %507 = icmp ne i32 %506, 0
-  br i1 %507, label %577, label %508
+477:                                              ; preds = %441
+  %478 = load ptr, ptr %4, align 8
+  %479 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %478, i32 0, i32 2
+  %480 = load ptr, ptr %479, align 8
+  %481 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 14
+  %482 = load ptr, ptr %481, align 16
+  %483 = call i32 @strcmp(ptr noundef %480, ptr noundef %482) #9
+  %484 = icmp ne i32 %483, 0
+  br i1 %484, label %513, label %485
 
-508:                                              ; preds = %501
-  %509 = load ptr, ptr %4, align 8
-  %510 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %509, i32 0, i32 1
-  %511 = load ptr, ptr %510, align 8
-  %512 = icmp ne ptr %511, null
-  br i1 %512, label %541, label %513
+485:                                              ; preds = %477
+  br label %486
 
-513:                                              ; preds = %508
-  br label %514
+486:                                              ; preds = %485
+  br label %487
 
-514:                                              ; preds = %513
-  br label %515
+487:                                              ; preds = %486
+  %488 = load i32, ptr @enable_error_stack, align 4
+  %489 = icmp sgt i32 %488, 0
+  br i1 %489, label %490, label %508
 
-515:                                              ; preds = %514
-  %516 = load i32, ptr @enable_error_stack, align 4
-  %517 = icmp sgt i32 %516, 0
-  br i1 %517, label %518, label %536
+490:                                              ; preds = %487
+  %491 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %492 = icmp sge i64 %491, 0
+  br i1 %492, label %493, label %502
 
-518:                                              ; preds = %515
-  %519 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %520 = icmp sge i64 %519, 0
-  br i1 %520, label %521, label %530
+493:                                              ; preds = %490
+  %494 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %495 = icmp sge i64 %494, 0
+  br i1 %495, label %496, label %502
 
-521:                                              ; preds = %518
-  %522 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %523 = icmp sge i64 %522, 0
-  br i1 %523, label %524, label %530
+496:                                              ; preds = %493
+  %497 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %498 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %499 = load i64, ptr @H5E_tools_g, align 8
+  %500 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %501 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %497, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 585, i64 noundef %498, i64 noundef %499, i64 noundef %500, ptr noundef @.str.122)
+  br label %507
 
-524:                                              ; preds = %521
-  %525 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %526 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %527 = load i64, ptr @H5E_tools_g, align 8
-  %528 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %529 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %525, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 591, i64 noundef %526, i64 noundef %527, i64 noundef %528, ptr noundef @.str.123)
-  br label %535
+502:                                              ; preds = %493, %490
+  %503 = load ptr, ptr @stderr, align 8
+  %504 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %503, ptr noundef @.str.122) #8
+  %505 = load ptr, ptr @stderr, align 8
+  %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %505, ptr noundef @.str.31) #8
+  br label %507
 
-530:                                              ; preds = %521, %518
-  %531 = load ptr, ptr @stderr, align 8
-  %532 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef @.str.123) #8
-  %533 = load ptr, ptr @stderr, align 8
-  %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef @.str.31) #8
-  br label %535
+507:                                              ; preds = %502, %496
+  br label %508
 
-535:                                              ; preds = %530, %524
-  br label %536
+508:                                              ; preds = %507, %487
+  br label %509
 
-536:                                              ; preds = %535, %515
-  br label %537
+509:                                              ; preds = %508
+  br label %510
 
-537:                                              ; preds = %536
-  br label %538
-
-538:                                              ; preds = %537
+510:                                              ; preds = %509
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-539:                                              ; No predecessors!
-  br label %540
+511:                                              ; No predecessors!
+  br label %512
 
-540:                                              ; preds = %539
-  br label %541
+512:                                              ; preds = %511
+  br label %636
 
-541:                                              ; preds = %540, %508
-  %542 = load i64, ptr %3, align 8
-  %543 = load ptr, ptr %4, align 8
-  %544 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %543, i32 0, i32 1
-  %545 = load ptr, ptr %544, align 8
-  %546 = call i32 @H5Pset_fapl_onion(i64 noundef %542, ptr noundef %545)
-  %547 = icmp slt i32 %546, 0
-  br i1 %547, label %548, label %576
+513:                                              ; preds = %477
+  %514 = load ptr, ptr %4, align 8
+  %515 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %514, i32 0, i32 2
+  %516 = load ptr, ptr %515, align 8
+  %517 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 15
+  %518 = load ptr, ptr %517, align 8
+  %519 = call i32 @strcmp(ptr noundef %516, ptr noundef %518) #9
+  %520 = icmp ne i32 %519, 0
+  br i1 %520, label %590, label %521
 
-548:                                              ; preds = %541
+521:                                              ; preds = %513
+  %522 = load ptr, ptr %4, align 8
+  %523 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %522, i32 0, i32 1
+  %524 = load ptr, ptr %523, align 8
+  %525 = icmp ne ptr %524, null
+  br i1 %525, label %554, label %526
+
+526:                                              ; preds = %521
+  br label %527
+
+527:                                              ; preds = %526
+  br label %528
+
+528:                                              ; preds = %527
+  %529 = load i32, ptr @enable_error_stack, align 4
+  %530 = icmp sgt i32 %529, 0
+  br i1 %530, label %531, label %549
+
+531:                                              ; preds = %528
+  %532 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %533 = icmp sge i64 %532, 0
+  br i1 %533, label %534, label %543
+
+534:                                              ; preds = %531
+  %535 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %536 = icmp sge i64 %535, 0
+  br i1 %536, label %537, label %543
+
+537:                                              ; preds = %534
+  %538 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %539 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %540 = load i64, ptr @H5E_tools_g, align 8
+  %541 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %542 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %538, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 591, i64 noundef %539, i64 noundef %540, i64 noundef %541, ptr noundef @.str.123)
+  br label %548
+
+543:                                              ; preds = %534, %531
+  %544 = load ptr, ptr @stderr, align 8
+  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef @.str.123) #8
+  %546 = load ptr, ptr @stderr, align 8
+  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %546, ptr noundef @.str.31) #8
+  br label %548
+
+548:                                              ; preds = %543, %537
   br label %549
 
-549:                                              ; preds = %548
+549:                                              ; preds = %548, %528
   br label %550
 
 550:                                              ; preds = %549
-  %551 = load i32, ptr @enable_error_stack, align 4
-  %552 = icmp sgt i32 %551, 0
-  br i1 %552, label %553, label %571
+  br label %551
 
-553:                                              ; preds = %550
-  %554 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %555 = icmp sge i64 %554, 0
-  br i1 %555, label %556, label %565
-
-556:                                              ; preds = %553
-  %557 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %558 = icmp sge i64 %557, 0
-  br i1 %558, label %559, label %565
-
-559:                                              ; preds = %556
-  %560 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %561 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %562 = load i64, ptr @H5E_tools_g, align 8
-  %563 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %564 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %560, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 593, i64 noundef %561, i64 noundef %562, i64 noundef %563, ptr noundef @.str.124)
-  br label %570
-
-565:                                              ; preds = %556, %553
-  %566 = load ptr, ptr @stderr, align 8
-  %567 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %566, ptr noundef @.str.124) #8
-  %568 = load ptr, ptr @stderr, align 8
-  %569 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %568, ptr noundef @.str.31) #8
-  br label %570
-
-570:                                              ; preds = %565, %559
-  br label %571
-
-571:                                              ; preds = %570, %550
-  br label %572
-
-572:                                              ; preds = %571
-  br label %573
-
-573:                                              ; preds = %572
+551:                                              ; preds = %550
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-574:                                              ; No predecessors!
-  br label %575
+552:                                              ; No predecessors!
+  br label %553
 
-575:                                              ; preds = %574
-  br label %576
+553:                                              ; preds = %552
+  br label %554
 
-576:                                              ; preds = %575, %541
-  br label %622
+554:                                              ; preds = %553, %521
+  %555 = load i64, ptr %3, align 8
+  %556 = load ptr, ptr %4, align 8
+  %557 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %556, i32 0, i32 1
+  %558 = load ptr, ptr %557, align 8
+  %559 = call i32 @H5Pset_fapl_onion(i64 noundef %555, ptr noundef %558)
+  %560 = icmp slt i32 %559, 0
+  br i1 %560, label %561, label %589
 
-577:                                              ; preds = %501
-  %578 = load i64, ptr %3, align 8
-  %579 = load ptr, ptr %4, align 8
-  %580 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %579, i32 0, i32 2
-  %581 = load ptr, ptr %580, align 8
-  %582 = load ptr, ptr %4, align 8
-  %583 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %582, i32 0, i32 1
-  %584 = load ptr, ptr %583, align 8
-  %585 = call i32 @H5Pset_driver_by_name(i64 noundef %578, ptr noundef %581, ptr noundef %584)
-  %586 = icmp slt i32 %585, 0
-  br i1 %586, label %587, label %621
+561:                                              ; preds = %554
+  br label %562
 
-587:                                              ; preds = %577
+562:                                              ; preds = %561
+  br label %563
+
+563:                                              ; preds = %562
+  %564 = load i32, ptr @enable_error_stack, align 4
+  %565 = icmp sgt i32 %564, 0
+  br i1 %565, label %566, label %584
+
+566:                                              ; preds = %563
+  %567 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %568 = icmp sge i64 %567, 0
+  br i1 %568, label %569, label %578
+
+569:                                              ; preds = %566
+  %570 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %571 = icmp sge i64 %570, 0
+  br i1 %571, label %572, label %578
+
+572:                                              ; preds = %569
+  %573 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %574 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %575 = load i64, ptr @H5E_tools_g, align 8
+  %576 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %577 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %573, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 593, i64 noundef %574, i64 noundef %575, i64 noundef %576, ptr noundef @.str.124)
+  br label %583
+
+578:                                              ; preds = %569, %566
+  %579 = load ptr, ptr @stderr, align 8
+  %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %579, ptr noundef @.str.124) #8
+  %581 = load ptr, ptr @stderr, align 8
+  %582 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %581, ptr noundef @.str.31) #8
+  br label %583
+
+583:                                              ; preds = %578, %572
+  br label %584
+
+584:                                              ; preds = %583, %563
+  br label %585
+
+585:                                              ; preds = %584
+  br label %586
+
+586:                                              ; preds = %585
+  store i32 -1, ptr %5, align 4
+  br label %759
+
+587:                                              ; No predecessors!
   br label %588
 
 588:                                              ; preds = %587
   br label %589
 
-589:                                              ; preds = %588
-  %590 = load i32, ptr @enable_error_stack, align 4
-  %591 = icmp sgt i32 %590, 0
-  br i1 %591, label %592, label %616
-
-592:                                              ; preds = %589
-  %593 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %594 = icmp sge i64 %593, 0
-  br i1 %594, label %595, label %607
-
-595:                                              ; preds = %592
-  %596 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %597 = icmp sge i64 %596, 0
-  br i1 %597, label %598, label %607
-
-598:                                              ; preds = %595
-  %599 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %600 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %601 = load i64, ptr @H5E_tools_g, align 8
-  %602 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %603 = load ptr, ptr %4, align 8
-  %604 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %603, i32 0, i32 2
-  %605 = load ptr, ptr %604, align 8
-  %606 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %599, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 602, i64 noundef %600, i64 noundef %601, i64 noundef %602, ptr noundef @.str.125, ptr noundef %605)
-  br label %615
-
-607:                                              ; preds = %595, %592
-  %608 = load ptr, ptr @stderr, align 8
-  %609 = load ptr, ptr %4, align 8
-  %610 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %609, i32 0, i32 2
-  %611 = load ptr, ptr %610, align 8
-  %612 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %608, ptr noundef @.str.125, ptr noundef %611) #8
-  %613 = load ptr, ptr @stderr, align 8
-  %614 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %613, ptr noundef @.str.31) #8
-  br label %615
-
-615:                                              ; preds = %607, %598
-  br label %616
-
-616:                                              ; preds = %615, %589
-  br label %617
-
-617:                                              ; preds = %616
-  br label %618
-
-618:                                              ; preds = %617
-  store i32 -1, ptr %5, align 4
-  br label %746
-
-619:                                              ; No predecessors!
-  br label %620
-
-620:                                              ; preds = %619
-  br label %621
-
-621:                                              ; preds = %620, %577
-  br label %622
-
-622:                                              ; preds = %621, %576
-  br label %623
-
-623:                                              ; preds = %622, %500
-  br label %624
-
-624:                                              ; preds = %623, %465
-  br label %625
-
-625:                                              ; preds = %624, %430
-  br label %626
-
-626:                                              ; preds = %625, %395
-  br label %627
-
-627:                                              ; preds = %626, %360
-  br label %628
-
-628:                                              ; preds = %627, %320
-  br label %629
-
-629:                                              ; preds = %628, %280
-  br label %630
-
-630:                                              ; preds = %629, %240
-  br label %631
-
-631:                                              ; preds = %630, %200
-  br label %632
-
-632:                                              ; preds = %631, %160
-  br label %633
-
-633:                                              ; preds = %632, %125
-  br label %634
-
-634:                                              ; preds = %633, %84
+589:                                              ; preds = %588, %554
   br label %635
 
-635:                                              ; preds = %634, %49
-  br label %745
+590:                                              ; preds = %513
+  %591 = load i64, ptr %3, align 8
+  %592 = load ptr, ptr %4, align 8
+  %593 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %592, i32 0, i32 2
+  %594 = load ptr, ptr %593, align 8
+  %595 = load ptr, ptr %4, align 8
+  %596 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %595, i32 0, i32 1
+  %597 = load ptr, ptr %596, align 8
+  %598 = call i32 @H5Pset_driver_by_name(i64 noundef %591, ptr noundef %594, ptr noundef %597)
+  %599 = icmp slt i32 %598, 0
+  br i1 %599, label %600, label %634
 
-636:                                              ; preds = %2
-  %637 = load ptr, ptr %4, align 8
-  %638 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %637, i32 0, i32 2
-  %639 = load i32, ptr %638, align 8
-  %640 = icmp eq i32 %639, 12
-  br i1 %640, label %641, label %669
+600:                                              ; preds = %590
+  br label %601
 
-641:                                              ; preds = %636
+601:                                              ; preds = %600
+  br label %602
+
+602:                                              ; preds = %601
+  %603 = load i32, ptr @enable_error_stack, align 4
+  %604 = icmp sgt i32 %603, 0
+  br i1 %604, label %605, label %629
+
+605:                                              ; preds = %602
+  %606 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %607 = icmp sge i64 %606, 0
+  br i1 %607, label %608, label %620
+
+608:                                              ; preds = %605
+  %609 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %610 = icmp sge i64 %609, 0
+  br i1 %610, label %611, label %620
+
+611:                                              ; preds = %608
+  %612 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %613 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %614 = load i64, ptr @H5E_tools_g, align 8
+  %615 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %616 = load ptr, ptr %4, align 8
+  %617 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %616, i32 0, i32 2
+  %618 = load ptr, ptr %617, align 8
+  %619 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %612, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 602, i64 noundef %613, i64 noundef %614, i64 noundef %615, ptr noundef @.str.125, ptr noundef %618)
+  br label %628
+
+620:                                              ; preds = %608, %605
+  %621 = load ptr, ptr @stderr, align 8
+  %622 = load ptr, ptr %4, align 8
+  %623 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %622, i32 0, i32 2
+  %624 = load ptr, ptr %623, align 8
+  %625 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef @.str.125, ptr noundef %624) #8
+  %626 = load ptr, ptr @stderr, align 8
+  %627 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %626, ptr noundef @.str.31) #8
+  br label %628
+
+628:                                              ; preds = %620, %611
+  br label %629
+
+629:                                              ; preds = %628, %602
+  br label %630
+
+630:                                              ; preds = %629
+  br label %631
+
+631:                                              ; preds = %630
+  store i32 -1, ptr %5, align 4
+  br label %759
+
+632:                                              ; No predecessors!
+  br label %633
+
+633:                                              ; preds = %632
+  br label %634
+
+634:                                              ; preds = %633, %590
+  br label %635
+
+635:                                              ; preds = %634, %589
+  br label %636
+
+636:                                              ; preds = %635, %512
+  br label %637
+
+637:                                              ; preds = %636, %476
+  br label %638
+
+638:                                              ; preds = %637, %440
+  br label %639
+
+639:                                              ; preds = %638, %404
+  br label %640
+
+640:                                              ; preds = %639, %368
+  br label %641
+
+641:                                              ; preds = %640, %327
   br label %642
 
-642:                                              ; preds = %641
+642:                                              ; preds = %641, %286
   br label %643
 
-643:                                              ; preds = %642
-  %644 = load i32, ptr @enable_error_stack, align 4
-  %645 = icmp sgt i32 %644, 0
-  br i1 %645, label %646, label %664
+643:                                              ; preds = %642, %245
+  br label %644
 
-646:                                              ; preds = %643
-  %647 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %648 = icmp sge i64 %647, 0
-  br i1 %648, label %649, label %658
+644:                                              ; preds = %643, %204
+  br label %645
 
-649:                                              ; preds = %646
-  %650 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %651 = icmp sge i64 %650, 0
-  br i1 %651, label %652, label %658
+645:                                              ; preds = %644, %163
+  br label %646
 
-652:                                              ; preds = %649
-  %653 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %654 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %655 = load i64, ptr @H5E_tools_g, align 8
-  %656 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %657 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %653, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 619, i64 noundef %654, i64 noundef %655, i64 noundef %656, ptr noundef @.str.122)
-  br label %663
+646:                                              ; preds = %645, %127
+  br label %647
 
-658:                                              ; preds = %649, %646
-  %659 = load ptr, ptr @stderr, align 8
-  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %659, ptr noundef @.str.122) #8
-  %661 = load ptr, ptr @stderr, align 8
-  %662 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %661, ptr noundef @.str.31) #8
-  br label %663
+647:                                              ; preds = %646, %85
+  br label %648
 
-663:                                              ; preds = %658, %652
-  br label %664
+648:                                              ; preds = %647, %49
+  br label %758
 
-664:                                              ; preds = %663, %643
-  br label %665
+649:                                              ; preds = %2
+  %650 = load ptr, ptr %4, align 8
+  %651 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %650, i32 0, i32 2
+  %652 = load i32, ptr %651, align 8
+  %653 = icmp eq i32 %652, 12
+  br i1 %653, label %654, label %682
 
-665:                                              ; preds = %664
-  br label %666
+654:                                              ; preds = %649
+  br label %655
 
-666:                                              ; preds = %665
+655:                                              ; preds = %654
+  br label %656
+
+656:                                              ; preds = %655
+  %657 = load i32, ptr @enable_error_stack, align 4
+  %658 = icmp sgt i32 %657, 0
+  br i1 %658, label %659, label %677
+
+659:                                              ; preds = %656
+  %660 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %661 = icmp sge i64 %660, 0
+  br i1 %661, label %662, label %671
+
+662:                                              ; preds = %659
+  %663 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %664 = icmp sge i64 %663, 0
+  br i1 %664, label %665, label %671
+
+665:                                              ; preds = %662
+  %666 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %667 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %668 = load i64, ptr @H5E_tools_g, align 8
+  %669 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %670 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %666, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 619, i64 noundef %667, i64 noundef %668, i64 noundef %669, ptr noundef @.str.122)
+  br label %676
+
+671:                                              ; preds = %662, %659
+  %672 = load ptr, ptr @stderr, align 8
+  %673 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %672, ptr noundef @.str.122) #8
+  %674 = load ptr, ptr @stderr, align 8
+  %675 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %674, ptr noundef @.str.31) #8
+  br label %676
+
+676:                                              ; preds = %671, %665
+  br label %677
+
+677:                                              ; preds = %676, %656
+  br label %678
+
+678:                                              ; preds = %677
+  br label %679
+
+679:                                              ; preds = %678
   store i32 -1, ptr %5, align 4
-  br label %746
+  br label %759
 
-667:                                              ; No predecessors!
-  br label %668
-
-668:                                              ; preds = %667
-  br label %716
-
-669:                                              ; preds = %636
-  %670 = load i64, ptr %3, align 8
-  %671 = load ptr, ptr %4, align 8
-  %672 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %671, i32 0, i32 2
-  %673 = load i32, ptr %672, align 8
-  %674 = load ptr, ptr %4, align 8
-  %675 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %674, i32 0, i32 1
-  %676 = load ptr, ptr %675, align 8
-  %677 = call i32 @H5Pset_driver_by_value(i64 noundef %670, i32 noundef %673, ptr noundef %676)
-  %678 = icmp slt i32 %677, 0
-  br i1 %678, label %679, label %715
-
-679:                                              ; preds = %669
-  br label %680
-
-680:                                              ; preds = %679
+680:                                              ; No predecessors!
   br label %681
 
 681:                                              ; preds = %680
-  %682 = load i32, ptr @enable_error_stack, align 4
-  %683 = icmp sgt i32 %682, 0
-  br i1 %683, label %684, label %710
+  br label %729
 
-684:                                              ; preds = %681
-  %685 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %686 = icmp sge i64 %685, 0
-  br i1 %686, label %687, label %700
+682:                                              ; preds = %649
+  %683 = load i64, ptr %3, align 8
+  %684 = load ptr, ptr %4, align 8
+  %685 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %684, i32 0, i32 2
+  %686 = load i32, ptr %685, align 8
+  %687 = load ptr, ptr %4, align 8
+  %688 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %687, i32 0, i32 1
+  %689 = load ptr, ptr %688, align 8
+  %690 = call i32 @H5Pset_driver_by_value(i64 noundef %683, i32 noundef %686, ptr noundef %689)
+  %691 = icmp slt i32 %690, 0
+  br i1 %691, label %692, label %728
 
-687:                                              ; preds = %684
-  %688 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %689 = icmp sge i64 %688, 0
-  br i1 %689, label %690, label %700
+692:                                              ; preds = %682
+  br label %693
 
-690:                                              ; preds = %687
-  %691 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %692 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %693 = load i64, ptr @H5E_tools_g, align 8
-  %694 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %695 = load ptr, ptr %4, align 8
-  %696 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %695, i32 0, i32 2
-  %697 = load i32, ptr %696, align 8
-  %698 = sext i32 %697 to i64
-  %699 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %691, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 625, i64 noundef %692, i64 noundef %693, i64 noundef %694, ptr noundef @.str.126, i64 noundef %698)
-  br label %709
+693:                                              ; preds = %692
+  br label %694
 
-700:                                              ; preds = %687, %684
-  %701 = load ptr, ptr @stderr, align 8
-  %702 = load ptr, ptr %4, align 8
-  %703 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %702, i32 0, i32 2
-  %704 = load i32, ptr %703, align 8
-  %705 = sext i32 %704 to i64
-  %706 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %701, ptr noundef @.str.126, i64 noundef %705) #8
-  %707 = load ptr, ptr @stderr, align 8
-  %708 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %707, ptr noundef @.str.31) #8
-  br label %709
+694:                                              ; preds = %693
+  %695 = load i32, ptr @enable_error_stack, align 4
+  %696 = icmp sgt i32 %695, 0
+  br i1 %696, label %697, label %723
 
-709:                                              ; preds = %700, %690
-  br label %710
+697:                                              ; preds = %694
+  %698 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %699 = icmp sge i64 %698, 0
+  br i1 %699, label %700, label %713
 
-710:                                              ; preds = %709, %681
-  br label %711
+700:                                              ; preds = %697
+  %701 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %702 = icmp sge i64 %701, 0
+  br i1 %702, label %703, label %713
 
-711:                                              ; preds = %710
-  br label %712
+703:                                              ; preds = %700
+  %704 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %705 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %706 = load i64, ptr @H5E_tools_g, align 8
+  %707 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %708 = load ptr, ptr %4, align 8
+  %709 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %708, i32 0, i32 2
+  %710 = load i32, ptr %709, align 8
+  %711 = sext i32 %710 to i64
+  %712 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %704, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 625, i64 noundef %705, i64 noundef %706, i64 noundef %707, ptr noundef @.str.126, i64 noundef %711)
+  br label %722
 
-712:                                              ; preds = %711
+713:                                              ; preds = %700, %697
+  %714 = load ptr, ptr @stderr, align 8
+  %715 = load ptr, ptr %4, align 8
+  %716 = getelementptr inbounds %struct.h5tools_vfd_info_t, ptr %715, i32 0, i32 2
+  %717 = load i32, ptr %716, align 8
+  %718 = sext i32 %717 to i64
+  %719 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %714, ptr noundef @.str.126, i64 noundef %718) #8
+  %720 = load ptr, ptr @stderr, align 8
+  %721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %720, ptr noundef @.str.31) #8
+  br label %722
+
+722:                                              ; preds = %713, %703
+  br label %723
+
+723:                                              ; preds = %722, %694
+  br label %724
+
+724:                                              ; preds = %723
+  br label %725
+
+725:                                              ; preds = %724
   store i32 -1, ptr %5, align 4
-  br label %746
-
-713:                                              ; No predecessors!
-  br label %714
-
-714:                                              ; preds = %713
-  br label %715
-
-715:                                              ; preds = %714, %669
-  br label %716
-
-716:                                              ; preds = %715, %668
-  br label %745
-
-717:                                              ; preds = %2
-  br label %718
-
-718:                                              ; preds = %717
-  br label %719
-
-719:                                              ; preds = %718
-  %720 = load i32, ptr @enable_error_stack, align 4
-  %721 = icmp sgt i32 %720, 0
-  br i1 %721, label %722, label %740
-
-722:                                              ; preds = %719
-  %723 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %724 = icmp sge i64 %723, 0
-  br i1 %724, label %725, label %734
-
-725:                                              ; preds = %722
-  %726 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %727 = icmp sge i64 %726, 0
-  br i1 %727, label %728, label %734
-
-728:                                              ; preds = %725
-  %729 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %730 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %731 = load i64, ptr @H5E_tools_g, align 8
-  %732 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %733 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %729, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 630, i64 noundef %730, i64 noundef %731, i64 noundef %732, ptr noundef @.str.127)
-  br label %739
-
-734:                                              ; preds = %725, %722
-  %735 = load ptr, ptr @stderr, align 8
-  %736 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %735, ptr noundef @.str.127) #8
-  %737 = load ptr, ptr @stderr, align 8
-  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef @.str.31) #8
-  br label %739
-
-739:                                              ; preds = %734, %728
-  br label %740
-
-740:                                              ; preds = %739, %719
-  br label %741
-
-741:                                              ; preds = %740
-  br label %742
-
-742:                                              ; preds = %741
-  store i32 -1, ptr %5, align 4
-  br label %746
-
-743:                                              ; No predecessors!
-  br label %744
-
-744:                                              ; preds = %743
-  br label %745
-
-745:                                              ; preds = %744, %716, %635
-  br label %746
-
-746:                                              ; preds = %745, %742, %712, %666, %618, %573, %538, %498, %463, %428, %393, %357, %317, %277, %237, %197, %158, %122, %82, %46
-  %747 = load i32, ptr %5, align 4
-  %748 = icmp slt i32 %747, 0
-  br i1 %748, label %749, label %759
-
-749:                                              ; preds = %746
-  %750 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %751 = icmp sge i64 %750, 0
-  br i1 %751, label %752, label %758
-
-752:                                              ; preds = %749
-  %753 = load i32, ptr @enable_error_stack, align 4
-  %754 = icmp sle i32 %753, 1
-  br i1 %754, label %755, label %758
-
-755:                                              ; preds = %752
-  %756 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %757 = call i32 @H5Epop(i64 noundef %756, i64 noundef 1)
-  br label %758
-
-758:                                              ; preds = %755, %752, %749
   br label %759
 
-759:                                              ; preds = %758, %746
+726:                                              ; No predecessors!
+  br label %727
+
+727:                                              ; preds = %726
+  br label %728
+
+728:                                              ; preds = %727, %682
+  br label %729
+
+729:                                              ; preds = %728, %681
+  br label %758
+
+730:                                              ; preds = %2
+  br label %731
+
+731:                                              ; preds = %730
+  br label %732
+
+732:                                              ; preds = %731
+  %733 = load i32, ptr @enable_error_stack, align 4
+  %734 = icmp sgt i32 %733, 0
+  br i1 %734, label %735, label %753
+
+735:                                              ; preds = %732
+  %736 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %737 = icmp sge i64 %736, 0
+  br i1 %737, label %738, label %747
+
+738:                                              ; preds = %735
+  %739 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %740 = icmp sge i64 %739, 0
+  br i1 %740, label %741, label %747
+
+741:                                              ; preds = %738
+  %742 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %743 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %744 = load i64, ptr @H5E_tools_g, align 8
+  %745 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %746 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %742, ptr noundef @.str.47, ptr noundef @__func__.h5tools_set_fapl_vfd, i32 noundef 630, i64 noundef %743, i64 noundef %744, i64 noundef %745, ptr noundef @.str.127)
+  br label %752
+
+747:                                              ; preds = %738, %735
+  %748 = load ptr, ptr @stderr, align 8
+  %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %748, ptr noundef @.str.127) #8
+  %750 = load ptr, ptr @stderr, align 8
+  %751 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %750, ptr noundef @.str.31) #8
+  br label %752
+
+752:                                              ; preds = %747, %741
+  br label %753
+
+753:                                              ; preds = %752, %732
+  br label %754
+
+754:                                              ; preds = %753
+  br label %755
+
+755:                                              ; preds = %754
+  store i32 -1, ptr %5, align 4
+  br label %759
+
+756:                                              ; No predecessors!
+  br label %757
+
+757:                                              ; preds = %756
+  br label %758
+
+758:                                              ; preds = %757, %729, %648
+  br label %759
+
+759:                                              ; preds = %758, %755, %725, %679, %631, %586, %551, %510, %474, %438, %402, %365, %324, %283, %242, %201, %161, %124, %83, %46
   %760 = load i32, ptr %5, align 4
-  ret i32 %760
+  %761 = icmp slt i32 %760, 0
+  br i1 %761, label %762, label %772
+
+762:                                              ; preds = %759
+  %763 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %764 = icmp sge i64 %763, 0
+  br i1 %764, label %765, label %771
+
+765:                                              ; preds = %762
+  %766 = load i32, ptr @enable_error_stack, align 4
+  %767 = icmp sle i32 %766, 1
+  br i1 %767, label %768, label %771
+
+768:                                              ; preds = %765
+  %769 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %770 = call i32 @H5Epop(i64 noundef %769, i64 noundef 1)
+  br label %771
+
+771:                                              ; preds = %768, %765, %762
+  br label %772
+
+772:                                              ; preds = %771, %759
+  %773 = load i32, ptr %5, align 4
+  ret i32 %773
 }
 
 declare i32 @H5Pclose(i64 noundef) #1
@@ -3846,7 +3859,7 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 
 41:                                               ; preds = %40
   store i32 -1, ptr %11, align 4
-  br label %271
+  br label %277
 
 42:                                               ; No predecessors!
   br label %43
@@ -3906,7 +3919,7 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 
 72:                                               ; preds = %71
   store i32 -1, ptr %11, align 4
-  br label %271
+  br label %277
 
 73:                                               ; No predecessors!
   br label %74
@@ -3971,7 +3984,7 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 
 106:                                              ; preds = %105
   store i32 -1, ptr %11, align 4
-  br label %271
+  br label %277
 
 107:                                              ; No predecessors!
   br label %108
@@ -4106,7 +4119,7 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 177:                                              ; preds = %176, %147
   %178 = load i8, ptr %10, align 1
   %179 = trunc i8 %178 to i1
-  br i1 %179, label %180, label %270
+  br i1 %179, label %180, label %276
 
 180:                                              ; preds = %177
   %181 = load i64, ptr %6, align 8
@@ -4162,7 +4175,7 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 
 209:                                              ; preds = %208
   store i32 -1, ptr %11, align 4
-  br label %271
+  br label %277
 
 210:                                              ; No predecessors!
   br label %211
@@ -4179,177 +4192,183 @@ define i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1, ptr noundef %2,
 216:                                              ; preds = %212
   %217 = load ptr, ptr @drivernames, align 16
   store ptr %217, ptr %12, align 8
-  br label %261
+  br label %267
 
 218:                                              ; preds = %212
   %219 = load i64, ptr %13, align 8
   %220 = call i64 @H5FDperform_init(ptr noundef @H5FD_log_init)
   %221 = icmp eq i64 %219, %220
-  br i1 %221, label %222, label %224
+  br i1 %221, label %222, label %225
 
 222:                                              ; preds = %218
-  %223 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 2), align 16
-  store ptr %223, ptr %12, align 8
-  br label %260
+  %223 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 2
+  %224 = load ptr, ptr %223, align 16
+  store ptr %224, ptr %12, align 8
+  br label %266
 
-224:                                              ; preds = %218
-  %225 = load i64, ptr %13, align 8
-  %226 = call i64 @H5FDperform_init(ptr noundef @H5FD_stdio_init)
-  %227 = icmp eq i64 %225, %226
-  br i1 %227, label %228, label %230
+225:                                              ; preds = %218
+  %226 = load i64, ptr %13, align 8
+  %227 = call i64 @H5FDperform_init(ptr noundef @H5FD_stdio_init)
+  %228 = icmp eq i64 %226, %227
+  br i1 %228, label %229, label %232
 
-228:                                              ; preds = %224
-  %229 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 4), align 16
-  store ptr %229, ptr %12, align 8
-  br label %259
+229:                                              ; preds = %225
+  %230 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 4
+  %231 = load ptr, ptr %230, align 16
+  store ptr %231, ptr %12, align 8
+  br label %265
 
-230:                                              ; preds = %224
-  %231 = load i64, ptr %13, align 8
-  %232 = call i64 @H5FDperform_init(ptr noundef @H5FD_core_init)
-  %233 = icmp eq i64 %231, %232
-  br i1 %233, label %234, label %236
+232:                                              ; preds = %225
+  %233 = load i64, ptr %13, align 8
+  %234 = call i64 @H5FDperform_init(ptr noundef @H5FD_core_init)
+  %235 = icmp eq i64 %233, %234
+  br i1 %235, label %236, label %239
 
-234:                                              ; preds = %230
-  %235 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 5), align 8
-  store ptr %235, ptr %12, align 8
-  br label %258
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 5
+  %238 = load ptr, ptr %237, align 8
+  store ptr %238, ptr %12, align 8
+  br label %264
 
-236:                                              ; preds = %230
-  %237 = load i64, ptr %13, align 8
-  %238 = call i64 @H5FDperform_init(ptr noundef @H5FD_family_init)
-  %239 = icmp eq i64 %237, %238
-  br i1 %239, label %240, label %242
+239:                                              ; preds = %232
+  %240 = load i64, ptr %13, align 8
+  %241 = call i64 @H5FDperform_init(ptr noundef @H5FD_family_init)
+  %242 = icmp eq i64 %240, %241
+  br i1 %242, label %243, label %246
 
-240:                                              ; preds = %236
-  %241 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 6), align 16
-  store ptr %241, ptr %12, align 8
-  br label %257
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 6
+  %245 = load ptr, ptr %244, align 16
+  store ptr %245, ptr %12, align 8
+  br label %263
 
-242:                                              ; preds = %236
-  %243 = load i64, ptr %13, align 8
-  %244 = call i64 @H5FDperform_init(ptr noundef @H5FD_multi_init)
-  %245 = icmp eq i64 %243, %244
-  br i1 %245, label %246, label %248
+246:                                              ; preds = %239
+  %247 = load i64, ptr %13, align 8
+  %248 = call i64 @H5FDperform_init(ptr noundef @H5FD_multi_init)
+  %249 = icmp eq i64 %247, %248
+  br i1 %249, label %250, label %253
 
-246:                                              ; preds = %242
-  %247 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 8), align 16
-  store ptr %247, ptr %12, align 8
-  br label %256
+250:                                              ; preds = %246
+  %251 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 8
+  %252 = load ptr, ptr %251, align 16
+  store ptr %252, ptr %12, align 8
+  br label %262
 
-248:                                              ; preds = %242
-  %249 = load i64, ptr %13, align 8
-  %250 = call i64 @H5FDperform_init(ptr noundef @H5FD_onion_init)
-  %251 = icmp eq i64 %249, %250
-  br i1 %251, label %252, label %254
+253:                                              ; preds = %246
+  %254 = load i64, ptr %13, align 8
+  %255 = call i64 @H5FDperform_init(ptr noundef @H5FD_onion_init)
+  %256 = icmp eq i64 %254, %255
+  br i1 %256, label %257, label %260
 
-252:                                              ; preds = %248
-  %253 = load ptr, ptr getelementptr inbounds ([16 x ptr], ptr @drivernames, i64 0, i64 15), align 8
-  store ptr %253, ptr %12, align 8
-  br label %255
-
-254:                                              ; preds = %248
-  store ptr @.str.58, ptr %12, align 8
-  br label %255
-
-255:                                              ; preds = %254, %252
-  br label %256
-
-256:                                              ; preds = %255, %246
-  br label %257
-
-257:                                              ; preds = %256, %240
-  br label %258
-
-258:                                              ; preds = %257, %234
-  br label %259
-
-259:                                              ; preds = %258, %228
-  br label %260
-
-260:                                              ; preds = %259, %222
+257:                                              ; preds = %253
+  %258 = getelementptr inbounds [16 x ptr], ptr @drivernames, i64 0, i64 15
+  %259 = load ptr, ptr %258, align 8
+  store ptr %259, ptr %12, align 8
   br label %261
 
-261:                                              ; preds = %260, %216
-  %262 = load ptr, ptr %7, align 8
-  %263 = load ptr, ptr %12, align 8
-  %264 = load i64, ptr %8, align 8
-  %265 = call ptr @strncpy(ptr noundef %262, ptr noundef %263, i64 noundef %264) #8
-  %266 = load ptr, ptr %7, align 8
-  %267 = load i64, ptr %8, align 8
-  %268 = sub i64 %267, 1
-  %269 = getelementptr inbounds i8, ptr %266, i64 %268
-  store i8 0, ptr %269, align 1
-  br label %270
+260:                                              ; preds = %253
+  store ptr @.str.58, ptr %12, align 8
+  br label %261
 
-270:                                              ; preds = %261, %177
-  br label %271
+261:                                              ; preds = %260, %257
+  br label %262
 
-271:                                              ; preds = %270, %209, %106, %72, %41
-  %272 = load i64, ptr %9, align 8
-  %273 = icmp sge i64 %272, 0
-  br i1 %273, label %274, label %305
+262:                                              ; preds = %261, %250
+  br label %263
 
-274:                                              ; preds = %271
-  %275 = load i64, ptr %9, align 8
-  %276 = call i32 @H5VLclose(i64 noundef %275)
-  %277 = icmp slt i32 %276, 0
-  br i1 %277, label %278, label %304
+263:                                              ; preds = %262, %243
+  br label %264
 
-278:                                              ; preds = %274
-  br label %279
+264:                                              ; preds = %263, %236
+  br label %265
 
-279:                                              ; preds = %278
-  br label %280
+265:                                              ; preds = %264, %229
+  br label %266
 
-280:                                              ; preds = %279
-  %281 = load i32, ptr @enable_error_stack, align 4
-  %282 = icmp sgt i32 %281, 0
-  br i1 %282, label %283, label %301
+266:                                              ; preds = %265, %222
+  br label %267
 
-283:                                              ; preds = %280
-  %284 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %285 = icmp sge i64 %284, 0
-  br i1 %285, label %286, label %295
+267:                                              ; preds = %266, %216
+  %268 = load ptr, ptr %7, align 8
+  %269 = load ptr, ptr %12, align 8
+  %270 = load i64, ptr %8, align 8
+  %271 = call ptr @strncpy(ptr noundef %268, ptr noundef %269, i64 noundef %270) #8
+  %272 = load ptr, ptr %7, align 8
+  %273 = load i64, ptr %8, align 8
+  %274 = sub i64 %273, 1
+  %275 = getelementptr inbounds i8, ptr %272, i64 %274
+  store i8 0, ptr %275, align 1
+  br label %276
 
-286:                                              ; preds = %283
-  %287 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %288 = icmp sge i64 %287, 0
-  br i1 %288, label %289, label %295
+276:                                              ; preds = %267, %177
+  br label %277
+
+277:                                              ; preds = %276, %209, %106, %72, %41
+  %278 = load i64, ptr %9, align 8
+  %279 = icmp sge i64 %278, 0
+  br i1 %279, label %280, label %311
+
+280:                                              ; preds = %277
+  %281 = load i64, ptr %9, align 8
+  %282 = call i32 @H5VLclose(i64 noundef %281)
+  %283 = icmp slt i32 %282, 0
+  br i1 %283, label %284, label %310
+
+284:                                              ; preds = %280
+  br label %285
+
+285:                                              ; preds = %284
+  br label %286
+
+286:                                              ; preds = %285
+  %287 = load i32, ptr @enable_error_stack, align 4
+  %288 = icmp sgt i32 %287, 0
+  br i1 %288, label %289, label %307
 
 289:                                              ; preds = %286
   %290 = load i64, ptr @H5tools_ERR_STACK_g, align 8
-  %291 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %292 = load i64, ptr @H5E_tools_g, align 8
-  %293 = load i64, ptr @H5E_tools_min_id_g, align 8
-  %294 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %290, ptr noundef @.str.47, ptr noundef @__func__.h5tools_get_vfd_name, i32 noundef 901, i64 noundef %291, i64 noundef %292, i64 noundef %293, ptr noundef @.str.59)
-  br label %300
+  %291 = icmp sge i64 %290, 0
+  br i1 %291, label %292, label %301
 
-295:                                              ; preds = %286, %283
-  %296 = load ptr, ptr @stderr, align 8
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef @.str.59) #8
-  %298 = load ptr, ptr @stderr, align 8
-  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef @.str.31) #8
-  br label %300
+292:                                              ; preds = %289
+  %293 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %294 = icmp sge i64 %293, 0
+  br i1 %294, label %295, label %301
 
-300:                                              ; preds = %295, %289
-  br label %301
+295:                                              ; preds = %292
+  %296 = load i64, ptr @H5tools_ERR_STACK_g, align 8
+  %297 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %298 = load i64, ptr @H5E_tools_g, align 8
+  %299 = load i64, ptr @H5E_tools_min_id_g, align 8
+  %300 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %296, ptr noundef @.str.47, ptr noundef @__func__.h5tools_get_vfd_name, i32 noundef 901, i64 noundef %297, i64 noundef %298, i64 noundef %299, ptr noundef @.str.59)
+  br label %306
 
-301:                                              ; preds = %300, %280
-  br label %302
+301:                                              ; preds = %292, %289
+  %302 = load ptr, ptr @stderr, align 8
+  %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %302, ptr noundef @.str.59) #8
+  %304 = load ptr, ptr @stderr, align 8
+  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef @.str.31) #8
+  br label %306
 
-302:                                              ; preds = %301
+306:                                              ; preds = %301, %295
+  br label %307
+
+307:                                              ; preds = %306, %286
+  br label %308
+
+308:                                              ; preds = %307
   store i32 -1, ptr %11, align 4
-  br label %303
+  br label %309
 
-303:                                              ; preds = %302
-  br label %304
+309:                                              ; preds = %308
+  br label %310
 
-304:                                              ; preds = %303, %274
-  br label %305
+310:                                              ; preds = %309, %280
+  br label %311
 
-305:                                              ; preds = %304, %271
-  %306 = load i32, ptr %11, align 4
-  ret i32 %306
+311:                                              ; preds = %310, %277
+  %312 = load i32, ptr %11, align 4
+  ret i32 %312
 }
 
 declare i32 @H5Pget_vol_id(i64 noundef, ptr noundef) #1

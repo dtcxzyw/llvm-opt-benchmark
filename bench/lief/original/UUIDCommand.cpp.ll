@@ -86,7 +86,8 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -154,11 +155,12 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2ERKS1_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -206,40 +208,41 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2ERKNS0_7details12uuid_commandE(ptr nou
   %13 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %12, i32 0, i32 1
   %14 = load i32, ptr %13, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %11, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %15, i32 0, i32 2
-  %17 = call noundef ptr @_ZSt5beginIKhLm16EEPT_RAT0__S1_(ptr noundef nonnull align 1 dereferenceable(16) %16) #8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %18, i32 0, i32 2
-  %20 = call noundef ptr @_ZSt3endIKhLm16EEPT_RAT0__S1_(ptr noundef nonnull align 1 dereferenceable(16) %19) #8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %7, i32 0, i32 1
-  %22 = invoke noundef ptr @_ZSt5beginISt5arrayIhLm16EEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 1 dereferenceable(16) %21)
-          to label %23 unwind label %26
+  %15 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %7, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %16, i32 0, i32 2
+  %18 = call noundef ptr @_ZSt5beginIKhLm16EEPT_RAT0__S1_(ptr noundef nonnull align 1 dereferenceable(16) %17) #8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %19, i32 0, i32 2
+  %21 = call noundef ptr @_ZSt3endIKhLm16EEPT_RAT0__S1_(ptr noundef nonnull align 1 dereferenceable(16) %20) #8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %7, i32 0, i32 1
+  %23 = invoke noundef ptr @_ZSt5beginISt5arrayIhLm16EEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 1 dereferenceable(16) %22)
+          to label %24 unwind label %27
 
-23:                                               ; preds = %2
-  %24 = invoke noundef ptr @_ZSt4copyIPKhPhET0_T_S4_S3_(ptr noundef %17, ptr noundef %20, ptr noundef %22)
-          to label %25 unwind label %26
+24:                                               ; preds = %2
+  %25 = invoke noundef ptr @_ZSt4copyIPKhPhET0_T_S4_S3_(ptr noundef %18, ptr noundef %21, ptr noundef %23)
+          to label %26 unwind label %27
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   ret void
 
-26:                                               ; preds = %23, %2
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %24, %2
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %5, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %6, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i32 noundef) unnamed_addr #1

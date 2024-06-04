@@ -64,12 +64,12 @@ define i32 @mca_coll_inter_gather_inter(ptr noundef %0, i32 noundef %1, ptr noun
 
 34:                                               ; preds = %9
   store i32 0, ptr %20, align 4
-  br label %123
+  br label %125
 
 35:                                               ; preds = %9
   %36 = load i32, ptr %17, align 4
   %37 = icmp ne i32 -4, %36
-  br i1 %37, label %38, label %106
+  br i1 %37, label %38, label %107
 
 38:                                               ; preds = %35
   store ptr null, ptr %23, align 8
@@ -96,7 +96,7 @@ define i32 @mca_coll_inter_gather_inter(ptr noundef %0, i32 noundef %1, ptr noun
 
 55:                                               ; preds = %38
   store i32 -2, ptr %10, align 4
-  br label %125
+  br label %127
 
 56:                                               ; preds = %38
   %57 = load ptr, ptr %23, align 8
@@ -131,73 +131,75 @@ define i32 @mca_coll_inter_gather_inter(ptr noundef %0, i32 noundef %1, ptr noun
   store i32 %84, ptr %20, align 4
   %85 = load i32, ptr %21, align 4
   %86 = icmp eq i32 0, %85
-  br i1 %86, label %87, label %104
+  br i1 %86, label %87, label %105
 
 87:                                               ; preds = %56
-  %88 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 12), align 8
-  %89 = load ptr, ptr %24, align 8
-  %90 = load i32, ptr %12, align 4
-  %91 = sext i32 %90 to i64
-  %92 = load i32, ptr %25, align 4
-  %93 = sext i32 %92 to i64
-  %94 = mul i64 %91, %93
-  %95 = load ptr, ptr %13, align 8
-  %96 = load i32, ptr %17, align 4
-  %97 = load ptr, ptr %18, align 8
-  %98 = call i32 %88(ptr noundef %89, i64 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef -19, i32 noundef 4, ptr noundef %97)
-  store i32 %98, ptr %20, align 4
-  %99 = load i32, ptr %20, align 4
-  %100 = icmp ne i32 0, %99
-  br i1 %100, label %101, label %103
+  %88 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 12
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %24, align 8
+  %91 = load i32, ptr %12, align 4
+  %92 = sext i32 %91 to i64
+  %93 = load i32, ptr %25, align 4
+  %94 = sext i32 %93 to i64
+  %95 = mul i64 %92, %94
+  %96 = load ptr, ptr %13, align 8
+  %97 = load i32, ptr %17, align 4
+  %98 = load ptr, ptr %18, align 8
+  %99 = call i32 %89(ptr noundef %90, i64 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef -19, i32 noundef 4, ptr noundef %98)
+  store i32 %99, ptr %20, align 4
+  %100 = load i32, ptr %20, align 4
+  %101 = icmp ne i32 0, %100
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %87
-  %102 = load i32, ptr %20, align 4
-  store i32 %102, ptr %10, align 4
-  br label %125
+102:                                              ; preds = %87
+  %103 = load i32, ptr %20, align 4
+  store i32 %103, ptr %10, align 4
+  br label %127
 
-103:                                              ; preds = %87
-  br label %104
+104:                                              ; preds = %87
+  br label %105
 
-104:                                              ; preds = %103, %56
-  %105 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %105) #4
-  br label %122
+105:                                              ; preds = %104, %56
+  %106 = load ptr, ptr %23, align 8
+  call void @free(ptr noundef %106) #4
+  br label %124
 
-106:                                              ; preds = %35
-  %107 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9), align 8
-  %108 = load ptr, ptr %14, align 8
-  %109 = load i32, ptr %15, align 4
-  %110 = sext i32 %109 to i64
-  %111 = load i32, ptr %22, align 4
+107:                                              ; preds = %35
+  %108 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %14, align 8
+  %111 = load i32, ptr %15, align 4
   %112 = sext i32 %111 to i64
-  %113 = mul i64 %110, %112
-  %114 = load ptr, ptr %16, align 8
-  %115 = load ptr, ptr %18, align 8
-  %116 = call i32 %107(ptr noundef %108, i64 noundef %113, ptr noundef %114, i32 noundef 0, i32 noundef -19, ptr noundef %115, ptr noundef null)
-  store i32 %116, ptr %20, align 4
-  %117 = load i32, ptr %20, align 4
-  %118 = icmp ne i32 0, %117
-  br i1 %118, label %119, label %121
+  %113 = load i32, ptr %22, align 4
+  %114 = sext i32 %113 to i64
+  %115 = mul i64 %112, %114
+  %116 = load ptr, ptr %16, align 8
+  %117 = load ptr, ptr %18, align 8
+  %118 = call i32 %109(ptr noundef %110, i64 noundef %115, ptr noundef %116, i32 noundef 0, i32 noundef -19, ptr noundef %117, ptr noundef null)
+  store i32 %118, ptr %20, align 4
+  %119 = load i32, ptr %20, align 4
+  %120 = icmp ne i32 0, %119
+  br i1 %120, label %121, label %123
 
-119:                                              ; preds = %106
-  %120 = load i32, ptr %20, align 4
-  store i32 %120, ptr %10, align 4
+121:                                              ; preds = %107
+  %122 = load i32, ptr %20, align 4
+  store i32 %122, ptr %10, align 4
+  br label %127
+
+123:                                              ; preds = %107
+  br label %124
+
+124:                                              ; preds = %123, %105
   br label %125
 
-121:                                              ; preds = %106
-  br label %122
+125:                                              ; preds = %124, %34
+  %126 = load i32, ptr %20, align 4
+  store i32 %126, ptr %10, align 4
+  br label %127
 
-122:                                              ; preds = %121, %104
-  br label %123
-
-123:                                              ; preds = %122, %34
-  %124 = load i32, ptr %20, align 4
-  store i32 %124, ptr %10, align 4
-  br label %125
-
-125:                                              ; preds = %123, %119, %101, %55
-  %126 = load i32, ptr %10, align 4
-  ret i32 %126
+127:                                              ; preds = %125, %121, %102, %55
+  %128 = load i32, ptr %10, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: nounwind uwtable

@@ -220,9 +220,10 @@ define void @_ZN4LIEF5MachO12DylibCommandC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   ret void
 }
 
@@ -298,36 +299,37 @@ define void @_ZN4LIEF5MachO12DylibCommandC2ERKS1_(ptr noundef nonnull align 8 de
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %16
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %17
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 12, i1 false)
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 12, i1 false)
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #10
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
@@ -342,9 +344,10 @@ define void @_ZN4LIEF5MachO12DylibCommandD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
   ret void
 }
@@ -380,27 +383,28 @@ define void @_ZN4LIEF5MachO12DylibCommandC2ERKNS0_7details13dylib_commandE(ptr n
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #10
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %15, i32 0, i32 2
-  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %14, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 3
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %20, i32 0, i32 2
-  %22 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %21, i32 0, i32 2
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %19, align 4
-  %24 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 4
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %25, i32 0, i32 2
-  %27 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %26, i32 0, i32 3
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %24, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #10
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 2
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %16, i32 0, i32 2
+  %18 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  store i32 %19, ptr %15, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 3
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %21, i32 0, i32 2
+  %23 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 4
+  store i32 %24, ptr %20, align 4
+  %25 = getelementptr inbounds %"class.LIEF::MachO::DylibCommand", ptr %5, i32 0, i32 4
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib_command", ptr %26, i32 0, i32 2
+  %28 = getelementptr inbounds %"struct.LIEF::MachO::details::dylib", ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr %25, align 8
   ret void
 }
 

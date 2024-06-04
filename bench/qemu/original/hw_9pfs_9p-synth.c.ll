@@ -750,22 +750,28 @@ do.body:                                          ; preds = %entry
 
 do.end:                                           ; preds = %do.body
   call void @qemu_mutex_init(ptr noundef @synth_mutex)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %mode = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %mode, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %inode = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %inode, align 4
-  %call = call ptr @v9fs_add_dir_node(ptr noundef @synth_root, i32 noundef %1, ptr noundef @.str, ptr noundef %2, i32 noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %mode1 = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %mode1, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3), align 8
-  %inode2 = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %inode2, align 4
-  %call3 = call ptr @v9fs_add_dir_node(ptr noundef @synth_root, i32 noundef %6, ptr noundef @.str.1, ptr noundef %7, i32 noundef %9)
+  %0 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  %mode = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %1, i32 0, i32 0
+  %2 = load i32, ptr %mode, align 8
+  %3 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %inode = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %6, i32 0, i32 1
+  %7 = load i32, ptr %inode, align 4
+  %call = call ptr @v9fs_add_dir_node(ptr noundef @synth_root, i32 noundef %2, ptr noundef @.str, ptr noundef %4, i32 noundef %7)
+  %8 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  %mode1 = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %9, i32 0, i32 0
+  %10 = load i32, ptr %mode1, align 8
+  %11 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.V9fsSynthNode, ptr @synth_root, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  %inode2 = getelementptr inbounds %struct.V9fsSynthNodeAttr, ptr %14, i32 0, i32 1
+  %15 = load i32, ptr %inode2, align 4
+  %call3 = call ptr @v9fs_add_dir_node(ptr noundef @synth_root, i32 noundef %10, ptr noundef @.str.1, ptr noundef %12, i32 noundef %15)
   store i32 1, ptr @synth_fs, align 4
   %call4 = call zeroext i1 @qtest_enabled()
   br i1 %call4, label %if.then, label %if.end41
@@ -776,20 +782,20 @@ if.then:                                          ; preds = %do.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %10 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %10, 16
+  %16 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %16, 16
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load i32, ptr %i, align 4
-  %call5 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.4, i32 noundef %11)
+  %17 = load i32, ptr %i, align 4
+  %call5 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.4, i32 noundef %17)
   store ptr %call5, ptr %name, align 8
-  %12 = load ptr, ptr %node, align 8
-  %13 = load ptr, ptr %name, align 8
-  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %12, i32 noundef 448, ptr noundef %13, ptr noundef %node)
+  %18 = load ptr, ptr %node, align 8
+  %19 = load ptr, ptr %name, align 8
+  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %18, i32 noundef 448, ptr noundef %19, ptr noundef %node)
   store i32 %call6, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %tobool = icmp ne i32 %14, 0
+  %20 = load i32, ptr %ret, align 4
+  %tobool = icmp ne i32 %20, 0
   br i1 %tobool, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %for.body
@@ -800,22 +806,22 @@ if.else:                                          ; preds = %for.body
   unreachable
 
 if.end:                                           ; preds = %if.then7
-  %15 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %15)
+  %21 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %21)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %16 = load i32, ptr %i, align 4
-  %inc = add i32 %16, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %call8 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.6, ptr noundef null, ptr noundef null, ptr noundef %17)
+  %23 = load ptr, ptr %ctx.addr, align 8
+  %call8 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.6, ptr noundef null, ptr noundef null, ptr noundef %23)
   store i32 %call8, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %tobool9 = icmp ne i32 %18, 0
+  %24 = load i32, ptr %ret, align 4
+  %tobool9 = icmp ne i32 %24, 0
   br i1 %tobool9, label %if.else11, label %if.then10
 
 if.then10:                                        ; preds = %for.end
@@ -826,11 +832,11 @@ if.else11:                                        ; preds = %for.end
   unreachable
 
 if.end12:                                         ; preds = %if.then10
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %call13 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.7, ptr noundef null, ptr noundef @v9fs_synth_qtest_write, ptr noundef %19)
+  %25 = load ptr, ptr %ctx.addr, align 8
+  %call13 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.7, ptr noundef null, ptr noundef @v9fs_synth_qtest_write, ptr noundef %25)
   store i32 %call13, ptr %ret, align 4
-  %20 = load i32, ptr %ret, align 4
-  %tobool14 = icmp ne i32 %20, 0
+  %26 = load i32, ptr %ret, align 4
+  %tobool14 = icmp ne i32 %26, 0
   br i1 %tobool14, label %if.else16, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
@@ -841,11 +847,11 @@ if.else16:                                        ; preds = %if.end12
   unreachable
 
 if.end17:                                         ; preds = %if.then15
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %call18 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.8, ptr noundef null, ptr noundef @v9fs_synth_qtest_flush_write, ptr noundef %21)
+  %27 = load ptr, ptr %ctx.addr, align 8
+  %call18 = call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef @.str.8, ptr noundef null, ptr noundef @v9fs_synth_qtest_flush_write, ptr noundef %27)
   store i32 %call18, ptr %ret, align 4
-  %22 = load i32, ptr %ret, align 4
-  %tobool19 = icmp ne i32 %22, 0
+  %28 = load i32, ptr %ret, align 4
+  %tobool19 = icmp ne i32 %28, 0
   br i1 %tobool19, label %if.else21, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
@@ -859,8 +865,8 @@ if.end22:                                         ; preds = %if.then20
   store ptr null, ptr %dir, align 8
   %call23 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef null, i32 noundef 448, ptr noundef @.str.9, ptr noundef %dir)
   store i32 %call23, ptr %ret, align 4
-  %23 = load i32, ptr %ret, align 4
-  %tobool24 = icmp ne i32 %23, 0
+  %29 = load i32, ptr %ret, align 4
+  %tobool24 = icmp ne i32 %29, 0
   br i1 %tobool24, label %if.else26, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
@@ -875,21 +881,21 @@ if.end27:                                         ; preds = %if.then25
   br label %for.cond28
 
 for.cond28:                                       ; preds = %for.inc38, %if.end27
-  %24 = load i32, ptr %i, align 4
-  %cmp29 = icmp slt i32 %24, 100
+  %30 = load i32, ptr %i, align 4
+  %cmp29 = icmp slt i32 %30, 100
   br i1 %cmp29, label %for.body30, label %for.end40
 
 for.body30:                                       ; preds = %for.cond28
-  %25 = load i32, ptr %i, align 4
-  %call32 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.10, i32 noundef %25)
+  %31 = load i32, ptr %i, align 4
+  %call32 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.10, i32 noundef %31)
   store ptr %call32, ptr %name31, align 8
-  %26 = load ptr, ptr %dir, align 8
-  %27 = load ptr, ptr %name31, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %call33 = call i32 @qemu_v9fs_synth_add_file(ptr noundef %26, i32 noundef 0, ptr noundef %27, ptr noundef null, ptr noundef null, ptr noundef %28)
+  %32 = load ptr, ptr %dir, align 8
+  %33 = load ptr, ptr %name31, align 8
+  %34 = load ptr, ptr %ctx.addr, align 8
+  %call33 = call i32 @qemu_v9fs_synth_add_file(ptr noundef %32, i32 noundef 0, ptr noundef %33, ptr noundef null, ptr noundef null, ptr noundef %34)
   store i32 %call33, ptr %ret, align 4
-  %29 = load i32, ptr %ret, align 4
-  %tobool34 = icmp ne i32 %29, 0
+  %35 = load i32, ptr %ret, align 4
+  %tobool34 = icmp ne i32 %35, 0
   br i1 %tobool34, label %if.else36, label %if.then35
 
 if.then35:                                        ; preds = %for.body30
@@ -900,13 +906,13 @@ if.else36:                                        ; preds = %for.body30
   unreachable
 
 if.end37:                                         ; preds = %if.then35
-  %30 = load ptr, ptr %name31, align 8
-  call void @g_free(ptr noundef %30)
+  %36 = load ptr, ptr %name31, align 8
+  call void @g_free(ptr noundef %36)
   br label %for.inc38
 
 for.inc38:                                        ; preds = %if.end37
-  %31 = load i32, ptr %i, align 4
-  %inc39 = add i32 %31, 1
+  %37 = load i32, ptr %i, align 4
+  %inc39 = add i32 %37, 1
   store i32 %inc39, ptr %i, align 4
   br label %for.cond28, !llvm.loop !9
 

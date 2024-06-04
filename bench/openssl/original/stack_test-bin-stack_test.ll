@@ -479,7 +479,8 @@ for.inc148:                                       ; preds = %if.end147
 for.end150:                                       ; preds = %for.cond133
   %65 = load ptr, ptr %s, align 8
   %call151 = call ptr @sk_sint_shift(ptr noundef %65)
-  %call152 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 159, ptr noundef @.str.29, ptr noundef @.str.30, ptr noundef %call151, ptr noundef getelementptr inbounds (i32, ptr @test_int_stack.v, i64 6))
+  %66 = getelementptr inbounds i32, ptr @test_int_stack.v, i64 6
+  %call152 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 159, ptr noundef @.str.29, ptr noundef @.str.30, ptr noundef %call151, ptr noundef %66)
   %tobool153 = icmp ne i32 %call152, 0
   br i1 %tobool153, label %if.end155, label %if.then154
 
@@ -491,10 +492,10 @@ if.end155:                                        ; preds = %for.end150
   br label %end
 
 end:                                              ; preds = %if.end155, %if.then154, %if.then146, %if.then128, %if.then111, %if.then98, %if.then90, %if.then80, %if.then50, %if.then28, %if.then17, %if.then11, %if.then
-  %66 = load ptr, ptr %s, align 8
-  call void @sk_sint_free(ptr noundef %66)
-  %67 = load i32, ptr %testresult, align 4
-  ret i32 %67
+  %67 = load ptr, ptr %s, align 8
+  call void @sk_sint_free(ptr noundef %67)
+  %68 = load i32, ptr %testresult, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: nounwind uwtable
@@ -672,45 +673,47 @@ if.end54:                                         ; preds = %if.end49
   %26 = load ptr, ptr %r, align 8
   %call55 = call i32 @sk_uchar_insert(ptr noundef %26, ptr noundef @test_uchar_stack.v, i32 noundef 0)
   %27 = load ptr, ptr %r, align 8
-  %call56 = call i32 @sk_uchar_insert(ptr noundef %27, ptr noundef getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 2), i32 noundef -1)
-  %28 = load ptr, ptr %r, align 8
-  %call57 = call i32 @sk_uchar_insert(ptr noundef %28, ptr noundef getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1), i32 noundef 1)
+  %28 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 2
+  %call56 = call i32 @sk_uchar_insert(ptr noundef %27, ptr noundef %28, i32 noundef -1)
+  %29 = load ptr, ptr %r, align 8
+  %30 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 1
+  %call57 = call i32 @sk_uchar_insert(ptr noundef %29, ptr noundef %30, i32 noundef 1)
   store i32 0, ptr %i, align 4
   br label %for.cond58
 
 for.cond58:                                       ; preds = %for.inc69, %if.end54
-  %29 = load i32, ptr %i, align 4
-  %cmp59 = icmp slt i32 %29, 3
+  %31 = load i32, ptr %i, align 4
+  %cmp59 = icmp slt i32 %31, 3
   br i1 %cmp59, label %for.body61, label %for.end71
 
 for.body61:                                       ; preds = %for.cond58
-  %30 = load ptr, ptr %r, align 8
-  %31 = load i32, ptr %i, align 4
-  %call62 = call ptr @sk_uchar_value(ptr noundef %30, i32 noundef %31)
-  %32 = load i32, ptr %i, align 4
-  %idx.ext63 = sext i32 %32 to i64
+  %32 = load ptr, ptr %r, align 8
+  %33 = load i32, ptr %i, align 4
+  %call62 = call ptr @sk_uchar_value(ptr noundef %32, i32 noundef %33)
+  %34 = load i32, ptr %i, align 4
+  %idx.ext63 = sext i32 %34 to i64
   %add.ptr64 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 %idx.ext63
   %call65 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 232, ptr noundef @.str.38, ptr noundef @.str.12, ptr noundef %call62, ptr noundef %add.ptr64)
   %tobool66 = icmp ne i32 %call65, 0
   br i1 %tobool66, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %for.body61
-  %33 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.4, i32 noundef 233, ptr noundef @.str.39, i32 noundef %33)
+  %35 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.4, i32 noundef 233, ptr noundef @.str.39, i32 noundef %35)
   br label %end
 
 if.end68:                                         ; preds = %for.body61
   br label %for.inc69
 
 for.inc69:                                        ; preds = %if.end68
-  %34 = load i32, ptr %i, align 4
-  %inc70 = add nsw i32 %34, 1
+  %36 = load i32, ptr %i, align 4
+  %inc70 = add nsw i32 %36, 1
   store i32 %inc70, ptr %i, align 4
   br label %for.cond58, !llvm.loop !15
 
 for.end71:                                        ; preds = %for.cond58
-  %35 = load ptr, ptr %r, align 8
-  %call72 = call ptr @sk_uchar_delete(ptr noundef %35, i32 noundef 12)
+  %37 = load ptr, ptr %r, align 8
+  %call72 = call ptr @sk_uchar_delete(ptr noundef %37, i32 noundef 12)
   %call73 = call i32 @test_ptr_null(ptr noundef @.str.4, i32 noundef 238, ptr noundef @.str.40, ptr noundef %call72)
   %tobool74 = icmp ne i32 %call73, 0
   br i1 %tobool74, label %if.end76, label %if.then75
@@ -719,9 +722,10 @@ if.then75:                                        ; preds = %for.end71
   br label %end
 
 if.end76:                                         ; preds = %for.end71
-  %36 = load ptr, ptr %r, align 8
-  %call77 = call ptr @sk_uchar_delete(ptr noundef %36, i32 noundef 1)
-  %call78 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 240, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef %call77, ptr noundef getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1))
+  %38 = load ptr, ptr %r, align 8
+  %call77 = call ptr @sk_uchar_delete(ptr noundef %38, i32 noundef 1)
+  %39 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 1
+  %call78 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 240, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef %call77, ptr noundef %39)
   %tobool79 = icmp ne i32 %call78, 0
   br i1 %tobool79, label %if.end81, label %if.then80
 
@@ -729,38 +733,39 @@ if.then80:                                        ; preds = %if.end76
   br label %end
 
 if.end81:                                         ; preds = %if.end76
-  %37 = load ptr, ptr %r, align 8
-  %call82 = call ptr @sk_uchar_set(ptr noundef %37, i32 noundef 1, ptr noundef getelementptr inbounds (i8, ptr @test_uchar_stack.v, i64 1))
+  %40 = load ptr, ptr %r, align 8
+  %41 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 1
+  %call82 = call ptr @sk_uchar_set(ptr noundef %40, i32 noundef 1, ptr noundef %41)
   store i32 0, ptr %i, align 4
   br label %for.cond83
 
 for.cond83:                                       ; preds = %for.inc94, %if.end81
-  %38 = load i32, ptr %i, align 4
-  %cmp84 = icmp slt i32 %38, 2
+  %42 = load i32, ptr %i, align 4
+  %cmp84 = icmp slt i32 %42, 2
   br i1 %cmp84, label %for.body86, label %for.end96
 
 for.body86:                                       ; preds = %for.cond83
-  %39 = load ptr, ptr %r, align 8
-  %40 = load i32, ptr %i, align 4
-  %call87 = call ptr @sk_uchar_value(ptr noundef %39, i32 noundef %40)
-  %41 = load i32, ptr %i, align 4
-  %idx.ext88 = sext i32 %41 to i64
+  %43 = load ptr, ptr %r, align 8
+  %44 = load i32, ptr %i, align 4
+  %call87 = call ptr @sk_uchar_value(ptr noundef %43, i32 noundef %44)
+  %45 = load i32, ptr %i, align 4
+  %idx.ext88 = sext i32 %45 to i64
   %add.ptr89 = getelementptr inbounds i8, ptr @test_uchar_stack.v, i64 %idx.ext88
   %call90 = call i32 @test_ptr_eq(ptr noundef @.str.4, i32 noundef 246, ptr noundef @.str.38, ptr noundef @.str.12, ptr noundef %call87, ptr noundef %add.ptr89)
   %tobool91 = icmp ne i32 %call90, 0
   br i1 %tobool91, label %if.end93, label %if.then92
 
 if.then92:                                        ; preds = %for.body86
-  %42 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.4, i32 noundef 247, ptr noundef @.str.43, i32 noundef %42)
+  %46 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.4, i32 noundef 247, ptr noundef @.str.43, i32 noundef %46)
   br label %end
 
 if.end93:                                         ; preds = %for.body86
   br label %for.inc94
 
 for.inc94:                                        ; preds = %if.end93
-  %43 = load i32, ptr %i, align 4
-  %inc95 = add nsw i32 %43, 1
+  %47 = load i32, ptr %i, align 4
+  %inc95 = add nsw i32 %47, 1
   store i32 %inc95, ptr %i, align 4
   br label %for.cond83, !llvm.loop !16
 
@@ -769,12 +774,12 @@ for.end96:                                        ; preds = %for.cond83
   br label %end
 
 end:                                              ; preds = %for.end96, %if.then92, %if.then80, %if.then75, %if.then67, %if.then53, %if.then48, %if.then40, %if.then29, %if.then23, %if.then17, %if.then11, %if.then
-  %44 = load ptr, ptr %r, align 8
-  call void @sk_uchar_free(ptr noundef %44)
-  %45 = load ptr, ptr %s, align 8
-  call void @sk_uchar_free(ptr noundef %45)
-  %46 = load i32, ptr %testresult, align 4
-  ret i32 %46
+  %48 = load ptr, ptr %r, align 8
+  call void @sk_uchar_free(ptr noundef %48)
+  %49 = load ptr, ptr %s, align 8
+  call void @sk_uchar_free(ptr noundef %49)
+  %50 = load i32, ptr %testresult, align 4
+  ret i32 %50
 }
 
 declare void @add_test(ptr noundef, ptr noundef) #1

@@ -2540,14 +2540,15 @@ sw.bb:                                            ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %sw.bb
   %6 = load i64, ptr %days, align 8
-  %7 = load i16, ptr getelementptr inbounds ([2 x [14 x i16]], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 0, i64 1, i64 3), align 2
-  %conv = sext i16 %7 to i64
+  %7 = getelementptr inbounds [2 x [14 x i16]], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 0, i64 1, i64 3
+  %8 = load i16, ptr %7, align 2
+  %conv = sext i16 %8 to i64
   %cmp = icmp slt i64 %6, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %sw.bb
-  %8 = load i64, ptr %days, align 8
-  %sub = sub nsw i64 %8, 1
+  %9 = load i64, ptr %days, align 8
+  %sub = sub nsw i64 %9, 1
   store i64 %sub, ptr %days, align 8
   br label %if.end
 
@@ -2555,97 +2556,97 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %9 = load ptr, ptr %pt.addr, align 8
-  %date3 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %9, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date3, i32 0, i32 1
-  %day4 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::Day", ptr %10, i32 0, i32 0
-  %11 = load i64, ptr %day4, align 8
-  store i64 %11, ptr %days, align 8
+  %10 = load ptr, ptr %pt.addr, align 8
+  %date3 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date3, i32 0, i32 1
+  %day4 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::Day", ptr %11, i32 0, i32 0
+  %12 = load i64, ptr %day4, align 8
+  store i64 %12, ptr %days, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %12 = load ptr, ptr %pt.addr, align 8
-  %date6 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %12, i32 0, i32 0
-  %13 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date6, i32 0, i32 1
-  %week = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %13, i32 0, i32 1
-  %14 = load i8, ptr %week, align 1
-  %conv7 = sext i8 %14 to i32
+  %13 = load ptr, ptr %pt.addr, align 8
+  %date6 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date6, i32 0, i32 1
+  %week = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %14, i32 0, i32 1
+  %15 = load i8, ptr %week, align 1
+  %conv7 = sext i8 %15 to i32
   %cmp8 = icmp eq i32 %conv7, 5
   %frombool9 = zext i1 %cmp8 to i8
   store i8 %frombool9, ptr %last_week, align 1
-  %15 = load i8, ptr %leap_year.addr, align 1
-  %tobool10 = trunc i8 %15 to i1
+  %16 = load i8, ptr %leap_year.addr, align 1
+  %tobool10 = trunc i8 %16 to i1
   %idxprom = zext i1 %tobool10 to i64
   %arrayidx = getelementptr inbounds [2 x [14 x i16]], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 0, i64 %idxprom
-  %16 = load ptr, ptr %pt.addr, align 8
-  %date11 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %16, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date11, i32 0, i32 1
-  %month = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %17, i32 0, i32 0
-  %18 = load i8, ptr %month, align 8
-  %conv12 = sext i8 %18 to i32
-  %19 = load i8, ptr %last_week, align 1
-  %tobool13 = trunc i8 %19 to i1
+  %17 = load ptr, ptr %pt.addr, align 8
+  %date11 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date11, i32 0, i32 1
+  %month = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %18, i32 0, i32 0
+  %19 = load i8, ptr %month, align 8
+  %conv12 = sext i8 %19 to i32
+  %20 = load i8, ptr %last_week, align 1
+  %tobool13 = trunc i8 %20 to i1
   %conv14 = zext i1 %tobool13 to i32
   %add = add nsw i32 %conv12, %conv14
   %idxprom15 = sext i32 %add to i64
   %arrayidx16 = getelementptr inbounds [14 x i16], ptr %arrayidx, i64 0, i64 %idxprom15
-  %20 = load i16, ptr %arrayidx16, align 2
-  %conv17 = sext i16 %20 to i64
+  %21 = load i16, ptr %arrayidx16, align 2
+  %conv17 = sext i16 %21 to i64
   store i64 %conv17, ptr %days, align 8
-  %21 = load i32, ptr %jan1_weekday.addr, align 4
-  %conv18 = sext i32 %21 to i64
-  %22 = load i64, ptr %days, align 8
-  %add19 = add nsw i64 %conv18, %22
+  %22 = load i32, ptr %jan1_weekday.addr, align 4
+  %conv18 = sext i32 %22 to i64
+  %23 = load i64, ptr %days, align 8
+  %add19 = add nsw i64 %conv18, %23
   %rem = srem i64 %add19, 7
   store i64 %rem, ptr %weekday, align 8
-  %23 = load i8, ptr %last_week, align 1
-  %tobool20 = trunc i8 %23 to i1
+  %24 = load i8, ptr %last_week, align 1
+  %tobool20 = trunc i8 %24 to i1
   br i1 %tobool20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %sw.bb5
-  %24 = load i64, ptr %weekday, align 8
-  %add22 = add nsw i64 %24, 7
+  %25 = load i64, ptr %weekday, align 8
+  %add22 = add nsw i64 %25, 7
   %sub23 = sub nsw i64 %add22, 1
-  %25 = load ptr, ptr %pt.addr, align 8
-  %date24 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %25, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date24, i32 0, i32 1
-  %weekday25 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %26, i32 0, i32 2
-  %27 = load i8, ptr %weekday25, align 2
-  %conv26 = sext i8 %27 to i64
+  %26 = load ptr, ptr %pt.addr, align 8
+  %date24 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date24, i32 0, i32 1
+  %weekday25 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %27, i32 0, i32 2
+  %28 = load i8, ptr %weekday25, align 2
+  %conv26 = sext i8 %28 to i64
   %sub27 = sub nsw i64 %sub23, %conv26
   %rem28 = srem i64 %sub27, 7
   %add29 = add nsw i64 %rem28, 1
-  %28 = load i64, ptr %days, align 8
-  %sub30 = sub nsw i64 %28, %add29
+  %29 = load i64, ptr %days, align 8
+  %sub30 = sub nsw i64 %29, %add29
   store i64 %sub30, ptr %days, align 8
   br label %if.end45
 
 if.else:                                          ; preds = %sw.bb5
-  %29 = load ptr, ptr %pt.addr, align 8
-  %date31 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %29, i32 0, i32 0
-  %30 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date31, i32 0, i32 1
-  %weekday32 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %30, i32 0, i32 2
-  %31 = load i8, ptr %weekday32, align 2
-  %conv33 = sext i8 %31 to i32
+  %30 = load ptr, ptr %pt.addr, align 8
+  %date31 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date31, i32 0, i32 1
+  %weekday32 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %31, i32 0, i32 2
+  %32 = load i8, ptr %weekday32, align 2
+  %conv33 = sext i8 %32 to i32
   %add34 = add nsw i32 %conv33, 7
   %conv35 = sext i32 %add34 to i64
-  %32 = load i64, ptr %weekday, align 8
-  %sub36 = sub nsw i64 %conv35, %32
+  %33 = load i64, ptr %weekday, align 8
+  %sub36 = sub nsw i64 %conv35, %33
   %rem37 = srem i64 %sub36, 7
-  %33 = load i64, ptr %days, align 8
-  %add38 = add nsw i64 %33, %rem37
+  %34 = load i64, ptr %days, align 8
+  %add38 = add nsw i64 %34, %rem37
   store i64 %add38, ptr %days, align 8
-  %34 = load ptr, ptr %pt.addr, align 8
-  %date39 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %34, i32 0, i32 0
-  %35 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date39, i32 0, i32 1
-  %week40 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %35, i32 0, i32 1
-  %36 = load i8, ptr %week40, align 1
-  %conv41 = sext i8 %36 to i32
+  %35 = load ptr, ptr %pt.addr, align 8
+  %date39 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %date39, i32 0, i32 1
+  %week40 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date::MonthWeekWeekday", ptr %36, i32 0, i32 1
+  %37 = load i8, ptr %week40, align 1
+  %conv41 = sext i8 %37 to i32
   %sub42 = sub nsw i32 %conv41, 1
   %mul = mul nsw i32 %sub42, 7
   %conv43 = sext i32 %mul to i64
-  %37 = load i64, ptr %days, align 8
-  %add44 = add nsw i64 %37, %conv43
+  %38 = load i64, ptr %days, align 8
+  %add44 = add nsw i64 %38, %conv43
   store i64 %add44, ptr %days, align 8
   br label %if.end45
 
@@ -2653,13 +2654,13 @@ if.end45:                                         ; preds = %if.else, %if.then21
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end45, %sw.bb2, %if.end, %entry
-  %38 = load i64, ptr %days, align 8
-  %mul46 = mul nsw i64 %38, 86400
-  %39 = load ptr, ptr %pt.addr, align 8
-  %time = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %39, i32 0, i32 1
+  %39 = load i64, ptr %days, align 8
+  %mul46 = mul nsw i64 %39, 86400
+  %40 = load ptr, ptr %pt.addr, align 8
+  %time = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %40, i32 0, i32 1
   %offset = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Time", ptr %time, i32 0, i32 0
-  %40 = load i64, ptr %offset, align 8
-  %add47 = add nsw i64 %mul46, %40
+  %41 = load i64, ptr %offset, align 8
+  %add47 = add nsw i64 %mul46, %41
   ret i64 %add47
 }
 
@@ -5256,7 +5257,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %transitions_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %transitions_) #13
   %transition_types_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 2
@@ -7563,7 +7565,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %future_spec_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %future_spec_) #13
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 5
@@ -9074,7 +9077,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16059,12 +16063,13 @@ entry:
   store i64 %len, ptr %len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13time_internal4cctz14ZoneInfoSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fp_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %fp_, ptr noundef nonnull align 8 dereferenceable(16) %fp) #13
   %len_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %len.addr, align 8
-  store i64 %0, ptr %len_, align 8
+  %1 = load i64, ptr %len.addr, align 8
+  store i64 %1, ptr %len_, align 8
   ret void
 }
 
@@ -16489,7 +16494,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz14ZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz14ZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16499,7 +16505,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fp_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fp_) #13
   call void @_ZN4absl13time_internal4cctz14ZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -16857,7 +16864,8 @@ entry:
   %0 = load i64, ptr %len.addr, align 8
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceC2ESt10unique_ptrI8_IO_FILEPFiPS5_EEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %agg.tmp, i64 noundef %0)
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::AndroidZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %version_, ptr noundef nonnull align 8 dereferenceable(32) %version) #13
   ret void
@@ -17093,7 +17101,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::AndroidZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version_) #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
@@ -17197,7 +17206,8 @@ entry:
   %call = call noundef i64 @_ZNSt14numeric_limitsImE3maxEv() #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceC2ESt10unique_ptrI8_IO_FILEPFiPS5_EEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %agg.tmp, i64 noundef %call)
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FuchsiaZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %version_, ptr noundef nonnull align 8 dereferenceable(32) %version) #13
   ret void
@@ -17211,7 +17221,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FuchsiaZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version_) #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13

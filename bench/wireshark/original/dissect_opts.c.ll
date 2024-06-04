@@ -46,19 +46,19 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   %11 = load i32, ptr %4, align 4
-  switch i32 %11, label %178 [
+  switch i32 %11, label %189 [
     i32 100, label %12
     i32 75, label %18
     i32 110, label %20
     i32 78, label %21
     i32 116, label %31
-    i32 117, label %134
-    i32 2001, label %148
-    i32 2002, label %152
-    i32 2003, label %156
-    i32 2004, label %160
-    i32 2005, label %164
-    i32 2006, label %177
+    i32 117, label %135
+    i32 2001, label %149
+    i32 2002, label %155
+    i32 2003, label %161
+    i32 2004, label %167
+    i32 2005, label %173
+    i32 2006, label %188
   ]
 
 12:                                               ; preds = %2
@@ -69,19 +69,19 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %12
   store i32 0, ptr %3, align 4
-  br label %180
+  br label %191
 
 17:                                               ; preds = %12
-  br label %179
+  br label %190
 
 18:                                               ; preds = %2
   %19 = load ptr, ptr %5, align 8
   call void @read_keytab_file(ptr noundef %19)
-  br label %179
+  br label %190
 
 20:                                               ; preds = %2
   call void @disable_name_resolution()
-  br label %179
+  br label %190
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
@@ -98,10 +98,10 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
   call void (ptr, ...) @cmdarg_err(ptr noundef @.str, i32 noundef %29)
   call void (ptr, ...) @cmdarg_err_cont(ptr noundef @.str.1)
   store i32 0, ptr %3, align 4
-  br label %180
+  br label %191
 
 30:                                               ; preds = %21
-  br label %179
+  br label %190
 
 31:                                               ; preds = %2
   store i32 -2, ptr %8, align 4
@@ -139,7 +139,7 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
   %51 = getelementptr i8, ptr %50, i64 1
   call void (ptr, ...) @cmdarg_err(ptr noundef @.str.3, ptr noundef %51, i32 noundef 9)
   store i32 0, ptr %3, align 4
-  br label %180
+  br label %191
 
 52:                                               ; preds = %46
   %53 = load i32, ptr %9, align 4
@@ -272,7 +272,7 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
 
 116:                                              ; preds = %114, %110
   store i32 0, ptr %3, align 4
-  br label %180
+  br label %191
 
 117:                                              ; preds = %106
   br label %118
@@ -307,121 +307,132 @@ define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) #0 {
 127:                                              ; preds = %126, %60
   %128 = load ptr, ptr %7, align 8
   %129 = icmp ne ptr %128, null
-  br i1 %129, label %130, label %133
+  br i1 %129, label %130, label %134
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr %7, align 8
   store i8 46, ptr %131, align 1
   %132 = load i32, ptr %8, align 4
-  store i32 %132, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 1), align 4
-  br label %133
+  %133 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 1
+  store i32 %132, ptr %133, align 4
+  br label %134
 
-133:                                              ; preds = %130, %127
-  br label %179
+134:                                              ; preds = %130, %127
+  br label %190
 
-134:                                              ; preds = %2
-  %135 = load ptr, ptr %5, align 8
-  %136 = call i32 @strcmp(ptr noundef %135, ptr noundef @.str.16) #5
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %139
+135:                                              ; preds = %2
+  %136 = load ptr, ptr %5, align 8
+  %137 = call i32 @strcmp(ptr noundef %136, ptr noundef @.str.16) #5
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %140
 
-138:                                              ; preds = %134
+139:                                              ; preds = %135
   call void @timestamp_set_seconds_type(i32 noundef 0)
+  br label %148
+
+140:                                              ; preds = %135
+  %141 = load ptr, ptr %5, align 8
+  %142 = call i32 @strcmp(ptr noundef %141, ptr noundef @.str.17) #5
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %145
+
+144:                                              ; preds = %140
+  call void @timestamp_set_seconds_type(i32 noundef 1)
   br label %147
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %5, align 8
-  %141 = call i32 @strcmp(ptr noundef %140, ptr noundef @.str.17) #5
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %144
-
-143:                                              ; preds = %139
-  call void @timestamp_set_seconds_type(i32 noundef 1)
-  br label %146
-
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %5, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef @.str.18, ptr noundef %145)
+145:                                              ; preds = %140
+  %146 = load ptr, ptr %5, align 8
+  call void (ptr, ...) @cmdarg_err(ptr noundef @.str.18, ptr noundef %146)
   call void (ptr, ...) @cmdarg_err_cont(ptr noundef @.str.19)
   store i32 0, ptr %3, align 4
-  br label %180
+  br label %191
 
-146:                                              ; preds = %143
-  br label %147
+147:                                              ; preds = %144
+  br label %148
 
-147:                                              ; preds = %146, %138
-  br label %179
+148:                                              ; preds = %147, %139
+  br label %190
 
-148:                                              ; preds = %2
-  %149 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3), align 8
-  %150 = load ptr, ptr %5, align 8
-  %151 = call ptr @g_slist_append(ptr noundef %149, ptr noundef %150)
-  store ptr %151, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3), align 8
-  br label %179
+149:                                              ; preds = %2
+  %150 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3
+  %151 = load ptr, ptr %150, align 8
+  %152 = load ptr, ptr %5, align 8
+  %153 = call ptr @g_slist_append(ptr noundef %151, ptr noundef %152)
+  %154 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3
+  store ptr %153, ptr %154, align 8
+  br label %190
 
-152:                                              ; preds = %2
-  %153 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4), align 8
-  %154 = load ptr, ptr %5, align 8
-  %155 = call ptr @g_slist_append(ptr noundef %153, ptr noundef %154)
-  store ptr %155, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4), align 8
-  br label %179
-
-156:                                              ; preds = %2
-  %157 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5), align 8
+155:                                              ; preds = %2
+  %156 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4
+  %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %5, align 8
   %159 = call ptr @g_slist_append(ptr noundef %157, ptr noundef %158)
-  store ptr %159, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5), align 8
-  br label %179
+  %160 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4
+  store ptr %159, ptr %160, align 8
+  br label %190
 
-160:                                              ; preds = %2
-  %161 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2), align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = call ptr @g_slist_append(ptr noundef %161, ptr noundef %162)
-  store ptr %163, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2), align 8
-  br label %179
+161:                                              ; preds = %2
+  %162 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %5, align 8
+  %165 = call ptr @g_slist_append(ptr noundef %163, ptr noundef %164)
+  %166 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5
+  store ptr %165, ptr %166, align 8
+  br label %190
 
-164:                                              ; preds = %2
+167:                                              ; preds = %2
+  %168 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8
+  %170 = load ptr, ptr %5, align 8
+  %171 = call ptr @g_slist_append(ptr noundef %169, ptr noundef %170)
+  %172 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2
+  store ptr %171, ptr %172, align 8
+  br label %190
+
+173:                                              ; preds = %2
   call void @proto_disable_all()
-  %165 = load ptr, ptr %5, align 8
-  %166 = call ptr @strtok(ptr noundef %165, ptr noundef @.str.20) #6
-  store ptr %166, ptr %10, align 8
-  br label %167
-
-167:                                              ; preds = %174, %164
-  %168 = load ptr, ptr %10, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %176
-
-170:                                              ; preds = %167
-  %171 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2), align 8
-  %172 = load ptr, ptr %10, align 8
-  %173 = call ptr @g_slist_append(ptr noundef %171, ptr noundef %172)
-  store ptr %173, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2), align 8
-  br label %174
-
-174:                                              ; preds = %170
-  %175 = call ptr @strtok(ptr noundef null, ptr noundef @.str.20) #6
+  %174 = load ptr, ptr %5, align 8
+  %175 = call ptr @strtok(ptr noundef %174, ptr noundef @.str.20) #6
   store ptr %175, ptr %10, align 8
-  br label %167, !llvm.loop !4
+  br label %176
 
-176:                                              ; preds = %167
-  br label %179
+176:                                              ; preds = %185, %173
+  %177 = load ptr, ptr %10, align 8
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %187
 
-177:                                              ; preds = %2
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2
+  %181 = load ptr, ptr %180, align 8
+  %182 = load ptr, ptr %10, align 8
+  %183 = call ptr @g_slist_append(ptr noundef %181, ptr noundef %182)
+  %184 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2
+  store ptr %183, ptr %184, align 8
+  br label %185
+
+185:                                              ; preds = %179
+  %186 = call ptr @strtok(ptr noundef null, ptr noundef @.str.20) #6
+  store ptr %186, ptr %10, align 8
+  br label %176, !llvm.loop !4
+
+187:                                              ; preds = %176
+  br label %190
+
+188:                                              ; preds = %2
   call void @proto_disable_all()
-  br label %179
+  br label %190
 
-178:                                              ; preds = %2
+189:                                              ; preds = %2
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.2, i32 noundef 7, ptr noundef @.str.21, i64 noundef 184, ptr noundef @__func__.dissect_opts_handle_opt, ptr noundef @.str.22) #7
   unreachable
 
-179:                                              ; preds = %177, %176, %160, %156, %152, %148, %147, %133, %30, %20, %18, %17
+190:                                              ; preds = %188, %187, %167, %161, %155, %149, %148, %134, %30, %20, %18, %17
   store i32 1, ptr %3, align 4
-  br label %180
+  br label %191
 
-180:                                              ; preds = %179, %144, %116, %49, %27, %16
-  %181 = load i32, ptr %3, align 4
-  ret i32 %181
+191:                                              ; preds = %190, %145, %116, %49, %27, %16
+  %192 = load i32, ptr %3, align 4
+  ret i32 %192
 }
 
 declare i32 @decode_as_command_option(ptr noundef) #1
@@ -460,28 +471,32 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 define hidden i32 @setup_enabled_and_disabled_protocols() #0 {
   %1 = alloca i32, align 4
   store i32 1, ptr %1, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3), align 8
-  %3 = call i32 @process_enable_disable_list(ptr noundef %2, ptr noundef @proto_disable_proto_by_name)
-  %4 = load i32, ptr %1, align 4
-  %5 = and i32 %4, %3
-  store i32 %5, ptr %1, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2), align 8
-  %7 = call i32 @process_enable_disable_list(ptr noundef %6, ptr noundef @proto_enable_proto_by_name)
-  %8 = load i32, ptr %1, align 4
-  %9 = and i32 %8, %7
-  store i32 %9, ptr %1, align 4
-  %10 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4), align 8
-  %11 = call i32 @process_enable_disable_list(ptr noundef %10, ptr noundef @proto_enable_heuristic_by_name)
-  %12 = load i32, ptr %1, align 4
-  %13 = and i32 %12, %11
-  store i32 %13, ptr %1, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5), align 8
-  %15 = call i32 @process_enable_disable_list(ptr noundef %14, ptr noundef @proto_disable_heuristic_by_name)
-  %16 = load i32, ptr %1, align 4
-  %17 = and i32 %16, %15
-  store i32 %17, ptr %1, align 4
-  %18 = load i32, ptr %1, align 4
-  ret i32 %18
+  %2 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @process_enable_disable_list(ptr noundef %3, ptr noundef @proto_disable_proto_by_name)
+  %5 = load i32, ptr %1, align 4
+  %6 = and i32 %5, %4
+  store i32 %6, ptr %1, align 4
+  %7 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @process_enable_disable_list(ptr noundef %8, ptr noundef @proto_enable_proto_by_name)
+  %10 = load i32, ptr %1, align 4
+  %11 = and i32 %10, %9
+  store i32 %11, ptr %1, align 4
+  %12 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 @process_enable_disable_list(ptr noundef %13, ptr noundef @proto_enable_heuristic_by_name)
+  %15 = load i32, ptr %1, align 4
+  %16 = and i32 %15, %14
+  store i32 %16, ptr %1, align 4
+  %17 = getelementptr inbounds %struct.dissect_options_tag, ptr @global_dissect_options, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 @process_enable_disable_list(ptr noundef %18, ptr noundef @proto_disable_heuristic_by_name)
+  %20 = load i32, ptr %1, align 4
+  %21 = and i32 %20, %19
+  store i32 %21, ptr %1, align 4
+  %22 = load i32, ptr %1, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable

@@ -469,17 +469,18 @@ define noundef zeroext i1 @_ZN9ProtoNode8isHiddenEP11_proto_node(ptr noundef %0)
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZL20proto_item_is_hiddenP11_proto_node(ptr noundef %3)
   %5 = icmp ne i32 %4, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 74), align 4
-  %8 = icmp ne i32 %7, 0
-  %9 = xor i1 %8, true
-  br label %10
+  %7 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 74
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  br label %11
 
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
-  ret i1 %11
+11:                                               ; preds = %6, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %6 ]
+  ret i1 %12
 }
 
 declare i32 @__gxx_personality_v0(...)

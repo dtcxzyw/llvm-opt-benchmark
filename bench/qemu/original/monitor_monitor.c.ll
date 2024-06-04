@@ -775,23 +775,17 @@ entry:
   store ptr %mon, ptr %mon.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %mon.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @monitor_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %ret, align 4
   ret i32 %2
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_printc(ptr noundef %mon, i32 noundef %c) #0 {
@@ -955,13 +949,13 @@ entry:
   %ret = alloca i32, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @error_vprintf_unless_qmp(ptr noundef %0, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load i32, ptr %ret, align 4
   ret i32 %1
 }
@@ -1169,10 +1163,10 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #6
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_ref_impl(ptr noundef %obj) #0 {
@@ -1868,14 +1862,15 @@ if.then3:                                         ; preds = %do.body1
 if.else:                                          ; preds = %do.body1
   %9 = load ptr, ptr %mon.addr, align 8
   %entry6 = getelementptr inbounds %struct.Monitor, ptr %9, i32 0, i32 6
-  store ptr %entry6, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  store ptr %entry6, ptr %10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then3
-  %10 = load ptr, ptr %mon.addr, align 8
-  store ptr %10, ptr @mon_list, align 8
   %11 = load ptr, ptr %mon.addr, align 8
-  %entry7 = getelementptr inbounds %struct.Monitor, ptr %11, i32 0, i32 6
+  store ptr %11, ptr @mon_list, align 8
+  %12 = load ptr, ptr %mon.addr, align 8
+  %entry7 = getelementptr inbounds %struct.Monitor, ptr %12, i32 0, i32 6
   %tql_prev8 = getelementptr inbounds %struct.QTailQLink, ptr %entry7, i32 0, i32 1
   store ptr @mon_list, ptr %tql_prev8, align 8
   br label %do.end9
@@ -1886,15 +1881,15 @@ do.end9:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %do.end9, %while.end
   call void @qemu_mutex_unlock_impl(ptr noundef @monitor_lock, ptr noundef @.str, i32 noundef 609)
-  %12 = load ptr, ptr %mon.addr, align 8
-  %tobool11 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %mon.addr, align 8
+  %tobool11 = icmp ne ptr %13, null
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
-  %13 = load ptr, ptr %mon.addr, align 8
-  call void @monitor_data_destroy(ptr noundef %13)
   %14 = load ptr, ptr %mon.addr, align 8
-  call void @g_free(ptr noundef %14)
+  call void @monitor_data_destroy(ptr noundef %14)
+  %15 = load ptr, ptr %mon.addr, align 8
+  call void @g_free(ptr noundef %15)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
@@ -2281,38 +2276,39 @@ if.else58:                                        ; preds = %do.body50
   %entry59 = getelementptr inbounds %struct.Monitor, ptr %32, i32 0, i32 6
   %tql_prev60 = getelementptr inbounds %struct.QTailQLink, ptr %entry59, i32 0, i32 1
   %33 = load ptr, ptr %tql_prev60, align 8
-  store ptr %33, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
+  %34 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  store ptr %33, ptr %34, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else58, %if.then53
-  %34 = load ptr, ptr %mon, align 8
-  %entry62 = getelementptr inbounds %struct.Monitor, ptr %34, i32 0, i32 6
-  %35 = load ptr, ptr %entry62, align 8
-  %36 = load ptr, ptr %mon, align 8
-  %entry63 = getelementptr inbounds %struct.Monitor, ptr %36, i32 0, i32 6
+  %35 = load ptr, ptr %mon, align 8
+  %entry62 = getelementptr inbounds %struct.Monitor, ptr %35, i32 0, i32 6
+  %36 = load ptr, ptr %entry62, align 8
+  %37 = load ptr, ptr %mon, align 8
+  %entry63 = getelementptr inbounds %struct.Monitor, ptr %37, i32 0, i32 6
   %tql_prev64 = getelementptr inbounds %struct.QTailQLink, ptr %entry63, i32 0, i32 1
-  %37 = load ptr, ptr %tql_prev64, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %37, i32 0, i32 0
-  store ptr %35, ptr %tql_next, align 8
-  %38 = load ptr, ptr %mon, align 8
-  %entry65 = getelementptr inbounds %struct.Monitor, ptr %38, i32 0, i32 6
+  %38 = load ptr, ptr %tql_prev64, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %38, i32 0, i32 0
+  store ptr %36, ptr %tql_next, align 8
+  %39 = load ptr, ptr %mon, align 8
+  %entry65 = getelementptr inbounds %struct.Monitor, ptr %39, i32 0, i32 6
   %tql_prev66 = getelementptr inbounds %struct.QTailQLink, ptr %entry65, i32 0, i32 1
   store ptr null, ptr %tql_prev66, align 8
-  %39 = load ptr, ptr %mon, align 8
-  %entry67 = getelementptr inbounds %struct.Monitor, ptr %39, i32 0, i32 6
+  %40 = load ptr, ptr %mon, align 8
+  %entry67 = getelementptr inbounds %struct.Monitor, ptr %40, i32 0, i32 6
   %tql_next68 = getelementptr inbounds %struct.QTailQLink, ptr %entry67, i32 0, i32 0
   store ptr null, ptr %tql_next68, align 8
-  %40 = load ptr, ptr %mon, align 8
-  %entry69 = getelementptr inbounds %struct.Monitor, ptr %40, i32 0, i32 6
+  %41 = load ptr, ptr %mon, align 8
+  %entry69 = getelementptr inbounds %struct.Monitor, ptr %41, i32 0, i32 6
   store ptr null, ptr %entry69, align 8
   br label %do.end70
 
 do.end70:                                         ; preds = %if.end61
   call void @qemu_mutex_unlock_impl(ptr noundef @monitor_lock, ptr noundef @.str, i32 noundef 691)
-  %41 = load ptr, ptr %mon, align 8
-  call void @monitor_flush(ptr noundef %41)
   %42 = load ptr, ptr %mon, align 8
-  call void @monitor_data_destroy(ptr noundef %42)
+  call void @monitor_flush(ptr noundef %42)
+  %43 = load ptr, ptr %mon, align 8
+  call void @monitor_data_destroy(ptr noundef %43)
   br label %while.cond72
 
 while.cond72:                                     ; preds = %do.end75, %do.end70
@@ -2329,27 +2325,27 @@ do.end75:                                         ; No predecessors!
   br label %while.cond72
 
 while.end76:                                      ; preds = %while.cond72
-  %43 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %43, ptr %atomic-temp78, align 8
-  %44 = load ptr, ptr %atomic-temp78, align 8
-  store ptr %44, ptr %tmp77, align 8
-  %45 = load ptr, ptr %tmp77, align 8
-  store ptr %45, ptr %_f71, align 8
-  %46 = load ptr, ptr %_f71, align 8
-  call void %46(ptr noundef @monitor_lock, ptr noundef @.str, i32 noundef 694)
-  %47 = load ptr, ptr %mon, align 8
-  call void @g_free(ptr noundef %47)
+  %44 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %44, ptr %atomic-temp78, align 8
+  %45 = load ptr, ptr %atomic-temp78, align 8
+  store ptr %45, ptr %tmp77, align 8
+  %46 = load ptr, ptr %tmp77, align 8
+  store ptr %46, ptr %_f71, align 8
+  %47 = load ptr, ptr %_f71, align 8
+  call void %47(ptr noundef @monitor_lock, ptr noundef @.str, i32 noundef 694)
+  %48 = load ptr, ptr %mon, align 8
+  call void @g_free(ptr noundef %48)
   br label %while.cond47, !llvm.loop !11
 
 while.end79:                                      ; preds = %while.cond47
   call void @qemu_mutex_unlock_impl(ptr noundef @monitor_lock, ptr noundef @.str, i32 noundef 697)
-  %48 = load ptr, ptr @mon_iothread, align 8
-  %tobool80 = icmp ne ptr %48, null
+  %49 = load ptr, ptr @mon_iothread, align 8
+  %tobool80 = icmp ne ptr %49, null
   br i1 %tobool80, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %while.end79
-  %49 = load ptr, ptr @mon_iothread, align 8
-  call void @iothread_destroy(ptr noundef %49)
+  %50 = load ptr, ptr @mon_iothread, align 8
+  call void @iothread_destroy(ptr noundef %50)
   store ptr null, ptr @mon_iothread, align 8
   br label %if.end82
 
@@ -2419,7 +2415,7 @@ declare ptr @iohandler_get_aio_context() #2
 declare ptr @qemu_get_current_aio_context() #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #7
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
 
 declare void @iothread_stop(ptr noundef) #2
 
@@ -3097,7 +3093,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #8
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #7
 
 declare void @qemu_log(ptr noundef, ...) #2
 
@@ -3268,7 +3264,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #6
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #5
 
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
@@ -3642,7 +3638,7 @@ declare i32 @g_str_hash(ptr noundef) #2
 declare ptr @qdict_get_str(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #9
+declare i32 @strcmp(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @error_propagator_cleanup(ptr noundef %prop) #0 {
@@ -3661,16 +3657,22 @@ entry:
 
 declare void @error_propagate(ptr noundef, ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { noreturn }
 attributes #11 = { nounwind willreturn memory(none) }
 attributes #12 = { allocsize(0,1) }

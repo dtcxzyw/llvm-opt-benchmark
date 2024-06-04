@@ -64,47 +64,48 @@ define i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 189), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %8, i32 0, i32 36
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %11, i32 0, i32 36
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @slurm_conf_expand_slurmd_path(ptr noundef %7, ptr noundef %10, ptr noundef %13)
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = call i32 @_create_mpi_dir(ptr noundef %15)
-  %17 = icmp eq i32 %16, -1
-  br i1 %17, label %28, label %18
+  %7 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 189
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %9, i32 0, i32 36
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %12, i32 0, i32 36
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr @slurm_conf_expand_slurmd_path(ptr noundef %8, ptr noundef %11, ptr noundef %14)
+  store ptr %15, ptr %6, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call i32 @_create_mpi_dir(ptr noundef %16)
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %29, label %19
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = call i32 @_create_app_dir(ptr noundef %19, ptr noundef %20)
-  %22 = icmp eq i32 %21, -1
-  br i1 %22, label %28, label %23
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = call i32 @_create_app_dir(ptr noundef %20, ptr noundef %21)
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @create_apinfo(ptr noundef %24, ptr noundef %25)
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = call i32 @create_apinfo(ptr noundef %25, ptr noundef %26)
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23, %18, %2
+29:                                               ; preds = %24, %19, %2
   call void @slurm_xfree(ptr noundef %6)
   store i32 -1, ptr %3, align 4
-  br label %30
+  br label %31
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   call void @slurm_xfree(ptr noundef %6)
   store i32 0, ptr %3, align 4
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %28
-  %31 = load i32, ptr %3, align 4
-  ret i32 %31
+31:                                               ; preds = %30, %29
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 declare ptr @slurm_conf_expand_slurmd_path(ptr noundef, ptr noundef, ptr noundef) #1
@@ -455,7 +456,7 @@ define ptr @mpi_p_client_prelaunch(ptr noundef %0, ptr noundef %1) #0 {
 
 33:                                               ; preds = %32
   store ptr null, ptr %3, align 8
-  br label %47
+  br label %48
 
 34:                                               ; preds = %20, %17
   %35 = load ptr, ptr %5, align 8
@@ -481,12 +482,13 @@ define ptr @mpi_p_client_prelaunch(ptr noundef %0, ptr noundef %1) #0 {
   br label %46
 
 46:                                               ; preds = %45
-  store ptr inttoptr (i64 3735928559 to ptr), ptr %3, align 8
-  br label %47
+  %47 = inttoptr i64 3735928559 to ptr
+  store ptr %47, ptr %3, align 8
+  br label %48
 
-47:                                               ; preds = %46, %33
-  %48 = load ptr, ptr %3, align 8
-  ret ptr %48
+48:                                               ; preds = %46, %33
+  %49 = load ptr, ptr %3, align 8
+  ret ptr %49
 }
 
 ; Function Attrs: nounwind

@@ -636,7 +636,7 @@ define internal ptr @Vec_StrPrintF(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %1, ptr %4, align 8
   store i32 1000, ptr %6, align 4
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = call i32 @Vec_StrSize(ptr noundef %10)
@@ -683,7 +683,7 @@ define internal ptr @Vec_StrPrintF(ptr noundef %0, ptr noundef %1, ...) #0 {
   %44 = add nsw i32 %43, %40
   store i32 %44, ptr %42, align 4
   %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %45)
+  call void @llvm.va_end.p0(ptr %45)
   %46 = load ptr, ptr %3, align 8
   %47 = call ptr @Vec_StrLimit(ptr noundef %46)
   %48 = load i32, ptr %5, align 4
@@ -5469,9 +5469,6 @@ define internal ptr @Vec_StrArray(ptr noundef %0) #0 {
 
 declare ptr @Abc_NamStr(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_StrGrow(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
@@ -5545,14 +5542,11 @@ define internal ptr @Vec_StrLimit(ptr noundef %0) #0 {
   ret ptr %10
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #6
+declare ptr @realloc(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #7
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Abc_Lit2Var2(i32 noundef %0) #0 {
@@ -5800,11 +5794,13 @@ define internal ptr @Prs_CatSignals(ptr noundef %0, i32 noundef %1) #0 {
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @Prs_CatSize(ptr noundef %5, i32 noundef %6)
   store i32 %7, ptr @Prs_CatSignals.V, align 8
-  store i32 %7, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_CatSignals.V, i32 0, i32 1), align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = call ptr @Prs_CatArray(ptr noundef %8, i32 noundef %9)
-  store ptr %10, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_CatSignals.V, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_CatSignals.V, i32 0, i32 1
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = call ptr @Prs_CatArray(ptr noundef %9, i32 noundef %10)
+  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_CatSignals.V, i32 0, i32 2
+  store ptr %11, ptr %12, align 8
   ret ptr @Prs_CatSignals.V
 }
 
@@ -6369,11 +6365,13 @@ define internal ptr @Prs_BoxSignals(ptr noundef %0, i32 noundef %1) #0 {
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @Prs_BoxSize(ptr noundef %5, i32 noundef %6)
   store i32 %7, ptr @Prs_BoxSignals.V, align 8
-  store i32 %7, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 1), align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = call ptr @Prs_BoxArray(ptr noundef %8, i32 noundef %9)
-  store ptr %10, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 1
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = call ptr @Prs_BoxArray(ptr noundef %9, i32 noundef %10)
+  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 2
+  store ptr %11, ptr %12, align 8
   ret ptr @Prs_BoxSignals.V
 }
 
@@ -6875,7 +6873,7 @@ define internal i32 @Cba_FonRange(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #8
+declare i32 @atoi(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Cba_FonRangeId(ptr noundef %0, i32 noundef %1) #0 {
@@ -6932,10 +6930,10 @@ define internal i32 @Cba_FonConstSigned(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #8
+declare ptr @strchr(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #8
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Cba_ManConst(ptr noundef %0, i32 noundef %1) #0 {
@@ -7266,15 +7264,21 @@ define internal i32 @Cba_ManNtkIsOk(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %14
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind allocsize(1) }

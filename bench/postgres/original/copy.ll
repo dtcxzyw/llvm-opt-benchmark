@@ -81,7 +81,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) #0 {
 
 16:                                               ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %235
+  br label %239
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr %6, align 8
@@ -109,7 +109,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) #0 {
   %33 = getelementptr inbounds %struct.copy_options, ptr %32, i32 0, i32 5
   %34 = load i8, ptr %33, align 2
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %70
+  br i1 %35, label %36, label %71
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %6, align 8
@@ -145,328 +145,332 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) #0 {
   br label %58
 
 58:                                               ; preds = %53, %46
-  br label %69
+  br label %70
 
 59:                                               ; preds = %36
   %60 = load ptr, ptr %6, align 8
   %61 = getelementptr inbounds %struct.copy_options, ptr %60, i32 0, i32 4
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
-  br i1 %63, label %66, label %64
+  br i1 %63, label %67, label %64
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 19), align 8
-  store ptr %65, ptr %5, align 8
-  br label %68
-
-66:                                               ; preds = %59
-  %67 = load ptr, ptr @stdin, align 8
-  store ptr %67, ptr %5, align 8
-  br label %68
-
-68:                                               ; preds = %66, %64
+  %65 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 19
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %5, align 8
   br label %69
 
-69:                                               ; preds = %68, %58
-  br label %104
+67:                                               ; preds = %59
+  %68 = load ptr, ptr @stdin, align 8
+  store ptr %68, ptr %5, align 8
+  br label %69
 
-70:                                               ; preds = %31
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.copy_options, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %93
+69:                                               ; preds = %67, %64
+  br label %70
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.copy_options, ptr %76, i32 0, i32 3
-  %78 = load i8, ptr %77, align 8
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %87
+70:                                               ; preds = %69, %58
+  br label %106
 
-80:                                               ; preds = %75
-  %81 = call i32 @fflush(ptr noundef null)
+71:                                               ; preds = %31
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct.copy_options, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %94
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct.copy_options, ptr %77, i32 0, i32 3
+  %79 = load i8, ptr %78, align 8
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %88
+
+81:                                               ; preds = %76
+  %82 = call i32 @fflush(ptr noundef null)
   call void @disable_sigpipe_trap()
-  %82 = call ptr @__errno_location() #6
-  store i32 0, ptr %82, align 4
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.copy_options, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  %86 = call noalias ptr @popen(ptr noundef %85, ptr noundef @.str.1)
-  store ptr %86, ptr %5, align 8
-  br label %92
+  %83 = call ptr @__errno_location() #6
+  store i32 0, ptr %83, align 4
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr inbounds %struct.copy_options, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = call noalias ptr @popen(ptr noundef %86, ptr noundef @.str.1)
+  store ptr %87, ptr %5, align 8
+  br label %93
 
-87:                                               ; preds = %75
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct.copy_options, ptr %88, i32 0, i32 2
-  %90 = load ptr, ptr %89, align 8
-  %91 = call noalias ptr @fopen(ptr noundef %90, ptr noundef @.str.1)
-  store ptr %91, ptr %5, align 8
-  br label %92
+88:                                               ; preds = %76
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds %struct.copy_options, ptr %89, i32 0, i32 2
+  %91 = load ptr, ptr %90, align 8
+  %92 = call noalias ptr @fopen(ptr noundef %91, ptr noundef @.str.1)
+  store ptr %92, ptr %5, align 8
+  br label %93
 
-92:                                               ; preds = %87, %80
-  br label %103
+93:                                               ; preds = %88, %81
+  br label %105
 
-93:                                               ; preds = %70
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.copy_options, ptr %94, i32 0, i32 4
-  %96 = load i8, ptr %95, align 1
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %100, label %98
+94:                                               ; preds = %71
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.copy_options, ptr %95, i32 0, i32 4
+  %97 = load i8, ptr %96, align 1
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %102, label %99
 
-98:                                               ; preds = %93
-  %99 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 2), align 8
-  store ptr %99, ptr %5, align 8
-  br label %102
-
-100:                                              ; preds = %93
-  %101 = load ptr, ptr @stdout, align 8
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8
   store ptr %101, ptr %5, align 8
-  br label %102
-
-102:                                              ; preds = %100, %98
-  br label %103
-
-103:                                              ; preds = %102, %92
   br label %104
 
-104:                                              ; preds = %103, %69
-  %105 = load ptr, ptr %5, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %122, label %107
+102:                                              ; preds = %94
+  %103 = load ptr, ptr @stdout, align 8
+  store ptr %103, ptr %5, align 8
+  br label %104
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.copy_options, ptr %108, i32 0, i32 3
-  %110 = load i8, ptr %109, align 8
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %116
+104:                                              ; preds = %102, %99
+  br label %105
 
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct.copy_options, ptr %113, i32 0, i32 2
-  %115 = load ptr, ptr %114, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.2, ptr noundef %115)
-  br label %120
+105:                                              ; preds = %104, %93
+  br label %106
 
-116:                                              ; preds = %107
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds %struct.copy_options, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %118, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3, ptr noundef %119)
-  br label %120
+106:                                              ; preds = %105, %70
+  %107 = load ptr, ptr %5, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %124, label %109
 
-120:                                              ; preds = %116, %112
-  %121 = load ptr, ptr %6, align 8
-  call void @free_copy_options(ptr noundef %121)
-  store i1 false, ptr %2, align 1
-  br label %235
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds %struct.copy_options, ptr %110, i32 0, i32 3
+  %112 = load i8, ptr %111, align 8
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %118
 
-122:                                              ; preds = %104
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %6, align 8
+  %116 = getelementptr inbounds %struct.copy_options, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.2, ptr noundef %117)
+  br label %122
+
+118:                                              ; preds = %109
+  %119 = load ptr, ptr %6, align 8
+  %120 = getelementptr inbounds %struct.copy_options, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3, ptr noundef %121)
+  br label %122
+
+122:                                              ; preds = %118, %114
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.copy_options, ptr %123, i32 0, i32 3
-  %125 = load i8, ptr %124, align 8
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %161, label %127
-
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %5, align 8
-  %129 = call i32 @fileno(ptr noundef %128) #7
-  %130 = call i32 @fstat(i32 noundef %129, ptr noundef %8) #7
-  store i32 %130, ptr %9, align 4
-  %131 = icmp slt i32 %130, 0
-  br i1 %131, label %132, label %136
-
-132:                                              ; preds = %127
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.copy_options, ptr %133, i32 0, i32 2
-  %135 = load ptr, ptr %134, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.4, ptr noundef %135)
-  br label %136
-
-136:                                              ; preds = %132, %127
-  %137 = load i32, ptr %9, align 4
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %148
-
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds %struct.stat, ptr %8, i32 0, i32 3
-  %141 = load i32, ptr %140, align 8
-  %142 = and i32 %141, 61440
-  %143 = icmp eq i32 %142, 16384
-  br i1 %143, label %144, label %148
-
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds %struct.copy_options, ptr %145, i32 0, i32 2
-  %147 = load ptr, ptr %146, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.5, ptr noundef %147)
-  br label %148
-
-148:                                              ; preds = %144, %139, %136
-  %149 = load i32, ptr %9, align 4
-  %150 = icmp slt i32 %149, 0
-  br i1 %150, label %156, label %151
-
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds %struct.stat, ptr %8, i32 0, i32 3
-  %153 = load i32, ptr %152, align 8
-  %154 = and i32 %153, 61440
-  %155 = icmp eq i32 %154, 16384
-  br i1 %155, label %156, label %160
-
-156:                                              ; preds = %151, %148
-  %157 = load ptr, ptr %5, align 8
-  %158 = call i32 @fclose(ptr noundef %157)
-  %159 = load ptr, ptr %6, align 8
-  call void @free_copy_options(ptr noundef %159)
+  call void @free_copy_options(ptr noundef %123)
   store i1 false, ptr %2, align 1
-  br label %235
+  br label %239
 
-160:                                              ; preds = %151
-  br label %161
+124:                                              ; preds = %106
+  %125 = load ptr, ptr %6, align 8
+  %126 = getelementptr inbounds %struct.copy_options, ptr %125, i32 0, i32 3
+  %127 = load i8, ptr %126, align 8
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %163, label %129
 
-161:                                              ; preds = %160, %122
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %5, align 8
+  %131 = call i32 @fileno(ptr noundef %130) #7
+  %132 = call i32 @fstat(i32 noundef %131, ptr noundef %8) #7
+  store i32 %132, ptr %9, align 4
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %134, label %138
+
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %6, align 8
+  %136 = getelementptr inbounds %struct.copy_options, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.4, ptr noundef %137)
+  br label %138
+
+138:                                              ; preds = %134, %129
+  %139 = load i32, ptr %9, align 4
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %150
+
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds %struct.stat, ptr %8, i32 0, i32 3
+  %143 = load i32, ptr %142, align 8
+  %144 = and i32 %143, 61440
+  %145 = icmp eq i32 %144, 16384
+  br i1 %145, label %146, label %150
+
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %6, align 8
+  %148 = getelementptr inbounds %struct.copy_options, ptr %147, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.5, ptr noundef %149)
+  br label %150
+
+150:                                              ; preds = %146, %141, %138
+  %151 = load i32, ptr %9, align 4
+  %152 = icmp slt i32 %151, 0
+  br i1 %152, label %158, label %153
+
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds %struct.stat, ptr %8, i32 0, i32 3
+  %155 = load i32, ptr %154, align 8
+  %156 = and i32 %155, 61440
+  %157 = icmp eq i32 %156, 16384
+  br i1 %157, label %158, label %162
+
+158:                                              ; preds = %153, %150
+  %159 = load ptr, ptr %5, align 8
+  %160 = call i32 @fclose(ptr noundef %159)
+  %161 = load ptr, ptr %6, align 8
+  call void @free_copy_options(ptr noundef %161)
+  store i1 false, ptr %2, align 1
+  br label %239
+
+162:                                              ; preds = %153
+  br label %163
+
+163:                                              ; preds = %162, %124
   call void @initPQExpBuffer(ptr noundef %4)
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %4, ptr noundef @.str.6)
-  %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds %struct.copy_options, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef %164)
-  %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct.copy_options, ptr %165, i32 0, i32 5
-  %167 = load i8, ptr %166, align 2
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %169, label %170
+  %164 = load ptr, ptr %6, align 8
+  %165 = getelementptr inbounds %struct.copy_options, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef %166)
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds %struct.copy_options, ptr %167, i32 0, i32 5
+  %169 = load i8, ptr %168, align 2
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %172
 
-169:                                              ; preds = %161
+171:                                              ; preds = %163
   call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef @.str.7)
-  br label %171
+  br label %173
 
-170:                                              ; preds = %161
+172:                                              ; preds = %163
   call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef @.str.8)
-  br label %171
+  br label %173
 
-171:                                              ; preds = %170, %169
-  %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct.copy_options, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %180
+173:                                              ; preds = %172, %171
+  %174 = load ptr, ptr %6, align 8
+  %175 = getelementptr inbounds %struct.copy_options, ptr %174, i32 0, i32 1
+  %176 = load ptr, ptr %175, align 8
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %178, label %182
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds %struct.copy_options, ptr %177, i32 0, i32 1
-  %179 = load ptr, ptr %178, align 8
-  call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef %179)
-  br label %180
+178:                                              ; preds = %173
+  %179 = load ptr, ptr %6, align 8
+  %180 = getelementptr inbounds %struct.copy_options, ptr %179, i32 0, i32 1
+  %181 = load ptr, ptr %180, align 8
+  call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef %181)
+  br label %182
 
-180:                                              ; preds = %176, %171
-  %181 = load ptr, ptr %5, align 8
-  store ptr %181, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 4), align 8
-  %182 = getelementptr inbounds %struct.PQExpBufferData, ptr %4, i32 0, i32 0
-  %183 = load ptr, ptr %182, align 8
-  %184 = call zeroext i1 @SendQuery(ptr noundef %183)
-  %185 = zext i1 %184 to i8
-  store i8 %185, ptr %7, align 1
-  store ptr null, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 4), align 8
+182:                                              ; preds = %178, %173
+  %183 = load ptr, ptr %5, align 8
+  %184 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 4
+  store ptr %183, ptr %184, align 8
+  %185 = getelementptr inbounds %struct.PQExpBufferData, ptr %4, i32 0, i32 0
+  %186 = load ptr, ptr %185, align 8
+  %187 = call zeroext i1 @SendQuery(ptr noundef %186)
+  %188 = zext i1 %187 to i8
+  store i8 %188, ptr %7, align 1
+  %189 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 4
+  store ptr null, ptr %189, align 8
   call void @termPQExpBuffer(ptr noundef %4)
-  %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds %struct.copy_options, ptr %186, i32 0, i32 2
-  %188 = load ptr, ptr %187, align 8
-  %189 = icmp ne ptr %188, null
-  br i1 %189, label %190, label %231
+  %190 = load ptr, ptr %6, align 8
+  %191 = getelementptr inbounds %struct.copy_options, ptr %190, i32 0, i32 2
+  %192 = load ptr, ptr %191, align 8
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %194, label %235
 
-190:                                              ; preds = %180
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.copy_options, ptr %191, i32 0, i32 3
-  %193 = load i8, ptr %192, align 8
-  %194 = trunc i8 %193 to i1
-  br i1 %194, label %195, label %221
+194:                                              ; preds = %182
+  %195 = load ptr, ptr %6, align 8
+  %196 = getelementptr inbounds %struct.copy_options, ptr %195, i32 0, i32 3
+  %197 = load i8, ptr %196, align 8
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %199, label %225
 
-195:                                              ; preds = %190
-  %196 = load ptr, ptr %5, align 8
-  %197 = call i32 @pclose(ptr noundef %196)
-  store i32 %197, ptr %10, align 4
-  %198 = load i32, ptr %10, align 4
-  %199 = icmp ne i32 %198, 0
-  br i1 %199, label %200, label %219
+199:                                              ; preds = %194
+  %200 = load ptr, ptr %5, align 8
+  %201 = call i32 @pclose(ptr noundef %200)
+  store i32 %201, ptr %10, align 4
+  %202 = load i32, ptr %10, align 4
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %223
 
-200:                                              ; preds = %195
-  %201 = load i32, ptr %10, align 4
-  %202 = icmp slt i32 %201, 0
-  br i1 %202, label %203, label %204
-
-203:                                              ; preds = %200
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.9)
-  br label %218
-
-204:                                              ; preds = %200
+204:                                              ; preds = %199
   %205 = load i32, ptr %10, align 4
-  %206 = call ptr @wait_result_to_str(i32 noundef %205)
-  store ptr %206, ptr %11, align 8
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds %struct.copy_options, ptr %207, i32 0, i32 2
-  %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr %11, align 8
-  %211 = icmp ne ptr %210, null
-  br i1 %211, label %212, label %214
+  %206 = icmp slt i32 %205, 0
+  br i1 %206, label %207, label %208
 
-212:                                              ; preds = %204
-  %213 = load ptr, ptr %11, align 8
-  br label %215
+207:                                              ; preds = %204
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.9)
+  br label %222
 
-214:                                              ; preds = %204
-  br label %215
+208:                                              ; preds = %204
+  %209 = load i32, ptr %10, align 4
+  %210 = call ptr @wait_result_to_str(i32 noundef %209)
+  store ptr %210, ptr %11, align 8
+  %211 = load ptr, ptr %6, align 8
+  %212 = getelementptr inbounds %struct.copy_options, ptr %211, i32 0, i32 2
+  %213 = load ptr, ptr %212, align 8
+  %214 = load ptr, ptr %11, align 8
+  %215 = icmp ne ptr %214, null
+  br i1 %215, label %216, label %218
 
-215:                                              ; preds = %214, %212
-  %216 = phi ptr [ %213, %212 ], [ @.str.11, %214 ]
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.10, ptr noundef %209, ptr noundef %216)
+216:                                              ; preds = %208
   %217 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %217) #7
-  br label %218
-
-218:                                              ; preds = %215, %203
-  store i8 0, ptr %7, align 1
   br label %219
 
-219:                                              ; preds = %218, %195
-  %220 = load i32, ptr %10, align 4
-  call void @SetShellResultVariables(i32 noundef %220)
-  call void @restore_sigpipe_trap()
-  br label %230
+218:                                              ; preds = %208
+  br label %219
 
-221:                                              ; preds = %190
-  %222 = load ptr, ptr %5, align 8
-  %223 = call i32 @fclose(ptr noundef %222)
-  %224 = icmp ne i32 %223, 0
-  br i1 %224, label %225, label %229
+219:                                              ; preds = %218, %216
+  %220 = phi ptr [ %217, %216 ], [ @.str.11, %218 ]
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.10, ptr noundef %213, ptr noundef %220)
+  %221 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %221) #7
+  br label %222
 
-225:                                              ; preds = %221
-  %226 = load ptr, ptr %6, align 8
-  %227 = getelementptr inbounds %struct.copy_options, ptr %226, i32 0, i32 2
-  %228 = load ptr, ptr %227, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3, ptr noundef %228)
+222:                                              ; preds = %219, %207
   store i8 0, ptr %7, align 1
-  br label %229
+  br label %223
 
-229:                                              ; preds = %225, %221
-  br label %230
+223:                                              ; preds = %222, %199
+  %224 = load i32, ptr %10, align 4
+  call void @SetShellResultVariables(i32 noundef %224)
+  call void @restore_sigpipe_trap()
+  br label %234
 
-230:                                              ; preds = %229, %219
-  br label %231
+225:                                              ; preds = %194
+  %226 = load ptr, ptr %5, align 8
+  %227 = call i32 @fclose(ptr noundef %226)
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %229, label %233
 
-231:                                              ; preds = %230, %180
-  %232 = load ptr, ptr %6, align 8
-  call void @free_copy_options(ptr noundef %232)
-  %233 = load i8, ptr %7, align 1
-  %234 = trunc i8 %233 to i1
-  store i1 %234, ptr %2, align 1
+229:                                              ; preds = %225
+  %230 = load ptr, ptr %6, align 8
+  %231 = getelementptr inbounds %struct.copy_options, ptr %230, i32 0, i32 2
+  %232 = load ptr, ptr %231, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3, ptr noundef %232)
+  store i8 0, ptr %7, align 1
+  br label %233
+
+233:                                              ; preds = %229, %225
+  br label %234
+
+234:                                              ; preds = %233, %223
   br label %235
 
-235:                                              ; preds = %231, %156, %120, %16
-  %236 = load i1, ptr %2, align 1
-  ret i1 %236
+235:                                              ; preds = %234, %182
+  %236 = load ptr, ptr %6, align 8
+  call void @free_copy_options(ptr noundef %236)
+  %237 = load i8, ptr %7, align 1
+  %238 = trunc i8 %237 to i1
+  store i1 %238, ptr %2, align 1
+  br label %239
+
+239:                                              ; preds = %235, %158, %122, %16
+  %240 = load i1, ptr %2, align 1
+  ret i1 %240
 }
 
 ; Function Attrs: nounwind uwtable
@@ -492,7 +496,7 @@ define internal ptr @parse_slash_copy(ptr noundef %0) #0 {
 15:                                               ; preds = %1
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.22)
   store ptr null, ptr %2, align 8
-  br label %286
+  br label %299
 
 16:                                               ; preds = %1
   %17 = call ptr @pg_malloc0(i64 noundef 32)
@@ -503,451 +507,464 @@ define internal ptr @parse_slash_copy(ptr noundef %0) #0 {
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %24 = call ptr @strtokx(ptr noundef %21, ptr noundef %22, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %23)
-  store ptr %24, ptr %5, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
-
-27:                                               ; preds = %16
-  br label %278
+  %23 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = call ptr @strtokx(ptr noundef %21, ptr noundef %22, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %24)
+  store ptr %25, ptr %5, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %16
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef @.str.25)
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %43
+  br label %291
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.copy_options, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %34, ptr noundef %35)
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %38 = call ptr @strtokx(ptr noundef null, ptr noundef %36, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %37)
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %42, label %41
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %5, align 8
+  %31 = call i32 @pg_strcasecmp(ptr noundef %30, ptr noundef @.str.25)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %45
 
-41:                                               ; preds = %32
-  br label %278
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.copy_options, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %35, ptr noundef %36)
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = call ptr @strtokx(ptr noundef null, ptr noundef %37, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %39)
+  store ptr %40, ptr %5, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %44, label %43
 
-42:                                               ; preds = %32
-  br label %43
+43:                                               ; preds = %33
+  br label %291
 
-43:                                               ; preds = %42, %28
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr i8, ptr %44, i64 0
-  %46 = load i8, ptr %45, align 1
-  %47 = sext i8 %46 to i32
-  %48 = icmp eq i32 %47, 40
-  br i1 %48, label %49, label %87
+44:                                               ; preds = %33
+  br label %45
 
-49:                                               ; preds = %43
+45:                                               ; preds = %44, %29
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr i8, ptr %46, i64 0
+  %48 = load i8, ptr %47, align 1
+  %49 = sext i8 %48 to i32
+  %50 = icmp eq i32 %49, 40
+  br i1 %50, label %51, label %90
+
+51:                                               ; preds = %45
   store i32 1, ptr %8, align 4
-  br label %50
+  br label %52
 
-50:                                               ; preds = %85, %49
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %86
+52:                                               ; preds = %88, %51
+  %53 = load i32, ptr %8, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %89
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.copy_options, ptr %54, i32 0, i32 0
-  call void @xstrcat(ptr noundef %55, ptr noundef @.str.26)
+55:                                               ; preds = %52
   %56 = load ptr, ptr %4, align 8
   %57 = getelementptr inbounds %struct.copy_options, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %57, ptr noundef %58)
-  %59 = load ptr, ptr %6, align 8
-  %60 = load i8, ptr %7, align 1
-  %61 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %62 = call ptr @strtokx(ptr noundef null, ptr noundef %59, ptr noundef @.str.27, ptr noundef @.str.28, i8 noundef signext %60, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %61)
-  store ptr %62, ptr %5, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %66, label %65
+  call void @xstrcat(ptr noundef %57, ptr noundef @.str.26)
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds %struct.copy_options, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr %6, align 8
+  %62 = load i8, ptr %7, align 1
+  %63 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = call ptr @strtokx(ptr noundef null, ptr noundef %61, ptr noundef @.str.27, ptr noundef @.str.28, i8 noundef signext %62, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %64)
+  store ptr %65, ptr %5, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %69, label %68
 
-65:                                               ; preds = %53
-  br label %278
+68:                                               ; preds = %55
+  br label %291
 
-66:                                               ; preds = %53
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr i8, ptr %67, i64 0
-  %69 = load i8, ptr %68, align 1
-  %70 = sext i8 %69 to i32
-  %71 = icmp eq i32 %70, 40
-  br i1 %71, label %72, label %75
+69:                                               ; preds = %55
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr i8, ptr %70, i64 0
+  %72 = load i8, ptr %71, align 1
+  %73 = sext i8 %72 to i32
+  %74 = icmp eq i32 %73, 40
+  br i1 %74, label %75, label %78
 
-72:                                               ; preds = %66
-  %73 = load i32, ptr %8, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %8, align 4
-  br label %85
+75:                                               ; preds = %69
+  %76 = load i32, ptr %8, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %8, align 4
+  br label %88
 
-75:                                               ; preds = %66
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr i8, ptr %76, i64 0
-  %78 = load i8, ptr %77, align 1
-  %79 = sext i8 %78 to i32
-  %80 = icmp eq i32 %79, 41
-  br i1 %80, label %81, label %84
+78:                                               ; preds = %69
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr i8, ptr %79, i64 0
+  %81 = load i8, ptr %80, align 1
+  %82 = sext i8 %81 to i32
+  %83 = icmp eq i32 %82, 41
+  br i1 %83, label %84, label %87
 
-81:                                               ; preds = %75
-  %82 = load i32, ptr %8, align 4
-  %83 = add i32 %82, -1
-  store i32 %83, ptr %8, align 4
-  br label %84
-
-84:                                               ; preds = %81, %75
-  br label %85
-
-85:                                               ; preds = %84, %72
-  br label %50, !llvm.loop !5
-
-86:                                               ; preds = %50
+84:                                               ; preds = %78
+  %85 = load i32, ptr %8, align 4
+  %86 = add i32 %85, -1
+  store i32 %86, ptr %8, align 4
   br label %87
 
-87:                                               ; preds = %86, %43
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.copy_options, ptr %88, i32 0, i32 0
-  call void @xstrcat(ptr noundef %89, ptr noundef @.str.26)
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.copy_options, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %91, ptr noundef %92)
-  %93 = load ptr, ptr %6, align 8
-  %94 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %95 = call ptr @strtokx(ptr noundef null, ptr noundef %93, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %94)
-  store ptr %95, ptr %5, align 8
-  %96 = load ptr, ptr %5, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %99, label %98
+87:                                               ; preds = %84, %78
+  br label %88
 
-98:                                               ; preds = %87
-  br label %278
+88:                                               ; preds = %87, %75
+  br label %52, !llvm.loop !5
 
-99:                                               ; preds = %87
+89:                                               ; preds = %52
+  br label %90
+
+90:                                               ; preds = %89, %45
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds %struct.copy_options, ptr %91, i32 0, i32 0
+  call void @xstrcat(ptr noundef %92, ptr noundef @.str.26)
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds %struct.copy_options, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %94, ptr noundef %95)
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = call ptr @strtokx(ptr noundef null, ptr noundef %96, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %98)
+  store ptr %99, ptr %5, align 8
   %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr i8, ptr %100, i64 0
-  %102 = load i8, ptr %101, align 1
-  %103 = sext i8 %102 to i32
-  %104 = icmp eq i32 %103, 46
-  br i1 %104, label %105, label %126
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %103, label %102
 
-105:                                              ; preds = %99
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.copy_options, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %107, ptr noundef %108)
-  %109 = load ptr, ptr %6, align 8
-  %110 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %111 = call ptr @strtokx(ptr noundef null, ptr noundef %109, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %110)
-  store ptr %111, ptr %5, align 8
+102:                                              ; preds = %90
+  br label %291
+
+103:                                              ; preds = %90
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr i8, ptr %104, i64 0
+  %106 = load i8, ptr %105, align 1
+  %107 = sext i8 %106 to i32
+  %108 = icmp eq i32 %107, 46
+  br i1 %108, label %109, label %132
+
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %4, align 8
+  %111 = getelementptr inbounds %struct.copy_options, ptr %110, i32 0, i32 0
   %112 = load ptr, ptr %5, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %115, label %114
+  call void @xstrcat(ptr noundef %111, ptr noundef %112)
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %115 = load i32, ptr %114, align 8
+  %116 = call ptr @strtokx(ptr noundef null, ptr noundef %113, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %115)
+  store ptr %116, ptr %5, align 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %120, label %119
 
-114:                                              ; preds = %105
-  br label %278
+119:                                              ; preds = %109
+  br label %291
 
-115:                                              ; preds = %105
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.copy_options, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %117, ptr noundef %118)
-  %119 = load ptr, ptr %6, align 8
-  %120 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %121 = call ptr @strtokx(ptr noundef null, ptr noundef %119, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %120)
-  store ptr %121, ptr %5, align 8
-  %122 = load ptr, ptr %5, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %125, label %124
+120:                                              ; preds = %109
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds %struct.copy_options, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %122, ptr noundef %123)
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %126 = load i32, ptr %125, align 8
+  %127 = call ptr @strtokx(ptr noundef null, ptr noundef %124, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %126)
+  store ptr %127, ptr %5, align 8
+  %128 = load ptr, ptr %5, align 8
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %131, label %130
 
-124:                                              ; preds = %115
-  br label %278
+130:                                              ; preds = %120
+  br label %291
 
-125:                                              ; preds = %115
-  br label %126
+131:                                              ; preds = %120
+  br label %132
 
-126:                                              ; preds = %125, %99
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr i8, ptr %127, i64 0
-  %129 = load i8, ptr %128, align 1
-  %130 = sext i8 %129 to i32
-  %131 = icmp eq i32 %130, 40
-  br i1 %131, label %132, label %166
+132:                                              ; preds = %131, %103
+  %133 = load ptr, ptr %5, align 8
+  %134 = getelementptr i8, ptr %133, i64 0
+  %135 = load i8, ptr %134, align 1
+  %136 = sext i8 %135 to i32
+  %137 = icmp eq i32 %136, 40
+  br i1 %137, label %138, label %174
 
-132:                                              ; preds = %126
-  br label %133
+138:                                              ; preds = %132
+  br label %139
 
-133:                                              ; preds = %152, %132
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.copy_options, ptr %134, i32 0, i32 0
-  call void @xstrcat(ptr noundef %135, ptr noundef @.str.26)
-  %136 = load ptr, ptr %4, align 8
-  %137 = getelementptr inbounds %struct.copy_options, ptr %136, i32 0, i32 0
-  %138 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %137, ptr noundef %138)
-  %139 = load ptr, ptr %6, align 8
-  %140 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %141 = call ptr @strtokx(ptr noundef null, ptr noundef %139, ptr noundef @.str.27, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %140)
-  store ptr %141, ptr %5, align 8
-  %142 = load ptr, ptr %5, align 8
-  %143 = icmp ne ptr %142, null
-  br i1 %143, label %145, label %144
+139:                                              ; preds = %159, %138
+  %140 = load ptr, ptr %4, align 8
+  %141 = getelementptr inbounds %struct.copy_options, ptr %140, i32 0, i32 0
+  call void @xstrcat(ptr noundef %141, ptr noundef @.str.26)
+  %142 = load ptr, ptr %4, align 8
+  %143 = getelementptr inbounds %struct.copy_options, ptr %142, i32 0, i32 0
+  %144 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %143, ptr noundef %144)
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %147 = load i32, ptr %146, align 8
+  %148 = call ptr @strtokx(ptr noundef null, ptr noundef %145, ptr noundef @.str.27, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %147)
+  store ptr %148, ptr %5, align 8
+  %149 = load ptr, ptr %5, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %152, label %151
 
-144:                                              ; preds = %133
-  br label %278
+151:                                              ; preds = %139
+  br label %291
 
-145:                                              ; preds = %133
-  %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr i8, ptr %146, i64 0
-  %148 = load i8, ptr %147, align 1
-  %149 = sext i8 %148 to i32
-  %150 = icmp eq i32 %149, 41
-  br i1 %150, label %151, label %152
+152:                                              ; preds = %139
+  %153 = load ptr, ptr %5, align 8
+  %154 = getelementptr i8, ptr %153, i64 0
+  %155 = load i8, ptr %154, align 1
+  %156 = sext i8 %155 to i32
+  %157 = icmp eq i32 %156, 41
+  br i1 %157, label %158, label %159
 
-151:                                              ; preds = %145
-  br label %153
+158:                                              ; preds = %152
+  br label %160
 
-152:                                              ; preds = %145
-  br label %133
+159:                                              ; preds = %152
+  br label %139
 
-153:                                              ; preds = %151
-  %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds %struct.copy_options, ptr %154, i32 0, i32 0
-  call void @xstrcat(ptr noundef %155, ptr noundef @.str.26)
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds %struct.copy_options, ptr %156, i32 0, i32 0
-  %158 = load ptr, ptr %5, align 8
-  call void @xstrcat(ptr noundef %157, ptr noundef %158)
-  %159 = load ptr, ptr %6, align 8
-  %160 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %161 = call ptr @strtokx(ptr noundef null, ptr noundef %159, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %160)
-  store ptr %161, ptr %5, align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %165, label %164
+160:                                              ; preds = %158
+  %161 = load ptr, ptr %4, align 8
+  %162 = getelementptr inbounds %struct.copy_options, ptr %161, i32 0, i32 0
+  call void @xstrcat(ptr noundef %162, ptr noundef @.str.26)
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds %struct.copy_options, ptr %163, i32 0, i32 0
+  %165 = load ptr, ptr %5, align 8
+  call void @xstrcat(ptr noundef %164, ptr noundef %165)
+  %166 = load ptr, ptr %6, align 8
+  %167 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %168 = load i32, ptr %167, align 8
+  %169 = call ptr @strtokx(ptr noundef null, ptr noundef %166, ptr noundef @.str.23, ptr noundef @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %168)
+  store ptr %169, ptr %5, align 8
+  %170 = load ptr, ptr %5, align 8
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %173, label %172
 
-164:                                              ; preds = %153
-  br label %278
+172:                                              ; preds = %160
+  br label %291
 
-165:                                              ; preds = %153
-  br label %166
+173:                                              ; preds = %160
+  br label %174
 
-166:                                              ; preds = %165, %126
-  %167 = load ptr, ptr %5, align 8
-  %168 = call i32 @pg_strcasecmp(ptr noundef %167, ptr noundef @.str.29)
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %173
+174:                                              ; preds = %173, %132
+  %175 = load ptr, ptr %5, align 8
+  %176 = call i32 @pg_strcasecmp(ptr noundef %175, ptr noundef @.str.29)
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %181
 
-170:                                              ; preds = %166
-  %171 = load ptr, ptr %4, align 8
-  %172 = getelementptr inbounds %struct.copy_options, ptr %171, i32 0, i32 5
-  store i8 1, ptr %172, align 2
-  br label %182
+178:                                              ; preds = %174
+  %179 = load ptr, ptr %4, align 8
+  %180 = getelementptr inbounds %struct.copy_options, ptr %179, i32 0, i32 5
+  store i8 1, ptr %180, align 2
+  br label %190
 
-173:                                              ; preds = %166
-  %174 = load ptr, ptr %5, align 8
-  %175 = call i32 @pg_strcasecmp(ptr noundef %174, ptr noundef @.str.30)
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %180
+181:                                              ; preds = %174
+  %182 = load ptr, ptr %5, align 8
+  %183 = call i32 @pg_strcasecmp(ptr noundef %182, ptr noundef @.str.30)
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %188
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %4, align 8
-  %179 = getelementptr inbounds %struct.copy_options, ptr %178, i32 0, i32 5
-  store i8 0, ptr %179, align 2
-  br label %181
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %4, align 8
+  %187 = getelementptr inbounds %struct.copy_options, ptr %186, i32 0, i32 5
+  store i8 0, ptr %187, align 2
+  br label %189
 
-180:                                              ; preds = %173
-  br label %278
+188:                                              ; preds = %181
+  br label %291
 
-181:                                              ; preds = %177
-  br label %182
+189:                                              ; preds = %185
+  br label %190
 
-182:                                              ; preds = %181, %170
-  %183 = load ptr, ptr %6, align 8
-  %184 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %185 = call ptr @strtokx(ptr noundef null, ptr noundef %183, ptr noundef @.str.31, ptr noundef @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %184)
-  store ptr %185, ptr %5, align 8
-  %186 = load ptr, ptr %5, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %189, label %188
+190:                                              ; preds = %189, %178
+  %191 = load ptr, ptr %6, align 8
+  %192 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %193 = load i32, ptr %192, align 8
+  %194 = call ptr @strtokx(ptr noundef null, ptr noundef %191, ptr noundef @.str.31, ptr noundef @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %193)
+  store ptr %194, ptr %5, align 8
+  %195 = load ptr, ptr %5, align 8
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %198, label %197
 
-188:                                              ; preds = %182
-  br label %278
+197:                                              ; preds = %190
+  br label %291
 
-189:                                              ; preds = %182
-  %190 = load ptr, ptr %5, align 8
-  %191 = call i32 @pg_strcasecmp(ptr noundef %190, ptr noundef @.str.33)
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %231
+198:                                              ; preds = %190
+  %199 = load ptr, ptr %5, align 8
+  %200 = call i32 @pg_strcasecmp(ptr noundef %199, ptr noundef @.str.33)
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %242
 
-193:                                              ; preds = %189
-  %194 = load ptr, ptr %6, align 8
-  %195 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %196 = call ptr @strtokx(ptr noundef null, ptr noundef %194, ptr noundef @.str.31, ptr noundef @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %195)
-  store ptr %196, ptr %5, align 8
-  %197 = load ptr, ptr %5, align 8
-  %198 = icmp ne ptr %197, null
-  br i1 %198, label %200, label %199
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %6, align 8
+  %204 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %205 = load i32, ptr %204, align 8
+  %206 = call ptr @strtokx(ptr noundef null, ptr noundef %203, ptr noundef @.str.31, ptr noundef @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %205)
+  store ptr %206, ptr %5, align 8
+  %207 = load ptr, ptr %5, align 8
+  %208 = icmp ne ptr %207, null
+  br i1 %208, label %210, label %209
 
-199:                                              ; preds = %193
-  br label %278
+209:                                              ; preds = %202
+  br label %291
 
-200:                                              ; preds = %193
-  %201 = load ptr, ptr %5, align 8
-  %202 = call i64 @strlen(ptr noundef %201) #8
-  %203 = trunc i64 %202 to i32
-  store i32 %203, ptr %9, align 4
-  %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr i8, ptr %204, i64 0
-  %206 = load i8, ptr %205, align 1
-  %207 = sext i8 %206 to i32
-  %208 = icmp ne i32 %207, 39
-  br i1 %208, label %221, label %209
+210:                                              ; preds = %202
+  %211 = load ptr, ptr %5, align 8
+  %212 = call i64 @strlen(ptr noundef %211) #8
+  %213 = trunc i64 %212 to i32
+  store i32 %213, ptr %9, align 4
+  %214 = load ptr, ptr %5, align 8
+  %215 = getelementptr i8, ptr %214, i64 0
+  %216 = load i8, ptr %215, align 1
+  %217 = sext i8 %216 to i32
+  %218 = icmp ne i32 %217, 39
+  br i1 %218, label %231, label %219
 
-209:                                              ; preds = %200
-  %210 = load i32, ptr %9, align 4
-  %211 = icmp slt i32 %210, 2
-  br i1 %211, label %221, label %212
+219:                                              ; preds = %210
+  %220 = load i32, ptr %9, align 4
+  %221 = icmp slt i32 %220, 2
+  br i1 %221, label %231, label %222
 
-212:                                              ; preds = %209
-  %213 = load ptr, ptr %5, align 8
-  %214 = load i32, ptr %9, align 4
-  %215 = sub i32 %214, 1
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr i8, ptr %213, i64 %216
-  %218 = load i8, ptr %217, align 1
-  %219 = sext i8 %218 to i32
-  %220 = icmp ne i32 %219, 39
-  br i1 %220, label %221, label %222
-
-221:                                              ; preds = %212, %209, %200
-  br label %278
-
-222:                                              ; preds = %212
+222:                                              ; preds = %219
   %223 = load ptr, ptr %5, align 8
-  %224 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  call void @strip_quotes(ptr noundef %223, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %224)
-  %225 = load ptr, ptr %4, align 8
-  %226 = getelementptr inbounds %struct.copy_options, ptr %225, i32 0, i32 3
-  store i8 1, ptr %226, align 8
-  %227 = load ptr, ptr %5, align 8
-  %228 = call ptr @pg_strdup(ptr noundef %227)
-  %229 = load ptr, ptr %4, align 8
-  %230 = getelementptr inbounds %struct.copy_options, ptr %229, i32 0, i32 2
-  store ptr %228, ptr %230, align 8
-  br label %266
+  %224 = load i32, ptr %9, align 4
+  %225 = sub i32 %224, 1
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr i8, ptr %223, i64 %226
+  %228 = load i8, ptr %227, align 1
+  %229 = sext i8 %228 to i32
+  %230 = icmp ne i32 %229, 39
+  br i1 %230, label %231, label %232
 
-231:                                              ; preds = %189
-  %232 = load ptr, ptr %5, align 8
-  %233 = call i32 @pg_strcasecmp(ptr noundef %232, ptr noundef @.str.34)
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %239, label %235
+231:                                              ; preds = %222, %219, %210
+  br label %291
 
-235:                                              ; preds = %231
-  %236 = load ptr, ptr %5, align 8
-  %237 = call i32 @pg_strcasecmp(ptr noundef %236, ptr noundef @.str.35)
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %242
-
-239:                                              ; preds = %235, %231
+232:                                              ; preds = %222
+  %233 = load ptr, ptr %5, align 8
+  %234 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %235 = load i32, ptr %234, align 8
+  call void @strip_quotes(ptr noundef %233, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %235)
+  %236 = load ptr, ptr %4, align 8
+  %237 = getelementptr inbounds %struct.copy_options, ptr %236, i32 0, i32 3
+  store i8 1, ptr %237, align 8
+  %238 = load ptr, ptr %5, align 8
+  %239 = call ptr @pg_strdup(ptr noundef %238)
   %240 = load ptr, ptr %4, align 8
   %241 = getelementptr inbounds %struct.copy_options, ptr %240, i32 0, i32 2
-  store ptr null, ptr %241, align 8
-  br label %265
+  store ptr %239, ptr %241, align 8
+  br label %278
 
-242:                                              ; preds = %235
+242:                                              ; preds = %198
   %243 = load ptr, ptr %5, align 8
-  %244 = call i32 @pg_strcasecmp(ptr noundef %243, ptr noundef @.str.36)
+  %244 = call i32 @pg_strcasecmp(ptr noundef %243, ptr noundef @.str.34)
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %250, label %246
 
 246:                                              ; preds = %242
   %247 = load ptr, ptr %5, align 8
-  %248 = call i32 @pg_strcasecmp(ptr noundef %247, ptr noundef @.str.37)
+  %248 = call i32 @pg_strcasecmp(ptr noundef %247, ptr noundef @.str.35)
   %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %255
+  br i1 %249, label %250, label %253
 
 250:                                              ; preds = %246, %242
   %251 = load ptr, ptr %4, align 8
-  %252 = getelementptr inbounds %struct.copy_options, ptr %251, i32 0, i32 4
-  store i8 1, ptr %252, align 1
-  %253 = load ptr, ptr %4, align 8
-  %254 = getelementptr inbounds %struct.copy_options, ptr %253, i32 0, i32 2
-  store ptr null, ptr %254, align 8
-  br label %264
+  %252 = getelementptr inbounds %struct.copy_options, ptr %251, i32 0, i32 2
+  store ptr null, ptr %252, align 8
+  br label %277
 
-255:                                              ; preds = %246
-  %256 = load ptr, ptr %5, align 8
-  %257 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  call void @strip_quotes(ptr noundef %256, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %257)
+253:                                              ; preds = %246
+  %254 = load ptr, ptr %5, align 8
+  %255 = call i32 @pg_strcasecmp(ptr noundef %254, ptr noundef @.str.36)
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %261, label %257
+
+257:                                              ; preds = %253
   %258 = load ptr, ptr %5, align 8
-  %259 = call ptr @pg_strdup(ptr noundef %258)
-  %260 = load ptr, ptr %4, align 8
-  %261 = getelementptr inbounds %struct.copy_options, ptr %260, i32 0, i32 2
-  store ptr %259, ptr %261, align 8
+  %259 = call i32 @pg_strcasecmp(ptr noundef %258, ptr noundef @.str.37)
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %261, label %266
+
+261:                                              ; preds = %257, %253
   %262 = load ptr, ptr %4, align 8
-  %263 = getelementptr inbounds %struct.copy_options, ptr %262, i32 0, i32 2
-  call void @expand_tilde(ptr noundef %263)
-  br label %264
-
-264:                                              ; preds = %255, %250
-  br label %265
-
-265:                                              ; preds = %264, %239
-  br label %266
-
-266:                                              ; preds = %265, %222
-  %267 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  %268 = call ptr @strtokx(ptr noundef null, ptr noundef @.str.11, ptr noundef null, ptr noundef null, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %267)
-  store ptr %268, ptr %5, align 8
-  %269 = load ptr, ptr %5, align 8
-  %270 = icmp ne ptr %269, null
-  br i1 %270, label %271, label %276
-
-271:                                              ; preds = %266
-  %272 = load ptr, ptr %5, align 8
-  %273 = call ptr @pg_strdup(ptr noundef %272)
-  %274 = load ptr, ptr %4, align 8
-  %275 = getelementptr inbounds %struct.copy_options, ptr %274, i32 0, i32 1
-  store ptr %273, ptr %275, align 8
+  %263 = getelementptr inbounds %struct.copy_options, ptr %262, i32 0, i32 4
+  store i8 1, ptr %263, align 1
+  %264 = load ptr, ptr %4, align 8
+  %265 = getelementptr inbounds %struct.copy_options, ptr %264, i32 0, i32 2
+  store ptr null, ptr %265, align 8
   br label %276
 
-276:                                              ; preds = %271, %266
-  %277 = load ptr, ptr %4, align 8
-  store ptr %277, ptr %2, align 8
-  br label %286
+266:                                              ; preds = %257
+  %267 = load ptr, ptr %5, align 8
+  %268 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %269 = load i32, ptr %268, align 8
+  call void @strip_quotes(ptr noundef %267, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %269)
+  %270 = load ptr, ptr %5, align 8
+  %271 = call ptr @pg_strdup(ptr noundef %270)
+  %272 = load ptr, ptr %4, align 8
+  %273 = getelementptr inbounds %struct.copy_options, ptr %272, i32 0, i32 2
+  store ptr %271, ptr %273, align 8
+  %274 = load ptr, ptr %4, align 8
+  %275 = getelementptr inbounds %struct.copy_options, ptr %274, i32 0, i32 2
+  call void @expand_tilde(ptr noundef %275)
+  br label %276
 
-278:                                              ; preds = %221, %199, %188, %180, %164, %144, %124, %114, %98, %65, %41, %27
-  %279 = load ptr, ptr %5, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %281, label %283
+276:                                              ; preds = %266, %261
+  br label %277
 
-281:                                              ; preds = %278
+277:                                              ; preds = %276, %250
+  br label %278
+
+278:                                              ; preds = %277, %232
+  %279 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %280 = load i32, ptr %279, align 8
+  %281 = call ptr @strtokx(ptr noundef null, ptr noundef @.str.11, ptr noundef null, ptr noundef null, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %280)
+  store ptr %281, ptr %5, align 8
   %282 = load ptr, ptr %5, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.38, ptr noundef %282)
-  br label %284
+  %283 = icmp ne ptr %282, null
+  br i1 %283, label %284, label %289
 
-283:                                              ; preds = %278
+284:                                              ; preds = %278
+  %285 = load ptr, ptr %5, align 8
+  %286 = call ptr @pg_strdup(ptr noundef %285)
+  %287 = load ptr, ptr %4, align 8
+  %288 = getelementptr inbounds %struct.copy_options, ptr %287, i32 0, i32 1
+  store ptr %286, ptr %288, align 8
+  br label %289
+
+289:                                              ; preds = %284, %278
+  %290 = load ptr, ptr %4, align 8
+  store ptr %290, ptr %2, align 8
+  br label %299
+
+291:                                              ; preds = %231, %209, %197, %188, %172, %151, %130, %119, %102, %68, %43, %28
+  %292 = load ptr, ptr %5, align 8
+  %293 = icmp ne ptr %292, null
+  br i1 %293, label %294, label %296
+
+294:                                              ; preds = %291
+  %295 = load ptr, ptr %5, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.38, ptr noundef %295)
+  br label %297
+
+296:                                              ; preds = %291
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.39)
-  br label %284
+  br label %297
 
-284:                                              ; preds = %283, %281
-  %285 = load ptr, ptr %4, align 8
-  call void @free_copy_options(ptr noundef %285)
+297:                                              ; preds = %296, %294
+  %298 = load ptr, ptr %4, align 8
+  call void @free_copy_options(ptr noundef %298)
   store ptr null, ptr %2, align 8
-  br label %286
+  br label %299
 
-286:                                              ; preds = %284, %276, %15
-  %287 = load ptr, ptr %2, align 8
-  ret ptr %287
+299:                                              ; preds = %297, %289, %15
+  %300 = load ptr, ptr %2, align 8
+  ret ptr %300
 }
 
 declare void @canonicalize_path(ptr noundef) #1
@@ -1193,338 +1210,344 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %28 = select i1 %27, ptr null, ptr @.str.15
   %29 = call i32 @PQputCopyEnd(ptr noundef %24, ptr noundef %28)
   store i8 0, ptr %9, align 1
-  br label %186
+  br label %192
 
 30:                                               ; preds = %4
   %31 = load ptr, ptr %6, align 8
   %32 = call i32 @fileno(ptr noundef %31) #7
   %33 = call i32 @isatty(i32 noundef %32) #7
   %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %41
+  br i1 %34, label %35, label %42
 
 35:                                               ; preds = %30
   store i8 1, ptr %11, align 1
-  %36 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 32), align 2
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %40, label %38
+  %36 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 32
+  %37 = load i8, ptr %36, align 2
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %41, label %39
 
-38:                                               ; preds = %35
-  %39 = call i32 @puts(ptr noundef @.str.16)
-  br label %40
+39:                                               ; preds = %35
+  %40 = call i32 @puts(ptr noundef @.str.16)
+  br label %41
 
-40:                                               ; preds = %38, %35
-  br label %42
+41:                                               ; preds = %39, %35
+  br label %43
 
-41:                                               ; preds = %30
+42:                                               ; preds = %30
   store i8 0, ptr %11, align 1
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %40
+43:                                               ; preds = %42, %41
   store i8 1, ptr %9, align 1
-  %43 = load i8, ptr %7, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %73
+  %44 = load i8, ptr %7, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %74
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr %11, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %55
+46:                                               ; preds = %43
+  %47 = load i8, ptr %11, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %56
 
-48:                                               ; preds = %45
-  %49 = call ptr @get_prompt(i32 noundef 7, ptr noundef null)
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = load ptr, ptr @stdout, align 8
-  %52 = call i32 @fputs(ptr noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr @stdout, align 8
-  %54 = call i32 @fflush(ptr noundef %53)
-  br label %55
-
-55:                                               ; preds = %48, %45
+49:                                               ; preds = %46
+  %50 = call ptr @get_prompt(i32 noundef 7, ptr noundef null)
+  store ptr %50, ptr %12, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load ptr, ptr @stdout, align 8
+  %53 = call i32 @fputs(ptr noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr @stdout, align 8
+  %55 = call i32 @fflush(ptr noundef %54)
   br label %56
 
-56:                                               ; preds = %71, %55
+56:                                               ; preds = %49, %46
+  br label %57
+
+57:                                               ; preds = %72, %56
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
-  %57 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
-  %58 = load ptr, ptr %6, align 8
-  %59 = call i64 @fread(ptr noundef %57, i64 noundef 1, i64 noundef 8192, ptr noundef %58)
-  %60 = trunc i64 %59 to i32
-  store i32 %60, ptr %13, align 4
+  %58 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
+  %59 = load ptr, ptr %6, align 8
+  %60 = call i64 @fread(ptr noundef %58, i64 noundef 1, i64 noundef 8192, ptr noundef %59)
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %13, align 4
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
-  %61 = load i32, ptr %13, align 4
-  %62 = icmp sle i32 %61, 0
-  br i1 %62, label %63, label %64
+  %62 = load i32, ptr %13, align 4
+  %63 = icmp sle i32 %62, 0
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %56
-  br label %72
+64:                                               ; preds = %57
+  br label %73
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
-  %67 = load i32, ptr %13, align 4
-  %68 = call i32 @PQputCopyData(ptr noundef %65, ptr noundef %66, i32 noundef %67)
-  %69 = icmp sle i32 %68, 0
-  br i1 %69, label %70, label %71
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
+  %68 = load i32, ptr %13, align 4
+  %69 = call i32 @PQputCopyData(ptr noundef %66, ptr noundef %67, i32 noundef %68)
+  %70 = icmp sle i32 %69, 0
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %64
+71:                                               ; preds = %65
   store i8 0, ptr %9, align 1
-  br label %72
+  br label %73
 
-71:                                               ; preds = %64
-  br label %56
+72:                                               ; preds = %65
+  br label %57
 
-72:                                               ; preds = %70, %63
-  br label %166
+73:                                               ; preds = %71, %64
+  br label %172
 
-73:                                               ; preds = %42
+74:                                               ; preds = %43
   store i8 0, ptr %14, align 1
   store i8 1, ptr %16, align 1
   store i32 0, ptr %15, align 4
-  br label %74
+  br label %75
 
-74:                                               ; preds = %164, %73
-  %75 = load i8, ptr %14, align 1
-  %76 = trunc i8 %75 to i1
-  %77 = xor i1 %76, true
-  br i1 %77, label %78, label %165
+75:                                               ; preds = %170, %74
+  %76 = load i8, ptr %14, align 1
+  %77 = trunc i8 %76 to i1
+  %78 = xor i1 %77, true
+  br i1 %78, label %79, label %171
 
-78:                                               ; preds = %74
-  %79 = load i8, ptr %16, align 1
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %91
+79:                                               ; preds = %75
+  %80 = load i8, ptr %16, align 1
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %92
 
-81:                                               ; preds = %78
-  %82 = load i8, ptr %11, align 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %91
+82:                                               ; preds = %79
+  %83 = load i8, ptr %11, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %92
 
-84:                                               ; preds = %81
-  %85 = call ptr @get_prompt(i32 noundef 7, ptr noundef null)
-  store ptr %85, ptr %18, align 8
-  %86 = load ptr, ptr %18, align 8
-  %87 = load ptr, ptr @stdout, align 8
-  %88 = call i32 @fputs(ptr noundef %86, ptr noundef %87)
-  %89 = load ptr, ptr @stdout, align 8
-  %90 = call i32 @fflush(ptr noundef %89)
-  br label %91
+85:                                               ; preds = %82
+  %86 = call ptr @get_prompt(i32 noundef 7, ptr noundef null)
+  store ptr %86, ptr %18, align 8
+  %87 = load ptr, ptr %18, align 8
+  %88 = load ptr, ptr @stdout, align 8
+  %89 = call i32 @fputs(ptr noundef %87, ptr noundef %88)
+  %90 = load ptr, ptr @stdout, align 8
+  %91 = call i32 @fflush(ptr noundef %90)
+  br label %92
 
-91:                                               ; preds = %84, %81, %78
+92:                                               ; preds = %85, %82, %79
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
-  %92 = load i32, ptr %15, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr [8192 x i8], ptr %10, i64 0, i64 %93
-  %95 = load i32, ptr %15, align 4
-  %96 = sub i32 8192, %95
-  %97 = load ptr, ptr %6, align 8
-  %98 = call ptr @fgets(ptr noundef %94, i32 noundef %96, ptr noundef %97)
-  store ptr %98, ptr %17, align 8
+  %93 = load i32, ptr %15, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr [8192 x i8], ptr %10, i64 0, i64 %94
+  %96 = load i32, ptr %15, align 4
+  %97 = sub i32 8192, %96
+  %98 = load ptr, ptr %6, align 8
+  %99 = call ptr @fgets(ptr noundef %95, i32 noundef %97, ptr noundef %98)
+  store ptr %99, ptr %17, align 8
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
-  %99 = load ptr, ptr %17, align 8
-  %100 = icmp ne ptr %99, null
-  br i1 %100, label %102, label %101
+  %100 = load ptr, ptr %17, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %103, label %102
 
-101:                                              ; preds = %91
+102:                                              ; preds = %92
   store i8 1, ptr %14, align 1
-  br label %147
+  br label %153
 
-102:                                              ; preds = %91
-  %103 = load ptr, ptr %17, align 8
-  %104 = call i64 @strlen(ptr noundef %103) #8
-  %105 = trunc i64 %104 to i32
-  store i32 %105, ptr %19, align 4
-  %106 = load i32, ptr %19, align 4
-  %107 = load i32, ptr %15, align 4
-  %108 = add i32 %107, %106
-  store i32 %108, ptr %15, align 4
-  %109 = load i32, ptr %15, align 4
-  %110 = sub i32 %109, 1
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr [8192 x i8], ptr %10, i64 0, i64 %111
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = icmp eq i32 %114, 10
-  br i1 %115, label %116, label %145
+103:                                              ; preds = %92
+  %104 = load ptr, ptr %17, align 8
+  %105 = call i64 @strlen(ptr noundef %104) #8
+  %106 = trunc i64 %105 to i32
+  store i32 %106, ptr %19, align 4
+  %107 = load i32, ptr %19, align 4
+  %108 = load i32, ptr %15, align 4
+  %109 = add i32 %108, %107
+  store i32 %109, ptr %15, align 4
+  %110 = load i32, ptr %15, align 4
+  %111 = sub i32 %110, 1
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr [8192 x i8], ptr %10, i64 0, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = sext i8 %114 to i32
+  %116 = icmp eq i32 %115, 10
+  br i1 %116, label %117, label %151
 
-116:                                              ; preds = %102
-  %117 = load i8, ptr %16, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %135
+117:                                              ; preds = %103
+  %118 = load i8, ptr %16, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %136
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %19, align 4
-  %121 = icmp eq i32 %120, 3
-  br i1 %121, label %122, label %126
+120:                                              ; preds = %117
+  %121 = load i32, ptr %19, align 4
+  %122 = icmp eq i32 %121, 3
+  br i1 %122, label %123, label %127
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %17, align 8
-  %124 = call i32 @memcmp(ptr noundef %123, ptr noundef @.str.17, i64 noundef 3) #8
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %133, label %126
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %17, align 8
+  %125 = call i32 @memcmp(ptr noundef %124, ptr noundef @.str.17, i64 noundef 3) #8
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %134, label %127
 
-126:                                              ; preds = %122, %119
-  %127 = load i32, ptr %19, align 4
-  %128 = icmp eq i32 %127, 4
-  br i1 %128, label %129, label %134
+127:                                              ; preds = %123, %120
+  %128 = load i32, ptr %19, align 4
+  %129 = icmp eq i32 %128, 4
+  br i1 %129, label %130, label %135
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %17, align 8
-  %131 = call i32 @memcmp(ptr noundef %130, ptr noundef @.str.18, i64 noundef 4) #8
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %134
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %17, align 8
+  %132 = call i32 @memcmp(ptr noundef %131, ptr noundef @.str.18, i64 noundef 4) #8
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %129, %122
+134:                                              ; preds = %130, %123
   store i8 1, ptr %14, align 1
-  br label %134
-
-134:                                              ; preds = %133, %129, %126
   br label %135
 
-135:                                              ; preds = %134, %116
-  %136 = load ptr, ptr %6, align 8
-  %137 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 19), align 8
-  %138 = icmp eq ptr %136, %137
-  br i1 %138, label %139, label %144
+135:                                              ; preds = %134, %130, %127
+  br label %136
 
-139:                                              ; preds = %135
-  %140 = load i64, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 24), align 8
-  %141 = add i64 %140, 1
-  store i64 %141, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 24), align 8
-  %142 = load i64, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 25), align 8
-  %143 = add i64 %142, 1
-  store i64 %143, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 25), align 8
-  br label %144
+136:                                              ; preds = %135, %117
+  %137 = load ptr, ptr %6, align 8
+  %138 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 19
+  %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq ptr %137, %139
+  br i1 %140, label %141, label %150
 
-144:                                              ; preds = %139, %135
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 24
+  %143 = load i64, ptr %142, align 8
+  %144 = add i64 %143, 1
+  %145 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 24
+  store i64 %144, ptr %145, align 8
+  %146 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 25
+  %147 = load i64, ptr %146, align 8
+  %148 = add i64 %147, 1
+  %149 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 25
+  store i64 %148, ptr %149, align 8
+  br label %150
+
+150:                                              ; preds = %141, %136
   store i8 1, ptr %16, align 1
-  br label %146
+  br label %152
 
-145:                                              ; preds = %102
+151:                                              ; preds = %103
   store i8 0, ptr %16, align 1
-  br label %146
+  br label %152
 
-146:                                              ; preds = %145, %144
-  br label %147
+152:                                              ; preds = %151, %150
+  br label %153
 
-147:                                              ; preds = %146, %101
-  %148 = load i32, ptr %15, align 4
-  %149 = icmp sge i32 %148, 8187
-  br i1 %149, label %156, label %150
-
-150:                                              ; preds = %147
-  %151 = load i8, ptr %14, align 1
-  %152 = trunc i8 %151 to i1
-  br i1 %152, label %153, label %164
-
-153:                                              ; preds = %150
+153:                                              ; preds = %152, %102
   %154 = load i32, ptr %15, align 4
-  %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %156, label %164
+  %155 = icmp sge i32 %154, 8187
+  br i1 %155, label %162, label %156
 
-156:                                              ; preds = %153, %147
-  %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
-  %159 = load i32, ptr %15, align 4
-  %160 = call i32 @PQputCopyData(ptr noundef %157, ptr noundef %158, i32 noundef %159)
-  %161 = icmp sle i32 %160, 0
-  br i1 %161, label %162, label %163
+156:                                              ; preds = %153
+  %157 = load i8, ptr %14, align 1
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %170
 
-162:                                              ; preds = %156
-  store i8 0, ptr %9, align 1
-  br label %165
+159:                                              ; preds = %156
+  %160 = load i32, ptr %15, align 4
+  %161 = icmp sgt i32 %160, 0
+  br i1 %161, label %162, label %170
 
-163:                                              ; preds = %156
-  store i32 0, ptr %15, align 4
-  br label %164
+162:                                              ; preds = %159, %153
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
+  %165 = load i32, ptr %15, align 4
+  %166 = call i32 @PQputCopyData(ptr noundef %163, ptr noundef %164, i32 noundef %165)
+  %167 = icmp sle i32 %166, 0
+  br i1 %167, label %168, label %169
 
-164:                                              ; preds = %163, %153, %150
-  br label %74, !llvm.loop !7
-
-165:                                              ; preds = %162, %74
-  br label %166
-
-166:                                              ; preds = %165, %72
-  %167 = load ptr, ptr %6, align 8
-  %168 = call i32 @ferror(ptr noundef %167) #7
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %171
-
-170:                                              ; preds = %166
+168:                                              ; preds = %162
   store i8 0, ptr %9, align 1
   br label %171
 
-171:                                              ; preds = %170, %166
-  %172 = load ptr, ptr %5, align 8
-  %173 = load i8, ptr %9, align 1
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %179, label %175
+169:                                              ; preds = %162
+  store i32 0, ptr %15, align 4
+  br label %170
 
-175:                                              ; preds = %171
-  %176 = load ptr, ptr %5, align 8
-  %177 = call i32 @PQprotocolVersion(ptr noundef %176)
-  %178 = icmp slt i32 %177, 3
-  br label %179
+170:                                              ; preds = %169, %159, %156
+  br label %75, !llvm.loop !7
 
-179:                                              ; preds = %175, %171
-  %180 = phi i1 [ true, %171 ], [ %178, %175 ]
-  %181 = select i1 %180, ptr null, ptr @.str.19
-  %182 = call i32 @PQputCopyEnd(ptr noundef %172, ptr noundef %181)
-  %183 = icmp sle i32 %182, 0
-  br i1 %183, label %184, label %185
+171:                                              ; preds = %168, %75
+  br label %172
 
-184:                                              ; preds = %179
+172:                                              ; preds = %171, %73
+  %173 = load ptr, ptr %6, align 8
+  %174 = call i32 @ferror(ptr noundef %173) #7
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %177
+
+176:                                              ; preds = %172
   store i8 0, ptr %9, align 1
+  br label %177
+
+177:                                              ; preds = %176, %172
+  %178 = load ptr, ptr %5, align 8
+  %179 = load i8, ptr %9, align 1
+  %180 = trunc i8 %179 to i1
+  br i1 %180, label %185, label %181
+
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %5, align 8
+  %183 = call i32 @PQprotocolVersion(ptr noundef %182)
+  %184 = icmp slt i32 %183, 3
   br label %185
 
-185:                                              ; preds = %184, %179
-  br label %186
+185:                                              ; preds = %181, %177
+  %186 = phi i1 [ true, %177 ], [ %184, %181 ]
+  %187 = select i1 %186, ptr null, ptr @.str.19
+  %188 = call i32 @PQputCopyEnd(ptr noundef %178, ptr noundef %187)
+  %189 = icmp sle i32 %188, 0
+  br i1 %189, label %190, label %191
 
-186:                                              ; preds = %185, %23
-  %187 = load ptr, ptr %6, align 8
-  call void @clearerr(ptr noundef %187) #7
-  br label %188
-
-188:                                              ; preds = %196, %186
-  %189 = load ptr, ptr %5, align 8
-  %190 = call ptr @PQgetResult(ptr noundef %189)
-  %191 = load ptr, ptr %8, align 8
-  store ptr %190, ptr %191, align 8
-  %192 = load ptr, ptr %8, align 8
-  %193 = load ptr, ptr %192, align 8
-  %194 = call i32 @PQresultStatus(ptr noundef %193)
-  %195 = icmp eq i32 %194, 4
-  br i1 %195, label %196, label %205
-
-196:                                              ; preds = %188
+190:                                              ; preds = %185
   store i8 0, ptr %9, align 1
+  br label %191
+
+191:                                              ; preds = %190, %185
+  br label %192
+
+192:                                              ; preds = %191, %23
+  %193 = load ptr, ptr %6, align 8
+  call void @clearerr(ptr noundef %193) #7
+  br label %194
+
+194:                                              ; preds = %202, %192
+  %195 = load ptr, ptr %5, align 8
+  %196 = call ptr @PQgetResult(ptr noundef %195)
   %197 = load ptr, ptr %8, align 8
-  %198 = load ptr, ptr %197, align 8
-  call void @PQclear(ptr noundef %198)
-  %199 = load ptr, ptr %5, align 8
-  %200 = load ptr, ptr %5, align 8
-  %201 = call i32 @PQprotocolVersion(ptr noundef %200)
-  %202 = icmp slt i32 %201, 3
-  %203 = select i1 %202, ptr null, ptr @.str.20
-  %204 = call i32 @PQputCopyEnd(ptr noundef %199, ptr noundef %203)
-  br label %188, !llvm.loop !8
+  store ptr %196, ptr %197, align 8
+  %198 = load ptr, ptr %8, align 8
+  %199 = load ptr, ptr %198, align 8
+  %200 = call i32 @PQresultStatus(ptr noundef %199)
+  %201 = icmp eq i32 %200, 4
+  br i1 %201, label %202, label %211
 
-205:                                              ; preds = %188
-  %206 = load ptr, ptr %8, align 8
-  %207 = load ptr, ptr %206, align 8
-  %208 = call i32 @PQresultStatus(ptr noundef %207)
-  %209 = icmp ne i32 %208, 1
-  br i1 %209, label %210, label %213
-
-210:                                              ; preds = %205
-  %211 = load ptr, ptr %5, align 8
-  %212 = call ptr @PQerrorMessage(ptr noundef %211)
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.14, ptr noundef %212)
+202:                                              ; preds = %194
   store i8 0, ptr %9, align 1
-  br label %213
+  %203 = load ptr, ptr %8, align 8
+  %204 = load ptr, ptr %203, align 8
+  call void @PQclear(ptr noundef %204)
+  %205 = load ptr, ptr %5, align 8
+  %206 = load ptr, ptr %5, align 8
+  %207 = call i32 @PQprotocolVersion(ptr noundef %206)
+  %208 = icmp slt i32 %207, 3
+  %209 = select i1 %208, ptr null, ptr @.str.20
+  %210 = call i32 @PQputCopyEnd(ptr noundef %205, ptr noundef %209)
+  br label %194, !llvm.loop !8
 
-213:                                              ; preds = %210, %205
-  %214 = load i8, ptr %9, align 1
-  %215 = trunc i8 %214 to i1
-  ret i1 %215
+211:                                              ; preds = %194
+  %212 = load ptr, ptr %8, align 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = call i32 @PQresultStatus(ptr noundef %213)
+  %215 = icmp ne i32 %214, 1
+  br i1 %215, label %216, label %219
+
+216:                                              ; preds = %211
+  %217 = load ptr, ptr %5, align 8
+  %218 = call ptr @PQerrorMessage(ptr noundef %217)
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.14, ptr noundef %218)
+  store i8 0, ptr %9, align 1
+  br label %219
+
+219:                                              ; preds = %216, %211
+  %220 = load i8, ptr %9, align 1
+  %221 = trunc i8 %220 to i1
+  ret i1 %221
 }
 
 ; Function Attrs: nounwind returns_twice

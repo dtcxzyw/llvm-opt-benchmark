@@ -18,9 +18,10 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   store ptr @prte_schizo_prte_module, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %4, align 8
-  store i32 %6, ptr %7, align 4
+  %6 = getelementptr inbounds %struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store i32 %7, ptr %8, align 4
   ret i32 0
 }
 
@@ -28,9 +29,11 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
 define internal i32 @component_register() #0 {
   %1 = alloca ptr, align 8
   store ptr @prte_mca_schizo_prte_component, ptr %1, align 8
-  store i8 1, ptr getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 2), align 4
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef %2, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 2))
+  %2 = getelementptr inbounds %struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 2
+  store i8 1, ptr %2, align 4
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds %struct.prte_schizo_prte_component_t, ptr @prte_mca_schizo_prte_component, i32 0, i32 2
+  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef %4)
   ret i32 0
 }
 

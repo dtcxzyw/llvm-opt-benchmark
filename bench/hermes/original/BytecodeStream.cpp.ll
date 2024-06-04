@@ -6721,9 +6721,10 @@ entry:
 define linkonce_odr hidden { ptr, i64 } @_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE11getEmptyKeyEv() #0 comdat align 2 {
 entry:
   %retval = alloca %"class.llvh::ArrayRef", align 8
-  call void @_ZN4llvh8ArrayRefIhEC2EPKhm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef inttoptr (i64 -1 to ptr), i64 noundef 0)
-  %0 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %0
+  %0 = inttoptr i64 -1 to ptr
+  call void @_ZN4llvh8ArrayRefIhEC2EPKhm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, i64 noundef 0)
+  %1 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6983,9 +6984,10 @@ entry:
 define linkonce_odr hidden { ptr, i64 } @_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE15getTombstoneKeyEv() #0 comdat align 2 {
 entry:
   %retval = alloca %"class.llvh::ArrayRef", align 8
-  call void @_ZN4llvh8ArrayRefIhEC2EPKhm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef inttoptr (i64 -2 to ptr), i64 noundef 0)
-  %0 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %0
+  %0 = inttoptr i64 -2 to ptr
+  call void @_ZN4llvh8ArrayRefIhEC2EPKhm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, i64 noundef 0)
+  %1 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

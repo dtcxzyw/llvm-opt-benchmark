@@ -461,7 +461,7 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %11, align 8
   %35 = load i32, ptr %6, align 4
-  switch i32 %35, label %1260 [
+  switch i32 %35, label %1265 [
     i32 0, label %36
     i32 1, label %43
     i32 2, label %46
@@ -483,53 +483,53 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
     i32 4, label %69
     i32 5, label %96
     i32 6, label %123
-    i32 7, label %175
-    i32 8, label %198
-    i32 37, label %198
-    i32 16, label %224
-    i32 19, label %224
-    i32 28, label %225
-    i32 17, label %234
-    i32 18, label %275
-    i32 20, label %335
-    i32 21, label %360
-    i32 22, label %405
-    i32 29, label %442
-    i32 30, label %464
-    i32 31, label %487
-    i32 32, label %514
-    i32 33, label %541
-    i32 34, label %568
-    i32 35, label %595
-    i32 36, label %622
-    i32 38, label %649
-    i32 39, label %659
-    i32 40, label %669
-    i32 41, label %679
-    i32 42, label %689
-    i32 43, label %699
-    i32 44, label %709
-    i32 45, label %719
-    i32 46, label %729
-    i32 47, label %759
-    i32 49, label %802
-    i32 50, label %829
-    i32 51, label %856
-    i32 52, label %883
-    i32 54, label %917
-    i32 55, label %940
-    i32 56, label %963
-    i32 57, label %975
-    i32 58, label %995
-    i32 59, label %1005
-    i32 60, label %1023
-    i32 61, label %1052
-    i32 62, label %1081
-    i32 63, label %1122
-    i32 64, label %1171
-    i32 65, label %1204
-    i32 66, label %1232
-    i32 67, label %1242
+    i32 7, label %178
+    i32 8, label %201
+    i32 37, label %201
+    i32 16, label %227
+    i32 19, label %227
+    i32 28, label %228
+    i32 17, label %237
+    i32 18, label %278
+    i32 20, label %338
+    i32 21, label %363
+    i32 22, label %408
+    i32 29, label %445
+    i32 30, label %467
+    i32 31, label %490
+    i32 32, label %517
+    i32 33, label %544
+    i32 34, label %571
+    i32 35, label %598
+    i32 36, label %625
+    i32 38, label %652
+    i32 39, label %662
+    i32 40, label %672
+    i32 41, label %682
+    i32 42, label %692
+    i32 43, label %702
+    i32 44, label %712
+    i32 45, label %722
+    i32 46, label %732
+    i32 47, label %762
+    i32 49, label %805
+    i32 50, label %832
+    i32 51, label %859
+    i32 52, label %886
+    i32 54, label %920
+    i32 55, label %943
+    i32 56, label %966
+    i32 57, label %978
+    i32 58, label %998
+    i32 59, label %1008
+    i32 60, label %1026
+    i32 61, label %1056
+    i32 62, label %1086
+    i32 63, label %1127
+    i32 64, label %1176
+    i32 65, label %1209
+    i32 66, label %1237
+    i32 67, label %1247
   ]
 
 36:                                               ; preds = %4
@@ -540,13 +540,13 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
   %41 = load ptr, ptr %13, align 8
   %42 = getelementptr inbounds %struct.dfsyntax_t, ptr %41, i32 0, i32 2
   store ptr %40, ptr %42, align 8
-  br label %1261
+  br label %1266
 
 43:                                               ; preds = %4
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds %struct.dfsyntax_t, ptr %44, i32 0, i32 2
   store ptr null, ptr %45, align 8
-  br label %1261
+  br label %1266
 
 46:                                               ; preds = %4, %4
   br label %47
@@ -601,7 +601,7 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
   %67 = getelementptr %struct.yyStackEntry, ptr %66, i64 0
   %68 = getelementptr inbounds %struct.yyStackEntry, ptr %67, i32 0, i32 2
   store ptr %65, ptr %68, align 8
-  br label %1261
+  br label %1266
 
 69:                                               ; preds = %4
   %70 = load ptr, ptr %11, align 8
@@ -634,7 +634,7 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
   %94 = getelementptr %struct.yyStackEntry, ptr %93, i64 -2
   %95 = getelementptr inbounds %struct.yyStackEntry, ptr %94, i32 0, i32 2
   store ptr %92, ptr %95, align 8
-  br label %1261
+  br label %1266
 
 96:                                               ; preds = %4
   %97 = load ptr, ptr %11, align 8
@@ -667,1539 +667,1544 @@ define internal zeroext i8 @yy_reduce(ptr noundef %0, i32 noundef %1, i32 nounde
   %121 = getelementptr %struct.yyStackEntry, ptr %120, i64 -2
   %122 = getelementptr inbounds %struct.yyStackEntry, ptr %121, i32 0, i32 2
   store ptr %119, ptr %122, align 8
-  br label %1261
+  br label %1266
 
 123:                                              ; preds = %4
   %124 = load i64, ptr @loc_empty, align 8
-  %125 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  %126 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %124, i64 %125)
-  store ptr %126, ptr %15, align 8
-  %127 = load ptr, ptr %15, align 8
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr %struct.yyStackEntry, ptr %128, i64 -2
-  %130 = getelementptr inbounds %struct.yyStackEntry, ptr %129, i32 0, i32 2
-  %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @stnode_dup(ptr noundef %131)
-  %133 = load ptr, ptr %11, align 8
-  %134 = getelementptr %struct.yyStackEntry, ptr %133, i64 0
-  %135 = getelementptr inbounds %struct.yyStackEntry, ptr %134, i32 0, i32 2
-  %136 = load ptr, ptr %135, align 8
-  %137 = call ptr @stnode_dup(ptr noundef %136)
-  call void @sttype_oper_set2(ptr noundef %127, i32 noundef 3, ptr noundef %132, ptr noundef %137)
-  %138 = load i64, ptr @loc_empty, align 8
-  %139 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  %140 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %138, i64 %139)
-  store ptr %140, ptr %16, align 8
-  %141 = load ptr, ptr %16, align 8
-  %142 = load ptr, ptr %11, align 8
-  %143 = getelementptr %struct.yyStackEntry, ptr %142, i64 -2
-  %144 = getelementptr inbounds %struct.yyStackEntry, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %11, align 8
-  %147 = getelementptr %struct.yyStackEntry, ptr %146, i64 0
-  %148 = getelementptr inbounds %struct.yyStackEntry, ptr %147, i32 0, i32 2
-  %149 = load ptr, ptr %148, align 8
-  call void @sttype_oper_set2(ptr noundef %141, i32 noundef 2, ptr noundef %145, ptr noundef %149)
-  %150 = load i64, ptr @loc_empty, align 8
-  %151 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  %152 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %150, i64 %151)
-  store ptr %152, ptr %17, align 8
-  %153 = load ptr, ptr %17, align 8
-  %154 = load ptr, ptr %16, align 8
-  call void @sttype_oper_set1(ptr noundef %153, i32 noundef 1, ptr noundef %154)
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr %struct.yyStackEntry, ptr %155, i64 -1
-  %157 = getelementptr inbounds %struct.yyStackEntry, ptr %156, i32 0, i32 2
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %14, align 8
-  %159 = load ptr, ptr %14, align 8
-  %160 = load ptr, ptr %15, align 8
-  %161 = load ptr, ptr %17, align 8
-  call void @sttype_oper_set2(ptr noundef %159, i32 noundef 2, ptr noundef %160, ptr noundef %161)
+  %125 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8
+  %127 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %124, i64 %126)
+  store ptr %127, ptr %15, align 8
+  %128 = load ptr, ptr %15, align 8
+  %129 = load ptr, ptr %11, align 8
+  %130 = getelementptr %struct.yyStackEntry, ptr %129, i64 -2
+  %131 = getelementptr inbounds %struct.yyStackEntry, ptr %130, i32 0, i32 2
+  %132 = load ptr, ptr %131, align 8
+  %133 = call ptr @stnode_dup(ptr noundef %132)
+  %134 = load ptr, ptr %11, align 8
+  %135 = getelementptr %struct.yyStackEntry, ptr %134, i64 0
+  %136 = getelementptr inbounds %struct.yyStackEntry, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8
+  %138 = call ptr @stnode_dup(ptr noundef %137)
+  call void @sttype_oper_set2(ptr noundef %128, i32 noundef 3, ptr noundef %133, ptr noundef %138)
+  %139 = load i64, ptr @loc_empty, align 8
+  %140 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %141 = load i64, ptr %140, align 8
+  %142 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %139, i64 %141)
+  store ptr %142, ptr %16, align 8
+  %143 = load ptr, ptr %16, align 8
+  %144 = load ptr, ptr %11, align 8
+  %145 = getelementptr %struct.yyStackEntry, ptr %144, i64 -2
+  %146 = getelementptr inbounds %struct.yyStackEntry, ptr %145, i32 0, i32 2
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %11, align 8
+  %149 = getelementptr %struct.yyStackEntry, ptr %148, i64 0
+  %150 = getelementptr inbounds %struct.yyStackEntry, ptr %149, i32 0, i32 2
+  %151 = load ptr, ptr %150, align 8
+  call void @sttype_oper_set2(ptr noundef %143, i32 noundef 2, ptr noundef %147, ptr noundef %151)
+  %152 = load i64, ptr @loc_empty, align 8
+  %153 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %154 = load i64, ptr %153, align 8
+  %155 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %152, i64 %154)
+  store ptr %155, ptr %17, align 8
+  %156 = load ptr, ptr %17, align 8
+  %157 = load ptr, ptr %16, align 8
+  call void @sttype_oper_set1(ptr noundef %156, i32 noundef 1, ptr noundef %157)
+  %158 = load ptr, ptr %11, align 8
+  %159 = getelementptr %struct.yyStackEntry, ptr %158, i64 -1
+  %160 = getelementptr inbounds %struct.yyStackEntry, ptr %159, i32 0, i32 2
+  %161 = load ptr, ptr %160, align 8
+  store ptr %161, ptr %14, align 8
   %162 = load ptr, ptr %14, align 8
-  %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr %struct.yyStackEntry, ptr %163, i64 -2
-  %165 = getelementptr inbounds %struct.yyStackEntry, ptr %164, i32 0, i32 2
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %11, align 8
-  %168 = getelementptr %struct.yyStackEntry, ptr %167, i64 0
-  %169 = getelementptr inbounds %struct.yyStackEntry, ptr %168, i32 0, i32 2
-  %170 = load ptr, ptr %169, align 8
-  call void @stnode_merge_location(ptr noundef %162, ptr noundef %166, ptr noundef %170)
-  %171 = load ptr, ptr %14, align 8
-  %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr %struct.yyStackEntry, ptr %172, i64 -2
-  %174 = getelementptr inbounds %struct.yyStackEntry, ptr %173, i32 0, i32 2
-  store ptr %171, ptr %174, align 8
-  br label %1261
+  %163 = load ptr, ptr %15, align 8
+  %164 = load ptr, ptr %17, align 8
+  call void @sttype_oper_set2(ptr noundef %162, i32 noundef 2, ptr noundef %163, ptr noundef %164)
+  %165 = load ptr, ptr %14, align 8
+  %166 = load ptr, ptr %11, align 8
+  %167 = getelementptr %struct.yyStackEntry, ptr %166, i64 -2
+  %168 = getelementptr inbounds %struct.yyStackEntry, ptr %167, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8
+  %170 = load ptr, ptr %11, align 8
+  %171 = getelementptr %struct.yyStackEntry, ptr %170, i64 0
+  %172 = getelementptr inbounds %struct.yyStackEntry, ptr %171, i32 0, i32 2
+  %173 = load ptr, ptr %172, align 8
+  call void @stnode_merge_location(ptr noundef %165, ptr noundef %169, ptr noundef %173)
+  %174 = load ptr, ptr %14, align 8
+  %175 = load ptr, ptr %11, align 8
+  %176 = getelementptr %struct.yyStackEntry, ptr %175, i64 -2
+  %177 = getelementptr inbounds %struct.yyStackEntry, ptr %176, i32 0, i32 2
+  store ptr %174, ptr %177, align 8
+  br label %1266
 
-175:                                              ; preds = %4
-  %176 = load ptr, ptr %11, align 8
-  %177 = getelementptr %struct.yyStackEntry, ptr %176, i64 -1
-  %178 = getelementptr inbounds %struct.yyStackEntry, ptr %177, i32 0, i32 2
-  %179 = load ptr, ptr %178, align 8
-  store ptr %179, ptr %14, align 8
-  %180 = load ptr, ptr %14, align 8
-  %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr %struct.yyStackEntry, ptr %181, i64 0
-  %183 = getelementptr inbounds %struct.yyStackEntry, ptr %182, i32 0, i32 2
-  %184 = load ptr, ptr %183, align 8
-  call void @sttype_oper_set1(ptr noundef %180, i32 noundef 1, ptr noundef %184)
-  %185 = load ptr, ptr %14, align 8
-  %186 = load ptr, ptr %11, align 8
-  %187 = getelementptr %struct.yyStackEntry, ptr %186, i64 -1
-  %188 = getelementptr inbounds %struct.yyStackEntry, ptr %187, i32 0, i32 2
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %11, align 8
-  %191 = getelementptr %struct.yyStackEntry, ptr %190, i64 0
-  %192 = getelementptr inbounds %struct.yyStackEntry, ptr %191, i32 0, i32 2
-  %193 = load ptr, ptr %192, align 8
-  call void @stnode_merge_location(ptr noundef %185, ptr noundef %189, ptr noundef %193)
-  %194 = load ptr, ptr %14, align 8
-  %195 = load ptr, ptr %11, align 8
-  %196 = getelementptr %struct.yyStackEntry, ptr %195, i64 -1
-  %197 = getelementptr inbounds %struct.yyStackEntry, ptr %196, i32 0, i32 2
-  store ptr %194, ptr %197, align 8
-  br label %1261
+178:                                              ; preds = %4
+  %179 = load ptr, ptr %11, align 8
+  %180 = getelementptr %struct.yyStackEntry, ptr %179, i64 -1
+  %181 = getelementptr inbounds %struct.yyStackEntry, ptr %180, i32 0, i32 2
+  %182 = load ptr, ptr %181, align 8
+  store ptr %182, ptr %14, align 8
+  %183 = load ptr, ptr %14, align 8
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr %struct.yyStackEntry, ptr %184, i64 0
+  %186 = getelementptr inbounds %struct.yyStackEntry, ptr %185, i32 0, i32 2
+  %187 = load ptr, ptr %186, align 8
+  call void @sttype_oper_set1(ptr noundef %183, i32 noundef 1, ptr noundef %187)
+  %188 = load ptr, ptr %14, align 8
+  %189 = load ptr, ptr %11, align 8
+  %190 = getelementptr %struct.yyStackEntry, ptr %189, i64 -1
+  %191 = getelementptr inbounds %struct.yyStackEntry, ptr %190, i32 0, i32 2
+  %192 = load ptr, ptr %191, align 8
+  %193 = load ptr, ptr %11, align 8
+  %194 = getelementptr %struct.yyStackEntry, ptr %193, i64 0
+  %195 = getelementptr inbounds %struct.yyStackEntry, ptr %194, i32 0, i32 2
+  %196 = load ptr, ptr %195, align 8
+  call void @stnode_merge_location(ptr noundef %188, ptr noundef %192, ptr noundef %196)
+  %197 = load ptr, ptr %14, align 8
+  %198 = load ptr, ptr %11, align 8
+  %199 = getelementptr %struct.yyStackEntry, ptr %198, i64 -1
+  %200 = getelementptr inbounds %struct.yyStackEntry, ptr %199, i32 0, i32 2
+  store ptr %197, ptr %200, align 8
+  br label %1266
 
-198:                                              ; preds = %4, %4
-  %199 = load ptr, ptr %11, align 8
-  %200 = getelementptr %struct.yyStackEntry, ptr %199, i64 -1
-  %201 = getelementptr inbounds %struct.yyStackEntry, ptr %200, i32 0, i32 2
-  %202 = load ptr, ptr %201, align 8
-  store ptr %202, ptr %14, align 8
-  %203 = load ptr, ptr %14, align 8
-  %204 = load ptr, ptr %11, align 8
-  %205 = getelementptr %struct.yyStackEntry, ptr %204, i64 -2
-  %206 = getelementptr inbounds %struct.yyStackEntry, ptr %205, i32 0, i32 2
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = getelementptr %struct.yyStackEntry, ptr %208, i64 0
-  %210 = getelementptr inbounds %struct.yyStackEntry, ptr %209, i32 0, i32 2
-  %211 = load ptr, ptr %210, align 8
-  call void @stnode_merge_location(ptr noundef %203, ptr noundef %207, ptr noundef %211)
-  %212 = load ptr, ptr %11, align 8
-  %213 = getelementptr %struct.yyStackEntry, ptr %212, i64 -2
-  %214 = getelementptr inbounds %struct.yyStackEntry, ptr %213, i32 0, i32 2
-  %215 = load ptr, ptr %214, align 8
-  call void @stnode_free(ptr noundef %215)
-  %216 = load ptr, ptr %11, align 8
-  %217 = getelementptr %struct.yyStackEntry, ptr %216, i64 0
-  %218 = getelementptr inbounds %struct.yyStackEntry, ptr %217, i32 0, i32 2
-  %219 = load ptr, ptr %218, align 8
-  call void @stnode_free(ptr noundef %219)
-  %220 = load ptr, ptr %14, align 8
-  %221 = load ptr, ptr %11, align 8
-  %222 = getelementptr %struct.yyStackEntry, ptr %221, i64 -2
-  %223 = getelementptr inbounds %struct.yyStackEntry, ptr %222, i32 0, i32 2
-  store ptr %220, ptr %223, align 8
-  br label %1261
+201:                                              ; preds = %4, %4
+  %202 = load ptr, ptr %11, align 8
+  %203 = getelementptr %struct.yyStackEntry, ptr %202, i64 -1
+  %204 = getelementptr inbounds %struct.yyStackEntry, ptr %203, i32 0, i32 2
+  %205 = load ptr, ptr %204, align 8
+  store ptr %205, ptr %14, align 8
+  %206 = load ptr, ptr %14, align 8
+  %207 = load ptr, ptr %11, align 8
+  %208 = getelementptr %struct.yyStackEntry, ptr %207, i64 -2
+  %209 = getelementptr inbounds %struct.yyStackEntry, ptr %208, i32 0, i32 2
+  %210 = load ptr, ptr %209, align 8
+  %211 = load ptr, ptr %11, align 8
+  %212 = getelementptr %struct.yyStackEntry, ptr %211, i64 0
+  %213 = getelementptr inbounds %struct.yyStackEntry, ptr %212, i32 0, i32 2
+  %214 = load ptr, ptr %213, align 8
+  call void @stnode_merge_location(ptr noundef %206, ptr noundef %210, ptr noundef %214)
+  %215 = load ptr, ptr %11, align 8
+  %216 = getelementptr %struct.yyStackEntry, ptr %215, i64 -2
+  %217 = getelementptr inbounds %struct.yyStackEntry, ptr %216, i32 0, i32 2
+  %218 = load ptr, ptr %217, align 8
+  call void @stnode_free(ptr noundef %218)
+  %219 = load ptr, ptr %11, align 8
+  %220 = getelementptr %struct.yyStackEntry, ptr %219, i64 0
+  %221 = getelementptr inbounds %struct.yyStackEntry, ptr %220, i32 0, i32 2
+  %222 = load ptr, ptr %221, align 8
+  call void @stnode_free(ptr noundef %222)
+  %223 = load ptr, ptr %14, align 8
+  %224 = load ptr, ptr %11, align 8
+  %225 = getelementptr %struct.yyStackEntry, ptr %224, i64 -2
+  %226 = getelementptr inbounds %struct.yyStackEntry, ptr %225, i32 0, i32 2
+  store ptr %223, ptr %226, align 8
+  br label %1266
 
-224:                                              ; preds = %4, %4
-  br label %225
+227:                                              ; preds = %4, %4
+  br label %228
 
-225:                                              ; preds = %224, %4
-  %226 = load ptr, ptr %11, align 8
-  %227 = getelementptr %struct.yyStackEntry, ptr %226, i64 0
-  %228 = getelementptr inbounds %struct.yyStackEntry, ptr %227, i32 0, i32 2
-  %229 = load ptr, ptr %228, align 8
-  store ptr %229, ptr %14, align 8
-  %230 = load ptr, ptr %14, align 8
-  %231 = load ptr, ptr %11, align 8
-  %232 = getelementptr %struct.yyStackEntry, ptr %231, i64 0
-  %233 = getelementptr inbounds %struct.yyStackEntry, ptr %232, i32 0, i32 2
-  store ptr %230, ptr %233, align 8
-  br label %1261
+228:                                              ; preds = %227, %4
+  %229 = load ptr, ptr %11, align 8
+  %230 = getelementptr %struct.yyStackEntry, ptr %229, i64 0
+  %231 = getelementptr inbounds %struct.yyStackEntry, ptr %230, i32 0, i32 2
+  %232 = load ptr, ptr %231, align 8
+  store ptr %232, ptr %14, align 8
+  %233 = load ptr, ptr %14, align 8
+  %234 = load ptr, ptr %11, align 8
+  %235 = getelementptr %struct.yyStackEntry, ptr %234, i64 0
+  %236 = getelementptr inbounds %struct.yyStackEntry, ptr %235, i32 0, i32 2
+  store ptr %233, ptr %236, align 8
+  br label %1266
 
-234:                                              ; preds = %4
-  %235 = load ptr, ptr %13, align 8
-  %236 = load ptr, ptr %11, align 8
-  %237 = getelementptr %struct.yyStackEntry, ptr %236, i64 -4
-  %238 = getelementptr inbounds %struct.yyStackEntry, ptr %237, i32 0, i32 2
-  %239 = load ptr, ptr %238, align 8
-  %240 = call ptr @resolve_unparsed(ptr noundef %235, ptr noundef %239)
-  store ptr %240, ptr %14, align 8
-  %241 = load ptr, ptr %14, align 8
-  %242 = load ptr, ptr %11, align 8
-  %243 = getelementptr %struct.yyStackEntry, ptr %242, i64 -1
-  %244 = getelementptr inbounds %struct.yyStackEntry, ptr %243, i32 0, i32 2
-  %245 = load ptr, ptr %244, align 8
-  call void @sttype_field_set_range(ptr noundef %241, ptr noundef %245)
-  %246 = load ptr, ptr %11, align 8
-  %247 = getelementptr %struct.yyStackEntry, ptr %246, i64 -1
-  %248 = getelementptr inbounds %struct.yyStackEntry, ptr %247, i32 0, i32 2
-  %249 = load ptr, ptr %248, align 8
-  call void @g_slist_free(ptr noundef %249)
-  %250 = load ptr, ptr %14, align 8
-  %251 = load ptr, ptr %11, align 8
-  %252 = getelementptr %struct.yyStackEntry, ptr %251, i64 -4
-  %253 = getelementptr inbounds %struct.yyStackEntry, ptr %252, i32 0, i32 2
-  %254 = load ptr, ptr %253, align 8
-  %255 = load ptr, ptr %11, align 8
-  %256 = getelementptr %struct.yyStackEntry, ptr %255, i64 0
-  %257 = getelementptr inbounds %struct.yyStackEntry, ptr %256, i32 0, i32 2
-  %258 = load ptr, ptr %257, align 8
-  call void @stnode_merge_location(ptr noundef %250, ptr noundef %254, ptr noundef %258)
-  %259 = load ptr, ptr %11, align 8
-  %260 = getelementptr %struct.yyStackEntry, ptr %259, i64 0
-  %261 = getelementptr inbounds %struct.yyStackEntry, ptr %260, i32 0, i32 2
-  %262 = load ptr, ptr %261, align 8
-  call void @stnode_free(ptr noundef %262)
-  %263 = load ptr, ptr %5, align 8
-  %264 = load ptr, ptr %11, align 8
-  %265 = getelementptr %struct.yyStackEntry, ptr %264, i64 -3
-  %266 = getelementptr inbounds %struct.yyStackEntry, ptr %265, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %263, i8 noundef zeroext 32, ptr noundef %266)
-  %267 = load ptr, ptr %5, align 8
-  %268 = load ptr, ptr %11, align 8
-  %269 = getelementptr %struct.yyStackEntry, ptr %268, i64 -2
-  %270 = getelementptr inbounds %struct.yyStackEntry, ptr %269, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %267, i8 noundef zeroext 33, ptr noundef %270)
-  %271 = load ptr, ptr %14, align 8
-  %272 = load ptr, ptr %11, align 8
-  %273 = getelementptr %struct.yyStackEntry, ptr %272, i64 -4
-  %274 = getelementptr inbounds %struct.yyStackEntry, ptr %273, i32 0, i32 2
-  store ptr %271, ptr %274, align 8
-  br label %1261
+237:                                              ; preds = %4
+  %238 = load ptr, ptr %13, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = getelementptr %struct.yyStackEntry, ptr %239, i64 -4
+  %241 = getelementptr inbounds %struct.yyStackEntry, ptr %240, i32 0, i32 2
+  %242 = load ptr, ptr %241, align 8
+  %243 = call ptr @resolve_unparsed(ptr noundef %238, ptr noundef %242)
+  store ptr %243, ptr %14, align 8
+  %244 = load ptr, ptr %14, align 8
+  %245 = load ptr, ptr %11, align 8
+  %246 = getelementptr %struct.yyStackEntry, ptr %245, i64 -1
+  %247 = getelementptr inbounds %struct.yyStackEntry, ptr %246, i32 0, i32 2
+  %248 = load ptr, ptr %247, align 8
+  call void @sttype_field_set_range(ptr noundef %244, ptr noundef %248)
+  %249 = load ptr, ptr %11, align 8
+  %250 = getelementptr %struct.yyStackEntry, ptr %249, i64 -1
+  %251 = getelementptr inbounds %struct.yyStackEntry, ptr %250, i32 0, i32 2
+  %252 = load ptr, ptr %251, align 8
+  call void @g_slist_free(ptr noundef %252)
+  %253 = load ptr, ptr %14, align 8
+  %254 = load ptr, ptr %11, align 8
+  %255 = getelementptr %struct.yyStackEntry, ptr %254, i64 -4
+  %256 = getelementptr inbounds %struct.yyStackEntry, ptr %255, i32 0, i32 2
+  %257 = load ptr, ptr %256, align 8
+  %258 = load ptr, ptr %11, align 8
+  %259 = getelementptr %struct.yyStackEntry, ptr %258, i64 0
+  %260 = getelementptr inbounds %struct.yyStackEntry, ptr %259, i32 0, i32 2
+  %261 = load ptr, ptr %260, align 8
+  call void @stnode_merge_location(ptr noundef %253, ptr noundef %257, ptr noundef %261)
+  %262 = load ptr, ptr %11, align 8
+  %263 = getelementptr %struct.yyStackEntry, ptr %262, i64 0
+  %264 = getelementptr inbounds %struct.yyStackEntry, ptr %263, i32 0, i32 2
+  %265 = load ptr, ptr %264, align 8
+  call void @stnode_free(ptr noundef %265)
+  %266 = load ptr, ptr %5, align 8
+  %267 = load ptr, ptr %11, align 8
+  %268 = getelementptr %struct.yyStackEntry, ptr %267, i64 -3
+  %269 = getelementptr inbounds %struct.yyStackEntry, ptr %268, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %266, i8 noundef zeroext 32, ptr noundef %269)
+  %270 = load ptr, ptr %5, align 8
+  %271 = load ptr, ptr %11, align 8
+  %272 = getelementptr %struct.yyStackEntry, ptr %271, i64 -2
+  %273 = getelementptr inbounds %struct.yyStackEntry, ptr %272, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %270, i8 noundef zeroext 33, ptr noundef %273)
+  %274 = load ptr, ptr %14, align 8
+  %275 = load ptr, ptr %11, align 8
+  %276 = getelementptr %struct.yyStackEntry, ptr %275, i64 -4
+  %277 = getelementptr inbounds %struct.yyStackEntry, ptr %276, i32 0, i32 2
+  store ptr %274, ptr %277, align 8
+  br label %1266
 
-275:                                              ; preds = %4
-  %276 = load ptr, ptr %13, align 8
-  %277 = load ptr, ptr %11, align 8
-  %278 = getelementptr %struct.yyStackEntry, ptr %277, i64 -2
-  %279 = getelementptr inbounds %struct.yyStackEntry, ptr %278, i32 0, i32 2
-  %280 = load ptr, ptr %279, align 8
-  %281 = call ptr @resolve_unparsed(ptr noundef %276, ptr noundef %280)
-  store ptr %281, ptr %14, align 8
+278:                                              ; preds = %4
+  %279 = load ptr, ptr %13, align 8
+  %280 = load ptr, ptr %11, align 8
+  %281 = getelementptr %struct.yyStackEntry, ptr %280, i64 -2
+  %282 = getelementptr inbounds %struct.yyStackEntry, ptr %281, i32 0, i32 2
+  %283 = load ptr, ptr %282, align 8
+  %284 = call ptr @resolve_unparsed(ptr noundef %279, ptr noundef %283)
+  store ptr %284, ptr %14, align 8
   store ptr null, ptr %18, align 8
-  %282 = load ptr, ptr %11, align 8
-  %283 = getelementptr %struct.yyStackEntry, ptr %282, i64 0
-  %284 = getelementptr inbounds %struct.yyStackEntry, ptr %283, i32 0, i32 2
-  %285 = load ptr, ptr %284, align 8
-  %286 = call ptr @stnode_token(ptr noundef %285)
-  %287 = call ptr @drange_node_from_str(ptr noundef %286, ptr noundef %18)
-  store ptr %287, ptr %19, align 8
-  %288 = load ptr, ptr %18, align 8
-  %289 = icmp ne ptr %288, null
-  br i1 %289, label %290, label %311
+  %285 = load ptr, ptr %11, align 8
+  %286 = getelementptr %struct.yyStackEntry, ptr %285, i64 0
+  %287 = getelementptr inbounds %struct.yyStackEntry, ptr %286, i32 0, i32 2
+  %288 = load ptr, ptr %287, align 8
+  %289 = call ptr @stnode_token(ptr noundef %288)
+  %290 = call ptr @drange_node_from_str(ptr noundef %289, ptr noundef %18)
+  store ptr %290, ptr %19, align 8
+  %291 = load ptr, ptr %18, align 8
+  %292 = icmp ne ptr %291, null
+  br i1 %292, label %293, label %314
 
-290:                                              ; preds = %275
-  br label %291
+293:                                              ; preds = %278
+  br label %294
 
-291:                                              ; preds = %290
-  br label %292
+294:                                              ; preds = %293
+  br label %295
 
-292:                                              ; preds = %291
-  br label %293
+295:                                              ; preds = %294
+  br label %296
 
-293:                                              ; preds = %292
-  %294 = load ptr, ptr %13, align 8
-  %295 = load ptr, ptr %11, align 8
-  %296 = getelementptr %struct.yyStackEntry, ptr %295, i64 0
-  %297 = getelementptr inbounds %struct.yyStackEntry, ptr %296, i32 0, i32 2
-  %298 = load ptr, ptr %297, align 8
-  %299 = call { i64, i64 } @stnode_location(ptr noundef %298)
-  %300 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 0
-  %301 = extractvalue { i64, i64 } %299, 0
-  store i64 %301, ptr %300, align 8
-  %302 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 1
-  %303 = extractvalue { i64, i64 } %299, 1
-  store i64 %303, ptr %302, align 8
-  %304 = load ptr, ptr %18, align 8
-  %305 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 0
-  %306 = load i64, ptr %305, align 8
-  %307 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 1
-  %308 = load i64, ptr %307, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %294, i32 noundef -1, i64 %306, i64 %308, ptr noundef @.str, ptr noundef %304)
-  br label %309
+296:                                              ; preds = %295
+  %297 = load ptr, ptr %13, align 8
+  %298 = load ptr, ptr %11, align 8
+  %299 = getelementptr %struct.yyStackEntry, ptr %298, i64 0
+  %300 = getelementptr inbounds %struct.yyStackEntry, ptr %299, i32 0, i32 2
+  %301 = load ptr, ptr %300, align 8
+  %302 = call { i64, i64 } @stnode_location(ptr noundef %301)
+  %303 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 0
+  %304 = extractvalue { i64, i64 } %302, 0
+  store i64 %304, ptr %303, align 8
+  %305 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 1
+  %306 = extractvalue { i64, i64 } %302, 1
+  store i64 %306, ptr %305, align 8
+  %307 = load ptr, ptr %18, align 8
+  %308 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 0
+  %309 = load i64, ptr %308, align 8
+  %310 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 1
+  %311 = load i64, ptr %310, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %297, i32 noundef -1, i64 %309, i64 %311, ptr noundef @.str, ptr noundef %307)
+  br label %312
 
-309:                                              ; preds = %293
-  %310 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %310)
-  br label %311
+312:                                              ; preds = %296
+  %313 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %313)
+  br label %314
 
-311:                                              ; preds = %309, %275
-  %312 = load ptr, ptr %14, align 8
-  %313 = load ptr, ptr %19, align 8
-  call void @sttype_field_set_range1(ptr noundef %312, ptr noundef %313)
-  %314 = load ptr, ptr %14, align 8
-  %315 = load ptr, ptr %11, align 8
-  %316 = getelementptr %struct.yyStackEntry, ptr %315, i64 -2
-  %317 = getelementptr inbounds %struct.yyStackEntry, ptr %316, i32 0, i32 2
-  %318 = load ptr, ptr %317, align 8
-  %319 = load ptr, ptr %11, align 8
-  %320 = getelementptr %struct.yyStackEntry, ptr %319, i64 0
-  %321 = getelementptr inbounds %struct.yyStackEntry, ptr %320, i32 0, i32 2
-  %322 = load ptr, ptr %321, align 8
-  call void @stnode_merge_location(ptr noundef %314, ptr noundef %318, ptr noundef %322)
-  %323 = load ptr, ptr %11, align 8
-  %324 = getelementptr %struct.yyStackEntry, ptr %323, i64 0
-  %325 = getelementptr inbounds %struct.yyStackEntry, ptr %324, i32 0, i32 2
-  %326 = load ptr, ptr %325, align 8
-  call void @stnode_free(ptr noundef %326)
-  %327 = load ptr, ptr %5, align 8
-  %328 = load ptr, ptr %11, align 8
-  %329 = getelementptr %struct.yyStackEntry, ptr %328, i64 -1
-  %330 = getelementptr inbounds %struct.yyStackEntry, ptr %329, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %327, i8 noundef zeroext 32, ptr noundef %330)
-  %331 = load ptr, ptr %14, align 8
-  %332 = load ptr, ptr %11, align 8
-  %333 = getelementptr %struct.yyStackEntry, ptr %332, i64 -2
-  %334 = getelementptr inbounds %struct.yyStackEntry, ptr %333, i32 0, i32 2
-  store ptr %331, ptr %334, align 8
-  br label %1261
+314:                                              ; preds = %312, %278
+  %315 = load ptr, ptr %14, align 8
+  %316 = load ptr, ptr %19, align 8
+  call void @sttype_field_set_range1(ptr noundef %315, ptr noundef %316)
+  %317 = load ptr, ptr %14, align 8
+  %318 = load ptr, ptr %11, align 8
+  %319 = getelementptr %struct.yyStackEntry, ptr %318, i64 -2
+  %320 = getelementptr inbounds %struct.yyStackEntry, ptr %319, i32 0, i32 2
+  %321 = load ptr, ptr %320, align 8
+  %322 = load ptr, ptr %11, align 8
+  %323 = getelementptr %struct.yyStackEntry, ptr %322, i64 0
+  %324 = getelementptr inbounds %struct.yyStackEntry, ptr %323, i32 0, i32 2
+  %325 = load ptr, ptr %324, align 8
+  call void @stnode_merge_location(ptr noundef %317, ptr noundef %321, ptr noundef %325)
+  %326 = load ptr, ptr %11, align 8
+  %327 = getelementptr %struct.yyStackEntry, ptr %326, i64 0
+  %328 = getelementptr inbounds %struct.yyStackEntry, ptr %327, i32 0, i32 2
+  %329 = load ptr, ptr %328, align 8
+  call void @stnode_free(ptr noundef %329)
+  %330 = load ptr, ptr %5, align 8
+  %331 = load ptr, ptr %11, align 8
+  %332 = getelementptr %struct.yyStackEntry, ptr %331, i64 -1
+  %333 = getelementptr inbounds %struct.yyStackEntry, ptr %332, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %330, i8 noundef zeroext 32, ptr noundef %333)
+  %334 = load ptr, ptr %14, align 8
+  %335 = load ptr, ptr %11, align 8
+  %336 = getelementptr %struct.yyStackEntry, ptr %335, i64 -2
+  %337 = getelementptr inbounds %struct.yyStackEntry, ptr %336, i32 0, i32 2
+  store ptr %334, ptr %337, align 8
+  br label %1266
 
-335:                                              ; preds = %4
-  %336 = load ptr, ptr %13, align 8
-  %337 = load ptr, ptr %11, align 8
-  %338 = getelementptr %struct.yyStackEntry, ptr %337, i64 0
-  %339 = getelementptr inbounds %struct.yyStackEntry, ptr %338, i32 0, i32 2
-  %340 = load ptr, ptr %339, align 8
-  %341 = call ptr @resolve_unparsed(ptr noundef %336, ptr noundef %340)
-  store ptr %341, ptr %14, align 8
-  %342 = load ptr, ptr %14, align 8
-  call void @sttype_field_set_raw(ptr noundef %342, i1 noundef zeroext true)
-  %343 = load ptr, ptr %14, align 8
-  %344 = load ptr, ptr %11, align 8
-  %345 = getelementptr %struct.yyStackEntry, ptr %344, i64 -1
-  %346 = getelementptr inbounds %struct.yyStackEntry, ptr %345, i32 0, i32 2
-  %347 = load ptr, ptr %346, align 8
-  %348 = load ptr, ptr %11, align 8
-  %349 = getelementptr %struct.yyStackEntry, ptr %348, i64 0
-  %350 = getelementptr inbounds %struct.yyStackEntry, ptr %349, i32 0, i32 2
-  %351 = load ptr, ptr %350, align 8
-  call void @stnode_merge_location(ptr noundef %343, ptr noundef %347, ptr noundef %351)
-  %352 = load ptr, ptr %11, align 8
-  %353 = getelementptr %struct.yyStackEntry, ptr %352, i64 -1
-  %354 = getelementptr inbounds %struct.yyStackEntry, ptr %353, i32 0, i32 2
-  %355 = load ptr, ptr %354, align 8
-  call void @stnode_free(ptr noundef %355)
-  %356 = load ptr, ptr %14, align 8
-  %357 = load ptr, ptr %11, align 8
-  %358 = getelementptr %struct.yyStackEntry, ptr %357, i64 -1
-  %359 = getelementptr inbounds %struct.yyStackEntry, ptr %358, i32 0, i32 2
-  store ptr %356, ptr %359, align 8
-  br label %1261
+338:                                              ; preds = %4
+  %339 = load ptr, ptr %13, align 8
+  %340 = load ptr, ptr %11, align 8
+  %341 = getelementptr %struct.yyStackEntry, ptr %340, i64 0
+  %342 = getelementptr inbounds %struct.yyStackEntry, ptr %341, i32 0, i32 2
+  %343 = load ptr, ptr %342, align 8
+  %344 = call ptr @resolve_unparsed(ptr noundef %339, ptr noundef %343)
+  store ptr %344, ptr %14, align 8
+  %345 = load ptr, ptr %14, align 8
+  call void @sttype_field_set_raw(ptr noundef %345, i1 noundef zeroext true)
+  %346 = load ptr, ptr %14, align 8
+  %347 = load ptr, ptr %11, align 8
+  %348 = getelementptr %struct.yyStackEntry, ptr %347, i64 -1
+  %349 = getelementptr inbounds %struct.yyStackEntry, ptr %348, i32 0, i32 2
+  %350 = load ptr, ptr %349, align 8
+  %351 = load ptr, ptr %11, align 8
+  %352 = getelementptr %struct.yyStackEntry, ptr %351, i64 0
+  %353 = getelementptr inbounds %struct.yyStackEntry, ptr %352, i32 0, i32 2
+  %354 = load ptr, ptr %353, align 8
+  call void @stnode_merge_location(ptr noundef %346, ptr noundef %350, ptr noundef %354)
+  %355 = load ptr, ptr %11, align 8
+  %356 = getelementptr %struct.yyStackEntry, ptr %355, i64 -1
+  %357 = getelementptr inbounds %struct.yyStackEntry, ptr %356, i32 0, i32 2
+  %358 = load ptr, ptr %357, align 8
+  call void @stnode_free(ptr noundef %358)
+  %359 = load ptr, ptr %14, align 8
+  %360 = load ptr, ptr %11, align 8
+  %361 = getelementptr %struct.yyStackEntry, ptr %360, i64 -1
+  %362 = getelementptr inbounds %struct.yyStackEntry, ptr %361, i32 0, i32 2
+  store ptr %359, ptr %362, align 8
+  br label %1266
 
-360:                                              ; preds = %4
-  %361 = load ptr, ptr %13, align 8
-  %362 = load ptr, ptr %11, align 8
-  %363 = getelementptr %struct.yyStackEntry, ptr %362, i64 -1
-  %364 = getelementptr inbounds %struct.yyStackEntry, ptr %363, i32 0, i32 2
-  %365 = load ptr, ptr %364, align 8
-  %366 = call ptr @resolve_unparsed(ptr noundef %361, ptr noundef %365)
-  %367 = load ptr, ptr %11, align 8
-  %368 = getelementptr %struct.yyStackEntry, ptr %367, i64 -1
-  %369 = getelementptr inbounds %struct.yyStackEntry, ptr %368, i32 0, i32 2
-  store ptr %366, ptr %369, align 8
-  %370 = load ptr, ptr %13, align 8
-  %371 = load ptr, ptr %11, align 8
-  %372 = getelementptr %struct.yyStackEntry, ptr %371, i64 -1
-  %373 = getelementptr inbounds %struct.yyStackEntry, ptr %372, i32 0, i32 2
-  %374 = load ptr, ptr %373, align 8
-  %375 = call ptr @new_reference(ptr noundef %370, ptr noundef %374)
-  store ptr %375, ptr %14, align 8
-  %376 = load ptr, ptr %14, align 8
-  %377 = load ptr, ptr %11, align 8
-  %378 = getelementptr %struct.yyStackEntry, ptr %377, i64 -3
-  %379 = getelementptr inbounds %struct.yyStackEntry, ptr %378, i32 0, i32 2
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr %11, align 8
-  %382 = getelementptr %struct.yyStackEntry, ptr %381, i64 0
-  %383 = getelementptr inbounds %struct.yyStackEntry, ptr %382, i32 0, i32 2
-  %384 = load ptr, ptr %383, align 8
-  call void @stnode_merge_location(ptr noundef %376, ptr noundef %380, ptr noundef %384)
-  %385 = load ptr, ptr %11, align 8
-  %386 = getelementptr %struct.yyStackEntry, ptr %385, i64 -1
-  %387 = getelementptr inbounds %struct.yyStackEntry, ptr %386, i32 0, i32 2
-  %388 = load ptr, ptr %387, align 8
-  call void @stnode_free(ptr noundef %388)
-  %389 = load ptr, ptr %11, align 8
-  %390 = getelementptr %struct.yyStackEntry, ptr %389, i64 -3
-  %391 = getelementptr inbounds %struct.yyStackEntry, ptr %390, i32 0, i32 2
-  %392 = load ptr, ptr %391, align 8
-  call void @stnode_free(ptr noundef %392)
-  %393 = load ptr, ptr %11, align 8
-  %394 = getelementptr %struct.yyStackEntry, ptr %393, i64 0
-  %395 = getelementptr inbounds %struct.yyStackEntry, ptr %394, i32 0, i32 2
-  %396 = load ptr, ptr %395, align 8
-  call void @stnode_free(ptr noundef %396)
-  %397 = load ptr, ptr %5, align 8
-  %398 = load ptr, ptr %11, align 8
-  %399 = getelementptr %struct.yyStackEntry, ptr %398, i64 -2
-  %400 = getelementptr inbounds %struct.yyStackEntry, ptr %399, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %397, i8 noundef zeroext 38, ptr noundef %400)
-  %401 = load ptr, ptr %14, align 8
-  %402 = load ptr, ptr %11, align 8
-  %403 = getelementptr %struct.yyStackEntry, ptr %402, i64 -3
-  %404 = getelementptr inbounds %struct.yyStackEntry, ptr %403, i32 0, i32 2
-  store ptr %401, ptr %404, align 8
-  br label %1261
+363:                                              ; preds = %4
+  %364 = load ptr, ptr %13, align 8
+  %365 = load ptr, ptr %11, align 8
+  %366 = getelementptr %struct.yyStackEntry, ptr %365, i64 -1
+  %367 = getelementptr inbounds %struct.yyStackEntry, ptr %366, i32 0, i32 2
+  %368 = load ptr, ptr %367, align 8
+  %369 = call ptr @resolve_unparsed(ptr noundef %364, ptr noundef %368)
+  %370 = load ptr, ptr %11, align 8
+  %371 = getelementptr %struct.yyStackEntry, ptr %370, i64 -1
+  %372 = getelementptr inbounds %struct.yyStackEntry, ptr %371, i32 0, i32 2
+  store ptr %369, ptr %372, align 8
+  %373 = load ptr, ptr %13, align 8
+  %374 = load ptr, ptr %11, align 8
+  %375 = getelementptr %struct.yyStackEntry, ptr %374, i64 -1
+  %376 = getelementptr inbounds %struct.yyStackEntry, ptr %375, i32 0, i32 2
+  %377 = load ptr, ptr %376, align 8
+  %378 = call ptr @new_reference(ptr noundef %373, ptr noundef %377)
+  store ptr %378, ptr %14, align 8
+  %379 = load ptr, ptr %14, align 8
+  %380 = load ptr, ptr %11, align 8
+  %381 = getelementptr %struct.yyStackEntry, ptr %380, i64 -3
+  %382 = getelementptr inbounds %struct.yyStackEntry, ptr %381, i32 0, i32 2
+  %383 = load ptr, ptr %382, align 8
+  %384 = load ptr, ptr %11, align 8
+  %385 = getelementptr %struct.yyStackEntry, ptr %384, i64 0
+  %386 = getelementptr inbounds %struct.yyStackEntry, ptr %385, i32 0, i32 2
+  %387 = load ptr, ptr %386, align 8
+  call void @stnode_merge_location(ptr noundef %379, ptr noundef %383, ptr noundef %387)
+  %388 = load ptr, ptr %11, align 8
+  %389 = getelementptr %struct.yyStackEntry, ptr %388, i64 -1
+  %390 = getelementptr inbounds %struct.yyStackEntry, ptr %389, i32 0, i32 2
+  %391 = load ptr, ptr %390, align 8
+  call void @stnode_free(ptr noundef %391)
+  %392 = load ptr, ptr %11, align 8
+  %393 = getelementptr %struct.yyStackEntry, ptr %392, i64 -3
+  %394 = getelementptr inbounds %struct.yyStackEntry, ptr %393, i32 0, i32 2
+  %395 = load ptr, ptr %394, align 8
+  call void @stnode_free(ptr noundef %395)
+  %396 = load ptr, ptr %11, align 8
+  %397 = getelementptr %struct.yyStackEntry, ptr %396, i64 0
+  %398 = getelementptr inbounds %struct.yyStackEntry, ptr %397, i32 0, i32 2
+  %399 = load ptr, ptr %398, align 8
+  call void @stnode_free(ptr noundef %399)
+  %400 = load ptr, ptr %5, align 8
+  %401 = load ptr, ptr %11, align 8
+  %402 = getelementptr %struct.yyStackEntry, ptr %401, i64 -2
+  %403 = getelementptr inbounds %struct.yyStackEntry, ptr %402, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %400, i8 noundef zeroext 38, ptr noundef %403)
+  %404 = load ptr, ptr %14, align 8
+  %405 = load ptr, ptr %11, align 8
+  %406 = getelementptr %struct.yyStackEntry, ptr %405, i64 -3
+  %407 = getelementptr inbounds %struct.yyStackEntry, ptr %406, i32 0, i32 2
+  store ptr %404, ptr %407, align 8
+  br label %1266
 
-405:                                              ; preds = %4
-  %406 = load ptr, ptr %13, align 8
-  %407 = load ptr, ptr %11, align 8
-  %408 = getelementptr %struct.yyStackEntry, ptr %407, i64 0
-  %409 = getelementptr inbounds %struct.yyStackEntry, ptr %408, i32 0, i32 2
-  %410 = load ptr, ptr %409, align 8
-  %411 = call ptr @resolve_unparsed(ptr noundef %406, ptr noundef %410)
-  %412 = load ptr, ptr %11, align 8
-  %413 = getelementptr %struct.yyStackEntry, ptr %412, i64 0
-  %414 = getelementptr inbounds %struct.yyStackEntry, ptr %413, i32 0, i32 2
-  store ptr %411, ptr %414, align 8
-  %415 = load ptr, ptr %13, align 8
-  %416 = load ptr, ptr %11, align 8
-  %417 = getelementptr %struct.yyStackEntry, ptr %416, i64 0
-  %418 = getelementptr inbounds %struct.yyStackEntry, ptr %417, i32 0, i32 2
-  %419 = load ptr, ptr %418, align 8
-  %420 = call ptr @new_reference(ptr noundef %415, ptr noundef %419)
-  store ptr %420, ptr %14, align 8
-  %421 = load ptr, ptr %14, align 8
-  %422 = load ptr, ptr %11, align 8
-  %423 = getelementptr %struct.yyStackEntry, ptr %422, i64 -1
-  %424 = getelementptr inbounds %struct.yyStackEntry, ptr %423, i32 0, i32 2
-  %425 = load ptr, ptr %424, align 8
-  %426 = load ptr, ptr %11, align 8
-  %427 = getelementptr %struct.yyStackEntry, ptr %426, i64 0
-  %428 = getelementptr inbounds %struct.yyStackEntry, ptr %427, i32 0, i32 2
-  %429 = load ptr, ptr %428, align 8
-  call void @stnode_merge_location(ptr noundef %421, ptr noundef %425, ptr noundef %429)
-  %430 = load ptr, ptr %11, align 8
-  %431 = getelementptr %struct.yyStackEntry, ptr %430, i64 0
-  %432 = getelementptr inbounds %struct.yyStackEntry, ptr %431, i32 0, i32 2
-  %433 = load ptr, ptr %432, align 8
-  call void @stnode_free(ptr noundef %433)
-  %434 = load ptr, ptr %11, align 8
-  %435 = getelementptr %struct.yyStackEntry, ptr %434, i64 -1
-  %436 = getelementptr inbounds %struct.yyStackEntry, ptr %435, i32 0, i32 2
-  %437 = load ptr, ptr %436, align 8
-  call void @stnode_free(ptr noundef %437)
-  %438 = load ptr, ptr %14, align 8
-  %439 = load ptr, ptr %11, align 8
-  %440 = getelementptr %struct.yyStackEntry, ptr %439, i64 -1
-  %441 = getelementptr inbounds %struct.yyStackEntry, ptr %440, i32 0, i32 2
-  store ptr %438, ptr %441, align 8
-  br label %1261
+408:                                              ; preds = %4
+  %409 = load ptr, ptr %13, align 8
+  %410 = load ptr, ptr %11, align 8
+  %411 = getelementptr %struct.yyStackEntry, ptr %410, i64 0
+  %412 = getelementptr inbounds %struct.yyStackEntry, ptr %411, i32 0, i32 2
+  %413 = load ptr, ptr %412, align 8
+  %414 = call ptr @resolve_unparsed(ptr noundef %409, ptr noundef %413)
+  %415 = load ptr, ptr %11, align 8
+  %416 = getelementptr %struct.yyStackEntry, ptr %415, i64 0
+  %417 = getelementptr inbounds %struct.yyStackEntry, ptr %416, i32 0, i32 2
+  store ptr %414, ptr %417, align 8
+  %418 = load ptr, ptr %13, align 8
+  %419 = load ptr, ptr %11, align 8
+  %420 = getelementptr %struct.yyStackEntry, ptr %419, i64 0
+  %421 = getelementptr inbounds %struct.yyStackEntry, ptr %420, i32 0, i32 2
+  %422 = load ptr, ptr %421, align 8
+  %423 = call ptr @new_reference(ptr noundef %418, ptr noundef %422)
+  store ptr %423, ptr %14, align 8
+  %424 = load ptr, ptr %14, align 8
+  %425 = load ptr, ptr %11, align 8
+  %426 = getelementptr %struct.yyStackEntry, ptr %425, i64 -1
+  %427 = getelementptr inbounds %struct.yyStackEntry, ptr %426, i32 0, i32 2
+  %428 = load ptr, ptr %427, align 8
+  %429 = load ptr, ptr %11, align 8
+  %430 = getelementptr %struct.yyStackEntry, ptr %429, i64 0
+  %431 = getelementptr inbounds %struct.yyStackEntry, ptr %430, i32 0, i32 2
+  %432 = load ptr, ptr %431, align 8
+  call void @stnode_merge_location(ptr noundef %424, ptr noundef %428, ptr noundef %432)
+  %433 = load ptr, ptr %11, align 8
+  %434 = getelementptr %struct.yyStackEntry, ptr %433, i64 0
+  %435 = getelementptr inbounds %struct.yyStackEntry, ptr %434, i32 0, i32 2
+  %436 = load ptr, ptr %435, align 8
+  call void @stnode_free(ptr noundef %436)
+  %437 = load ptr, ptr %11, align 8
+  %438 = getelementptr %struct.yyStackEntry, ptr %437, i64 -1
+  %439 = getelementptr inbounds %struct.yyStackEntry, ptr %438, i32 0, i32 2
+  %440 = load ptr, ptr %439, align 8
+  call void @stnode_free(ptr noundef %440)
+  %441 = load ptr, ptr %14, align 8
+  %442 = load ptr, ptr %11, align 8
+  %443 = getelementptr %struct.yyStackEntry, ptr %442, i64 -1
+  %444 = getelementptr inbounds %struct.yyStackEntry, ptr %443, i32 0, i32 2
+  store ptr %441, ptr %444, align 8
+  br label %1266
 
-442:                                              ; preds = %4
-  %443 = load ptr, ptr %11, align 8
-  %444 = getelementptr %struct.yyStackEntry, ptr %443, i64 0
-  %445 = getelementptr inbounds %struct.yyStackEntry, ptr %444, i32 0, i32 2
-  %446 = load ptr, ptr %445, align 8
-  store ptr %446, ptr %14, align 8
-  %447 = load ptr, ptr %14, align 8
-  %448 = load ptr, ptr %11, align 8
-  %449 = getelementptr %struct.yyStackEntry, ptr %448, i64 -1
-  %450 = getelementptr inbounds %struct.yyStackEntry, ptr %449, i32 0, i32 2
-  %451 = load ptr, ptr %450, align 8
-  %452 = load ptr, ptr %11, align 8
-  %453 = getelementptr %struct.yyStackEntry, ptr %452, i64 0
-  %454 = getelementptr inbounds %struct.yyStackEntry, ptr %453, i32 0, i32 2
-  %455 = load ptr, ptr %454, align 8
-  call void @stnode_merge_location(ptr noundef %447, ptr noundef %451, ptr noundef %455)
-  %456 = load ptr, ptr %11, align 8
-  %457 = getelementptr %struct.yyStackEntry, ptr %456, i64 -1
-  %458 = getelementptr inbounds %struct.yyStackEntry, ptr %457, i32 0, i32 2
-  %459 = load ptr, ptr %458, align 8
-  call void @stnode_free(ptr noundef %459)
-  %460 = load ptr, ptr %14, align 8
-  %461 = load ptr, ptr %11, align 8
-  %462 = getelementptr %struct.yyStackEntry, ptr %461, i64 -1
-  %463 = getelementptr inbounds %struct.yyStackEntry, ptr %462, i32 0, i32 2
-  store ptr %460, ptr %463, align 8
-  br label %1261
+445:                                              ; preds = %4
+  %446 = load ptr, ptr %11, align 8
+  %447 = getelementptr %struct.yyStackEntry, ptr %446, i64 0
+  %448 = getelementptr inbounds %struct.yyStackEntry, ptr %447, i32 0, i32 2
+  %449 = load ptr, ptr %448, align 8
+  store ptr %449, ptr %14, align 8
+  %450 = load ptr, ptr %14, align 8
+  %451 = load ptr, ptr %11, align 8
+  %452 = getelementptr %struct.yyStackEntry, ptr %451, i64 -1
+  %453 = getelementptr inbounds %struct.yyStackEntry, ptr %452, i32 0, i32 2
+  %454 = load ptr, ptr %453, align 8
+  %455 = load ptr, ptr %11, align 8
+  %456 = getelementptr %struct.yyStackEntry, ptr %455, i64 0
+  %457 = getelementptr inbounds %struct.yyStackEntry, ptr %456, i32 0, i32 2
+  %458 = load ptr, ptr %457, align 8
+  call void @stnode_merge_location(ptr noundef %450, ptr noundef %454, ptr noundef %458)
+  %459 = load ptr, ptr %11, align 8
+  %460 = getelementptr %struct.yyStackEntry, ptr %459, i64 -1
+  %461 = getelementptr inbounds %struct.yyStackEntry, ptr %460, i32 0, i32 2
+  %462 = load ptr, ptr %461, align 8
+  call void @stnode_free(ptr noundef %462)
+  %463 = load ptr, ptr %14, align 8
+  %464 = load ptr, ptr %11, align 8
+  %465 = getelementptr %struct.yyStackEntry, ptr %464, i64 -1
+  %466 = getelementptr inbounds %struct.yyStackEntry, ptr %465, i32 0, i32 2
+  store ptr %463, ptr %466, align 8
+  br label %1266
 
-464:                                              ; preds = %4
-  %465 = load ptr, ptr %11, align 8
-  %466 = getelementptr %struct.yyStackEntry, ptr %465, i64 -1
-  %467 = getelementptr inbounds %struct.yyStackEntry, ptr %466, i32 0, i32 2
-  %468 = load ptr, ptr %467, align 8
-  store ptr %468, ptr %14, align 8
-  %469 = load ptr, ptr %14, align 8
-  %470 = load ptr, ptr %11, align 8
-  %471 = getelementptr %struct.yyStackEntry, ptr %470, i64 0
-  %472 = getelementptr inbounds %struct.yyStackEntry, ptr %471, i32 0, i32 2
-  %473 = load ptr, ptr %472, align 8
-  call void @sttype_oper_set1(ptr noundef %469, i32 noundef 17, ptr noundef %473)
-  %474 = load ptr, ptr %14, align 8
-  %475 = load ptr, ptr %11, align 8
-  %476 = getelementptr %struct.yyStackEntry, ptr %475, i64 -1
-  %477 = getelementptr inbounds %struct.yyStackEntry, ptr %476, i32 0, i32 2
-  %478 = load ptr, ptr %477, align 8
-  %479 = load ptr, ptr %11, align 8
-  %480 = getelementptr %struct.yyStackEntry, ptr %479, i64 0
-  %481 = getelementptr inbounds %struct.yyStackEntry, ptr %480, i32 0, i32 2
-  %482 = load ptr, ptr %481, align 8
-  call void @stnode_merge_location(ptr noundef %474, ptr noundef %478, ptr noundef %482)
-  %483 = load ptr, ptr %14, align 8
-  %484 = load ptr, ptr %11, align 8
-  %485 = getelementptr %struct.yyStackEntry, ptr %484, i64 -1
-  %486 = getelementptr inbounds %struct.yyStackEntry, ptr %485, i32 0, i32 2
-  store ptr %483, ptr %486, align 8
-  br label %1261
+467:                                              ; preds = %4
+  %468 = load ptr, ptr %11, align 8
+  %469 = getelementptr %struct.yyStackEntry, ptr %468, i64 -1
+  %470 = getelementptr inbounds %struct.yyStackEntry, ptr %469, i32 0, i32 2
+  %471 = load ptr, ptr %470, align 8
+  store ptr %471, ptr %14, align 8
+  %472 = load ptr, ptr %14, align 8
+  %473 = load ptr, ptr %11, align 8
+  %474 = getelementptr %struct.yyStackEntry, ptr %473, i64 0
+  %475 = getelementptr inbounds %struct.yyStackEntry, ptr %474, i32 0, i32 2
+  %476 = load ptr, ptr %475, align 8
+  call void @sttype_oper_set1(ptr noundef %472, i32 noundef 17, ptr noundef %476)
+  %477 = load ptr, ptr %14, align 8
+  %478 = load ptr, ptr %11, align 8
+  %479 = getelementptr %struct.yyStackEntry, ptr %478, i64 -1
+  %480 = getelementptr inbounds %struct.yyStackEntry, ptr %479, i32 0, i32 2
+  %481 = load ptr, ptr %480, align 8
+  %482 = load ptr, ptr %11, align 8
+  %483 = getelementptr %struct.yyStackEntry, ptr %482, i64 0
+  %484 = getelementptr inbounds %struct.yyStackEntry, ptr %483, i32 0, i32 2
+  %485 = load ptr, ptr %484, align 8
+  call void @stnode_merge_location(ptr noundef %477, ptr noundef %481, ptr noundef %485)
+  %486 = load ptr, ptr %14, align 8
+  %487 = load ptr, ptr %11, align 8
+  %488 = getelementptr %struct.yyStackEntry, ptr %487, i64 -1
+  %489 = getelementptr inbounds %struct.yyStackEntry, ptr %488, i32 0, i32 2
+  store ptr %486, ptr %489, align 8
+  br label %1266
 
-487:                                              ; preds = %4
-  %488 = load ptr, ptr %11, align 8
-  %489 = getelementptr %struct.yyStackEntry, ptr %488, i64 -1
-  %490 = getelementptr inbounds %struct.yyStackEntry, ptr %489, i32 0, i32 2
-  %491 = load ptr, ptr %490, align 8
-  store ptr %491, ptr %14, align 8
-  %492 = load ptr, ptr %14, align 8
-  %493 = load ptr, ptr %11, align 8
-  %494 = getelementptr %struct.yyStackEntry, ptr %493, i64 -2
-  %495 = getelementptr inbounds %struct.yyStackEntry, ptr %494, i32 0, i32 2
-  %496 = load ptr, ptr %495, align 8
-  %497 = load ptr, ptr %11, align 8
-  %498 = getelementptr %struct.yyStackEntry, ptr %497, i64 0
-  %499 = getelementptr inbounds %struct.yyStackEntry, ptr %498, i32 0, i32 2
-  %500 = load ptr, ptr %499, align 8
-  call void @sttype_oper_set2(ptr noundef %492, i32 noundef 16, ptr noundef %496, ptr noundef %500)
-  %501 = load ptr, ptr %14, align 8
-  %502 = load ptr, ptr %11, align 8
-  %503 = getelementptr %struct.yyStackEntry, ptr %502, i64 -2
-  %504 = getelementptr inbounds %struct.yyStackEntry, ptr %503, i32 0, i32 2
-  %505 = load ptr, ptr %504, align 8
-  %506 = load ptr, ptr %11, align 8
-  %507 = getelementptr %struct.yyStackEntry, ptr %506, i64 0
-  %508 = getelementptr inbounds %struct.yyStackEntry, ptr %507, i32 0, i32 2
-  %509 = load ptr, ptr %508, align 8
-  call void @stnode_merge_location(ptr noundef %501, ptr noundef %505, ptr noundef %509)
-  %510 = load ptr, ptr %14, align 8
-  %511 = load ptr, ptr %11, align 8
-  %512 = getelementptr %struct.yyStackEntry, ptr %511, i64 -2
-  %513 = getelementptr inbounds %struct.yyStackEntry, ptr %512, i32 0, i32 2
-  store ptr %510, ptr %513, align 8
-  br label %1261
+490:                                              ; preds = %4
+  %491 = load ptr, ptr %11, align 8
+  %492 = getelementptr %struct.yyStackEntry, ptr %491, i64 -1
+  %493 = getelementptr inbounds %struct.yyStackEntry, ptr %492, i32 0, i32 2
+  %494 = load ptr, ptr %493, align 8
+  store ptr %494, ptr %14, align 8
+  %495 = load ptr, ptr %14, align 8
+  %496 = load ptr, ptr %11, align 8
+  %497 = getelementptr %struct.yyStackEntry, ptr %496, i64 -2
+  %498 = getelementptr inbounds %struct.yyStackEntry, ptr %497, i32 0, i32 2
+  %499 = load ptr, ptr %498, align 8
+  %500 = load ptr, ptr %11, align 8
+  %501 = getelementptr %struct.yyStackEntry, ptr %500, i64 0
+  %502 = getelementptr inbounds %struct.yyStackEntry, ptr %501, i32 0, i32 2
+  %503 = load ptr, ptr %502, align 8
+  call void @sttype_oper_set2(ptr noundef %495, i32 noundef 16, ptr noundef %499, ptr noundef %503)
+  %504 = load ptr, ptr %14, align 8
+  %505 = load ptr, ptr %11, align 8
+  %506 = getelementptr %struct.yyStackEntry, ptr %505, i64 -2
+  %507 = getelementptr inbounds %struct.yyStackEntry, ptr %506, i32 0, i32 2
+  %508 = load ptr, ptr %507, align 8
+  %509 = load ptr, ptr %11, align 8
+  %510 = getelementptr %struct.yyStackEntry, ptr %509, i64 0
+  %511 = getelementptr inbounds %struct.yyStackEntry, ptr %510, i32 0, i32 2
+  %512 = load ptr, ptr %511, align 8
+  call void @stnode_merge_location(ptr noundef %504, ptr noundef %508, ptr noundef %512)
+  %513 = load ptr, ptr %14, align 8
+  %514 = load ptr, ptr %11, align 8
+  %515 = getelementptr %struct.yyStackEntry, ptr %514, i64 -2
+  %516 = getelementptr inbounds %struct.yyStackEntry, ptr %515, i32 0, i32 2
+  store ptr %513, ptr %516, align 8
+  br label %1266
 
-514:                                              ; preds = %4
-  %515 = load ptr, ptr %11, align 8
-  %516 = getelementptr %struct.yyStackEntry, ptr %515, i64 -1
-  %517 = getelementptr inbounds %struct.yyStackEntry, ptr %516, i32 0, i32 2
-  %518 = load ptr, ptr %517, align 8
-  store ptr %518, ptr %14, align 8
-  %519 = load ptr, ptr %14, align 8
-  %520 = load ptr, ptr %11, align 8
-  %521 = getelementptr %struct.yyStackEntry, ptr %520, i64 -2
-  %522 = getelementptr inbounds %struct.yyStackEntry, ptr %521, i32 0, i32 2
-  %523 = load ptr, ptr %522, align 8
-  %524 = load ptr, ptr %11, align 8
-  %525 = getelementptr %struct.yyStackEntry, ptr %524, i64 0
-  %526 = getelementptr inbounds %struct.yyStackEntry, ptr %525, i32 0, i32 2
-  %527 = load ptr, ptr %526, align 8
-  call void @sttype_oper_set2(ptr noundef %519, i32 noundef 18, ptr noundef %523, ptr noundef %527)
-  %528 = load ptr, ptr %14, align 8
-  %529 = load ptr, ptr %11, align 8
-  %530 = getelementptr %struct.yyStackEntry, ptr %529, i64 -2
-  %531 = getelementptr inbounds %struct.yyStackEntry, ptr %530, i32 0, i32 2
-  %532 = load ptr, ptr %531, align 8
-  %533 = load ptr, ptr %11, align 8
-  %534 = getelementptr %struct.yyStackEntry, ptr %533, i64 0
-  %535 = getelementptr inbounds %struct.yyStackEntry, ptr %534, i32 0, i32 2
-  %536 = load ptr, ptr %535, align 8
-  call void @stnode_merge_location(ptr noundef %528, ptr noundef %532, ptr noundef %536)
-  %537 = load ptr, ptr %14, align 8
-  %538 = load ptr, ptr %11, align 8
-  %539 = getelementptr %struct.yyStackEntry, ptr %538, i64 -2
-  %540 = getelementptr inbounds %struct.yyStackEntry, ptr %539, i32 0, i32 2
-  store ptr %537, ptr %540, align 8
-  br label %1261
+517:                                              ; preds = %4
+  %518 = load ptr, ptr %11, align 8
+  %519 = getelementptr %struct.yyStackEntry, ptr %518, i64 -1
+  %520 = getelementptr inbounds %struct.yyStackEntry, ptr %519, i32 0, i32 2
+  %521 = load ptr, ptr %520, align 8
+  store ptr %521, ptr %14, align 8
+  %522 = load ptr, ptr %14, align 8
+  %523 = load ptr, ptr %11, align 8
+  %524 = getelementptr %struct.yyStackEntry, ptr %523, i64 -2
+  %525 = getelementptr inbounds %struct.yyStackEntry, ptr %524, i32 0, i32 2
+  %526 = load ptr, ptr %525, align 8
+  %527 = load ptr, ptr %11, align 8
+  %528 = getelementptr %struct.yyStackEntry, ptr %527, i64 0
+  %529 = getelementptr inbounds %struct.yyStackEntry, ptr %528, i32 0, i32 2
+  %530 = load ptr, ptr %529, align 8
+  call void @sttype_oper_set2(ptr noundef %522, i32 noundef 18, ptr noundef %526, ptr noundef %530)
+  %531 = load ptr, ptr %14, align 8
+  %532 = load ptr, ptr %11, align 8
+  %533 = getelementptr %struct.yyStackEntry, ptr %532, i64 -2
+  %534 = getelementptr inbounds %struct.yyStackEntry, ptr %533, i32 0, i32 2
+  %535 = load ptr, ptr %534, align 8
+  %536 = load ptr, ptr %11, align 8
+  %537 = getelementptr %struct.yyStackEntry, ptr %536, i64 0
+  %538 = getelementptr inbounds %struct.yyStackEntry, ptr %537, i32 0, i32 2
+  %539 = load ptr, ptr %538, align 8
+  call void @stnode_merge_location(ptr noundef %531, ptr noundef %535, ptr noundef %539)
+  %540 = load ptr, ptr %14, align 8
+  %541 = load ptr, ptr %11, align 8
+  %542 = getelementptr %struct.yyStackEntry, ptr %541, i64 -2
+  %543 = getelementptr inbounds %struct.yyStackEntry, ptr %542, i32 0, i32 2
+  store ptr %540, ptr %543, align 8
+  br label %1266
 
-541:                                              ; preds = %4
-  %542 = load ptr, ptr %11, align 8
-  %543 = getelementptr %struct.yyStackEntry, ptr %542, i64 -1
-  %544 = getelementptr inbounds %struct.yyStackEntry, ptr %543, i32 0, i32 2
-  %545 = load ptr, ptr %544, align 8
-  store ptr %545, ptr %14, align 8
-  %546 = load ptr, ptr %14, align 8
-  %547 = load ptr, ptr %11, align 8
-  %548 = getelementptr %struct.yyStackEntry, ptr %547, i64 -2
-  %549 = getelementptr inbounds %struct.yyStackEntry, ptr %548, i32 0, i32 2
-  %550 = load ptr, ptr %549, align 8
-  %551 = load ptr, ptr %11, align 8
-  %552 = getelementptr %struct.yyStackEntry, ptr %551, i64 0
-  %553 = getelementptr inbounds %struct.yyStackEntry, ptr %552, i32 0, i32 2
-  %554 = load ptr, ptr %553, align 8
-  call void @sttype_oper_set2(ptr noundef %546, i32 noundef 19, ptr noundef %550, ptr noundef %554)
-  %555 = load ptr, ptr %14, align 8
-  %556 = load ptr, ptr %11, align 8
-  %557 = getelementptr %struct.yyStackEntry, ptr %556, i64 -2
-  %558 = getelementptr inbounds %struct.yyStackEntry, ptr %557, i32 0, i32 2
-  %559 = load ptr, ptr %558, align 8
-  %560 = load ptr, ptr %11, align 8
-  %561 = getelementptr %struct.yyStackEntry, ptr %560, i64 0
-  %562 = getelementptr inbounds %struct.yyStackEntry, ptr %561, i32 0, i32 2
-  %563 = load ptr, ptr %562, align 8
-  call void @stnode_merge_location(ptr noundef %555, ptr noundef %559, ptr noundef %563)
-  %564 = load ptr, ptr %14, align 8
-  %565 = load ptr, ptr %11, align 8
-  %566 = getelementptr %struct.yyStackEntry, ptr %565, i64 -2
-  %567 = getelementptr inbounds %struct.yyStackEntry, ptr %566, i32 0, i32 2
-  store ptr %564, ptr %567, align 8
-  br label %1261
+544:                                              ; preds = %4
+  %545 = load ptr, ptr %11, align 8
+  %546 = getelementptr %struct.yyStackEntry, ptr %545, i64 -1
+  %547 = getelementptr inbounds %struct.yyStackEntry, ptr %546, i32 0, i32 2
+  %548 = load ptr, ptr %547, align 8
+  store ptr %548, ptr %14, align 8
+  %549 = load ptr, ptr %14, align 8
+  %550 = load ptr, ptr %11, align 8
+  %551 = getelementptr %struct.yyStackEntry, ptr %550, i64 -2
+  %552 = getelementptr inbounds %struct.yyStackEntry, ptr %551, i32 0, i32 2
+  %553 = load ptr, ptr %552, align 8
+  %554 = load ptr, ptr %11, align 8
+  %555 = getelementptr %struct.yyStackEntry, ptr %554, i64 0
+  %556 = getelementptr inbounds %struct.yyStackEntry, ptr %555, i32 0, i32 2
+  %557 = load ptr, ptr %556, align 8
+  call void @sttype_oper_set2(ptr noundef %549, i32 noundef 19, ptr noundef %553, ptr noundef %557)
+  %558 = load ptr, ptr %14, align 8
+  %559 = load ptr, ptr %11, align 8
+  %560 = getelementptr %struct.yyStackEntry, ptr %559, i64 -2
+  %561 = getelementptr inbounds %struct.yyStackEntry, ptr %560, i32 0, i32 2
+  %562 = load ptr, ptr %561, align 8
+  %563 = load ptr, ptr %11, align 8
+  %564 = getelementptr %struct.yyStackEntry, ptr %563, i64 0
+  %565 = getelementptr inbounds %struct.yyStackEntry, ptr %564, i32 0, i32 2
+  %566 = load ptr, ptr %565, align 8
+  call void @stnode_merge_location(ptr noundef %558, ptr noundef %562, ptr noundef %566)
+  %567 = load ptr, ptr %14, align 8
+  %568 = load ptr, ptr %11, align 8
+  %569 = getelementptr %struct.yyStackEntry, ptr %568, i64 -2
+  %570 = getelementptr inbounds %struct.yyStackEntry, ptr %569, i32 0, i32 2
+  store ptr %567, ptr %570, align 8
+  br label %1266
 
-568:                                              ; preds = %4
-  %569 = load ptr, ptr %11, align 8
-  %570 = getelementptr %struct.yyStackEntry, ptr %569, i64 -1
-  %571 = getelementptr inbounds %struct.yyStackEntry, ptr %570, i32 0, i32 2
-  %572 = load ptr, ptr %571, align 8
-  store ptr %572, ptr %14, align 8
-  %573 = load ptr, ptr %14, align 8
-  %574 = load ptr, ptr %11, align 8
-  %575 = getelementptr %struct.yyStackEntry, ptr %574, i64 -2
-  %576 = getelementptr inbounds %struct.yyStackEntry, ptr %575, i32 0, i32 2
-  %577 = load ptr, ptr %576, align 8
-  %578 = load ptr, ptr %11, align 8
-  %579 = getelementptr %struct.yyStackEntry, ptr %578, i64 0
-  %580 = getelementptr inbounds %struct.yyStackEntry, ptr %579, i32 0, i32 2
-  %581 = load ptr, ptr %580, align 8
-  call void @sttype_oper_set2(ptr noundef %573, i32 noundef 20, ptr noundef %577, ptr noundef %581)
-  %582 = load ptr, ptr %14, align 8
-  %583 = load ptr, ptr %11, align 8
-  %584 = getelementptr %struct.yyStackEntry, ptr %583, i64 -2
-  %585 = getelementptr inbounds %struct.yyStackEntry, ptr %584, i32 0, i32 2
-  %586 = load ptr, ptr %585, align 8
-  %587 = load ptr, ptr %11, align 8
-  %588 = getelementptr %struct.yyStackEntry, ptr %587, i64 0
-  %589 = getelementptr inbounds %struct.yyStackEntry, ptr %588, i32 0, i32 2
-  %590 = load ptr, ptr %589, align 8
-  call void @stnode_merge_location(ptr noundef %582, ptr noundef %586, ptr noundef %590)
-  %591 = load ptr, ptr %14, align 8
-  %592 = load ptr, ptr %11, align 8
-  %593 = getelementptr %struct.yyStackEntry, ptr %592, i64 -2
-  %594 = getelementptr inbounds %struct.yyStackEntry, ptr %593, i32 0, i32 2
-  store ptr %591, ptr %594, align 8
-  br label %1261
+571:                                              ; preds = %4
+  %572 = load ptr, ptr %11, align 8
+  %573 = getelementptr %struct.yyStackEntry, ptr %572, i64 -1
+  %574 = getelementptr inbounds %struct.yyStackEntry, ptr %573, i32 0, i32 2
+  %575 = load ptr, ptr %574, align 8
+  store ptr %575, ptr %14, align 8
+  %576 = load ptr, ptr %14, align 8
+  %577 = load ptr, ptr %11, align 8
+  %578 = getelementptr %struct.yyStackEntry, ptr %577, i64 -2
+  %579 = getelementptr inbounds %struct.yyStackEntry, ptr %578, i32 0, i32 2
+  %580 = load ptr, ptr %579, align 8
+  %581 = load ptr, ptr %11, align 8
+  %582 = getelementptr %struct.yyStackEntry, ptr %581, i64 0
+  %583 = getelementptr inbounds %struct.yyStackEntry, ptr %582, i32 0, i32 2
+  %584 = load ptr, ptr %583, align 8
+  call void @sttype_oper_set2(ptr noundef %576, i32 noundef 20, ptr noundef %580, ptr noundef %584)
+  %585 = load ptr, ptr %14, align 8
+  %586 = load ptr, ptr %11, align 8
+  %587 = getelementptr %struct.yyStackEntry, ptr %586, i64 -2
+  %588 = getelementptr inbounds %struct.yyStackEntry, ptr %587, i32 0, i32 2
+  %589 = load ptr, ptr %588, align 8
+  %590 = load ptr, ptr %11, align 8
+  %591 = getelementptr %struct.yyStackEntry, ptr %590, i64 0
+  %592 = getelementptr inbounds %struct.yyStackEntry, ptr %591, i32 0, i32 2
+  %593 = load ptr, ptr %592, align 8
+  call void @stnode_merge_location(ptr noundef %585, ptr noundef %589, ptr noundef %593)
+  %594 = load ptr, ptr %14, align 8
+  %595 = load ptr, ptr %11, align 8
+  %596 = getelementptr %struct.yyStackEntry, ptr %595, i64 -2
+  %597 = getelementptr inbounds %struct.yyStackEntry, ptr %596, i32 0, i32 2
+  store ptr %594, ptr %597, align 8
+  br label %1266
 
-595:                                              ; preds = %4
-  %596 = load ptr, ptr %11, align 8
-  %597 = getelementptr %struct.yyStackEntry, ptr %596, i64 -1
-  %598 = getelementptr inbounds %struct.yyStackEntry, ptr %597, i32 0, i32 2
-  %599 = load ptr, ptr %598, align 8
-  store ptr %599, ptr %14, align 8
-  %600 = load ptr, ptr %14, align 8
-  %601 = load ptr, ptr %11, align 8
-  %602 = getelementptr %struct.yyStackEntry, ptr %601, i64 -2
-  %603 = getelementptr inbounds %struct.yyStackEntry, ptr %602, i32 0, i32 2
-  %604 = load ptr, ptr %603, align 8
-  %605 = load ptr, ptr %11, align 8
-  %606 = getelementptr %struct.yyStackEntry, ptr %605, i64 0
-  %607 = getelementptr inbounds %struct.yyStackEntry, ptr %606, i32 0, i32 2
-  %608 = load ptr, ptr %607, align 8
-  call void @sttype_oper_set2(ptr noundef %600, i32 noundef 21, ptr noundef %604, ptr noundef %608)
-  %609 = load ptr, ptr %14, align 8
-  %610 = load ptr, ptr %11, align 8
-  %611 = getelementptr %struct.yyStackEntry, ptr %610, i64 -2
-  %612 = getelementptr inbounds %struct.yyStackEntry, ptr %611, i32 0, i32 2
-  %613 = load ptr, ptr %612, align 8
-  %614 = load ptr, ptr %11, align 8
-  %615 = getelementptr %struct.yyStackEntry, ptr %614, i64 0
-  %616 = getelementptr inbounds %struct.yyStackEntry, ptr %615, i32 0, i32 2
-  %617 = load ptr, ptr %616, align 8
-  call void @stnode_merge_location(ptr noundef %609, ptr noundef %613, ptr noundef %617)
-  %618 = load ptr, ptr %14, align 8
-  %619 = load ptr, ptr %11, align 8
-  %620 = getelementptr %struct.yyStackEntry, ptr %619, i64 -2
-  %621 = getelementptr inbounds %struct.yyStackEntry, ptr %620, i32 0, i32 2
-  store ptr %618, ptr %621, align 8
-  br label %1261
+598:                                              ; preds = %4
+  %599 = load ptr, ptr %11, align 8
+  %600 = getelementptr %struct.yyStackEntry, ptr %599, i64 -1
+  %601 = getelementptr inbounds %struct.yyStackEntry, ptr %600, i32 0, i32 2
+  %602 = load ptr, ptr %601, align 8
+  store ptr %602, ptr %14, align 8
+  %603 = load ptr, ptr %14, align 8
+  %604 = load ptr, ptr %11, align 8
+  %605 = getelementptr %struct.yyStackEntry, ptr %604, i64 -2
+  %606 = getelementptr inbounds %struct.yyStackEntry, ptr %605, i32 0, i32 2
+  %607 = load ptr, ptr %606, align 8
+  %608 = load ptr, ptr %11, align 8
+  %609 = getelementptr %struct.yyStackEntry, ptr %608, i64 0
+  %610 = getelementptr inbounds %struct.yyStackEntry, ptr %609, i32 0, i32 2
+  %611 = load ptr, ptr %610, align 8
+  call void @sttype_oper_set2(ptr noundef %603, i32 noundef 21, ptr noundef %607, ptr noundef %611)
+  %612 = load ptr, ptr %14, align 8
+  %613 = load ptr, ptr %11, align 8
+  %614 = getelementptr %struct.yyStackEntry, ptr %613, i64 -2
+  %615 = getelementptr inbounds %struct.yyStackEntry, ptr %614, i32 0, i32 2
+  %616 = load ptr, ptr %615, align 8
+  %617 = load ptr, ptr %11, align 8
+  %618 = getelementptr %struct.yyStackEntry, ptr %617, i64 0
+  %619 = getelementptr inbounds %struct.yyStackEntry, ptr %618, i32 0, i32 2
+  %620 = load ptr, ptr %619, align 8
+  call void @stnode_merge_location(ptr noundef %612, ptr noundef %616, ptr noundef %620)
+  %621 = load ptr, ptr %14, align 8
+  %622 = load ptr, ptr %11, align 8
+  %623 = getelementptr %struct.yyStackEntry, ptr %622, i64 -2
+  %624 = getelementptr inbounds %struct.yyStackEntry, ptr %623, i32 0, i32 2
+  store ptr %621, ptr %624, align 8
+  br label %1266
 
-622:                                              ; preds = %4
-  %623 = load ptr, ptr %11, align 8
-  %624 = getelementptr %struct.yyStackEntry, ptr %623, i64 -1
-  %625 = getelementptr inbounds %struct.yyStackEntry, ptr %624, i32 0, i32 2
-  %626 = load ptr, ptr %625, align 8
-  store ptr %626, ptr %14, align 8
-  %627 = load ptr, ptr %14, align 8
-  %628 = load ptr, ptr %11, align 8
-  %629 = getelementptr %struct.yyStackEntry, ptr %628, i64 -2
-  %630 = getelementptr inbounds %struct.yyStackEntry, ptr %629, i32 0, i32 2
-  %631 = load ptr, ptr %630, align 8
-  %632 = load ptr, ptr %11, align 8
-  %633 = getelementptr %struct.yyStackEntry, ptr %632, i64 0
-  %634 = getelementptr inbounds %struct.yyStackEntry, ptr %633, i32 0, i32 2
-  %635 = load ptr, ptr %634, align 8
-  call void @sttype_oper_set2(ptr noundef %627, i32 noundef 22, ptr noundef %631, ptr noundef %635)
-  %636 = load ptr, ptr %14, align 8
-  %637 = load ptr, ptr %11, align 8
-  %638 = getelementptr %struct.yyStackEntry, ptr %637, i64 -2
-  %639 = getelementptr inbounds %struct.yyStackEntry, ptr %638, i32 0, i32 2
-  %640 = load ptr, ptr %639, align 8
-  %641 = load ptr, ptr %11, align 8
-  %642 = getelementptr %struct.yyStackEntry, ptr %641, i64 0
-  %643 = getelementptr inbounds %struct.yyStackEntry, ptr %642, i32 0, i32 2
-  %644 = load ptr, ptr %643, align 8
-  call void @stnode_merge_location(ptr noundef %636, ptr noundef %640, ptr noundef %644)
-  %645 = load ptr, ptr %14, align 8
-  %646 = load ptr, ptr %11, align 8
-  %647 = getelementptr %struct.yyStackEntry, ptr %646, i64 -2
-  %648 = getelementptr inbounds %struct.yyStackEntry, ptr %647, i32 0, i32 2
-  store ptr %645, ptr %648, align 8
-  br label %1261
+625:                                              ; preds = %4
+  %626 = load ptr, ptr %11, align 8
+  %627 = getelementptr %struct.yyStackEntry, ptr %626, i64 -1
+  %628 = getelementptr inbounds %struct.yyStackEntry, ptr %627, i32 0, i32 2
+  %629 = load ptr, ptr %628, align 8
+  store ptr %629, ptr %14, align 8
+  %630 = load ptr, ptr %14, align 8
+  %631 = load ptr, ptr %11, align 8
+  %632 = getelementptr %struct.yyStackEntry, ptr %631, i64 -2
+  %633 = getelementptr inbounds %struct.yyStackEntry, ptr %632, i32 0, i32 2
+  %634 = load ptr, ptr %633, align 8
+  %635 = load ptr, ptr %11, align 8
+  %636 = getelementptr %struct.yyStackEntry, ptr %635, i64 0
+  %637 = getelementptr inbounds %struct.yyStackEntry, ptr %636, i32 0, i32 2
+  %638 = load ptr, ptr %637, align 8
+  call void @sttype_oper_set2(ptr noundef %630, i32 noundef 22, ptr noundef %634, ptr noundef %638)
+  %639 = load ptr, ptr %14, align 8
+  %640 = load ptr, ptr %11, align 8
+  %641 = getelementptr %struct.yyStackEntry, ptr %640, i64 -2
+  %642 = getelementptr inbounds %struct.yyStackEntry, ptr %641, i32 0, i32 2
+  %643 = load ptr, ptr %642, align 8
+  %644 = load ptr, ptr %11, align 8
+  %645 = getelementptr %struct.yyStackEntry, ptr %644, i64 0
+  %646 = getelementptr inbounds %struct.yyStackEntry, ptr %645, i32 0, i32 2
+  %647 = load ptr, ptr %646, align 8
+  call void @stnode_merge_location(ptr noundef %639, ptr noundef %643, ptr noundef %647)
+  %648 = load ptr, ptr %14, align 8
+  %649 = load ptr, ptr %11, align 8
+  %650 = getelementptr %struct.yyStackEntry, ptr %649, i64 -2
+  %651 = getelementptr inbounds %struct.yyStackEntry, ptr %650, i32 0, i32 2
+  store ptr %648, ptr %651, align 8
+  br label %1266
 
-649:                                              ; preds = %4
-  %650 = load ptr, ptr %11, align 8
-  %651 = getelementptr %struct.yyStackEntry, ptr %650, i64 0
-  %652 = getelementptr inbounds %struct.yyStackEntry, ptr %651, i32 0, i32 2
-  %653 = load ptr, ptr %652, align 8
-  store ptr %653, ptr %14, align 8
-  %654 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %654, i32 noundef 4)
-  %655 = load ptr, ptr %14, align 8
-  %656 = load ptr, ptr %11, align 8
-  %657 = getelementptr %struct.yyStackEntry, ptr %656, i64 0
-  %658 = getelementptr inbounds %struct.yyStackEntry, ptr %657, i32 0, i32 2
-  store ptr %655, ptr %658, align 8
-  br label %1261
+652:                                              ; preds = %4
+  %653 = load ptr, ptr %11, align 8
+  %654 = getelementptr %struct.yyStackEntry, ptr %653, i64 0
+  %655 = getelementptr inbounds %struct.yyStackEntry, ptr %654, i32 0, i32 2
+  %656 = load ptr, ptr %655, align 8
+  store ptr %656, ptr %14, align 8
+  %657 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %657, i32 noundef 4)
+  %658 = load ptr, ptr %14, align 8
+  %659 = load ptr, ptr %11, align 8
+  %660 = getelementptr %struct.yyStackEntry, ptr %659, i64 0
+  %661 = getelementptr inbounds %struct.yyStackEntry, ptr %660, i32 0, i32 2
+  store ptr %658, ptr %661, align 8
+  br label %1266
 
-659:                                              ; preds = %4
-  %660 = load ptr, ptr %11, align 8
-  %661 = getelementptr %struct.yyStackEntry, ptr %660, i64 0
-  %662 = getelementptr inbounds %struct.yyStackEntry, ptr %661, i32 0, i32 2
-  %663 = load ptr, ptr %662, align 8
-  store ptr %663, ptr %14, align 8
-  %664 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %664, i32 noundef 5)
-  %665 = load ptr, ptr %14, align 8
-  %666 = load ptr, ptr %11, align 8
-  %667 = getelementptr %struct.yyStackEntry, ptr %666, i64 0
-  %668 = getelementptr inbounds %struct.yyStackEntry, ptr %667, i32 0, i32 2
-  store ptr %665, ptr %668, align 8
-  br label %1261
+662:                                              ; preds = %4
+  %663 = load ptr, ptr %11, align 8
+  %664 = getelementptr %struct.yyStackEntry, ptr %663, i64 0
+  %665 = getelementptr inbounds %struct.yyStackEntry, ptr %664, i32 0, i32 2
+  %666 = load ptr, ptr %665, align 8
+  store ptr %666, ptr %14, align 8
+  %667 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %667, i32 noundef 5)
+  %668 = load ptr, ptr %14, align 8
+  %669 = load ptr, ptr %11, align 8
+  %670 = getelementptr %struct.yyStackEntry, ptr %669, i64 0
+  %671 = getelementptr inbounds %struct.yyStackEntry, ptr %670, i32 0, i32 2
+  store ptr %668, ptr %671, align 8
+  br label %1266
 
-669:                                              ; preds = %4
-  %670 = load ptr, ptr %11, align 8
-  %671 = getelementptr %struct.yyStackEntry, ptr %670, i64 0
-  %672 = getelementptr inbounds %struct.yyStackEntry, ptr %671, i32 0, i32 2
-  %673 = load ptr, ptr %672, align 8
-  store ptr %673, ptr %14, align 8
-  %674 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %674, i32 noundef 6)
-  %675 = load ptr, ptr %14, align 8
-  %676 = load ptr, ptr %11, align 8
-  %677 = getelementptr %struct.yyStackEntry, ptr %676, i64 0
-  %678 = getelementptr inbounds %struct.yyStackEntry, ptr %677, i32 0, i32 2
-  store ptr %675, ptr %678, align 8
-  br label %1261
+672:                                              ; preds = %4
+  %673 = load ptr, ptr %11, align 8
+  %674 = getelementptr %struct.yyStackEntry, ptr %673, i64 0
+  %675 = getelementptr inbounds %struct.yyStackEntry, ptr %674, i32 0, i32 2
+  %676 = load ptr, ptr %675, align 8
+  store ptr %676, ptr %14, align 8
+  %677 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %677, i32 noundef 6)
+  %678 = load ptr, ptr %14, align 8
+  %679 = load ptr, ptr %11, align 8
+  %680 = getelementptr %struct.yyStackEntry, ptr %679, i64 0
+  %681 = getelementptr inbounds %struct.yyStackEntry, ptr %680, i32 0, i32 2
+  store ptr %678, ptr %681, align 8
+  br label %1266
 
-679:                                              ; preds = %4
-  %680 = load ptr, ptr %11, align 8
-  %681 = getelementptr %struct.yyStackEntry, ptr %680, i64 0
-  %682 = getelementptr inbounds %struct.yyStackEntry, ptr %681, i32 0, i32 2
-  %683 = load ptr, ptr %682, align 8
-  store ptr %683, ptr %14, align 8
-  %684 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %684, i32 noundef 7)
-  %685 = load ptr, ptr %14, align 8
-  %686 = load ptr, ptr %11, align 8
-  %687 = getelementptr %struct.yyStackEntry, ptr %686, i64 0
-  %688 = getelementptr inbounds %struct.yyStackEntry, ptr %687, i32 0, i32 2
-  store ptr %685, ptr %688, align 8
-  br label %1261
+682:                                              ; preds = %4
+  %683 = load ptr, ptr %11, align 8
+  %684 = getelementptr %struct.yyStackEntry, ptr %683, i64 0
+  %685 = getelementptr inbounds %struct.yyStackEntry, ptr %684, i32 0, i32 2
+  %686 = load ptr, ptr %685, align 8
+  store ptr %686, ptr %14, align 8
+  %687 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %687, i32 noundef 7)
+  %688 = load ptr, ptr %14, align 8
+  %689 = load ptr, ptr %11, align 8
+  %690 = getelementptr %struct.yyStackEntry, ptr %689, i64 0
+  %691 = getelementptr inbounds %struct.yyStackEntry, ptr %690, i32 0, i32 2
+  store ptr %688, ptr %691, align 8
+  br label %1266
 
-689:                                              ; preds = %4
-  %690 = load ptr, ptr %11, align 8
-  %691 = getelementptr %struct.yyStackEntry, ptr %690, i64 0
-  %692 = getelementptr inbounds %struct.yyStackEntry, ptr %691, i32 0, i32 2
-  %693 = load ptr, ptr %692, align 8
-  store ptr %693, ptr %14, align 8
-  %694 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %694, i32 noundef 8)
-  %695 = load ptr, ptr %14, align 8
-  %696 = load ptr, ptr %11, align 8
-  %697 = getelementptr %struct.yyStackEntry, ptr %696, i64 0
-  %698 = getelementptr inbounds %struct.yyStackEntry, ptr %697, i32 0, i32 2
-  store ptr %695, ptr %698, align 8
-  br label %1261
+692:                                              ; preds = %4
+  %693 = load ptr, ptr %11, align 8
+  %694 = getelementptr %struct.yyStackEntry, ptr %693, i64 0
+  %695 = getelementptr inbounds %struct.yyStackEntry, ptr %694, i32 0, i32 2
+  %696 = load ptr, ptr %695, align 8
+  store ptr %696, ptr %14, align 8
+  %697 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %697, i32 noundef 8)
+  %698 = load ptr, ptr %14, align 8
+  %699 = load ptr, ptr %11, align 8
+  %700 = getelementptr %struct.yyStackEntry, ptr %699, i64 0
+  %701 = getelementptr inbounds %struct.yyStackEntry, ptr %700, i32 0, i32 2
+  store ptr %698, ptr %701, align 8
+  br label %1266
 
-699:                                              ; preds = %4
-  %700 = load ptr, ptr %11, align 8
-  %701 = getelementptr %struct.yyStackEntry, ptr %700, i64 0
-  %702 = getelementptr inbounds %struct.yyStackEntry, ptr %701, i32 0, i32 2
-  %703 = load ptr, ptr %702, align 8
-  store ptr %703, ptr %14, align 8
-  %704 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %704, i32 noundef 9)
-  %705 = load ptr, ptr %14, align 8
-  %706 = load ptr, ptr %11, align 8
-  %707 = getelementptr %struct.yyStackEntry, ptr %706, i64 0
-  %708 = getelementptr inbounds %struct.yyStackEntry, ptr %707, i32 0, i32 2
-  store ptr %705, ptr %708, align 8
-  br label %1261
+702:                                              ; preds = %4
+  %703 = load ptr, ptr %11, align 8
+  %704 = getelementptr %struct.yyStackEntry, ptr %703, i64 0
+  %705 = getelementptr inbounds %struct.yyStackEntry, ptr %704, i32 0, i32 2
+  %706 = load ptr, ptr %705, align 8
+  store ptr %706, ptr %14, align 8
+  %707 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %707, i32 noundef 9)
+  %708 = load ptr, ptr %14, align 8
+  %709 = load ptr, ptr %11, align 8
+  %710 = getelementptr %struct.yyStackEntry, ptr %709, i64 0
+  %711 = getelementptr inbounds %struct.yyStackEntry, ptr %710, i32 0, i32 2
+  store ptr %708, ptr %711, align 8
+  br label %1266
 
-709:                                              ; preds = %4
-  %710 = load ptr, ptr %11, align 8
-  %711 = getelementptr %struct.yyStackEntry, ptr %710, i64 0
-  %712 = getelementptr inbounds %struct.yyStackEntry, ptr %711, i32 0, i32 2
-  %713 = load ptr, ptr %712, align 8
-  store ptr %713, ptr %14, align 8
-  %714 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %714, i32 noundef 10)
-  %715 = load ptr, ptr %14, align 8
-  %716 = load ptr, ptr %11, align 8
-  %717 = getelementptr %struct.yyStackEntry, ptr %716, i64 0
-  %718 = getelementptr inbounds %struct.yyStackEntry, ptr %717, i32 0, i32 2
-  store ptr %715, ptr %718, align 8
-  br label %1261
+712:                                              ; preds = %4
+  %713 = load ptr, ptr %11, align 8
+  %714 = getelementptr %struct.yyStackEntry, ptr %713, i64 0
+  %715 = getelementptr inbounds %struct.yyStackEntry, ptr %714, i32 0, i32 2
+  %716 = load ptr, ptr %715, align 8
+  store ptr %716, ptr %14, align 8
+  %717 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %717, i32 noundef 10)
+  %718 = load ptr, ptr %14, align 8
+  %719 = load ptr, ptr %11, align 8
+  %720 = getelementptr %struct.yyStackEntry, ptr %719, i64 0
+  %721 = getelementptr inbounds %struct.yyStackEntry, ptr %720, i32 0, i32 2
+  store ptr %718, ptr %721, align 8
+  br label %1266
 
-719:                                              ; preds = %4
-  %720 = load ptr, ptr %11, align 8
-  %721 = getelementptr %struct.yyStackEntry, ptr %720, i64 0
-  %722 = getelementptr inbounds %struct.yyStackEntry, ptr %721, i32 0, i32 2
-  %723 = load ptr, ptr %722, align 8
-  store ptr %723, ptr %14, align 8
-  %724 = load ptr, ptr %14, align 8
-  call void @sttype_oper_set_op(ptr noundef %724, i32 noundef 11)
-  %725 = load ptr, ptr %14, align 8
-  %726 = load ptr, ptr %11, align 8
-  %727 = getelementptr %struct.yyStackEntry, ptr %726, i64 0
-  %728 = getelementptr inbounds %struct.yyStackEntry, ptr %727, i32 0, i32 2
-  store ptr %725, ptr %728, align 8
-  br label %1261
+722:                                              ; preds = %4
+  %723 = load ptr, ptr %11, align 8
+  %724 = getelementptr %struct.yyStackEntry, ptr %723, i64 0
+  %725 = getelementptr inbounds %struct.yyStackEntry, ptr %724, i32 0, i32 2
+  %726 = load ptr, ptr %725, align 8
+  store ptr %726, ptr %14, align 8
+  %727 = load ptr, ptr %14, align 8
+  call void @sttype_oper_set_op(ptr noundef %727, i32 noundef 11)
+  %728 = load ptr, ptr %14, align 8
+  %729 = load ptr, ptr %11, align 8
+  %730 = getelementptr %struct.yyStackEntry, ptr %729, i64 0
+  %731 = getelementptr inbounds %struct.yyStackEntry, ptr %730, i32 0, i32 2
+  store ptr %728, ptr %731, align 8
+  br label %1266
 
-729:                                              ; preds = %4
-  %730 = load ptr, ptr %11, align 8
-  %731 = getelementptr %struct.yyStackEntry, ptr %730, i64 -1
-  %732 = getelementptr inbounds %struct.yyStackEntry, ptr %731, i32 0, i32 2
-  %733 = load ptr, ptr %732, align 8
-  store ptr %733, ptr %14, align 8
-  %734 = load ptr, ptr %11, align 8
-  %735 = getelementptr %struct.yyStackEntry, ptr %734, i64 -1
-  %736 = getelementptr inbounds %struct.yyStackEntry, ptr %735, i32 0, i32 2
-  %737 = load ptr, ptr %736, align 8
-  %738 = load ptr, ptr %11, align 8
-  %739 = getelementptr %struct.yyStackEntry, ptr %738, i64 -2
-  %740 = getelementptr inbounds %struct.yyStackEntry, ptr %739, i32 0, i32 2
-  %741 = load ptr, ptr %740, align 8
-  %742 = load ptr, ptr %11, align 8
-  %743 = getelementptr %struct.yyStackEntry, ptr %742, i64 0
-  %744 = getelementptr inbounds %struct.yyStackEntry, ptr %743, i32 0, i32 2
-  %745 = load ptr, ptr %744, align 8
-  call void @sttype_oper_set2_args(ptr noundef %737, ptr noundef %741, ptr noundef %745)
-  %746 = load ptr, ptr %14, align 8
-  %747 = load ptr, ptr %11, align 8
-  %748 = getelementptr %struct.yyStackEntry, ptr %747, i64 -2
-  %749 = getelementptr inbounds %struct.yyStackEntry, ptr %748, i32 0, i32 2
-  %750 = load ptr, ptr %749, align 8
-  %751 = load ptr, ptr %11, align 8
-  %752 = getelementptr %struct.yyStackEntry, ptr %751, i64 0
-  %753 = getelementptr inbounds %struct.yyStackEntry, ptr %752, i32 0, i32 2
-  %754 = load ptr, ptr %753, align 8
-  call void @stnode_merge_location(ptr noundef %746, ptr noundef %750, ptr noundef %754)
-  %755 = load ptr, ptr %14, align 8
-  %756 = load ptr, ptr %11, align 8
-  %757 = getelementptr %struct.yyStackEntry, ptr %756, i64 -2
-  %758 = getelementptr inbounds %struct.yyStackEntry, ptr %757, i32 0, i32 2
-  store ptr %755, ptr %758, align 8
-  br label %1261
+732:                                              ; preds = %4
+  %733 = load ptr, ptr %11, align 8
+  %734 = getelementptr %struct.yyStackEntry, ptr %733, i64 -1
+  %735 = getelementptr inbounds %struct.yyStackEntry, ptr %734, i32 0, i32 2
+  %736 = load ptr, ptr %735, align 8
+  store ptr %736, ptr %14, align 8
+  %737 = load ptr, ptr %11, align 8
+  %738 = getelementptr %struct.yyStackEntry, ptr %737, i64 -1
+  %739 = getelementptr inbounds %struct.yyStackEntry, ptr %738, i32 0, i32 2
+  %740 = load ptr, ptr %739, align 8
+  %741 = load ptr, ptr %11, align 8
+  %742 = getelementptr %struct.yyStackEntry, ptr %741, i64 -2
+  %743 = getelementptr inbounds %struct.yyStackEntry, ptr %742, i32 0, i32 2
+  %744 = load ptr, ptr %743, align 8
+  %745 = load ptr, ptr %11, align 8
+  %746 = getelementptr %struct.yyStackEntry, ptr %745, i64 0
+  %747 = getelementptr inbounds %struct.yyStackEntry, ptr %746, i32 0, i32 2
+  %748 = load ptr, ptr %747, align 8
+  call void @sttype_oper_set2_args(ptr noundef %740, ptr noundef %744, ptr noundef %748)
+  %749 = load ptr, ptr %14, align 8
+  %750 = load ptr, ptr %11, align 8
+  %751 = getelementptr %struct.yyStackEntry, ptr %750, i64 -2
+  %752 = getelementptr inbounds %struct.yyStackEntry, ptr %751, i32 0, i32 2
+  %753 = load ptr, ptr %752, align 8
+  %754 = load ptr, ptr %11, align 8
+  %755 = getelementptr %struct.yyStackEntry, ptr %754, i64 0
+  %756 = getelementptr inbounds %struct.yyStackEntry, ptr %755, i32 0, i32 2
+  %757 = load ptr, ptr %756, align 8
+  call void @stnode_merge_location(ptr noundef %749, ptr noundef %753, ptr noundef %757)
+  %758 = load ptr, ptr %14, align 8
+  %759 = load ptr, ptr %11, align 8
+  %760 = getelementptr %struct.yyStackEntry, ptr %759, i64 -2
+  %761 = getelementptr inbounds %struct.yyStackEntry, ptr %760, i32 0, i32 2
+  store ptr %758, ptr %761, align 8
+  br label %1266
 
-759:                                              ; preds = %4
-  %760 = load ptr, ptr %11, align 8
-  %761 = getelementptr %struct.yyStackEntry, ptr %760, i64 0
-  %762 = getelementptr inbounds %struct.yyStackEntry, ptr %761, i32 0, i32 2
-  %763 = load ptr, ptr %762, align 8
-  store ptr %763, ptr %22, align 8
-  br label %764
+762:                                              ; preds = %4
+  %763 = load ptr, ptr %11, align 8
+  %764 = getelementptr %struct.yyStackEntry, ptr %763, i64 0
+  %765 = getelementptr inbounds %struct.yyStackEntry, ptr %764, i32 0, i32 2
+  %766 = load ptr, ptr %765, align 8
+  store ptr %766, ptr %22, align 8
+  br label %767
 
-764:                                              ; preds = %768, %759
-  %765 = load ptr, ptr %22, align 8
-  %766 = call i32 @stnode_type_id(ptr noundef %765)
-  %767 = icmp eq i32 %766, 1
-  br i1 %767, label %768, label %770
+767:                                              ; preds = %771, %762
+  %768 = load ptr, ptr %22, align 8
+  %769 = call i32 @stnode_type_id(ptr noundef %768)
+  %770 = icmp eq i32 %769, 1
+  br i1 %770, label %771, label %773
 
-768:                                              ; preds = %764
-  %769 = load ptr, ptr %22, align 8
-  call void @sttype_oper_get(ptr noundef %769, ptr noundef null, ptr noundef %22, ptr noundef null)
-  br label %764, !llvm.loop !7
+771:                                              ; preds = %767
+  %772 = load ptr, ptr %22, align 8
+  call void @sttype_oper_get(ptr noundef %772, ptr noundef null, ptr noundef %22, ptr noundef null)
+  br label %767, !llvm.loop !7
 
-770:                                              ; preds = %764
-  %771 = load ptr, ptr %11, align 8
-  %772 = getelementptr %struct.yyStackEntry, ptr %771, i64 -1
-  %773 = getelementptr inbounds %struct.yyStackEntry, ptr %772, i32 0, i32 2
-  %774 = load ptr, ptr %773, align 8
-  store ptr %774, ptr %21, align 8
-  %775 = load ptr, ptr %21, align 8
-  %776 = load ptr, ptr %11, align 8
-  %777 = getelementptr %struct.yyStackEntry, ptr %776, i64 -2
-  %778 = getelementptr inbounds %struct.yyStackEntry, ptr %777, i32 0, i32 2
-  %779 = load ptr, ptr %778, align 8
-  %780 = load ptr, ptr %22, align 8
-  %781 = call ptr @stnode_dup(ptr noundef %780)
-  call void @sttype_oper_set2_args(ptr noundef %775, ptr noundef %779, ptr noundef %781)
-  %782 = call ptr @stnode_new_empty(i32 noundef 1)
-  store ptr %782, ptr %14, align 8
-  %783 = load ptr, ptr %14, align 8
-  %784 = load ptr, ptr %21, align 8
-  %785 = load ptr, ptr %11, align 8
-  %786 = getelementptr %struct.yyStackEntry, ptr %785, i64 0
-  %787 = getelementptr inbounds %struct.yyStackEntry, ptr %786, i32 0, i32 2
-  %788 = load ptr, ptr %787, align 8
-  call void @sttype_oper_set2(ptr noundef %783, i32 noundef 2, ptr noundef %784, ptr noundef %788)
-  %789 = load ptr, ptr %14, align 8
-  %790 = load ptr, ptr %11, align 8
-  %791 = getelementptr %struct.yyStackEntry, ptr %790, i64 -2
-  %792 = getelementptr inbounds %struct.yyStackEntry, ptr %791, i32 0, i32 2
-  %793 = load ptr, ptr %792, align 8
-  %794 = load ptr, ptr %11, align 8
-  %795 = getelementptr %struct.yyStackEntry, ptr %794, i64 0
-  %796 = getelementptr inbounds %struct.yyStackEntry, ptr %795, i32 0, i32 2
-  %797 = load ptr, ptr %796, align 8
-  call void @stnode_merge_location(ptr noundef %789, ptr noundef %793, ptr noundef %797)
-  %798 = load ptr, ptr %14, align 8
-  %799 = load ptr, ptr %11, align 8
-  %800 = getelementptr %struct.yyStackEntry, ptr %799, i64 -2
-  %801 = getelementptr inbounds %struct.yyStackEntry, ptr %800, i32 0, i32 2
-  store ptr %798, ptr %801, align 8
-  br label %1261
+773:                                              ; preds = %767
+  %774 = load ptr, ptr %11, align 8
+  %775 = getelementptr %struct.yyStackEntry, ptr %774, i64 -1
+  %776 = getelementptr inbounds %struct.yyStackEntry, ptr %775, i32 0, i32 2
+  %777 = load ptr, ptr %776, align 8
+  store ptr %777, ptr %21, align 8
+  %778 = load ptr, ptr %21, align 8
+  %779 = load ptr, ptr %11, align 8
+  %780 = getelementptr %struct.yyStackEntry, ptr %779, i64 -2
+  %781 = getelementptr inbounds %struct.yyStackEntry, ptr %780, i32 0, i32 2
+  %782 = load ptr, ptr %781, align 8
+  %783 = load ptr, ptr %22, align 8
+  %784 = call ptr @stnode_dup(ptr noundef %783)
+  call void @sttype_oper_set2_args(ptr noundef %778, ptr noundef %782, ptr noundef %784)
+  %785 = call ptr @stnode_new_empty(i32 noundef 1)
+  store ptr %785, ptr %14, align 8
+  %786 = load ptr, ptr %14, align 8
+  %787 = load ptr, ptr %21, align 8
+  %788 = load ptr, ptr %11, align 8
+  %789 = getelementptr %struct.yyStackEntry, ptr %788, i64 0
+  %790 = getelementptr inbounds %struct.yyStackEntry, ptr %789, i32 0, i32 2
+  %791 = load ptr, ptr %790, align 8
+  call void @sttype_oper_set2(ptr noundef %786, i32 noundef 2, ptr noundef %787, ptr noundef %791)
+  %792 = load ptr, ptr %14, align 8
+  %793 = load ptr, ptr %11, align 8
+  %794 = getelementptr %struct.yyStackEntry, ptr %793, i64 -2
+  %795 = getelementptr inbounds %struct.yyStackEntry, ptr %794, i32 0, i32 2
+  %796 = load ptr, ptr %795, align 8
+  %797 = load ptr, ptr %11, align 8
+  %798 = getelementptr %struct.yyStackEntry, ptr %797, i64 0
+  %799 = getelementptr inbounds %struct.yyStackEntry, ptr %798, i32 0, i32 2
+  %800 = load ptr, ptr %799, align 8
+  call void @stnode_merge_location(ptr noundef %792, ptr noundef %796, ptr noundef %800)
+  %801 = load ptr, ptr %14, align 8
+  %802 = load ptr, ptr %11, align 8
+  %803 = getelementptr %struct.yyStackEntry, ptr %802, i64 -2
+  %804 = getelementptr inbounds %struct.yyStackEntry, ptr %803, i32 0, i32 2
+  store ptr %801, ptr %804, align 8
+  br label %1266
 
-802:                                              ; preds = %4
-  %803 = load ptr, ptr %11, align 8
-  %804 = getelementptr %struct.yyStackEntry, ptr %803, i64 -1
-  %805 = getelementptr inbounds %struct.yyStackEntry, ptr %804, i32 0, i32 2
-  %806 = load ptr, ptr %805, align 8
-  store ptr %806, ptr %14, align 8
-  %807 = load ptr, ptr %14, align 8
-  %808 = load ptr, ptr %11, align 8
-  %809 = getelementptr %struct.yyStackEntry, ptr %808, i64 -2
-  %810 = getelementptr inbounds %struct.yyStackEntry, ptr %809, i32 0, i32 2
-  %811 = load ptr, ptr %810, align 8
-  %812 = load ptr, ptr %11, align 8
-  %813 = getelementptr %struct.yyStackEntry, ptr %812, i64 0
-  %814 = getelementptr inbounds %struct.yyStackEntry, ptr %813, i32 0, i32 2
-  %815 = load ptr, ptr %814, align 8
-  call void @sttype_oper_set2(ptr noundef %807, i32 noundef 12, ptr noundef %811, ptr noundef %815)
-  %816 = load ptr, ptr %14, align 8
-  %817 = load ptr, ptr %11, align 8
-  %818 = getelementptr %struct.yyStackEntry, ptr %817, i64 -2
-  %819 = getelementptr inbounds %struct.yyStackEntry, ptr %818, i32 0, i32 2
-  %820 = load ptr, ptr %819, align 8
-  %821 = load ptr, ptr %11, align 8
-  %822 = getelementptr %struct.yyStackEntry, ptr %821, i64 0
-  %823 = getelementptr inbounds %struct.yyStackEntry, ptr %822, i32 0, i32 2
-  %824 = load ptr, ptr %823, align 8
-  call void @stnode_merge_location(ptr noundef %816, ptr noundef %820, ptr noundef %824)
-  %825 = load ptr, ptr %14, align 8
-  %826 = load ptr, ptr %11, align 8
-  %827 = getelementptr %struct.yyStackEntry, ptr %826, i64 -2
-  %828 = getelementptr inbounds %struct.yyStackEntry, ptr %827, i32 0, i32 2
-  store ptr %825, ptr %828, align 8
-  br label %1261
+805:                                              ; preds = %4
+  %806 = load ptr, ptr %11, align 8
+  %807 = getelementptr %struct.yyStackEntry, ptr %806, i64 -1
+  %808 = getelementptr inbounds %struct.yyStackEntry, ptr %807, i32 0, i32 2
+  %809 = load ptr, ptr %808, align 8
+  store ptr %809, ptr %14, align 8
+  %810 = load ptr, ptr %14, align 8
+  %811 = load ptr, ptr %11, align 8
+  %812 = getelementptr %struct.yyStackEntry, ptr %811, i64 -2
+  %813 = getelementptr inbounds %struct.yyStackEntry, ptr %812, i32 0, i32 2
+  %814 = load ptr, ptr %813, align 8
+  %815 = load ptr, ptr %11, align 8
+  %816 = getelementptr %struct.yyStackEntry, ptr %815, i64 0
+  %817 = getelementptr inbounds %struct.yyStackEntry, ptr %816, i32 0, i32 2
+  %818 = load ptr, ptr %817, align 8
+  call void @sttype_oper_set2(ptr noundef %810, i32 noundef 12, ptr noundef %814, ptr noundef %818)
+  %819 = load ptr, ptr %14, align 8
+  %820 = load ptr, ptr %11, align 8
+  %821 = getelementptr %struct.yyStackEntry, ptr %820, i64 -2
+  %822 = getelementptr inbounds %struct.yyStackEntry, ptr %821, i32 0, i32 2
+  %823 = load ptr, ptr %822, align 8
+  %824 = load ptr, ptr %11, align 8
+  %825 = getelementptr %struct.yyStackEntry, ptr %824, i64 0
+  %826 = getelementptr inbounds %struct.yyStackEntry, ptr %825, i32 0, i32 2
+  %827 = load ptr, ptr %826, align 8
+  call void @stnode_merge_location(ptr noundef %819, ptr noundef %823, ptr noundef %827)
+  %828 = load ptr, ptr %14, align 8
+  %829 = load ptr, ptr %11, align 8
+  %830 = getelementptr %struct.yyStackEntry, ptr %829, i64 -2
+  %831 = getelementptr inbounds %struct.yyStackEntry, ptr %830, i32 0, i32 2
+  store ptr %828, ptr %831, align 8
+  br label %1266
 
-829:                                              ; preds = %4
-  %830 = load ptr, ptr %11, align 8
-  %831 = getelementptr %struct.yyStackEntry, ptr %830, i64 -1
-  %832 = getelementptr inbounds %struct.yyStackEntry, ptr %831, i32 0, i32 2
-  %833 = load ptr, ptr %832, align 8
-  store ptr %833, ptr %14, align 8
-  %834 = load ptr, ptr %14, align 8
-  %835 = load ptr, ptr %11, align 8
-  %836 = getelementptr %struct.yyStackEntry, ptr %835, i64 -2
-  %837 = getelementptr inbounds %struct.yyStackEntry, ptr %836, i32 0, i32 2
-  %838 = load ptr, ptr %837, align 8
-  %839 = load ptr, ptr %11, align 8
-  %840 = getelementptr %struct.yyStackEntry, ptr %839, i64 0
-  %841 = getelementptr inbounds %struct.yyStackEntry, ptr %840, i32 0, i32 2
-  %842 = load ptr, ptr %841, align 8
-  call void @sttype_oper_set2(ptr noundef %834, i32 noundef 13, ptr noundef %838, ptr noundef %842)
-  %843 = load ptr, ptr %14, align 8
-  %844 = load ptr, ptr %11, align 8
-  %845 = getelementptr %struct.yyStackEntry, ptr %844, i64 -2
-  %846 = getelementptr inbounds %struct.yyStackEntry, ptr %845, i32 0, i32 2
-  %847 = load ptr, ptr %846, align 8
-  %848 = load ptr, ptr %11, align 8
-  %849 = getelementptr %struct.yyStackEntry, ptr %848, i64 0
-  %850 = getelementptr inbounds %struct.yyStackEntry, ptr %849, i32 0, i32 2
-  %851 = load ptr, ptr %850, align 8
-  call void @stnode_merge_location(ptr noundef %843, ptr noundef %847, ptr noundef %851)
-  %852 = load ptr, ptr %14, align 8
-  %853 = load ptr, ptr %11, align 8
-  %854 = getelementptr %struct.yyStackEntry, ptr %853, i64 -2
-  %855 = getelementptr inbounds %struct.yyStackEntry, ptr %854, i32 0, i32 2
-  store ptr %852, ptr %855, align 8
-  br label %1261
+832:                                              ; preds = %4
+  %833 = load ptr, ptr %11, align 8
+  %834 = getelementptr %struct.yyStackEntry, ptr %833, i64 -1
+  %835 = getelementptr inbounds %struct.yyStackEntry, ptr %834, i32 0, i32 2
+  %836 = load ptr, ptr %835, align 8
+  store ptr %836, ptr %14, align 8
+  %837 = load ptr, ptr %14, align 8
+  %838 = load ptr, ptr %11, align 8
+  %839 = getelementptr %struct.yyStackEntry, ptr %838, i64 -2
+  %840 = getelementptr inbounds %struct.yyStackEntry, ptr %839, i32 0, i32 2
+  %841 = load ptr, ptr %840, align 8
+  %842 = load ptr, ptr %11, align 8
+  %843 = getelementptr %struct.yyStackEntry, ptr %842, i64 0
+  %844 = getelementptr inbounds %struct.yyStackEntry, ptr %843, i32 0, i32 2
+  %845 = load ptr, ptr %844, align 8
+  call void @sttype_oper_set2(ptr noundef %837, i32 noundef 13, ptr noundef %841, ptr noundef %845)
+  %846 = load ptr, ptr %14, align 8
+  %847 = load ptr, ptr %11, align 8
+  %848 = getelementptr %struct.yyStackEntry, ptr %847, i64 -2
+  %849 = getelementptr inbounds %struct.yyStackEntry, ptr %848, i32 0, i32 2
+  %850 = load ptr, ptr %849, align 8
+  %851 = load ptr, ptr %11, align 8
+  %852 = getelementptr %struct.yyStackEntry, ptr %851, i64 0
+  %853 = getelementptr inbounds %struct.yyStackEntry, ptr %852, i32 0, i32 2
+  %854 = load ptr, ptr %853, align 8
+  call void @stnode_merge_location(ptr noundef %846, ptr noundef %850, ptr noundef %854)
+  %855 = load ptr, ptr %14, align 8
+  %856 = load ptr, ptr %11, align 8
+  %857 = getelementptr %struct.yyStackEntry, ptr %856, i64 -2
+  %858 = getelementptr inbounds %struct.yyStackEntry, ptr %857, i32 0, i32 2
+  store ptr %855, ptr %858, align 8
+  br label %1266
 
-856:                                              ; preds = %4
-  %857 = load ptr, ptr %11, align 8
-  %858 = getelementptr %struct.yyStackEntry, ptr %857, i64 -1
-  %859 = getelementptr inbounds %struct.yyStackEntry, ptr %858, i32 0, i32 2
-  %860 = load ptr, ptr %859, align 8
-  store ptr %860, ptr %14, align 8
-  %861 = load ptr, ptr %14, align 8
-  %862 = load ptr, ptr %11, align 8
-  %863 = getelementptr %struct.yyStackEntry, ptr %862, i64 -2
-  %864 = getelementptr inbounds %struct.yyStackEntry, ptr %863, i32 0, i32 2
-  %865 = load ptr, ptr %864, align 8
-  %866 = load ptr, ptr %11, align 8
-  %867 = getelementptr %struct.yyStackEntry, ptr %866, i64 0
-  %868 = getelementptr inbounds %struct.yyStackEntry, ptr %867, i32 0, i32 2
-  %869 = load ptr, ptr %868, align 8
-  call void @sttype_oper_set2(ptr noundef %861, i32 noundef 14, ptr noundef %865, ptr noundef %869)
-  %870 = load ptr, ptr %14, align 8
-  %871 = load ptr, ptr %11, align 8
-  %872 = getelementptr %struct.yyStackEntry, ptr %871, i64 -2
-  %873 = getelementptr inbounds %struct.yyStackEntry, ptr %872, i32 0, i32 2
-  %874 = load ptr, ptr %873, align 8
-  %875 = load ptr, ptr %11, align 8
-  %876 = getelementptr %struct.yyStackEntry, ptr %875, i64 0
-  %877 = getelementptr inbounds %struct.yyStackEntry, ptr %876, i32 0, i32 2
-  %878 = load ptr, ptr %877, align 8
-  call void @stnode_merge_location(ptr noundef %870, ptr noundef %874, ptr noundef %878)
-  %879 = load ptr, ptr %14, align 8
-  %880 = load ptr, ptr %11, align 8
-  %881 = getelementptr %struct.yyStackEntry, ptr %880, i64 -2
-  %882 = getelementptr inbounds %struct.yyStackEntry, ptr %881, i32 0, i32 2
-  store ptr %879, ptr %882, align 8
-  br label %1261
+859:                                              ; preds = %4
+  %860 = load ptr, ptr %11, align 8
+  %861 = getelementptr %struct.yyStackEntry, ptr %860, i64 -1
+  %862 = getelementptr inbounds %struct.yyStackEntry, ptr %861, i32 0, i32 2
+  %863 = load ptr, ptr %862, align 8
+  store ptr %863, ptr %14, align 8
+  %864 = load ptr, ptr %14, align 8
+  %865 = load ptr, ptr %11, align 8
+  %866 = getelementptr %struct.yyStackEntry, ptr %865, i64 -2
+  %867 = getelementptr inbounds %struct.yyStackEntry, ptr %866, i32 0, i32 2
+  %868 = load ptr, ptr %867, align 8
+  %869 = load ptr, ptr %11, align 8
+  %870 = getelementptr %struct.yyStackEntry, ptr %869, i64 0
+  %871 = getelementptr inbounds %struct.yyStackEntry, ptr %870, i32 0, i32 2
+  %872 = load ptr, ptr %871, align 8
+  call void @sttype_oper_set2(ptr noundef %864, i32 noundef 14, ptr noundef %868, ptr noundef %872)
+  %873 = load ptr, ptr %14, align 8
+  %874 = load ptr, ptr %11, align 8
+  %875 = getelementptr %struct.yyStackEntry, ptr %874, i64 -2
+  %876 = getelementptr inbounds %struct.yyStackEntry, ptr %875, i32 0, i32 2
+  %877 = load ptr, ptr %876, align 8
+  %878 = load ptr, ptr %11, align 8
+  %879 = getelementptr %struct.yyStackEntry, ptr %878, i64 0
+  %880 = getelementptr inbounds %struct.yyStackEntry, ptr %879, i32 0, i32 2
+  %881 = load ptr, ptr %880, align 8
+  call void @stnode_merge_location(ptr noundef %873, ptr noundef %877, ptr noundef %881)
+  %882 = load ptr, ptr %14, align 8
+  %883 = load ptr, ptr %11, align 8
+  %884 = getelementptr %struct.yyStackEntry, ptr %883, i64 -2
+  %885 = getelementptr inbounds %struct.yyStackEntry, ptr %884, i32 0, i32 2
+  store ptr %882, ptr %885, align 8
+  br label %1266
 
-883:                                              ; preds = %4
-  %884 = load ptr, ptr %11, align 8
-  %885 = getelementptr %struct.yyStackEntry, ptr %884, i64 -1
-  %886 = getelementptr inbounds %struct.yyStackEntry, ptr %885, i32 0, i32 2
-  %887 = load ptr, ptr %886, align 8
-  store ptr %887, ptr %14, align 8
-  %888 = load ptr, ptr %11, align 8
-  %889 = getelementptr %struct.yyStackEntry, ptr %888, i64 -1
-  %890 = getelementptr inbounds %struct.yyStackEntry, ptr %889, i32 0, i32 2
-  %891 = load ptr, ptr %890, align 8
-  %892 = load ptr, ptr %11, align 8
-  %893 = getelementptr %struct.yyStackEntry, ptr %892, i64 -3
-  %894 = getelementptr inbounds %struct.yyStackEntry, ptr %893, i32 0, i32 2
-  %895 = load ptr, ptr %894, align 8
-  %896 = load ptr, ptr %11, align 8
-  %897 = getelementptr %struct.yyStackEntry, ptr %896, i64 0
-  %898 = getelementptr inbounds %struct.yyStackEntry, ptr %897, i32 0, i32 2
-  %899 = load ptr, ptr %898, align 8
-  call void @sttype_oper_set2(ptr noundef %891, i32 noundef 15, ptr noundef %895, ptr noundef %899)
-  %900 = load ptr, ptr %14, align 8
-  %901 = load ptr, ptr %11, align 8
-  %902 = getelementptr %struct.yyStackEntry, ptr %901, i64 -3
-  %903 = getelementptr inbounds %struct.yyStackEntry, ptr %902, i32 0, i32 2
-  %904 = load ptr, ptr %903, align 8
-  %905 = load ptr, ptr %11, align 8
-  %906 = getelementptr %struct.yyStackEntry, ptr %905, i64 0
-  %907 = getelementptr inbounds %struct.yyStackEntry, ptr %906, i32 0, i32 2
-  %908 = load ptr, ptr %907, align 8
-  call void @stnode_merge_location(ptr noundef %900, ptr noundef %904, ptr noundef %908)
-  %909 = load ptr, ptr %5, align 8
-  %910 = load ptr, ptr %11, align 8
-  %911 = getelementptr %struct.yyStackEntry, ptr %910, i64 -2
-  %912 = getelementptr inbounds %struct.yyStackEntry, ptr %911, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %909, i8 noundef zeroext 4, ptr noundef %912)
-  %913 = load ptr, ptr %14, align 8
-  %914 = load ptr, ptr %11, align 8
-  %915 = getelementptr %struct.yyStackEntry, ptr %914, i64 -3
-  %916 = getelementptr inbounds %struct.yyStackEntry, ptr %915, i32 0, i32 2
-  store ptr %913, ptr %916, align 8
-  br label %1261
+886:                                              ; preds = %4
+  %887 = load ptr, ptr %11, align 8
+  %888 = getelementptr %struct.yyStackEntry, ptr %887, i64 -1
+  %889 = getelementptr inbounds %struct.yyStackEntry, ptr %888, i32 0, i32 2
+  %890 = load ptr, ptr %889, align 8
+  store ptr %890, ptr %14, align 8
+  %891 = load ptr, ptr %11, align 8
+  %892 = getelementptr %struct.yyStackEntry, ptr %891, i64 -1
+  %893 = getelementptr inbounds %struct.yyStackEntry, ptr %892, i32 0, i32 2
+  %894 = load ptr, ptr %893, align 8
+  %895 = load ptr, ptr %11, align 8
+  %896 = getelementptr %struct.yyStackEntry, ptr %895, i64 -3
+  %897 = getelementptr inbounds %struct.yyStackEntry, ptr %896, i32 0, i32 2
+  %898 = load ptr, ptr %897, align 8
+  %899 = load ptr, ptr %11, align 8
+  %900 = getelementptr %struct.yyStackEntry, ptr %899, i64 0
+  %901 = getelementptr inbounds %struct.yyStackEntry, ptr %900, i32 0, i32 2
+  %902 = load ptr, ptr %901, align 8
+  call void @sttype_oper_set2(ptr noundef %894, i32 noundef 15, ptr noundef %898, ptr noundef %902)
+  %903 = load ptr, ptr %14, align 8
+  %904 = load ptr, ptr %11, align 8
+  %905 = getelementptr %struct.yyStackEntry, ptr %904, i64 -3
+  %906 = getelementptr inbounds %struct.yyStackEntry, ptr %905, i32 0, i32 2
+  %907 = load ptr, ptr %906, align 8
+  %908 = load ptr, ptr %11, align 8
+  %909 = getelementptr %struct.yyStackEntry, ptr %908, i64 0
+  %910 = getelementptr inbounds %struct.yyStackEntry, ptr %909, i32 0, i32 2
+  %911 = load ptr, ptr %910, align 8
+  call void @stnode_merge_location(ptr noundef %903, ptr noundef %907, ptr noundef %911)
+  %912 = load ptr, ptr %5, align 8
+  %913 = load ptr, ptr %11, align 8
+  %914 = getelementptr %struct.yyStackEntry, ptr %913, i64 -2
+  %915 = getelementptr inbounds %struct.yyStackEntry, ptr %914, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %912, i8 noundef zeroext 4, ptr noundef %915)
+  %916 = load ptr, ptr %14, align 8
+  %917 = load ptr, ptr %11, align 8
+  %918 = getelementptr %struct.yyStackEntry, ptr %917, i64 -3
+  %919 = getelementptr inbounds %struct.yyStackEntry, ptr %918, i32 0, i32 2
+  store ptr %916, ptr %919, align 8
+  br label %1266
 
-917:                                              ; preds = %4
-  %918 = load ptr, ptr %11, align 8
-  %919 = getelementptr %struct.yyStackEntry, ptr %918, i64 0
-  %920 = getelementptr inbounds %struct.yyStackEntry, ptr %919, i32 0, i32 2
-  %921 = load ptr, ptr %920, align 8
-  store ptr %921, ptr %14, align 8
-  %922 = load ptr, ptr %14, align 8
-  call void @sttype_test_set_match(ptr noundef %922, i32 noundef 1)
-  %923 = load ptr, ptr %14, align 8
-  %924 = load ptr, ptr %11, align 8
-  %925 = getelementptr %struct.yyStackEntry, ptr %924, i64 -1
-  %926 = getelementptr inbounds %struct.yyStackEntry, ptr %925, i32 0, i32 2
-  %927 = load ptr, ptr %926, align 8
-  %928 = load ptr, ptr %11, align 8
-  %929 = getelementptr %struct.yyStackEntry, ptr %928, i64 0
-  %930 = getelementptr inbounds %struct.yyStackEntry, ptr %929, i32 0, i32 2
-  %931 = load ptr, ptr %930, align 8
-  call void @stnode_merge_location(ptr noundef %923, ptr noundef %927, ptr noundef %931)
-  %932 = load ptr, ptr %11, align 8
-  %933 = getelementptr %struct.yyStackEntry, ptr %932, i64 -1
-  %934 = getelementptr inbounds %struct.yyStackEntry, ptr %933, i32 0, i32 2
-  %935 = load ptr, ptr %934, align 8
-  call void @stnode_free(ptr noundef %935)
-  %936 = load ptr, ptr %14, align 8
-  %937 = load ptr, ptr %11, align 8
-  %938 = getelementptr %struct.yyStackEntry, ptr %937, i64 -1
-  %939 = getelementptr inbounds %struct.yyStackEntry, ptr %938, i32 0, i32 2
-  store ptr %936, ptr %939, align 8
-  br label %1261
+920:                                              ; preds = %4
+  %921 = load ptr, ptr %11, align 8
+  %922 = getelementptr %struct.yyStackEntry, ptr %921, i64 0
+  %923 = getelementptr inbounds %struct.yyStackEntry, ptr %922, i32 0, i32 2
+  %924 = load ptr, ptr %923, align 8
+  store ptr %924, ptr %14, align 8
+  %925 = load ptr, ptr %14, align 8
+  call void @sttype_test_set_match(ptr noundef %925, i32 noundef 1)
+  %926 = load ptr, ptr %14, align 8
+  %927 = load ptr, ptr %11, align 8
+  %928 = getelementptr %struct.yyStackEntry, ptr %927, i64 -1
+  %929 = getelementptr inbounds %struct.yyStackEntry, ptr %928, i32 0, i32 2
+  %930 = load ptr, ptr %929, align 8
+  %931 = load ptr, ptr %11, align 8
+  %932 = getelementptr %struct.yyStackEntry, ptr %931, i64 0
+  %933 = getelementptr inbounds %struct.yyStackEntry, ptr %932, i32 0, i32 2
+  %934 = load ptr, ptr %933, align 8
+  call void @stnode_merge_location(ptr noundef %926, ptr noundef %930, ptr noundef %934)
+  %935 = load ptr, ptr %11, align 8
+  %936 = getelementptr %struct.yyStackEntry, ptr %935, i64 -1
+  %937 = getelementptr inbounds %struct.yyStackEntry, ptr %936, i32 0, i32 2
+  %938 = load ptr, ptr %937, align 8
+  call void @stnode_free(ptr noundef %938)
+  %939 = load ptr, ptr %14, align 8
+  %940 = load ptr, ptr %11, align 8
+  %941 = getelementptr %struct.yyStackEntry, ptr %940, i64 -1
+  %942 = getelementptr inbounds %struct.yyStackEntry, ptr %941, i32 0, i32 2
+  store ptr %939, ptr %942, align 8
+  br label %1266
 
-940:                                              ; preds = %4
-  %941 = load ptr, ptr %11, align 8
-  %942 = getelementptr %struct.yyStackEntry, ptr %941, i64 0
-  %943 = getelementptr inbounds %struct.yyStackEntry, ptr %942, i32 0, i32 2
-  %944 = load ptr, ptr %943, align 8
-  store ptr %944, ptr %14, align 8
-  %945 = load ptr, ptr %14, align 8
-  call void @sttype_test_set_match(ptr noundef %945, i32 noundef 2)
-  %946 = load ptr, ptr %14, align 8
-  %947 = load ptr, ptr %11, align 8
-  %948 = getelementptr %struct.yyStackEntry, ptr %947, i64 -1
-  %949 = getelementptr inbounds %struct.yyStackEntry, ptr %948, i32 0, i32 2
-  %950 = load ptr, ptr %949, align 8
-  %951 = load ptr, ptr %11, align 8
-  %952 = getelementptr %struct.yyStackEntry, ptr %951, i64 0
-  %953 = getelementptr inbounds %struct.yyStackEntry, ptr %952, i32 0, i32 2
-  %954 = load ptr, ptr %953, align 8
-  call void @stnode_merge_location(ptr noundef %946, ptr noundef %950, ptr noundef %954)
-  %955 = load ptr, ptr %11, align 8
-  %956 = getelementptr %struct.yyStackEntry, ptr %955, i64 -1
-  %957 = getelementptr inbounds %struct.yyStackEntry, ptr %956, i32 0, i32 2
-  %958 = load ptr, ptr %957, align 8
-  call void @stnode_free(ptr noundef %958)
-  %959 = load ptr, ptr %14, align 8
-  %960 = load ptr, ptr %11, align 8
-  %961 = getelementptr %struct.yyStackEntry, ptr %960, i64 -1
-  %962 = getelementptr inbounds %struct.yyStackEntry, ptr %961, i32 0, i32 2
-  store ptr %959, ptr %962, align 8
-  br label %1261
+943:                                              ; preds = %4
+  %944 = load ptr, ptr %11, align 8
+  %945 = getelementptr %struct.yyStackEntry, ptr %944, i64 0
+  %946 = getelementptr inbounds %struct.yyStackEntry, ptr %945, i32 0, i32 2
+  %947 = load ptr, ptr %946, align 8
+  store ptr %947, ptr %14, align 8
+  %948 = load ptr, ptr %14, align 8
+  call void @sttype_test_set_match(ptr noundef %948, i32 noundef 2)
+  %949 = load ptr, ptr %14, align 8
+  %950 = load ptr, ptr %11, align 8
+  %951 = getelementptr %struct.yyStackEntry, ptr %950, i64 -1
+  %952 = getelementptr inbounds %struct.yyStackEntry, ptr %951, i32 0, i32 2
+  %953 = load ptr, ptr %952, align 8
+  %954 = load ptr, ptr %11, align 8
+  %955 = getelementptr %struct.yyStackEntry, ptr %954, i64 0
+  %956 = getelementptr inbounds %struct.yyStackEntry, ptr %955, i32 0, i32 2
+  %957 = load ptr, ptr %956, align 8
+  call void @stnode_merge_location(ptr noundef %949, ptr noundef %953, ptr noundef %957)
+  %958 = load ptr, ptr %11, align 8
+  %959 = getelementptr %struct.yyStackEntry, ptr %958, i64 -1
+  %960 = getelementptr inbounds %struct.yyStackEntry, ptr %959, i32 0, i32 2
+  %961 = load ptr, ptr %960, align 8
+  call void @stnode_free(ptr noundef %961)
+  %962 = load ptr, ptr %14, align 8
+  %963 = load ptr, ptr %11, align 8
+  %964 = getelementptr %struct.yyStackEntry, ptr %963, i64 -1
+  %965 = getelementptr inbounds %struct.yyStackEntry, ptr %964, i32 0, i32 2
+  store ptr %962, ptr %965, align 8
+  br label %1266
 
-963:                                              ; preds = %4
-  %964 = load ptr, ptr %11, align 8
-  %965 = getelementptr %struct.yyStackEntry, ptr %964, i64 0
-  %966 = getelementptr inbounds %struct.yyStackEntry, ptr %965, i32 0, i32 2
-  %967 = load ptr, ptr %966, align 8
-  %968 = call ptr @g_slist_append(ptr noundef null, ptr noundef %967)
-  store ptr %968, ptr %14, align 8
-  %969 = load ptr, ptr %14, align 8
-  %970 = call ptr @g_slist_append(ptr noundef %969, ptr noundef null)
-  store ptr %970, ptr %14, align 8
-  %971 = load ptr, ptr %14, align 8
-  %972 = load ptr, ptr %11, align 8
-  %973 = getelementptr %struct.yyStackEntry, ptr %972, i64 0
-  %974 = getelementptr inbounds %struct.yyStackEntry, ptr %973, i32 0, i32 2
-  store ptr %971, ptr %974, align 8
-  br label %1261
+966:                                              ; preds = %4
+  %967 = load ptr, ptr %11, align 8
+  %968 = getelementptr %struct.yyStackEntry, ptr %967, i64 0
+  %969 = getelementptr inbounds %struct.yyStackEntry, ptr %968, i32 0, i32 2
+  %970 = load ptr, ptr %969, align 8
+  %971 = call ptr @g_slist_append(ptr noundef null, ptr noundef %970)
+  store ptr %971, ptr %14, align 8
+  %972 = load ptr, ptr %14, align 8
+  %973 = call ptr @g_slist_append(ptr noundef %972, ptr noundef null)
+  store ptr %973, ptr %14, align 8
+  %974 = load ptr, ptr %14, align 8
+  %975 = load ptr, ptr %11, align 8
+  %976 = getelementptr %struct.yyStackEntry, ptr %975, i64 0
+  %977 = getelementptr inbounds %struct.yyStackEntry, ptr %976, i32 0, i32 2
+  store ptr %974, ptr %977, align 8
+  br label %1266
 
-975:                                              ; preds = %4
-  %976 = load ptr, ptr %11, align 8
-  %977 = getelementptr %struct.yyStackEntry, ptr %976, i64 -2
-  %978 = getelementptr inbounds %struct.yyStackEntry, ptr %977, i32 0, i32 2
-  %979 = load ptr, ptr %978, align 8
-  %980 = call ptr @g_slist_append(ptr noundef null, ptr noundef %979)
-  store ptr %980, ptr %14, align 8
-  %981 = load ptr, ptr %14, align 8
-  %982 = load ptr, ptr %11, align 8
-  %983 = getelementptr %struct.yyStackEntry, ptr %982, i64 0
-  %984 = getelementptr inbounds %struct.yyStackEntry, ptr %983, i32 0, i32 2
-  %985 = load ptr, ptr %984, align 8
-  %986 = call ptr @g_slist_append(ptr noundef %981, ptr noundef %985)
-  store ptr %986, ptr %14, align 8
-  %987 = load ptr, ptr %5, align 8
-  %988 = load ptr, ptr %11, align 8
-  %989 = getelementptr %struct.yyStackEntry, ptr %988, i64 -1
-  %990 = getelementptr inbounds %struct.yyStackEntry, ptr %989, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %987, i8 noundef zeroext 43, ptr noundef %990)
-  %991 = load ptr, ptr %14, align 8
-  %992 = load ptr, ptr %11, align 8
-  %993 = getelementptr %struct.yyStackEntry, ptr %992, i64 -2
-  %994 = getelementptr inbounds %struct.yyStackEntry, ptr %993, i32 0, i32 2
-  store ptr %991, ptr %994, align 8
-  br label %1261
+978:                                              ; preds = %4
+  %979 = load ptr, ptr %11, align 8
+  %980 = getelementptr %struct.yyStackEntry, ptr %979, i64 -2
+  %981 = getelementptr inbounds %struct.yyStackEntry, ptr %980, i32 0, i32 2
+  %982 = load ptr, ptr %981, align 8
+  %983 = call ptr @g_slist_append(ptr noundef null, ptr noundef %982)
+  store ptr %983, ptr %14, align 8
+  %984 = load ptr, ptr %14, align 8
+  %985 = load ptr, ptr %11, align 8
+  %986 = getelementptr %struct.yyStackEntry, ptr %985, i64 0
+  %987 = getelementptr inbounds %struct.yyStackEntry, ptr %986, i32 0, i32 2
+  %988 = load ptr, ptr %987, align 8
+  %989 = call ptr @g_slist_append(ptr noundef %984, ptr noundef %988)
+  store ptr %989, ptr %14, align 8
+  %990 = load ptr, ptr %5, align 8
+  %991 = load ptr, ptr %11, align 8
+  %992 = getelementptr %struct.yyStackEntry, ptr %991, i64 -1
+  %993 = getelementptr inbounds %struct.yyStackEntry, ptr %992, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %990, i8 noundef zeroext 43, ptr noundef %993)
+  %994 = load ptr, ptr %14, align 8
+  %995 = load ptr, ptr %11, align 8
+  %996 = getelementptr %struct.yyStackEntry, ptr %995, i64 -2
+  %997 = getelementptr inbounds %struct.yyStackEntry, ptr %996, i32 0, i32 2
+  store ptr %994, ptr %997, align 8
+  br label %1266
 
-995:                                              ; preds = %4
-  %996 = load ptr, ptr %11, align 8
-  %997 = getelementptr %struct.yyStackEntry, ptr %996, i64 0
-  %998 = getelementptr inbounds %struct.yyStackEntry, ptr %997, i32 0, i32 2
-  %999 = load ptr, ptr %998, align 8
-  %1000 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %999)
-  store ptr %1000, ptr %14, align 8
-  %1001 = load ptr, ptr %14, align 8
-  %1002 = load ptr, ptr %11, align 8
-  %1003 = getelementptr %struct.yyStackEntry, ptr %1002, i64 0
-  %1004 = getelementptr inbounds %struct.yyStackEntry, ptr %1003, i32 0, i32 2
-  store ptr %1001, ptr %1004, align 8
-  br label %1261
+998:                                              ; preds = %4
+  %999 = load ptr, ptr %11, align 8
+  %1000 = getelementptr %struct.yyStackEntry, ptr %999, i64 0
+  %1001 = getelementptr inbounds %struct.yyStackEntry, ptr %1000, i32 0, i32 2
+  %1002 = load ptr, ptr %1001, align 8
+  %1003 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %1002)
+  store ptr %1003, ptr %14, align 8
+  %1004 = load ptr, ptr %14, align 8
+  %1005 = load ptr, ptr %11, align 8
+  %1006 = getelementptr %struct.yyStackEntry, ptr %1005, i64 0
+  %1007 = getelementptr inbounds %struct.yyStackEntry, ptr %1006, i32 0, i32 2
+  store ptr %1004, ptr %1007, align 8
+  br label %1266
 
-1005:                                             ; preds = %4
-  %1006 = load ptr, ptr %11, align 8
-  %1007 = getelementptr %struct.yyStackEntry, ptr %1006, i64 -2
-  %1008 = getelementptr inbounds %struct.yyStackEntry, ptr %1007, i32 0, i32 2
-  %1009 = load ptr, ptr %1008, align 8
-  %1010 = load ptr, ptr %11, align 8
-  %1011 = getelementptr %struct.yyStackEntry, ptr %1010, i64 0
-  %1012 = getelementptr inbounds %struct.yyStackEntry, ptr %1011, i32 0, i32 2
-  %1013 = load ptr, ptr %1012, align 8
-  %1014 = call ptr @g_slist_concat(ptr noundef %1009, ptr noundef %1013)
-  store ptr %1014, ptr %14, align 8
-  %1015 = load ptr, ptr %5, align 8
-  %1016 = load ptr, ptr %11, align 8
-  %1017 = getelementptr %struct.yyStackEntry, ptr %1016, i64 -1
-  %1018 = getelementptr inbounds %struct.yyStackEntry, ptr %1017, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1015, i8 noundef zeroext 44, ptr noundef %1018)
-  %1019 = load ptr, ptr %14, align 8
-  %1020 = load ptr, ptr %11, align 8
-  %1021 = getelementptr %struct.yyStackEntry, ptr %1020, i64 -2
-  %1022 = getelementptr inbounds %struct.yyStackEntry, ptr %1021, i32 0, i32 2
-  store ptr %1019, ptr %1022, align 8
-  br label %1261
+1008:                                             ; preds = %4
+  %1009 = load ptr, ptr %11, align 8
+  %1010 = getelementptr %struct.yyStackEntry, ptr %1009, i64 -2
+  %1011 = getelementptr inbounds %struct.yyStackEntry, ptr %1010, i32 0, i32 2
+  %1012 = load ptr, ptr %1011, align 8
+  %1013 = load ptr, ptr %11, align 8
+  %1014 = getelementptr %struct.yyStackEntry, ptr %1013, i64 0
+  %1015 = getelementptr inbounds %struct.yyStackEntry, ptr %1014, i32 0, i32 2
+  %1016 = load ptr, ptr %1015, align 8
+  %1017 = call ptr @g_slist_concat(ptr noundef %1012, ptr noundef %1016)
+  store ptr %1017, ptr %14, align 8
+  %1018 = load ptr, ptr %5, align 8
+  %1019 = load ptr, ptr %11, align 8
+  %1020 = getelementptr %struct.yyStackEntry, ptr %1019, i64 -1
+  %1021 = getelementptr inbounds %struct.yyStackEntry, ptr %1020, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1018, i8 noundef zeroext 44, ptr noundef %1021)
+  %1022 = load ptr, ptr %14, align 8
+  %1023 = load ptr, ptr %11, align 8
+  %1024 = getelementptr %struct.yyStackEntry, ptr %1023, i64 -2
+  %1025 = getelementptr inbounds %struct.yyStackEntry, ptr %1024, i32 0, i32 2
+  store ptr %1022, ptr %1025, align 8
+  br label %1266
 
-1023:                                             ; preds = %4
-  %1024 = load ptr, ptr %11, align 8
-  %1025 = getelementptr %struct.yyStackEntry, ptr %1024, i64 -1
-  %1026 = getelementptr inbounds %struct.yyStackEntry, ptr %1025, i32 0, i32 2
-  %1027 = load ptr, ptr %1026, align 8
-  %1028 = load i64, ptr @loc_empty, align 8
-  %1029 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  %1030 = call ptr @stnode_new(i32 noundef 12, ptr noundef %1027, ptr noundef null, i64 %1028, i64 %1029)
-  store ptr %1030, ptr %14, align 8
-  %1031 = load ptr, ptr %14, align 8
-  %1032 = load ptr, ptr %11, align 8
-  %1033 = getelementptr %struct.yyStackEntry, ptr %1032, i64 -2
-  %1034 = getelementptr inbounds %struct.yyStackEntry, ptr %1033, i32 0, i32 2
-  %1035 = load ptr, ptr %1034, align 8
+1026:                                             ; preds = %4
+  %1027 = load ptr, ptr %11, align 8
+  %1028 = getelementptr %struct.yyStackEntry, ptr %1027, i64 -1
+  %1029 = getelementptr inbounds %struct.yyStackEntry, ptr %1028, i32 0, i32 2
+  %1030 = load ptr, ptr %1029, align 8
+  %1031 = load i64, ptr @loc_empty, align 8
+  %1032 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %1033 = load i64, ptr %1032, align 8
+  %1034 = call ptr @stnode_new(i32 noundef 12, ptr noundef %1030, ptr noundef null, i64 %1031, i64 %1033)
+  store ptr %1034, ptr %14, align 8
+  %1035 = load ptr, ptr %14, align 8
   %1036 = load ptr, ptr %11, align 8
-  %1037 = getelementptr %struct.yyStackEntry, ptr %1036, i64 0
+  %1037 = getelementptr %struct.yyStackEntry, ptr %1036, i64 -2
   %1038 = getelementptr inbounds %struct.yyStackEntry, ptr %1037, i32 0, i32 2
   %1039 = load ptr, ptr %1038, align 8
-  call void @stnode_merge_location(ptr noundef %1031, ptr noundef %1035, ptr noundef %1039)
   %1040 = load ptr, ptr %11, align 8
-  %1041 = getelementptr %struct.yyStackEntry, ptr %1040, i64 -2
+  %1041 = getelementptr %struct.yyStackEntry, ptr %1040, i64 0
   %1042 = getelementptr inbounds %struct.yyStackEntry, ptr %1041, i32 0, i32 2
   %1043 = load ptr, ptr %1042, align 8
-  call void @stnode_free(ptr noundef %1043)
+  call void @stnode_merge_location(ptr noundef %1035, ptr noundef %1039, ptr noundef %1043)
   %1044 = load ptr, ptr %11, align 8
-  %1045 = getelementptr %struct.yyStackEntry, ptr %1044, i64 0
+  %1045 = getelementptr %struct.yyStackEntry, ptr %1044, i64 -2
   %1046 = getelementptr inbounds %struct.yyStackEntry, ptr %1045, i32 0, i32 2
   %1047 = load ptr, ptr %1046, align 8
   call void @stnode_free(ptr noundef %1047)
-  %1048 = load ptr, ptr %14, align 8
-  %1049 = load ptr, ptr %11, align 8
-  %1050 = getelementptr %struct.yyStackEntry, ptr %1049, i64 -2
-  %1051 = getelementptr inbounds %struct.yyStackEntry, ptr %1050, i32 0, i32 2
-  store ptr %1048, ptr %1051, align 8
-  br label %1261
+  %1048 = load ptr, ptr %11, align 8
+  %1049 = getelementptr %struct.yyStackEntry, ptr %1048, i64 0
+  %1050 = getelementptr inbounds %struct.yyStackEntry, ptr %1049, i32 0, i32 2
+  %1051 = load ptr, ptr %1050, align 8
+  call void @stnode_free(ptr noundef %1051)
+  %1052 = load ptr, ptr %14, align 8
+  %1053 = load ptr, ptr %11, align 8
+  %1054 = getelementptr %struct.yyStackEntry, ptr %1053, i64 -2
+  %1055 = getelementptr inbounds %struct.yyStackEntry, ptr %1054, i32 0, i32 2
+  store ptr %1052, ptr %1055, align 8
+  br label %1266
 
-1052:                                             ; preds = %4
-  %1053 = load i64, ptr @loc_empty, align 8
-  %1054 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  %1055 = call ptr @stnode_new(i32 noundef 10, ptr noundef null, ptr noundef null, i64 %1053, i64 %1054)
-  store ptr %1055, ptr %14, align 8
-  %1056 = load ptr, ptr %14, align 8
-  %1057 = load ptr, ptr %11, align 8
-  %1058 = getelementptr %struct.yyStackEntry, ptr %1057, i64 -3
-  %1059 = getelementptr inbounds %struct.yyStackEntry, ptr %1058, i32 0, i32 2
-  %1060 = load ptr, ptr %1059, align 8
-  %1061 = load ptr, ptr %11, align 8
-  %1062 = getelementptr %struct.yyStackEntry, ptr %1061, i64 -1
-  %1063 = getelementptr inbounds %struct.yyStackEntry, ptr %1062, i32 0, i32 2
-  %1064 = load ptr, ptr %1063, align 8
-  call void @sttype_slice_set(ptr noundef %1056, ptr noundef %1060, ptr noundef %1064)
-  %1065 = load ptr, ptr %11, align 8
-  %1066 = getelementptr %struct.yyStackEntry, ptr %1065, i64 -1
-  %1067 = getelementptr inbounds %struct.yyStackEntry, ptr %1066, i32 0, i32 2
-  %1068 = load ptr, ptr %1067, align 8
-  call void @g_slist_free(ptr noundef %1068)
-  %1069 = load ptr, ptr %5, align 8
+1056:                                             ; preds = %4
+  %1057 = load i64, ptr @loc_empty, align 8
+  %1058 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %1059 = load i64, ptr %1058, align 8
+  %1060 = call ptr @stnode_new(i32 noundef 10, ptr noundef null, ptr noundef null, i64 %1057, i64 %1059)
+  store ptr %1060, ptr %14, align 8
+  %1061 = load ptr, ptr %14, align 8
+  %1062 = load ptr, ptr %11, align 8
+  %1063 = getelementptr %struct.yyStackEntry, ptr %1062, i64 -3
+  %1064 = getelementptr inbounds %struct.yyStackEntry, ptr %1063, i32 0, i32 2
+  %1065 = load ptr, ptr %1064, align 8
+  %1066 = load ptr, ptr %11, align 8
+  %1067 = getelementptr %struct.yyStackEntry, ptr %1066, i64 -1
+  %1068 = getelementptr inbounds %struct.yyStackEntry, ptr %1067, i32 0, i32 2
+  %1069 = load ptr, ptr %1068, align 8
+  call void @sttype_slice_set(ptr noundef %1061, ptr noundef %1065, ptr noundef %1069)
   %1070 = load ptr, ptr %11, align 8
-  %1071 = getelementptr %struct.yyStackEntry, ptr %1070, i64 -2
+  %1071 = getelementptr %struct.yyStackEntry, ptr %1070, i64 -1
   %1072 = getelementptr inbounds %struct.yyStackEntry, ptr %1071, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1069, i8 noundef zeroext 33, ptr noundef %1072)
-  %1073 = load ptr, ptr %5, align 8
-  %1074 = load ptr, ptr %11, align 8
-  %1075 = getelementptr %struct.yyStackEntry, ptr %1074, i64 0
-  %1076 = getelementptr inbounds %struct.yyStackEntry, ptr %1075, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1073, i8 noundef zeroext 34, ptr noundef %1076)
-  %1077 = load ptr, ptr %14, align 8
-  %1078 = load ptr, ptr %11, align 8
-  %1079 = getelementptr %struct.yyStackEntry, ptr %1078, i64 -3
-  %1080 = getelementptr inbounds %struct.yyStackEntry, ptr %1079, i32 0, i32 2
-  store ptr %1077, ptr %1080, align 8
-  br label %1261
+  %1073 = load ptr, ptr %1072, align 8
+  call void @g_slist_free(ptr noundef %1073)
+  %1074 = load ptr, ptr %5, align 8
+  %1075 = load ptr, ptr %11, align 8
+  %1076 = getelementptr %struct.yyStackEntry, ptr %1075, i64 -2
+  %1077 = getelementptr inbounds %struct.yyStackEntry, ptr %1076, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1074, i8 noundef zeroext 33, ptr noundef %1077)
+  %1078 = load ptr, ptr %5, align 8
+  %1079 = load ptr, ptr %11, align 8
+  %1080 = getelementptr %struct.yyStackEntry, ptr %1079, i64 0
+  %1081 = getelementptr inbounds %struct.yyStackEntry, ptr %1080, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1078, i8 noundef zeroext 34, ptr noundef %1081)
+  %1082 = load ptr, ptr %14, align 8
+  %1083 = load ptr, ptr %11, align 8
+  %1084 = getelementptr %struct.yyStackEntry, ptr %1083, i64 -3
+  %1085 = getelementptr inbounds %struct.yyStackEntry, ptr %1084, i32 0, i32 2
+  store ptr %1082, ptr %1085, align 8
+  br label %1266
 
-1081:                                             ; preds = %4
+1086:                                             ; preds = %4
   store ptr null, ptr %23, align 8
-  %1082 = load ptr, ptr %11, align 8
-  %1083 = getelementptr %struct.yyStackEntry, ptr %1082, i64 0
-  %1084 = getelementptr inbounds %struct.yyStackEntry, ptr %1083, i32 0, i32 2
-  %1085 = load ptr, ptr %1084, align 8
-  %1086 = call ptr @stnode_token(ptr noundef %1085)
-  %1087 = call ptr @drange_node_from_str(ptr noundef %1086, ptr noundef %23)
-  store ptr %1087, ptr %24, align 8
-  %1088 = load ptr, ptr %23, align 8
-  %1089 = icmp ne ptr %1088, null
-  br i1 %1089, label %1090, label %1111
+  %1087 = load ptr, ptr %11, align 8
+  %1088 = getelementptr %struct.yyStackEntry, ptr %1087, i64 0
+  %1089 = getelementptr inbounds %struct.yyStackEntry, ptr %1088, i32 0, i32 2
+  %1090 = load ptr, ptr %1089, align 8
+  %1091 = call ptr @stnode_token(ptr noundef %1090)
+  %1092 = call ptr @drange_node_from_str(ptr noundef %1091, ptr noundef %23)
+  store ptr %1092, ptr %24, align 8
+  %1093 = load ptr, ptr %23, align 8
+  %1094 = icmp ne ptr %1093, null
+  br i1 %1094, label %1095, label %1116
 
-1090:                                             ; preds = %1081
-  br label %1091
+1095:                                             ; preds = %1086
+  br label %1096
 
-1091:                                             ; preds = %1090
-  br label %1092
+1096:                                             ; preds = %1095
+  br label %1097
 
-1092:                                             ; preds = %1091
-  br label %1093
+1097:                                             ; preds = %1096
+  br label %1098
 
-1093:                                             ; preds = %1092
-  %1094 = load ptr, ptr %13, align 8
-  %1095 = load ptr, ptr %11, align 8
-  %1096 = getelementptr %struct.yyStackEntry, ptr %1095, i64 0
-  %1097 = getelementptr inbounds %struct.yyStackEntry, ptr %1096, i32 0, i32 2
-  %1098 = load ptr, ptr %1097, align 8
-  %1099 = call { i64, i64 } @stnode_location(ptr noundef %1098)
-  %1100 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 0
-  %1101 = extractvalue { i64, i64 } %1099, 0
-  store i64 %1101, ptr %1100, align 8
-  %1102 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 1
-  %1103 = extractvalue { i64, i64 } %1099, 1
-  store i64 %1103, ptr %1102, align 8
-  %1104 = load ptr, ptr %23, align 8
+1098:                                             ; preds = %1097
+  %1099 = load ptr, ptr %13, align 8
+  %1100 = load ptr, ptr %11, align 8
+  %1101 = getelementptr %struct.yyStackEntry, ptr %1100, i64 0
+  %1102 = getelementptr inbounds %struct.yyStackEntry, ptr %1101, i32 0, i32 2
+  %1103 = load ptr, ptr %1102, align 8
+  %1104 = call { i64, i64 } @stnode_location(ptr noundef %1103)
   %1105 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 0
-  %1106 = load i64, ptr %1105, align 8
+  %1106 = extractvalue { i64, i64 } %1104, 0
+  store i64 %1106, ptr %1105, align 8
   %1107 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 1
-  %1108 = load i64, ptr %1107, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1094, i32 noundef -1, i64 %1106, i64 %1108, ptr noundef @.str, ptr noundef %1104)
-  br label %1109
+  %1108 = extractvalue { i64, i64 } %1104, 1
+  store i64 %1108, ptr %1107, align 8
+  %1109 = load ptr, ptr %23, align 8
+  %1110 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 0
+  %1111 = load i64, ptr %1110, align 8
+  %1112 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 1
+  %1113 = load i64, ptr %1112, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1099, i32 noundef -1, i64 %1111, i64 %1113, ptr noundef @.str, ptr noundef %1109)
+  br label %1114
 
-1109:                                             ; preds = %1093
-  %1110 = load ptr, ptr %23, align 8
-  call void @g_free(ptr noundef %1110)
-  br label %1111
+1114:                                             ; preds = %1098
+  %1115 = load ptr, ptr %23, align 8
+  call void @g_free(ptr noundef %1115)
+  br label %1116
 
-1111:                                             ; preds = %1109, %1081
-  %1112 = load ptr, ptr %24, align 8
-  %1113 = call ptr @g_slist_append(ptr noundef null, ptr noundef %1112)
-  store ptr %1113, ptr %14, align 8
-  %1114 = load ptr, ptr %11, align 8
-  %1115 = getelementptr %struct.yyStackEntry, ptr %1114, i64 0
-  %1116 = getelementptr inbounds %struct.yyStackEntry, ptr %1115, i32 0, i32 2
-  %1117 = load ptr, ptr %1116, align 8
-  call void @stnode_free(ptr noundef %1117)
-  %1118 = load ptr, ptr %14, align 8
+1116:                                             ; preds = %1114, %1086
+  %1117 = load ptr, ptr %24, align 8
+  %1118 = call ptr @g_slist_append(ptr noundef null, ptr noundef %1117)
+  store ptr %1118, ptr %14, align 8
   %1119 = load ptr, ptr %11, align 8
   %1120 = getelementptr %struct.yyStackEntry, ptr %1119, i64 0
   %1121 = getelementptr inbounds %struct.yyStackEntry, ptr %1120, i32 0, i32 2
-  store ptr %1118, ptr %1121, align 8
-  br label %1261
+  %1122 = load ptr, ptr %1121, align 8
+  call void @stnode_free(ptr noundef %1122)
+  %1123 = load ptr, ptr %14, align 8
+  %1124 = load ptr, ptr %11, align 8
+  %1125 = getelementptr %struct.yyStackEntry, ptr %1124, i64 0
+  %1126 = getelementptr inbounds %struct.yyStackEntry, ptr %1125, i32 0, i32 2
+  store ptr %1123, ptr %1126, align 8
+  br label %1266
 
-1122:                                             ; preds = %4
+1127:                                             ; preds = %4
   store ptr null, ptr %26, align 8
-  %1123 = load ptr, ptr %11, align 8
-  %1124 = getelementptr %struct.yyStackEntry, ptr %1123, i64 0
-  %1125 = getelementptr inbounds %struct.yyStackEntry, ptr %1124, i32 0, i32 2
-  %1126 = load ptr, ptr %1125, align 8
-  %1127 = call ptr @stnode_token(ptr noundef %1126)
-  %1128 = call ptr @drange_node_from_str(ptr noundef %1127, ptr noundef %26)
-  store ptr %1128, ptr %27, align 8
-  %1129 = load ptr, ptr %26, align 8
-  %1130 = icmp ne ptr %1129, null
-  br i1 %1130, label %1131, label %1152
+  %1128 = load ptr, ptr %11, align 8
+  %1129 = getelementptr %struct.yyStackEntry, ptr %1128, i64 0
+  %1130 = getelementptr inbounds %struct.yyStackEntry, ptr %1129, i32 0, i32 2
+  %1131 = load ptr, ptr %1130, align 8
+  %1132 = call ptr @stnode_token(ptr noundef %1131)
+  %1133 = call ptr @drange_node_from_str(ptr noundef %1132, ptr noundef %26)
+  store ptr %1133, ptr %27, align 8
+  %1134 = load ptr, ptr %26, align 8
+  %1135 = icmp ne ptr %1134, null
+  br i1 %1135, label %1136, label %1157
 
-1131:                                             ; preds = %1122
-  br label %1132
+1136:                                             ; preds = %1127
+  br label %1137
 
-1132:                                             ; preds = %1131
-  br label %1133
+1137:                                             ; preds = %1136
+  br label %1138
 
-1133:                                             ; preds = %1132
-  br label %1134
+1138:                                             ; preds = %1137
+  br label %1139
 
-1134:                                             ; preds = %1133
-  %1135 = load ptr, ptr %13, align 8
-  %1136 = load ptr, ptr %11, align 8
-  %1137 = getelementptr %struct.yyStackEntry, ptr %1136, i64 0
-  %1138 = getelementptr inbounds %struct.yyStackEntry, ptr %1137, i32 0, i32 2
-  %1139 = load ptr, ptr %1138, align 8
-  %1140 = call { i64, i64 } @stnode_location(ptr noundef %1139)
-  %1141 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 0
-  %1142 = extractvalue { i64, i64 } %1140, 0
-  store i64 %1142, ptr %1141, align 8
-  %1143 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 1
-  %1144 = extractvalue { i64, i64 } %1140, 1
-  store i64 %1144, ptr %1143, align 8
-  %1145 = load ptr, ptr %26, align 8
+1139:                                             ; preds = %1138
+  %1140 = load ptr, ptr %13, align 8
+  %1141 = load ptr, ptr %11, align 8
+  %1142 = getelementptr %struct.yyStackEntry, ptr %1141, i64 0
+  %1143 = getelementptr inbounds %struct.yyStackEntry, ptr %1142, i32 0, i32 2
+  %1144 = load ptr, ptr %1143, align 8
+  %1145 = call { i64, i64 } @stnode_location(ptr noundef %1144)
   %1146 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 0
-  %1147 = load i64, ptr %1146, align 8
+  %1147 = extractvalue { i64, i64 } %1145, 0
+  store i64 %1147, ptr %1146, align 8
   %1148 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 1
-  %1149 = load i64, ptr %1148, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1135, i32 noundef -1, i64 %1147, i64 %1149, ptr noundef @.str, ptr noundef %1145)
-  br label %1150
+  %1149 = extractvalue { i64, i64 } %1145, 1
+  store i64 %1149, ptr %1148, align 8
+  %1150 = load ptr, ptr %26, align 8
+  %1151 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 0
+  %1152 = load i64, ptr %1151, align 8
+  %1153 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 1
+  %1154 = load i64, ptr %1153, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1140, i32 noundef -1, i64 %1152, i64 %1154, ptr noundef @.str, ptr noundef %1150)
+  br label %1155
 
-1150:                                             ; preds = %1134
-  %1151 = load ptr, ptr %26, align 8
-  call void @g_free(ptr noundef %1151)
-  br label %1152
+1155:                                             ; preds = %1139
+  %1156 = load ptr, ptr %26, align 8
+  call void @g_free(ptr noundef %1156)
+  br label %1157
 
-1152:                                             ; preds = %1150, %1122
-  %1153 = load ptr, ptr %11, align 8
-  %1154 = getelementptr %struct.yyStackEntry, ptr %1153, i64 -2
-  %1155 = getelementptr inbounds %struct.yyStackEntry, ptr %1154, i32 0, i32 2
-  %1156 = load ptr, ptr %1155, align 8
-  %1157 = load ptr, ptr %27, align 8
-  %1158 = call ptr @g_slist_append(ptr noundef %1156, ptr noundef %1157)
-  store ptr %1158, ptr %14, align 8
-  %1159 = load ptr, ptr %11, align 8
-  %1160 = getelementptr %struct.yyStackEntry, ptr %1159, i64 0
-  %1161 = getelementptr inbounds %struct.yyStackEntry, ptr %1160, i32 0, i32 2
-  %1162 = load ptr, ptr %1161, align 8
-  call void @stnode_free(ptr noundef %1162)
-  %1163 = load ptr, ptr %5, align 8
+1157:                                             ; preds = %1155, %1127
+  %1158 = load ptr, ptr %11, align 8
+  %1159 = getelementptr %struct.yyStackEntry, ptr %1158, i64 -2
+  %1160 = getelementptr inbounds %struct.yyStackEntry, ptr %1159, i32 0, i32 2
+  %1161 = load ptr, ptr %1160, align 8
+  %1162 = load ptr, ptr %27, align 8
+  %1163 = call ptr @g_slist_append(ptr noundef %1161, ptr noundef %1162)
+  store ptr %1163, ptr %14, align 8
   %1164 = load ptr, ptr %11, align 8
-  %1165 = getelementptr %struct.yyStackEntry, ptr %1164, i64 -1
+  %1165 = getelementptr %struct.yyStackEntry, ptr %1164, i64 0
   %1166 = getelementptr inbounds %struct.yyStackEntry, ptr %1165, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1163, i8 noundef zeroext 44, ptr noundef %1166)
-  %1167 = load ptr, ptr %14, align 8
-  %1168 = load ptr, ptr %11, align 8
-  %1169 = getelementptr %struct.yyStackEntry, ptr %1168, i64 -2
-  %1170 = getelementptr inbounds %struct.yyStackEntry, ptr %1169, i32 0, i32 2
-  store ptr %1167, ptr %1170, align 8
-  br label %1261
-
-1171:                                             ; preds = %4
-  %1172 = load ptr, ptr %13, align 8
+  %1167 = load ptr, ptr %1166, align 8
+  call void @stnode_free(ptr noundef %1167)
+  %1168 = load ptr, ptr %5, align 8
+  %1169 = load ptr, ptr %11, align 8
+  %1170 = getelementptr %struct.yyStackEntry, ptr %1169, i64 -1
+  %1171 = getelementptr inbounds %struct.yyStackEntry, ptr %1170, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1168, i8 noundef zeroext 44, ptr noundef %1171)
+  %1172 = load ptr, ptr %14, align 8
   %1173 = load ptr, ptr %11, align 8
-  %1174 = getelementptr %struct.yyStackEntry, ptr %1173, i64 -3
+  %1174 = getelementptr %struct.yyStackEntry, ptr %1173, i64 -2
   %1175 = getelementptr inbounds %struct.yyStackEntry, ptr %1174, i32 0, i32 2
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = call ptr @new_function(ptr noundef %1172, ptr noundef %1176)
-  store ptr %1177, ptr %14, align 8
-  %1178 = load ptr, ptr %14, align 8
-  %1179 = load ptr, ptr %11, align 8
-  %1180 = getelementptr %struct.yyStackEntry, ptr %1179, i64 -1
-  %1181 = getelementptr inbounds %struct.yyStackEntry, ptr %1180, i32 0, i32 2
-  %1182 = load ptr, ptr %1181, align 8
-  call void @sttype_function_set_params(ptr noundef %1178, ptr noundef %1182)
+  store ptr %1172, ptr %1175, align 8
+  br label %1266
+
+1176:                                             ; preds = %4
+  %1177 = load ptr, ptr %13, align 8
+  %1178 = load ptr, ptr %11, align 8
+  %1179 = getelementptr %struct.yyStackEntry, ptr %1178, i64 -3
+  %1180 = getelementptr inbounds %struct.yyStackEntry, ptr %1179, i32 0, i32 2
+  %1181 = load ptr, ptr %1180, align 8
+  %1182 = call ptr @new_function(ptr noundef %1177, ptr noundef %1181)
+  store ptr %1182, ptr %14, align 8
   %1183 = load ptr, ptr %14, align 8
   %1184 = load ptr, ptr %11, align 8
-  %1185 = getelementptr %struct.yyStackEntry, ptr %1184, i64 -3
+  %1185 = getelementptr %struct.yyStackEntry, ptr %1184, i64 -1
   %1186 = getelementptr inbounds %struct.yyStackEntry, ptr %1185, i32 0, i32 2
   %1187 = load ptr, ptr %1186, align 8
-  %1188 = load ptr, ptr %11, align 8
-  %1189 = getelementptr %struct.yyStackEntry, ptr %1188, i64 0
-  %1190 = getelementptr inbounds %struct.yyStackEntry, ptr %1189, i32 0, i32 2
-  %1191 = load ptr, ptr %1190, align 8
-  call void @stnode_merge_location(ptr noundef %1183, ptr noundef %1187, ptr noundef %1191)
-  %1192 = load ptr, ptr %11, align 8
-  %1193 = getelementptr %struct.yyStackEntry, ptr %1192, i64 0
-  %1194 = getelementptr inbounds %struct.yyStackEntry, ptr %1193, i32 0, i32 2
-  %1195 = load ptr, ptr %1194, align 8
-  call void @stnode_free(ptr noundef %1195)
-  %1196 = load ptr, ptr %5, align 8
+  call void @sttype_function_set_params(ptr noundef %1183, ptr noundef %1187)
+  %1188 = load ptr, ptr %14, align 8
+  %1189 = load ptr, ptr %11, align 8
+  %1190 = getelementptr %struct.yyStackEntry, ptr %1189, i64 -3
+  %1191 = getelementptr inbounds %struct.yyStackEntry, ptr %1190, i32 0, i32 2
+  %1192 = load ptr, ptr %1191, align 8
+  %1193 = load ptr, ptr %11, align 8
+  %1194 = getelementptr %struct.yyStackEntry, ptr %1193, i64 0
+  %1195 = getelementptr inbounds %struct.yyStackEntry, ptr %1194, i32 0, i32 2
+  %1196 = load ptr, ptr %1195, align 8
+  call void @stnode_merge_location(ptr noundef %1188, ptr noundef %1192, ptr noundef %1196)
   %1197 = load ptr, ptr %11, align 8
-  %1198 = getelementptr %struct.yyStackEntry, ptr %1197, i64 -2
+  %1198 = getelementptr %struct.yyStackEntry, ptr %1197, i64 0
   %1199 = getelementptr inbounds %struct.yyStackEntry, ptr %1198, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1196, i8 noundef zeroext 23, ptr noundef %1199)
-  %1200 = load ptr, ptr %14, align 8
-  %1201 = load ptr, ptr %11, align 8
-  %1202 = getelementptr %struct.yyStackEntry, ptr %1201, i64 -3
-  %1203 = getelementptr inbounds %struct.yyStackEntry, ptr %1202, i32 0, i32 2
-  store ptr %1200, ptr %1203, align 8
-  br label %1261
-
-1204:                                             ; preds = %4
-  %1205 = load ptr, ptr %13, align 8
+  %1200 = load ptr, ptr %1199, align 8
+  call void @stnode_free(ptr noundef %1200)
+  %1201 = load ptr, ptr %5, align 8
+  %1202 = load ptr, ptr %11, align 8
+  %1203 = getelementptr %struct.yyStackEntry, ptr %1202, i64 -2
+  %1204 = getelementptr inbounds %struct.yyStackEntry, ptr %1203, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1201, i8 noundef zeroext 23, ptr noundef %1204)
+  %1205 = load ptr, ptr %14, align 8
   %1206 = load ptr, ptr %11, align 8
-  %1207 = getelementptr %struct.yyStackEntry, ptr %1206, i64 -2
+  %1207 = getelementptr %struct.yyStackEntry, ptr %1206, i64 -3
   %1208 = getelementptr inbounds %struct.yyStackEntry, ptr %1207, i32 0, i32 2
-  %1209 = load ptr, ptr %1208, align 8
-  %1210 = call ptr @new_function(ptr noundef %1205, ptr noundef %1209)
-  store ptr %1210, ptr %14, align 8
-  %1211 = load ptr, ptr %14, align 8
-  %1212 = load ptr, ptr %11, align 8
-  %1213 = getelementptr %struct.yyStackEntry, ptr %1212, i64 -2
-  %1214 = getelementptr inbounds %struct.yyStackEntry, ptr %1213, i32 0, i32 2
-  %1215 = load ptr, ptr %1214, align 8
-  %1216 = load ptr, ptr %11, align 8
-  %1217 = getelementptr %struct.yyStackEntry, ptr %1216, i64 0
-  %1218 = getelementptr inbounds %struct.yyStackEntry, ptr %1217, i32 0, i32 2
-  %1219 = load ptr, ptr %1218, align 8
-  call void @stnode_merge_location(ptr noundef %1211, ptr noundef %1215, ptr noundef %1219)
-  %1220 = load ptr, ptr %11, align 8
-  %1221 = getelementptr %struct.yyStackEntry, ptr %1220, i64 0
-  %1222 = getelementptr inbounds %struct.yyStackEntry, ptr %1221, i32 0, i32 2
-  %1223 = load ptr, ptr %1222, align 8
-  call void @stnode_free(ptr noundef %1223)
-  %1224 = load ptr, ptr %5, align 8
+  store ptr %1205, ptr %1208, align 8
+  br label %1266
+
+1209:                                             ; preds = %4
+  %1210 = load ptr, ptr %13, align 8
+  %1211 = load ptr, ptr %11, align 8
+  %1212 = getelementptr %struct.yyStackEntry, ptr %1211, i64 -2
+  %1213 = getelementptr inbounds %struct.yyStackEntry, ptr %1212, i32 0, i32 2
+  %1214 = load ptr, ptr %1213, align 8
+  %1215 = call ptr @new_function(ptr noundef %1210, ptr noundef %1214)
+  store ptr %1215, ptr %14, align 8
+  %1216 = load ptr, ptr %14, align 8
+  %1217 = load ptr, ptr %11, align 8
+  %1218 = getelementptr %struct.yyStackEntry, ptr %1217, i64 -2
+  %1219 = getelementptr inbounds %struct.yyStackEntry, ptr %1218, i32 0, i32 2
+  %1220 = load ptr, ptr %1219, align 8
+  %1221 = load ptr, ptr %11, align 8
+  %1222 = getelementptr %struct.yyStackEntry, ptr %1221, i64 0
+  %1223 = getelementptr inbounds %struct.yyStackEntry, ptr %1222, i32 0, i32 2
+  %1224 = load ptr, ptr %1223, align 8
+  call void @stnode_merge_location(ptr noundef %1216, ptr noundef %1220, ptr noundef %1224)
   %1225 = load ptr, ptr %11, align 8
-  %1226 = getelementptr %struct.yyStackEntry, ptr %1225, i64 -1
+  %1226 = getelementptr %struct.yyStackEntry, ptr %1225, i64 0
   %1227 = getelementptr inbounds %struct.yyStackEntry, ptr %1226, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1224, i8 noundef zeroext 23, ptr noundef %1227)
-  %1228 = load ptr, ptr %14, align 8
-  %1229 = load ptr, ptr %11, align 8
-  %1230 = getelementptr %struct.yyStackEntry, ptr %1229, i64 -2
-  %1231 = getelementptr inbounds %struct.yyStackEntry, ptr %1230, i32 0, i32 2
-  store ptr %1228, ptr %1231, align 8
-  br label %1261
+  %1228 = load ptr, ptr %1227, align 8
+  call void @stnode_free(ptr noundef %1228)
+  %1229 = load ptr, ptr %5, align 8
+  %1230 = load ptr, ptr %11, align 8
+  %1231 = getelementptr %struct.yyStackEntry, ptr %1230, i64 -1
+  %1232 = getelementptr inbounds %struct.yyStackEntry, ptr %1231, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1229, i8 noundef zeroext 23, ptr noundef %1232)
+  %1233 = load ptr, ptr %14, align 8
+  %1234 = load ptr, ptr %11, align 8
+  %1235 = getelementptr %struct.yyStackEntry, ptr %1234, i64 -2
+  %1236 = getelementptr inbounds %struct.yyStackEntry, ptr %1235, i32 0, i32 2
+  store ptr %1233, ptr %1236, align 8
+  br label %1266
 
-1232:                                             ; preds = %4
-  %1233 = load ptr, ptr %11, align 8
-  %1234 = getelementptr %struct.yyStackEntry, ptr %1233, i64 0
-  %1235 = getelementptr inbounds %struct.yyStackEntry, ptr %1234, i32 0, i32 2
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = call ptr @g_slist_append(ptr noundef null, ptr noundef %1236)
-  store ptr %1237, ptr %14, align 8
-  %1238 = load ptr, ptr %14, align 8
-  %1239 = load ptr, ptr %11, align 8
-  %1240 = getelementptr %struct.yyStackEntry, ptr %1239, i64 0
-  %1241 = getelementptr inbounds %struct.yyStackEntry, ptr %1240, i32 0, i32 2
-  store ptr %1238, ptr %1241, align 8
-  br label %1261
+1237:                                             ; preds = %4
+  %1238 = load ptr, ptr %11, align 8
+  %1239 = getelementptr %struct.yyStackEntry, ptr %1238, i64 0
+  %1240 = getelementptr inbounds %struct.yyStackEntry, ptr %1239, i32 0, i32 2
+  %1241 = load ptr, ptr %1240, align 8
+  %1242 = call ptr @g_slist_append(ptr noundef null, ptr noundef %1241)
+  store ptr %1242, ptr %14, align 8
+  %1243 = load ptr, ptr %14, align 8
+  %1244 = load ptr, ptr %11, align 8
+  %1245 = getelementptr %struct.yyStackEntry, ptr %1244, i64 0
+  %1246 = getelementptr inbounds %struct.yyStackEntry, ptr %1245, i32 0, i32 2
+  store ptr %1243, ptr %1246, align 8
+  br label %1266
 
-1242:                                             ; preds = %4
-  %1243 = load ptr, ptr %11, align 8
-  %1244 = getelementptr %struct.yyStackEntry, ptr %1243, i64 -2
-  %1245 = getelementptr inbounds %struct.yyStackEntry, ptr %1244, i32 0, i32 2
-  %1246 = load ptr, ptr %1245, align 8
-  %1247 = load ptr, ptr %11, align 8
-  %1248 = getelementptr %struct.yyStackEntry, ptr %1247, i64 0
-  %1249 = getelementptr inbounds %struct.yyStackEntry, ptr %1248, i32 0, i32 2
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = call ptr @g_slist_append(ptr noundef %1246, ptr noundef %1250)
-  store ptr %1251, ptr %14, align 8
-  %1252 = load ptr, ptr %5, align 8
-  %1253 = load ptr, ptr %11, align 8
-  %1254 = getelementptr %struct.yyStackEntry, ptr %1253, i64 -1
-  %1255 = getelementptr inbounds %struct.yyStackEntry, ptr %1254, i32 0, i32 2
-  call void @yy_destructor(ptr noundef %1252, i8 noundef zeroext 44, ptr noundef %1255)
-  %1256 = load ptr, ptr %14, align 8
-  %1257 = load ptr, ptr %11, align 8
-  %1258 = getelementptr %struct.yyStackEntry, ptr %1257, i64 -2
-  %1259 = getelementptr inbounds %struct.yyStackEntry, ptr %1258, i32 0, i32 2
-  store ptr %1256, ptr %1259, align 8
-  br label %1261
+1247:                                             ; preds = %4
+  %1248 = load ptr, ptr %11, align 8
+  %1249 = getelementptr %struct.yyStackEntry, ptr %1248, i64 -2
+  %1250 = getelementptr inbounds %struct.yyStackEntry, ptr %1249, i32 0, i32 2
+  %1251 = load ptr, ptr %1250, align 8
+  %1252 = load ptr, ptr %11, align 8
+  %1253 = getelementptr %struct.yyStackEntry, ptr %1252, i64 0
+  %1254 = getelementptr inbounds %struct.yyStackEntry, ptr %1253, i32 0, i32 2
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = call ptr @g_slist_append(ptr noundef %1251, ptr noundef %1255)
+  store ptr %1256, ptr %14, align 8
+  %1257 = load ptr, ptr %5, align 8
+  %1258 = load ptr, ptr %11, align 8
+  %1259 = getelementptr %struct.yyStackEntry, ptr %1258, i64 -1
+  %1260 = getelementptr inbounds %struct.yyStackEntry, ptr %1259, i32 0, i32 2
+  call void @yy_destructor(ptr noundef %1257, i8 noundef zeroext 44, ptr noundef %1260)
+  %1261 = load ptr, ptr %14, align 8
+  %1262 = load ptr, ptr %11, align 8
+  %1263 = getelementptr %struct.yyStackEntry, ptr %1262, i64 -2
+  %1264 = getelementptr inbounds %struct.yyStackEntry, ptr %1263, i32 0, i32 2
+  store ptr %1261, ptr %1264, align 8
+  br label %1266
 
-1260:                                             ; preds = %4
-  br label %1261
+1265:                                             ; preds = %4
+  br label %1266
 
-1261:                                             ; preds = %1260, %1242, %1232, %1204, %1171, %1152, %1111, %1052, %1023, %1005, %995, %975, %963, %940, %917, %883, %856, %829, %802, %770, %729, %719, %709, %699, %689, %679, %669, %659, %649, %622, %595, %568, %541, %514, %487, %464, %442, %405, %360, %335, %311, %234, %225, %198, %175, %123, %96, %69, %60, %43, %36
-  %1262 = load i32, ptr %6, align 4
-  %1263 = zext i32 %1262 to i64
-  %1264 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %1263
-  %1265 = load i8, ptr %1264, align 1
-  %1266 = zext i8 %1265 to i32
-  store i32 %1266, ptr %9, align 4
+1266:                                             ; preds = %1265, %1247, %1237, %1209, %1176, %1157, %1116, %1056, %1026, %1008, %998, %978, %966, %943, %920, %886, %859, %832, %805, %773, %732, %722, %712, %702, %692, %682, %672, %662, %652, %625, %598, %571, %544, %517, %490, %467, %445, %408, %363, %338, %314, %237, %228, %201, %178, %123, %96, %69, %60, %43, %36
   %1267 = load i32, ptr %6, align 4
   %1268 = zext i32 %1267 to i64
-  %1269 = getelementptr [68 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %1268
+  %1269 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %1268
   %1270 = load i8, ptr %1269, align 1
-  %1271 = sext i8 %1270 to i32
-  store i32 %1271, ptr %12, align 4
-  %1272 = load ptr, ptr %11, align 8
-  %1273 = load i32, ptr %12, align 4
-  %1274 = sext i32 %1273 to i64
-  %1275 = getelementptr %struct.yyStackEntry, ptr %1272, i64 %1274
-  %1276 = getelementptr inbounds %struct.yyStackEntry, ptr %1275, i32 0, i32 0
-  %1277 = load i8, ptr %1276, align 8
-  %1278 = load i32, ptr %9, align 4
-  %1279 = trunc i32 %1278 to i8
-  %1280 = call zeroext i8 @yy_find_reduce_action(i8 noundef zeroext %1277, i8 noundef zeroext %1279)
-  store i8 %1280, ptr %10, align 1
-  %1281 = load i32, ptr %12, align 4
-  %1282 = add i32 %1281, 1
-  %1283 = load ptr, ptr %11, align 8
-  %1284 = sext i32 %1282 to i64
-  %1285 = getelementptr %struct.yyStackEntry, ptr %1283, i64 %1284
-  store ptr %1285, ptr %11, align 8
-  %1286 = load ptr, ptr %11, align 8
-  %1287 = load ptr, ptr %5, align 8
-  %1288 = getelementptr inbounds %struct.yyParser, ptr %1287, i32 0, i32 0
-  store ptr %1286, ptr %1288, align 8
-  %1289 = load i8, ptr %10, align 1
-  %1290 = load ptr, ptr %11, align 8
-  %1291 = getelementptr inbounds %struct.yyStackEntry, ptr %1290, i32 0, i32 0
-  store i8 %1289, ptr %1291, align 8
-  %1292 = load i32, ptr %9, align 4
-  %1293 = trunc i32 %1292 to i8
-  %1294 = load ptr, ptr %11, align 8
-  %1295 = getelementptr inbounds %struct.yyStackEntry, ptr %1294, i32 0, i32 1
-  store i8 %1293, ptr %1295, align 1
-  %1296 = load i8, ptr %10, align 1
-  ret i8 %1296
+  %1271 = zext i8 %1270 to i32
+  store i32 %1271, ptr %9, align 4
+  %1272 = load i32, ptr %6, align 4
+  %1273 = zext i32 %1272 to i64
+  %1274 = getelementptr [68 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %1273
+  %1275 = load i8, ptr %1274, align 1
+  %1276 = sext i8 %1275 to i32
+  store i32 %1276, ptr %12, align 4
+  %1277 = load ptr, ptr %11, align 8
+  %1278 = load i32, ptr %12, align 4
+  %1279 = sext i32 %1278 to i64
+  %1280 = getelementptr %struct.yyStackEntry, ptr %1277, i64 %1279
+  %1281 = getelementptr inbounds %struct.yyStackEntry, ptr %1280, i32 0, i32 0
+  %1282 = load i8, ptr %1281, align 8
+  %1283 = load i32, ptr %9, align 4
+  %1284 = trunc i32 %1283 to i8
+  %1285 = call zeroext i8 @yy_find_reduce_action(i8 noundef zeroext %1282, i8 noundef zeroext %1284)
+  store i8 %1285, ptr %10, align 1
+  %1286 = load i32, ptr %12, align 4
+  %1287 = add i32 %1286, 1
+  %1288 = load ptr, ptr %11, align 8
+  %1289 = sext i32 %1287 to i64
+  %1290 = getelementptr %struct.yyStackEntry, ptr %1288, i64 %1289
+  store ptr %1290, ptr %11, align 8
+  %1291 = load ptr, ptr %11, align 8
+  %1292 = load ptr, ptr %5, align 8
+  %1293 = getelementptr inbounds %struct.yyParser, ptr %1292, i32 0, i32 0
+  store ptr %1291, ptr %1293, align 8
+  %1294 = load i8, ptr %10, align 1
+  %1295 = load ptr, ptr %11, align 8
+  %1296 = getelementptr inbounds %struct.yyStackEntry, ptr %1295, i32 0, i32 0
+  store i8 %1294, ptr %1296, align 8
+  %1297 = load i32, ptr %9, align 4
+  %1298 = trunc i32 %1297 to i8
+  %1299 = load ptr, ptr %11, align 8
+  %1300 = getelementptr inbounds %struct.yyStackEntry, ptr %1299, i32 0, i32 1
+  store i8 %1298, ptr %1300, align 1
+  %1301 = load i8, ptr %10, align 1
+  ret i8 %1301
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2309,51 +2314,52 @@ define internal void @yy_syntax_error(ptr noundef %0, i32 noundef %1, ptr nounde
   store ptr %11, ptr %7, align 8
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %18, label %14
+  br i1 %13, label %19, label %14
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %7, align 8
   %16 = load i64, ptr @loc_empty, align 8
-  %17 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @loc_empty, i32 0, i32 1), align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %15, i32 noundef -2, i64 %16, i64 %17, ptr noundef @.str.3)
-  br label %39
+  %17 = getelementptr inbounds { i64, i64 }, ptr @loc_empty, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %15, i32 noundef -2, i64 %16, i64 %18, ptr noundef @.str.3)
+  br label %40
 
-18:                                               ; preds = %3
-  br label %19
-
-19:                                               ; preds = %18
+19:                                               ; preds = %3
   br label %20
 
 20:                                               ; preds = %19
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %7, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = call { i64, i64 } @stnode_location(ptr noundef %23)
-  %25 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %26 = extractvalue { i64, i64 } %24, 0
-  store i64 %26, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
-  %28 = extractvalue { i64, i64 } %24, 1
-  store i64 %28, ptr %27, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = call ptr @stnode_token(ptr noundef %29)
-  %31 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
-  %34 = load i64, ptr %33, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %22, i32 noundef -1, i64 %32, i64 %34, ptr noundef @.str.4, ptr noundef %30)
-  br label %35
+  br label %22
 
-35:                                               ; preds = %21
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.yyParser, ptr %37, i32 0, i32 2
-  store ptr %36, ptr %38, align 8
-  br label %39
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = call { i64, i64 } @stnode_location(ptr noundef %24)
+  %26 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  %27 = extractvalue { i64, i64 } %25, 0
+  store i64 %27, ptr %26, align 8
+  %28 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %29 = extractvalue { i64, i64 } %25, 1
+  store i64 %29, ptr %28, align 8
+  %30 = load ptr, ptr %6, align 8
+  %31 = call ptr @stnode_token(ptr noundef %30)
+  %32 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %23, i32 noundef -1, i64 %33, i64 %35, ptr noundef @.str.4, ptr noundef %31)
+  br label %36
 
-39:                                               ; preds = %35, %14
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.yyParser, ptr %38, i32 0, i32 2
+  store ptr %37, ptr %39, align 8
+  br label %40
+
+40:                                               ; preds = %36, %14
   ret void
 }
 

@@ -247,9 +247,10 @@ if.end:                                           ; preds = %entry
   call void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef @.str.2, ptr noundef %2, i64 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @opparam, ptr align 8 %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8 %tmp1)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds ([2 x %struct.ossl_param_st], ptr @opparam, i64 0, i64 1), ptr align 8 %tmp1, i64 40, i1 false)
-  %3 = load ptr, ptr @libctx, align 8
-  %call2 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %3, ptr noundef null, ptr noundef @.str.5, ptr noundef @.str.6)
+  %3 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr @opparam, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %tmp1, i64 40, i1 false)
+  %4 = load ptr, ptr @libctx, align 8
+  %call2 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %4, ptr noundef null, ptr noundef @.str.5, ptr noundef @.str.6)
   store ptr %call2, ptr @rkey, align 16
   %call3 = call i32 @test_ptr(ptr noundef @.str.3, i32 noundef 800, ptr noundef @.str.4, ptr noundef %call2)
   %tobool4 = icmp ne i32 %call3, 0
@@ -259,9 +260,10 @@ if.then5:                                         ; preds = %if.end
   br label %err
 
 if.end6:                                          ; preds = %if.end
-  %4 = load ptr, ptr @libctx, align 8
-  %call7 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %4, ptr noundef null, ptr noundef @.str.8)
-  store ptr %call7, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
+  %5 = load ptr, ptr @libctx, align 8
+  %call7 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %5, ptr noundef null, ptr noundef @.str.8)
+  %6 = getelementptr inbounds [2 x ptr], ptr @rkey, i64 0, i64 1
+  store ptr %call7, ptr %6, align 8
   %call8 = call i32 @test_ptr(ptr noundef @.str.3, i32 noundef 804, ptr noundef @.str.7, ptr noundef %call7)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.end11, label %if.then10
@@ -270,9 +272,9 @@ if.then10:                                        ; preds = %if.end6
   br label %err
 
 if.end11:                                         ; preds = %if.end6
-  %5 = load ptr, ptr @libctx, align 8
-  %6 = load ptr, ptr @rkey, align 16
-  %call12 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %5, ptr noundef %6, ptr noundef null)
+  %7 = load ptr, ptr @libctx, align 8
+  %8 = load ptr, ptr @rkey, align 16
+  %call12 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %7, ptr noundef %8, ptr noundef null)
   store ptr %call12, ptr @rctx, align 16
   %call13 = call i32 @test_ptr(ptr noundef @.str.3, i32 noundef 809, ptr noundef @.str.9, ptr noundef %call12)
   %tobool14 = icmp ne i32 %call13, 0
@@ -282,10 +284,12 @@ if.then15:                                        ; preds = %if.end11
   br label %err
 
 if.end16:                                         ; preds = %if.end11
-  %7 = load ptr, ptr @libctx, align 8
-  %8 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
-  %call17 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %7, ptr noundef %8, ptr noundef null)
-  store ptr %call17, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
+  %9 = load ptr, ptr @libctx, align 8
+  %10 = getelementptr inbounds [2 x ptr], ptr @rkey, i64 0, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %call17 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %9, ptr noundef %11, ptr noundef null)
+  %12 = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 1
+  store ptr %call17, ptr %12, align 8
   %call18 = call i32 @test_ptr(ptr noundef @.str.3, i32 noundef 814, ptr noundef @.str.10, ptr noundef %call17)
   %tobool19 = icmp ne i32 %call18, 0
   br i1 %tobool19, label %if.end21, label %if.then20
@@ -328,8 +332,8 @@ err:                                              ; preds = %if.then20, %if.then
   br label %return
 
 return:                                           ; preds = %err, %if.end21, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -2655,20 +2659,21 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
-  %2 = load ptr, ptr %auth, align 8
-  %call2 = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %1, ptr noundef %2, ptr noundef @opparam)
+  %1 = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %auth, align 8
+  %call2 = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %2, ptr noundef %3, ptr noundef @opparam)
   %call3 = call i32 @test_int_eq(ptr noundef @.str.3, i32 noundef 764, ptr noundef @.str.161, ptr noundef @.str.74, i32 noundef %call2, i32 noundef 0)
   store i32 %call3, ptr %ret, align 4
-  %3 = load ptr, ptr %auth, align 8
-  call void @EVP_PKEY_free(ptr noundef %3)
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
+  %4 = load ptr, ptr %auth, align 8
+  call void @EVP_PKEY_free(ptr noundef %4)
+  %5 = load i32, ptr %ret, align 4
+  store i32 %5, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2724,20 +2729,22 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rkey, i64 0, i64 1), align 8
-  call void @EVP_PKEY_free(ptr noundef %0)
-  %1 = load ptr, ptr @rkey, align 16
+  %0 = getelementptr inbounds [2 x ptr], ptr @rkey, i64 0, i64 1
+  %1 = load ptr, ptr %0, align 8
   call void @EVP_PKEY_free(ptr noundef %1)
-  %2 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @rctx, i64 0, i64 1), align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %2)
-  %3 = load ptr, ptr @rctx, align 16
-  call void @EVP_PKEY_CTX_free(ptr noundef %3)
-  %4 = load ptr, ptr @libprov, align 8
-  %call = call i32 @OSSL_PROVIDER_unload(ptr noundef %4)
-  %5 = load ptr, ptr @libctx, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %5)
-  %6 = load ptr, ptr @nullprov, align 8
-  %call1 = call i32 @OSSL_PROVIDER_unload(ptr noundef %6)
+  %2 = load ptr, ptr @rkey, align 16
+  call void @EVP_PKEY_free(ptr noundef %2)
+  %3 = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 1
+  %4 = load ptr, ptr %3, align 8
+  call void @EVP_PKEY_CTX_free(ptr noundef %4)
+  %5 = load ptr, ptr @rctx, align 16
+  call void @EVP_PKEY_CTX_free(ptr noundef %5)
+  %6 = load ptr, ptr @libprov, align 8
+  %call = call i32 @OSSL_PROVIDER_unload(ptr noundef %6)
+  %7 = load ptr, ptr @libctx, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %7)
+  %8 = load ptr, ptr @nullprov, align 8
+  %call1 = call i32 @OSSL_PROVIDER_unload(ptr noundef %8)
   ret void
 }
 

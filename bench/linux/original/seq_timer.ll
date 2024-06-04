@@ -19,73 +19,74 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @snd_seq_timer_new() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 136) #8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %39, label %4
+  %1 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %2 = load ptr, ptr %1, align 16
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 136) #8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %40, label %5
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 128
-  store i32 0, ptr %5, align 8
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 96, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 500000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 5208333, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
-  %12 = load i64, ptr %11, align 8
-  %13 = udiv i64 %12, 5208333
-  %14 = trunc i64 %13 to i32
-  %15 = load i32, ptr %10, align 8
-  %16 = add i32 %15, %14
-  store i32 %16, ptr %10, align 8
-  %17 = urem i64 %12, 5208333
-  store i64 %17, ptr %11, align 8
-  %18 = load i8, ptr %2, align 8
-  %19 = and i8 %18, -2
-  store i8 %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 52
-  store i32 0, ptr %20, align 4
-  %21 = load i32, ptr @seq_default_timer_class, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
-  store i32 %21, ptr %22, align 8
-  %23 = load i32, ptr @seq_default_timer_sclass, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 60
-  store i32 %23, ptr %24, align 4
-  %25 = load i32, ptr @seq_default_timer_card, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 64
-  store i32 %25, ptr %26, align 8
-  %27 = load i32, ptr @seq_default_timer_device, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 68
-  store i32 %27, ptr %28, align 4
-  %29 = load i32, ptr @seq_default_timer_subdevice, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 72
-  store i32 %29, ptr %30, align 8
-  %31 = load i32, ptr @seq_default_timer_resolution, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %2, i64 96
-  store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 108
-  store i32 65536, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 104
-  store i32 65536, ptr %35, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #9
-  %36 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #9
-  %37 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 0, ptr %38, align 8
-  store i32 0, ptr %10, align 8
-  store i64 0, ptr %11, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %36) #9
-  br label %39
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds i8, ptr %3, i64 128
+  store i32 0, ptr %6, align 8
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #9
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 96, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 500000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 5208333, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = load i64, ptr %12, align 8
+  %14 = udiv i64 %13, 5208333
+  %15 = trunc i64 %14 to i32
+  %16 = load i32, ptr %11, align 8
+  %17 = add i32 %16, %15
+  store i32 %17, ptr %11, align 8
+  %18 = urem i64 %13, 5208333
+  store i64 %18, ptr %12, align 8
+  %19 = load i8, ptr %3, align 8
+  %20 = and i8 %19, -2
+  store i8 %20, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 0, ptr %21, align 4
+  %22 = load i32, ptr @seq_default_timer_class, align 4
+  %23 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 %22, ptr %23, align 8
+  %24 = load i32, ptr @seq_default_timer_sclass, align 4
+  %25 = getelementptr inbounds i8, ptr %3, i64 60
+  store i32 %24, ptr %25, align 4
+  %26 = load i32, ptr @seq_default_timer_card, align 4
+  %27 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 %26, ptr %27, align 8
+  %28 = load i32, ptr @seq_default_timer_device, align 4
+  %29 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 %28, ptr %29, align 4
+  %30 = load i32, ptr @seq_default_timer_subdevice, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 72
+  store i32 %30, ptr %31, align 8
+  %32 = load i32, ptr @seq_default_timer_resolution, align 4
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %3, i64 96
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 108
+  store i32 65536, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %3, i64 104
+  store i32 65536, ptr %36, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #9
+  %37 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #9
+  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 0, ptr %39, align 8
+  store i32 0, ptr %11, align 8
+  store i64 0, ptr %12, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %37) #9
+  br label %40
 
-39:                                               ; preds = %4, %0
-  %40 = phi ptr [ %2, %4 ], [ null, %0 ]
-  ret ptr %40
+40:                                               ; preds = %5, %0
+  %41 = phi ptr [ %3, %5 ], [ null, %0 ]
+  ret ptr %41
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

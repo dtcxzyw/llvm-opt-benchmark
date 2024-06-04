@@ -357,104 +357,130 @@ define internal void @__cxx_global_var_init() #0 section ".text.startup" persona
   %3 = alloca i32, align 4
   store ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr %1, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr noundef @.str)
-          to label %4 unwind label %19
+          to label %4 unwind label %45
 
 4:                                                ; preds = %0
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1), ptr noundef @.str.1)
-          to label %5 unwind label %19
+  %5 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1
+  store ptr %5, ptr %1, align 8
+  %6 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.1)
+          to label %7 unwind label %45
 
-5:                                                ; preds = %4
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2), ptr noundef @.str.2)
-          to label %6 unwind label %19
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2
+  store ptr %8, ptr %1, align 8
+  %9 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef @.str.2)
+          to label %10 unwind label %45
 
-6:                                                ; preds = %5
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3), ptr noundef @.str.3)
-          to label %7 unwind label %19
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3
+  store ptr %11, ptr %1, align 8
+  %12 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @.str.3)
+          to label %13 unwind label %45
 
-7:                                                ; preds = %6
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4), ptr noundef @.str.4)
-          to label %8 unwind label %19
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4
+  store ptr %14, ptr %1, align 8
+  %15 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef @.str.4)
+          to label %16 unwind label %45
 
-8:                                                ; preds = %7
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5), ptr noundef @.str.5)
-          to label %9 unwind label %19
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5
+  store ptr %17, ptr %1, align 8
+  %18 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef @.str.5)
+          to label %19 unwind label %45
 
-9:                                                ; preds = %8
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6), ptr noundef @.str.6)
-          to label %10 unwind label %19
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6
+  store ptr %20, ptr %1, align 8
+  %21 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef @.str.6)
+          to label %22 unwind label %45
 
-10:                                               ; preds = %9
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7), ptr noundef @.str.7)
-          to label %11 unwind label %19
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7
+  store ptr %23, ptr %1, align 8
+  %24 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef @.str.7)
+          to label %25 unwind label %45
 
-11:                                               ; preds = %10
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), ptr noundef @.str.8)
-          to label %12 unwind label %19
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8
+  store ptr %26, ptr %1, align 8
+  %27 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef @.str.8)
+          to label %28 unwind label %45
 
-12:                                               ; preds = %11
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9), ptr noundef @.str.9)
-          to label %13 unwind label %19
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9
+  store ptr %29, ptr %1, align 8
+  %30 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef @.str.9)
+          to label %31 unwind label %45
 
-13:                                               ; preds = %12
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10), ptr noundef @.str.10)
-          to label %14 unwind label %19
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10
+  store ptr %32, ptr %1, align 8
+  %33 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef @.str.10)
+          to label %34 unwind label %45
 
-14:                                               ; preds = %13
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11), ptr noundef @.str.11)
-          to label %15 unwind label %19
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11
+  store ptr %35, ptr %1, align 8
+  %36 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef @.str.11)
+          to label %37 unwind label %45
 
-15:                                               ; preds = %14
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12), ptr noundef @.str.12)
-          to label %16 unwind label %19
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12
+  store ptr %38, ptr %1, align 8
+  %39 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef @.str.12)
+          to label %40 unwind label %45
 
-16:                                               ; preds = %15
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13), ptr noundef @.str.13)
-          to label %17 unwind label %19
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13
+  store ptr %41, ptr %1, align 8
+  %42 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef @.str.13)
+          to label %43 unwind label %45
 
-17:                                               ; preds = %16
-  %18 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayI7QStringLm14EED2Ev, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr @__dso_handle) #3
+43:                                               ; preds = %40
+  %44 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayI7QStringLm14EED2Ev, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr @__dso_handle) #3
   ret void
 
-19:                                               ; preds = %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %0
-  %20 = landingpad { ptr, i32 }
+45:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %0
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %2, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %3, align 4
-  %23 = load ptr, ptr %1, align 8
-  %24 = icmp eq ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, %23
-  br i1 %24, label %29, label %25
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %2, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %3, align 4
+  %49 = load ptr, ptr %1, align 8
+  %50 = icmp eq ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, %49
+  br i1 %50, label %55, label %51
 
-25:                                               ; preds = %25, %19
-  %26 = phi ptr [ %23, %19 ], [ %27, %25 ]
-  %27 = getelementptr inbounds %class.QString, ptr %26, i64 -1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  %28 = icmp eq ptr %27, @_ZN9pymeshlabL23saveCapabilitiesStringsE
-  br i1 %28, label %29, label %25
+51:                                               ; preds = %51, %45
+  %52 = phi ptr [ %49, %45 ], [ %53, %51 ]
+  %53 = getelementptr inbounds %class.QString, ptr %52, i64 -1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
+  %54 = icmp eq ptr %53, @_ZN9pymeshlabL23saveCapabilitiesStringsE
+  br i1 %54, label %55, label %51
 
-29:                                               ; preds = %25, %19
-  br label %30
+55:                                               ; preds = %51, %45
+  br label %56
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %2, align 8
-  %32 = load i32, ptr %3, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %2, align 8
+  %58 = load i32, ptr %3, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress uwtable

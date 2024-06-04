@@ -62,13 +62,14 @@ define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr noundef nonnull align 8 deref
   %4 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 2
-  store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
+  %6 = inttoptr i64 -1 to ptr
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 2
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  store i32 -1, ptr %8, align 8
+  %8 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  store i32 -1, ptr %9, align 8
   ret void
 }
 
@@ -79,40 +80,41 @@ define void @_ZN6marisa8grimoire2io6MapperD2Ev(ptr noundef nonnull align 8 deref
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, inttoptr (i64 -1 to ptr)
-  br i1 %6, label %7, label %13
+  %6 = inttoptr i64 -1 to ptr
+  %7 = icmp ne ptr %5, %6
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
-  %11 = load i64, ptr %10, align 8
-  %12 = call i32 @munmap(ptr noundef %9, i64 noundef %11) #6
-  br label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
+  %12 = load i64, ptr %11, align 8
+  %13 = call i32 @munmap(ptr noundef %10, i64 noundef %12) #6
+  br label %14
 
-13:                                               ; preds = %7, %1
-  %14 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp ne i32 %15, -1
-  br i1 %16, label %17, label %22
+14:                                               ; preds = %8, %1
+  %15 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, -1
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  %19 = load i32, ptr %18, align 8
-  %20 = invoke i32 @close(i32 noundef %19)
-          to label %21 unwind label %23
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8
+  %21 = invoke i32 @close(i32 noundef %20)
+          to label %22 unwind label %24
 
-21:                                               ; preds = %17
-  br label %22
+22:                                               ; preds = %18
+  br label %23
 
-22:                                               ; preds = %21, %13
+23:                                               ; preds = %22, %14
   ret void
 
-23:                                               ; preds = %17
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #7
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #7
   unreachable
 }
 
@@ -231,19 +233,20 @@ define linkonce_odr void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
+  %20 = load ptr, ptr %10, align 8
+  store ptr %20, ptr %19, align 8
   ret void
 }
 
@@ -289,7 +292,7 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   store ptr %21, ptr %6, align 8
   store i1 true, ptr %7, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str, i32 noundef 141, i32 noundef 9, ptr noundef @.str.7)
-          to label %22 unwind label %67
+          to label %22 unwind label %68
 
 22:                                               ; preds = %20
   call void @__cxa_throw(ptr %21, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
@@ -310,7 +313,7 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   store ptr %29, ptr %10, align 8
   store i1 true, ptr %11, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str, i32 noundef 142, i32 noundef 7, ptr noundef @.str.8)
-          to label %30 unwind label %75
+          to label %30 unwind label %76
 
 30:                                               ; preds = %28
   call void @__cxa_throw(ptr %29, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
@@ -339,7 +342,7 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   store ptr %43, ptr %12, align 8
   store i1 true, ptr %13, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef @.str, i32 noundef 146, i32 noundef 9, ptr noundef @.str.9)
-          to label %44 unwind label %83
+          to label %44 unwind label %84
 
 44:                                               ; preds = %42
   call void @__cxa_throw(ptr %43, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
@@ -358,113 +361,114 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, inttoptr (i64 -1 to ptr)
+  %55 = inttoptr i64 -1 to ptr
+  %56 = icmp eq ptr %54, %55
   store i1 false, ptr %15, align 1
-  br i1 %55, label %56, label %60
+  br i1 %56, label %57, label %61
 
-56:                                               ; preds = %46
-  %57 = call ptr @__cxa_allocate_exception(i64 32) #6
-  store ptr %57, ptr %14, align 8
+57:                                               ; preds = %46
+  %58 = call ptr @__cxa_allocate_exception(i64 32) #6
+  store ptr %58, ptr %14, align 8
   store i1 true, ptr %15, align 1
-  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef @.str, i32 noundef 149, i32 noundef 9, ptr noundef @.str.10)
-          to label %58 unwind label %91
+  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef @.str, i32 noundef 149, i32 noundef 9, ptr noundef @.str.10)
+          to label %59 unwind label %92
 
-58:                                               ; preds = %56
-  call void @__cxa_throw(ptr %57, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+59:                                               ; preds = %57
+  call void @__cxa_throw(ptr %58, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
   unreachable
 
-59:                                               ; No predecessors!
-  br label %60
+60:                                               ; No predecessors!
+  br label %61
 
-60:                                               ; preds = %59, %46
-  %61 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 0
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 2
-  store i64 %65, ptr %66, align 8
+61:                                               ; preds = %60, %46
+  %62 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 0
+  store ptr %63, ptr %64, align 8
+  %65 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 2
+  store i64 %66, ptr %67, align 8
   ret void
 
-67:                                               ; preds = %20
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %20
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
-  %71 = load i1, ptr %7, align 1
-  br i1 %71, label %72, label %74
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
+  %72 = load i1, ptr %7, align 1
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %67
-  %73 = load ptr, ptr %6, align 8
-  call void @__cxa_free_exception(ptr %73) #6
-  br label %74
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %6, align 8
+  call void @__cxa_free_exception(ptr %74) #6
+  br label %75
 
-74:                                               ; preds = %72, %67
+75:                                               ; preds = %73, %68
+  br label %100
+
+76:                                               ; preds = %28
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  %80 = load i1, ptr %11, align 1
+  br i1 %80, label %81, label %83
+
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %10, align 8
+  call void @__cxa_free_exception(ptr %82) #6
+  br label %83
+
+83:                                               ; preds = %81, %76
+  br label %100
+
+84:                                               ; preds = %42
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %8, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %9, align 4
+  %88 = load i1, ptr %13, align 1
+  br i1 %88, label %89, label %91
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %12, align 8
+  call void @__cxa_free_exception(ptr %90) #6
+  br label %91
+
+91:                                               ; preds = %89, %84
+  br label %100
+
+92:                                               ; preds = %57
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %8, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %9, align 4
+  %96 = load i1, ptr %15, align 1
+  br i1 %96, label %97, label %99
+
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %14, align 8
+  call void @__cxa_free_exception(ptr %98) #6
   br label %99
 
-75:                                               ; preds = %28
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  %79 = load i1, ptr %11, align 1
-  br i1 %79, label %80, label %82
+99:                                               ; preds = %97, %92
+  br label %100
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %10, align 8
-  call void @__cxa_free_exception(ptr %81) #6
-  br label %82
-
-82:                                               ; preds = %80, %75
-  br label %99
-
-83:                                               ; preds = %42
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %8, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %9, align 4
-  %87 = load i1, ptr %13, align 1
-  br i1 %87, label %88, label %90
-
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %12, align 8
-  call void @__cxa_free_exception(ptr %89) #6
-  br label %90
-
-90:                                               ; preds = %88, %83
-  br label %99
-
-91:                                               ; preds = %56
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %8, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %9, align 4
-  %95 = load i1, ptr %15, align 1
-  br i1 %95, label %96, label %98
-
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %14, align 8
-  call void @__cxa_free_exception(ptr %97) #6
-  br label %98
-
-98:                                               ; preds = %96, %91
-  br label %99
-
-99:                                               ; preds = %98, %90, %82, %74
-  %100 = load ptr, ptr %8, align 8
-  %101 = load i32, ptr %9, align 4
-  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
-  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
-  resume { ptr, i32 } %103
+100:                                              ; preds = %99, %91, %83, %75
+  %101 = load ptr, ptr %8, align 8
+  %102 = load i32, ptr %9, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -959,7 +963,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

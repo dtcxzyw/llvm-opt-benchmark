@@ -119,22 +119,23 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %ptr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @.str to i64)
+  %3 = ptrtoint ptr @.str to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %3
   %conv1 = trunc i64 %sub.ptr.sub to i32
-  %3 = load ptr, ptr %dst.addr, align 8
-  store i32 %conv1, ptr %3, align 4
+  %4 = load ptr, ptr %dst.addr, align 8
+  store i32 %conv1, ptr %4, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %dst.addr, align 8
-  store i32 0, ptr %4, align 4
+  %5 = load ptr, ptr %dst.addr, align 8
+  store i32 0, ptr %5, align 4
   store i32 -1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind ssp uwtable

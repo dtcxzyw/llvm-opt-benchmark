@@ -187,163 +187,164 @@ define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 nound
   %4 = sext i32 %1 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
-  %7 = add i64 %6, ptrtoint (ptr @hrtimer_bases to i64)
-  %8 = inttoptr i64 %7 to ptr
+  %7 = ptrtoint ptr @hrtimer_bases to i64
+  %8 = add i64 %6, %7
+  %9 = inttoptr i64 %8 to ptr
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %1)
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
-  br label %10
+  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  br label %11
 
-10:                                               ; preds = %59, %3
-  %11 = phi i64 [ 0, %3 ], [ %61, %59 ]
-  %12 = trunc i64 %11 to i32
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %12)
-  %13 = getelementptr %struct.hrtimer_clock_base, ptr %9, i64 %11
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %13)
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %15)
-  %16 = load i32, ptr @hrtimer_resolution, align 4
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %16)
-  %17 = getelementptr inbounds i8, ptr %13, i64 48
-  %18 = load ptr, ptr %17, align 16
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %13, i64 56
-  %20 = load i64, ptr %19, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef %20)
+11:                                               ; preds = %60, %3
+  %12 = phi i64 [ 0, %3 ], [ %62, %60 ]
+  %13 = trunc i64 %12 to i32
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %13)
+  %14 = getelementptr %struct.hrtimer_clock_base, ptr %10, i64 %12
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %14)
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %16)
+  %17 = load i32, ptr @hrtimer_resolution, align 4
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %17)
+  %18 = getelementptr inbounds i8, ptr %14, i64 48
+  %19 = load ptr, ptr %18, align 16
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %19)
+  %20 = getelementptr inbounds i8, ptr %14, i64 56
+  %21 = load i64, ptr %20, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef %21)
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.34)
-  %21 = load i64, ptr %19, align 8
-  %22 = add i64 %21, %2
-  %23 = getelementptr inbounds i8, ptr %13, i64 40
-  br label %24
+  %22 = load i64, ptr %20, align 8
+  %23 = add i64 %22, %2
+  %24 = getelementptr inbounds i8, ptr %14, i64 40
+  br label %25
 
-24:                                               ; preds = %44, %10
-  %25 = phi i64 [ 0, %10 ], [ %58, %44 ]
-  %26 = load ptr, ptr %13, align 64
-  %27 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %26) #8
-  %28 = load ptr, ptr %23, align 8
-  %29 = icmp ne ptr %28, null
-  %30 = icmp ne i64 %25, 0
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %32, label %40
+25:                                               ; preds = %45, %11
+  %26 = phi i64 [ 0, %11 ], [ %59, %45 ]
+  %27 = load ptr, ptr %14, align 64
+  %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %27) #8
+  %29 = load ptr, ptr %24, align 8
+  %30 = icmp ne ptr %29, null
+  %31 = icmp ne i64 %26, 0
+  %32 = select i1 %30, i1 %31, i1 false
+  br i1 %32, label %33, label %41
 
-32:                                               ; preds = %32, %24
-  %33 = phi i64 [ %36, %32 ], [ 0, %24 ]
-  %34 = phi ptr [ %35, %32 ], [ %28, %24 ]
-  %35 = tail call ptr @timerqueue_iterate_next(ptr noundef nonnull %34) #8
-  %36 = add nuw i64 %33, 1
-  %37 = icmp ne ptr %35, null
-  %38 = icmp ult i64 %36, %25
-  %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %32, label %40, !llvm.loop !11
+33:                                               ; preds = %33, %25
+  %34 = phi i64 [ %37, %33 ], [ 0, %25 ]
+  %35 = phi ptr [ %36, %33 ], [ %29, %25 ]
+  %36 = tail call ptr @timerqueue_iterate_next(ptr noundef nonnull %35) #8
+  %37 = add nuw i64 %34, 1
+  %38 = icmp ne ptr %36, null
+  %39 = icmp ult i64 %37, %26
+  %40 = select i1 %38, i1 %39, i1 false
+  br i1 %40, label %33, label %41, !llvm.loop !11
 
-40:                                               ; preds = %32, %24
-  %41 = phi ptr [ %28, %24 ], [ %35, %32 ]
-  %42 = phi i64 [ 0, %24 ], [ %36, %32 ]
-  %43 = phi i1 [ %29, %24 ], [ %37, %32 ]
-  br i1 %43, label %44, label %59
+41:                                               ; preds = %33, %25
+  %42 = phi ptr [ %29, %25 ], [ %36, %33 ]
+  %43 = phi i64 [ 0, %25 ], [ %37, %33 ]
+  %44 = phi i1 [ %30, %25 ], [ %38, %33 ]
+  br i1 %44, label %45, label %60
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 32
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %41, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = load ptr, ptr %13, align 64
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %53, i64 noundef %27) #8
-  %54 = trunc i64 %42 to i32
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %54, ptr noundef nonnull %41, ptr noundef %50)
-  %55 = zext i8 %52 to i32
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %55)
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %42, i64 32
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %42, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %42, i64 56
+  %53 = load i8, ptr %52, align 8
+  %54 = load ptr, ptr %14, align 64
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %28) #8
+  %55 = trunc i64 %43 to i32
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %55, ptr noundef nonnull %42, ptr noundef %51)
+  %56 = zext i8 %53 to i32
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %56)
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.3)
-  %56 = sub i64 %48, %22
-  %57 = sub i64 %46, %22
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef %48, i64 noundef %46, i64 noundef %56, i64 noundef %57)
-  %58 = add i64 %25, 1
-  br label %24
+  %57 = sub i64 %49, %23
+  %58 = sub i64 %47, %23
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef %49, i64 noundef %47, i64 noundef %57, i64 noundef %58)
+  %59 = add i64 %26, 1
+  br label %25
 
-59:                                               ; preds = %40
-  %60 = load ptr, ptr %13, align 64
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %60, i64 noundef %27) #8
-  %61 = add nuw nsw i64 %11, 1
-  %62 = icmp eq i64 %61, 8
-  br i1 %62, label %63, label %10, !llvm.loop !12
+60:                                               ; preds = %41
+  %61 = load ptr, ptr %14, align 64
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %61, i64 noundef %28) #8
+  %62 = add nuw nsw i64 %12, 1
+  %63 = icmp eq i64 %62, 8
+  br i1 %63, label %64, label %11, !llvm.loop !12
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %8, i64 32
-  %65 = load i64, ptr %64, align 32
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %65)
-  %66 = getelementptr inbounds i8, ptr %8, i64 16
-  %67 = load i8, ptr %66, align 16
-  %68 = and i8 %67, 1
-  %69 = zext nneg i8 %68 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %69)
-  %70 = getelementptr inbounds i8, ptr %8, i64 20
-  %71 = load i32, ptr %70, align 4
-  %72 = zext i32 %71 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, i64 noundef %72)
-  %73 = getelementptr inbounds i8, ptr %8, i64 24
-  %74 = load i16, ptr %73, align 8
-  %75 = zext i16 %74 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, i64 noundef %75)
-  %76 = getelementptr inbounds i8, ptr %8, i64 26
-  %77 = load i16, ptr %76, align 2
-  %78 = zext i16 %77 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, i64 noundef %78)
-  %79 = getelementptr inbounds i8, ptr %8, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = zext i32 %80 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, i64 noundef %81)
-  %82 = tail call ptr @tick_get_tick_sched(i32 noundef %1) #8
-  %83 = getelementptr inbounds i8, ptr %82, i64 128
-  %84 = load i32, ptr %83, align 8
-  %85 = zext i32 %84 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, i64 noundef %85)
-  %86 = getelementptr inbounds i8, ptr %82, i64 80
-  %87 = load i64, ptr %86, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i64 noundef %87)
-  %88 = load i8, ptr %82, align 8
-  %89 = lshr i8 %88, 1
-  %90 = and i8 %89, 1
-  %91 = zext nneg i8 %90 to i64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, i64 noundef %91)
-  %92 = getelementptr inbounds i8, ptr %82, i64 96
-  %93 = load i64, ptr %92, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17, i64 noundef %93)
-  %94 = getelementptr inbounds i8, ptr %82, i64 176
-  %95 = load i64, ptr %94, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, i64 noundef %95)
-  %96 = getelementptr inbounds i8, ptr %82, i64 184
-  %97 = load i64, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19, i64 noundef %97)
-  %98 = getelementptr inbounds i8, ptr %82, i64 120
-  %99 = load i64, ptr %98, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.20, i64 noundef %99)
-  %100 = getelementptr inbounds i8, ptr %82, i64 104
-  %101 = load i64, ptr %100, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.21, i64 noundef %101)
-  %102 = getelementptr inbounds i8, ptr %82, i64 192
-  %103 = load i64, ptr %102, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.22, i64 noundef %103)
-  %104 = getelementptr inbounds i8, ptr %82, i64 200
-  %105 = load i64, ptr %104, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.23, i64 noundef %105)
-  %106 = getelementptr inbounds i8, ptr %82, i64 208
-  %107 = load i64, ptr %106, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.24, i64 noundef %107)
-  %108 = getelementptr inbounds i8, ptr %82, i64 136
-  %109 = load i64, ptr %108, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.25, i64 noundef %109)
-  %110 = getelementptr inbounds i8, ptr %82, i64 160
-  %111 = load i64, ptr %110, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, i64 noundef %111)
-  %112 = getelementptr inbounds i8, ptr %82, i64 168
-  %113 = load i64, ptr %112, align 8
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27, i64 noundef %113)
-  %114 = load volatile i64, ptr @jiffies, align 64
-  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %114)
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %9, i64 32
+  %66 = load i64, ptr %65, align 32
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %66)
+  %67 = getelementptr inbounds i8, ptr %9, i64 16
+  %68 = load i8, ptr %67, align 16
+  %69 = and i8 %68, 1
+  %70 = zext nneg i8 %69 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %70)
+  %71 = getelementptr inbounds i8, ptr %9, i64 20
+  %72 = load i32, ptr %71, align 4
+  %73 = zext i32 %72 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, i64 noundef %73)
+  %74 = getelementptr inbounds i8, ptr %9, i64 24
+  %75 = load i16, ptr %74, align 8
+  %76 = zext i16 %75 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, i64 noundef %76)
+  %77 = getelementptr inbounds i8, ptr %9, i64 26
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, i64 noundef %79)
+  %80 = getelementptr inbounds i8, ptr %9, i64 28
+  %81 = load i32, ptr %80, align 4
+  %82 = zext i32 %81 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, i64 noundef %82)
+  %83 = tail call ptr @tick_get_tick_sched(i32 noundef %1) #8
+  %84 = getelementptr inbounds i8, ptr %83, i64 128
+  %85 = load i32, ptr %84, align 8
+  %86 = zext i32 %85 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, i64 noundef %86)
+  %87 = getelementptr inbounds i8, ptr %83, i64 80
+  %88 = load i64, ptr %87, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i64 noundef %88)
+  %89 = load i8, ptr %83, align 8
+  %90 = lshr i8 %89, 1
+  %91 = and i8 %90, 1
+  %92 = zext nneg i8 %91 to i64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, i64 noundef %92)
+  %93 = getelementptr inbounds i8, ptr %83, i64 96
+  %94 = load i64, ptr %93, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17, i64 noundef %94)
+  %95 = getelementptr inbounds i8, ptr %83, i64 176
+  %96 = load i64, ptr %95, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, i64 noundef %96)
+  %97 = getelementptr inbounds i8, ptr %83, i64 184
+  %98 = load i64, ptr %97, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19, i64 noundef %98)
+  %99 = getelementptr inbounds i8, ptr %83, i64 120
+  %100 = load i64, ptr %99, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.20, i64 noundef %100)
+  %101 = getelementptr inbounds i8, ptr %83, i64 104
+  %102 = load i64, ptr %101, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.21, i64 noundef %102)
+  %103 = getelementptr inbounds i8, ptr %83, i64 192
+  %104 = load i64, ptr %103, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.22, i64 noundef %104)
+  %105 = getelementptr inbounds i8, ptr %83, i64 200
+  %106 = load i64, ptr %105, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.23, i64 noundef %106)
+  %107 = getelementptr inbounds i8, ptr %83, i64 208
+  %108 = load i64, ptr %107, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.24, i64 noundef %108)
+  %109 = getelementptr inbounds i8, ptr %83, i64 136
+  %110 = load i64, ptr %109, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.25, i64 noundef %110)
+  %111 = getelementptr inbounds i8, ptr %83, i64 160
+  %112 = load i64, ptr %111, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, i64 noundef %112)
+  %113 = getelementptr inbounds i8, ptr %83, i64 168
+  %114 = load i64, ptr %113, align 8
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27, i64 noundef %114)
+  %115 = load volatile i64, ptr @jiffies, align 64
+  tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %115)
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.3)
   ret void
 }
@@ -494,7 +495,7 @@ define internal void @SEQ_printf(ptr noundef %0, ptr noundef %1, ...) unnamed_ad
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
 
@@ -507,7 +508,7 @@ define internal void @SEQ_printf(ptr noundef %0, ptr noundef %1, ...) unnamed_ad
   br label %8
 
 8:                                                ; preds = %6, %5
-  call void @llvm.va_end(ptr %3)
+  call void @llvm.va_end.p0(ptr %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
   ret void
 }
@@ -515,17 +516,11 @@ define internal void @SEQ_printf(ptr noundef %0, ptr noundef %1, ...) unnamed_ad
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @seq_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vprintk(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @tick_get_tick_sched(i32 noundef) local_unnamed_addr #2
@@ -624,12 +619,12 @@ define internal ptr @timer_list_start(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @timer_list_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 align 16 {
+define internal void @timer_list_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define internal noundef ptr @timer_list_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #7 align 16 {
+define internal noundef ptr @timer_list_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #6 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
@@ -734,14 +729,20 @@ define internal noundef i32 @timer_list_show(ptr noundef %0, ptr nocapture nound
   ret i32 0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(read) }
 

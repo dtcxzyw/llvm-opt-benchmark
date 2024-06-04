@@ -492,11 +492,12 @@ define linkonce_odr void @_ZN3gmx9SaxsDebyeD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx9SaxsDebyeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
-  %5 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx9SaxsDebyeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %6 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %3) #12
   ret void
 }
@@ -571,191 +572,192 @@ define void @_ZN3gmx9SaxsDebyeC2ESt6vectorINS_7IsotopeESaIS2_EERKS1_IdSaIdEE(ptr
   store ptr %2, ptr %6, align 8
   %24 = load ptr, ptr %4, align 8
   call void @_ZN3gmx22ComputeDebyeScatteringC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %24) #12
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx9SaxsDebyeE, i32 0, i32 0, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
-  %26 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 2
-  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #12
-  %27 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %24, i32 0, i32 9
-  store i8 1, ptr %27, align 8
+  %25 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx9SaxsDebyeE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
+  %27 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 2
+  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #12
+  %28 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %24, i32 0, i32 9
+  store i8 1, ptr %28, align 8
   invoke void @_ZN3gmx26readAtomicStructureFactorsEv(ptr dead_on_unwind writable sret(%"class.std::vector.15") align 8 %7)
-          to label %28 unwind label %84
+          to label %29 unwind label %85
 
-28:                                               ; preds = %3
-  %29 = load ptr, ptr %6, align 8
-  store ptr %29, ptr %10, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = call ptr @_ZNKSt6vectorIdSaIdEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = call ptr @_ZNKSt6vectorIdSaIdEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #12
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
-  store ptr %34, ptr %35, align 8
-  br label %36
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %6, align 8
+  store ptr %30, ptr %10, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = call ptr @_ZNKSt6vectorIdSaIdEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #12
+  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = call ptr @_ZNKSt6vectorIdSaIdEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #12
+  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
+  store ptr %35, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %114, %28
-  %37 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKdSt6vectorIdSaIdEEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
-  br i1 %37, label %38, label %116
+37:                                               ; preds = %115, %29
+  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKdSt6vectorIdSaIdEEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  br i1 %38, label %39, label %117
 
-38:                                               ; preds = %36
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  %40 = load double, ptr %39, align 8
-  store double %40, ptr %13, align 8
+39:                                               ; preds = %37
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %41 = load double, ptr %40, align 8
+  store double %41, ptr %13, align 8
   store ptr %7, ptr %14, align 8
-  %41 = load ptr, ptr %14, align 8
-  %42 = call ptr @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #12
-  %43 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.20", ptr %15, i32 0, i32 0
-  store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr %14, align 8
-  %45 = call ptr @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #12
-  %46 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.20", ptr %16, i32 0, i32 0
-  store ptr %45, ptr %46, align 8
-  br label %47
+  %42 = load ptr, ptr %14, align 8
+  %43 = call ptr @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #12
+  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.20", ptr %15, i32 0, i32 0
+  store ptr %43, ptr %44, align 8
+  %45 = load ptr, ptr %14, align 8
+  %46 = call ptr @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #12
+  %47 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.20", ptr %16, i32 0, i32 0
+  store ptr %46, ptr %47, align 8
+  br label %48
 
-47:                                               ; preds = %107, %38
-  %48 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #12
-  br i1 %48, label %49, label %113
+48:                                               ; preds = %108, %39
+  %49 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  br i1 %49, label %50, label %114
 
-49:                                               ; preds = %47
-  %50 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
-  invoke void @_ZN3gmx21AtomicStructureFactorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr noundef nonnull align 8 dereferenceable(120) %50)
-          to label %51 unwind label %88
+50:                                               ; preds = %48
+  %51 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  invoke void @_ZN3gmx21AtomicStructureFactorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr noundef nonnull align 8 dereferenceable(120) %51)
+          to label %52 unwind label %89
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
-  %53 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %52, i32 0, i32 2
-  %54 = load double, ptr %53, align 8
-  store double %54, ptr %18, align 8
-  %55 = load double, ptr %13, align 8
-  %56 = fdiv double %55, 0x402921FB54442D18
-  store double %56, ptr %19, align 8
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
+  %54 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %53, i32 0, i32 2
+  %55 = load double, ptr %54, align 8
+  store double %55, ptr %18, align 8
+  %56 = load double, ptr %13, align 8
+  %57 = fdiv double %56, 0x402921FB54442D18
+  store double %57, ptr %19, align 8
   store i32 0, ptr %20, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %81, %51
-  %58 = load i32, ptr %20, align 4
-  %59 = icmp slt i32 %58, 4
-  br i1 %59, label %60, label %92
+58:                                               ; preds = %82, %52
+  %59 = load i32, ptr %20, align 4
+  %60 = icmp slt i32 %59, 4
+  br i1 %60, label %61, label %93
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
-  %62 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %20, align 4
-  %64 = sext i32 %63 to i64
-  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIdLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef %64) #12
-  %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
-  %68 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %20, align 4
-  %70 = sext i32 %69 to i64
-  %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIdLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 noundef %70) #12
-  %72 = load double, ptr %71, align 8
-  %73 = fneg double %72
-  %74 = load double, ptr %19, align 8
-  %75 = fmul double %73, %74
-  %76 = load double, ptr %19, align 8
-  %77 = fmul double %75, %76
-  %78 = call double @exp(double noundef %77) #12
-  %79 = load double, ptr %18, align 8
-  %80 = call double @llvm.fmuladd.f64(double %66, double %78, double %79)
-  store double %80, ptr %18, align 8
-  br label %81
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
+  %63 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %20, align 4
+  %65 = sext i32 %64 to i64
+  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIdLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %65) #12
+  %67 = load double, ptr %66, align 8
+  %68 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 3
+  %69 = getelementptr inbounds %"struct.gmx::CromerMannParameters", ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %20, align 4
+  %71 = sext i32 %70 to i64
+  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIdLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %69, i64 noundef %71) #12
+  %73 = load double, ptr %72, align 8
+  %74 = fneg double %73
+  %75 = load double, ptr %19, align 8
+  %76 = fmul double %74, %75
+  %77 = load double, ptr %19, align 8
+  %78 = fmul double %76, %77
+  %79 = call double @exp(double noundef %78) #12
+  %80 = load double, ptr %18, align 8
+  %81 = call double @llvm.fmuladd.f64(double %67, double %79, double %80)
+  store double %81, ptr %18, align 8
+  br label %82
 
-81:                                               ; preds = %60
-  %82 = load i32, ptr %20, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %20, align 4
-  br label %57, !llvm.loop !5
+82:                                               ; preds = %61
+  %83 = load i32, ptr %20, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %20, align 4
+  br label %58, !llvm.loop !5
 
-84:                                               ; preds = %3
-  %85 = landingpad { ptr, i32 }
+85:                                               ; preds = %3
+  %86 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %8, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %9, align 4
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %8, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %9, align 4
+  br label %119
+
+89:                                               ; preds = %50
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %8, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %9, align 4
   br label %118
 
-88:                                               ; preds = %49
-  %89 = landingpad { ptr, i32 }
-          cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %8, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %9, align 4
-  br label %117
+93:                                               ; preds = %58
+  %94 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 0
+  %95 = invoke noundef i32 @_ZN3gmx20getIsotopeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %94)
+          to label %96 unwind label %110
 
-92:                                               ; preds = %57
-  %93 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %17, i32 0, i32 0
-  %94 = invoke noundef i32 @_ZN3gmx20getIsotopeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %93)
-          to label %95 unwind label %109
+96:                                               ; preds = %93
+  store i32 %95, ptr %21, align 4
+  %97 = load i32, ptr %21, align 4
+  store i32 %97, ptr %23, align 4
+  %98 = invoke { i32, double } @_ZSt9make_pairIiRdESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS2_INS3_IT0_E4typeEE6__typeEEOS4_OS9_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %99 unwind label %110
 
-95:                                               ; preds = %92
-  store i32 %94, ptr %21, align 4
-  %96 = load i32, ptr %21, align 4
-  store i32 %96, ptr %23, align 4
-  %97 = invoke { i32, double } @_ZSt9make_pairIiRdESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS2_INS3_IT0_E4typeEE6__typeEEOS4_OS9_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %98 unwind label %109
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds { i32, double }, ptr %22, i32 0, i32 0
+  %101 = extractvalue { i32, double } %98, 0
+  store i32 %101, ptr %100, align 8
+  %102 = getelementptr inbounds { i32, double }, ptr %22, i32 0, i32 1
+  %103 = extractvalue { i32, double } %98, 1
+  store double %103, ptr %102, align 8
+  %104 = load double, ptr %18, align 8
+  %105 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 2
+  %106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %105, ptr noundef nonnull align 8 dereferenceable(16) %22)
+          to label %107 unwind label %110
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds { i32, double }, ptr %22, i32 0, i32 0
-  %100 = extractvalue { i32, double } %97, 0
-  store i32 %100, ptr %99, align 8
-  %101 = getelementptr inbounds { i32, double }, ptr %22, i32 0, i32 1
-  %102 = extractvalue { i32, double } %97, 1
-  store double %102, ptr %101, align 8
-  %103 = load double, ptr %18, align 8
-  %104 = getelementptr inbounds %"class.gmx::SaxsDebye", ptr %24, i32 0, i32 2
-  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %104, ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %106 unwind label %109
-
-106:                                              ; preds = %98
-  store double %103, ptr %105, align 8
+107:                                              ; preds = %99
+  store double %104, ptr %106, align 8
   call void @_ZN3gmx21AtomicStructureFactorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %17) #12
-  br label %107
+  br label %108
 
-107:                                              ; preds = %106
-  %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
-  br label %47
+108:                                              ; preds = %107
+  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN3gmx21AtomicStructureFactorESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  br label %48
 
-109:                                              ; preds = %98, %95, %92
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %99, %96, %93
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %8, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %9, align 4
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %8, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %9, align 4
   call void @_ZN3gmx21AtomicStructureFactorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %17) #12
-  br label %117
+  br label %118
 
-113:                                              ; preds = %47
-  br label %114
+114:                                              ; preds = %48
+  br label %115
 
-114:                                              ; preds = %113
-  %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  br label %36
+115:                                              ; preds = %114
+  %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br label %37
 
-116:                                              ; preds = %36
+117:                                              ; preds = %37
   call void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   ret void
 
-117:                                              ; preds = %109, %88
+118:                                              ; preds = %110, %89
   call void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %118
-
-118:                                              ; preds = %117, %84
-  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #12
-  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #12
-  call void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %24) #12
   br label %119
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr %8, align 8
-  %121 = load i32, ptr %9, align 4
-  %122 = insertvalue { ptr, i32 } poison, ptr %120, 0
-  %123 = insertvalue { ptr, i32 } %122, i32 %121, 1
-  resume { ptr, i32 } %123
+119:                                              ; preds = %118, %85
+  call void @_ZNSt13unordered_mapISt4pairIidEdN3gmx8pairHashESt8equal_toIS1_ESaIS0_IKS1_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #12
+  call void @_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #12
+  call void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %24) #12
+  br label %120
+
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %8, align 8
+  %122 = load i32, ptr %9, align 4
+  %123 = insertvalue { ptr, i32 } poison, ptr %121, 0
+  %124 = insertvalue { ptr, i32 } %123, i32 %122, 1
+  resume { ptr, i32 } %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -763,25 +765,26 @@ define linkonce_odr void @_ZN3gmx22ComputeDebyeScatteringC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 1
-  store double 0.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 1
   store double 0.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 3
-  store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  %8 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 2
+  store double 0.000000e+00, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 3
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
-  %9 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 6
+  %9 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %10 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 7
+  %10 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %11 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  %12 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 9
-  store i8 0, ptr %12, align 8
+  %11 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %12 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  %13 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 9
+  store i8 0, ptr %13, align 8
   ret void
 }
 
@@ -1106,17 +1109,18 @@ define linkonce_odr void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  %6 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %7 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 5
+  %7 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  %8 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 4
+  %8 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %9 = getelementptr inbounds %"class.gmx::ComputeDebyeScattering", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   ret void
 }
 

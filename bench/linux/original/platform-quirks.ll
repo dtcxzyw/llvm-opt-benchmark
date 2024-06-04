@@ -28,52 +28,66 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @x86_early_init_platform_quirks() local_unnamed_addr #0 section ".init.text" align 16 {
-  store i32 2, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 30), align 1
-  switch i32 %1, label %5 [
-    i32 0, label %2
-    i32 2, label %3
-    i32 3, label %4
-    i32 4, label %4
+  %1 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  store i32 2, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1
+  store i32 1, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 2
+  store i32 1, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 30
+  %7 = load i32, ptr %6, align 1
+  switch i32 %7, label %17 [
+    i32 0, label %8
+    i32 2, label %10
+    i32 3, label %13
+    i32 4, label %13
   ]
 
-2:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
-  br label %5
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4
+  store i32 1, ptr %9, align 8
+  br label %17
 
-3:                                                ; preds = %0
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  br label %5
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1
+  store i32 0, ptr %12, align 4
+  br label %17
 
-4:                                                ; preds = %0, %0
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  br label %5
+13:                                               ; preds = %0, %0
+  %14 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  store i32 0, ptr %16, align 8
+  br label %17
 
-5:                                                ; preds = %4, %3, %2, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 12), align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+17:                                               ; preds = %13, %10, %8, %0
+  %18 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 12
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %22, label %21
 
-8:                                                ; preds = %5
-  tail call void %6() #2
-  br label %9
+21:                                               ; preds = %17
+  tail call void %19() #2
+  br label %22
 
-9:                                                ; preds = %8, %5
+22:                                               ; preds = %21, %17
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local zeroext i1 @x86_pnpbios_disabled() local_unnamed_addr #1 section ".init.text" align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  %2 = icmp eq i32 %1, 0
-  ret i1 %2
+  %1 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %2, 0
+  ret i1 %3
 }
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

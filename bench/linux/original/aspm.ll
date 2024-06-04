@@ -130,13 +130,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %30 = phi i32 [ 1, %22 ], [ 0, %1 ], [ 0, %24 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   %31 = load i1, ptr @aspm_support_enabled, align 1
-  br i1 %31, label %127, label %32
+  br i1 %31, label %128, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 168
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %127
+  br i1 %35, label %36, label %128
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %0, i64 106
@@ -146,7 +146,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %41 = and i16 %38, 240
   %42 = icmp eq i16 %41, 128
   %43 = or i1 %40, %42
-  br i1 %43, label %44, label %127
+  br i1 %43, label %44, label %128
 
 44:                                               ; preds = %36
   %45 = and i16 %38, 240
@@ -159,7 +159,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %50 = getelementptr inbounds i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %127
+  br i1 %52, label %53, label %128
 
 53:                                               ; preds = %47, %44
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
@@ -167,148 +167,149 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %55
-  br i1 %57, label %126, label %58
+  br i1 %57, label %127, label %58
 
 58:                                               ; preds = %53
   call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
-  %59 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %60 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 3520, i64 noundef 56) #16
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %106, label %62
+  %59 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %60 = load ptr, ptr %59, align 16
+  %61 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %60, i32 noundef 3520, i64 noundef 56) #16
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %107, label %63
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %60, i64 32
-  store volatile ptr %63, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 40
-  store volatile ptr %63, ptr %64, align 8
-  store ptr %0, ptr %60, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 40
-  br label %67
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %61, i64 32
+  store volatile ptr %64, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %61, i64 40
+  store volatile ptr %64, ptr %65, align 8
+  store ptr %0, ptr %61, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 40
+  br label %68
 
-67:                                               ; preds = %71, %62
-  %68 = phi ptr [ %66, %62 ], [ %69, %71 ]
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, %66
-  br i1 %70, label %76, label %71
+68:                                               ; preds = %72, %63
+  %69 = phi ptr [ %67, %63 ], [ %70, %72 ]
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, %67
+  br i1 %71, label %77, label %72
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %69, i64 56
-  %73 = load i32, ptr %72, align 8
-  %74 = and i32 %73, 7
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %67, !llvm.loop !9
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %70, i64 56
+  %74 = load i32, ptr %73, align 8
+  %75 = and i32 %74, 7
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %68, !llvm.loop !9
 
-76:                                               ; preds = %71, %67
-  %77 = phi ptr [ %69, %71 ], [ null, %67 ]
-  %78 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %77, ptr %78, align 8
-  %79 = load i16, ptr %37, align 2
-  %80 = lshr i16 %79, 4
-  %81 = and i16 %80, 15
-  switch i16 %81, label %82 [
-    i16 4, label %90
-    i16 8, label %90
+77:                                               ; preds = %72, %68
+  %78 = phi ptr [ %70, %72 ], [ null, %68 ]
+  %79 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %78, ptr %79, align 8
+  %80 = load i16, ptr %37, align 2
+  %81 = lshr i16 %80, 4
+  %82 = and i16 %81, 15
+  switch i16 %82, label %83 [
+    i16 4, label %91
+    i16 8, label %91
   ]
 
-82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %92
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %93
 
-90:                                               ; preds = %82, %76, %76
-  %91 = getelementptr inbounds i8, ptr %60, i64 16
-  store ptr %60, ptr %91, align 8
+91:                                               ; preds = %83, %77, %77
+  %92 = getelementptr inbounds i8, ptr %61, i64 16
+  store ptr %61, ptr %92, align 8
+  br label %104
+
+93:                                               ; preds = %83
+  %94 = getelementptr inbounds i8, ptr %89, i64 168
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
+
+97:                                               ; preds = %93
+  call void @kfree(ptr noundef nonnull %61) #14
   br label %103
 
-92:                                               ; preds = %82
-  %93 = getelementptr inbounds i8, ptr %88, i64 168
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds i8, ptr %61, i64 24
+  store ptr %95, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %95, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %61, i64 16
+  store ptr %101, ptr %102, align 8
+  br label %103
 
-96:                                               ; preds = %92
-  call void @kfree(ptr noundef nonnull %60) #14
-  br label %102
+103:                                              ; preds = %98, %97
+  br i1 %96, label %107, label %104
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %60, i64 24
-  store ptr %94, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %94, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %60, i64 16
-  store ptr %100, ptr %101, align 8
-  br label %102
+104:                                              ; preds = %103, %91
+  %105 = load ptr, ptr @link_list, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  store ptr %64, ptr %106, align 8
+  store ptr %105, ptr %64, align 8
+  store ptr @link_list, ptr %65, align 8
+  store volatile ptr %64, ptr @link_list, align 8
+  store ptr %61, ptr %33, align 8
+  br label %107
 
-102:                                              ; preds = %97, %96
-  br i1 %95, label %106, label %103
+107:                                              ; preds = %104, %103, %58
+  %108 = phi ptr [ %61, %104 ], [ null, %103 ], [ null, %58 ]
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %126, label %110
 
-103:                                              ; preds = %102, %90
-  %104 = load ptr, ptr @link_list, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  store ptr %63, ptr %105, align 8
-  store ptr %104, ptr %63, align 8
-  store ptr @link_list, ptr %64, align 8
-  store volatile ptr %63, ptr @link_list, align 8
-  store ptr %60, ptr %33, align 8
-  br label %106
+110:                                              ; preds = %107
+  call fastcc void @pcie_aspm_cap_init(ptr noundef nonnull %108, i32 noundef %30)
+  call fastcc void @pcie_clkpm_cap_init(ptr noundef nonnull %108, i32 noundef %30)
+  %111 = load i32, ptr @aspm_policy, align 4
+  %112 = add i32 %111, -4
+  %113 = icmp ult i32 %112, -2
+  br i1 %113, label %114, label %125
 
-106:                                              ; preds = %103, %102, %58
-  %107 = phi ptr [ %60, %103 ], [ null, %102 ], [ null, %58 ]
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %125, label %109
-
-109:                                              ; preds = %106
-  call fastcc void @pcie_aspm_cap_init(ptr noundef nonnull %107, i32 noundef %30)
-  call fastcc void @pcie_clkpm_cap_init(ptr noundef nonnull %107, i32 noundef %30)
-  %110 = load i32, ptr @aspm_policy, align 4
-  %111 = add i32 %110, -4
-  %112 = icmp ult i32 %111, -2
-  br i1 %112, label %113, label %124
-
-113:                                              ; preds = %109
-  call fastcc void @pcie_config_aspm_path(ptr noundef nonnull %107)
-  %114 = load i32, ptr @aspm_policy, align 4
-  switch i32 %114, label %122 [
-    i32 0, label %116
-    i32 2, label %115
-    i32 3, label %115
+114:                                              ; preds = %110
+  call fastcc void @pcie_config_aspm_path(ptr noundef nonnull %108)
+  %115 = load i32, ptr @aspm_policy, align 4
+  switch i32 %115, label %123 [
+    i32 0, label %117
+    i32 2, label %116
+    i32 3, label %116
   ]
 
-115:                                              ; preds = %113, %113
-  br label %122
+116:                                              ; preds = %114, %114
+  br label %123
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %107, i64 52
-  %118 = load i16, ptr %117, align 4
-  %119 = lshr i16 %118, 9
-  %120 = and i16 %119, 1
-  %121 = zext nneg i16 %120 to i32
-  br label %122
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %108, i64 52
+  %119 = load i16, ptr %118, align 4
+  %120 = lshr i16 %119, 9
+  %121 = and i16 %120, 1
+  %122 = zext nneg i16 %121 to i32
+  br label %123
 
-122:                                              ; preds = %116, %115, %113
-  %123 = phi i32 [ %121, %116 ], [ 1, %115 ], [ 0, %113 ]
-  call fastcc void @pcie_set_clkpm(ptr noundef nonnull %107, i32 noundef %123)
-  br label %124
-
-124:                                              ; preds = %122, %109
-  call fastcc void @pcie_aspm_update_sysfs_visibility(ptr noundef %0)
+123:                                              ; preds = %117, %116, %114
+  %124 = phi i32 [ %122, %117 ], [ 1, %116 ], [ 0, %114 ]
+  call fastcc void @pcie_set_clkpm(ptr noundef nonnull %108, i32 noundef %124)
   br label %125
 
-125:                                              ; preds = %124, %106
-  call void @mutex_unlock(ptr noundef nonnull @aspm_lock) #14
+125:                                              ; preds = %123, %110
+  call fastcc void @pcie_aspm_update_sysfs_visibility(ptr noundef %0)
   br label %126
 
-126:                                              ; preds = %125, %53
-  call void @up_read(ptr noundef nonnull @pci_bus_sem) #14
+126:                                              ; preds = %125, %107
+  call void @mutex_unlock(ptr noundef nonnull @aspm_lock) #14
   br label %127
 
-127:                                              ; preds = %126, %47, %36, %32, %29
+127:                                              ; preds = %126, %53
+  call void @up_read(ptr noundef nonnull @pci_bus_sem) #14
+  br label %128
+
+128:                                              ; preds = %127, %47, %36, %32, %29
   ret void
 }
 
@@ -1226,13 +1227,13 @@ define dso_local void @pcie_aspm_exit_link_state(ptr nocapture noundef readonly 
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %42, label %7
+  br i1 %6, label %44, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %42, label %11
+  br i1 %10, label %44, label %11
 
 11:                                               ; preds = %7
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
@@ -1250,55 +1251,57 @@ define dso_local void @pcie_aspm_exit_link_state(ptr nocapture noundef readonly 
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
-  %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 168
-  store ptr null, ptr %23, align 8
+  %22 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %22, ptr %17, align 8
+  %23 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %23, ptr %18, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  store ptr null, ptr %25, align 8
   tail call void @kfree(ptr noundef %12) #14
-  %24 = icmp eq ptr %16, null
-  br i1 %24, label %41, label %25
+  %26 = icmp eq ptr %16, null
+  br i1 %26, label %43, label %27
 
-25:                                               ; preds = %11
+27:                                               ; preds = %11
   tail call fastcc void @pcie_update_aspm_capable(ptr noundef %14)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %36, %25
-  %27 = phi ptr [ %39, %36 ], [ %16, %25 ]
-  %28 = load i32, ptr @aspm_policy, align 4
-  switch i32 %28, label %36 [
-    i32 0, label %31
-    i32 2, label %29
-    i32 3, label %30
+28:                                               ; preds = %38, %27
+  %29 = phi ptr [ %41, %38 ], [ %16, %27 ]
+  %30 = load i32, ptr @aspm_policy, align 4
+  switch i32 %30, label %38 [
+    i32 0, label %33
+    i32 2, label %31
+    i32 3, label %32
   ]
 
-29:                                               ; preds = %26
-  br label %36
+31:                                               ; preds = %28
+  br label %38
 
-30:                                               ; preds = %26
-  br label %36
+32:                                               ; preds = %28
+  br label %38
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 48
-  %33 = load i32, ptr %32, align 8
-  %34 = lshr i32 %33, 21
-  %35 = and i32 %34, 127
-  br label %36
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %29, i64 48
+  %35 = load i32, ptr %34, align 8
+  %36 = lshr i32 %35, 21
+  %37 = and i32 %36, 127
+  br label %38
 
-36:                                               ; preds = %31, %30, %29, %26
-  %37 = phi i32 [ %35, %31 ], [ 127, %30 ], [ 7, %29 ], [ 0, %26 ]
-  tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %27, i32 noundef %37)
-  %38 = getelementptr inbounds i8, ptr %27, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %26, !llvm.loop !18
+38:                                               ; preds = %33, %32, %31, %28
+  %39 = phi i32 [ %37, %33 ], [ 127, %32 ], [ 7, %31 ], [ 0, %28 ]
+  tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %29, i32 noundef %39)
+  %40 = getelementptr inbounds i8, ptr %29, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %28, !llvm.loop !18
 
-41:                                               ; preds = %36, %11
+43:                                               ; preds = %38, %11
   tail call void @mutex_unlock(ptr noundef nonnull @aspm_lock) #14
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #14
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %7, %1
+44:                                               ; preds = %43, %7, %1
   ret void
 }
 

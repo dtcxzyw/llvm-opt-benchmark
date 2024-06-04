@@ -405,9 +405,10 @@ entry:
   %2 = load ptr, ptr %key.addr, align 8
   %3 = load i32, ptr %dbid.addr, align 4
   call void @moduleNotifyKeyspaceEvent(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 359), align 8
-  %5 = load i32, ptr %type.addr, align 4
-  %and = and i32 %4, %5
+  %4 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 359
+  %5 = load i32, ptr %4, align 8
+  %6 = load i32, ptr %type.addr, align 4
+  %and = and i32 %5, %6
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -415,13 +416,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %event.addr, align 8
   %7 = load ptr, ptr %event.addr, align 8
-  %call = call i64 @strlen(ptr noundef %7) #3
-  %call1 = call ptr @createStringObject(ptr noundef %6, i64 noundef %call)
+  %8 = load ptr, ptr %event.addr, align 8
+  %call = call i64 @strlen(ptr noundef %8) #3
+  %call1 = call ptr @createStringObject(ptr noundef %7, i64 noundef %call)
   store ptr %call1, ptr %eventobj, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 359), align 8
-  %and2 = and i32 %8, 1
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 359
+  %10 = load i32, ptr %9, align 8
+  %and2 = and i32 %10, 1
   %tobool3 = icmp ne i32 %and2, 0
   br i1 %tobool3, label %if.then4, label %if.end14
 
@@ -429,85 +431,86 @@ if.then4:                                         ; preds = %if.end
   %call5 = call ptr @sdsnewlen(ptr noundef @.str.15, i64 noundef 11)
   store ptr %call5, ptr %chan, align 8
   %arraydecay = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
-  %9 = load i32, ptr %dbid.addr, align 4
-  %conv = sext i32 %9 to i64
+  %11 = load i32, ptr %dbid.addr, align 4
+  %conv = sext i32 %11 to i64
   %call6 = call i32 @ll2string(ptr noundef %arraydecay, i64 noundef 24, i64 noundef %conv)
   store i32 %call6, ptr %len, align 4
-  %10 = load ptr, ptr %chan, align 8
-  %arraydecay7 = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
-  %11 = load i32, ptr %len, align 4
-  %conv8 = sext i32 %11 to i64
-  %call9 = call ptr @sdscatlen(ptr noundef %10, ptr noundef %arraydecay7, i64 noundef %conv8)
-  store ptr %call9, ptr %chan, align 8
   %12 = load ptr, ptr %chan, align 8
-  %call10 = call ptr @sdscatlen(ptr noundef %12, ptr noundef @.str.16, i64 noundef 3)
+  %arraydecay7 = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
+  %13 = load i32, ptr %len, align 4
+  %conv8 = sext i32 %13 to i64
+  %call9 = call ptr @sdscatlen(ptr noundef %12, ptr noundef %arraydecay7, i64 noundef %conv8)
+  store ptr %call9, ptr %chan, align 8
+  %14 = load ptr, ptr %chan, align 8
+  %call10 = call ptr @sdscatlen(ptr noundef %14, ptr noundef @.str.16, i64 noundef 3)
   store ptr %call10, ptr %chan, align 8
-  %13 = load ptr, ptr %chan, align 8
-  %14 = load ptr, ptr %key.addr, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %ptr, align 8
-  %call11 = call ptr @sdscatsds(ptr noundef %13, ptr noundef %15)
+  %15 = load ptr, ptr %chan, align 8
+  %16 = load ptr, ptr %key.addr, align 8
+  %ptr = getelementptr inbounds %struct.redisObject, ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %ptr, align 8
+  %call11 = call ptr @sdscatsds(ptr noundef %15, ptr noundef %17)
   store ptr %call11, ptr %chan, align 8
-  %16 = load ptr, ptr %chan, align 8
-  %call12 = call ptr @createObject(i32 noundef 0, ptr noundef %16)
+  %18 = load ptr, ptr %chan, align 8
+  %call12 = call ptr @createObject(i32 noundef 0, ptr noundef %18)
   store ptr %call12, ptr %chanobj, align 8
-  %17 = load ptr, ptr %chanobj, align 8
-  %18 = load ptr, ptr %eventobj, align 8
-  %call13 = call i32 @pubsubPublishMessage(ptr noundef %17, ptr noundef %18, i32 noundef 0)
   %19 = load ptr, ptr %chanobj, align 8
-  call void @decrRefCount(ptr noundef %19)
+  %20 = load ptr, ptr %eventobj, align 8
+  %call13 = call i32 @pubsubPublishMessage(ptr noundef %19, ptr noundef %20, i32 noundef 0)
+  %21 = load ptr, ptr %chanobj, align 8
+  call void @decrRefCount(ptr noundef %21)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then4, %if.end
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 359), align 8
-  %and15 = and i32 %20, 2
+  %22 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 359
+  %23 = load i32, ptr %22, align 8
+  %and15 = and i32 %23, 2
   %tobool16 = icmp ne i32 %and15, 0
   br i1 %tobool16, label %if.then17, label %if.end33
 
 if.then17:                                        ; preds = %if.end14
   %call18 = call ptr @sdsnewlen(ptr noundef @.str.17, i64 noundef 11)
   store ptr %call18, ptr %chan, align 8
-  %21 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %21, -1
+  %24 = load i32, ptr %len, align 4
+  %cmp = icmp eq i32 %24, -1
   br i1 %cmp, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.then17
   %arraydecay21 = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
-  %22 = load i32, ptr %dbid.addr, align 4
-  %conv22 = sext i32 %22 to i64
+  %25 = load i32, ptr %dbid.addr, align 4
+  %conv22 = sext i32 %25 to i64
   %call23 = call i32 @ll2string(ptr noundef %arraydecay21, i64 noundef 24, i64 noundef %conv22)
   store i32 %call23, ptr %len, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.then17
-  %23 = load ptr, ptr %chan, align 8
-  %arraydecay25 = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
-  %24 = load i32, ptr %len, align 4
-  %conv26 = sext i32 %24 to i64
-  %call27 = call ptr @sdscatlen(ptr noundef %23, ptr noundef %arraydecay25, i64 noundef %conv26)
-  store ptr %call27, ptr %chan, align 8
-  %25 = load ptr, ptr %chan, align 8
-  %call28 = call ptr @sdscatlen(ptr noundef %25, ptr noundef @.str.16, i64 noundef 3)
-  store ptr %call28, ptr %chan, align 8
   %26 = load ptr, ptr %chan, align 8
-  %27 = load ptr, ptr %eventobj, align 8
-  %ptr29 = getelementptr inbounds %struct.redisObject, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %ptr29, align 8
-  %call30 = call ptr @sdscatsds(ptr noundef %26, ptr noundef %28)
-  store ptr %call30, ptr %chan, align 8
+  %arraydecay25 = getelementptr inbounds [24 x i8], ptr %buf, i64 0, i64 0
+  %27 = load i32, ptr %len, align 4
+  %conv26 = sext i32 %27 to i64
+  %call27 = call ptr @sdscatlen(ptr noundef %26, ptr noundef %arraydecay25, i64 noundef %conv26)
+  store ptr %call27, ptr %chan, align 8
+  %28 = load ptr, ptr %chan, align 8
+  %call28 = call ptr @sdscatlen(ptr noundef %28, ptr noundef @.str.16, i64 noundef 3)
+  store ptr %call28, ptr %chan, align 8
   %29 = load ptr, ptr %chan, align 8
-  %call31 = call ptr @createObject(i32 noundef 0, ptr noundef %29)
+  %30 = load ptr, ptr %eventobj, align 8
+  %ptr29 = getelementptr inbounds %struct.redisObject, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %ptr29, align 8
+  %call30 = call ptr @sdscatsds(ptr noundef %29, ptr noundef %31)
+  store ptr %call30, ptr %chan, align 8
+  %32 = load ptr, ptr %chan, align 8
+  %call31 = call ptr @createObject(i32 noundef 0, ptr noundef %32)
   store ptr %call31, ptr %chanobj, align 8
-  %30 = load ptr, ptr %chanobj, align 8
-  %31 = load ptr, ptr %key.addr, align 8
-  %call32 = call i32 @pubsubPublishMessage(ptr noundef %30, ptr noundef %31, i32 noundef 0)
-  %32 = load ptr, ptr %chanobj, align 8
-  call void @decrRefCount(ptr noundef %32)
+  %33 = load ptr, ptr %chanobj, align 8
+  %34 = load ptr, ptr %key.addr, align 8
+  %call32 = call i32 @pubsubPublishMessage(ptr noundef %33, ptr noundef %34, i32 noundef 0)
+  %35 = load ptr, ptr %chanobj, align 8
+  call void @decrRefCount(ptr noundef %35)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end24, %if.end14
-  %33 = load ptr, ptr %eventobj, align 8
-  call void @decrRefCount(ptr noundef %33)
+  %36 = load ptr, ptr %eventobj, align 8
+  call void @decrRefCount(ptr noundef %36)
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then

@@ -319,7 +319,8 @@ entry:
   %call = call noundef ptr @_ZNK4base18ThreadLocalStorage10StaticSlot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE)
   store ptr %call, ptr %tracker, align 8
   %0 = load ptr, ptr %tracker, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -327,40 +328,41 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %tracker, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %tracker, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef inttoptr (i64 -1 to ptr))
+  %3 = inttoptr i64 -1 to ptr
+  call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef %3)
   %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #9
   invoke void @_ZN4base11trace_event24AllocationContextTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then1
   store ptr %call2, ptr %tracker, align 8
-  %2 = load ptr, ptr %tracker, align 8
-  call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef %2)
+  %4 = load ptr, ptr %tracker, align 8
+  call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef %4)
   br label %if.end3
 
 lpad:                                             ; preds = %if.then1
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call2) #10
   br label %eh.resume
 
 if.end3:                                          ; preds = %invoke.cont, %if.end
-  %6 = load ptr, ptr %tracker, align 8
-  store ptr %6, ptr %retval, align 8
+  %8 = load ptr, ptr %tracker, align 8
+  store ptr %8, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

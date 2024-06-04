@@ -7044,10 +7044,11 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_retry_trace)
   %cond = select i1 %call, ptr @.str, ptr null
   call void @_ZN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttemptENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttemptE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttemptE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %calld.addr, align 8
-  store ptr %0, ptr %calld_, align 8
+  %1 = load ptr, ptr %calld.addr, align 8
+  store ptr %1, ptr %calld_, align 8
   %lb_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %lb_call_) #3
   %lb_call_committed_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 3
@@ -7055,37 +7056,37 @@ entry:
   %per_attempt_recv_timer_handle_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 6
   call void @_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %per_attempt_recv_timer_handle_) #3
   %batch_payload_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %calld.addr, align 8
-  %call_context_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %1, i32 0, i32 10
-  %2 = load ptr, ptr %call_context_, align 8
-  invoke void @_ZN38grpc_transport_stream_op_batch_payloadC2EP25grpc_call_context_element(ptr noundef nonnull align 8 dereferenceable(144) %batch_payload_, ptr noundef %2)
+  %2 = load ptr, ptr %calld.addr, align 8
+  %call_context_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %2, i32 0, i32 10
+  %3 = load ptr, ptr %call_context_, align 8
+  invoke void @_ZN38grpc_transport_stream_op_batch_payloadC2EP25grpc_call_context_element(ptr noundef nonnull align 8 dereferenceable(144) %batch_payload_, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %send_initial_metadata_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 8
   %calld_2 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %calld_2, align 8
-  %arena_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %3, i32 0, i32 7
-  %4 = load ptr, ptr %arena_, align 8
-  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %send_initial_metadata_, ptr noundef %4)
+  %4 = load ptr, ptr %calld_2, align 8
+  %arena_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %4, i32 0, i32 7
+  %5 = load ptr, ptr %arena_, align 8
+  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %send_initial_metadata_, ptr noundef %5)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %send_trailing_metadata_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 9
   %calld_5 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %calld_5, align 8
-  %arena_6 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %5, i32 0, i32 7
-  %6 = load ptr, ptr %arena_6, align 8
-  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %send_trailing_metadata_, ptr noundef %6)
+  %6 = load ptr, ptr %calld_5, align 8
+  %arena_6 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %6, i32 0, i32 7
+  %7 = load ptr, ptr %arena_6, align 8
+  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %send_trailing_metadata_, ptr noundef %7)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   %recv_initial_metadata_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 10
   %calld_9 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %calld_9, align 8
-  %arena_10 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %7, i32 0, i32 7
-  %8 = load ptr, ptr %arena_10, align 8
-  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %recv_initial_metadata_, ptr noundef %8)
+  %8 = load ptr, ptr %calld_9, align 8
+  %arena_10 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %8, i32 0, i32 7
+  %9 = load ptr, ptr %arena_10, align 8
+  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %recv_initial_metadata_, ptr noundef %9)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -7095,10 +7096,10 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   call void @_ZNSt8optionalIN9grpc_core11SliceBufferEEC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %recv_message_) #3
   %recv_trailing_metadata_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 18
   %calld_13 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %calld_13, align 8
-  %arena_14 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %arena_14, align 8
-  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %recv_trailing_metadata_, ptr noundef %10)
+  %10 = load ptr, ptr %calld_13, align 8
+  %arena_14 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %10, i32 0, i32 7
+  %11 = load ptr, ptr %arena_14, align 8
+  invoke void @_ZN19grpc_metadata_batchCI2N9grpc_core11MetadataMapIS_JNS0_16HttpPathMetadataENS0_21HttpAuthorityMetadataENS0_18HttpMethodMetadataENS0_18HttpStatusMetadataENS0_18HttpSchemeMetadataENS0_19ContentTypeMetadataENS0_10TeMetadataENS0_20GrpcEncodingMetadataENS0_27GrpcInternalEncodingRequestENS0_26GrpcAcceptEncodingMetadataENS0_18GrpcStatusMetadataENS0_19GrpcTimeoutMetadataENS0_31GrpcPreviousRpcAttemptsMetadataENS0_27GrpcRetryPushbackMsMetadataENS0_17UserAgentMetadataENS0_19GrpcMessageMetadataENS0_12HostMetadataENS0_30EndpointLoadMetricsBinMetadataENS0_26GrpcServerStatsBinMetadataENS0_20GrpcTraceBinMetadataENS0_19GrpcTagsBinMetadataENS0_25GrpcLbClientStatsMetadataENS0_17LbCostBinMetadataENS0_15LbTokenMetadataENS0_18XEnvoyPeerMetadataENS0_22GrpcStreamNetworkStateENS0_10PeerStringENS0_17GrpcStatusContextENS0_18GrpcStatusFromWireENS0_20GrpcCallWasCancelledENS0_12WaitForReadyENS0_16GrpcTrailersOnlyENS0_10GrpcTarPitENS0_20GrpcRegisteredMethodEEEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(568) %recv_trailing_metadata_, ptr noundef %11)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont12
@@ -7202,16 +7203,16 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   %bf.clear58 = and i8 %bf.load57, -3
   %bf.set59 = or i8 %bf.clear58, 0
   store i8 %bf.set59, ptr %abandoned_, align 8
-  %11 = load ptr, ptr %calld.addr, align 8
-  %12 = getelementptr inbounds %class.anon, ptr %ref.tmp60, i32 0, i32 0
-  store ptr %this1, ptr %12, align 8
+  %12 = load ptr, ptr %calld.addr, align 8
+  %13 = getelementptr inbounds %class.anon, ptr %ref.tmp60, i32 0, i32 0
+  store ptr %this1, ptr %13, align 8
   invoke void @"_ZN4absl12lts_2023080212AnyInvocableIFvvEEC2IZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS7_bE3$_0vEEOT_"(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont53
-  %13 = load i8, ptr %is_transparent_retry.addr, align 1
-  %tobool = trunc i8 %13 to i1
-  invoke void @_ZN9grpc_core11RetryFilter14LegacyCallData22CreateLoadBalancedCallEN4absl12lts_2023080212AnyInvocableIFvvEEEb(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1848) %11, ptr noundef %agg.tmp, i1 noundef zeroext %tobool)
+  %14 = load i8, ptr %is_transparent_retry.addr, align 1
+  %tobool = trunc i8 %14 to i1
+  invoke void @_ZN9grpc_core11RetryFilter14LegacyCallData22CreateLoadBalancedCallEN4absl12lts_2023080212AnyInvocableIFvvEEEb(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1848) %12, ptr noundef %agg.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont62
@@ -7226,182 +7227,182 @@ invoke.cont67:                                    ; preds = %invoke.cont64
   br i1 %call68, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont67
-  %14 = load ptr, ptr %calld.addr, align 8
-  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %chand_, align 8
-  %16 = load ptr, ptr %calld.addr, align 8
+  %15 = load ptr, ptr %calld.addr, align 8
+  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %chand_, align 8
+  %17 = load ptr, ptr %calld.addr, align 8
   %lb_call_69 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 2
   %call70 = call noundef ptr @_ZNKSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %lb_call_69) #3
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 147, i32 noundef 1, ptr noundef @.str.2, ptr noundef %15, ptr noundef %16, ptr noundef %this1, ptr noundef %call70)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 147, i32 noundef 1, ptr noundef @.str.2, ptr noundef %16, ptr noundef %17, ptr noundef %this1, ptr noundef %call70)
           to label %invoke.cont71 unwind label %lpad61
 
 invoke.cont71:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup134
 
 lpad3:                                            ; preds = %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup133
 
 lpad7:                                            ; preds = %invoke.cont4
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup132
 
 lpad11:                                           ; preds = %invoke.cont8
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup131
 
 lpad15:                                           ; preds = %invoke.cont12
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup129
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont16
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   br label %ehcleanup128
 
 lpad44:                                           ; preds = %invoke.cont43
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup127
 
 lpad46:                                           ; preds = %invoke.cont45
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   br label %ehcleanup126
 
 lpad48:                                           ; preds = %invoke.cont47
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup125
 
 lpad50:                                           ; preds = %invoke.cont49
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   br label %ehcleanup123
 
 lpad52:                                           ; preds = %invoke.cont51
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   br label %ehcleanup122
 
 lpad61:                                           ; preds = %invoke.cont108, %invoke.cont105, %invoke.cont100, %invoke.cont97, %do.end, %do.body, %invoke.cont90, %if.then88, %invoke.cont81, %if.then78, %land.rhs, %if.then, %invoke.cont64, %invoke.cont53
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad63:                                           ; preds = %invoke.cont62
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #3
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont71, %invoke.cont67
-  %56 = load ptr, ptr %calld.addr, align 8
-  %retry_policy_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %56, i32 0, i32 3
-  %57 = load ptr, ptr %retry_policy_, align 8
-  %cmp = icmp ne ptr %57, null
+  %57 = load ptr, ptr %calld.addr, align 8
+  %retry_policy_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %57, i32 0, i32 3
+  %58 = load ptr, ptr %retry_policy_, align 8
+  %cmp = icmp ne ptr %58, null
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end
-  %58 = load ptr, ptr %calld.addr, align 8
-  %retry_policy_73 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %58, i32 0, i32 3
-  %59 = load ptr, ptr %retry_policy_73, align 8
-  %call75 = invoke { i64, i8 } @_ZNK9grpc_core8internal17RetryMethodConfig24per_attempt_recv_timeoutEv(ptr noundef nonnull align 8 dereferenceable(56) %59)
+  %59 = load ptr, ptr %calld.addr, align 8
+  %retry_policy_73 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %59, i32 0, i32 3
+  %60 = load ptr, ptr %retry_policy_73, align 8
+  %call75 = invoke { i64, i8 } @_ZNK9grpc_core8internal17RetryMethodConfig24per_attempt_recv_timeoutEv(ptr noundef nonnull align 8 dereferenceable(56) %60)
           to label %invoke.cont74 unwind label %lpad61
 
 invoke.cont74:                                    ; preds = %land.rhs
   %coerce.dive = getelementptr inbounds %"class.std::optional.119", ptr %ref.tmp72, i32 0, i32 0
   %coerce.dive76 = getelementptr inbounds %"struct.std::_Optional_base.120", ptr %coerce.dive, i32 0, i32 0
-  %60 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive76, i32 0, i32 0
-  %61 = extractvalue { i64, i8 } %call75, 0
-  store i64 %61, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive76, i32 0, i32 1
-  %63 = extractvalue { i64, i8 } %call75, 1
-  store i8 %63, ptr %62, align 8
+  %61 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive76, i32 0, i32 0
+  %62 = extractvalue { i64, i8 } %call75, 0
+  store i64 %62, ptr %61, align 8
+  %63 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive76, i32 0, i32 1
+  %64 = extractvalue { i64, i8 } %call75, 1
+  store i8 %64, ptr %63, align 8
   %call77 = call noundef zeroext i1 @_ZNKSt8optionalIN9grpc_core8DurationEE9has_valueEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp72) #3
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont74, %if.end
-  %64 = phi i1 [ false, %if.end ], [ %call77, %invoke.cont74 ]
-  br i1 %64, label %if.then78, label %if.end121
+  %65 = phi i1 [ false, %if.end ], [ %call77, %invoke.cont74 ]
+  br i1 %65, label %if.then78, label %if.end121
 
 if.then78:                                        ; preds = %land.end
-  %65 = load ptr, ptr %calld.addr, align 8
-  %retry_policy_80 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %65, i32 0, i32 3
-  %66 = load ptr, ptr %retry_policy_80, align 8
-  %call82 = invoke { i64, i8 } @_ZNK9grpc_core8internal17RetryMethodConfig24per_attempt_recv_timeoutEv(ptr noundef nonnull align 8 dereferenceable(56) %66)
+  %66 = load ptr, ptr %calld.addr, align 8
+  %retry_policy_80 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %66, i32 0, i32 3
+  %67 = load ptr, ptr %retry_policy_80, align 8
+  %call82 = invoke { i64, i8 } @_ZNK9grpc_core8internal17RetryMethodConfig24per_attempt_recv_timeoutEv(ptr noundef nonnull align 8 dereferenceable(56) %67)
           to label %invoke.cont81 unwind label %lpad61
 
 invoke.cont81:                                    ; preds = %if.then78
   %coerce.dive83 = getelementptr inbounds %"class.std::optional.119", ptr %ref.tmp79, i32 0, i32 0
   %coerce.dive84 = getelementptr inbounds %"struct.std::_Optional_base.120", ptr %coerce.dive83, i32 0, i32 0
-  %67 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive84, i32 0, i32 0
-  %68 = extractvalue { i64, i8 } %call82, 0
-  store i64 %68, ptr %67, align 8
-  %69 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive84, i32 0, i32 1
-  %70 = extractvalue { i64, i8 } %call82, 1
-  store i8 %70, ptr %69, align 8
+  %68 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive84, i32 0, i32 0
+  %69 = extractvalue { i64, i8 } %call82, 0
+  store i64 %69, ptr %68, align 8
+  %70 = getelementptr inbounds { i64, i8 }, ptr %coerce.dive84, i32 0, i32 1
+  %71 = extractvalue { i64, i8 } %call82, 1
+  store i8 %71, ptr %70, align 8
   %call85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNOSt8optionalIN9grpc_core8DurationEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp79) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %per_attempt_recv_timeout, ptr align 8 %call85, i64 8, i1 false)
   %call87 = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_retry_trace)
@@ -7411,15 +7412,15 @@ invoke.cont86:                                    ; preds = %invoke.cont81
   br i1 %call87, label %if.then88, label %if.end93
 
 if.then88:                                        ; preds = %invoke.cont86
-  %71 = load ptr, ptr %calld.addr, align 8
-  %chand_89 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %71, i32 0, i32 0
-  %72 = load ptr, ptr %chand_89, align 8
-  %73 = load ptr, ptr %calld.addr, align 8
+  %72 = load ptr, ptr %calld.addr, align 8
+  %chand_89 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %72, i32 0, i32 0
+  %73 = load ptr, ptr %chand_89, align 8
+  %74 = load ptr, ptr %calld.addr, align 8
   %call91 = invoke noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %per_attempt_recv_timeout)
           to label %invoke.cont90 unwind label %lpad61
 
 invoke.cont90:                                    ; preds = %if.then88
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 157, i32 noundef 1, ptr noundef @.str.3, ptr noundef %72, ptr noundef %73, ptr noundef %this1, i64 noundef %call91)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 157, i32 noundef 1, ptr noundef @.str.3, ptr noundef %73, ptr noundef %74, ptr noundef %this1, i64 noundef %call91)
           to label %invoke.cont92 unwind label %lpad61
 
 invoke.cont92:                                    ; preds = %invoke.cont90
@@ -7429,10 +7430,10 @@ if.end93:                                         ; preds = %invoke.cont92, %inv
   br label %do.body
 
 do.body:                                          ; preds = %if.end93
-  %74 = load ptr, ptr %calld.addr, align 8
-  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %74, i32 0, i32 8
-  %75 = load ptr, ptr %owning_call_, align 8
-  %refcount = getelementptr inbounds %struct.grpc_call_stack, ptr %75, i32 0, i32 0
+  %75 = load ptr, ptr %calld.addr, align 8
+  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %75, i32 0, i32 8
+  %76 = load ptr, ptr %owning_call_, align 8
+  %refcount = getelementptr inbounds %struct.grpc_call_stack, ptr %76, i32 0, i32 0
   invoke void @_Z15grpc_stream_refP20grpc_stream_refcount(ptr noundef %refcount)
           to label %invoke.cont94 unwind label %lpad61
 
@@ -7457,10 +7458,10 @@ invoke.cont98:                                    ; preds = %invoke.cont97
 invoke.cont100:                                   ; preds = %invoke.cont98
   call void @_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #3
   %calld_103 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %76 = load ptr, ptr %calld_103, align 8
-  %chand_104 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %chand_104, align 8
-  %call106 = invoke noundef ptr @_ZNK9grpc_core11RetryFilter12event_engineEv(ptr noundef nonnull align 8 dereferenceable(40) %77)
+  %77 = load ptr, ptr %calld_103, align 8
+  %chand_104 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %77, i32 0, i32 0
+  %78 = load ptr, ptr %chand_104, align 8
+  %call106 = invoke noundef ptr @_ZNK9grpc_core11RetryFilter12event_engineEv(ptr noundef nonnull align 8 dereferenceable(40) %78)
           to label %invoke.cont105 unwind label %lpad61
 
 invoke.cont105:                                   ; preds = %invoke.cont100
@@ -7470,50 +7471,50 @@ invoke.cont105:                                   ; preds = %invoke.cont100
 invoke.cont108:                                   ; preds = %invoke.cont105
   %coerce.dive110 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp107, i32 0, i32 0
   store i64 %call109, ptr %coerce.dive110, align 8
-  %78 = getelementptr inbounds %class.anon.127, ptr %ref.tmp112, i32 0, i32 0
-  store ptr %this1, ptr %78, align 8
+  %79 = getelementptr inbounds %class.anon.127, ptr %ref.tmp112, i32 0, i32 0
+  store ptr %this1, ptr %79, align 8
   invoke void @"_ZN4absl12lts_2023080212AnyInvocableIFvvEEC2IZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS7_bE3$_1vEEOT_"(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp112)
           to label %invoke.cont113 unwind label %lpad61
 
 invoke.cont113:                                   ; preds = %invoke.cont108
   %coerce.dive114 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp107, i32 0, i32 0
-  %79 = load i64, ptr %coerce.dive114, align 8
+  %80 = load i64, ptr %coerce.dive114, align 8
   %vtable = load ptr, ptr %call106, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %80 = load ptr, ptr %vfn, align 8
-  %call117 = invoke { i64, i64 } %80(ptr noundef nonnull align 8 dereferenceable(24) %call106, i64 %79, ptr noundef %agg.tmp111)
+  %81 = load ptr, ptr %vfn, align 8
+  %call117 = invoke { i64, i64 } %81(ptr noundef nonnull align 8 dereferenceable(24) %call106, i64 %80, ptr noundef %agg.tmp111)
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont113
   %coerce.dive118 = getelementptr inbounds %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %ref.tmp102, i32 0, i32 0
-  %81 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive118, i32 0, i32 0
-  %82 = extractvalue { i64, i64 } %call117, 0
-  store i64 %82, ptr %81, align 8
-  %83 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive118, i32 0, i32 1
-  %84 = extractvalue { i64, i64 } %call117, 1
-  store i64 %84, ptr %83, align 8
+  %82 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive118, i32 0, i32 0
+  %83 = extractvalue { i64, i64 } %call117, 0
+  store i64 %83, ptr %82, align 8
+  %84 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive118, i32 0, i32 1
+  %85 = extractvalue { i64, i64 } %call117, 1
+  store i64 %85, ptr %84, align 8
   %per_attempt_recv_timer_handle_119 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 6
   %call120 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %per_attempt_recv_timer_handle_119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102) #3
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp111) #3
   br label %if.end121
 
 lpad99:                                           ; preds = %invoke.cont98
-  %85 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %exn.slot, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %ehselector.slot, align 4
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %exn.slot, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #3
   br label %ehcleanup
 
 lpad115:                                          ; preds = %invoke.cont113
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %exn.slot, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %ehselector.slot, align 4
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %exn.slot, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp111) #3
   br label %ehcleanup
 
@@ -7603,23 +7604,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttemptENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttemptENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -8227,7 +8229,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttemptE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttemptE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_retry_trace)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8236,12 +8239,12 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %calld_, align 8
-  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %chand_, align 8
+  %1 = load ptr, ptr %calld_, align 8
+  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %chand_, align 8
   %calld_2 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %calld_2, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 176, i32 noundef 1, ptr noundef @.str.5, ptr noundef %1, ptr noundef %2, ptr noundef %this1)
+  %3 = load ptr, ptr %calld_2, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 176, i32 noundef 1, ptr noundef @.str.5, ptr noundef %2, ptr noundef %3, ptr noundef %this1)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.then
@@ -8280,10 +8283,10 @@ if.end:                                           ; preds = %invoke.cont3, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -12103,7 +12106,8 @@ entry:
   %0 = load i32, ptr %refcount.addr, align 4
   %conv = sext i32 %0 to i64
   call void @_ZN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataENS_19PolymorphicRefCountENS_13UnrefCallDtorEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef %conv)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %call_attempt_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
   %call2 = invoke noundef ptr @_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %attempt)
           to label %invoke.cont unwind label %lpad
@@ -12123,30 +12127,30 @@ invoke.cont4:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont4
   %call_attempt_7 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %call_attempt_7, align 8
-  %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %calld_, align 8
-  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %chand_, align 8
+  %2 = load ptr, ptr %call_attempt_7, align 8
+  %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %calld_, align 8
+  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %chand_, align 8
   %call_attempt_8 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %call_attempt_8, align 8
-  %calld_9 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %calld_9, align 8
+  %5 = load ptr, ptr %call_attempt_8, align 8
+  %calld_9 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %calld_9, align 8
   %call_attempt_10 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %call_attempt_10, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 744, i32 noundef 1, ptr noundef @.str.38, ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %this1)
+  %7 = load ptr, ptr %call_attempt_10, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 744, i32 noundef 1, ptr noundef @.str.38, ptr noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef %this1)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then18, %do.body, %if.then, %invoke.cont3, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataENS_19PolymorphicRefCountENS_13UnrefCallDtorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -12155,12 +12159,12 @@ if.end:                                           ; preds = %invoke.cont11, %inv
 
 do.body:                                          ; preds = %if.end
   %call_attempt_12 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %call_attempt_12, align 8
-  %calld_13 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %calld_13, align 8
-  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %11, i32 0, i32 8
-  %12 = load ptr, ptr %owning_call_, align 8
-  %refcount14 = getelementptr inbounds %struct.grpc_call_stack, ptr %12, i32 0, i32 0
+  %11 = load ptr, ptr %call_attempt_12, align 8
+  %calld_13 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %11, i32 0, i32 1
+  %12 = load ptr, ptr %calld_13, align 8
+  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %12, i32 0, i32 8
+  %13 = load ptr, ptr %owning_call_, align 8
+  %refcount14 = getelementptr inbounds %struct.grpc_call_stack, ptr %13, i32 0, i32 0
   invoke void @_Z15grpc_stream_refP20grpc_stream_refcount(ptr noundef %refcount14)
           to label %invoke.cont15 unwind label %lpad
 
@@ -12172,13 +12176,13 @@ do.cond:                                          ; preds = %invoke.cont15
 
 do.end:                                           ; preds = %do.cond
   %call_attempt_16 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %call_attempt_16, align 8
-  %batch_payload_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %13, i32 0, i32 7
+  %14 = load ptr, ptr %call_attempt_16, align 8
+  %batch_payload_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %14, i32 0, i32 7
   %batch_17 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 2
   %payload = getelementptr inbounds %struct.grpc_transport_stream_op_batch, ptr %batch_17, i32 0, i32 1
   store ptr %batch_payload_, ptr %payload, align 8
-  %14 = load i8, ptr %set_on_complete.addr, align 1
-  %tobool = trunc i8 %14 to i1
+  %15 = load i8, ptr %set_on_complete.addr, align 1
+  %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %do.end
@@ -12217,23 +12221,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataENS_19PolymorphicRefCountENS_13UnrefCallDtorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataENS_19PolymorphicRefCountENS_13UnrefCallDtorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -12741,7 +12746,8 @@ entry:
   %ref.tmp9 = alloca %"class.grpc_core::DebugLocation", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_retry_trace)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -12750,18 +12756,18 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %call_attempt_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %call_attempt_, align 8
-  %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %calld_, align 8
-  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %chand_, align 8
+  %1 = load ptr, ptr %call_attempt_, align 8
+  %calld_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %calld_, align 8
+  %chand_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %chand_, align 8
   %call_attempt_2 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %call_attempt_2, align 8
-  %calld_3 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %calld_3, align 8
+  %4 = load ptr, ptr %call_attempt_2, align 8
+  %calld_3 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %calld_3, align 8
   %call_attempt_4 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt::BatchData", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %call_attempt_4, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 765, i32 noundef 1, ptr noundef @.str.40, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %this1)
+  %6 = load ptr, ptr %call_attempt_4, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 765, i32 noundef 1, ptr noundef @.str.40, ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %this1)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %if.then
@@ -12772,26 +12778,26 @@ if.end:                                           ; preds = %invoke.cont5, %invo
   store ptr null, ptr %ref.tmp, align 8
   %call7 = call noundef ptr @_ZSt8exchangeIPN9grpc_core11RetryFilter14LegacyCallData11CallAttemptEDnET_RS5_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %call_attempt_6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   store ptr %call7, ptr %call_attempt, align 8
-  %6 = load ptr, ptr %call_attempt, align 8
-  %calld_8 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %calld_8, align 8
-  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %7, i32 0, i32 8
-  %8 = load ptr, ptr %owning_call_, align 8
-  store ptr %8, ptr %owning_call, align 8
-  %9 = load ptr, ptr %call_attempt, align 8
+  %7 = load ptr, ptr %call_attempt, align 8
+  %calld_8 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %calld_8, align 8
+  %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %8, i32 0, i32 8
+  %9 = load ptr, ptr %owning_call_, align 8
+  store ptr %9, ptr %owning_call, align 8
+  %10 = load ptr, ptr %call_attempt, align 8
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9, ptr noundef @.str.1, i32 noundef 771)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %if.end
-  invoke void @_ZNK9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttemptENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9, ptr noundef @.str.41)
+  invoke void @_ZNK9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData11CallAttemptENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9, ptr noundef @.str.41)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont11
-  %10 = load ptr, ptr %owning_call, align 8
-  %refcount = getelementptr inbounds %struct.grpc_call_stack, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %owning_call, align 8
+  %refcount = getelementptr inbounds %struct.grpc_call_stack, ptr %11, i32 0, i32 0
   invoke void @_Z17grpc_stream_unrefP20grpc_stream_refcount(ptr noundef %refcount)
           to label %invoke.cont12 unwind label %terminate.lpad
 
@@ -12806,10 +12812,10 @@ do.end:                                           ; preds = %do.cond
   ret void
 
 terminate.lpad:                                   ; preds = %do.body, %invoke.cont10, %if.end, %if.then, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #16
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #16
   unreachable
 }
 
@@ -43845,15 +43851,16 @@ return:                                           ; preds = %if.end7, %if.then5,
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43874,7 +43881,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -43884,7 +43892,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44304,7 +44313,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -45410,7 +45420,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -45442,12 +45453,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15ScopedTimeCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %time_cache_) #3
   br label %eh.resume
 
@@ -45465,24 +45476,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %flags_, align 8
-  %or = or i64 %0, 1
+  %1 = load i64, ptr %flags_, align 8
+  %or = or i64 %1, 1
   store i64 %or, ptr %flags_, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %last_exec_ctx_, align 8
-  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %1)
+  %2 = load ptr, ptr %last_exec_ctx_, align 8
+  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %flags_3 = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %flags_3, align 8
-  %and = and i64 4, %2
+  %3 = load i64, ptr %flags_3, align 8
+  %and = and i64 4, %3
   %tobool = icmp ne i64 %and, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -45499,10 +45511,10 @@ if.end:                                           ; preds = %invoke.cont4, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -45651,15 +45663,16 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
+  ret ptr %4
 }
 
 declare void @_ZN9grpc_core4Fork17DoIncExecCtxCountEv() #1
@@ -45671,7 +45684,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -45732,13 +45746,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %previous_, align 8
-  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %this1, ptr %2, align 8
+  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  %2 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %previous_, align 8
+  %3 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %this1, ptr %3, align 8
   ret void
 }
 
@@ -45758,7 +45773,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -45829,15 +45845,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core7ExecCtx9exec_ctx_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -45846,11 +45863,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %previous_, align 8
-  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %0, ptr %1, align 8
+  %1 = load ptr, ptr %previous_, align 8
+  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %1, ptr %2, align 8
   ret void
 }
 
@@ -50785,7 +50803,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv() #5 comdat align 2 {
 entry:
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 declare void @grpc_slice_copy(ptr sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8) #1
@@ -61786,7 +61805,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData27CallStackDestructionBarrierENS_19PolymorphicRefCountENS_13UnrefCallDtorEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData27CallStackDestructionBarrierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData27CallStackDestructionBarrierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %on_call_stack_destruction_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallStackDestructionBarrier", ptr %this1, i32 0, i32 1
   store ptr null, ptr %on_call_stack_destruction_, align 8
   ret void
@@ -61805,23 +61825,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData27CallStackDestructionBarrierENS_19PolymorphicRefCountENS_13UnrefCallDtorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_11RetryFilter14LegacyCallData27CallStackDestructionBarrierENS_19PolymorphicRefCountENS_13UnrefCallDtorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.188", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -61841,18 +61862,19 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData27CallStackDestructionBarrierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData27CallStackDestructionBarrierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.1, i32 noundef 83)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %on_call_stack_destruction_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallStackDestructionBarrier", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %on_call_stack_destruction_, align 8
+  %1 = load ptr, ptr %on_call_stack_destruction_, align 8
   invoke void @_ZN4absl12lts_202308028OkStatusEv(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %0, ptr noundef %agg.tmp)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %1, ptr noundef %agg.tmp)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -61861,10 +61883,10 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 

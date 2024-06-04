@@ -144,7 +144,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
 
 24:                                               ; preds = %21
   %25 = icmp eq ptr %3, null
-  br i1 %25, label %86, label %26
+  br i1 %25, label %87, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %22, i64 24
@@ -173,100 +173,101 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
 41:                                               ; preds = %39, %36, %31
   %42 = phi i32 [ %40, %39 ], [ 0, %31 ], [ -12, %36 ]
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %86, label %44
+  br i1 %43, label %87, label %44
 
 44:                                               ; preds = %41, %26
   %45 = phi i32 [ %30, %26 ], [ %42, %41 ]
   %46 = getelementptr inbounds i8, ptr %22, i64 40
   tail call void @kobject_put(ptr noundef %46) #7
-  br label %89
+  br label %90
 
 47:                                               ; preds = %21, %4
-  %48 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %49 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 104) #8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %89, label %51
+  %48 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %49, i32 noundef 3520, i64 noundef 104) #8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %90, label %52
 
-51:                                               ; preds = %47
-  store ptr %0, ptr %49, align 8
-  %52 = trunc i32 %1 to i8
-  %53 = getelementptr inbounds i8, ptr %49, i64 32
-  store i8 %52, ptr %53, align 8
-  %54 = load ptr, ptr @pci_slots_kset, align 8
-  %55 = getelementptr inbounds i8, ptr %49, i64 40
-  %56 = getelementptr inbounds i8, ptr %49, i64 72
-  store ptr %54, ptr %56, align 8
-  %57 = tail call fastcc ptr @make_slot_name(ptr noundef %2)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %60
+52:                                               ; preds = %47
+  store ptr %0, ptr %50, align 8
+  %53 = trunc i32 %1 to i8
+  %54 = getelementptr inbounds i8, ptr %50, i64 32
+  store i8 %53, ptr %54, align 8
+  %55 = load ptr, ptr @pci_slots_kset, align 8
+  %56 = getelementptr inbounds i8, ptr %50, i64 40
+  %57 = getelementptr inbounds i8, ptr %50, i64 72
+  store ptr %55, ptr %57, align 8
+  %58 = tail call fastcc ptr @make_slot_name(ptr noundef %2)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %51
-  tail call void @kfree(ptr noundef nonnull %49) #7
-  br label %89
+60:                                               ; preds = %52
+  tail call void @kfree(ptr noundef nonnull %50) #7
+  br label %90
 
-60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %49, i64 8
-  store volatile ptr %61, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %49, i64 16
-  store volatile ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 64
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store ptr %61, ptr %65, align 8
-  store ptr %64, ptr %61, align 8
-  store ptr %63, ptr %62, align 8
-  store volatile ptr %61, ptr %63, align 8
-  %66 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef %55, ptr noundef nonnull @pci_slot_ktype, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %57) #7
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %69, label %68
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds i8, ptr %50, i64 8
+  store volatile ptr %62, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %50, i64 16
+  store volatile ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %62, ptr %66, align 8
+  store ptr %65, ptr %62, align 8
+  store ptr %64, ptr %63, align 8
+  store volatile ptr %62, ptr %64, align 8
+  %67 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef %56, ptr noundef nonnull @pci_slot_ktype, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %58) #7
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %70, label %69
 
-68:                                               ; preds = %60
-  tail call void @kobject_put(ptr noundef %55) #7
-  br label %89
+69:                                               ; preds = %61
+  tail call void @kobject_put(ptr noundef %56) #7
+  br label %90
 
-69:                                               ; preds = %60
+70:                                               ; preds = %61
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #7
-  %70 = getelementptr inbounds i8, ptr %0, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, %70
-  br i1 %72, label %85, label %73
+  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, %71
+  br i1 %73, label %86, label %74
 
-73:                                               ; preds = %82, %69
-  %74 = phi ptr [ %83, %82 ], [ %71, %69 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 56
-  %76 = load i32, ptr %75, align 8
-  %77 = lshr i32 %76, 3
-  %78 = and i32 %77, 31
-  %79 = icmp eq i32 %78, %1
-  br i1 %79, label %80, label %82
+74:                                               ; preds = %83, %70
+  %75 = phi ptr [ %84, %83 ], [ %72, %70 ]
+  %76 = getelementptr inbounds i8, ptr %75, i64 56
+  %77 = load i32, ptr %76, align 8
+  %78 = lshr i32 %77, 3
+  %79 = and i32 %78, 31
+  %80 = icmp eq i32 %79, %1
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %74, i64 48
-  store ptr %49, ptr %81, align 8
-  br label %82
+81:                                               ; preds = %74
+  %82 = getelementptr inbounds i8, ptr %75, i64 48
+  store ptr %50, ptr %82, align 8
+  br label %83
 
-82:                                               ; preds = %80, %73
-  %83 = load ptr, ptr %74, align 8
-  %84 = icmp eq ptr %83, %70
-  br i1 %84, label %85, label %73, !llvm.loop !9
+83:                                               ; preds = %81, %74
+  %84 = load ptr, ptr %75, align 8
+  %85 = icmp eq ptr %84, %71
+  br i1 %85, label %86, label %74, !llvm.loop !9
 
-85:                                               ; preds = %82, %69
+86:                                               ; preds = %83, %70
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #7
-  br label %86
+  br label %87
 
-86:                                               ; preds = %89, %85, %41, %24
-  %87 = phi ptr [ %90, %89 ], [ %57, %85 ], [ null, %41 ], [ null, %24 ]
-  %88 = phi ptr [ %93, %89 ], [ %49, %85 ], [ %22, %41 ], [ %22, %24 ]
-  tail call void @kfree(ptr noundef %87) #7
+87:                                               ; preds = %90, %86, %41, %24
+  %88 = phi ptr [ %91, %90 ], [ %58, %86 ], [ null, %41 ], [ null, %24 ]
+  %89 = phi ptr [ %94, %90 ], [ %50, %86 ], [ %22, %41 ], [ %22, %24 ]
+  tail call void @kfree(ptr noundef %88) #7
   tail call void @mutex_unlock(ptr noundef nonnull @pci_slot_mutex) #7
-  ret ptr %88
+  ret ptr %89
 
-89:                                               ; preds = %68, %59, %47, %44
-  %90 = phi ptr [ %57, %68 ], [ null, %59 ], [ null, %44 ], [ null, %47 ]
-  %91 = phi i32 [ %66, %68 ], [ -12, %59 ], [ %45, %44 ], [ -12, %47 ]
-  %92 = sext i32 %91 to i64
-  %93 = inttoptr i64 %92 to ptr
-  br label %86
+90:                                               ; preds = %69, %60, %47, %44
+  %91 = phi ptr [ %58, %69 ], [ null, %60 ], [ null, %44 ], [ null, %47 ]
+  %92 = phi i32 [ %67, %69 ], [ -12, %60 ], [ %45, %44 ], [ -12, %47 ]
+  %93 = sext i32 %92 to i64
+  %94 = inttoptr i64 %93 to ptr
+  br label %87
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -498,8 +499,10 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   store volatile ptr %30, ptr %29, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %27, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %28, align 8
+  %32 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %32, ptr %27, align 8
+  %33 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %33, ptr %28, align 8
   tail call void @kfree(ptr noundef %2) #7
   ret void
 }

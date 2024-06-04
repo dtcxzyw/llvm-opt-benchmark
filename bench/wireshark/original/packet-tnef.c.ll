@@ -811,450 +811,453 @@ define internal void @dissect_mapiprops(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %3, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 @__const.dissect_mapiprops.drep, i64 2, i1 false)
   store i32 0, ptr %17, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 4), align 4
-  store ptr @dissect_mapiprops.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 14), align 8
-  store ptr @.str.176, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 15), align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr @hf_tnef_mapi_props_count, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %17, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 4, i32 noundef -2147483648)
-  %26 = load i32, ptr %17, align 4
-  %27 = add i32 %26, 4
-  store i32 %27, ptr %17, align 4
-  br label %28
+  %21 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 4
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 14
+  store ptr @dissect_mapiprops.call_data, ptr %22, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_mapiprops.di, i32 0, i32 15
+  store ptr @.str.176, ptr %23, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr @hf_tnef_mapi_props_count, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %17, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648)
+  %29 = load i32, ptr %17, align 4
+  %30 = add i32 %29, 4
+  store i32 %30, ptr %17, align 4
+  br label %31
 
-28:                                               ; preds = %322, %4
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %17, align 4
-  %31 = call i32 @tvb_reported_length_remaining(ptr noundef %29, i32 noundef %30)
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %327
+31:                                               ; preds = %325, %4
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i32, ptr %17, align 4
+  %34 = call i32 @tvb_reported_length_remaining(ptr noundef %32, i32 noundef %33)
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %36, label %330
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr %17, align 4
-  store i32 %34, ptr %18, align 4
-  %35 = load ptr, ptr %7, align 8
-  %36 = load i32, ptr @hf_tnef_property, align 4
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %17, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef -1, i32 noundef 0)
-  store ptr %39, ptr %10, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr @ett_tnef_property, align 4
-  %42 = call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = load i32, ptr @hf_tnef_property_tag, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i32, ptr %17, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648)
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr @ett_tnef_property_tag, align 4
-  %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
-  store ptr %50, ptr %12, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = load i32, ptr %17, align 4
-  %53 = call i32 @tvb_get_letohl(ptr noundef %51, i32 noundef %52)
-  store i32 %53, ptr %13, align 4
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr %13, align 4
-  %56 = call ptr @val_to_str(i32 noundef %55, ptr noundef @nspi_MAPITAGS_vals, ptr noundef @.str.175)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef @.str.174, ptr noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = load i32, ptr @hf_tnef_property_tag_type, align 4
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i32, ptr %17, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 2, i32 noundef -2147483648)
-  %62 = load i32, ptr %17, align 4
-  %63 = add i32 %62, 2
-  store i32 %63, ptr %17, align 4
-  %64 = load ptr, ptr %12, align 8
-  %65 = load i32, ptr @hf_tnef_property_tag_id, align 4
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %17, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 2, i32 noundef -2147483648)
-  %69 = load i32, ptr %17, align 4
-  %70 = add i32 %69, 2
-  store i32 %70, ptr %17, align 4
-  %71 = load i32, ptr %13, align 4
-  %72 = and i32 %71, -2147483648
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %153
+36:                                               ; preds = %31
+  %37 = load i32, ptr %17, align 4
+  store i32 %37, ptr %18, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr @hf_tnef_property, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = load i32, ptr %17, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef -1, i32 noundef 0)
+  store ptr %42, ptr %10, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = load i32, ptr @ett_tnef_property, align 4
+  %45 = call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44)
+  store ptr %45, ptr %11, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load i32, ptr @hf_tnef_property_tag, align 4
+  %48 = load ptr, ptr %5, align 8
+  %49 = load i32, ptr %17, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648)
+  store ptr %50, ptr %9, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr @ett_tnef_property_tag, align 4
+  %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52)
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %17, align 4
+  %56 = call i32 @tvb_get_letohl(ptr noundef %54, i32 noundef %55)
+  store i32 %56, ptr %13, align 4
+  %57 = load ptr, ptr %10, align 8
+  %58 = load i32, ptr %13, align 4
+  %59 = call ptr @val_to_str(i32 noundef %58, ptr noundef @nspi_MAPITAGS_vals, ptr noundef @.str.175)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef @.str.174, ptr noundef %59)
+  %60 = load ptr, ptr %12, align 8
+  %61 = load i32, ptr @hf_tnef_property_tag_type, align 4
+  %62 = load ptr, ptr %5, align 8
+  %63 = load i32, ptr %17, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648)
+  %65 = load i32, ptr %17, align 4
+  %66 = add i32 %65, 2
+  store i32 %66, ptr %17, align 4
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr @hf_tnef_property_tag_id, align 4
+  %69 = load ptr, ptr %5, align 8
+  %70 = load i32, ptr %17, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 2, i32 noundef -2147483648)
+  %72 = load i32, ptr %17, align 4
+  %73 = add i32 %72, 2
+  store i32 %73, ptr %17, align 4
+  %74 = load i32, ptr %13, align 4
+  %75 = and i32 %74, -2147483648
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %156
 
-74:                                               ; preds = %33
+77:                                               ; preds = %36
   store ptr null, ptr %20, align 8
-  %75 = load ptr, ptr %12, align 8
-  %76 = load i32, ptr @hf_tnef_property_tag_set, align 4
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %17, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 16, i32 noundef -2147483648)
-  %80 = load i32, ptr %17, align 4
-  %81 = add i32 %80, 16
-  store i32 %81, ptr %17, align 4
-  %82 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = load i32, ptr @hf_tnef_property_tag_set, align 4
+  %80 = load ptr, ptr %5, align 8
+  %81 = load i32, ptr %17, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 16, i32 noundef -2147483648)
   %83 = load i32, ptr %17, align 4
-  %84 = call i32 @tvb_get_letohl(ptr noundef %82, i32 noundef %83)
-  store i32 %84, ptr %14, align 4
-  %85 = load ptr, ptr %12, align 8
-  %86 = load i32, ptr @hf_tnef_property_tag_kind, align 4
-  %87 = load ptr, ptr %5, align 8
-  %88 = load i32, ptr %17, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 4, i32 noundef -2147483648)
-  %90 = load i32, ptr %17, align 4
-  %91 = add i32 %90, 4
-  store i32 %91, ptr %17, align 4
-  %92 = load i32, ptr %14, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %102
+  %84 = add i32 %83, 16
+  store i32 %84, ptr %17, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = load i32, ptr %17, align 4
+  %87 = call i32 @tvb_get_letohl(ptr noundef %85, i32 noundef %86)
+  store i32 %87, ptr %14, align 4
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr @hf_tnef_property_tag_kind, align 4
+  %90 = load ptr, ptr %5, align 8
+  %91 = load i32, ptr %17, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 4, i32 noundef -2147483648)
+  %93 = load i32, ptr %17, align 4
+  %94 = add i32 %93, 4
+  store i32 %94, ptr %17, align 4
+  %95 = load i32, ptr %14, align 4
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %105
 
-94:                                               ; preds = %74
-  %95 = load ptr, ptr %12, align 8
-  %96 = load i32, ptr @hf_tnef_property_tag_name_id, align 4
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %17, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef 4, i32 noundef -2147483648)
-  %100 = load i32, ptr %17, align 4
-  %101 = add i32 %100, 4
-  store i32 %101, ptr %17, align 4
-  br label %144
+97:                                               ; preds = %77
+  %98 = load ptr, ptr %12, align 8
+  %99 = load i32, ptr @hf_tnef_property_tag_name_id, align 4
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i32, ptr %17, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 4, i32 noundef -2147483648)
+  %103 = load i32, ptr %17, align 4
+  %104 = add i32 %103, 4
+  store i32 %104, ptr %17, align 4
+  br label %147
 
-102:                                              ; preds = %74
-  %103 = load ptr, ptr %5, align 8
-  %104 = load i32, ptr %17, align 4
-  %105 = call i32 @tvb_get_letohl(ptr noundef %103, i32 noundef %104)
-  store i32 %105, ptr %15, align 4
-  %106 = load ptr, ptr %12, align 8
-  %107 = load i32, ptr @hf_tnef_property_tag_name_length, align 4
-  %108 = load ptr, ptr %5, align 8
-  %109 = load i32, ptr %17, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 4, i32 noundef -2147483648)
-  %111 = load i32, ptr %17, align 4
-  %112 = add i32 %111, 4
-  store i32 %112, ptr %17, align 4
-  %113 = load ptr, ptr %12, align 8
-  %114 = load i32, ptr @hf_tnef_property_tag_name_string, align 4
-  %115 = load ptr, ptr %5, align 8
-  %116 = load i32, ptr %17, align 4
-  %117 = load i32, ptr %15, align 4
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct._packet_info, ptr %118, i32 0, i32 50
-  %120 = load ptr, ptr %119, align 8
-  %121 = call ptr @proto_tree_add_item_ret_string(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef %117, i32 noundef -2147483644, ptr noundef %120, ptr noundef %20)
-  %122 = load i32, ptr %15, align 4
-  %123 = load i32, ptr %17, align 4
-  %124 = add i32 %123, %122
-  store i32 %124, ptr %17, align 4
+105:                                              ; preds = %77
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr %17, align 4
+  %108 = call i32 @tvb_get_letohl(ptr noundef %106, i32 noundef %107)
+  store i32 %108, ptr %15, align 4
+  %109 = load ptr, ptr %12, align 8
+  %110 = load i32, ptr @hf_tnef_property_tag_name_length, align 4
+  %111 = load ptr, ptr %5, align 8
+  %112 = load i32, ptr %17, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 4, i32 noundef -2147483648)
+  %114 = load i32, ptr %17, align 4
+  %115 = add i32 %114, 4
+  store i32 %115, ptr %17, align 4
+  %116 = load ptr, ptr %12, align 8
+  %117 = load i32, ptr @hf_tnef_property_tag_name_string, align 4
+  %118 = load ptr, ptr %5, align 8
+  %119 = load i32, ptr %17, align 4
+  %120 = load i32, ptr %15, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds %struct._packet_info, ptr %121, i32 0, i32 50
+  %123 = load ptr, ptr %122, align 8
+  %124 = call ptr @proto_tree_add_item_ret_string(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef -2147483644, ptr noundef %123, ptr noundef %20)
   %125 = load i32, ptr %15, align 4
-  %126 = urem i32 %125, 4
-  %127 = sub i32 4, %126
-  %128 = trunc i32 %127 to i16
-  store i16 %128, ptr %16, align 2
-  %129 = zext i16 %128 to i32
-  %130 = icmp ne i32 %129, 4
-  br i1 %130, label %131, label %143
+  %126 = load i32, ptr %17, align 4
+  %127 = add i32 %126, %125
+  store i32 %127, ptr %17, align 4
+  %128 = load i32, ptr %15, align 4
+  %129 = urem i32 %128, 4
+  %130 = sub i32 4, %129
+  %131 = trunc i32 %130 to i16
+  store i16 %131, ptr %16, align 2
+  %132 = zext i16 %131 to i32
+  %133 = icmp ne i32 %132, 4
+  br i1 %133, label %134, label %146
 
-131:                                              ; preds = %102
-  %132 = load ptr, ptr %12, align 8
-  %133 = load i32, ptr @hf_tnef_property_padding, align 4
-  %134 = load ptr, ptr %5, align 8
-  %135 = load i32, ptr %17, align 4
-  %136 = load i16, ptr %16, align 2
-  %137 = zext i16 %136 to i32
-  %138 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef %137, i32 noundef 0)
+134:                                              ; preds = %105
+  %135 = load ptr, ptr %12, align 8
+  %136 = load i32, ptr @hf_tnef_property_padding, align 4
+  %137 = load ptr, ptr %5, align 8
+  %138 = load i32, ptr %17, align 4
   %139 = load i16, ptr %16, align 2
   %140 = zext i16 %139 to i32
-  %141 = load i32, ptr %17, align 4
-  %142 = add i32 %141, %140
-  store i32 %142, ptr %17, align 4
-  br label %143
+  %141 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef %140, i32 noundef 0)
+  %142 = load i16, ptr %16, align 2
+  %143 = zext i16 %142 to i32
+  %144 = load i32, ptr %17, align 4
+  %145 = add i32 %144, %143
+  store i32 %145, ptr %17, align 4
+  br label %146
 
-143:                                              ; preds = %131, %102
-  br label %144
+146:                                              ; preds = %134, %105
+  br label %147
 
-144:                                              ; preds = %143, %94
-  %145 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef @.str.177)
-  %146 = load ptr, ptr %20, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %151
+147:                                              ; preds = %146, %97
+  %148 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef @.str.177)
+  %149 = load ptr, ptr %20, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %154
 
-148:                                              ; preds = %144
-  %149 = load ptr, ptr %10, align 8
-  %150 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %149, ptr noundef @.str.178, ptr noundef %150)
-  br label %151
-
-151:                                              ; preds = %148, %144
+151:                                              ; preds = %147
   %152 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef @.str.179)
-  br label %153
+  %153 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef @.str.178, ptr noundef %153)
+  br label %154
 
-153:                                              ; preds = %151, %33
-  %154 = load i32, ptr %13, align 4
-  switch i32 %154, label %155 [
+154:                                              ; preds = %151, %147
+  %155 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %155, ptr noundef @.str.179)
+  br label %156
+
+156:                                              ; preds = %154, %36
+  %157 = load i32, ptr %13, align 4
+  switch i32 %157, label %158 [
   ]
 
-155:                                              ; preds = %153
-  %156 = load i32, ptr %13, align 4
-  %157 = and i32 %156, 65535
-  switch i32 %157, label %300 [
-    i32 2, label %158
-    i32 3, label %166
-    i32 11, label %174
-    i32 30, label %182
-    i32 258, label %190
-    i32 31, label %197
-    i32 72, label %204
-    i32 64, label %212
-    i32 10, label %220
-    i32 4098, label %228
-    i32 4099, label %236
-    i32 4126, label %244
-    i32 4354, label %252
-    i32 4168, label %260
-    i32 4127, label %268
-    i32 4160, label %276
-    i32 1, label %284
-    i32 13, label %292
+158:                                              ; preds = %156
+  %159 = load i32, ptr %13, align 4
+  %160 = and i32 %159, 65535
+  switch i32 %160, label %303 [
+    i32 2, label %161
+    i32 3, label %169
+    i32 11, label %177
+    i32 30, label %185
+    i32 258, label %193
+    i32 31, label %200
+    i32 72, label %207
+    i32 64, label %215
+    i32 10, label %223
+    i32 4098, label %231
+    i32 4099, label %239
+    i32 4126, label %247
+    i32 4354, label %255
+    i32 4168, label %263
+    i32 4127, label %271
+    i32 4160, label %279
+    i32 1, label %287
+    i32 13, label %295
   ]
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %5, align 8
-  %160 = load i32, ptr %17, align 4
-  %161 = load ptr, ptr %6, align 8
-  %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %164 = load i32, ptr @hf_tnef_PropValue_i, align 4
-  %165 = call i32 @PIDL_dissect_uint16(ptr noundef %159, i32 noundef %160, ptr noundef %161, ptr noundef %162, ptr noundef @dissect_mapiprops.di, ptr noundef %163, i32 noundef %164, i32 noundef 0)
-  store i32 %165, ptr %17, align 4
-  br label %300
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %5, align 8
+  %163 = load i32, ptr %17, align 4
+  %164 = load ptr, ptr %6, align 8
+  %165 = load ptr, ptr %11, align 8
+  %166 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %167 = load i32, ptr @hf_tnef_PropValue_i, align 4
+  %168 = call i32 @PIDL_dissect_uint16(ptr noundef %162, i32 noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef @dissect_mapiprops.di, ptr noundef %166, i32 noundef %167, i32 noundef 0)
+  store i32 %168, ptr %17, align 4
+  br label %303
 
-166:                                              ; preds = %155
-  %167 = load ptr, ptr %5, align 8
-  %168 = load i32, ptr %17, align 4
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %11, align 8
-  %171 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %172 = load i32, ptr @hf_tnef_PropValue_l, align 4
-  %173 = call i32 @PIDL_dissect_uint32(ptr noundef %167, i32 noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef @dissect_mapiprops.di, ptr noundef %171, i32 noundef %172, i32 noundef 0)
-  store i32 %173, ptr %17, align 4
-  br label %300
+169:                                              ; preds = %158
+  %170 = load ptr, ptr %5, align 8
+  %171 = load i32, ptr %17, align 4
+  %172 = load ptr, ptr %6, align 8
+  %173 = load ptr, ptr %11, align 8
+  %174 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %175 = load i32, ptr @hf_tnef_PropValue_l, align 4
+  %176 = call i32 @PIDL_dissect_uint32(ptr noundef %170, i32 noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef @dissect_mapiprops.di, ptr noundef %174, i32 noundef %175, i32 noundef 0)
+  store i32 %176, ptr %17, align 4
+  br label %303
 
-174:                                              ; preds = %155
-  %175 = load ptr, ptr %5, align 8
-  %176 = load i32, ptr %17, align 4
-  %177 = load ptr, ptr %6, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %180 = load i32, ptr @hf_tnef_PropValue_b, align 4
-  %181 = call i32 @PIDL_dissect_uint16(ptr noundef %175, i32 noundef %176, ptr noundef %177, ptr noundef %178, ptr noundef @dissect_mapiprops.di, ptr noundef %179, i32 noundef %180, i32 noundef 0)
-  store i32 %181, ptr %17, align 4
-  br label %300
+177:                                              ; preds = %158
+  %178 = load ptr, ptr %5, align 8
+  %179 = load i32, ptr %17, align 4
+  %180 = load ptr, ptr %6, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %183 = load i32, ptr @hf_tnef_PropValue_b, align 4
+  %184 = call i32 @PIDL_dissect_uint16(ptr noundef %178, i32 noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef @dissect_mapiprops.di, ptr noundef %182, i32 noundef %183, i32 noundef 0)
+  store i32 %184, ptr %17, align 4
+  br label %303
 
-182:                                              ; preds = %155
-  %183 = load ptr, ptr %5, align 8
-  %184 = load i32, ptr %17, align 4
-  %185 = load i32, ptr @hf_tnef_PropValue_lpszA, align 4
-  %186 = load ptr, ptr %6, align 8
-  %187 = load ptr, ptr %11, align 8
-  %188 = load i32, ptr %8, align 4
-  %189 = call i32 @dissect_counted_values(ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef %186, ptr noundef %187, i32 noundef 1, i32 noundef %188)
-  store i32 %189, ptr %17, align 4
-  br label %300
+185:                                              ; preds = %158
+  %186 = load ptr, ptr %5, align 8
+  %187 = load i32, ptr %17, align 4
+  %188 = load i32, ptr @hf_tnef_PropValue_lpszA, align 4
+  %189 = load ptr, ptr %6, align 8
+  %190 = load ptr, ptr %11, align 8
+  %191 = load i32, ptr %8, align 4
+  %192 = call i32 @dissect_counted_values(ptr noundef %186, i32 noundef %187, i32 noundef %188, ptr noundef %189, ptr noundef %190, i32 noundef 1, i32 noundef %191)
+  store i32 %192, ptr %17, align 4
+  br label %303
 
-190:                                              ; preds = %155
-  %191 = load ptr, ptr %5, align 8
-  %192 = load i32, ptr %17, align 4
-  %193 = load i32, ptr @hf_tnef_PropValue_bin, align 4
-  %194 = load ptr, ptr %6, align 8
-  %195 = load ptr, ptr %11, align 8
-  %196 = call i32 @dissect_counted_values(ptr noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef %194, ptr noundef %195, i32 noundef 1, i32 noundef 0)
-  store i32 %196, ptr %17, align 4
-  br label %300
+193:                                              ; preds = %158
+  %194 = load ptr, ptr %5, align 8
+  %195 = load i32, ptr %17, align 4
+  %196 = load i32, ptr @hf_tnef_PropValue_bin, align 4
+  %197 = load ptr, ptr %6, align 8
+  %198 = load ptr, ptr %11, align 8
+  %199 = call i32 @dissect_counted_values(ptr noundef %194, i32 noundef %195, i32 noundef %196, ptr noundef %197, ptr noundef %198, i32 noundef 1, i32 noundef 0)
+  store i32 %199, ptr %17, align 4
+  br label %303
 
-197:                                              ; preds = %155
-  %198 = load ptr, ptr %5, align 8
-  %199 = load i32, ptr %17, align 4
-  %200 = load i32, ptr @hf_tnef_PropValue_lpszW, align 4
-  %201 = load ptr, ptr %6, align 8
-  %202 = load ptr, ptr %11, align 8
-  %203 = call i32 @dissect_counted_values(ptr noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef %201, ptr noundef %202, i32 noundef 1, i32 noundef -2147483644)
-  store i32 %203, ptr %17, align 4
-  br label %300
+200:                                              ; preds = %158
+  %201 = load ptr, ptr %5, align 8
+  %202 = load i32, ptr %17, align 4
+  %203 = load i32, ptr @hf_tnef_PropValue_lpszW, align 4
+  %204 = load ptr, ptr %6, align 8
+  %205 = load ptr, ptr %11, align 8
+  %206 = call i32 @dissect_counted_values(ptr noundef %201, i32 noundef %202, i32 noundef %203, ptr noundef %204, ptr noundef %205, i32 noundef 1, i32 noundef -2147483644)
+  store i32 %206, ptr %17, align 4
+  br label %303
 
-204:                                              ; preds = %155
-  %205 = load ptr, ptr %5, align 8
-  %206 = load i32, ptr %17, align 4
-  %207 = load ptr, ptr %6, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %210 = load i32, ptr @hf_tnef_PropValue_lpguid, align 4
-  %211 = call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %205, i32 noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef @dissect_mapiprops.di, ptr noundef %209, i32 noundef %210, i32 noundef 0)
-  store i32 %211, ptr %17, align 4
-  br label %300
+207:                                              ; preds = %158
+  %208 = load ptr, ptr %5, align 8
+  %209 = load i32, ptr %17, align 4
+  %210 = load ptr, ptr %6, align 8
+  %211 = load ptr, ptr %11, align 8
+  %212 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %213 = load i32, ptr @hf_tnef_PropValue_lpguid, align 4
+  %214 = call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %208, i32 noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef @dissect_mapiprops.di, ptr noundef %212, i32 noundef %213, i32 noundef 0)
+  store i32 %214, ptr %17, align 4
+  br label %303
 
-212:                                              ; preds = %155
-  %213 = load ptr, ptr %5, align 8
-  %214 = load i32, ptr %17, align 4
-  %215 = load ptr, ptr %6, align 8
-  %216 = load ptr, ptr %11, align 8
-  %217 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %218 = load i32, ptr @hf_tnef_PropValue_ft, align 4
-  %219 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %213, i32 noundef %214, ptr noundef %215, ptr noundef %216, ptr noundef @dissect_mapiprops.di, ptr noundef %217, i32 noundef %218, i32 noundef 0)
-  store i32 %219, ptr %17, align 4
-  br label %300
+215:                                              ; preds = %158
+  %216 = load ptr, ptr %5, align 8
+  %217 = load i32, ptr %17, align 4
+  %218 = load ptr, ptr %6, align 8
+  %219 = load ptr, ptr %11, align 8
+  %220 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %221 = load i32, ptr @hf_tnef_PropValue_ft, align 4
+  %222 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %216, i32 noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef @dissect_mapiprops.di, ptr noundef %220, i32 noundef %221, i32 noundef 0)
+  store i32 %222, ptr %17, align 4
+  br label %303
 
-220:                                              ; preds = %155
-  %221 = load ptr, ptr %5, align 8
-  %222 = load i32, ptr %17, align 4
-  %223 = load ptr, ptr %6, align 8
-  %224 = load ptr, ptr %11, align 8
-  %225 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %226 = load i32, ptr @hf_tnef_PropValue_err, align 4
-  %227 = call i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef %221, i32 noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef @dissect_mapiprops.di, ptr noundef %225, i32 noundef %226, ptr noundef null)
-  store i32 %227, ptr %17, align 4
-  br label %300
+223:                                              ; preds = %158
+  %224 = load ptr, ptr %5, align 8
+  %225 = load i32, ptr %17, align 4
+  %226 = load ptr, ptr %6, align 8
+  %227 = load ptr, ptr %11, align 8
+  %228 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %229 = load i32, ptr @hf_tnef_PropValue_err, align 4
+  %230 = call i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef %224, i32 noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef @dissect_mapiprops.di, ptr noundef %228, i32 noundef %229, ptr noundef null)
+  store i32 %230, ptr %17, align 4
+  br label %303
 
-228:                                              ; preds = %155
-  %229 = load ptr, ptr %5, align 8
-  %230 = load i32, ptr %17, align 4
-  %231 = load ptr, ptr %6, align 8
-  %232 = load ptr, ptr %11, align 8
-  %233 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %234 = load i32, ptr @hf_tnef_PropValue_MVi, align 4
-  %235 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %229, i32 noundef %230, ptr noundef %231, ptr noundef %232, ptr noundef @dissect_mapiprops.di, ptr noundef %233, i32 noundef %234, i32 noundef 0)
-  store i32 %235, ptr %17, align 4
-  br label %300
+231:                                              ; preds = %158
+  %232 = load ptr, ptr %5, align 8
+  %233 = load i32, ptr %17, align 4
+  %234 = load ptr, ptr %6, align 8
+  %235 = load ptr, ptr %11, align 8
+  %236 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %237 = load i32, ptr @hf_tnef_PropValue_MVi, align 4
+  %238 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %232, i32 noundef %233, ptr noundef %234, ptr noundef %235, ptr noundef @dissect_mapiprops.di, ptr noundef %236, i32 noundef %237, i32 noundef 0)
+  store i32 %238, ptr %17, align 4
+  br label %303
 
-236:                                              ; preds = %155
-  %237 = load ptr, ptr %5, align 8
-  %238 = load i32, ptr %17, align 4
-  %239 = load ptr, ptr %6, align 8
-  %240 = load ptr, ptr %11, align 8
-  %241 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %242 = load i32, ptr @hf_tnef_PropValue_MVl, align 4
-  %243 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %237, i32 noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef @dissect_mapiprops.di, ptr noundef %241, i32 noundef %242, i32 noundef 0)
-  store i32 %243, ptr %17, align 4
-  br label %300
+239:                                              ; preds = %158
+  %240 = load ptr, ptr %5, align 8
+  %241 = load i32, ptr %17, align 4
+  %242 = load ptr, ptr %6, align 8
+  %243 = load ptr, ptr %11, align 8
+  %244 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %245 = load i32, ptr @hf_tnef_PropValue_MVl, align 4
+  %246 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %240, i32 noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef @dissect_mapiprops.di, ptr noundef %244, i32 noundef %245, i32 noundef 0)
+  store i32 %246, ptr %17, align 4
+  br label %303
 
-244:                                              ; preds = %155
-  %245 = load ptr, ptr %5, align 8
-  %246 = load i32, ptr %17, align 4
-  %247 = load ptr, ptr %6, align 8
-  %248 = load ptr, ptr %11, align 8
-  %249 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %250 = load i32, ptr @hf_tnef_PropValue_MVszA, align 4
-  %251 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %245, i32 noundef %246, ptr noundef %247, ptr noundef %248, ptr noundef @dissect_mapiprops.di, ptr noundef %249, i32 noundef %250, i32 noundef 0)
-  store i32 %251, ptr %17, align 4
-  br label %300
+247:                                              ; preds = %158
+  %248 = load ptr, ptr %5, align 8
+  %249 = load i32, ptr %17, align 4
+  %250 = load ptr, ptr %6, align 8
+  %251 = load ptr, ptr %11, align 8
+  %252 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %253 = load i32, ptr @hf_tnef_PropValue_MVszA, align 4
+  %254 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %248, i32 noundef %249, ptr noundef %250, ptr noundef %251, ptr noundef @dissect_mapiprops.di, ptr noundef %252, i32 noundef %253, i32 noundef 0)
+  store i32 %254, ptr %17, align 4
+  br label %303
 
-252:                                              ; preds = %155
-  %253 = load ptr, ptr %5, align 8
-  %254 = load i32, ptr %17, align 4
-  %255 = load ptr, ptr %6, align 8
-  %256 = load ptr, ptr %11, align 8
-  %257 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %258 = load i32, ptr @hf_tnef_PropValue_MVbin, align 4
-  %259 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %253, i32 noundef %254, ptr noundef %255, ptr noundef %256, ptr noundef @dissect_mapiprops.di, ptr noundef %257, i32 noundef %258, i32 noundef 0)
-  store i32 %259, ptr %17, align 4
-  br label %300
+255:                                              ; preds = %158
+  %256 = load ptr, ptr %5, align 8
+  %257 = load i32, ptr %17, align 4
+  %258 = load ptr, ptr %6, align 8
+  %259 = load ptr, ptr %11, align 8
+  %260 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %261 = load i32, ptr @hf_tnef_PropValue_MVbin, align 4
+  %262 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %256, i32 noundef %257, ptr noundef %258, ptr noundef %259, ptr noundef @dissect_mapiprops.di, ptr noundef %260, i32 noundef %261, i32 noundef 0)
+  store i32 %262, ptr %17, align 4
+  br label %303
 
-260:                                              ; preds = %155
-  %261 = load ptr, ptr %5, align 8
-  %262 = load i32, ptr %17, align 4
-  %263 = load ptr, ptr %6, align 8
-  %264 = load ptr, ptr %11, align 8
-  %265 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %266 = load i32, ptr @hf_tnef_PropValue_MVguid, align 4
-  %267 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %261, i32 noundef %262, ptr noundef %263, ptr noundef %264, ptr noundef @dissect_mapiprops.di, ptr noundef %265, i32 noundef %266, i32 noundef 0)
-  store i32 %267, ptr %17, align 4
-  br label %300
+263:                                              ; preds = %158
+  %264 = load ptr, ptr %5, align 8
+  %265 = load i32, ptr %17, align 4
+  %266 = load ptr, ptr %6, align 8
+  %267 = load ptr, ptr %11, align 8
+  %268 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %269 = load i32, ptr @hf_tnef_PropValue_MVguid, align 4
+  %270 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %264, i32 noundef %265, ptr noundef %266, ptr noundef %267, ptr noundef @dissect_mapiprops.di, ptr noundef %268, i32 noundef %269, i32 noundef 0)
+  store i32 %270, ptr %17, align 4
+  br label %303
 
-268:                                              ; preds = %155
-  %269 = load ptr, ptr %5, align 8
-  %270 = load i32, ptr %17, align 4
-  %271 = load ptr, ptr %6, align 8
-  %272 = load ptr, ptr %11, align 8
-  %273 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %274 = load i32, ptr @hf_tnef_PropValue_MVszW, align 4
-  %275 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %269, i32 noundef %270, ptr noundef %271, ptr noundef %272, ptr noundef @dissect_mapiprops.di, ptr noundef %273, i32 noundef %274, i32 noundef 0)
-  store i32 %275, ptr %17, align 4
-  br label %300
+271:                                              ; preds = %158
+  %272 = load ptr, ptr %5, align 8
+  %273 = load i32, ptr %17, align 4
+  %274 = load ptr, ptr %6, align 8
+  %275 = load ptr, ptr %11, align 8
+  %276 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %277 = load i32, ptr @hf_tnef_PropValue_MVszW, align 4
+  %278 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %272, i32 noundef %273, ptr noundef %274, ptr noundef %275, ptr noundef @dissect_mapiprops.di, ptr noundef %276, i32 noundef %277, i32 noundef 0)
+  store i32 %278, ptr %17, align 4
+  br label %303
 
-276:                                              ; preds = %155
-  %277 = load ptr, ptr %5, align 8
-  %278 = load i32, ptr %17, align 4
-  %279 = load ptr, ptr %6, align 8
-  %280 = load ptr, ptr %11, align 8
-  %281 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %282 = load i32, ptr @hf_tnef_PropValue_MVft, align 4
-  %283 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %277, i32 noundef %278, ptr noundef %279, ptr noundef %280, ptr noundef @dissect_mapiprops.di, ptr noundef %281, i32 noundef %282, i32 noundef 0)
-  store i32 %283, ptr %17, align 4
-  br label %300
+279:                                              ; preds = %158
+  %280 = load ptr, ptr %5, align 8
+  %281 = load i32, ptr %17, align 4
+  %282 = load ptr, ptr %6, align 8
+  %283 = load ptr, ptr %11, align 8
+  %284 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %285 = load i32, ptr @hf_tnef_PropValue_MVft, align 4
+  %286 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %280, i32 noundef %281, ptr noundef %282, ptr noundef %283, ptr noundef @dissect_mapiprops.di, ptr noundef %284, i32 noundef %285, i32 noundef 0)
+  store i32 %286, ptr %17, align 4
+  br label %303
 
-284:                                              ; preds = %155
-  %285 = load ptr, ptr %5, align 8
-  %286 = load i32, ptr %17, align 4
-  %287 = load ptr, ptr %6, align 8
-  %288 = load ptr, ptr %11, align 8
-  %289 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %290 = load i32, ptr @hf_tnef_PropValue_null, align 4
-  %291 = call i32 @PIDL_dissect_uint32(ptr noundef %285, i32 noundef %286, ptr noundef %287, ptr noundef %288, ptr noundef @dissect_mapiprops.di, ptr noundef %289, i32 noundef %290, i32 noundef 0)
-  store i32 %291, ptr %17, align 4
-  br label %300
+287:                                              ; preds = %158
+  %288 = load ptr, ptr %5, align 8
+  %289 = load i32, ptr %17, align 4
+  %290 = load ptr, ptr %6, align 8
+  %291 = load ptr, ptr %11, align 8
+  %292 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %293 = load i32, ptr @hf_tnef_PropValue_null, align 4
+  %294 = call i32 @PIDL_dissect_uint32(ptr noundef %288, i32 noundef %289, ptr noundef %290, ptr noundef %291, ptr noundef @dissect_mapiprops.di, ptr noundef %292, i32 noundef %293, i32 noundef 0)
+  store i32 %294, ptr %17, align 4
+  br label %303
 
-292:                                              ; preds = %155
-  %293 = load ptr, ptr %5, align 8
-  %294 = load i32, ptr %17, align 4
-  %295 = load ptr, ptr %6, align 8
-  %296 = load ptr, ptr %11, align 8
-  %297 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
-  %298 = load i32, ptr @hf_tnef_PropValue_object, align 4
-  %299 = call i32 @PIDL_dissect_uint32(ptr noundef %293, i32 noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef @dissect_mapiprops.di, ptr noundef %297, i32 noundef %298, i32 noundef 0)
-  store i32 %299, ptr %17, align 4
-  br label %300
+295:                                              ; preds = %158
+  %296 = load ptr, ptr %5, align 8
+  %297 = load i32, ptr %17, align 4
+  %298 = load ptr, ptr %6, align 8
+  %299 = load ptr, ptr %11, align 8
+  %300 = getelementptr inbounds [2 x i8], ptr %19, i64 0, i64 0
+  %301 = load i32, ptr @hf_tnef_PropValue_object, align 4
+  %302 = call i32 @PIDL_dissect_uint32(ptr noundef %296, i32 noundef %297, ptr noundef %298, ptr noundef %299, ptr noundef @dissect_mapiprops.di, ptr noundef %300, i32 noundef %301, i32 noundef 0)
+  store i32 %302, ptr %17, align 4
+  br label %303
 
-300:                                              ; preds = %292, %284, %276, %268, %260, %252, %244, %236, %228, %220, %212, %204, %197, %190, %182, %174, %166, %158, %155
-  br label %301
+303:                                              ; preds = %295, %287, %279, %271, %263, %255, %247, %239, %231, %223, %215, %207, %200, %193, %185, %177, %169, %161, %158
+  br label %304
 
-301:                                              ; preds = %300
-  %302 = load i32, ptr %17, align 4
-  %303 = load i32, ptr %18, align 4
-  %304 = sub i32 %302, %303
-  %305 = srem i32 %304, 4
-  %306 = sub i32 4, %305
-  %307 = trunc i32 %306 to i16
-  store i16 %307, ptr %16, align 2
-  %308 = zext i16 %307 to i32
-  %309 = icmp ne i32 %308, 4
-  br i1 %309, label %310, label %322
+304:                                              ; preds = %303
+  %305 = load i32, ptr %17, align 4
+  %306 = load i32, ptr %18, align 4
+  %307 = sub i32 %305, %306
+  %308 = srem i32 %307, 4
+  %309 = sub i32 4, %308
+  %310 = trunc i32 %309 to i16
+  store i16 %310, ptr %16, align 2
+  %311 = zext i16 %310 to i32
+  %312 = icmp ne i32 %311, 4
+  br i1 %312, label %313, label %325
 
-310:                                              ; preds = %301
-  %311 = load ptr, ptr %11, align 8
-  %312 = load i32, ptr @hf_tnef_property_padding, align 4
-  %313 = load ptr, ptr %5, align 8
-  %314 = load i32, ptr %17, align 4
-  %315 = load i16, ptr %16, align 2
-  %316 = zext i16 %315 to i32
-  %317 = call ptr @proto_tree_add_item(ptr noundef %311, i32 noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef %316, i32 noundef 0)
+313:                                              ; preds = %304
+  %314 = load ptr, ptr %11, align 8
+  %315 = load i32, ptr @hf_tnef_property_padding, align 4
+  %316 = load ptr, ptr %5, align 8
+  %317 = load i32, ptr %17, align 4
   %318 = load i16, ptr %16, align 2
   %319 = zext i16 %318 to i32
-  %320 = load i32, ptr %17, align 4
-  %321 = add i32 %320, %319
-  store i32 %321, ptr %17, align 4
-  br label %322
+  %320 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef %316, i32 noundef %317, i32 noundef %319, i32 noundef 0)
+  %321 = load i16, ptr %16, align 2
+  %322 = zext i16 %321 to i32
+  %323 = load i32, ptr %17, align 4
+  %324 = add i32 %323, %322
+  store i32 %324, ptr %17, align 4
+  br label %325
 
-322:                                              ; preds = %310, %301
-  %323 = load ptr, ptr %10, align 8
-  %324 = load i32, ptr %17, align 4
-  %325 = load i32, ptr %18, align 4
-  %326 = sub i32 %324, %325
-  call void @proto_item_set_len(ptr noundef %323, i32 noundef %326)
-  br label %28, !llvm.loop !6
+325:                                              ; preds = %313, %304
+  %326 = load ptr, ptr %10, align 8
+  %327 = load i32, ptr %17, align 4
+  %328 = load i32, ptr %18, align 4
+  %329 = sub i32 %327, %328
+  call void @proto_item_set_len(ptr noundef %326, i32 noundef %329)
+  br label %31, !llvm.loop !6
 
-327:                                              ; preds = %28
+330:                                              ; preds = %31
   ret void
 }
 

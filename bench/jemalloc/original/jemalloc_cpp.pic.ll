@@ -2714,58 +2714,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %99 = load ptr, ptr %elm.i, align 8
   %100 = load ptr, ptr %99, align 8
-  %cmp2.i = icmp eq ptr %100, inttoptr (i64 1 to ptr)
+  %101 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %100, %101
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %101 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %101)
+  %102 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %102 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %102, align 8
+  %103 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %103, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %103 = load ptr, ptr %elm.i, align 8
-  %104 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  %105 = load ptr, ptr %104, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %104, ptr %tcache.i31, align 8
+  store ptr %105, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %105 = load ptr, ptr %tcache.i31, align 8
+  %106 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %105, ptr %tcache.i, align 8
-  %106 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %106, i32 0, i32 1
-  %107 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %107 to i64
+  store ptr %106, ptr %tcache.i, align 8
+  %107 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
+  %108 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %108 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %108 = load ptr, ptr %bin.i, align 8
-  %109 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %108, ptr %bin.addr.i, align 8
-  store ptr %109, ptr %ptr.addr.i47, align 8
-  %110 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %bin.addr.i126, align 8
-  %111 = load ptr, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %conv.i127 = trunc i64 %113 to i16
+  %109 = load ptr, ptr %bin.i, align 8
+  %110 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %109, ptr %bin.addr.i, align 8
+  store ptr %110, ptr %ptr.addr.i47, align 8
+  %111 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %bin.addr.i126, align 8
+  %112 = load ptr, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = ptrtoint ptr %113 to i64
+  %conv.i127 = trunc i64 %114 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %114 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %114, i32 0, i32 3
-  %115 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %115 to i32
+  %115 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
+  %116 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %116 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -2774,10 +2775,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %116 = load ptr, ptr %bin.addr.i, align 8
-  %117 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %116, ptr %bin.addr.i130, align 8
-  store ptr %117, ptr %ptr.addr.i131, align 8
+  %117 = load ptr, ptr %bin.addr.i, align 8
+  %118 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %117, ptr %bin.addr.i130, align 8
+  store ptr %118, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -2785,75 +2786,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %118 = load ptr, ptr %bin.addr.i, align 8
-  %119 = load ptr, ptr %118, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %119, i32 -1
-  store ptr %incdec.ptr.i, ptr %118, align 8
-  %120 = load ptr, ptr %ptr.addr.i47, align 8
-  %121 = load ptr, ptr %bin.addr.i, align 8
-  %122 = load ptr, ptr %121, align 8
-  store ptr %120, ptr %122, align 8
-  %123 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %119, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
+  store ptr %incdec.ptr.i, ptr %119, align 8
+  %121 = load ptr, ptr %ptr.addr.i47, align 8
+  %122 = load ptr, ptr %bin.addr.i, align 8
+  %123 = load ptr, ptr %122, align 8
+  store ptr %121, ptr %123, align 8
   %124 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %124, i32 0, i32 3
-  %125 = load i16, ptr %low_bits_full.i, align 2
-  %126 = load ptr, ptr %bin.addr.i, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %conv.i52 = trunc i64 %128 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %123, i16 noundef zeroext %125, i16 noundef zeroext %conv.i52)
+  %125 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
+  %126 = load i16, ptr %low_bits_full.i, align 2
+  %127 = load ptr, ptr %bin.addr.i, align 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = ptrtoint ptr %128 to i64
+  %conv.i52 = trunc i64 %129 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %129 = load i1, ptr %retval.i46, align 1
+  %130 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %129, label %if.end49.i, label %if.then48.i
+  br i1 %130, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %130 = load i64, ptr %deallocated_after.i, align 8
-  %131 = load ptr, ptr %tsd.i, align 8
-  store ptr %131, ptr %tsd.addr.i54, align 8
-  %132 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %132, ptr %tsd.addr.i101, align 8
-  %133 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %133, i32 0, i32 30
-  %134 = load i8, ptr %state.i102, align 8
-  store i8 %134, ptr %state.i, align 1
-  %135 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %135, ptr %tsd.addr.i63, align 8
-  %136 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %136, i32 0, i32 33
-  store i64 %130, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %131 = load i64, ptr %deallocated_after.i, align 8
+  %132 = load ptr, ptr %tsd.i, align 8
+  store ptr %132, ptr %tsd.addr.i54, align 8
+  %133 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %133, ptr %tsd.addr.i101, align 8
+  %134 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
+  %135 = load i8, ptr %state.i102, align 8
+  store i8 %135, ptr %state.i, align 1
+  %136 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %136, ptr %tsd.addr.i63, align 8
+  %137 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
+  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %137 = load i1, ptr %retval.i, align 1
+  %138 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %137, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %138 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %138)
+  %139 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %139)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %139 = landingpad { ptr, i32 }
+  %140 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #19
+  %141 = extractvalue { ptr, i32 } %140, 0
+  call void @__clang_call_terminate(ptr %141) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -3347,58 +3348,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %99 = load ptr, ptr %elm.i, align 8
   %100 = load ptr, ptr %99, align 8
-  %cmp2.i = icmp eq ptr %100, inttoptr (i64 1 to ptr)
+  %101 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %100, %101
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %101 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %101)
+  %102 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %102 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %102, align 8
+  %103 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %103, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %103 = load ptr, ptr %elm.i, align 8
-  %104 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  %105 = load ptr, ptr %104, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %104, ptr %tcache.i31, align 8
+  store ptr %105, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %105 = load ptr, ptr %tcache.i31, align 8
+  %106 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %105, ptr %tcache.i, align 8
-  %106 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %106, i32 0, i32 1
-  %107 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %107 to i64
+  store ptr %106, ptr %tcache.i, align 8
+  %107 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
+  %108 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %108 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %108 = load ptr, ptr %bin.i, align 8
-  %109 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %108, ptr %bin.addr.i, align 8
-  store ptr %109, ptr %ptr.addr.i47, align 8
-  %110 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %bin.addr.i126, align 8
-  %111 = load ptr, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %conv.i127 = trunc i64 %113 to i16
+  %109 = load ptr, ptr %bin.i, align 8
+  %110 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %109, ptr %bin.addr.i, align 8
+  store ptr %110, ptr %ptr.addr.i47, align 8
+  %111 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %bin.addr.i126, align 8
+  %112 = load ptr, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = ptrtoint ptr %113 to i64
+  %conv.i127 = trunc i64 %114 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %114 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %114, i32 0, i32 3
-  %115 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %115 to i32
+  %115 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
+  %116 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %116 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -3407,10 +3409,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %116 = load ptr, ptr %bin.addr.i, align 8
-  %117 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %116, ptr %bin.addr.i130, align 8
-  store ptr %117, ptr %ptr.addr.i131, align 8
+  %117 = load ptr, ptr %bin.addr.i, align 8
+  %118 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %117, ptr %bin.addr.i130, align 8
+  store ptr %118, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -3418,75 +3420,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %118 = load ptr, ptr %bin.addr.i, align 8
-  %119 = load ptr, ptr %118, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %119, i32 -1
-  store ptr %incdec.ptr.i, ptr %118, align 8
-  %120 = load ptr, ptr %ptr.addr.i47, align 8
-  %121 = load ptr, ptr %bin.addr.i, align 8
-  %122 = load ptr, ptr %121, align 8
-  store ptr %120, ptr %122, align 8
-  %123 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %119, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
+  store ptr %incdec.ptr.i, ptr %119, align 8
+  %121 = load ptr, ptr %ptr.addr.i47, align 8
+  %122 = load ptr, ptr %bin.addr.i, align 8
+  %123 = load ptr, ptr %122, align 8
+  store ptr %121, ptr %123, align 8
   %124 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %124, i32 0, i32 3
-  %125 = load i16, ptr %low_bits_full.i, align 2
-  %126 = load ptr, ptr %bin.addr.i, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %conv.i52 = trunc i64 %128 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %123, i16 noundef zeroext %125, i16 noundef zeroext %conv.i52)
+  %125 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
+  %126 = load i16, ptr %low_bits_full.i, align 2
+  %127 = load ptr, ptr %bin.addr.i, align 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = ptrtoint ptr %128 to i64
+  %conv.i52 = trunc i64 %129 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %129 = load i1, ptr %retval.i46, align 1
+  %130 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %129, label %if.end49.i, label %if.then48.i
+  br i1 %130, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %130 = load i64, ptr %deallocated_after.i, align 8
-  %131 = load ptr, ptr %tsd.i, align 8
-  store ptr %131, ptr %tsd.addr.i54, align 8
-  %132 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %132, ptr %tsd.addr.i101, align 8
-  %133 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %133, i32 0, i32 30
-  %134 = load i8, ptr %state.i102, align 8
-  store i8 %134, ptr %state.i, align 1
-  %135 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %135, ptr %tsd.addr.i63, align 8
-  %136 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %136, i32 0, i32 33
-  store i64 %130, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %131 = load i64, ptr %deallocated_after.i, align 8
+  %132 = load ptr, ptr %tsd.i, align 8
+  store ptr %132, ptr %tsd.addr.i54, align 8
+  %133 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %133, ptr %tsd.addr.i101, align 8
+  %134 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
+  %135 = load i8, ptr %state.i102, align 8
+  store i8 %135, ptr %state.i, align 1
+  %136 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %136, ptr %tsd.addr.i63, align 8
+  %137 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
+  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %137 = load i1, ptr %retval.i, align 1
+  %138 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %137, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %138 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %138)
+  %139 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %139)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %139 = landingpad { ptr, i32 }
+  %140 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #19
+  %141 = extractvalue { ptr, i32 } %140, 0
+  call void @__clang_call_terminate(ptr %141) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -3982,58 +3984,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %100 = load ptr, ptr %elm.i, align 8
   %101 = load ptr, ptr %100, align 8
-  %cmp2.i = icmp eq ptr %101, inttoptr (i64 1 to ptr)
+  %102 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %101, %102
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %102 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
+  %103 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %103)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %103 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %104, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %104 = load ptr, ptr %elm.i, align 8
-  %105 = load ptr, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  %106 = load ptr, ptr %105, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %105, ptr %tcache.i31, align 8
+  store ptr %106, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %106 = load ptr, ptr %tcache.i31, align 8
+  %107 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %106, ptr %tcache.i, align 8
-  %107 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
-  %108 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %108 to i64
+  store ptr %107, ptr %tcache.i, align 8
+  %108 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
+  %109 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %109 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %109 = load ptr, ptr %bin.i, align 8
-  %110 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %109, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %ptr.addr.i47, align 8
-  %111 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %bin.addr.i126, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %conv.i127 = trunc i64 %114 to i16
+  %110 = load ptr, ptr %bin.i, align 8
+  %111 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %110, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %ptr.addr.i47, align 8
+  %112 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %bin.addr.i126, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %conv.i127 = trunc i64 %115 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %115 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
-  %116 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %116 to i32
+  %116 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
+  %117 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %117 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -4042,10 +4045,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %117 = load ptr, ptr %bin.addr.i, align 8
-  %118 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %117, ptr %bin.addr.i130, align 8
-  store ptr %118, ptr %ptr.addr.i131, align 8
+  %118 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %118, ptr %bin.addr.i130, align 8
+  store ptr %119, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -4053,75 +4056,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %119 = load ptr, ptr %bin.addr.i, align 8
-  %120 = load ptr, ptr %119, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
-  store ptr %incdec.ptr.i, ptr %119, align 8
-  %121 = load ptr, ptr %ptr.addr.i47, align 8
-  %122 = load ptr, ptr %bin.addr.i, align 8
-  %123 = load ptr, ptr %122, align 8
-  store ptr %121, ptr %123, align 8
-  %124 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %120, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
+  store ptr %incdec.ptr.i, ptr %120, align 8
+  %122 = load ptr, ptr %ptr.addr.i47, align 8
+  %123 = load ptr, ptr %bin.addr.i, align 8
+  %124 = load ptr, ptr %123, align 8
+  store ptr %122, ptr %124, align 8
   %125 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
-  %126 = load i16, ptr %low_bits_full.i, align 2
-  %127 = load ptr, ptr %bin.addr.i, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %conv.i52 = trunc i64 %129 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
+  %126 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
+  %127 = load i16, ptr %low_bits_full.i, align 2
+  %128 = load ptr, ptr %bin.addr.i, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %conv.i52 = trunc i64 %130 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %130 = load i1, ptr %retval.i46, align 1
+  %131 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %130, label %if.end49.i, label %if.then48.i
+  br i1 %131, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %131 = load i64, ptr %deallocated_after.i, align 8
-  %132 = load ptr, ptr %tsd.i, align 8
-  store ptr %132, ptr %tsd.addr.i54, align 8
-  %133 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %133, ptr %tsd.addr.i101, align 8
-  %134 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
-  %135 = load i8, ptr %state.i102, align 8
-  store i8 %135, ptr %state.i, align 1
-  %136 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %136, ptr %tsd.addr.i63, align 8
-  %137 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
-  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %132 = load i64, ptr %deallocated_after.i, align 8
+  %133 = load ptr, ptr %tsd.i, align 8
+  store ptr %133, ptr %tsd.addr.i54, align 8
+  %134 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %134, ptr %tsd.addr.i101, align 8
+  %135 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
+  %136 = load i8, ptr %state.i102, align 8
+  store i8 %136, ptr %state.i, align 1
+  %137 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %137, ptr %tsd.addr.i63, align 8
+  %138 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
+  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %138 = load i1, ptr %retval.i, align 1
+  %139 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %139 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %139)
+  %140 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %140)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #19
+  %142 = extractvalue { ptr, i32 } %141, 0
+  call void @__clang_call_terminate(ptr %142) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -4617,58 +4620,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %100 = load ptr, ptr %elm.i, align 8
   %101 = load ptr, ptr %100, align 8
-  %cmp2.i = icmp eq ptr %101, inttoptr (i64 1 to ptr)
+  %102 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %101, %102
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %102 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
+  %103 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %103)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %103 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %104, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %104 = load ptr, ptr %elm.i, align 8
-  %105 = load ptr, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  %106 = load ptr, ptr %105, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %105, ptr %tcache.i31, align 8
+  store ptr %106, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %106 = load ptr, ptr %tcache.i31, align 8
+  %107 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %106, ptr %tcache.i, align 8
-  %107 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
-  %108 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %108 to i64
+  store ptr %107, ptr %tcache.i, align 8
+  %108 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
+  %109 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %109 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %109 = load ptr, ptr %bin.i, align 8
-  %110 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %109, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %ptr.addr.i47, align 8
-  %111 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %bin.addr.i126, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %conv.i127 = trunc i64 %114 to i16
+  %110 = load ptr, ptr %bin.i, align 8
+  %111 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %110, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %ptr.addr.i47, align 8
+  %112 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %bin.addr.i126, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %conv.i127 = trunc i64 %115 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %115 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
-  %116 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %116 to i32
+  %116 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
+  %117 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %117 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -4677,10 +4681,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %117 = load ptr, ptr %bin.addr.i, align 8
-  %118 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %117, ptr %bin.addr.i130, align 8
-  store ptr %118, ptr %ptr.addr.i131, align 8
+  %118 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %118, ptr %bin.addr.i130, align 8
+  store ptr %119, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -4688,75 +4692,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %119 = load ptr, ptr %bin.addr.i, align 8
-  %120 = load ptr, ptr %119, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
-  store ptr %incdec.ptr.i, ptr %119, align 8
-  %121 = load ptr, ptr %ptr.addr.i47, align 8
-  %122 = load ptr, ptr %bin.addr.i, align 8
-  %123 = load ptr, ptr %122, align 8
-  store ptr %121, ptr %123, align 8
-  %124 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %120, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
+  store ptr %incdec.ptr.i, ptr %120, align 8
+  %122 = load ptr, ptr %ptr.addr.i47, align 8
+  %123 = load ptr, ptr %bin.addr.i, align 8
+  %124 = load ptr, ptr %123, align 8
+  store ptr %122, ptr %124, align 8
   %125 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
-  %126 = load i16, ptr %low_bits_full.i, align 2
-  %127 = load ptr, ptr %bin.addr.i, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %conv.i52 = trunc i64 %129 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
+  %126 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
+  %127 = load i16, ptr %low_bits_full.i, align 2
+  %128 = load ptr, ptr %bin.addr.i, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %conv.i52 = trunc i64 %130 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %130 = load i1, ptr %retval.i46, align 1
+  %131 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %130, label %if.end49.i, label %if.then48.i
+  br i1 %131, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %131 = load i64, ptr %deallocated_after.i, align 8
-  %132 = load ptr, ptr %tsd.i, align 8
-  store ptr %132, ptr %tsd.addr.i54, align 8
-  %133 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %133, ptr %tsd.addr.i101, align 8
-  %134 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
-  %135 = load i8, ptr %state.i102, align 8
-  store i8 %135, ptr %state.i, align 1
-  %136 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %136, ptr %tsd.addr.i63, align 8
-  %137 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
-  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %132 = load i64, ptr %deallocated_after.i, align 8
+  %133 = load ptr, ptr %tsd.i, align 8
+  store ptr %133, ptr %tsd.addr.i54, align 8
+  %134 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %134, ptr %tsd.addr.i101, align 8
+  %135 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
+  %136 = load i8, ptr %state.i102, align 8
+  store i8 %136, ptr %state.i, align 1
+  %137 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %137, ptr %tsd.addr.i63, align 8
+  %138 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
+  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %138 = load i1, ptr %retval.i, align 1
+  %139 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %139 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %139)
+  %140 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %140)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #19
+  %142 = extractvalue { ptr, i32 } %141, 0
+  call void @__clang_call_terminate(ptr %142) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -5252,58 +5256,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %100 = load ptr, ptr %elm.i, align 8
   %101 = load ptr, ptr %100, align 8
-  %cmp2.i = icmp eq ptr %101, inttoptr (i64 1 to ptr)
+  %102 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %101, %102
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %102 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
+  %103 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %103)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %103 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %104, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %104 = load ptr, ptr %elm.i, align 8
-  %105 = load ptr, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  %106 = load ptr, ptr %105, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %105, ptr %tcache.i31, align 8
+  store ptr %106, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %106 = load ptr, ptr %tcache.i31, align 8
+  %107 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %106, ptr %tcache.i, align 8
-  %107 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
-  %108 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %108 to i64
+  store ptr %107, ptr %tcache.i, align 8
+  %108 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
+  %109 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %109 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %109 = load ptr, ptr %bin.i, align 8
-  %110 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %109, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %ptr.addr.i47, align 8
-  %111 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %bin.addr.i126, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %conv.i127 = trunc i64 %114 to i16
+  %110 = load ptr, ptr %bin.i, align 8
+  %111 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %110, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %ptr.addr.i47, align 8
+  %112 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %bin.addr.i126, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %conv.i127 = trunc i64 %115 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %115 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
-  %116 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %116 to i32
+  %116 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
+  %117 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %117 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -5312,10 +5317,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %117 = load ptr, ptr %bin.addr.i, align 8
-  %118 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %117, ptr %bin.addr.i130, align 8
-  store ptr %118, ptr %ptr.addr.i131, align 8
+  %118 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %118, ptr %bin.addr.i130, align 8
+  store ptr %119, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -5323,75 +5328,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %119 = load ptr, ptr %bin.addr.i, align 8
-  %120 = load ptr, ptr %119, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
-  store ptr %incdec.ptr.i, ptr %119, align 8
-  %121 = load ptr, ptr %ptr.addr.i47, align 8
-  %122 = load ptr, ptr %bin.addr.i, align 8
-  %123 = load ptr, ptr %122, align 8
-  store ptr %121, ptr %123, align 8
-  %124 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %120, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
+  store ptr %incdec.ptr.i, ptr %120, align 8
+  %122 = load ptr, ptr %ptr.addr.i47, align 8
+  %123 = load ptr, ptr %bin.addr.i, align 8
+  %124 = load ptr, ptr %123, align 8
+  store ptr %122, ptr %124, align 8
   %125 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
-  %126 = load i16, ptr %low_bits_full.i, align 2
-  %127 = load ptr, ptr %bin.addr.i, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %conv.i52 = trunc i64 %129 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
+  %126 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
+  %127 = load i16, ptr %low_bits_full.i, align 2
+  %128 = load ptr, ptr %bin.addr.i, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %conv.i52 = trunc i64 %130 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %130 = load i1, ptr %retval.i46, align 1
+  %131 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %130, label %if.end49.i, label %if.then48.i
+  br i1 %131, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %131 = load i64, ptr %deallocated_after.i, align 8
-  %132 = load ptr, ptr %tsd.i, align 8
-  store ptr %132, ptr %tsd.addr.i54, align 8
-  %133 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %133, ptr %tsd.addr.i101, align 8
-  %134 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
-  %135 = load i8, ptr %state.i102, align 8
-  store i8 %135, ptr %state.i, align 1
-  %136 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %136, ptr %tsd.addr.i63, align 8
-  %137 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
-  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %132 = load i64, ptr %deallocated_after.i, align 8
+  %133 = load ptr, ptr %tsd.i, align 8
+  store ptr %133, ptr %tsd.addr.i54, align 8
+  %134 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %134, ptr %tsd.addr.i101, align 8
+  %135 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
+  %136 = load i8, ptr %state.i102, align 8
+  store i8 %136, ptr %state.i, align 1
+  %137 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %137, ptr %tsd.addr.i63, align 8
+  %138 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
+  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %138 = load i1, ptr %retval.i, align 1
+  %139 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %139 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %139)
+  %140 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %140)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #19
+  %142 = extractvalue { ptr, i32 } %141, 0
+  call void @__clang_call_terminate(ptr %142) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -5887,58 +5892,59 @@ if.then.i94:                                      ; preds = %if.else20.i
 if.else.i88:                                      ; preds = %if.else20.i
   %100 = load ptr, ptr %elm.i, align 8
   %101 = load ptr, ptr %100, align 8
-  %cmp2.i = icmp eq ptr %101, inttoptr (i64 1 to ptr)
+  %102 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %101, %102
   br i1 %cmp2.i, label %if.then5.i92, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i92:                                     ; preds = %if.else.i88
-  %102 = load ptr, ptr %tsd.addr.i83, align 8
-  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %102)
+  %103 = load ptr, ptr %tsd.addr.i83, align 8
+  %call.i9396 = invoke ptr @tcache_create_explicit(ptr noundef %103)
           to label %call.i93.noexc unwind label %terminate.lpad.i
 
 call.i93.noexc:                                   ; preds = %if.then5.i92
-  %103 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9396, ptr %103, align 8
+  %104 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9396, ptr %104, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i93.noexc, %if.else.i88
-  %104 = load ptr, ptr %elm.i, align 8
-  %105 = load ptr, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  %106 = load ptr, ptr %105, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %105, ptr %tcache.i31, align 8
+  store ptr %106, ptr %tcache.i31, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %106 = load ptr, ptr %tcache.i31, align 8
+  %107 = load ptr, ptr %tcache.i31, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %106, ptr %tcache.i, align 8
-  %107 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %107, i32 0, i32 1
-  %108 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %108 to i64
+  store ptr %107, ptr %tcache.i, align 8
+  %108 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
+  %109 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %109 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %109 = load ptr, ptr %bin.i, align 8
-  %110 = load ptr, ptr %ptr.addr.i1, align 8
-  store ptr %109, ptr %bin.addr.i, align 8
-  store ptr %110, ptr %ptr.addr.i47, align 8
-  %111 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %bin.addr.i126, align 8
-  %112 = load ptr, ptr %bin.addr.i126, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %conv.i127 = trunc i64 %114 to i16
+  %110 = load ptr, ptr %bin.i, align 8
+  %111 = load ptr, ptr %ptr.addr.i1, align 8
+  store ptr %110, ptr %bin.addr.i, align 8
+  store ptr %111, ptr %ptr.addr.i47, align 8
+  %112 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %bin.addr.i126, align 8
+  %113 = load ptr, ptr %bin.addr.i126, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %conv.i127 = trunc i64 %115 to i16
   %conv1.i = zext i16 %conv.i127 to i32
-  %115 = load ptr, ptr %bin.addr.i126, align 8
-  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %115, i32 0, i32 3
-  %116 = load i16, ptr %low_bits_full.i128, align 2
-  %conv2.i = zext i16 %116 to i32
+  %116 = load ptr, ptr %bin.addr.i126, align 8
+  %low_bits_full.i128 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
+  %117 = load i16, ptr %low_bits_full.i128, align 2
+  %conv2.i = zext i16 %117 to i32
   %cmp.i129 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i129, label %if.then.i53, label %if.end.i50
 
@@ -5947,10 +5953,10 @@ if.then.i53:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i50:                                       ; preds = %call43.i.noexc
-  %117 = load ptr, ptr %bin.addr.i, align 8
-  %118 = load ptr, ptr %ptr.addr.i47, align 8
-  store ptr %117, ptr %bin.addr.i130, align 8
-  store ptr %118, ptr %ptr.addr.i131, align 8
+  %118 = load ptr, ptr %bin.addr.i, align 8
+  %119 = load ptr, ptr %ptr.addr.i47, align 8
+  store ptr %118, ptr %bin.addr.i130, align 8
+  store ptr %119, ptr %ptr.addr.i131, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i50
@@ -5958,75 +5964,75 @@ if.then5.i:                                       ; preds = %if.end.i50
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i50
-  %119 = load ptr, ptr %bin.addr.i, align 8
-  %120 = load ptr, ptr %119, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %120, i32 -1
-  store ptr %incdec.ptr.i, ptr %119, align 8
-  %121 = load ptr, ptr %ptr.addr.i47, align 8
-  %122 = load ptr, ptr %bin.addr.i, align 8
-  %123 = load ptr, ptr %122, align 8
-  store ptr %121, ptr %123, align 8
-  %124 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %120, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
+  store ptr %incdec.ptr.i, ptr %120, align 8
+  %122 = load ptr, ptr %ptr.addr.i47, align 8
+  %123 = load ptr, ptr %bin.addr.i, align 8
+  %124 = load ptr, ptr %123, align 8
+  store ptr %122, ptr %124, align 8
   %125 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
-  %126 = load i16, ptr %low_bits_full.i, align 2
-  %127 = load ptr, ptr %bin.addr.i, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %conv.i52 = trunc i64 %129 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %124, i16 noundef zeroext %126, i16 noundef zeroext %conv.i52)
+  %126 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
+  %127 = load i16, ptr %low_bits_full.i, align 2
+  %128 = load ptr, ptr %bin.addr.i, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %conv.i52 = trunc i64 %130 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i52)
   store i1 true, ptr %retval.i46, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i53
-  %130 = load i1, ptr %retval.i46, align 1
+  %131 = load i1, ptr %retval.i46, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %130, label %if.end49.i, label %if.then48.i
+  br i1 %131, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %131 = load i64, ptr %deallocated_after.i, align 8
-  %132 = load ptr, ptr %tsd.i, align 8
-  store ptr %132, ptr %tsd.addr.i54, align 8
-  %133 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %133, ptr %tsd.addr.i101, align 8
-  %134 = load ptr, ptr %tsd.addr.i101, align 8
-  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %134, i32 0, i32 30
-  %135 = load i8, ptr %state.i102, align 8
-  store i8 %135, ptr %state.i, align 1
-  %136 = load ptr, ptr %tsd.addr.i54, align 8
-  store ptr %136, ptr %tsd.addr.i63, align 8
-  %137 = load ptr, ptr %tsd.addr.i63, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %137, i32 0, i32 33
-  store i64 %131, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %132 = load i64, ptr %deallocated_after.i, align 8
+  %133 = load ptr, ptr %tsd.i, align 8
+  store ptr %133, ptr %tsd.addr.i54, align 8
+  %134 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %134, ptr %tsd.addr.i101, align 8
+  %135 = load ptr, ptr %tsd.addr.i101, align 8
+  %state.i102 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
+  %136 = load i8, ptr %state.i102, align 8
+  store i8 %136, ptr %state.i, align 1
+  %137 = load ptr, ptr %tsd.addr.i54, align 8
+  store ptr %137, ptr %tsd.addr.i63, align 8
+  %138 = load ptr, ptr %tsd.addr.i63, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
+  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i3
-  %138 = load i1, ptr %retval.i, align 1
+  %139 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %138, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %139 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %139)
+  %140 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %140)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i92, %if.then.i94, %if.then2.i
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #19
+  %142 = extractvalue { ptr, i32 } %141, 0
+  call void @__clang_call_terminate(ptr %142) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -6524,58 +6530,59 @@ if.then.i95:                                      ; preds = %if.else20.i
 if.else.i89:                                      ; preds = %if.else20.i
   %101 = load ptr, ptr %elm.i, align 8
   %102 = load ptr, ptr %101, align 8
-  %cmp2.i = icmp eq ptr %102, inttoptr (i64 1 to ptr)
+  %103 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %102, %103
   br i1 %cmp2.i, label %if.then5.i93, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i93:                                     ; preds = %if.else.i89
-  %103 = load ptr, ptr %tsd.addr.i84, align 8
-  %call.i9497 = invoke ptr @tcache_create_explicit(ptr noundef %103)
+  %104 = load ptr, ptr %tsd.addr.i84, align 8
+  %call.i9497 = invoke ptr @tcache_create_explicit(ptr noundef %104)
           to label %call.i94.noexc unwind label %terminate.lpad.i
 
 call.i94.noexc:                                   ; preds = %if.then5.i93
-  %104 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9497, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9497, ptr %105, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i94.noexc, %if.else.i89
-  %105 = load ptr, ptr %elm.i, align 8
-  %106 = load ptr, ptr %105, align 8
+  %106 = load ptr, ptr %elm.i, align 8
+  %107 = load ptr, ptr %106, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %106, ptr %tcache.i32, align 8
+  store ptr %107, ptr %tcache.i32, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %107 = load ptr, ptr %tcache.i32, align 8
+  %108 = load ptr, ptr %tcache.i32, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %107, ptr %tcache.i, align 8
-  %108 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
-  %109 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %109 to i64
+  store ptr %108, ptr %tcache.i, align 8
+  %109 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %109, i32 0, i32 1
+  %110 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %110 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %110 = load ptr, ptr %bin.i, align 8
-  %111 = load ptr, ptr %ptr.addr.i2, align 8
-  store ptr %110, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %ptr.addr.i48, align 8
-  %112 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %112, ptr %bin.addr.i127, align 8
-  %113 = load ptr, ptr %bin.addr.i127, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = ptrtoint ptr %114 to i64
-  %conv.i128 = trunc i64 %115 to i16
+  %111 = load ptr, ptr %bin.i, align 8
+  %112 = load ptr, ptr %ptr.addr.i2, align 8
+  store ptr %111, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %ptr.addr.i48, align 8
+  %113 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %113, ptr %bin.addr.i127, align 8
+  %114 = load ptr, ptr %bin.addr.i127, align 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %115 to i64
+  %conv.i128 = trunc i64 %116 to i16
   %conv1.i = zext i16 %conv.i128 to i32
-  %116 = load ptr, ptr %bin.addr.i127, align 8
-  %low_bits_full.i129 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
-  %117 = load i16, ptr %low_bits_full.i129, align 2
-  %conv2.i = zext i16 %117 to i32
+  %117 = load ptr, ptr %bin.addr.i127, align 8
+  %low_bits_full.i129 = getelementptr inbounds %struct.cache_bin_s, ptr %117, i32 0, i32 3
+  %118 = load i16, ptr %low_bits_full.i129, align 2
+  %conv2.i = zext i16 %118 to i32
   %cmp.i130 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i130, label %if.then.i54, label %if.end.i51
 
@@ -6584,10 +6591,10 @@ if.then.i54:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i51:                                       ; preds = %call43.i.noexc
-  %118 = load ptr, ptr %bin.addr.i, align 8
-  %119 = load ptr, ptr %ptr.addr.i48, align 8
-  store ptr %118, ptr %bin.addr.i131, align 8
-  store ptr %119, ptr %ptr.addr.i132, align 8
+  %119 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %ptr.addr.i48, align 8
+  store ptr %119, ptr %bin.addr.i131, align 8
+  store ptr %120, ptr %ptr.addr.i132, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i51
@@ -6595,75 +6602,75 @@ if.then5.i:                                       ; preds = %if.end.i51
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i51
-  %120 = load ptr, ptr %bin.addr.i, align 8
-  %121 = load ptr, ptr %120, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
-  store ptr %incdec.ptr.i, ptr %120, align 8
-  %122 = load ptr, ptr %ptr.addr.i48, align 8
-  %123 = load ptr, ptr %bin.addr.i, align 8
-  %124 = load ptr, ptr %123, align 8
-  store ptr %122, ptr %124, align 8
-  %125 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %bin.addr.i, align 8
+  %122 = load ptr, ptr %121, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %122, i32 -1
+  store ptr %incdec.ptr.i, ptr %121, align 8
+  %123 = load ptr, ptr %ptr.addr.i48, align 8
+  %124 = load ptr, ptr %bin.addr.i, align 8
+  %125 = load ptr, ptr %124, align 8
+  store ptr %123, ptr %125, align 8
   %126 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
-  %127 = load i16, ptr %low_bits_full.i, align 2
-  %128 = load ptr, ptr %bin.addr.i, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %conv.i53 = trunc i64 %130 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i53)
+  %127 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %127, i32 0, i32 3
+  %128 = load i16, ptr %low_bits_full.i, align 2
+  %129 = load ptr, ptr %bin.addr.i, align 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %conv.i53 = trunc i64 %131 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %126, i16 noundef zeroext %128, i16 noundef zeroext %conv.i53)
   store i1 true, ptr %retval.i47, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i54
-  %131 = load i1, ptr %retval.i47, align 1
+  %132 = load i1, ptr %retval.i47, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %131, label %if.end49.i, label %if.then48.i
+  br i1 %132, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %132 = load i64, ptr %deallocated_after.i, align 8
-  %133 = load ptr, ptr %tsd.i, align 8
-  store ptr %133, ptr %tsd.addr.i55, align 8
-  %134 = load ptr, ptr %tsd.addr.i55, align 8
-  store ptr %134, ptr %tsd.addr.i102, align 8
-  %135 = load ptr, ptr %tsd.addr.i102, align 8
-  %state.i103 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
-  %136 = load i8, ptr %state.i103, align 8
-  store i8 %136, ptr %state.i, align 1
-  %137 = load ptr, ptr %tsd.addr.i55, align 8
-  store ptr %137, ptr %tsd.addr.i64, align 8
-  %138 = load ptr, ptr %tsd.addr.i64, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
-  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %133 = load i64, ptr %deallocated_after.i, align 8
+  %134 = load ptr, ptr %tsd.i, align 8
+  store ptr %134, ptr %tsd.addr.i55, align 8
+  %135 = load ptr, ptr %tsd.addr.i55, align 8
+  store ptr %135, ptr %tsd.addr.i102, align 8
+  %136 = load ptr, ptr %tsd.addr.i102, align 8
+  %state.i103 = getelementptr inbounds %struct.tsd_s, ptr %136, i32 0, i32 30
+  %137 = load i8, ptr %state.i103, align 8
+  store i8 %137, ptr %state.i, align 1
+  %138 = load ptr, ptr %tsd.addr.i55, align 8
+  store ptr %138, ptr %tsd.addr.i64, align 8
+  %139 = load ptr, ptr %tsd.addr.i64, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %139, i32 0, i32 33
+  store i64 %133, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i4
-  %139 = load i1, ptr %retval.i, align 1
+  %140 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %140, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %140 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %140)
+  %141 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %141)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i93, %if.then.i95, %if.then2.i
-  %141 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #19
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -7161,58 +7168,59 @@ if.then.i95:                                      ; preds = %if.else20.i
 if.else.i89:                                      ; preds = %if.else20.i
   %101 = load ptr, ptr %elm.i, align 8
   %102 = load ptr, ptr %101, align 8
-  %cmp2.i = icmp eq ptr %102, inttoptr (i64 1 to ptr)
+  %103 = inttoptr i64 1 to ptr
+  %cmp2.i = icmp eq ptr %102, %103
   br i1 %cmp2.i, label %if.then5.i93, label %_ZL11tcaches_getP5tsd_sj.exit
 
 if.then5.i93:                                     ; preds = %if.else.i89
-  %103 = load ptr, ptr %tsd.addr.i84, align 8
-  %call.i9497 = invoke ptr @tcache_create_explicit(ptr noundef %103)
+  %104 = load ptr, ptr %tsd.addr.i84, align 8
+  %call.i9497 = invoke ptr @tcache_create_explicit(ptr noundef %104)
           to label %call.i94.noexc unwind label %terminate.lpad.i
 
 call.i94.noexc:                                   ; preds = %if.then5.i93
-  %104 = load ptr, ptr %elm.i, align 8
-  store ptr %call.i9497, ptr %104, align 8
+  %105 = load ptr, ptr %elm.i, align 8
+  store ptr %call.i9497, ptr %105, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit
 
 _ZL11tcaches_getP5tsd_sj.exit:                    ; preds = %call.i94.noexc, %if.else.i89
-  %105 = load ptr, ptr %elm.i, align 8
-  %106 = load ptr, ptr %105, align 8
+  %106 = load ptr, ptr %elm.i, align 8
+  %107 = load ptr, ptr %106, align 8
   br label %call21.i.noexc
 
 call21.i.noexc:                                   ; preds = %_ZL11tcaches_getP5tsd_sj.exit
-  store ptr %106, ptr %tcache.i32, align 8
+  store ptr %107, ptr %tcache.i32, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %call21.i.noexc, %if.then19.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit:          ; preds = %if.end22.i, %if.end14.i
-  %107 = load ptr, ptr %tcache.i32, align 8
+  %108 = load ptr, ptr %tcache.i32, align 8
   br label %call43.i.noexc
 
 call43.i.noexc:                                   ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit
-  store ptr %107, ptr %tcache.i, align 8
-  %108 = load ptr, ptr %tcache.i, align 8
-  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %108, i32 0, i32 1
-  %109 = load i32, ptr %alloc_ctx.i, align 4
-  %idxprom.i = zext i32 %109 to i64
+  store ptr %108, ptr %tcache.i, align 8
+  %109 = load ptr, ptr %tcache.i, align 8
+  %bins.i = getelementptr inbounds %struct.tcache_s, ptr %109, i32 0, i32 1
+  %110 = load i32, ptr %alloc_ctx.i, align 4
+  %idxprom.i = zext i32 %110 to i64
   %arrayidx.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %bin.i, align 8
-  %110 = load ptr, ptr %bin.i, align 8
-  %111 = load ptr, ptr %ptr.addr.i2, align 8
-  store ptr %110, ptr %bin.addr.i, align 8
-  store ptr %111, ptr %ptr.addr.i48, align 8
-  %112 = load ptr, ptr %bin.addr.i, align 8
-  store ptr %112, ptr %bin.addr.i127, align 8
-  %113 = load ptr, ptr %bin.addr.i127, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = ptrtoint ptr %114 to i64
-  %conv.i128 = trunc i64 %115 to i16
+  %111 = load ptr, ptr %bin.i, align 8
+  %112 = load ptr, ptr %ptr.addr.i2, align 8
+  store ptr %111, ptr %bin.addr.i, align 8
+  store ptr %112, ptr %ptr.addr.i48, align 8
+  %113 = load ptr, ptr %bin.addr.i, align 8
+  store ptr %113, ptr %bin.addr.i127, align 8
+  %114 = load ptr, ptr %bin.addr.i127, align 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %115 to i64
+  %conv.i128 = trunc i64 %116 to i16
   %conv1.i = zext i16 %conv.i128 to i32
-  %116 = load ptr, ptr %bin.addr.i127, align 8
-  %low_bits_full.i129 = getelementptr inbounds %struct.cache_bin_s, ptr %116, i32 0, i32 3
-  %117 = load i16, ptr %low_bits_full.i129, align 2
-  %conv2.i = zext i16 %117 to i32
+  %117 = load ptr, ptr %bin.addr.i127, align 8
+  %low_bits_full.i129 = getelementptr inbounds %struct.cache_bin_s, ptr %117, i32 0, i32 3
+  %118 = load i16, ptr %low_bits_full.i129, align 2
+  %conv2.i = zext i16 %118 to i32
   %cmp.i130 = icmp eq i32 %conv1.i, %conv2.i
   br i1 %cmp.i130, label %if.then.i54, label %if.end.i51
 
@@ -7221,10 +7229,10 @@ if.then.i54:                                      ; preds = %call43.i.noexc
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end.i51:                                       ; preds = %call43.i.noexc
-  %118 = load ptr, ptr %bin.addr.i, align 8
-  %119 = load ptr, ptr %ptr.addr.i48, align 8
-  store ptr %118, ptr %bin.addr.i131, align 8
-  store ptr %119, ptr %ptr.addr.i132, align 8
+  %119 = load ptr, ptr %bin.addr.i, align 8
+  %120 = load ptr, ptr %ptr.addr.i48, align 8
+  store ptr %119, ptr %bin.addr.i131, align 8
+  store ptr %120, ptr %ptr.addr.i132, align 8
   br i1 false, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i51
@@ -7232,75 +7240,75 @@ if.then5.i:                                       ; preds = %if.end.i51
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 if.end6.i:                                        ; preds = %if.end.i51
-  %120 = load ptr, ptr %bin.addr.i, align 8
-  %121 = load ptr, ptr %120, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %121, i32 -1
-  store ptr %incdec.ptr.i, ptr %120, align 8
-  %122 = load ptr, ptr %ptr.addr.i48, align 8
-  %123 = load ptr, ptr %bin.addr.i, align 8
-  %124 = load ptr, ptr %123, align 8
-  store ptr %122, ptr %124, align 8
-  %125 = load ptr, ptr %bin.addr.i, align 8
+  %121 = load ptr, ptr %bin.addr.i, align 8
+  %122 = load ptr, ptr %121, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %122, i32 -1
+  store ptr %incdec.ptr.i, ptr %121, align 8
+  %123 = load ptr, ptr %ptr.addr.i48, align 8
+  %124 = load ptr, ptr %bin.addr.i, align 8
+  %125 = load ptr, ptr %124, align 8
+  store ptr %123, ptr %125, align 8
   %126 = load ptr, ptr %bin.addr.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %126, i32 0, i32 3
-  %127 = load i16, ptr %low_bits_full.i, align 2
-  %128 = load ptr, ptr %bin.addr.i, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %conv.i53 = trunc i64 %130 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %125, i16 noundef zeroext %127, i16 noundef zeroext %conv.i53)
+  %127 = load ptr, ptr %bin.addr.i, align 8
+  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %127, i32 0, i32 3
+  %128 = load i16, ptr %low_bits_full.i, align 2
+  %129 = load ptr, ptr %bin.addr.i, align 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %conv.i53 = trunc i64 %131 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %126, i16 noundef zeroext %128, i16 noundef zeroext %conv.i53)
   store i1 true, ptr %retval.i47, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit:  ; preds = %if.end6.i, %if.then5.i, %if.then.i54
-  %131 = load i1, ptr %retval.i47, align 1
+  %132 = load i1, ptr %retval.i47, align 1
   br label %call47.i.noexc
 
 call47.i.noexc:                                   ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit
-  br i1 %131, label %if.end49.i, label %if.then48.i
+  br i1 %132, label %if.end49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %call47.i.noexc
   store i1 false, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 if.end49.i:                                       ; preds = %call47.i.noexc
-  %132 = load i64, ptr %deallocated_after.i, align 8
-  %133 = load ptr, ptr %tsd.i, align 8
-  store ptr %133, ptr %tsd.addr.i55, align 8
-  %134 = load ptr, ptr %tsd.addr.i55, align 8
-  store ptr %134, ptr %tsd.addr.i102, align 8
-  %135 = load ptr, ptr %tsd.addr.i102, align 8
-  %state.i103 = getelementptr inbounds %struct.tsd_s, ptr %135, i32 0, i32 30
-  %136 = load i8, ptr %state.i103, align 8
-  store i8 %136, ptr %state.i, align 1
-  %137 = load ptr, ptr %tsd.addr.i55, align 8
-  store ptr %137, ptr %tsd.addr.i64, align 8
-  %138 = load ptr, ptr %tsd.addr.i64, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 33
-  store i64 %132, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
+  %133 = load i64, ptr %deallocated_after.i, align 8
+  %134 = load ptr, ptr %tsd.i, align 8
+  store ptr %134, ptr %tsd.addr.i55, align 8
+  %135 = load ptr, ptr %tsd.addr.i55, align 8
+  store ptr %135, ptr %tsd.addr.i102, align 8
+  %136 = load ptr, ptr %tsd.addr.i102, align 8
+  %state.i103 = getelementptr inbounds %struct.tsd_s, ptr %136, i32 0, i32 30
+  %137 = load i8, ptr %state.i103, align 8
+  store i8 %137, ptr %state.i, align 1
+  %138 = load ptr, ptr %tsd.addr.i55, align 8
+  store ptr %138, ptr %tsd.addr.i64, align 8
+  %139 = load ptr, ptr %tsd.addr.i64, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %139, i32 0, i32 33
+  store i64 %133, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, align 8
   store i1 true, ptr %retval.i, align 1
   br label %_ZL13free_fastpathPvmb.exit
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %if.end49.i, %if.then48.i, %if.then41.i, %if.then34.i, %if.then20.i, %if.then10.i, %if.then.i4
-  %139 = load i1, ptr %retval.i, align 1
+  %140 = load i1, ptr %retval.i, align 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZL13free_fastpathPvmb.exit
-  br i1 %139, label %_ZL12je_free_implPv.exit, label %if.then.i
+  br i1 %140, label %_ZL12je_free_implPv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %140 = load ptr, ptr %ptr.addr.i, align 8
-  invoke void @free_default(ptr noundef %140)
+  %141 = load ptr, ptr %ptr.addr.i, align 8
+  invoke void @free_default(ptr noundef %141)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i
   br label %_ZL12je_free_implPv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i, %if.then5.i93, %if.then.i95, %if.then2.i
-  %141 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #19
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #19
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %invoke.cont1.i, %invoke.cont.i
@@ -7810,52 +7818,53 @@ if.then.i92.i:                                    ; preds = %if.else20.i.i
 if.else.i86.i:                                    ; preds = %if.else20.i.i
   %109 = load ptr, ptr %elm.i.i, align 8
   %110 = load ptr, ptr %109, align 8
-  %cmp2.i.i = icmp eq ptr %110, inttoptr (i64 1 to ptr)
+  %111 = inttoptr i64 1 to ptr
+  %cmp2.i.i = icmp eq ptr %110, %111
   br i1 %cmp2.i.i, label %if.then5.i90.i, label %_ZL11tcaches_getP5tsd_sj.exit.i
 
 if.then5.i90.i:                                   ; preds = %if.else.i86.i
-  %111 = load ptr, ptr %tsd.addr.i81.i, align 8
-  %call.i9194.i = invoke ptr @tcache_create_explicit(ptr noundef %111)
+  %112 = load ptr, ptr %tsd.addr.i81.i, align 8
+  %call.i9194.i = invoke ptr @tcache_create_explicit(ptr noundef %112)
           to label %call.i91.noexc.i unwind label %terminate.lpad.i
 
 call.i91.noexc.i:                                 ; preds = %if.then5.i90.i
-  %112 = load ptr, ptr %elm.i.i, align 8
-  store ptr %call.i9194.i, ptr %112, align 8
+  %113 = load ptr, ptr %elm.i.i, align 8
+  store ptr %call.i9194.i, ptr %113, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit.i
 
 _ZL11tcaches_getP5tsd_sj.exit.i:                  ; preds = %call.i91.noexc.i, %if.else.i86.i
-  %113 = load ptr, ptr %elm.i.i, align 8
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %tcache.i29.i, align 8
+  %114 = load ptr, ptr %elm.i.i, align 8
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %tcache.i29.i, align 8
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %_ZL11tcaches_getP5tsd_sj.exit.i, %if.then19.i.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit.i:        ; preds = %if.end22.i.i, %if.end14.i.i
-  %115 = load ptr, ptr %tcache.i29.i, align 8
-  store ptr %115, ptr %tcache.i.i, align 8
-  %116 = load ptr, ptr %tcache.i.i, align 8
-  %bins.i.i = getelementptr inbounds %struct.tcache_s, ptr %116, i32 0, i32 1
-  %117 = load i32, ptr %alloc_ctx.i.i, align 4
-  %idxprom.i.i = zext i32 %117 to i64
+  %116 = load ptr, ptr %tcache.i29.i, align 8
+  store ptr %116, ptr %tcache.i.i, align 8
+  %117 = load ptr, ptr %tcache.i.i, align 8
+  %bins.i.i = getelementptr inbounds %struct.tcache_s, ptr %117, i32 0, i32 1
+  %118 = load i32, ptr %alloc_ctx.i.i, align 4
+  %idxprom.i.i = zext i32 %118 to i64
   %arrayidx.i.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i.i, i64 0, i64 %idxprom.i.i
   store ptr %arrayidx.i.i, ptr %bin.i.i, align 8
-  %118 = load ptr, ptr %bin.i.i, align 8
-  %119 = load ptr, ptr %ptr.addr.i.i, align 8
-  store ptr %118, ptr %bin.addr.i.i, align 8
-  store ptr %119, ptr %ptr.addr.i45.i, align 8
-  %120 = load ptr, ptr %bin.addr.i.i, align 8
-  store ptr %120, ptr %bin.addr.i124.i, align 8
-  %121 = load ptr, ptr %bin.addr.i124.i, align 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %conv.i125.i = trunc i64 %123 to i16
+  %119 = load ptr, ptr %bin.i.i, align 8
+  %120 = load ptr, ptr %ptr.addr.i.i, align 8
+  store ptr %119, ptr %bin.addr.i.i, align 8
+  store ptr %120, ptr %ptr.addr.i45.i, align 8
+  %121 = load ptr, ptr %bin.addr.i.i, align 8
+  store ptr %121, ptr %bin.addr.i124.i, align 8
+  %122 = load ptr, ptr %bin.addr.i124.i, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = ptrtoint ptr %123 to i64
+  %conv.i125.i = trunc i64 %124 to i16
   %conv1.i.i = zext i16 %conv.i125.i to i32
-  %124 = load ptr, ptr %bin.addr.i124.i, align 8
-  %low_bits_full.i126.i = getelementptr inbounds %struct.cache_bin_s, ptr %124, i32 0, i32 3
-  %125 = load i16, ptr %low_bits_full.i126.i, align 2
-  %conv2.i.i = zext i16 %125 to i32
+  %125 = load ptr, ptr %bin.addr.i124.i, align 8
+  %low_bits_full.i126.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
+  %126 = load i16, ptr %low_bits_full.i126.i, align 2
+  %conv2.i.i = zext i16 %126 to i32
   %cmp.i127.i = icmp eq i32 %conv1.i.i, %conv2.i.i
   br i1 %cmp.i127.i, label %if.then.i51.i, label %if.end.i48.i
 
@@ -7864,75 +7873,75 @@ if.then.i51.i:                                    ; preds = %_ZL19tcache_get_fro
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
 
 if.end.i48.i:                                     ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit.i
-  %126 = load ptr, ptr %bin.addr.i.i, align 8
-  %127 = load ptr, ptr %ptr.addr.i45.i, align 8
-  store ptr %126, ptr %bin.addr.i128.i, align 8
-  store ptr %127, ptr %ptr.addr.i129.i, align 8
-  %128 = load ptr, ptr %bin.addr.i.i, align 8
-  %129 = load ptr, ptr %128, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %129, i32 -1
-  store ptr %incdec.ptr.i.i, ptr %128, align 8
-  %130 = load ptr, ptr %ptr.addr.i45.i, align 8
-  %131 = load ptr, ptr %bin.addr.i.i, align 8
-  %132 = load ptr, ptr %131, align 8
-  store ptr %130, ptr %132, align 8
-  %133 = load ptr, ptr %bin.addr.i.i, align 8
+  %127 = load ptr, ptr %bin.addr.i.i, align 8
+  %128 = load ptr, ptr %ptr.addr.i45.i, align 8
+  store ptr %127, ptr %bin.addr.i128.i, align 8
+  store ptr %128, ptr %ptr.addr.i129.i, align 8
+  %129 = load ptr, ptr %bin.addr.i.i, align 8
+  %130 = load ptr, ptr %129, align 8
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %130, i32 -1
+  store ptr %incdec.ptr.i.i, ptr %129, align 8
+  %131 = load ptr, ptr %ptr.addr.i45.i, align 8
+  %132 = load ptr, ptr %bin.addr.i.i, align 8
+  %133 = load ptr, ptr %132, align 8
+  store ptr %131, ptr %133, align 8
   %134 = load ptr, ptr %bin.addr.i.i, align 8
-  %low_bits_full.i.i = getelementptr inbounds %struct.cache_bin_s, ptr %134, i32 0, i32 3
-  %135 = load i16, ptr %low_bits_full.i.i, align 2
-  %136 = load ptr, ptr %bin.addr.i.i, align 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = ptrtoint ptr %137 to i64
-  %conv.i50.i = trunc i64 %138 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %133, i16 noundef zeroext %135, i16 noundef zeroext %conv.i50.i)
+  %135 = load ptr, ptr %bin.addr.i.i, align 8
+  %low_bits_full.i.i = getelementptr inbounds %struct.cache_bin_s, ptr %135, i32 0, i32 3
+  %136 = load i16, ptr %low_bits_full.i.i, align 2
+  %137 = load ptr, ptr %bin.addr.i.i, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = ptrtoint ptr %138 to i64
+  %conv.i50.i = trunc i64 %139 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %134, i16 noundef zeroext %136, i16 noundef zeroext %conv.i50.i)
   store i1 true, ptr %retval.i44.i, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i: ; preds = %if.end.i48.i, %if.then.i51.i
-  %139 = load i1, ptr %retval.i44.i, align 1
-  br i1 %139, label %if.end49.i.i, label %if.then48.i.i
+  %140 = load i1, ptr %retval.i44.i, align 1
+  br i1 %140, label %if.end49.i.i, label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
   store i1 false, ptr %retval.i.i, align 1
   br label %_ZL13free_fastpathPvmb.exit.i
 
 if.end49.i.i:                                     ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
-  %140 = load i64, ptr %deallocated_after.i.i, align 8
-  %141 = load ptr, ptr %tsd.i.i, align 8
-  store ptr %141, ptr %tsd.addr.i52.i, align 8
-  %142 = load ptr, ptr %tsd.addr.i52.i, align 8
-  store ptr %142, ptr %tsd.addr.i99.i, align 8
-  %143 = load ptr, ptr %tsd.addr.i99.i, align 8
-  %state.i100.i = getelementptr inbounds %struct.tsd_s, ptr %143, i32 0, i32 30
-  %144 = load i8, ptr %state.i100.i, align 8
-  store i8 %144, ptr %state.i.i, align 1
-  %145 = load ptr, ptr %tsd.addr.i52.i, align 8
-  store ptr %145, ptr %tsd.addr.i61.i, align 8
-  %146 = load ptr, ptr %tsd.addr.i61.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i = getelementptr inbounds %struct.tsd_s, ptr %146, i32 0, i32 33
-  store i64 %140, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
+  %141 = load i64, ptr %deallocated_after.i.i, align 8
+  %142 = load ptr, ptr %tsd.i.i, align 8
+  store ptr %142, ptr %tsd.addr.i52.i, align 8
+  %143 = load ptr, ptr %tsd.addr.i52.i, align 8
+  store ptr %143, ptr %tsd.addr.i99.i, align 8
+  %144 = load ptr, ptr %tsd.addr.i99.i, align 8
+  %state.i100.i = getelementptr inbounds %struct.tsd_s, ptr %144, i32 0, i32 30
+  %145 = load i8, ptr %state.i100.i, align 8
+  store i8 %145, ptr %state.i.i, align 1
+  %146 = load ptr, ptr %tsd.addr.i52.i, align 8
+  store ptr %146, ptr %tsd.addr.i61.i, align 8
+  %147 = load ptr, ptr %tsd.addr.i61.i, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i = getelementptr inbounds %struct.tsd_s, ptr %147, i32 0, i32 33
+  store i64 %141, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
   store i1 true, ptr %retval.i.i, align 1
   br label %_ZL13free_fastpathPvmb.exit.i
 
 _ZL13free_fastpathPvmb.exit.i:                    ; preds = %if.end49.i.i, %if.then48.i.i, %if.then41.i.i, %if.then34.i.i, %if.then20.i.i, %if.then10.i.i, %if.then.i.i
-  %147 = load i1, ptr %retval.i.i, align 1
-  br i1 %147, label %_ZL16je_sdallocx_implPvmi.exit, label %if.then.i4
+  %148 = load i1, ptr %retval.i.i, align 1
+  br i1 %148, label %_ZL16je_sdallocx_implPvmi.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZL13free_fastpathPvmb.exit.i, %cond.end.i
-  %148 = load ptr, ptr %ptr.addr.i1, align 8
-  %149 = load i64, ptr %size.addr.i2, align 8
-  %150 = load i32, ptr %flags.addr.i, align 4
-  invoke void @sdallocx_default(ptr noundef %148, i64 noundef %149, i32 noundef %150)
+  %149 = load ptr, ptr %ptr.addr.i1, align 8
+  %150 = load i64, ptr %size.addr.i2, align 8
+  %151 = load i32, ptr %flags.addr.i, align 4
+  invoke void @sdallocx_default(ptr noundef %149, i64 noundef %150, i32 noundef %151)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i4
   br label %_ZL16je_sdallocx_implPvmi.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i4, %if.then5.i90.i, %if.then.i92.i, %if.then2.i.i
-  %151 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           catch ptr null
-  %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #19
+  %153 = extractvalue { ptr, i32 } %152, 0
+  call void @__clang_call_terminate(ptr %153) #19
   unreachable
 
 _ZL16je_sdallocx_implPvmi.exit:                   ; preds = %invoke.cont1.i, %_ZL13free_fastpathPvmb.exit.i
@@ -8445,52 +8454,53 @@ if.then.i92.i:                                    ; preds = %if.else20.i.i
 if.else.i86.i:                                    ; preds = %if.else20.i.i
   %109 = load ptr, ptr %elm.i.i, align 8
   %110 = load ptr, ptr %109, align 8
-  %cmp2.i.i = icmp eq ptr %110, inttoptr (i64 1 to ptr)
+  %111 = inttoptr i64 1 to ptr
+  %cmp2.i.i = icmp eq ptr %110, %111
   br i1 %cmp2.i.i, label %if.then5.i90.i, label %_ZL11tcaches_getP5tsd_sj.exit.i
 
 if.then5.i90.i:                                   ; preds = %if.else.i86.i
-  %111 = load ptr, ptr %tsd.addr.i81.i, align 8
-  %call.i9194.i = invoke ptr @tcache_create_explicit(ptr noundef %111)
+  %112 = load ptr, ptr %tsd.addr.i81.i, align 8
+  %call.i9194.i = invoke ptr @tcache_create_explicit(ptr noundef %112)
           to label %call.i91.noexc.i unwind label %terminate.lpad.i
 
 call.i91.noexc.i:                                 ; preds = %if.then5.i90.i
-  %112 = load ptr, ptr %elm.i.i, align 8
-  store ptr %call.i9194.i, ptr %112, align 8
+  %113 = load ptr, ptr %elm.i.i, align 8
+  store ptr %call.i9194.i, ptr %113, align 8
   br label %_ZL11tcaches_getP5tsd_sj.exit.i
 
 _ZL11tcaches_getP5tsd_sj.exit.i:                  ; preds = %call.i91.noexc.i, %if.else.i86.i
-  %113 = load ptr, ptr %elm.i.i, align 8
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %tcache.i29.i, align 8
+  %114 = load ptr, ptr %elm.i.i, align 8
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %tcache.i29.i, align 8
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %_ZL11tcaches_getP5tsd_sj.exit.i, %if.then19.i.i
   br label %_ZL19tcache_get_from_indP5tsd_sjbb.exit.i
 
 _ZL19tcache_get_from_indP5tsd_sjbb.exit.i:        ; preds = %if.end22.i.i, %if.end14.i.i
-  %115 = load ptr, ptr %tcache.i29.i, align 8
-  store ptr %115, ptr %tcache.i.i, align 8
-  %116 = load ptr, ptr %tcache.i.i, align 8
-  %bins.i.i = getelementptr inbounds %struct.tcache_s, ptr %116, i32 0, i32 1
-  %117 = load i32, ptr %alloc_ctx.i.i, align 4
-  %idxprom.i.i = zext i32 %117 to i64
+  %116 = load ptr, ptr %tcache.i29.i, align 8
+  store ptr %116, ptr %tcache.i.i, align 8
+  %117 = load ptr, ptr %tcache.i.i, align 8
+  %bins.i.i = getelementptr inbounds %struct.tcache_s, ptr %117, i32 0, i32 1
+  %118 = load i32, ptr %alloc_ctx.i.i, align 4
+  %idxprom.i.i = zext i32 %118 to i64
   %arrayidx.i.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i.i, i64 0, i64 %idxprom.i.i
   store ptr %arrayidx.i.i, ptr %bin.i.i, align 8
-  %118 = load ptr, ptr %bin.i.i, align 8
-  %119 = load ptr, ptr %ptr.addr.i.i, align 8
-  store ptr %118, ptr %bin.addr.i.i, align 8
-  store ptr %119, ptr %ptr.addr.i45.i, align 8
-  %120 = load ptr, ptr %bin.addr.i.i, align 8
-  store ptr %120, ptr %bin.addr.i124.i, align 8
-  %121 = load ptr, ptr %bin.addr.i124.i, align 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %conv.i125.i = trunc i64 %123 to i16
+  %119 = load ptr, ptr %bin.i.i, align 8
+  %120 = load ptr, ptr %ptr.addr.i.i, align 8
+  store ptr %119, ptr %bin.addr.i.i, align 8
+  store ptr %120, ptr %ptr.addr.i45.i, align 8
+  %121 = load ptr, ptr %bin.addr.i.i, align 8
+  store ptr %121, ptr %bin.addr.i124.i, align 8
+  %122 = load ptr, ptr %bin.addr.i124.i, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = ptrtoint ptr %123 to i64
+  %conv.i125.i = trunc i64 %124 to i16
   %conv1.i.i = zext i16 %conv.i125.i to i32
-  %124 = load ptr, ptr %bin.addr.i124.i, align 8
-  %low_bits_full.i126.i = getelementptr inbounds %struct.cache_bin_s, ptr %124, i32 0, i32 3
-  %125 = load i16, ptr %low_bits_full.i126.i, align 2
-  %conv2.i.i = zext i16 %125 to i32
+  %125 = load ptr, ptr %bin.addr.i124.i, align 8
+  %low_bits_full.i126.i = getelementptr inbounds %struct.cache_bin_s, ptr %125, i32 0, i32 3
+  %126 = load i16, ptr %low_bits_full.i126.i, align 2
+  %conv2.i.i = zext i16 %126 to i32
   %cmp.i127.i = icmp eq i32 %conv1.i.i, %conv2.i.i
   br i1 %cmp.i127.i, label %if.then.i51.i, label %if.end.i48.i
 
@@ -8499,75 +8509,75 @@ if.then.i51.i:                                    ; preds = %_ZL19tcache_get_fro
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
 
 if.end.i48.i:                                     ; preds = %_ZL19tcache_get_from_indP5tsd_sjbb.exit.i
-  %126 = load ptr, ptr %bin.addr.i.i, align 8
-  %127 = load ptr, ptr %ptr.addr.i45.i, align 8
-  store ptr %126, ptr %bin.addr.i128.i, align 8
-  store ptr %127, ptr %ptr.addr.i129.i, align 8
-  %128 = load ptr, ptr %bin.addr.i.i, align 8
-  %129 = load ptr, ptr %128, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %129, i32 -1
-  store ptr %incdec.ptr.i.i, ptr %128, align 8
-  %130 = load ptr, ptr %ptr.addr.i45.i, align 8
-  %131 = load ptr, ptr %bin.addr.i.i, align 8
-  %132 = load ptr, ptr %131, align 8
-  store ptr %130, ptr %132, align 8
-  %133 = load ptr, ptr %bin.addr.i.i, align 8
+  %127 = load ptr, ptr %bin.addr.i.i, align 8
+  %128 = load ptr, ptr %ptr.addr.i45.i, align 8
+  store ptr %127, ptr %bin.addr.i128.i, align 8
+  store ptr %128, ptr %ptr.addr.i129.i, align 8
+  %129 = load ptr, ptr %bin.addr.i.i, align 8
+  %130 = load ptr, ptr %129, align 8
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %130, i32 -1
+  store ptr %incdec.ptr.i.i, ptr %129, align 8
+  %131 = load ptr, ptr %ptr.addr.i45.i, align 8
+  %132 = load ptr, ptr %bin.addr.i.i, align 8
+  %133 = load ptr, ptr %132, align 8
+  store ptr %131, ptr %133, align 8
   %134 = load ptr, ptr %bin.addr.i.i, align 8
-  %low_bits_full.i.i = getelementptr inbounds %struct.cache_bin_s, ptr %134, i32 0, i32 3
-  %135 = load i16, ptr %low_bits_full.i.i, align 2
-  %136 = load ptr, ptr %bin.addr.i.i, align 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = ptrtoint ptr %137 to i64
-  %conv.i50.i = trunc i64 %138 to i16
-  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %133, i16 noundef zeroext %135, i16 noundef zeroext %conv.i50.i)
+  %135 = load ptr, ptr %bin.addr.i.i, align 8
+  %low_bits_full.i.i = getelementptr inbounds %struct.cache_bin_s, ptr %135, i32 0, i32 3
+  %136 = load i16, ptr %low_bits_full.i.i, align 2
+  %137 = load ptr, ptr %bin.addr.i.i, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = ptrtoint ptr %138 to i64
+  %conv.i50.i = trunc i64 %139 to i16
+  call void @_ZL24cache_bin_assert_earlierP11cache_bin_stt(ptr noundef %134, i16 noundef zeroext %136, i16 noundef zeroext %conv.i50.i)
   store i1 true, ptr %retval.i44.i, align 1
   br label %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
 
 _ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i: ; preds = %if.end.i48.i, %if.then.i51.i
-  %139 = load i1, ptr %retval.i44.i, align 1
-  br i1 %139, label %if.end49.i.i, label %if.then48.i.i
+  %140 = load i1, ptr %retval.i44.i, align 1
+  br i1 %140, label %if.end49.i.i, label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
   store i1 false, ptr %retval.i.i, align 1
   br label %_ZL13free_fastpathPvmb.exit.i
 
 if.end49.i.i:                                     ; preds = %_ZL21cache_bin_dalloc_easyP11cache_bin_sPv.exit.i
-  %140 = load i64, ptr %deallocated_after.i.i, align 8
-  %141 = load ptr, ptr %tsd.i.i, align 8
-  store ptr %141, ptr %tsd.addr.i52.i, align 8
-  %142 = load ptr, ptr %tsd.addr.i52.i, align 8
-  store ptr %142, ptr %tsd.addr.i99.i, align 8
-  %143 = load ptr, ptr %tsd.addr.i99.i, align 8
-  %state.i100.i = getelementptr inbounds %struct.tsd_s, ptr %143, i32 0, i32 30
-  %144 = load i8, ptr %state.i100.i, align 8
-  store i8 %144, ptr %state.i.i, align 1
-  %145 = load ptr, ptr %tsd.addr.i52.i, align 8
-  store ptr %145, ptr %tsd.addr.i61.i, align 8
-  %146 = load ptr, ptr %tsd.addr.i61.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i = getelementptr inbounds %struct.tsd_s, ptr %146, i32 0, i32 33
-  store i64 %140, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
+  %141 = load i64, ptr %deallocated_after.i.i, align 8
+  %142 = load ptr, ptr %tsd.i.i, align 8
+  store ptr %142, ptr %tsd.addr.i52.i, align 8
+  %143 = load ptr, ptr %tsd.addr.i52.i, align 8
+  store ptr %143, ptr %tsd.addr.i99.i, align 8
+  %144 = load ptr, ptr %tsd.addr.i99.i, align 8
+  %state.i100.i = getelementptr inbounds %struct.tsd_s, ptr %144, i32 0, i32 30
+  %145 = load i8, ptr %state.i100.i, align 8
+  store i8 %145, ptr %state.i.i, align 1
+  %146 = load ptr, ptr %tsd.addr.i52.i, align 8
+  store ptr %146, ptr %tsd.addr.i61.i, align 8
+  %147 = load ptr, ptr %tsd.addr.i61.i, align 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i = getelementptr inbounds %struct.tsd_s, ptr %147, i32 0, i32 33
+  store i64 %141, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
   store i1 true, ptr %retval.i.i, align 1
   br label %_ZL13free_fastpathPvmb.exit.i
 
 _ZL13free_fastpathPvmb.exit.i:                    ; preds = %if.end49.i.i, %if.then48.i.i, %if.then41.i.i, %if.then34.i.i, %if.then20.i.i, %if.then10.i.i, %if.then.i.i
-  %147 = load i1, ptr %retval.i.i, align 1
-  br i1 %147, label %_ZL16je_sdallocx_implPvmi.exit, label %if.then.i4
+  %148 = load i1, ptr %retval.i.i, align 1
+  br i1 %148, label %_ZL16je_sdallocx_implPvmi.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZL13free_fastpathPvmb.exit.i, %cond.end.i
-  %148 = load ptr, ptr %ptr.addr.i1, align 8
-  %149 = load i64, ptr %size.addr.i2, align 8
-  %150 = load i32, ptr %flags.addr.i, align 4
-  invoke void @sdallocx_default(ptr noundef %148, i64 noundef %149, i32 noundef %150)
+  %149 = load ptr, ptr %ptr.addr.i1, align 8
+  %150 = load i64, ptr %size.addr.i2, align 8
+  %151 = load i32, ptr %flags.addr.i, align 4
+  invoke void @sdallocx_default(ptr noundef %149, i64 noundef %150, i32 noundef %151)
           to label %invoke.cont1.i unwind label %terminate.lpad.i
 
 invoke.cont1.i:                                   ; preds = %if.then.i4
   br label %_ZL16je_sdallocx_implPvmi.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i4, %if.then5.i90.i, %if.then.i92.i, %if.then2.i.i
-  %151 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           catch ptr null
-  %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #19
+  %153 = extractvalue { ptr, i32 } %152, 0
+  call void @__clang_call_terminate(ptr %153) #19
   unreachable
 
 _ZL16je_sdallocx_implPvmi.exit:                   ; preds = %invoke.cont1.i, %_ZL13free_fastpathPvmb.exit.i
@@ -9052,7 +9062,7 @@ lpad:                                             ; preds = %if.end5
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #22
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #22
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9144,16 +9154,13 @@ terminate.lpad:                                   ; preds = %entry
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #14
+declare noalias ptr @malloc(i64 noundef) #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #15
+declare void @_ZSt17__throw_bad_allocv() #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #7 comdat align 2 {
@@ -9204,7 +9211,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #15
+declare void @_ZSt20__throw_system_errori(i32 noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL18__gthread_active_pv() #3 {
@@ -9300,13 +9307,16 @@ terminate.lpad:                                   ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare noalias ptr @aligned_alloc(i64 noundef, i64 noundef) #16
+declare noalias ptr @aligned_alloc(i64 noundef, i64 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 attributes #0 = { mustprogress nobuiltin allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nobuiltin nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9321,12 +9331,12 @@ attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind memory(none) }
-attributes #14 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { nounwind allocsize(1) }
 attributes #21 = { nounwind willreturn memory(none) }

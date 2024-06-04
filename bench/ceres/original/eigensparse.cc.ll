@@ -4976,50 +4976,51 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14SparseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %11
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %9)
-          to label %10 unwind label %15
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %10)
+          to label %11 unwind label %16
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  br label %19
-
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -5053,7 +5054,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal14SparseCholeskyC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal14SparseCholeskyE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5ceres8internal14SparseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5965,7 +5967,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5979,7 +5982,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29231,50 +29235,51 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14SparseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %11
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_15NaturalOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %9)
-          to label %10 unwind label %15
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.294", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_15NaturalOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %10)
+          to label %11 unwind label %16
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  br label %19
-
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32128,50 +32133,51 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14SparseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %11
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIfLi0EiEELi2ENS_11AMDOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %9)
-          to label %10 unwind label %15
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.306", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIfLi0EiEELi2ENS_11AMDOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %10)
+          to label %11 unwind label %16
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  br label %19
-
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -50080,50 +50086,51 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14SparseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %11
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIfLi0EiEELi2ENS_15NaturalOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %9)
-          to label %10 unwind label %15
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.ceres::internal::EigenSparseCholeskyTemplate.526", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Eigen14SimplicialLDLTINS_12SparseMatrixIfLi0EiEELi2ENS_15NaturalOrderingIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %10)
+          to label %11 unwind label %16
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  br label %19
-
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

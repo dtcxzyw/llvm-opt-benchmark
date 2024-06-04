@@ -92,7 +92,7 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %3
   %32 = call ptr @abi_arg_ignore()
   store ptr %32, ptr %16, align 8
-  br label %188
+  br label %189
 
 33:                                               ; preds = %3
   store ptr null, ptr %20, align 8
@@ -106,7 +106,7 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 38:                                               ; preds = %33
   %39 = call ptr @abi_arg_new_direct()
   store ptr %39, ptr %16, align 8
-  br label %188
+  br label %189
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr %19, align 8
@@ -161,7 +161,7 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
   %73 = load ptr, ptr %18, align 8
   %74 = call ptr @create_indirect_return_x86(ptr noundef %72, ptr noundef %73)
   store ptr %74, ptr %16, align 8
-  br label %188
+  br label %189
 
 75:                                               ; preds = %62, %60
   %76 = load ptr, ptr %19, align 8
@@ -211,7 +211,7 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 102:                                              ; preds = %100
   %103 = call ptr @abi_arg_new_expand()
   store ptr %103, ptr %16, align 8
-  br label %188
+  br label %189
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %19, align 8
@@ -239,7 +239,7 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 118:                                              ; preds = %115
   %119 = call ptr @abi_arg_new_expand()
   store ptr %119, ptr %16, align 8
-  br label %188
+  br label %189
 
 120:                                              ; preds = %115
   br label %121
@@ -247,14 +247,14 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 121:                                              ; preds = %120, %78
   %122 = call ptr @abi_arg_new_direct_coerce_int()
   store ptr %122, ptr %16, align 8
-  br label %188
+  br label %189
 
 123:                                              ; preds = %75
   %124 = load ptr, ptr %19, align 8
   %125 = load ptr, ptr %18, align 8
   %126 = call ptr @create_indirect_return_x86(ptr noundef %124, ptr noundef %125)
   store ptr %126, ptr %16, align 8
-  br label %188
+  br label %189
 
 127:                                              ; preds = %40
   %128 = load ptr, ptr %19, align 8
@@ -288,80 +288,81 @@ define dso_local ptr @x86_classify_return(i32 noundef %0, ptr noundef %1, ptr no
 
 145:                                              ; preds = %142, %139
   %146 = phi i1 [ false, %139 ], [ %144, %142 ]
-  br i1 %146, label %147, label %154
+  br i1 %146, label %147, label %155
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr %8, align 8
   %149 = getelementptr inbounds %struct.Type_, ptr %148, i32 0, i32 7
   %150 = load i32, ptr %149, align 8
   %151 = and i32 %150, 255
-  %152 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %153 = icmp ult i32 %151, %152
-  br label %154
+  %152 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %153 = load i32, ptr %152, align 8
+  %154 = icmp ult i32 %151, %153
+  br label %155
 
-154:                                              ; preds = %147, %145
-  %155 = phi i1 [ false, %145 ], [ %153, %147 ]
-  br i1 %155, label %156, label %159
+155:                                              ; preds = %147, %145
+  %156 = phi i1 [ false, %145 ], [ %154, %147 ]
+  br i1 %156, label %157, label %160
 
-156:                                              ; preds = %154
-  %157 = load ptr, ptr %19, align 8
-  %158 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %157)
-  store ptr %158, ptr %16, align 8
-  br label %188
+157:                                              ; preds = %155
+  %158 = load ptr, ptr %19, align 8
+  %159 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %158)
+  store ptr %159, ptr %16, align 8
+  br label %189
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %19, align 8
-  store ptr %160, ptr %6, align 8
-  %161 = load ptr, ptr %6, align 8
-  %162 = load i32, ptr %161, align 8
-  store i32 %162, ptr %7, align 4
-  %163 = load i32, ptr %7, align 4
-  %164 = icmp eq i32 %163, 31
-  br i1 %164, label %165, label %170
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %19, align 8
+  store ptr %161, ptr %6, align 8
+  %162 = load ptr, ptr %6, align 8
+  %163 = load i32, ptr %162, align 8
+  store i32 %163, ptr %7, align 4
+  %164 = load i32, ptr %7, align 4
+  %165 = icmp eq i32 %164, 31
+  br i1 %165, label %166, label %171
 
-165:                                              ; preds = %159
-  %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr inbounds %struct.Type_, ptr %166, i32 0, i32 1
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i32, ptr %168, align 8
-  store i32 %169, ptr %7, align 4
-  br label %170
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds %struct.Type_, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i32, ptr %169, align 8
+  store i32 %170, ptr %7, align 4
+  br label %171
 
-170:                                              ; preds = %165, %159
-  %171 = load i32, ptr %7, align 4
-  %172 = icmp uge i32 %171, 3
-  br i1 %172, label %173, label %176
+171:                                              ; preds = %166, %160
+  %172 = load i32, ptr %7, align 4
+  %173 = icmp uge i32 %172, 3
+  br i1 %173, label %174, label %177
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %7, align 4
-  %175 = icmp ule i32 %174, 12
-  br label %176
+174:                                              ; preds = %171
+  %175 = load i32, ptr %7, align 4
+  %176 = icmp ule i32 %175, 12
+  br label %177
 
-176:                                              ; preds = %173, %170
-  %177 = phi i1 [ false, %170 ], [ %175, %173 ]
-  br i1 %177, label %178, label %186
+177:                                              ; preds = %174, %171
+  %178 = phi i1 [ false, %171 ], [ %176, %174 ]
+  br i1 %178, label %179, label %187
 
-178:                                              ; preds = %176
-  %179 = load ptr, ptr %19, align 8
-  %180 = call i32 @type_size(ptr noundef %179)
-  %181 = icmp ugt i32 %180, 8
-  br i1 %181, label %182, label %186
+179:                                              ; preds = %177
+  %180 = load ptr, ptr %19, align 8
+  %181 = call i32 @type_size(ptr noundef %180)
+  %182 = icmp ugt i32 %181, 8
+  br i1 %182, label %183, label %187
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %19, align 8
-  %184 = load ptr, ptr %18, align 8
-  %185 = call ptr @create_indirect_return_x86(ptr noundef %183, ptr noundef %184)
-  store ptr %185, ptr %16, align 8
-  br label %188
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %19, align 8
+  %185 = load ptr, ptr %18, align 8
+  %186 = call ptr @create_indirect_return_x86(ptr noundef %184, ptr noundef %185)
+  store ptr %186, ptr %16, align 8
+  br label %189
 
-186:                                              ; preds = %178, %176
-  %187 = call ptr @abi_arg_new_direct()
-  store ptr %187, ptr %16, align 8
-  br label %188
+187:                                              ; preds = %179, %177
+  %188 = call ptr @abi_arg_new_direct()
+  store ptr %188, ptr %16, align 8
+  br label %189
 
-188:                                              ; preds = %186, %182, %156, %123, %121, %118, %102, %71, %38, %31
-  %189 = load ptr, ptr %16, align 8
-  ret ptr %189
+189:                                              ; preds = %187, %183, %157, %123, %121, %118, %102, %71, %38, %31
+  %190 = load ptr, ptr %16, align 8
+  ret ptr %190
 }
 
 ; Function Attrs: nounwind uwtable
@@ -611,7 +612,7 @@ define internal ptr @create_indirect_return_x86(ptr noundef %0, ptr noundef %1) 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %6, align 8
   store ptr %14, ptr %3, align 8
-  br label %33
+  br label %34
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %5, align 8
@@ -619,31 +620,32 @@ define internal ptr @create_indirect_return_x86(ptr noundef %0, ptr noundef %1) 
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 4
-  %20 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %21 = lshr i8 %20, 2
-  %22 = and i8 %21, 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %26
+  %20 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %21 = load i8, ptr %20, align 8
+  %22 = lshr i8 %21, 2
+  %23 = and i8 %22, 1
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %15
-  %25 = load ptr, ptr %6, align 8
-  store ptr %25, ptr %3, align 8
-  br label %33
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %6, align 8
+  store ptr %26, ptr %3, align 8
+  br label %34
 
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.ABIArgInfo_, ptr %27, i32 0, i32 2
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, -2
-  %31 = or i8 %30, 1
-  store i8 %31, ptr %28, align 1
-  %32 = load ptr, ptr %6, align 8
-  store ptr %32, ptr %3, align 8
-  br label %33
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds %struct.ABIArgInfo_, ptr %28, i32 0, i32 2
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, -2
+  %32 = or i8 %31, 1
+  store i8 %32, ptr %29, align 1
+  %33 = load ptr, ptr %6, align 8
+  store ptr %33, ptr %3, align 8
+  br label %34
 
-33:                                               ; preds = %26, %24, %13
-  %34 = load ptr, ptr %3, align 8
-  ret ptr %34
+34:                                               ; preds = %27, %25, %13
+  %35 = load ptr, ptr %3, align 8
+  ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -669,189 +671,190 @@ define internal zeroext i1 @x86_should_return_type_in_reg(ptr noundef %0) #0 {
 
 17:                                               ; preds = %1
   store i1 false, ptr %5, align 1
-  br label %91
+  br label %92
 
 18:                                               ; preds = %1
-  %19 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %20 = lshr i8 %19, 2
-  %21 = and i8 %20, 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %27, label %23
+  %19 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %20 = load i8, ptr %19, align 8
+  %21 = lshr i8 %20, 2
+  %22 = and i8 %21, 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %28, label %24
 
-23:                                               ; preds = %18
-  %24 = load i64, ptr %7, align 8
-  %25 = call zeroext i1 @is_power_of_two(i64 noundef %24)
-  br i1 %25, label %27, label %26
+24:                                               ; preds = %18
+  %25 = load i64, ptr %7, align 8
+  %26 = call zeroext i1 @is_power_of_two(i64 noundef %25)
+  br i1 %26, label %28, label %27
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   store i1 false, ptr %5, align 1
-  br label %91
+  br label %92
 
-27:                                               ; preds = %23, %18
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.Type_, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, 37
-  br i1 %31, label %32, label %35
+28:                                               ; preds = %24, %18
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct.Type_, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 37
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %27
-  %33 = load i64, ptr %7, align 8
-  %34 = icmp ult i64 %33, 8
-  store i1 %34, ptr %5, align 1
-  br label %91
+33:                                               ; preds = %28
+  %34 = load i64, ptr %7, align 8
+  %35 = icmp ult i64 %34, 8
+  store i1 %35, ptr %5, align 1
+  br label %92
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.Type_, ptr %36, i32 0, i32 0
-  %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %50 [
-    i32 37, label %39
-    i32 1, label %39
-    i32 25, label %39
-    i32 31, label %39
-    i32 32, label %39
-    i32 24, label %39
-    i32 30, label %39
-    i32 22, label %39
-    i32 21, label %39
-    i32 29, label %39
-    i32 42, label %39
-    i32 36, label %39
-    i32 38, label %39
-    i32 39, label %39
-    i32 0, label %39
-    i32 43, label %39
-    i32 41, label %39
-    i32 40, label %39
-    i32 35, label %39
-    i32 28, label %39
-    i32 18, label %39
-    i32 20, label %39
-    i32 3, label %42
-    i32 4, label %42
-    i32 5, label %42
-    i32 6, label %42
-    i32 7, label %42
-    i32 8, label %42
-    i32 9, label %42
-    i32 10, label %42
-    i32 11, label %42
-    i32 12, label %42
-    i32 14, label %42
-    i32 13, label %42
-    i32 15, label %42
-    i32 16, label %42
-    i32 17, label %42
-    i32 2, label %42
-    i32 23, label %42
-    i32 34, label %42
-    i32 19, label %42
-    i32 33, label %43
-    i32 26, label %49
-    i32 27, label %49
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct.Type_, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 8
+  switch i32 %39, label %51 [
+    i32 37, label %40
+    i32 1, label %40
+    i32 25, label %40
+    i32 31, label %40
+    i32 32, label %40
+    i32 24, label %40
+    i32 30, label %40
+    i32 22, label %40
+    i32 21, label %40
+    i32 29, label %40
+    i32 42, label %40
+    i32 36, label %40
+    i32 38, label %40
+    i32 39, label %40
+    i32 0, label %40
+    i32 43, label %40
+    i32 41, label %40
+    i32 40, label %40
+    i32 35, label %40
+    i32 28, label %40
+    i32 18, label %40
+    i32 20, label %40
+    i32 3, label %43
+    i32 4, label %43
+    i32 5, label %43
+    i32 6, label %43
+    i32 7, label %43
+    i32 8, label %43
+    i32 9, label %43
+    i32 10, label %43
+    i32 11, label %43
+    i32 12, label %43
+    i32 14, label %43
+    i32 13, label %43
+    i32 15, label %43
+    i32 16, label %43
+    i32 17, label %43
+    i32 2, label %43
+    i32 23, label %43
+    i32 34, label %43
+    i32 19, label %43
+    i32 33, label %44
+    i32 26, label %50
+    i32 27, label %50
   ]
 
-39:                                               ; preds = %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35
-  br label %40
+40:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
+  br label %41
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.x86_should_return_type_in_reg, ptr noundef @.str.2, i32 noundef 126) #4
   unreachable
 
-41:                                               ; No predecessors!
-  br label %42
+42:                                               ; No predecessors!
+  br label %43
 
-42:                                               ; preds = %41, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35
+43:                                               ; preds = %42, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   store i1 true, ptr %5, align 1
-  br label %91
+  br label %92
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.Type_, ptr %44, i32 0, i32 7
-  %46 = getelementptr inbounds %struct.TypeArray, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call zeroext i1 @x86_should_return_type_in_reg(ptr noundef %47)
-  store i1 %48, ptr %5, align 1
-  br label %91
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct.Type_, ptr %45, i32 0, i32 7
+  %47 = getelementptr inbounds %struct.TypeArray, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = call zeroext i1 @x86_should_return_type_in_reg(ptr noundef %48)
+  store i1 %49, ptr %5, align 1
+  br label %92
 
-49:                                               ; preds = %35, %35
-  br label %50
+50:                                               ; preds = %36, %36
+  br label %51
 
-50:                                               ; preds = %49, %35
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.Type_, ptr %51, i32 0, i32 7
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.Decl_, ptr %53, i32 0, i32 11
-  %55 = getelementptr inbounds %struct.anon.8, ptr %54, i32 0, i32 2
-  %56 = getelementptr inbounds %struct.StructDecl, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %8, align 8
+51:                                               ; preds = %50, %36
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds %struct.Type_, ptr %52, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.Decl_, ptr %54, i32 0, i32 11
+  %56 = getelementptr inbounds %struct.anon.8, ptr %55, i32 0, i32 2
+  %57 = getelementptr inbounds %struct.StructDecl, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %8, align 8
   store i32 0, ptr %9, align 4
-  %58 = load ptr, ptr %8, align 8
-  store ptr %58, ptr %3, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %62, label %61
+  %59 = load ptr, ptr %8, align 8
+  store ptr %59, ptr %3, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %63, label %62
 
-61:                                               ; preds = %50
+62:                                               ; preds = %51
   store i32 0, ptr %2, align 4
-  br label %67
+  br label %68
 
-62:                                               ; preds = %50
-  %63 = load ptr, ptr %3, align 8
-  store ptr %63, ptr %4, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.VHeader_, ptr %64, i64 -1
-  %66 = load i32, ptr %65, align 4
-  store i32 %66, ptr %2, align 4
-  br label %67
+63:                                               ; preds = %51
+  %64 = load ptr, ptr %3, align 8
+  store ptr %64, ptr %4, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.VHeader_, ptr %65, i64 -1
+  %67 = load i32, ptr %66, align 4
+  store i32 %67, ptr %2, align 4
+  br label %68
 
-67:                                               ; preds = %62, %61
-  %68 = load i32, ptr %2, align 4
-  store i32 %68, ptr %10, align 4
-  br label %69
+68:                                               ; preds = %63, %62
+  %69 = load i32, ptr %2, align 4
+  store i32 %69, ptr %10, align 4
+  br label %70
 
-69:                                               ; preds = %87, %67
-  %70 = load i32, ptr %9, align 4
-  %71 = load i32, ptr %10, align 4
-  %72 = icmp ult i32 %70, %71
-  br i1 %72, label %73, label %90
+70:                                               ; preds = %88, %68
+  %71 = load i32, ptr %9, align 4
+  %72 = load i32, ptr %10, align 4
+  %73 = icmp ult i32 %71, %72
+  br i1 %73, label %74, label %91
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %8, align 8
-  %75 = load i32, ptr %9, align 4
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %74, i64 %76
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.Decl_, ptr %78, i32 0, i32 10
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.Type_, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %11, align 8
-  %83 = load ptr, ptr %11, align 8
-  %84 = call zeroext i1 @x86_should_return_type_in_reg(ptr noundef %83)
-  br i1 %84, label %86, label %85
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %8, align 8
+  %76 = load i32, ptr %9, align 4
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds ptr, ptr %75, i64 %77
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.Decl_, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.Type_, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %11, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = call zeroext i1 @x86_should_return_type_in_reg(ptr noundef %84)
+  br i1 %85, label %87, label %86
 
-85:                                               ; preds = %73
+86:                                               ; preds = %74
   store i1 false, ptr %5, align 1
-  br label %91
+  br label %92
 
-86:                                               ; preds = %73
-  br label %87
+87:                                               ; preds = %74
+  br label %88
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr %9, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %9, align 4
-  br label %69, !llvm.loop !7
+88:                                               ; preds = %87
+  %89 = load i32, ptr %9, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %9, align 4
+  br label %70, !llvm.loop !7
 
-90:                                               ; preds = %69
+91:                                               ; preds = %70
   store i1 true, ptr %5, align 1
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %85, %43, %42, %32, %26, %17
-  %92 = load i1, ptr %5, align 1
-  ret i1 %92
+92:                                               ; preds = %91, %86, %44, %43, %33, %27, %17
+  %93 = load i1, ptr %5, align 1
+  ret i1 %93
 }
 
 declare ptr @type_abi_find_single_struct_element(ptr noundef) #1
@@ -874,101 +877,103 @@ define dso_local void @c_abi_func_create_x86(ptr noundef %0) #0 {
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 15
   %7 = zext i16 %6 to i32
-  switch i32 %7, label %14 [
+  switch i32 %7, label %15 [
     i32 0, label %8
   ]
 
 8:                                                ; preds = %1
-  %9 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %10 = lshr i16 %9, 5
-  %11 = and i16 %10, 255
-  %12 = zext i16 %11 to i32
-  %13 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 0
-  store i32 %12, ptr %13, align 4
-  br label %17
+  %9 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %10 = load i16, ptr %9, align 8
+  %11 = lshr i16 %10, 5
+  %12 = and i16 %11, 255
+  %13 = zext i16 %12 to i32
+  %14 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 0
+  store i32 %13, ptr %14, align 4
+  br label %18
 
-14:                                               ; preds = %1
-  br label %15
+15:                                               ; preds = %1
+  br label %16
 
-15:                                               ; preds = %14
+16:                                               ; preds = %15
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.c_abi_func_create_x86, ptr noundef @.str.2, i32 noundef 510) #4
   unreachable
 
-16:                                               ; No predecessors!
-  br label %17
+17:                                               ; No predecessors!
+  br label %18
 
-17:                                               ; preds = %16, %8
-  %18 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %19 = lshr i8 %18, 2
-  %20 = and i8 %19, 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %25
+18:                                               ; preds = %17, %8
+  %19 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %20 = load i8, ptr %19, align 8
+  %21 = lshr i8 %20, 2
+  %22 = and i8 %21, 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %27
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 1
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 0
-  store i32 3, ptr %24, align 4
-  br label %25
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 1
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds %struct.Regs, ptr %3, i32 0, i32 0
+  store i32 3, ptr %26, align 4
+  br label %27
 
-25:                                               ; preds = %22, %17
-  %26 = load ptr, ptr %2, align 8
-  %27 = load i16, ptr %26, align 8
-  %28 = and i16 %27, 15
-  %29 = zext i16 %28 to i32
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.FunctionPrototype_, ptr %30, i32 0, i32 7
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @x86_classify_return(i32 noundef %29, ptr noundef %3, ptr noundef %32)
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.FunctionPrototype_, ptr %34, i32 0, i32 8
-  store ptr %33, ptr %35, align 8
+27:                                               ; preds = %24, %18
+  %28 = load ptr, ptr %2, align 8
+  %29 = load i16, ptr %28, align 8
+  %30 = and i16 %29, 15
+  %31 = zext i16 %30 to i32
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.FunctionPrototype_, ptr %32, i32 0, i32 7
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @x86_classify_return(i32 noundef %31, ptr noundef %3, ptr noundef %34)
   %36 = load ptr, ptr %2, align 8
-  %37 = load i16, ptr %36, align 8
-  %38 = lshr i16 %37, 7
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %54
+  %37 = getelementptr inbounds %struct.FunctionPrototype_, ptr %36, i32 0, i32 8
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %2, align 8
+  %39 = load i16, ptr %38, align 8
+  %40 = lshr i16 %39, 7
+  %41 = and i16 %40, 1
+  %42 = trunc i16 %41 to i1
+  br i1 %42, label %43, label %56
 
-41:                                               ; preds = %25
-  %42 = load ptr, ptr %2, align 8
-  %43 = load i16, ptr %42, align 8
-  %44 = and i16 %43, 15
-  %45 = zext i16 %44 to i32
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.FunctionPrototype_, ptr %46, i32 0, i32 6
-  %48 = load ptr, ptr %47, align 8
-  %49 = call ptr @type_lowering(ptr noundef %48)
-  %50 = call ptr @type_get_ptr(ptr noundef %49)
-  %51 = call ptr @x86_classify_argument(i32 noundef %45, ptr noundef %3, ptr noundef %50)
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.FunctionPrototype_, ptr %52, i32 0, i32 9
-  store ptr %51, ptr %53, align 8
-  br label %54
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %2, align 8
+  %45 = load i16, ptr %44, align 8
+  %46 = and i16 %45, 15
+  %47 = zext i16 %46 to i32
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.FunctionPrototype_, ptr %48, i32 0, i32 6
+  %50 = load ptr, ptr %49, align 8
+  %51 = call ptr @type_lowering(ptr noundef %50)
+  %52 = call ptr @type_get_ptr(ptr noundef %51)
+  %53 = call ptr @x86_classify_argument(i32 noundef %47, ptr noundef %3, ptr noundef %52)
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.FunctionPrototype_, ptr %54, i32 0, i32 9
+  store ptr %53, ptr %55, align 8
+  br label %56
 
-54:                                               ; preds = %41, %25
-  %55 = load ptr, ptr %2, align 8
-  %56 = load i16, ptr %55, align 8
-  %57 = and i16 %56, 15
-  %58 = zext i16 %57 to i32
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.FunctionPrototype_, ptr %59, i32 0, i32 3
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @x86_create_params(i32 noundef %58, ptr noundef %61, ptr noundef %3)
-  %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds %struct.FunctionPrototype_, ptr %63, i32 0, i32 10
-  store ptr %62, ptr %64, align 8
+56:                                               ; preds = %43, %27
+  %57 = load ptr, ptr %2, align 8
+  %58 = load i16, ptr %57, align 8
+  %59 = and i16 %58, 15
+  %60 = zext i16 %59 to i32
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.FunctionPrototype_, ptr %61, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @x86_create_params(i32 noundef %60, ptr noundef %63, ptr noundef %3)
   %65 = load ptr, ptr %2, align 8
-  %66 = load i16, ptr %65, align 8
-  %67 = and i16 %66, 15
-  %68 = zext i16 %67 to i32
-  %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds %struct.FunctionPrototype_, ptr %69, i32 0, i32 5
-  %71 = load ptr, ptr %70, align 8
-  %72 = call ptr @x86_create_params(i32 noundef %68, ptr noundef %71, ptr noundef %3)
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.FunctionPrototype_, ptr %73, i32 0, i32 11
-  store ptr %72, ptr %74, align 8
+  %66 = getelementptr inbounds %struct.FunctionPrototype_, ptr %65, i32 0, i32 10
+  store ptr %64, ptr %66, align 8
+  %67 = load ptr, ptr %2, align 8
+  %68 = load i16, ptr %67, align 8
+  %69 = and i16 %68, 15
+  %70 = zext i16 %69 to i32
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds %struct.FunctionPrototype_, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr @x86_create_params(i32 noundef %70, ptr noundef %73, ptr noundef %3)
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds %struct.FunctionPrototype_, ptr %75, i32 0, i32 11
+  store ptr %74, ptr %76, align 8
   ret void
 }
 
@@ -1237,7 +1242,7 @@ define internal ptr @x86_classify_primitives(i32 noundef %0, ptr noundef %1, ptr
   %17 = load ptr, ptr %10, align 8
   %18 = call ptr @x86_create_indirect_result(ptr noundef %16, ptr noundef %17, i32 noundef 1)
   store ptr %18, ptr %7, align 8
-  br label %62
+  br label %63
 
 19:                                               ; preds = %3
   %20 = load i32, ptr %8, align 4
@@ -1277,39 +1282,40 @@ define internal ptr @x86_classify_primitives(i32 noundef %0, ptr noundef %1, ptr
 
 42:                                               ; preds = %39, %36
   %43 = phi i1 [ false, %36 ], [ %41, %39 ]
-  br i1 %43, label %44, label %51
+  br i1 %43, label %44, label %52
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %6, align 8
   %46 = getelementptr inbounds %struct.Type_, ptr %45, i32 0, i32 7
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 255
-  %49 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %50 = icmp ult i32 %48, %49
-  br label %51
+  %49 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ult i32 %48, %50
+  br label %52
 
-51:                                               ; preds = %44, %42
-  %52 = phi i1 [ false, %42 ], [ %50, %44 ]
-  br i1 %52, label %53, label %58
+52:                                               ; preds = %44, %42
+  %53 = phi i1 [ false, %42 ], [ %51, %44 ]
+  br i1 %53, label %54, label %59
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i8, ptr %11, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = call ptr @abi_arg_new_direct_int_ext_by_reg(ptr noundef %54, i1 noundef zeroext %56)
-  store ptr %57, ptr %7, align 8
-  br label %62
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i8, ptr %11, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = call ptr @abi_arg_new_direct_int_ext_by_reg(ptr noundef %55, i1 noundef zeroext %57)
+  store ptr %58, ptr %7, align 8
+  br label %63
 
-58:                                               ; preds = %51
-  %59 = load i8, ptr %11, align 1
-  %60 = trunc i8 %59 to i1
-  %61 = call ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext %60)
-  store ptr %61, ptr %7, align 8
-  br label %62
+59:                                               ; preds = %52
+  %60 = load i8, ptr %11, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = call ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext %61)
+  store ptr %62, ptr %7, align 8
+  br label %63
 
-62:                                               ; preds = %58, %53, %15
-  %63 = load ptr, ptr %7, align 8
-  ret ptr %63
+63:                                               ; preds = %59, %54, %15
+  %64 = load ptr, ptr %7, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1400,7 +1406,7 @@ define internal ptr @x86_classify_aggregate(i32 noundef %0, ptr noundef %1, ptr 
   %42 = load ptr, ptr %9, align 8
   %43 = call ptr @x86_create_indirect_result(ptr noundef %41, ptr noundef %42, i32 noundef 0)
   store ptr %43, ptr %6, align 8
-  br label %98
+  br label %100
 
 44:                                               ; preds = %31, %29
   %45 = load ptr, ptr %9, align 8
@@ -1409,7 +1415,7 @@ define internal ptr @x86_classify_aggregate(i32 noundef %0, ptr noundef %1, ptr 
   %47 = load ptr, ptr %8, align 8
   %48 = load ptr, ptr %9, align 8
   %49 = call zeroext i1 @x86_try_use_free_regs(ptr noundef %47, ptr noundef %48)
-  br i1 %49, label %50, label %76
+  br i1 %49, label %50, label %77
 
 50:                                               ; preds = %44
   %51 = load i32, ptr %10, align 4
@@ -1434,65 +1440,67 @@ define internal ptr @x86_classify_aggregate(i32 noundef %0, ptr noundef %1, ptr 
   br label %63
 
 63:                                               ; preds = %60, %56
-  %64 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %65 = lshr i8 %64, 2
-  %66 = and i8 %65, 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %74, label %68
+  %64 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %65 = load i8, ptr %64, align 8
+  %66 = lshr i8 %65, 2
+  %67 = and i8 %66, 1
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %75, label %69
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct.ABIArgInfo_, ptr %69, i32 0, i32 2
-  %71 = load i8, ptr %70, align 1
-  %72 = and i8 %71, -2
-  %73 = or i8 %72, 1
-  store i8 %73, ptr %70, align 1
-  br label %74
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %12, align 8
+  %71 = getelementptr inbounds %struct.ABIArgInfo_, ptr %70, i32 0, i32 2
+  %72 = load i8, ptr %71, align 1
+  %73 = and i8 %72, -2
+  %74 = or i8 %73, 1
+  store i8 %74, ptr %71, align 1
+  br label %75
 
-74:                                               ; preds = %68, %63
-  %75 = load ptr, ptr %12, align 8
-  store ptr %75, ptr %6, align 8
-  br label %98
+75:                                               ; preds = %69, %63
+  %76 = load ptr, ptr %12, align 8
+  store ptr %76, ptr %6, align 8
+  br label %100
 
-76:                                               ; preds = %44
-  %77 = load i32, ptr %10, align 4
-  %78 = icmp ule i32 %77, 16
-  br i1 %78, label %79, label %94
+77:                                               ; preds = %44
+  %78 = load i32, ptr %10, align 4
+  %79 = icmp ule i32 %78, 16
+  br i1 %79, label %80, label %96
 
-79:                                               ; preds = %76
-  %80 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %81 = lshr i8 %80, 2
-  %82 = and i8 %81, 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %89
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %82 = load i8, ptr %81, align 8
+  %83 = lshr i8 %82, 2
+  %84 = and i8 %83, 1
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %91
 
-84:                                               ; preds = %79
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.Regs, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %94, label %89
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds %struct.Regs, ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %96, label %91
 
-89:                                               ; preds = %84, %79
-  %90 = load ptr, ptr %9, align 8
-  %91 = call zeroext i1 @x86_can_expand_indirect_aggregate_arg(ptr noundef %90)
-  br i1 %91, label %92, label %94
+91:                                               ; preds = %86, %80
+  %92 = load ptr, ptr %9, align 8
+  %93 = call zeroext i1 @x86_can_expand_indirect_aggregate_arg(ptr noundef %92)
+  br i1 %93, label %94, label %96
 
-92:                                               ; preds = %89
-  %93 = call ptr @abi_arg_new_expand()
-  store ptr %93, ptr %6, align 8
-  br label %98
+94:                                               ; preds = %91
+  %95 = call ptr @abi_arg_new_expand()
+  store ptr %95, ptr %6, align 8
+  br label %100
 
-94:                                               ; preds = %89, %84, %76
-  %95 = load ptr, ptr %8, align 8
-  %96 = load ptr, ptr %9, align 8
-  %97 = call ptr @x86_create_indirect_result(ptr noundef %95, ptr noundef %96, i32 noundef 0)
-  store ptr %97, ptr %6, align 8
-  br label %98
+96:                                               ; preds = %91, %86, %77
+  %97 = load ptr, ptr %8, align 8
+  %98 = load ptr, ptr %9, align 8
+  %99 = call ptr @x86_create_indirect_result(ptr noundef %97, ptr noundef %98, i32 noundef 0)
+  store ptr %99, ptr %6, align 8
+  br label %100
 
-98:                                               ; preds = %94, %92, %74, %40
-  %99 = load ptr, ptr %6, align 8
-  ret ptr %99
+100:                                              ; preds = %96, %94, %75, %40
+  %101 = load ptr, ptr %6, align 8
+  ret ptr %101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1509,7 +1517,7 @@ define internal ptr @x86_create_indirect_result(ptr noundef %0, ptr noundef %1, 
   store i32 %2, ptr %7, align 4
   %11 = load i32, ptr %7, align 4
   %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %38
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %6, align 8
@@ -1519,7 +1527,7 @@ define internal ptr @x86_create_indirect_result(ptr noundef %0, ptr noundef %1, 
   %17 = getelementptr inbounds %struct.Regs, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %36
+  br i1 %19, label %20, label %37
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %5, align 8
@@ -1527,67 +1535,68 @@ define internal ptr @x86_create_indirect_result(ptr noundef %0, ptr noundef %1, 
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, -1
   store i32 %24, ptr %22, align 4
-  %25 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %26 = lshr i8 %25, 2
-  %27 = and i8 %26, 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %35, label %29
+  %25 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %26 = load i8, ptr %25, align 8
+  %27 = lshr i8 %26, 2
+  %28 = and i8 %27, 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %36, label %30
 
-29:                                               ; preds = %20
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.ABIArgInfo_, ptr %30, i32 0, i32 2
-  %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, -2
-  %34 = or i8 %33, 1
-  store i8 %34, ptr %31, align 1
-  br label %35
-
-35:                                               ; preds = %29, %20
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds %struct.ABIArgInfo_, ptr %31, i32 0, i32 2
+  %33 = load i8, ptr %32, align 1
+  %34 = and i8 %33, -2
+  %35 = or i8 %34, 1
+  store i8 %35, ptr %32, align 1
   br label %36
 
-36:                                               ; preds = %35, %13
-  %37 = load ptr, ptr %8, align 8
-  store ptr %37, ptr %4, align 8
-  br label %58
+36:                                               ; preds = %30, %20
+  br label %37
 
-38:                                               ; preds = %3
-  %39 = load ptr, ptr %6, align 8
-  %40 = call i32 @type_abi_alignment(ptr noundef %39)
-  store i32 %40, ptr %9, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = call i32 @x86_stack_alignment(ptr noundef %41, i32 noundef %42)
-  store i32 %43, ptr %10, align 4
-  %44 = load i32, ptr %10, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %47
+37:                                               ; preds = %36, %13
+  %38 = load ptr, ptr %8, align 8
+  store ptr %38, ptr %4, align 8
+  br label %59
 
-46:                                               ; preds = %38
+39:                                               ; preds = %3
+  %40 = load ptr, ptr %6, align 8
+  %41 = call i32 @type_abi_alignment(ptr noundef %40)
+  store i32 %41, ptr %9, align 4
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = call i32 @x86_stack_alignment(ptr noundef %42, i32 noundef %43)
+  store i32 %44, ptr %10, align 4
+  %45 = load i32, ptr %10, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %39
   store i32 4, ptr %10, align 4
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %38
-  %48 = load i32, ptr %9, align 4
-  %49 = load i32, ptr %10, align 4
-  %50 = icmp ugt i32 %48, %49
-  br i1 %50, label %51, label %55
+48:                                               ; preds = %47, %39
+  %49 = load i32, ptr %9, align 4
+  %50 = load i32, ptr %10, align 4
+  %51 = icmp ugt i32 %49, %50
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %10, align 4
-  %53 = load ptr, ptr %6, align 8
-  %54 = call ptr @abi_arg_new_indirect_realigned(i32 noundef %52, ptr noundef %53)
-  store ptr %54, ptr %4, align 8
-  br label %58
+52:                                               ; preds = %48
+  %53 = load i32, ptr %10, align 4
+  %54 = load ptr, ptr %6, align 8
+  %55 = call ptr @abi_arg_new_indirect_realigned(i32 noundef %53, ptr noundef %54)
+  store ptr %55, ptr %4, align 8
+  br label %59
 
-55:                                               ; preds = %47
-  %56 = load ptr, ptr %6, align 8
-  %57 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %56)
-  store ptr %57, ptr %4, align 8
-  br label %58
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %6, align 8
+  %58 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %57)
+  store ptr %58, ptr %4, align 8
+  br label %59
 
-58:                                               ; preds = %55, %51, %36
-  %59 = load ptr, ptr %4, align 8
-  ret ptr %59
+59:                                               ; preds = %56, %52, %37
+  %60 = load ptr, ptr %4, align 8
+  ret ptr %60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1606,26 +1615,27 @@ define internal zeroext i1 @x86_try_put_primitive_in_reg(i32 noundef %0, ptr nou
 
 11:                                               ; preds = %3
   store i1 false, ptr %4, align 1
-  br label %19
+  br label %20
 
 12:                                               ; preds = %3
-  %13 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %14 = lshr i8 %13, 2
-  %15 = and i8 %14, 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %12
-  store i1 false, ptr %4, align 1
-  br label %19
+  %13 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %14 = load i8, ptr %13, align 8
+  %15 = lshr i8 %14, 2
+  %16 = and i8 %15, 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12
-  store i1 true, ptr %4, align 1
-  br label %19
+  store i1 false, ptr %4, align 1
+  br label %20
 
-19:                                               ; preds = %18, %17, %11
-  %20 = load i1, ptr %4, align 1
-  ret i1 %20
+19:                                               ; preds = %12
+  store i1 true, ptr %4, align 1
+  br label %20
+
+20:                                               ; preds = %19, %18, %11
+  %21 = load i1, ptr %4, align 1
+  ret i1 %21
 }
 
 declare ptr @abi_arg_new_direct_int_ext_by_reg(ptr noundef, i1 noundef zeroext) #1
@@ -1850,137 +1860,139 @@ define internal zeroext i1 @x86_try_use_free_regs(ptr noundef %0, ptr noundef %1
   %9 = alloca i64, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %11 = lshr i8 %10, 1
-  %12 = and i8 %11, 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %34, label %14
+  %10 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %11 = load i8, ptr %10, align 8
+  %12 = lshr i8 %11, 1
+  %13 = and i8 %12, 1
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %35, label %15
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %7, align 8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %16, align 8
-  store i32 %17, ptr %4, align 4
-  %18 = load i32, ptr %4, align 4
-  %19 = icmp eq i32 %18, 31
-  br i1 %19, label %20, label %25
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = load i32, ptr %17, align 8
+  store i32 %18, ptr %4, align 4
+  %19 = load i32, ptr %4, align 4
+  %20 = icmp eq i32 %19, 31
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Type_, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr %4, align 4
-  br label %25
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.Type_, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %4, align 4
+  br label %26
 
-25:                                               ; preds = %20, %14
-  %26 = load i32, ptr %4, align 4
-  %27 = icmp uge i32 %26, 13
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %21, %15
+  %27 = load i32, ptr %4, align 4
+  %28 = icmp uge i32 %27, 13
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp ule i32 %29, 17
-  br label %31
+29:                                               ; preds = %26
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp ule i32 %30, 17
+  br label %32
 
-31:                                               ; preds = %28, %25
-  %32 = phi i1 [ false, %25 ], [ %30, %28 ]
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %29, %26
+  %33 = phi i1 [ false, %26 ], [ %31, %29 ]
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   store i1 false, ptr %5, align 1
-  br label %87
+  br label %89
 
-34:                                               ; preds = %31, %2
-  %35 = load ptr, ptr %7, align 8
-  %36 = call i32 @type_size(ptr noundef %35)
-  %37 = zext i32 %36 to i64
-  store i64 %37, ptr %8, align 8
-  %38 = load i64, ptr %8, align 8
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %41, label %40
+35:                                               ; preds = %32, %2
+  %36 = load ptr, ptr %7, align 8
+  %37 = call i32 @type_size(ptr noundef %36)
+  %38 = zext i32 %37 to i64
+  store i64 %38, ptr %8, align 8
+  %39 = load i64, ptr %8, align 8
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %34
+41:                                               ; preds = %35
   store i1 false, ptr %5, align 1
-  br label %87
+  br label %89
 
-41:                                               ; preds = %34
-  %42 = load i64, ptr %8, align 8
-  %43 = add i64 %42, 3
-  %44 = udiv i64 %43, 4
-  store i64 %44, ptr %9, align 8
-  %45 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %46 = lshr i8 %45, 2
-  %47 = and i8 %46, 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %69
+42:                                               ; preds = %35
+  %43 = load i64, ptr %8, align 8
+  %44 = add i64 %43, 3
+  %45 = udiv i64 %44, 4
+  store i64 %45, ptr %9, align 8
+  %46 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %47 = load i8, ptr %46, align 8
+  %48 = lshr i8 %47, 2
+  %49 = and i8 %48, 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %71
 
-49:                                               ; preds = %41
-  %50 = load i64, ptr %9, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.Regs, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 4
-  %54 = zext i32 %53 to i64
-  %55 = icmp ugt i64 %50, %54
-  br i1 %55, label %56, label %57
+51:                                               ; preds = %42
+  %52 = load i64, ptr %9, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.Regs, ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 4
+  %56 = zext i32 %55 to i64
+  %57 = icmp ugt i64 %52, %56
+  br i1 %57, label %58, label %59
 
-56:                                               ; preds = %49
+58:                                               ; preds = %51
   store i1 false, ptr %5, align 1
-  br label %87
+  br label %89
 
-57:                                               ; preds = %49
-  %58 = load i64, ptr %9, align 8
-  %59 = icmp ugt i64 %58, 2
-  br i1 %59, label %60, label %61
+59:                                               ; preds = %51
+  %60 = load i64, ptr %9, align 8
+  %61 = icmp ugt i64 %60, 2
+  br i1 %61, label %62, label %63
 
-60:                                               ; preds = %57
+62:                                               ; preds = %59
   store i1 false, ptr %5, align 1
-  br label %87
+  br label %89
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %9, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.Regs, ptr %63, i32 0, i32 0
-  %65 = load i32, ptr %64, align 4
-  %66 = zext i32 %65 to i64
-  %67 = sub i64 %66, %62
-  %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %64, align 4
+63:                                               ; preds = %59
+  %64 = load i64, ptr %9, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds %struct.Regs, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 4
+  %68 = zext i32 %67 to i64
+  %69 = sub i64 %68, %64
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %66, align 4
   store i1 true, ptr %5, align 1
-  br label %87
+  br label %89
 
-69:                                               ; preds = %41
-  %70 = load i64, ptr %9, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.Regs, ptr %71, i32 0, i32 0
-  %73 = load i32, ptr %72, align 4
-  %74 = zext i32 %73 to i64
-  %75 = icmp ugt i64 %70, %74
-  br i1 %75, label %76, label %79
+71:                                               ; preds = %42
+  %72 = load i64, ptr %9, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.Regs, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 4
+  %76 = zext i32 %75 to i64
+  %77 = icmp ugt i64 %72, %76
+  br i1 %77, label %78, label %81
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.Regs, ptr %77, i32 0, i32 0
-  store i32 0, ptr %78, align 4
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct.Regs, ptr %79, i32 0, i32 0
+  store i32 0, ptr %80, align 4
   store i1 false, ptr %5, align 1
-  br label %87
+  br label %89
 
-79:                                               ; preds = %69
-  %80 = load i64, ptr %9, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct.Regs, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 4
-  %84 = zext i32 %83 to i64
-  %85 = sub i64 %84, %80
-  %86 = trunc i64 %85 to i32
-  store i32 %86, ptr %82, align 4
+81:                                               ; preds = %71
+  %82 = load i64, ptr %9, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.Regs, ptr %83, i32 0, i32 0
+  %85 = load i32, ptr %84, align 4
+  %86 = zext i32 %85 to i64
+  %87 = sub i64 %86, %82
+  %88 = trunc i64 %87 to i32
+  store i32 %88, ptr %84, align 4
   store i1 true, ptr %5, align 1
-  br label %87
+  br label %89
 
-87:                                               ; preds = %79, %76, %61, %60, %56, %40, %33
-  %88 = load i1, ptr %5, align 1
-  ret i1 %88
+89:                                               ; preds = %81, %78, %63, %62, %58, %41, %34
+  %90 = load i1, ptr %5, align 1
+  ret i1 %90
 }
 
 ; Function Attrs: nounwind uwtable

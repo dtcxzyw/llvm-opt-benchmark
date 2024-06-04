@@ -56,8 +56,10 @@ if.then2:                                         ; preds = %do.body
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then2
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 87, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %6 = getelementptr i8, ptr @.str, i64 123
+  store ptr %6, ptr %absl_raw_log_internal_basename, align 8
+  %7 = getelementptr i8, ptr @.str, i64 123
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %7, i32 noundef 87, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body3
@@ -67,12 +69,12 @@ do.body4:                                         ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %do.body17, %do.body3
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4absl13base_internal10ErrnoSaverD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %errno_saver) #5
   br label %eh.resume
 
@@ -99,27 +101,29 @@ do.end9:                                          ; preds = %do.cond8
 
 do.body10:                                        ; preds = %do.end9
   %call11 = call ptr @__errno_location() #6
-  %9 = load i32, ptr %call11, align 4
-  %cmp12 = icmp eq i32 %9, 14
+  %11 = load i32, ptr %call11, align 4
+  %cmp12 = icmp eq i32 %11, 14
   br i1 %cmp12, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.body10
   %call13 = call ptr @__errno_location() #6
-  %10 = load i32, ptr %call13, align 4
-  %cmp14 = icmp eq i32 %10, 22
+  %12 = load i32, ptr %call13, align 4
+  %cmp14 = icmp eq i32 %12, 22
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %do.body10
-  %11 = phi i1 [ true, %do.body10 ], [ %cmp14, %lor.rhs ]
-  %lnot15 = xor i1 %11, true
+  %13 = phi i1 [ true, %do.body10 ], [ %cmp14, %lor.rhs ]
+  %lnot15 = xor i1 %13, true
   br i1 %lnot15, label %if.then16, label %if.end25
 
 if.then16:                                        ; preds = %lor.end
   br label %do.body17
 
 do.body17:                                        ; preds = %if.then16
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename18, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 88, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  %14 = getelementptr i8, ptr @.str, i64 123
+  store ptr %14, ptr %absl_raw_log_internal_basename18, align 8
+  %15 = getelementptr i8, ptr @.str, i64 123
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %15, i32 noundef 88, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %do.body17
@@ -148,15 +152,15 @@ do.cond26:                                        ; preds = %if.end25
 
 do.end27:                                         ; preds = %do.cond26
   %call28 = call ptr @__errno_location() #6
-  %12 = load i32, ptr %call28, align 4
-  %cmp29 = icmp ne i32 %12, 14
+  %16 = load i32, ptr %call28, align 4
+  %cmp29 = icmp ne i32 %16, 14
   store i1 %cmp29, ptr %retval, align 1
   call void @_ZN4absl13base_internal10ErrnoSaverD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %errno_saver) #5
   br label %return
 
 return:                                           ; preds = %do.end27, %if.then
-  %13 = load i1, ptr %retval, align 1
-  ret i1 %13
+  %17 = load i1, ptr %retval, align 1
+  ret i1 %17
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

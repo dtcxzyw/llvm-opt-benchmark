@@ -40,17 +40,20 @@ define dso_local void @uv__signal_cleanup() #0 {
   br label %6
 
 6:                                                ; preds = %3, %0
-  %7 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %8 = icmp ne i32 %7, -1
-  br i1 %8, label %9, label %12
+  %7 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ne i32 %8, -1
+  br i1 %9, label %10, label %15
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %11 = call i32 @uv__close(i32 noundef %10)
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  br label %12
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %12 = load i32, ptr %11, align 4
+  %13 = call i32 @uv__close(i32 noundef %12)
+  %14 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  store i32 -1, ptr %14, align 4
+  br label %15
 
-12:                                               ; preds = %9, %6
+15:                                               ; preds = %10, %6
   ret void
 }
 
@@ -733,33 +736,34 @@ define internal i32 @uv__signal_unlock() #0 {
   store i8 42, ptr %2, align 1
   br label %3
 
-3:                                                ; preds = %14, %0
-  %4 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %5 = call i64 @write(i32 noundef %4, ptr noundef %2, i64 noundef 1)
-  %6 = trunc i64 %5 to i32
-  store i32 %6, ptr %1, align 4
-  br label %7
+3:                                                ; preds = %15, %0
+  %4 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %5 = load i32, ptr %4, align 4
+  %6 = call i64 @write(i32 noundef %5, ptr noundef %2, i64 noundef 1)
+  %7 = trunc i64 %6 to i32
+  store i32 %7, ptr %1, align 4
+  br label %8
 
-7:                                                ; preds = %3
-  %8 = load i32, ptr %1, align 4
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %14
+8:                                                ; preds = %3
+  %9 = load i32, ptr %1, align 4
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %7
-  %11 = call ptr @__errno_location() #9
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, 4
-  br label %14
+11:                                               ; preds = %8
+  %12 = call ptr @__errno_location() #9
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 4
+  br label %15
 
-14:                                               ; preds = %10, %7
-  %15 = phi i1 [ false, %7 ], [ %13, %10 ]
-  br i1 %15, label %3, label %16, !llvm.loop !7
+15:                                               ; preds = %11, %8
+  %16 = phi i1 [ false, %8 ], [ %14, %11 ]
+  br i1 %16, label %3, label %17, !llvm.loop !7
 
-16:                                               ; preds = %14
-  %17 = load i32, ptr %1, align 4
-  %18 = icmp slt i32 %17, 0
-  %19 = select i1 %18, i32 -1, i32 0
-  ret i32 %19
+17:                                               ; preds = %15
+  %18 = load i32, ptr %1, align 4
+  %19 = icmp slt i32 %18, 0
+  %20 = select i1 %19, i32 -1, i32 0
+  ret i32 %20
 }
 
 declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1

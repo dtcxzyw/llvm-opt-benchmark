@@ -99,14 +99,15 @@ entry:
   %call = call i32 @RAND_bytes(ptr noundef @session_id, i32 noundef 32)
   %call1 = call i32 @RAND_bytes(ptr noundef @master_secret, i32 noundef 48)
   %call2 = call i32 @RAND_bytes(ptr noundef @cookie, i32 noundef 20)
-  %call3 = call i32 @RAND_bytes(ptr noundef getelementptr inbounds (i8, ptr @server_random, i64 4), i32 noundef 28)
+  %0 = getelementptr inbounds i8, ptr @server_random, i64 4
+  %call3 = call i32 @RAND_bytes(ptr noundef %0, i32 noundef 28)
   %call4 = call i64 @time(ptr noundef null) #4
   store i64 %call4, ptr %now, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @server_random, ptr align 8 %now, i64 8, i1 false)
   %call5 = call ptr @client_session()
   store ptr %call5, ptr %sess, align 8
-  %0 = load ptr, ptr %sess, align 8
-  %call6 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 484, ptr noundef @.str.2, ptr noundef %0)
+  %1 = load ptr, ptr %sess, align 8
+  %call6 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 484, ptr noundef @.str.2, ptr noundef %1)
   %tobool = icmp ne i32 %call6, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -116,15 +117,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call7 = call ptr @EVP_MD_CTX_new()
   store ptr %call7, ptr @handshake_md, align 8
-  %1 = load ptr, ptr @handshake_md, align 8
-  %call8 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 488, ptr noundef @.str.3, ptr noundef %1)
+  %2 = load ptr, ptr @handshake_md, align 8
+  %call8 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 488, ptr noundef @.str.3, ptr noundef %2)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %lor.lhs.false, label %if.then14
 
 lor.lhs.false:                                    ; preds = %if.end
-  %2 = load ptr, ptr @handshake_md, align 8
+  %3 = load ptr, ptr @handshake_md, align 8
   %call10 = call ptr @EVP_md5_sha1()
-  %call11 = call i32 @EVP_DigestInit_ex(ptr noundef %2, ptr noundef %call10, ptr noundef null)
+  %call11 = call i32 @EVP_DigestInit_ex(ptr noundef %3, ptr noundef %call10, ptr noundef null)
   %cmp = icmp ne i32 %call11, 0
   %conv = zext i1 %cmp to i32
   %call12 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 490, ptr noundef @.str.4, i32 noundef %conv)
@@ -138,14 +139,14 @@ if.end15:                                         ; preds = %lor.lhs.false
   %call16 = call ptr @DTLS_client_method()
   %call17 = call ptr @SSL_CTX_new(ptr noundef %call16)
   store ptr %call17, ptr %ctx, align 8
-  %3 = load ptr, ptr %ctx, align 8
-  %call18 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 494, ptr noundef @.str.5, ptr noundef %3)
+  %4 = load ptr, ptr %ctx, align 8
+  %call18 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 494, ptr noundef @.str.5, ptr noundef %4)
   %tobool19 = icmp ne i32 %call18, 0
   br i1 %tobool19, label %lor.lhs.false20, label %if.then44
 
 lor.lhs.false20:                                  ; preds = %if.end15
-  %4 = load ptr, ptr %ctx, align 8
-  %call21 = call i64 @SSL_CTX_ctrl(ptr noundef %4, i32 noundef 123, i64 noundef 256, ptr noundef null)
+  %5 = load ptr, ptr %ctx, align 8
+  %call21 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 123, i64 noundef 256, ptr noundef null)
   %cmp22 = icmp ne i64 %call21, 0
   %conv23 = zext i1 %cmp22 to i32
   %call24 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 495, ptr noundef @.str.6, i32 noundef %conv23)
@@ -153,8 +154,8 @@ lor.lhs.false20:                                  ; preds = %if.end15
   br i1 %tobool25, label %lor.lhs.false26, label %if.then44
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false20
-  %5 = load ptr, ptr %ctx, align 8
-  %call27 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 124, i64 noundef 256, ptr noundef null)
+  %6 = load ptr, ptr %ctx, align 8
+  %call27 = call i64 @SSL_CTX_ctrl(ptr noundef %6, i32 noundef 124, i64 noundef 256, ptr noundef null)
   %cmp28 = icmp ne i64 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call30 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 496, ptr noundef @.str.7, i32 noundef %conv29)
@@ -162,8 +163,8 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false20
   br i1 %tobool31, label %lor.lhs.false32, label %if.then44
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false26
-  %6 = load ptr, ptr %ctx, align 8
-  %call33 = call i64 @SSL_CTX_set_options(ptr noundef %6, i64 noundef 4)
+  %7 = load ptr, ptr %ctx, align 8
+  %call33 = call i64 @SSL_CTX_set_options(ptr noundef %7, i64 noundef 4)
   %cmp34 = icmp ne i64 %call33, 0
   %conv35 = zext i1 %cmp34 to i32
   %call36 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 498, ptr noundef @.str.8, i32 noundef %conv35)
@@ -171,8 +172,8 @@ lor.lhs.false32:                                  ; preds = %lor.lhs.false26
   br i1 %tobool37, label %lor.lhs.false38, label %if.then44
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false32
-  %7 = load ptr, ptr %ctx, align 8
-  %call39 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %7, ptr noundef @.str.10)
+  %8 = load ptr, ptr %ctx, align 8
+  %call39 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %8, ptr noundef @.str.10)
   %cmp40 = icmp ne i32 %call39, 0
   %conv41 = zext i1 %cmp40 to i32
   %call42 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 499, ptr noundef @.str.9, i32 noundef %conv41)
@@ -183,20 +184,20 @@ if.then44:                                        ; preds = %lor.lhs.false38, %l
   br label %end
 
 if.end45:                                         ; preds = %lor.lhs.false38
-  %8 = load ptr, ptr %ctx, align 8
-  call void @SSL_CTX_set_security_level(ptr noundef %8, i32 noundef 0)
   %9 = load ptr, ptr %ctx, align 8
-  %call46 = call ptr @SSL_new(ptr noundef %9)
+  call void @SSL_CTX_set_security_level(ptr noundef %9, i32 noundef 0)
+  %10 = load ptr, ptr %ctx, align 8
+  %call46 = call ptr @SSL_new(ptr noundef %10)
   store ptr %call46, ptr %con, align 8
-  %10 = load ptr, ptr %con, align 8
-  %call47 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 504, ptr noundef @.str.11, ptr noundef %10)
+  %11 = load ptr, ptr %con, align 8
+  %call47 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 504, ptr noundef @.str.11, ptr noundef %11)
   %tobool48 = icmp ne i32 %call47, 0
   br i1 %tobool48, label %lor.lhs.false49, label %if.then55
 
 lor.lhs.false49:                                  ; preds = %if.end45
-  %11 = load ptr, ptr %con, align 8
-  %12 = load ptr, ptr %sess, align 8
-  %call50 = call i32 @SSL_set_session(ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %con, align 8
+  %13 = load ptr, ptr %sess, align 8
+  %call50 = call i32 @SSL_set_session(ptr noundef %12, ptr noundef %13)
   %cmp51 = icmp ne i32 %call50, 0
   %conv52 = zext i1 %cmp51 to i32
   %call53 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 505, ptr noundef @.str.12, i32 noundef %conv52)
@@ -207,22 +208,22 @@ if.then55:                                        ; preds = %lor.lhs.false49, %i
   br label %end
 
 if.end56:                                         ; preds = %lor.lhs.false49
-  %13 = load ptr, ptr %sess, align 8
-  call void @SSL_SESSION_free(ptr noundef %13)
+  %14 = load ptr, ptr %sess, align 8
+  call void @SSL_SESSION_free(ptr noundef %14)
   %call57 = call ptr @BIO_s_mem()
   %call58 = call ptr @BIO_new(ptr noundef %call57)
   store ptr %call58, ptr %rbio, align 8
   %call59 = call ptr @BIO_s_mem()
   %call60 = call ptr @BIO_new(ptr noundef %call59)
   store ptr %call60, ptr %wbio, align 8
-  %14 = load ptr, ptr %rbio, align 8
-  %call61 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 512, ptr noundef @.str.13, ptr noundef %14)
+  %15 = load ptr, ptr %rbio, align 8
+  %call61 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 512, ptr noundef @.str.13, ptr noundef %15)
   %tobool62 = icmp ne i32 %call61, 0
   br i1 %tobool62, label %lor.lhs.false63, label %if.then66
 
 lor.lhs.false63:                                  ; preds = %if.end56
-  %15 = load ptr, ptr %wbio, align 8
-  %call64 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 513, ptr noundef @.str.14, ptr noundef %15)
+  %16 = load ptr, ptr %wbio, align 8
+  %call64 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 513, ptr noundef @.str.14, ptr noundef %16)
   %tobool65 = icmp ne i32 %call64, 0
   br i1 %tobool65, label %if.end67, label %if.then66
 
@@ -230,12 +231,12 @@ if.then66:                                        ; preds = %lor.lhs.false63, %i
   br label %end
 
 if.end67:                                         ; preds = %lor.lhs.false63
-  %16 = load ptr, ptr %con, align 8
-  %17 = load ptr, ptr %rbio, align 8
-  %18 = load ptr, ptr %wbio, align 8
-  call void @SSL_set_bio(ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %rbio, align 8
-  %call68 = call i32 @BIO_up_ref(ptr noundef %19)
+  %17 = load ptr, ptr %con, align 8
+  %18 = load ptr, ptr %rbio, align 8
+  %19 = load ptr, ptr %wbio, align 8
+  call void @SSL_set_bio(ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  %20 = load ptr, ptr %rbio, align 8
+  %call68 = call i32 @BIO_up_ref(ptr noundef %20)
   %cmp69 = icmp ne i32 %call68, 0
   %conv70 = zext i1 %cmp69 to i32
   %call71 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 518, ptr noundef @.str.15, i32 noundef %conv70)
@@ -248,8 +249,8 @@ if.then73:                                        ; preds = %if.end67
   br label %end
 
 if.end74:                                         ; preds = %if.end67
-  %20 = load ptr, ptr %wbio, align 8
-  %call75 = call i32 @BIO_up_ref(ptr noundef %20)
+  %21 = load ptr, ptr %wbio, align 8
+  %call75 = call i32 @BIO_up_ref(ptr noundef %21)
   %cmp76 = icmp ne i32 %call75, 0
   %conv77 = zext i1 %cmp76 to i32
   %call78 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 527, ptr noundef @.str.16, i32 noundef %conv77)
@@ -261,34 +262,34 @@ if.then80:                                        ; preds = %if.end74
   br label %end
 
 if.end81:                                         ; preds = %if.end74
-  %21 = load ptr, ptr %con, align 8
-  call void @SSL_set_connect_state(ptr noundef %21)
   %22 = load ptr, ptr %con, align 8
-  %call82 = call i32 @SSL_do_handshake(ptr noundef %22)
+  call void @SSL_set_connect_state(ptr noundef %22)
+  %23 = load ptr, ptr %con, align 8
+  %call82 = call i32 @SSL_do_handshake(ptr noundef %23)
   store i32 %call82, ptr %ret, align 4
-  %23 = load i32, ptr %ret, align 4
-  %call83 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 536, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %23, i32 noundef 0)
+  %24 = load i32, ptr %ret, align 4
+  %call83 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 536, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %24, i32 noundef 0)
   %tobool84 = icmp ne i32 %call83, 0
   br i1 %tobool84, label %lor.lhs.false85, label %if.then99
 
 lor.lhs.false85:                                  ; preds = %if.end81
-  %24 = load ptr, ptr %con, align 8
-  %25 = load i32, ptr %ret, align 4
-  %call86 = call i32 @SSL_get_error(ptr noundef %24, i32 noundef %25)
+  %25 = load ptr, ptr %con, align 8
+  %26 = load i32, ptr %ret, align 4
+  %call86 = call i32 @SSL_get_error(ptr noundef %25, i32 noundef %26)
   %call87 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 537, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %call86, i32 noundef 2)
   %tobool88 = icmp ne i32 %call87, 0
   br i1 %tobool88, label %lor.lhs.false89, label %if.then99
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false85
-  %26 = load ptr, ptr %wbio, align 8
-  %call90 = call i32 @validate_client_hello(ptr noundef %26)
+  %27 = load ptr, ptr %wbio, align 8
+  %call90 = call i32 @validate_client_hello(ptr noundef %27)
   %call91 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 538, ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef %call90, i32 noundef 1)
   %tobool92 = icmp ne i32 %call91, 0
   br i1 %tobool92, label %lor.lhs.false93, label %if.then99
 
 lor.lhs.false93:                                  ; preds = %lor.lhs.false89
-  %27 = load ptr, ptr %rbio, align 8
-  %call94 = call i32 @send_hello_verify(ptr noundef %27)
+  %28 = load ptr, ptr %rbio, align 8
+  %call94 = call i32 @send_hello_verify(ptr noundef %28)
   %cmp95 = icmp ne i32 %call94, 0
   %conv96 = zext i1 %cmp95 to i32
   %call97 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 539, ptr noundef @.str.23, i32 noundef %conv96)
@@ -299,32 +300,32 @@ if.then99:                                        ; preds = %lor.lhs.false93, %l
   br label %end
 
 if.end100:                                        ; preds = %lor.lhs.false93
-  %28 = load ptr, ptr %con, align 8
-  %call101 = call i32 @SSL_do_handshake(ptr noundef %28)
+  %29 = load ptr, ptr %con, align 8
+  %call101 = call i32 @SSL_do_handshake(ptr noundef %29)
   store i32 %call101, ptr %ret, align 4
-  %29 = load i32, ptr %ret, align 4
-  %call102 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 543, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %29, i32 noundef 0)
+  %30 = load i32, ptr %ret, align 4
+  %call102 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 543, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %30, i32 noundef 0)
   %tobool103 = icmp ne i32 %call102, 0
   br i1 %tobool103, label %lor.lhs.false104, label %if.then118
 
 lor.lhs.false104:                                 ; preds = %if.end100
-  %30 = load ptr, ptr %con, align 8
-  %31 = load i32, ptr %ret, align 4
-  %call105 = call i32 @SSL_get_error(ptr noundef %30, i32 noundef %31)
+  %31 = load ptr, ptr %con, align 8
+  %32 = load i32, ptr %ret, align 4
+  %call105 = call i32 @SSL_get_error(ptr noundef %31, i32 noundef %32)
   %call106 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 544, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %call105, i32 noundef 2)
   %tobool107 = icmp ne i32 %call106, 0
   br i1 %tobool107, label %lor.lhs.false108, label %if.then118
 
 lor.lhs.false108:                                 ; preds = %lor.lhs.false104
-  %32 = load ptr, ptr %wbio, align 8
-  %call109 = call i32 @validate_client_hello(ptr noundef %32)
+  %33 = load ptr, ptr %wbio, align 8
+  %call109 = call i32 @validate_client_hello(ptr noundef %33)
   %call110 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 545, ptr noundef @.str.21, ptr noundef @.str.24, i32 noundef %call109, i32 noundef 2)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %lor.lhs.false112, label %if.then118
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
-  %33 = load ptr, ptr %rbio, align 8
-  %call113 = call i32 @send_server_hello(ptr noundef %33)
+  %34 = load ptr, ptr %rbio, align 8
+  %call113 = call i32 @send_server_hello(ptr noundef %34)
   %cmp114 = icmp ne i32 %call113, 0
   %conv115 = zext i1 %cmp114 to i32
   %call116 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 546, ptr noundef @.str.25, i32 noundef %conv115)
@@ -335,26 +336,26 @@ if.then118:                                       ; preds = %lor.lhs.false112, %
   br label %end
 
 if.end119:                                        ; preds = %lor.lhs.false112
-  %34 = load ptr, ptr %con, align 8
-  %call120 = call i32 @SSL_do_handshake(ptr noundef %34)
+  %35 = load ptr, ptr %con, align 8
+  %call120 = call i32 @SSL_do_handshake(ptr noundef %35)
   store i32 %call120, ptr %ret, align 4
-  %35 = load i32, ptr %ret, align 4
-  %call121 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 550, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %35, i32 noundef 0)
+  %36 = load i32, ptr %ret, align 4
+  %call121 = call i32 @test_int_le(ptr noundef @.str.1, i32 noundef 550, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %36, i32 noundef 0)
   %tobool122 = icmp ne i32 %call121, 0
   br i1 %tobool122, label %lor.lhs.false123, label %if.then133
 
 lor.lhs.false123:                                 ; preds = %if.end119
-  %36 = load ptr, ptr %con, align 8
-  %37 = load i32, ptr %ret, align 4
-  %call124 = call i32 @SSL_get_error(ptr noundef %36, i32 noundef %37)
+  %37 = load ptr, ptr %con, align 8
+  %38 = load i32, ptr %ret, align 4
+  %call124 = call i32 @SSL_get_error(ptr noundef %37, i32 noundef %38)
   %call125 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 551, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %call124, i32 noundef 2)
   %tobool126 = icmp ne i32 %call125, 0
   br i1 %tobool126, label %lor.lhs.false127, label %if.then133
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false123
-  %38 = load ptr, ptr %con, align 8
-  %39 = load ptr, ptr %rbio, align 8
-  %call128 = call i32 @send_finished(ptr noundef %38, ptr noundef %39)
+  %39 = load ptr, ptr %con, align 8
+  %40 = load ptr, ptr %rbio, align 8
+  %call128 = call i32 @send_finished(ptr noundef %39, ptr noundef %40)
   %cmp129 = icmp ne i32 %call128, 0
   %conv130 = zext i1 %cmp129 to i32
   %call131 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 552, ptr noundef @.str.26, i32 noundef %conv130)
@@ -365,17 +366,17 @@ if.then133:                                       ; preds = %lor.lhs.false127, %
   br label %end
 
 if.end134:                                        ; preds = %lor.lhs.false127
-  %40 = load ptr, ptr %con, align 8
-  %call135 = call i32 @SSL_do_handshake(ptr noundef %40)
+  %41 = load ptr, ptr %con, align 8
+  %call135 = call i32 @SSL_do_handshake(ptr noundef %41)
   store i32 %call135, ptr %ret, align 4
-  %41 = load i32, ptr %ret, align 4
-  %call136 = call i32 @test_int_gt(ptr noundef @.str.1, i32 noundef 556, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %41, i32 noundef 0)
+  %42 = load i32, ptr %ret, align 4
+  %call136 = call i32 @test_int_gt(ptr noundef @.str.1, i32 noundef 556, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %42, i32 noundef 0)
   %tobool137 = icmp ne i32 %call136, 0
   br i1 %tobool137, label %lor.lhs.false138, label %if.then144
 
 lor.lhs.false138:                                 ; preds = %if.end134
-  %42 = load ptr, ptr %wbio, align 8
-  %call139 = call i32 @validate_ccs(ptr noundef %42)
+  %43 = load ptr, ptr %wbio, align 8
+  %call139 = call i32 @validate_ccs(ptr noundef %43)
   %cmp140 = icmp ne i32 %call139, 0
   %conv141 = zext i1 %cmp140 to i32
   %call142 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 557, ptr noundef @.str.27, i32 noundef %conv141)
@@ -390,22 +391,22 @@ if.end145:                                        ; preds = %lor.lhs.false138
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end145
-  %43 = load i32, ptr %i, align 4
-  %cmp146 = icmp slt i32 %43, 35
+  %44 = load i32, ptr %i, align 4
+  %cmp146 = icmp slt i32 %44, 35
   br i1 %cmp146, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %44 = load ptr, ptr %rbio, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %45 to i64
+  %45 = load ptr, ptr %rbio, align 8
+  %46 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %46 to i64
   %arrayidx = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom
   %seq = getelementptr inbounds %struct.anon, ptr %arrayidx, i32 0, i32 0
-  %46 = load i64, ptr %seq, align 16
-  %47 = load i32, ptr %i, align 4
-  %idxprom148 = sext i32 %47 to i64
+  %47 = load i64, ptr %seq, align 16
+  %48 = load i32, ptr %i, align 4
+  %idxprom148 = sext i32 %48 to i64
   %arrayidx149 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom148
   %seq150 = getelementptr inbounds %struct.anon, ptr %arrayidx149, i32 0, i32 0
-  %call151 = call i32 @send_record(ptr noundef %44, i8 noundef zeroext 23, i64 noundef %46, ptr noundef %seq150, i64 noundef 8)
+  %call151 = call i32 @send_record(ptr noundef %45, i8 noundef zeroext 23, i64 noundef %47, ptr noundef %seq150, i64 noundef 8)
   %cmp152 = icmp ne i32 %call151, 0
   %conv153 = zext i1 %cmp152 to i32
   %call154 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 569, ptr noundef @.str.28, i32 noundef %conv153)
@@ -413,72 +414,72 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool155, label %if.end165, label %if.then156
 
 if.then156:                                       ; preds = %for.body
-  %48 = load i32, ptr %i, align 4
-  %idxprom157 = sext i32 %48 to i64
+  %49 = load i32, ptr %i, align 4
+  %idxprom157 = sext i32 %49 to i64
   %arrayidx158 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom157
   %seq159 = getelementptr inbounds %struct.anon, ptr %arrayidx158, i32 0, i32 0
-  %49 = load i64, ptr %seq159, align 16
-  %shr = lshr i64 %49, 32
+  %50 = load i64, ptr %seq159, align 16
+  %shr = lshr i64 %50, 32
   %conv160 = trunc i64 %shr to i32
-  %50 = load i32, ptr %i, align 4
-  %idxprom161 = sext i32 %50 to i64
+  %51 = load i32, ptr %i, align 4
+  %idxprom161 = sext i32 %51 to i64
   %arrayidx162 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom161
   %seq163 = getelementptr inbounds %struct.anon, ptr %arrayidx162, i32 0, i32 0
-  %51 = load i64, ptr %seq163, align 16
-  %conv164 = trunc i64 %51 to i32
-  %52 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.1, i32 noundef 571, ptr noundef @.str.29, i32 noundef %conv160, i32 noundef %conv164, i32 noundef %52)
+  %52 = load i64, ptr %seq163, align 16
+  %conv164 = trunc i64 %52 to i32
+  %53 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.1, i32 noundef 571, ptr noundef @.str.29, i32 noundef %conv160, i32 noundef %conv164, i32 noundef %53)
   br label %end
 
 if.end165:                                        ; preds = %for.body
-  %53 = load i32, ptr %i, align 4
-  %idxprom166 = sext i32 %53 to i64
+  %54 = load i32, ptr %i, align 4
+  %idxprom166 = sext i32 %54 to i64
   %arrayidx167 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom166
   %drop = getelementptr inbounds %struct.anon, ptr %arrayidx167, i32 0, i32 1
-  %54 = load i32, ptr %drop, align 8
-  %tobool168 = icmp ne i32 %54, 0
+  %55 = load i32, ptr %drop, align 8
+  %tobool168 = icmp ne i32 %55, 0
   br i1 %tobool168, label %if.then169, label %if.end170
 
 if.then169:                                       ; preds = %if.end165
   br label %for.inc
 
 if.end170:                                        ; preds = %if.end165
-  %55 = load ptr, ptr %con, align 8
+  %56 = load ptr, ptr %con, align 8
   %arraydecay = getelementptr inbounds [2 x i64], ptr %recv_buf, i64 0, i64 0
-  %call171 = call i32 @SSL_read(ptr noundef %55, ptr noundef %arraydecay, i32 noundef 16)
+  %call171 = call i32 @SSL_read(ptr noundef %56, ptr noundef %arraydecay, i32 noundef 16)
   store i32 %call171, ptr %ret, align 4
-  %56 = load i32, ptr %ret, align 4
-  %call172 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 579, ptr noundef @.str.17, ptr noundef @.str.30, i32 noundef %56, i32 noundef 8)
+  %57 = load i32, ptr %ret, align 4
+  %call172 = call i32 @test_int_eq(ptr noundef @.str.1, i32 noundef 579, ptr noundef @.str.17, ptr noundef @.str.30, i32 noundef %57, i32 noundef 8)
   %tobool173 = icmp ne i32 %call172, 0
   br i1 %tobool173, label %if.end184, label %if.then174
 
 if.then174:                                       ; preds = %if.end170
-  %57 = load i32, ptr %i, align 4
-  %idxprom175 = sext i32 %57 to i64
+  %58 = load i32, ptr %i, align 4
+  %idxprom175 = sext i32 %58 to i64
   %arrayidx176 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom175
   %seq177 = getelementptr inbounds %struct.anon, ptr %arrayidx176, i32 0, i32 0
-  %58 = load i64, ptr %seq177, align 16
-  %shr178 = lshr i64 %58, 32
+  %59 = load i64, ptr %seq177, align 16
+  %shr178 = lshr i64 %59, 32
   %conv179 = trunc i64 %shr178 to i32
-  %59 = load i32, ptr %i, align 4
-  %idxprom180 = sext i32 %59 to i64
+  %60 = load i32, ptr %i, align 4
+  %idxprom180 = sext i32 %60 to i64
   %arrayidx181 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom180
   %seq182 = getelementptr inbounds %struct.anon, ptr %arrayidx181, i32 0, i32 0
-  %60 = load i64, ptr %seq182, align 16
-  %conv183 = trunc i64 %60 to i32
-  %61 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.1, i32 noundef 581, ptr noundef @.str.31, i32 noundef %conv179, i32 noundef %conv183, i32 noundef %61)
+  %61 = load i64, ptr %seq182, align 16
+  %conv183 = trunc i64 %61 to i32
+  %62 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.1, i32 noundef 581, ptr noundef @.str.31, i32 noundef %conv179, i32 noundef %conv183, i32 noundef %62)
   br label %end
 
 if.end184:                                        ; preds = %if.end170
   %arrayidx185 = getelementptr inbounds [2 x i64], ptr %recv_buf, i64 0, i64 0
-  %62 = load i64, ptr %arrayidx185, align 16
-  %63 = load i32, ptr %i, align 4
-  %idxprom186 = sext i32 %63 to i64
+  %63 = load i64, ptr %arrayidx185, align 16
+  %64 = load i32, ptr %i, align 4
+  %idxprom186 = sext i32 %64 to i64
   %arrayidx187 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom186
   %seq188 = getelementptr inbounds %struct.anon, ptr %arrayidx187, i32 0, i32 0
-  %64 = load i64, ptr %seq188, align 16
-  %cmp189 = icmp eq i64 %62, %64
+  %65 = load i64, ptr %seq188, align 16
+  %cmp189 = icmp eq i64 %63, %65
   %conv190 = zext i1 %cmp189 to i32
   %cmp191 = icmp ne i32 %conv190, 0
   %conv192 = zext i1 %cmp191 to i32
@@ -493,19 +494,19 @@ if.end196:                                        ; preds = %if.end184
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end196, %if.then169
-  %65 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %65, 1
+  %66 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %66, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %66 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %66, 1
+  %67 = load i32, ptr %i, align 4
+  %sub = sub nsw i32 %67, 1
   %idxprom197 = sext i32 %sub to i64
   %arrayidx198 = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %idxprom197
   %drop199 = getelementptr inbounds %struct.anon, ptr %arrayidx198, i32 0, i32 1
-  %67 = load i32, ptr %drop199, align 8
-  %cmp200 = icmp ne i32 %67, 0
+  %68 = load i32, ptr %drop199, align 8
+  %cmp200 = icmp ne i32 %68, 0
   %conv201 = zext i1 %cmp200 to i32
   %call202 = call i32 @test_false(ptr noundef @.str.1, i32 noundef 589, ptr noundef @.str.33, i32 noundef %conv201)
   %tobool203 = icmp ne i32 %call202, 0
@@ -519,18 +520,18 @@ if.end205:                                        ; preds = %for.end
   br label %end
 
 end:                                              ; preds = %if.end205, %if.then204, %if.then195, %if.then174, %if.then156, %if.then144, %if.then133, %if.then118, %if.then99, %if.then80, %if.then73, %if.then66, %if.then55, %if.then44, %if.then14, %if.then
-  %68 = load ptr, ptr %rbio, align 8
-  %call206 = call i32 @BIO_free(ptr noundef %68)
-  %69 = load ptr, ptr %wbio, align 8
-  %call207 = call i32 @BIO_free(ptr noundef %69)
-  %70 = load ptr, ptr %con, align 8
-  call void @SSL_free(ptr noundef %70)
-  %71 = load ptr, ptr %ctx, align 8
-  call void @SSL_CTX_free(ptr noundef %71)
-  %72 = load ptr, ptr @handshake_md, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %72)
-  %73 = load i32, ptr %testresult, align 4
-  ret i32 %73
+  %69 = load ptr, ptr %rbio, align 8
+  %call206 = call i32 @BIO_free(ptr noundef %69)
+  %70 = load ptr, ptr %wbio, align 8
+  %call207 = call i32 @BIO_free(ptr noundef %70)
+  %71 = load ptr, ptr %con, align 8
+  call void @SSL_free(ptr noundef %71)
+  %72 = load ptr, ptr %ctx, align 8
+  call void @SSL_CTX_free(ptr noundef %72)
+  %73 = load ptr, ptr @handshake_md, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %73)
+  %74 = load i32, ptr %testresult, align 4
+  ret i32 %74
 }
 
 declare i32 @RAND_bytes(ptr noundef, i32 noundef) #1
@@ -546,8 +547,10 @@ define internal ptr @client_session() #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr @client_session.session_asn1, ptr %p, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (i8, ptr @client_session.session_asn1, i64 15), ptr align 16 @session_id, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (i8, ptr @client_session.session_asn1, i64 49), ptr align 16 @master_secret, i64 48, i1 false)
+  %0 = getelementptr inbounds i8, ptr @client_session.session_asn1, i64 15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 16 @session_id, i64 32, i1 false)
+  %1 = getelementptr inbounds i8, ptr @client_session.session_asn1, i64 49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 16 @master_secret, i64 48, i1 false)
   %call = call ptr @d2i_SSL_SESSION(ptr noundef null, ptr noundef %p, i64 noundef 97)
   ret ptr %call
 }
@@ -851,9 +854,10 @@ define internal i32 @send_hello_verify(ptr noundef %rbio) #0 {
 entry:
   %rbio.addr = alloca ptr, align 8
   store ptr %rbio, ptr %rbio.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (i8, ptr @send_hello_verify.hello_verify, i64 28), ptr align 16 @cookie, i64 20, i1 false)
-  %0 = load ptr, ptr %rbio.addr, align 8
-  %call = call i32 @BIO_write(ptr noundef %0, ptr noundef @send_hello_verify.hello_verify, i32 noundef 48)
+  %0 = getelementptr inbounds i8, ptr @send_hello_verify.hello_verify, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 16 @cookie, i64 20, i1 false)
+  %1 = load ptr, ptr %rbio.addr, align 8
+  %call = call i32 @BIO_write(ptr noundef %1, ptr noundef @send_hello_verify.hello_verify, i32 noundef 48)
   ret i32 1
 }
 
@@ -863,10 +867,13 @@ entry:
   %retval = alloca i32, align 4
   %rbio.addr = alloca ptr, align 8
   store ptr %rbio, ptr %rbio.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 27), ptr align 16 @server_random, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 60), ptr align 16 @session_id, i64 32, i1 false)
-  %0 = load ptr, ptr @handshake_md, align 8
-  %call = call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 25), i64 noundef 70)
+  %0 = getelementptr inbounds i8, ptr @send_server_hello.server_hello, i64 27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 16 @server_random, i64 32, i1 false)
+  %1 = getelementptr inbounds i8, ptr @send_server_hello.server_hello, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 16 @session_id, i64 32, i1 false)
+  %2 = load ptr, ptr @handshake_md, align 8
+  %3 = getelementptr inbounds i8, ptr @send_server_hello.server_hello, i64 25
+  %call = call i32 @EVP_DigestUpdate(ptr noundef %2, ptr noundef %3, i64 noundef 70)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -875,16 +882,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %rbio.addr, align 8
-  %call1 = call i32 @BIO_write(ptr noundef %1, ptr noundef @send_server_hello.server_hello, i32 noundef 95)
-  %2 = load ptr, ptr %rbio.addr, align 8
-  %call2 = call i32 @BIO_write(ptr noundef %2, ptr noundef @send_server_hello.change_cipher_spec, i32 noundef 16)
+  %4 = load ptr, ptr %rbio.addr, align 8
+  %call1 = call i32 @BIO_write(ptr noundef %4, ptr noundef @send_server_hello.server_hello, i32 noundef 95)
+  %5 = load ptr, ptr %rbio.addr, align 8
+  %call2 = call i32 @BIO_write(ptr noundef %5, ptr noundef @send_server_hello.change_cipher_spec, i32 noundef 16)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -912,15 +919,16 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @handshake_md, align 8
   %call3 = call ptr @EVP_MD_CTX_get0_md(ptr noundef %1)
   %call4 = call i32 @EVP_MD_get_size(ptr noundef %call3)
-  %call5 = call i32 @do_PRF(ptr noundef @.str.35, i32 noundef 15, ptr noundef %arraydecay2, i32 noundef %call4, ptr noundef null, i32 noundef 0, ptr noundef getelementptr inbounds (i8, ptr @send_finished.finished_msg, i64 12), i32 noundef 12)
-  %2 = load ptr, ptr %rbio.addr, align 8
-  %call6 = call i32 @send_record(ptr noundef %2, i8 noundef zeroext 22, i64 noundef 0, ptr noundef @send_finished.finished_msg, i64 noundef 24)
+  %2 = getelementptr inbounds i8, ptr @send_finished.finished_msg, i64 12
+  %call5 = call i32 @do_PRF(ptr noundef @.str.35, i32 noundef 15, ptr noundef %arraydecay2, i32 noundef %call4, ptr noundef null, i32 noundef 0, ptr noundef %2, i32 noundef 12)
+  %3 = load ptr, ptr %rbio.addr, align 8
+  %call6 = call i32 @send_record(ptr noundef %3, i8 noundef zeroext 22, i64 noundef 0, ptr noundef @send_finished.finished_msg, i64 noundef 24)
   store i32 %call6, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
@@ -1111,42 +1119,47 @@ entry:
   %shr1 = lshr i64 %1, 32
   %and2 = and i64 %shr1, 255
   %conv3 = trunc i64 %and2 to i8
-  store i8 %conv3, ptr getelementptr inbounds ([6 x i8], ptr @send_record.seq, i64 0, i64 1), align 1
-  %2 = load i64, ptr %seqnr.addr, align 8
-  %shr4 = lshr i64 %2, 24
+  %2 = getelementptr inbounds [6 x i8], ptr @send_record.seq, i64 0, i64 1
+  store i8 %conv3, ptr %2, align 1
+  %3 = load i64, ptr %seqnr.addr, align 8
+  %shr4 = lshr i64 %3, 24
   %and5 = and i64 %shr4, 255
   %conv6 = trunc i64 %and5 to i8
-  store i8 %conv6, ptr getelementptr inbounds ([6 x i8], ptr @send_record.seq, i64 0, i64 2), align 1
-  %3 = load i64, ptr %seqnr.addr, align 8
-  %shr7 = lshr i64 %3, 16
+  %4 = getelementptr inbounds [6 x i8], ptr @send_record.seq, i64 0, i64 2
+  store i8 %conv6, ptr %4, align 1
+  %5 = load i64, ptr %seqnr.addr, align 8
+  %shr7 = lshr i64 %5, 16
   %and8 = and i64 %shr7, 255
   %conv9 = trunc i64 %and8 to i8
-  store i8 %conv9, ptr getelementptr inbounds ([6 x i8], ptr @send_record.seq, i64 0, i64 3), align 1
-  %4 = load i64, ptr %seqnr.addr, align 8
-  %shr10 = lshr i64 %4, 8
+  %6 = getelementptr inbounds [6 x i8], ptr @send_record.seq, i64 0, i64 3
+  store i8 %conv9, ptr %6, align 1
+  %7 = load i64, ptr %seqnr.addr, align 8
+  %shr10 = lshr i64 %7, 8
   %and11 = and i64 %shr10, 255
   %conv12 = trunc i64 %and11 to i8
-  store i8 %conv12, ptr getelementptr inbounds ([6 x i8], ptr @send_record.seq, i64 0, i64 4), align 1
-  %5 = load i64, ptr %seqnr.addr, align 8
-  %and13 = and i64 %5, 255
+  %8 = getelementptr inbounds [6 x i8], ptr @send_record.seq, i64 0, i64 4
+  store i8 %conv12, ptr %8, align 1
+  %9 = load i64, ptr %seqnr.addr, align 8
+  %and13 = and i64 %9, 255
   %conv14 = trunc i64 %and13 to i8
-  store i8 %conv14, ptr getelementptr inbounds ([6 x i8], ptr @send_record.seq, i64 0, i64 5), align 1
-  %6 = load i64, ptr %len.addr, align 8
-  %add = add i64 %6, 20
+  %10 = getelementptr inbounds [6 x i8], ptr @send_record.seq, i64 0, i64 5
+  store i8 %conv14, ptr %10, align 1
+  %11 = load i64, ptr %len.addr, align 8
+  %add = add i64 %11, 20
   %rem = urem i64 %add, 16
   %sub = sub i64 15, %rem
   %conv15 = trunc i64 %sub to i8
   store i8 %conv15, ptr %pad, align 1
-  %7 = load i64, ptr %len.addr, align 8
-  %add16 = add i64 %7, 20
+  %12 = load i64, ptr %len.addr, align 8
+  %add16 = add i64 %12, 20
   %add17 = add i64 %add16, 1
-  %8 = load i8, ptr %pad, align 1
-  %conv18 = zext i8 %8 to i64
+  %13 = load i8, ptr %pad, align 1
+  %conv18 = zext i8 %13 to i64
   %add19 = add i64 %add17, %conv18
   %call = call noalias ptr @CRYPTO_malloc(i64 noundef %add19, ptr noundef @.str.1, i32 noundef 301)
   store ptr %call, ptr %enc, align 8
-  %9 = load ptr, ptr %enc, align 8
-  %cmp = icmp eq ptr %9, null
+  %14 = load ptr, ptr %enc, align 8
+  %cmp = icmp eq ptr %14, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1154,10 +1167,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %10 = load ptr, ptr %enc, align 8
-  %11 = load ptr, ptr %msg.addr, align 8
-  %12 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %11, i64 %12, i1 false)
+  %15 = load ptr, ptr %enc, align 8
+  %16 = load ptr, ptr %msg.addr, align 8
+  %17 = load i64, ptr %len.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %17, i1 false)
   %call21 = call ptr @EVP_MAC_fetch(ptr noundef null, ptr noundef @.str.37, ptr noundef null)
   store ptr %call21, ptr %hmac, align 8
   %call22 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 309, ptr noundef @.str.36, ptr noundef %call21)
@@ -1165,8 +1178,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %lor.lhs.false, label %if.then26
 
 lor.lhs.false:                                    ; preds = %if.end
-  %13 = load ptr, ptr %hmac, align 8
-  %call23 = call ptr @EVP_MAC_CTX_new(ptr noundef %13)
+  %18 = load ptr, ptr %hmac, align 8
+  %call23 = call ptr @EVP_MAC_CTX_new(ptr noundef %18)
   store ptr %call23, ptr %ctx, align 8
   %call24 = call i32 @test_ptr(ptr noundef @.str.1, i32 noundef 310, ptr noundef @.str.38, ptr noundef %call23)
   %tobool25 = icmp ne i32 %call24, 0
@@ -1182,66 +1195,67 @@ if.end27:                                         ; preds = %lor.lhs.false
   %arrayidx28 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
   call void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8 %tmp29)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx28, ptr align 8 %tmp29, i64 40, i1 false)
-  %14 = load i64, ptr %len.addr, align 8
-  %shr30 = lshr i64 %14, 8
+  %19 = load i64, ptr %len.addr, align 8
+  %shr30 = lshr i64 %19, 8
   %conv31 = trunc i64 %shr30 to i8
   %arrayidx32 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 0
   store i8 %conv31, ptr %arrayidx32, align 1
-  %15 = load i64, ptr %len.addr, align 8
-  %conv33 = trunc i64 %15 to i8
+  %20 = load i64, ptr %len.addr, align 8
+  %conv33 = trunc i64 %20 to i8
   %arrayidx34 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 1
   store i8 %conv33, ptr %arrayidx34, align 1
-  %16 = load ptr, ptr %ctx, align 8
+  %21 = load ptr, ptr %ctx, align 8
   %arraydecay = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 0
-  %call35 = call i32 @EVP_MAC_init(ptr noundef %16, ptr noundef getelementptr inbounds (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef %arraydecay)
+  %22 = getelementptr inbounds i8, ptr @key_block, i64 20
+  %call35 = call i32 @EVP_MAC_init(ptr noundef %21, ptr noundef %22, i64 noundef 20, ptr noundef %arraydecay)
   %tobool36 = icmp ne i32 %call35, 0
   br i1 %tobool36, label %lor.lhs.false37, label %if.then59
 
 lor.lhs.false37:                                  ; preds = %if.end27
-  %17 = load ptr, ptr %ctx, align 8
-  %call38 = call i32 @EVP_MAC_update(ptr noundef %17, ptr noundef @send_record.epoch, i64 noundef 2)
+  %23 = load ptr, ptr %ctx, align 8
+  %call38 = call i32 @EVP_MAC_update(ptr noundef %23, ptr noundef @send_record.epoch, i64 noundef 2)
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %lor.lhs.false40, label %if.then59
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false37
-  %18 = load ptr, ptr %ctx, align 8
-  %call41 = call i32 @EVP_MAC_update(ptr noundef %18, ptr noundef @send_record.seq, i64 noundef 6)
+  %24 = load ptr, ptr %ctx, align 8
+  %call41 = call i32 @EVP_MAC_update(ptr noundef %24, ptr noundef @send_record.seq, i64 noundef 6)
   %tobool42 = icmp ne i32 %call41, 0
   br i1 %tobool42, label %lor.lhs.false43, label %if.then59
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false40
-  %19 = load ptr, ptr %ctx, align 8
-  %call44 = call i32 @EVP_MAC_update(ptr noundef %19, ptr noundef %type.addr, i64 noundef 1)
+  %25 = load ptr, ptr %ctx, align 8
+  %call44 = call i32 @EVP_MAC_update(ptr noundef %25, ptr noundef %type.addr, i64 noundef 1)
   %tobool45 = icmp ne i32 %call44, 0
   br i1 %tobool45, label %lor.lhs.false46, label %if.then59
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
-  %20 = load ptr, ptr %ctx, align 8
-  %call47 = call i32 @EVP_MAC_update(ptr noundef %20, ptr noundef @send_record.ver, i64 noundef 2)
+  %26 = load ptr, ptr %ctx, align 8
+  %call47 = call i32 @EVP_MAC_update(ptr noundef %26, ptr noundef @send_record.ver, i64 noundef 2)
   %tobool48 = icmp ne i32 %call47, 0
   br i1 %tobool48, label %lor.lhs.false49, label %if.then59
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false46
-  %21 = load ptr, ptr %ctx, align 8
+  %27 = load ptr, ptr %ctx, align 8
   %arraydecay50 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 0
-  %call51 = call i32 @EVP_MAC_update(ptr noundef %21, ptr noundef %arraydecay50, i64 noundef 2)
+  %call51 = call i32 @EVP_MAC_update(ptr noundef %27, ptr noundef %arraydecay50, i64 noundef 2)
   %tobool52 = icmp ne i32 %call51, 0
   br i1 %tobool52, label %lor.lhs.false53, label %if.then59
 
 lor.lhs.false53:                                  ; preds = %lor.lhs.false49
-  %22 = load ptr, ptr %ctx, align 8
-  %23 = load ptr, ptr %enc, align 8
-  %24 = load i64, ptr %len.addr, align 8
-  %call54 = call i32 @EVP_MAC_update(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  %28 = load ptr, ptr %ctx, align 8
+  %29 = load ptr, ptr %enc, align 8
+  %30 = load i64, ptr %len.addr, align 8
+  %call54 = call i32 @EVP_MAC_update(ptr noundef %28, ptr noundef %29, i64 noundef %30)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %lor.lhs.false56, label %if.then59
 
 lor.lhs.false56:                                  ; preds = %lor.lhs.false53
-  %25 = load ptr, ptr %ctx, align 8
-  %26 = load ptr, ptr %enc, align 8
-  %27 = load i64, ptr %len.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 %27
-  %call57 = call i32 @EVP_MAC_final(ptr noundef %25, ptr noundef %add.ptr, ptr noundef null, i64 noundef 20)
+  %31 = load ptr, ptr %ctx, align 8
+  %32 = load ptr, ptr %enc, align 8
+  %33 = load i64, ptr %len.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %32, i64 %33
+  %call57 = call i32 @EVP_MAC_final(ptr noundef %31, ptr noundef %add.ptr, ptr noundef null, i64 noundef 20)
   %tobool58 = icmp ne i32 %call57, 0
   br i1 %tobool58, label %if.end60, label %if.then59
 
@@ -1249,24 +1263,24 @@ if.then59:                                        ; preds = %lor.lhs.false56, %l
   br label %end
 
 if.end60:                                         ; preds = %lor.lhs.false56
-  %28 = load i64, ptr %len.addr, align 8
-  %add61 = add i64 %28, 20
+  %34 = load i64, ptr %len.addr, align 8
+  %add61 = add i64 %34, 20
   store i64 %add61, ptr %len.addr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end60
-  %29 = load i8, ptr %pad, align 1
-  %30 = load ptr, ptr %enc, align 8
-  %31 = load i64, ptr %len.addr, align 8
-  %inc = add i64 %31, 1
+  %35 = load i8, ptr %pad, align 1
+  %36 = load ptr, ptr %enc, align 8
+  %37 = load i64, ptr %len.addr, align 8
+  %inc = add i64 %37, 1
   store i64 %inc, ptr %len.addr, align 8
-  %arrayidx62 = getelementptr inbounds i8, ptr %30, i64 %31
-  store i8 %29, ptr %arrayidx62, align 1
+  %arrayidx62 = getelementptr inbounds i8, ptr %36, i64 %37
+  store i8 %35, ptr %arrayidx62, align 1
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %32 = load i64, ptr %len.addr, align 8
-  %rem63 = urem i64 %32, 16
+  %38 = load i64, ptr %len.addr, align 8
+  %rem63 = urem i64 %38, 16
   %tobool64 = icmp ne i64 %rem63, 0
   br i1 %tobool64, label %do.body, label %do.end, !llvm.loop !7
 
@@ -1285,10 +1299,11 @@ lor.lhs.false69:                                  ; preds = %do.end
   br i1 %tobool72, label %lor.lhs.false73, label %if.then86
 
 lor.lhs.false73:                                  ; preds = %lor.lhs.false69
-  %33 = load ptr, ptr %enc_ctx, align 8
+  %39 = load ptr, ptr %enc_ctx, align 8
   %call74 = call ptr @EVP_aes_128_cbc()
   %arraydecay75 = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 0
-  %call76 = call i32 @EVP_CipherInit_ex(ptr noundef %33, ptr noundef %call74, ptr noundef null, ptr noundef getelementptr inbounds (i8, ptr @key_block, i64 56), ptr noundef %arraydecay75, i32 noundef 1)
+  %40 = getelementptr inbounds i8, ptr @key_block, i64 56
+  %call76 = call i32 @EVP_CipherInit_ex(ptr noundef %39, ptr noundef %call74, ptr noundef null, ptr noundef %40, ptr noundef %arraydecay75, i32 noundef 1)
   %cmp77 = icmp ne i32 %call76, 0
   %conv78 = zext i1 %cmp77 to i32
   %call79 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 337, ptr noundef @.str.43, i32 noundef %conv78)
@@ -1296,12 +1311,12 @@ lor.lhs.false73:                                  ; preds = %lor.lhs.false69
   br i1 %tobool80, label %lor.lhs.false81, label %if.then86
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false73
-  %34 = load ptr, ptr %enc_ctx, align 8
-  %35 = load ptr, ptr %enc, align 8
-  %36 = load ptr, ptr %enc, align 8
-  %37 = load i64, ptr %len.addr, align 8
-  %conv82 = trunc i64 %37 to i32
-  %call83 = call i32 @EVP_Cipher(ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %conv82)
+  %41 = load ptr, ptr %enc_ctx, align 8
+  %42 = load ptr, ptr %enc, align 8
+  %43 = load ptr, ptr %enc, align 8
+  %44 = load i64, ptr %len.addr, align 8
+  %conv82 = trunc i64 %44 to i32
+  %call83 = call i32 @EVP_Cipher(ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %conv82)
   %call84 = call i32 @test_int_ge(ptr noundef @.str.1, i32 noundef 338, ptr noundef @.str.44, ptr noundef @.str.18, i32 noundef %call83, i32 noundef 0)
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.end87, label %if.then86
@@ -1310,55 +1325,55 @@ if.then86:                                        ; preds = %lor.lhs.false81, %l
   br label %end
 
 if.end87:                                         ; preds = %lor.lhs.false81
-  %38 = load ptr, ptr %rbio.addr, align 8
-  %call88 = call i32 @BIO_write(ptr noundef %38, ptr noundef %type.addr, i32 noundef 1)
-  %39 = load ptr, ptr %rbio.addr, align 8
-  %call89 = call i32 @BIO_write(ptr noundef %39, ptr noundef @send_record.ver, i32 noundef 2)
-  %40 = load ptr, ptr %rbio.addr, align 8
-  %call90 = call i32 @BIO_write(ptr noundef %40, ptr noundef @send_record.epoch, i32 noundef 2)
-  %41 = load ptr, ptr %rbio.addr, align 8
-  %call91 = call i32 @BIO_write(ptr noundef %41, ptr noundef @send_record.seq, i32 noundef 6)
-  %42 = load i64, ptr %len.addr, align 8
-  %add92 = add i64 %42, 16
+  %45 = load ptr, ptr %rbio.addr, align 8
+  %call88 = call i32 @BIO_write(ptr noundef %45, ptr noundef %type.addr, i32 noundef 1)
+  %46 = load ptr, ptr %rbio.addr, align 8
+  %call89 = call i32 @BIO_write(ptr noundef %46, ptr noundef @send_record.ver, i32 noundef 2)
+  %47 = load ptr, ptr %rbio.addr, align 8
+  %call90 = call i32 @BIO_write(ptr noundef %47, ptr noundef @send_record.epoch, i32 noundef 2)
+  %48 = load ptr, ptr %rbio.addr, align 8
+  %call91 = call i32 @BIO_write(ptr noundef %48, ptr noundef @send_record.seq, i32 noundef 6)
+  %49 = load i64, ptr %len.addr, align 8
+  %add92 = add i64 %49, 16
   %shr93 = lshr i64 %add92, 8
   %conv94 = trunc i64 %shr93 to i8
   %arrayidx95 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 0
   store i8 %conv94, ptr %arrayidx95, align 1
-  %43 = load i64, ptr %len.addr, align 8
-  %add96 = add i64 %43, 16
+  %50 = load i64, ptr %len.addr, align 8
+  %add96 = add i64 %50, 16
   %conv97 = trunc i64 %add96 to i8
   %arrayidx98 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 1
   store i8 %conv97, ptr %arrayidx98, align 1
-  %44 = load ptr, ptr %rbio.addr, align 8
+  %51 = load ptr, ptr %rbio.addr, align 8
   %arraydecay99 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 0
-  %call100 = call i32 @BIO_write(ptr noundef %44, ptr noundef %arraydecay99, i32 noundef 2)
-  %45 = load ptr, ptr %rbio.addr, align 8
+  %call100 = call i32 @BIO_write(ptr noundef %51, ptr noundef %arraydecay99, i32 noundef 2)
+  %52 = load ptr, ptr %rbio.addr, align 8
   %arraydecay101 = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 0
-  %call102 = call i32 @BIO_write(ptr noundef %45, ptr noundef %arraydecay101, i32 noundef 16)
-  %46 = load ptr, ptr %rbio.addr, align 8
-  %47 = load ptr, ptr %enc, align 8
-  %48 = load i64, ptr %len.addr, align 8
-  %conv103 = trunc i64 %48 to i32
-  %call104 = call i32 @BIO_write(ptr noundef %46, ptr noundef %47, i32 noundef %conv103)
+  %call102 = call i32 @BIO_write(ptr noundef %52, ptr noundef %arraydecay101, i32 noundef 16)
+  %53 = load ptr, ptr %rbio.addr, align 8
+  %54 = load ptr, ptr %enc, align 8
+  %55 = load i64, ptr %len.addr, align 8
+  %conv103 = trunc i64 %55 to i32
+  %call104 = call i32 @BIO_write(ptr noundef %53, ptr noundef %54, i32 noundef %conv103)
   store i32 1, ptr %ret, align 4
   br label %end
 
 end:                                              ; preds = %if.end87, %if.then86, %if.then59, %if.then26
-  %49 = load ptr, ptr %hmac, align 8
-  call void @EVP_MAC_free(ptr noundef %49)
-  %50 = load ptr, ptr %ctx, align 8
-  call void @EVP_MAC_CTX_free(ptr noundef %50)
-  %51 = load ptr, ptr %enc_ctx, align 8
-  call void @EVP_CIPHER_CTX_free(ptr noundef %51)
-  %52 = load ptr, ptr %enc, align 8
-  call void @CRYPTO_free(ptr noundef %52, ptr noundef @.str.1, i32 noundef 357)
-  %53 = load i32, ptr %ret, align 4
-  store i32 %53, ptr %retval, align 4
+  %56 = load ptr, ptr %hmac, align 8
+  call void @EVP_MAC_free(ptr noundef %56)
+  %57 = load ptr, ptr %ctx, align 8
+  call void @EVP_MAC_CTX_free(ptr noundef %57)
+  %58 = load ptr, ptr %enc_ctx, align 8
+  call void @EVP_CIPHER_CTX_free(ptr noundef %58)
+  %59 = load ptr, ptr %enc, align 8
+  call void @CRYPTO_free(ptr noundef %59, ptr noundef @.str.1, i32 noundef 357)
+  %60 = load i32, ptr %ret, align 4
+  store i32 %60, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %end, %if.then
-  %54 = load i32, ptr %retval, align 4
-  ret i32 %54
+  %61 = load i32, ptr %retval, align 4
+  ret i32 %61
 }
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) #1

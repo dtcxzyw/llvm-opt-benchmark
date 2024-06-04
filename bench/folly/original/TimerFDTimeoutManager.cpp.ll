@@ -138,7 +138,8 @@ cond.false:                                       ; preds = %entry
 invoke.cont:                                      ; preds = %cond.false
   %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !18
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %call2, align 8, !tbaa !18
   %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !20
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !24
@@ -156,10 +157,10 @@ cond.end:                                         ; preds = %invoke.cont, %entry
   ret ptr %cond
 
 terminate.lpad:                                   ; preds = %cond.false
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 }
 
@@ -197,7 +198,8 @@ cond.false.i:                                     ; preds = %entry
 invoke.cont.i:                                    ; preds = %cond.false.i
   %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !18
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %call2.i, align 8, !tbaa !18
   %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !20
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !24
@@ -211,10 +213,10 @@ invoke.cont.i:                                    ; preds = %cond.false.i
   br label %_ZN5folly7TimerFD12allocateDataEv.exit
 
 terminate.lpad.i:                                 ; preds = %cond.false.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #15
   unreachable
 
 _ZN5folly7TimerFD12allocateDataEv.exit:           ; preds = %invoke.cont.i, %entry
@@ -288,21 +290,24 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN5folly21TimerFDTimeoutManagerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %eventBase) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef %eventBase)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  %0 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !18
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2
+  store ptr %1, ptr %add.ptr, align 8, !tbaa !18
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2
+  store ptr %2, ptr %add.ptr2, align 8, !tbaa !18
   %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 212
   store i8 0, ptr %processingExpired_, align 4, !tbaa !36
-  %0 = getelementptr inbounds i8, ptr %this, i64 224
-  store i32 0, ptr %0, align 8, !tbaa !66
+  %3 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 0, ptr %3, align 8, !tbaa !66
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !67
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  store ptr %0, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !15
+  store ptr %3, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !15
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr %0, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !68
+  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !68
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !7
   %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 264
@@ -379,11 +384,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly21TimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  %0 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !18
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2
+  store ptr %1, ptr %add.ptr, align 8, !tbaa !18
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2
+  store ptr %2, ptr %add.ptr2, align 8, !tbaa !18
   %call = invoke noundef i64 @_ZN5folly21TimerFDTimeoutManager9cancelAllEv(ptr noundef nonnull align 8 dereferenceable(280) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -393,30 +401,30 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 264
-  %0 = load ptr, ptr %inProgressList_, align 8, !tbaa !69, !noalias !79
-  %cmp.i.not41.i.i.i = icmp eq ptr %0, %inProgressList_
+  %3 = load ptr, ptr %inProgressList_, align 8, !tbaa !69, !noalias !79
+  %cmp.i.not41.i.i.i = icmp eq ptr %3, %inProgressList_
   br i1 %cmp.i.not41.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %invoke.cont3
-  %it.sroa.0.042.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %invoke.cont3 ]
-  %1 = load ptr, ptr %it.sroa.0.042.i.i.i, align 8, !tbaa !69
+  %it.sroa.0.042.i.i.i = phi ptr [ %4, %while.body.i.i.i ], [ %3, %invoke.cont3 ]
+  %4 = load ptr, ptr %it.sroa.0.042.i.i.i, align 8, !tbaa !69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.042.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.not.i.i.i = icmp eq ptr %1, %inProgressList_
+  %cmp.i.not.i.i.i = icmp eq ptr %4, %inProgressList_
   br i1 %cmp.i.not.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %while.body.i.i.i, !llvm.loop !82
 
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit: ; preds = %while.body.i.i.i, %invoke.cont3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inProgressList_, i8 0, i64 16, i1 false)
   %callbacks_ = getelementptr inbounds i8, ptr %this, i64 216
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
-  %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !67
-  invoke void @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %callbacks_, ptr noundef %2)
+  %5 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !67
+  invoke void @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %callbacks_, ptr noundef %5)
           to label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit
-  %3 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #15
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #15
   unreachable
 
 _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEED2Ev.exit: ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit
@@ -424,10 +432,10 @@ _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listI
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 }
 

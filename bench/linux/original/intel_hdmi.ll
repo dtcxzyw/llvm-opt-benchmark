@@ -4375,7 +4375,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2989, i32 2313, i64 12) #14, !srcloc !140
   tail call void asm sideeffect "1048: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1048) #14, !srcloc !141
   tail call void asm sideeffect "1049: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1049b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1049) #14, !srcloc !142
-  br label %288
+  br label %289
 
 34:                                               ; preds = %10
   %35 = getelementptr inbounds i8, ptr %0, i64 3905
@@ -4409,7 +4409,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2995, i32 2313, i64 12) #14, !srcloc !145
   tail call void asm sideeffect "1052: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1052b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1052) #14, !srcloc !146
   tail call void asm sideeffect "1053: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1053) #14, !srcloc !147
-  br label %288
+  br label %289
 
 54:                                               ; preds = %34
   %55 = load ptr, ptr %0, align 8
@@ -4724,7 +4724,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 231:                                              ; preds = %227, %215, %174
   %232 = phi i8 [ 0, %215 ], [ %166, %227 ], [ 0, %174 ]
   %233 = icmp eq i8 %232, 0
-  br i1 %233, label %288, label %234
+  br i1 %233, label %289, label %234
 
 234:                                              ; preds = %231
   %235 = zext i8 %232 to i32
@@ -4819,10 +4819,11 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 286:                                              ; preds = %284, %277, %274
   %287 = getelementptr inbounds i8, ptr %0, i64 3872
-  store ptr inttoptr (i64 3735944941 to ptr), ptr %287, align 8
-  br label %288
+  %288 = inttoptr i64 3735944941 to ptr
+  store ptr %288, ptr %287, align 8
+  br label %289
 
-288:                                              ; preds = %286, %231, %48, %32
+289:                                              ; preds = %286, %231, %48, %32
   ret void
 }
 
@@ -6467,73 +6468,74 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !35
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %10 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 9) #15
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %23, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %10 = load ptr, ptr %9, align 16
+  %11 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 9) #15
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %24, label %13
 
-12:                                               ; preds = %2
-  store i8 24, ptr %10, align 8
-  %13 = getelementptr i8, ptr %10, i64 1
-  %14 = load i64, ptr %1, align 1
-  store i64 %14, ptr %13, align 1
+13:                                               ; preds = %2
+  store i8 24, ptr %11, align 8
+  %14 = getelementptr i8, ptr %11, i64 1
+  %15 = load i64, ptr %1, align 1
+  store i64 %15, ptr %14, align 1
   store i16 58, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
-  store i16 9, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %10, ptr %17, align 8
-  %18 = call i32 @i2c_transfer(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1) #14
-  %19 = icmp eq i32 %18, 1
-  %20 = icmp sgt i32 %18, -1
-  %21 = select i1 %20, i32 -5, i32 %18
-  %22 = select i1 %19, i32 0, i32 %21
-  call void @kfree(ptr noundef nonnull %10) #14
-  br label %23
+  %16 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  store i16 9, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %11, ptr %18, align 8
+  %19 = call i32 @i2c_transfer(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1) #14
+  %20 = icmp eq i32 %19, 1
+  %21 = icmp sgt i32 %19, -1
+  %22 = select i1 %21, i32 -5, i32 %19
+  %23 = select i1 %20, i32 0, i32 %22
+  call void @kfree(ptr noundef nonnull %11) #14
+  br label %24
 
-23:                                               ; preds = %12, %2
-  %24 = phi i32 [ %22, %12 ], [ -12, %2 ]
+24:                                               ; preds = %13, %2
+  %25 = phi i32 [ %23, %13 ], [ -12, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %33, label %26
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %34, label %27
 
-26:                                               ; preds = %23
-  %27 = icmp eq ptr %4, null
-  br i1 %27, label %31, label %28
+27:                                               ; preds = %24
+  %28 = icmp eq ptr %4, null
+  br i1 %28, label %32, label %29
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  %30 = load ptr, ptr %29, align 8
-  br label %31
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-31:                                               ; preds = %28, %26
-  %32 = phi ptr [ %30, %28 ], [ null, %26 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %24) #14
-  br label %43
+32:                                               ; preds = %29, %27
+  %33 = phi ptr [ %31, %29 ], [ null, %27 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %25) #14
+  br label %44
 
-33:                                               ; preds = %23
-  %34 = call i32 @intel_gmbus_output_aksv(ptr noundef %8) #14
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %43
+34:                                               ; preds = %24
+  %35 = call i32 @intel_gmbus_output_aksv(ptr noundef %8) #14
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %44
 
-36:                                               ; preds = %33
-  %37 = icmp eq ptr %4, null
-  br i1 %37, label %41, label %38
+37:                                               ; preds = %34
+  %38 = icmp eq ptr %4, null
+  br i1 %38, label %42, label %39
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  %40 = load ptr, ptr %39, align 8
-  br label %41
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = load ptr, ptr %40, align 8
+  br label %42
 
-41:                                               ; preds = %38, %36
-  %42 = phi ptr [ %40, %38 ], [ null, %36 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %42, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %34) #14
-  br label %43
+42:                                               ; preds = %39, %37
+  %43 = phi ptr [ %41, %39 ], [ null, %37 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %35) #14
+  br label %44
 
-43:                                               ; preds = %41, %33, %31
-  %44 = phi i32 [ %24, %31 ], [ %34, %41 ], [ 0, %33 ]
-  ret i32 %44
+44:                                               ; preds = %42, %34, %32
+  %45 = phi i32 [ %25, %32 ], [ %35, %42 ], [ 0, %34 ]
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

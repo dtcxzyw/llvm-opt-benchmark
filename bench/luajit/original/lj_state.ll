@@ -492,14 +492,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %allocf.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 19792 to ptr)
+  %1 = inttoptr i64 19792 to ptr
+  %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then1, label %if.end6
 
 if.then1:                                         ; preds = %if.end
   %call2 = call ptr @lj_alloc_create(ptr noundef %prng)
   store ptr %call2, ptr %allocd.addr, align 8
-  %1 = load ptr, ptr %allocd.addr, align 8
-  %tobool3 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %allocd.addr, align 8
+  %tobool3 = icmp ne ptr %2, null
   br i1 %tobool3, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.then1
@@ -511,21 +512,21 @@ if.end5:                                          ; preds = %if.then1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end5, %if.end
-  %2 = load ptr, ptr %allocf.addr, align 8
-  %3 = load ptr, ptr %allocd.addr, align 8
-  %call7 = call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef 6240)
+  %3 = load ptr, ptr %allocf.addr, align 8
+  %4 = load ptr, ptr %allocd.addr, align 8
+  %call7 = call ptr %3(ptr noundef %4, ptr noundef null, i64 noundef 0, i64 noundef 6240)
   store ptr %call7, ptr %GG, align 8
-  %4 = load ptr, ptr %GG, align 8
-  %cmp8 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %GG, align 8
+  %cmp8 = icmp eq ptr %5, null
   br i1 %cmp8, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
   br i1 true, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %GG, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %shr = lshr i64 %6, 47
+  %6 = load ptr, ptr %GG, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %shr = lshr i64 %7, 47
   %cmp9 = icmp eq i64 %shr, 0
   br i1 %cmp9, label %if.end15, label %if.then14
 
@@ -533,9 +534,9 @@ cond.false:                                       ; preds = %lor.lhs.false
   br i1 true, label %cond.true10, label %cond.false13
 
 cond.true10:                                      ; preds = %cond.false
-  %7 = load ptr, ptr %GG, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %shr11 = lshr i64 %8, 31
+  %8 = load ptr, ptr %GG, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %shr11 = lshr i64 %9, 31
   %cmp12 = icmp eq i64 %shr11, 0
   br i1 %cmp12, label %if.end15, label %if.then14
 
@@ -547,183 +548,183 @@ if.then14:                                        ; preds = %cond.false13, %cond
   br label %return
 
 if.end15:                                         ; preds = %cond.false13, %cond.true10, %cond.true
-  %9 = load ptr, ptr %GG, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 6240, i1 false)
   %10 = load ptr, ptr %GG, align 8
-  %L16 = getelementptr inbounds %struct.GG_State, ptr %10, i32 0, i32 0
-  store ptr %L16, ptr %L, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 6240, i1 false)
   %11 = load ptr, ptr %GG, align 8
-  %g17 = getelementptr inbounds %struct.GG_State, ptr %11, i32 0, i32 1
+  %L16 = getelementptr inbounds %struct.GG_State, ptr %11, i32 0, i32 0
+  store ptr %L16, ptr %L, align 8
+  %12 = load ptr, ptr %GG, align 8
+  %g17 = getelementptr inbounds %struct.GG_State, ptr %12, i32 0, i32 1
   store ptr %g17, ptr %g, align 8
-  %12 = load ptr, ptr %L, align 8
-  %gct = getelementptr inbounds %struct.lua_State, ptr %12, i32 0, i32 2
-  store i8 6, ptr %gct, align 1
   %13 = load ptr, ptr %L, align 8
-  %marked = getelementptr inbounds %struct.lua_State, ptr %13, i32 0, i32 1
-  store i8 97, ptr %marked, align 8
+  %gct = getelementptr inbounds %struct.lua_State, ptr %13, i32 0, i32 2
+  store i8 6, ptr %gct, align 1
   %14 = load ptr, ptr %L, align 8
-  %dummy_ffid = getelementptr inbounds %struct.lua_State, ptr %14, i32 0, i32 3
+  %marked = getelementptr inbounds %struct.lua_State, ptr %14, i32 0, i32 1
+  store i8 97, ptr %marked, align 8
+  %15 = load ptr, ptr %L, align 8
+  %dummy_ffid = getelementptr inbounds %struct.lua_State, ptr %15, i32 0, i32 3
   store i8 1, ptr %dummy_ffid, align 2
-  %15 = load ptr, ptr %g, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = load ptr, ptr %L, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %17, i32 0, i32 5
+  %16 = load ptr, ptr %g, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = load ptr, ptr %L, align 8
+  %glref = getelementptr inbounds %struct.lua_State, ptr %18, i32 0, i32 5
   %ptr64 = getelementptr inbounds %struct.MRef, ptr %glref, i32 0, i32 0
-  store i64 %16, ptr %ptr64, align 8
-  %18 = load ptr, ptr %g, align 8
-  %gc = getelementptr inbounds %struct.global_State, ptr %18, i32 0, i32 2
+  store i64 %17, ptr %ptr64, align 8
+  %19 = load ptr, ptr %g, align 8
+  %gc = getelementptr inbounds %struct.global_State, ptr %19, i32 0, i32 2
   %currentwhite = getelementptr inbounds %struct.GCState, ptr %gc, i32 0, i32 2
   store i8 33, ptr %currentwhite, align 8
-  %19 = load ptr, ptr %g, align 8
-  %strempty = getelementptr inbounds %struct.global_State, ptr %19, i32 0, i32 3
+  %20 = load ptr, ptr %g, align 8
+  %strempty = getelementptr inbounds %struct.global_State, ptr %20, i32 0, i32 3
   %marked18 = getelementptr inbounds %struct.GCstr, ptr %strempty, i32 0, i32 1
   store i8 1, ptr %marked18, align 8
-  %20 = load ptr, ptr %g, align 8
-  %strempty19 = getelementptr inbounds %struct.global_State, ptr %20, i32 0, i32 3
+  %21 = load ptr, ptr %g, align 8
+  %strempty19 = getelementptr inbounds %struct.global_State, ptr %21, i32 0, i32 3
   %gct20 = getelementptr inbounds %struct.GCstr, ptr %strempty19, i32 0, i32 2
   store i8 4, ptr %gct20, align 1
-  %21 = load ptr, ptr %allocf.addr, align 8
-  %22 = load ptr, ptr %g, align 8
-  %allocf21 = getelementptr inbounds %struct.global_State, ptr %22, i32 0, i32 0
-  store ptr %21, ptr %allocf21, align 8
-  %23 = load ptr, ptr %allocd.addr, align 8
-  %24 = load ptr, ptr %g, align 8
-  %allocd22 = getelementptr inbounds %struct.global_State, ptr %24, i32 0, i32 1
-  store ptr %23, ptr %allocd22, align 8
+  %22 = load ptr, ptr %allocf.addr, align 8
+  %23 = load ptr, ptr %g, align 8
+  %allocf21 = getelementptr inbounds %struct.global_State, ptr %23, i32 0, i32 0
+  store ptr %22, ptr %allocf21, align 8
+  %24 = load ptr, ptr %allocd.addr, align 8
   %25 = load ptr, ptr %g, align 8
-  %prng23 = getelementptr inbounds %struct.global_State, ptr %25, i32 0, i32 27
+  %allocd22 = getelementptr inbounds %struct.global_State, ptr %25, i32 0, i32 1
+  store ptr %24, ptr %allocd22, align 8
+  %26 = load ptr, ptr %g, align 8
+  %prng23 = getelementptr inbounds %struct.global_State, ptr %26, i32 0, i32 27
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %prng23, ptr align 8 %prng, i64 32, i1 false)
-  %26 = load ptr, ptr %allocf.addr, align 8
-  %cmp24 = icmp eq ptr %26, @lj_alloc_f
+  %27 = load ptr, ptr %allocf.addr, align 8
+  %cmp24 = icmp eq ptr %27, @lj_alloc_f
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end15
-  %27 = load ptr, ptr %allocd.addr, align 8
-  %28 = load ptr, ptr %g, align 8
-  %prng26 = getelementptr inbounds %struct.global_State, ptr %28, i32 0, i32 27
-  call void @lj_alloc_setprng(ptr noundef %27, ptr noundef %prng26)
+  %28 = load ptr, ptr %allocd.addr, align 8
+  %29 = load ptr, ptr %g, align 8
+  %prng26 = getelementptr inbounds %struct.global_State, ptr %29, i32 0, i32 27
+  call void @lj_alloc_setprng(ptr noundef %28, ptr noundef %prng26)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end15
-  %29 = load ptr, ptr %L, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = load ptr, ptr %g, align 8
-  %mainthref = getelementptr inbounds %struct.global_State, ptr %31, i32 0, i32 10
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %mainthref, i32 0, i32 0
-  store i64 %30, ptr %gcptr64, align 8
+  %30 = load ptr, ptr %L, align 8
+  %31 = ptrtoint ptr %30 to i64
   %32 = load ptr, ptr %g, align 8
-  %uvhead = getelementptr inbounds %struct.global_State, ptr %32, i32 0, i32 16
-  %33 = ptrtoint ptr %uvhead to i64
-  %34 = load ptr, ptr %g, align 8
-  %uvhead28 = getelementptr inbounds %struct.global_State, ptr %34, i32 0, i32 16
-  %35 = getelementptr inbounds %struct.GCupval, ptr %uvhead28, i32 0, i32 5
-  %prev = getelementptr inbounds %struct.anon.1, ptr %35, i32 0, i32 0
+  %mainthref = getelementptr inbounds %struct.global_State, ptr %32, i32 0, i32 10
+  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %mainthref, i32 0, i32 0
+  store i64 %31, ptr %gcptr64, align 8
+  %33 = load ptr, ptr %g, align 8
+  %uvhead = getelementptr inbounds %struct.global_State, ptr %33, i32 0, i32 16
+  %34 = ptrtoint ptr %uvhead to i64
+  %35 = load ptr, ptr %g, align 8
+  %uvhead28 = getelementptr inbounds %struct.global_State, ptr %35, i32 0, i32 16
+  %36 = getelementptr inbounds %struct.GCupval, ptr %uvhead28, i32 0, i32 5
+  %prev = getelementptr inbounds %struct.anon.1, ptr %36, i32 0, i32 0
   %gcptr6429 = getelementptr inbounds %struct.GCRef, ptr %prev, i32 0, i32 0
-  store i64 %33, ptr %gcptr6429, align 8
-  %36 = load ptr, ptr %g, align 8
-  %uvhead30 = getelementptr inbounds %struct.global_State, ptr %36, i32 0, i32 16
-  %37 = ptrtoint ptr %uvhead30 to i64
-  %38 = load ptr, ptr %g, align 8
-  %uvhead31 = getelementptr inbounds %struct.global_State, ptr %38, i32 0, i32 16
-  %39 = getelementptr inbounds %struct.GCupval, ptr %uvhead31, i32 0, i32 5
-  %next = getelementptr inbounds %struct.anon.1, ptr %39, i32 0, i32 1
+  store i64 %34, ptr %gcptr6429, align 8
+  %37 = load ptr, ptr %g, align 8
+  %uvhead30 = getelementptr inbounds %struct.global_State, ptr %37, i32 0, i32 16
+  %38 = ptrtoint ptr %uvhead30 to i64
+  %39 = load ptr, ptr %g, align 8
+  %uvhead31 = getelementptr inbounds %struct.global_State, ptr %39, i32 0, i32 16
+  %40 = getelementptr inbounds %struct.GCupval, ptr %uvhead31, i32 0, i32 5
+  %next = getelementptr inbounds %struct.anon.1, ptr %40, i32 0, i32 1
   %gcptr6432 = getelementptr inbounds %struct.GCRef, ptr %next, i32 0, i32 0
-  store i64 %37, ptr %gcptr6432, align 8
-  %40 = load ptr, ptr %g, align 8
-  %str = getelementptr inbounds %struct.global_State, ptr %40, i32 0, i32 8
+  store i64 %38, ptr %gcptr6432, align 8
+  %41 = load ptr, ptr %g, align 8
+  %str = getelementptr inbounds %struct.global_State, ptr %41, i32 0, i32 8
   %mask = getelementptr inbounds %struct.StrInternState, ptr %str, i32 0, i32 1
   store i32 -1, ptr %mask, align 8
-  %41 = load ptr, ptr %L, align 8
-  %glref33 = getelementptr inbounds %struct.lua_State, ptr %41, i32 0, i32 5
+  %42 = load ptr, ptr %L, align 8
+  %glref33 = getelementptr inbounds %struct.lua_State, ptr %42, i32 0, i32 5
   %ptr6434 = getelementptr inbounds %struct.MRef, ptr %glref33, i32 0, i32 0
-  %42 = load i64, ptr %ptr6434, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %registrytv = getelementptr inbounds %struct.global_State, ptr %43, i32 0, i32 15
+  %43 = load i64, ptr %ptr6434, align 8
+  %44 = inttoptr i64 %43 to ptr
+  %registrytv = getelementptr inbounds %struct.global_State, ptr %44, i32 0, i32 15
   store i64 -1, ptr %registrytv, align 8
-  %44 = load ptr, ptr %g, align 8
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %44, i32 0, i32 14
+  %45 = load ptr, ptr %g, align 8
+  %nilnode = getelementptr inbounds %struct.global_State, ptr %45, i32 0, i32 14
   %val = getelementptr inbounds %struct.Node, ptr %nilnode, i32 0, i32 0
   store i64 -1, ptr %val, align 8
-  %45 = load ptr, ptr %g, align 8
-  %nilnode35 = getelementptr inbounds %struct.global_State, ptr %45, i32 0, i32 14
+  %46 = load ptr, ptr %g, align 8
+  %nilnode35 = getelementptr inbounds %struct.global_State, ptr %46, i32 0, i32 14
   %key = getelementptr inbounds %struct.Node, ptr %nilnode35, i32 0, i32 1
   store i64 -1, ptr %key, align 8
-  %46 = load ptr, ptr %g, align 8
-  %tmpbuf = getelementptr inbounds %struct.global_State, ptr %46, i32 0, i32 11
+  %47 = load ptr, ptr %g, align 8
+  %tmpbuf = getelementptr inbounds %struct.global_State, ptr %47, i32 0, i32 11
   store ptr null, ptr %L.addr.i, align 8
   store ptr %tmpbuf, ptr %sb.addr.i, align 8
-  %47 = load ptr, ptr %L.addr.i, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = load ptr, ptr %sb.addr.i, align 8
-  %L1.i = getelementptr inbounds %struct.SBuf, ptr %49, i32 0, i32 3
-  store i64 %48, ptr %L1.i, align 8
+  %48 = load ptr, ptr %L.addr.i, align 8
+  %49 = ptrtoint ptr %48 to i64
   %50 = load ptr, ptr %sb.addr.i, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %50, i32 0, i32 2
-  store ptr null, ptr %b.i, align 8
+  %L1.i = getelementptr inbounds %struct.SBuf, ptr %50, i32 0, i32 3
+  store i64 %49, ptr %L1.i, align 8
   %51 = load ptr, ptr %sb.addr.i, align 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %51, i32 0, i32 1
-  store ptr null, ptr %e.i, align 8
+  %b.i = getelementptr inbounds %struct.SBuf, ptr %51, i32 0, i32 2
+  store ptr null, ptr %b.i, align 8
   %52 = load ptr, ptr %sb.addr.i, align 8
-  store ptr null, ptr %52, align 8
-  %53 = load ptr, ptr %g, align 8
-  %gc36 = getelementptr inbounds %struct.global_State, ptr %53, i32 0, i32 2
+  %e.i = getelementptr inbounds %struct.SBuf, ptr %52, i32 0, i32 1
+  store ptr null, ptr %e.i, align 8
+  %53 = load ptr, ptr %sb.addr.i, align 8
+  store ptr null, ptr %53, align 8
+  %54 = load ptr, ptr %g, align 8
+  %gc36 = getelementptr inbounds %struct.global_State, ptr %54, i32 0, i32 2
   %state = getelementptr inbounds %struct.GCState, ptr %gc36, i32 0, i32 3
   store i8 0, ptr %state, align 1
-  %54 = load ptr, ptr %L, align 8
-  %55 = ptrtoint ptr %54 to i64
-  %56 = load ptr, ptr %g, align 8
-  %gc37 = getelementptr inbounds %struct.global_State, ptr %56, i32 0, i32 2
+  %55 = load ptr, ptr %L, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %57 = load ptr, ptr %g, align 8
+  %gc37 = getelementptr inbounds %struct.global_State, ptr %57, i32 0, i32 2
   %root = getelementptr inbounds %struct.GCState, ptr %gc37, i32 0, i32 7
   %gcptr6438 = getelementptr inbounds %struct.GCRef, ptr %root, i32 0, i32 0
-  store i64 %55, ptr %gcptr6438, align 8
-  %57 = load ptr, ptr %g, align 8
-  %gc39 = getelementptr inbounds %struct.global_State, ptr %57, i32 0, i32 2
+  store i64 %56, ptr %gcptr6438, align 8
+  %58 = load ptr, ptr %g, align 8
+  %gc39 = getelementptr inbounds %struct.global_State, ptr %58, i32 0, i32 2
   %root40 = getelementptr inbounds %struct.GCState, ptr %gc39, i32 0, i32 7
-  %58 = ptrtoint ptr %root40 to i64
-  %59 = load ptr, ptr %g, align 8
-  %gc41 = getelementptr inbounds %struct.global_State, ptr %59, i32 0, i32 2
+  %59 = ptrtoint ptr %root40 to i64
+  %60 = load ptr, ptr %g, align 8
+  %gc41 = getelementptr inbounds %struct.global_State, ptr %60, i32 0, i32 2
   %sweep = getelementptr inbounds %struct.GCState, ptr %gc41, i32 0, i32 8
   %ptr6442 = getelementptr inbounds %struct.MRef, ptr %sweep, i32 0, i32 0
-  store i64 %58, ptr %ptr6442, align 8
-  %60 = load ptr, ptr %g, align 8
-  %gc43 = getelementptr inbounds %struct.global_State, ptr %60, i32 0, i32 2
+  store i64 %59, ptr %ptr6442, align 8
+  %61 = load ptr, ptr %g, align 8
+  %gc43 = getelementptr inbounds %struct.global_State, ptr %61, i32 0, i32 2
   %total = getelementptr inbounds %struct.GCState, ptr %gc43, i32 0, i32 0
   store i64 6240, ptr %total, align 8
-  %61 = load ptr, ptr %g, align 8
-  %gc44 = getelementptr inbounds %struct.global_State, ptr %61, i32 0, i32 2
+  %62 = load ptr, ptr %g, align 8
+  %gc44 = getelementptr inbounds %struct.global_State, ptr %62, i32 0, i32 2
   %pause = getelementptr inbounds %struct.GCState, ptr %gc44, i32 0, i32 16
   store i32 200, ptr %pause, align 4
-  %62 = load ptr, ptr %g, align 8
-  %gc45 = getelementptr inbounds %struct.global_State, ptr %62, i32 0, i32 2
+  %63 = load ptr, ptr %g, align 8
+  %gc45 = getelementptr inbounds %struct.global_State, ptr %63, i32 0, i32 2
   %stepmul = getelementptr inbounds %struct.GCState, ptr %gc45, i32 0, i32 15
   store i32 200, ptr %stepmul, align 8
-  %63 = load ptr, ptr %L, align 8
-  call void @lj_dispatch_init(ptr noundef %63)
   %64 = load ptr, ptr %L, align 8
-  %status = getelementptr inbounds %struct.lua_State, ptr %64, i32 0, i32 4
-  store i8 6, ptr %status, align 1
+  call void @lj_dispatch_init(ptr noundef %64)
   %65 = load ptr, ptr %L, align 8
-  %call46 = call i32 @lj_vm_cpcall(ptr noundef %65, ptr noundef null, ptr noundef null, ptr noundef @cpluaopen)
+  %status = getelementptr inbounds %struct.lua_State, ptr %65, i32 0, i32 4
+  store i8 6, ptr %status, align 1
+  %66 = load ptr, ptr %L, align 8
+  %call46 = call i32 @lj_vm_cpcall(ptr noundef %66, ptr noundef null, ptr noundef null, ptr noundef @cpluaopen)
   %cmp47 = icmp ne i32 %call46, 0
   br i1 %cmp47, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end27
-  %66 = load ptr, ptr %L, align 8
-  call void @close_state(ptr noundef %66)
+  %67 = load ptr, ptr %L, align 8
+  call void @close_state(ptr noundef %67)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end49:                                         ; preds = %if.end27
-  %67 = load ptr, ptr %L, align 8
-  %status50 = getelementptr inbounds %struct.lua_State, ptr %67, i32 0, i32 4
-  store i8 0, ptr %status50, align 1
   %68 = load ptr, ptr %L, align 8
-  store ptr %68, ptr %retval, align 8
+  %status50 = getelementptr inbounds %struct.lua_State, ptr %68, i32 0, i32 4
+  store i8 0, ptr %status50, align 1
+  %69 = load ptr, ptr %L, align 8
+  store ptr %69, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end49, %if.then48, %if.then14, %if.then4, %if.then
-  %69 = load ptr, ptr %retval, align 8
-  ret ptr %69
+  %70 = load ptr, ptr %retval, align 8
+  ret ptr %70
 }
 
 declare hidden i32 @lj_prng_seed_secure(ptr noundef) #2

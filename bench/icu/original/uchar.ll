@@ -4053,13 +4053,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @_ZL7indexes, i64 0, i64 10), align 8
-  store i32 %1, ptr %retval, align 4
+  %1 = getelementptr inbounds [16 x i32], ptr @_ZL7indexes, i64 0, i64 10
+  %2 = load i32, ptr %1, align 8
+  store i32 %2, ptr %retval, align 4
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @_ZL7indexes, i64 0, i64 11), align 4
-  store i32 %2, ptr %retval, align 4
+  %3 = getelementptr inbounds [16 x i32], ptr @_ZL7indexes, i64 0, i64 11
+  %4 = load i32, ptr %3, align 4
+  store i32 %4, ptr %retval, align 4
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -4067,8 +4069,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb1, %sw.bb
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

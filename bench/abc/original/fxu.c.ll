@@ -525,7 +525,7 @@ define void @Fxu_MatrixRingCubesUnmark(ptr noundef %0) #0 {
   %6 = getelementptr inbounds %struct.FxuMatrix, ptr %5, i32 0, i32 14
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %40
+  br i1 %8, label %9, label %45
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
@@ -533,65 +533,70 @@ define void @Fxu_MatrixRingCubesUnmark(ptr noundef %0) #0 {
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %3, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = icmp ne ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %15, label %19
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp ne ptr %13, %14
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.FxuCube, ptr %16, i32 0, i32 6
-  %18 = load ptr, ptr %17, align 8
-  br label %20
-
-19:                                               ; preds = %9
-  br label %20
-
-20:                                               ; preds = %19, %15
-  %21 = phi ptr [ %18, %15 ], [ inttoptr (i64 1 to ptr), %19 ]
-  store ptr %21, ptr %4, align 8
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.FxuCube, ptr %17, i32 0, i32 6
+  %19 = load ptr, ptr %18, align 8
   br label %22
 
-22:                                               ; preds = %37, %20
-  %23 = load ptr, ptr %3, align 8
-  %24 = icmp ne ptr %23, inttoptr (i64 1 to ptr)
-  br i1 %24, label %25, label %39
+20:                                               ; preds = %9
+  %21 = inttoptr i64 1 to ptr
+  br label %22
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.FxuCube, ptr %26, i32 0, i32 6
-  store ptr null, ptr %27, align 8
-  br label %28
+22:                                               ; preds = %20, %16
+  %23 = phi ptr [ %19, %16 ], [ %21, %20 ]
+  store ptr %23, ptr %4, align 8
+  br label %24
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %4, align 8
-  store ptr %29, ptr %3, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = icmp ne ptr %30, inttoptr (i64 1 to ptr)
-  br i1 %31, label %32, label %36
+24:                                               ; preds = %42, %22
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 1 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %44
 
-32:                                               ; preds = %28
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.FxuCube, ptr %29, i32 0, i32 6
+  store ptr null, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %4, align 8
+  store ptr %32, ptr %3, align 8
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.FxuCube, ptr %33, i32 0, i32 6
-  %35 = load ptr, ptr %34, align 8
-  br label %37
+  %34 = inttoptr i64 1 to ptr
+  %35 = icmp ne ptr %33, %34
+  br i1 %35, label %36, label %40
 
-36:                                               ; preds = %28
-  br label %37
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.FxuCube, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  br label %42
 
-37:                                               ; preds = %36, %32
-  %38 = phi ptr [ %35, %32 ], [ inttoptr (i64 1 to ptr), %36 ]
-  store ptr %38, ptr %4, align 8
-  br label %22, !llvm.loop !9
+40:                                               ; preds = %31
+  %41 = inttoptr i64 1 to ptr
+  br label %42
 
-39:                                               ; preds = %22
-  br label %40
+42:                                               ; preds = %40, %36
+  %43 = phi ptr [ %39, %36 ], [ %41, %40 ]
+  store ptr %43, ptr %4, align 8
+  br label %24, !llvm.loop !9
 
-40:                                               ; preds = %39, %1
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.FxuMatrix, ptr %41, i32 0, i32 14
-  store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.FxuMatrix, ptr %43, i32 0, i32 15
-  store ptr null, ptr %44, align 8
+44:                                               ; preds = %24
+  br label %45
+
+45:                                               ; preds = %44, %1
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds %struct.FxuMatrix, ptr %46, i32 0, i32 14
+  store ptr null, ptr %47, align 8
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.FxuMatrix, ptr %48, i32 0, i32 15
+  store ptr null, ptr %49, align 8
   ret void
 }
 
@@ -605,7 +610,7 @@ define void @Fxu_MatrixRingVarsUnmark(ptr noundef %0) #0 {
   %6 = getelementptr inbounds %struct.FxuMatrix, ptr %5, i32 0, i32 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %40
+  br i1 %8, label %9, label %45
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
@@ -613,65 +618,70 @@ define void @Fxu_MatrixRingVarsUnmark(ptr noundef %0) #0 {
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %3, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = icmp ne ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %15, label %19
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp ne ptr %13, %14
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.FxuVar, ptr %16, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  br label %20
-
-19:                                               ; preds = %9
-  br label %20
-
-20:                                               ; preds = %19, %15
-  %21 = phi ptr [ %18, %15 ], [ inttoptr (i64 1 to ptr), %19 ]
-  store ptr %21, ptr %4, align 8
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.FxuVar, ptr %17, i32 0, i32 7
+  %19 = load ptr, ptr %18, align 8
   br label %22
 
-22:                                               ; preds = %37, %20
-  %23 = load ptr, ptr %3, align 8
-  %24 = icmp ne ptr %23, inttoptr (i64 1 to ptr)
-  br i1 %24, label %25, label %39
+20:                                               ; preds = %9
+  %21 = inttoptr i64 1 to ptr
+  br label %22
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.FxuVar, ptr %26, i32 0, i32 7
-  store ptr null, ptr %27, align 8
-  br label %28
+22:                                               ; preds = %20, %16
+  %23 = phi ptr [ %19, %16 ], [ %21, %20 ]
+  store ptr %23, ptr %4, align 8
+  br label %24
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %4, align 8
-  store ptr %29, ptr %3, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = icmp ne ptr %30, inttoptr (i64 1 to ptr)
-  br i1 %31, label %32, label %36
+24:                                               ; preds = %42, %22
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 1 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %44
 
-32:                                               ; preds = %28
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.FxuVar, ptr %29, i32 0, i32 7
+  store ptr null, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %4, align 8
+  store ptr %32, ptr %3, align 8
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.FxuVar, ptr %33, i32 0, i32 7
-  %35 = load ptr, ptr %34, align 8
-  br label %37
+  %34 = inttoptr i64 1 to ptr
+  %35 = icmp ne ptr %33, %34
+  br i1 %35, label %36, label %40
 
-36:                                               ; preds = %28
-  br label %37
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.FxuVar, ptr %37, i32 0, i32 7
+  %39 = load ptr, ptr %38, align 8
+  br label %42
 
-37:                                               ; preds = %36, %32
-  %38 = phi ptr [ %35, %32 ], [ inttoptr (i64 1 to ptr), %36 ]
-  store ptr %38, ptr %4, align 8
-  br label %22, !llvm.loop !10
+40:                                               ; preds = %31
+  %41 = inttoptr i64 1 to ptr
+  br label %42
 
-39:                                               ; preds = %22
-  br label %40
+42:                                               ; preds = %40, %36
+  %43 = phi ptr [ %39, %36 ], [ %41, %40 ]
+  store ptr %43, ptr %4, align 8
+  br label %24, !llvm.loop !10
 
-40:                                               ; preds = %39, %1
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.FxuMatrix, ptr %41, i32 0, i32 16
-  store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.FxuMatrix, ptr %43, i32 0, i32 17
-  store ptr null, ptr %44, align 8
+44:                                               ; preds = %24
+  br label %45
+
+45:                                               ; preds = %44, %1
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds %struct.FxuMatrix, ptr %46, i32 0, i32 16
+  store ptr null, ptr %47, align 8
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.FxuMatrix, ptr %48, i32 0, i32 17
+  store ptr null, ptr %49, align 8
   ret void
 }
 

@@ -1098,7 +1098,8 @@ entry:
   %0 = extractvalue { ptr, ptr } %call, 0
   store ptr %0, ptr @_ZN4node4util23fast_guess_handle_type_E, align 8
   %1 = extractvalue { ptr, ptr } %call, 1
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN4node4util23fast_guess_handle_type_E, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr @_ZN4node4util23fast_guess_handle_type_E, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
   ret void
 }
 

@@ -748,19 +748,19 @@ define dso_local void @nf_send_reset6(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = tail call i32 @__ipv6_addr_type(ptr noundef %15) #6
   %17 = and i32 %16, 1
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %119, label %19
+  br i1 %18, label %120, label %19
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   %21 = tail call i32 @__ipv6_addr_type(ptr noundef %20) #6
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %119, label %24
+  br i1 %23, label %120, label %24
 
 24:                                               ; preds = %19
   %25 = call ptr @nf_reject_ip6_tcphdr_get(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %3)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %119, label %27
+  br i1 %26, label %120, label %27
 
 27:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
@@ -786,7 +786,7 @@ define dso_local void @nf_send_reset6(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = call i32 @__nf_ip6_route(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false) #6
   %38 = load ptr, ptr %7, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %119, label %40
+  br i1 %39, label %120, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %2, i64 129
@@ -823,85 +823,86 @@ define dso_local void @nf_send_reset6(ptr noundef %0, ptr noundef %1, ptr nounde
 
 60:                                               ; preds = %53
   call void @dst_release(ptr noundef %56) #6
-  br label %119
+  br label %120
 
 61:                                               ; preds = %53
   %62 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %56, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0) #6
   store ptr %62, ptr %7, align 8
-  %63 = icmp ugt ptr %62, inttoptr (i64 -4096 to ptr)
-  br i1 %63, label %119, label %64
+  %63 = inttoptr i64 -4096 to ptr
+  %64 = icmp ugt ptr %62, %63
+  br i1 %64, label %120, label %65
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 172
-  %67 = load i16, ptr %66, align 4
-  %68 = zext i16 %67 to i32
-  %69 = add nuw nsw i32 %68, 15
-  %70 = or i32 %69, 15
-  %71 = getelementptr inbounds i8, ptr %62, i64 60
-  %72 = load i16, ptr %71, align 4
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %62, i64 62
-  %75 = load i16, ptr %74, align 2
-  %76 = zext i16 %75 to i32
-  %77 = add nuw nsw i32 %73, 60
-  %78 = add nuw nsw i32 %77, %70
-  %79 = add nuw nsw i32 %78, %76
-  %80 = call ptr @__alloc_skb(i32 noundef %79, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #6
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %84
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %62, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 172
+  %68 = load i16, ptr %67, align 4
+  %69 = zext i16 %68 to i32
+  %70 = add nuw nsw i32 %69, 15
+  %71 = or i32 %70, 15
+  %72 = getelementptr inbounds i8, ptr %62, i64 60
+  %73 = load i16, ptr %72, align 4
+  %74 = zext i16 %73 to i32
+  %75 = getelementptr inbounds i8, ptr %62, i64 62
+  %76 = load i16, ptr %75, align 2
+  %77 = zext i16 %76 to i32
+  %78 = add nuw nsw i32 %74, 60
+  %79 = add nuw nsw i32 %78, %71
+  %80 = add nuw nsw i32 %79, %77
+  %81 = call ptr @__alloc_skb(i32 noundef %80, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #6
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %64
-  %83 = load ptr, ptr %7, align 8
-  call void @dst_release(ptr noundef %83) #6
-  br label %119
+83:                                               ; preds = %65
+  %84 = load ptr, ptr %7, align 8
+  call void @dst_release(ptr noundef %84) #6
+  br label %120
 
-84:                                               ; preds = %64
-  %85 = and i32 %69, 131056
-  %86 = load ptr, ptr %7, align 8
-  %87 = icmp ne ptr %86, null
-  %88 = getelementptr inbounds i8, ptr %80, i64 129
-  %89 = load i24, ptr %88, align 1
-  %90 = and i24 %89, 1048576
-  %91 = icmp ne i24 %90, 0
-  %92 = or i1 %87, %91
-  %93 = select i1 %92, i24 1048576, i24 0
-  %94 = and i24 %89, -1048577
-  %95 = or disjoint i24 %93, %94
-  store i24 %95, ptr %88, align 1
-  %96 = ptrtoint ptr %86 to i64
-  %97 = getelementptr inbounds i8, ptr %80, i64 88
-  store i64 %96, ptr %97, align 8
-  %98 = load i32, ptr %55, align 4
-  %99 = getelementptr inbounds i8, ptr %80, i64 164
-  store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %86, i64 60
-  %101 = load i16, ptr %100, align 4
-  %102 = zext i16 %101 to i32
-  %103 = add nuw nsw i32 %85, %102
-  %104 = getelementptr inbounds i8, ptr %80, i64 200
-  %105 = load ptr, ptr %104, align 8
-  %106 = zext nneg i32 %103 to i64
-  %107 = getelementptr i8, ptr %105, i64 %106
-  store ptr %107, ptr %104, align 8
-  %108 = getelementptr inbounds i8, ptr %80, i64 184
-  %109 = load i32, ptr %108, align 8
-  %110 = add i32 %109, %103
-  store i32 %110, ptr %108, align 8
-  %111 = call i32 @ip6_dst_hoplimit(ptr noundef %86) #6
-  %112 = call ptr @nf_reject_ip6hdr_put(ptr noundef nonnull %80, ptr noundef %2, i8 noundef zeroext 6, i32 noundef %111)
-  %113 = load i32, ptr %6, align 4
-  call void @nf_reject_ip6_tcphdr_put(ptr noundef nonnull %80, ptr poison, ptr noundef nonnull %25, i32 noundef %113)
-  call void @nf_ct_attach(ptr noundef nonnull %80, ptr noundef %2) #6
-  %114 = getelementptr inbounds i8, ptr %2, i64 104
-  %115 = load i64, ptr %114, align 8
-  %116 = and i64 %115, -8
-  %117 = inttoptr i64 %116 to ptr
-  call void @nf_ct_set_closing(ptr noundef %117) #6
-  %118 = call i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %80) #6
-  br label %119
+85:                                               ; preds = %65
+  %86 = and i32 %70, 131056
+  %87 = load ptr, ptr %7, align 8
+  %88 = icmp ne ptr %87, null
+  %89 = getelementptr inbounds i8, ptr %81, i64 129
+  %90 = load i24, ptr %89, align 1
+  %91 = and i24 %90, 1048576
+  %92 = icmp ne i24 %91, 0
+  %93 = or i1 %88, %92
+  %94 = select i1 %93, i24 1048576, i24 0
+  %95 = and i24 %90, -1048577
+  %96 = or disjoint i24 %94, %95
+  store i24 %96, ptr %89, align 1
+  %97 = ptrtoint ptr %87 to i64
+  %98 = getelementptr inbounds i8, ptr %81, i64 88
+  store i64 %97, ptr %98, align 8
+  %99 = load i32, ptr %55, align 4
+  %100 = getelementptr inbounds i8, ptr %81, i64 164
+  store i32 %99, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %87, i64 60
+  %102 = load i16, ptr %101, align 4
+  %103 = zext i16 %102 to i32
+  %104 = add nuw nsw i32 %86, %103
+  %105 = getelementptr inbounds i8, ptr %81, i64 200
+  %106 = load ptr, ptr %105, align 8
+  %107 = zext nneg i32 %104 to i64
+  %108 = getelementptr i8, ptr %106, i64 %107
+  store ptr %108, ptr %105, align 8
+  %109 = getelementptr inbounds i8, ptr %81, i64 184
+  %110 = load i32, ptr %109, align 8
+  %111 = add i32 %110, %104
+  store i32 %111, ptr %109, align 8
+  %112 = call i32 @ip6_dst_hoplimit(ptr noundef %87) #6
+  %113 = call ptr @nf_reject_ip6hdr_put(ptr noundef nonnull %81, ptr noundef %2, i8 noundef zeroext 6, i32 noundef %112)
+  %114 = load i32, ptr %6, align 4
+  call void @nf_reject_ip6_tcphdr_put(ptr noundef nonnull %81, ptr poison, ptr noundef nonnull %25, i32 noundef %114)
+  call void @nf_ct_attach(ptr noundef nonnull %81, ptr noundef %2) #6
+  %115 = getelementptr inbounds i8, ptr %2, i64 104
+  %116 = load i64, ptr %115, align 8
+  %117 = and i64 %116, -8
+  %118 = inttoptr i64 %117 to ptr
+  call void @nf_ct_set_closing(ptr noundef %118) #6
+  %119 = call i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %81) #6
+  br label %120
 
-119:                                              ; preds = %84, %82, %61, %60, %36, %24, %19, %4
+120:                                              ; preds = %85, %83, %61, %60, %36, %24, %19, %4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6

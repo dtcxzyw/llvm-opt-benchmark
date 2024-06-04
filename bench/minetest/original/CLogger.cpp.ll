@@ -83,8 +83,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !13
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %LogLevel, align 8, !tbaa !6
   %Receiver = getelementptr inbounds i8, ptr %this, i64 16

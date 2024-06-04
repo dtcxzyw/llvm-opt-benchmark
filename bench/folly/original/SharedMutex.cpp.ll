@@ -808,8 +808,9 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp22.not, label %if.end47, label %if.then23
 
 if.then23:                                        ; preds = %if.then19
-  %12 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i153 = icmp eq i64 %12, 0
+  %12 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %13 = load atomic i64, ptr %12 acquire, align 8
+  %tobool.not.i153 = icmp eq i64 %13, 0
   br i1 %tobool.not.i153, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !19
 
 if.then.i:                                        ; preds = %if.then23
@@ -818,22 +819,23 @@ if.then.i:                                        ; preds = %if.then23
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #17
-  %13 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i = inttoptr i64 %13 to ptr
+  %14 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %15 = load atomic i64, ptr %14 monotonic, align 8
+  %atomic-temp.0.i.i.i = inttoptr i64 %15 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
-  %14 = load i32, ptr %cpu.i, align 4, !tbaa !17
-  %rem.i = and i32 %14, 255
+  %16 = load i32, ptr %cpu.i, align 4, !tbaa !17
+  %rem.i = and i32 %16, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i154 = zext nneg i32 %rem.i to i64
   %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
-  %15 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
+  %17 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #17
-  %conv27 = zext i8 %15 to i32
+  %conv27 = zext i8 %17 to i32
   %mul.i155 = shl nuw nsw i32 %conv27, 2
   %idxprom.i156 = zext nneg i32 %mul.i155 to i64
   %arrayidx.i157 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
-  %16 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
-  %cmp31 = icmp eq i64 %16, 0
+  %18 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
+  %cmp31 = icmp eq i64 %18, 0
   br i1 %cmp31, label %if.then32, label %for.cond
 
 for.cond:                                         ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit
@@ -841,8 +843,8 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %mul.i155.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i156.1 = zext nneg i32 %mul.i155.1 to i64
   %arrayidx.i157.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
-  %17 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
-  %cmp31.1 = icmp eq i64 %17, 0
+  %19 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
+  %cmp31.1 = icmp eq i64 %19, 0
   br i1 %cmp31.1, label %if.then32, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
@@ -856,15 +858,15 @@ if.then32:                                        ; preds = %for.cond, %_ZN5foll
   br label %if.end47
 
 seqcst_fail50.i:                                  ; preds = %for.cond.1, %lor.lhs.false
-  %18 = phi i32 [ %.pre199, %for.cond.1 ], [ %9, %lor.lhs.false ]
-  %add = add i32 %18, 2048
-  %19 = cmpxchg ptr %this, i32 %18, i32 %add seq_cst seq_cst, align 4
-  %20 = extractvalue { i32, i1 } %19, 1
-  br i1 %20, label %if.then41, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %20 = phi i32 [ %.pre199, %for.cond.1 ], [ %9, %lor.lhs.false ]
+  %add = add i32 %20, 2048
+  %21 = cmpxchg ptr %this, i32 %20, i32 %add seq_cst seq_cst, align 4
+  %22 = extractvalue { i32, i1 } %21, 1
+  br i1 %22, label %if.then41, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i
-  %21 = extractvalue { i32, i1 } %19, 0
-  store i32 %21, ptr %state, align 4
+  %23 = extractvalue { i32, i1 } %21, 0
+  store i32 %23, ptr %state, align 4
   br label %while.cond.backedge
 
 if.then41:                                        ; preds = %seqcst_fail50.i
@@ -875,22 +877,22 @@ if.then43:                                        ; preds = %if.then41
   br label %cleanup102
 
 if.end47:                                         ; preds = %if.then32, %if.then19
-  %22 = phi i32 [ %.pre198, %if.then32 ], [ %9, %if.then19 ]
+  %24 = phi i32 [ %.pre198, %if.then32 ], [ %9, %if.then19 ]
   %slot.2.ph = phi i32 [ %xor.lcssa, %if.then32 ], [ %10, %if.then19 ]
-  %and48 = and i32 %22, 512
+  %and48 = and i32 %24, 512
   %cmp49 = icmp eq i32 %and48, 0
   br i1 %cmp49, label %seqcst_fail50.i134, label %if.end59
 
 seqcst_fail50.i134:                               ; preds = %if.end47
-  %or = or disjoint i32 %22, 512
-  %23 = cmpxchg ptr %this, i32 %22, i32 %or seq_cst seq_cst, align 4
-  %24 = extractvalue { i32, i1 } %23, 1
-  br i1 %24, label %if.end59, label %if.then53
+  %or = or disjoint i32 %24, 512
+  %25 = cmpxchg ptr %this, i32 %24, i32 %or seq_cst seq_cst, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %if.end59, label %if.then53
 
 if.then53:                                        ; preds = %seqcst_fail50.i134
-  %25 = extractvalue { i32, i1 } %23, 0
-  store i32 %25, ptr %state, align 4
-  %and54 = and i32 %25, 640
+  %27 = extractvalue { i32, i1 } %25, 0
+  store i32 %27, ptr %state, align 4
+  %and54 = and i32 %27, 640
   %cmp55.not = icmp eq i32 %and54, 512
   br i1 %cmp55.not, label %if.end59, label %while.cond.backedge
 
@@ -901,33 +903,33 @@ if.end59:                                         ; preds = %if.then53, %seqcst_
   br i1 %cmp61, label %seqcst_fail50.i146, label %seqcst_fail50.i146.thread
 
 seqcst_fail50.i146:                               ; preds = %if.end59
-  %26 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %or.i seq_cst seq_cst, align 8
-  %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %if.end75.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %28 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %or.i seq_cst seq_cst, align 8
+  %29 = extractvalue { i64, i1 } %28, 1
+  br i1 %29, label %if.end75.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 seqcst_fail50.i146.thread:                        ; preds = %if.end59
-  %28 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %3 seq_cst seq_cst, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  br i1 %29, label %if.end75, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %30 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %3 seq_cst seq_cst, align 8
+  %31 = extractvalue { i64, i1 } %30, 1
+  br i1 %31, label %if.end75, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i146.thread, %seqcst_fail50.i146
-  %30 = load atomic i32, ptr %this acquire, align 4
-  store i32 %30, ptr %state, align 4, !tbaa !17
+  %32 = load atomic i32, ptr %this acquire, align 4
+  store i32 %32, ptr %state, align 4, !tbaa !17
   br label %while.cond.backedge
 
 if.end75:                                         ; preds = %seqcst_fail50.i146.thread
-  %31 = load atomic i32, ptr %this acquire, align 4
-  store i32 %31, ptr %state, align 4, !tbaa !17
-  %and76 = and i32 %31, 512
+  %33 = load atomic i32, ptr %this acquire, align 4
+  store i32 %33, ptr %state, align 4, !tbaa !17
+  %and76 = and i32 %33, 512
   %cmp77.not = icmp eq i32 %and76, 0
   br i1 %cmp77.not, label %if.else, label %if.then80
 
 if.end75.thread:                                  ; preds = %seqcst_fail50.i146
-  %32 = load atomic i32, ptr %this acquire, align 4
-  store i32 %32, ptr %state, align 4, !tbaa !17
+  %34 = load atomic i32, ptr %this acquire, align 4
+  store i32 %34, ptr %state, align 4, !tbaa !17
   store atomic i32 %slot.2.ph, ptr %4 monotonic, align 4
-  %33 = load i32, ptr %state, align 4, !tbaa !17
-  %and76188 = and i32 %33, 512
+  %35 = load i32, ptr %state, align 4, !tbaa !17
+  %and76188 = and i32 %35, 512
   %cmp77.not189 = icmp eq i32 %and76188, 0
   br i1 %cmp77.not189, label %if.then86, label %cleanup102
 
@@ -939,23 +941,23 @@ if.then80:                                        ; preds = %if.end75
   br label %cleanup102
 
 if.then86:                                        ; preds = %if.end75.thread
-  %34 = load atomic i32, ptr %4 monotonic, align 4
+  %36 = load atomic i32, ptr %4 monotonic, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %if.then86
   %i.0.i = phi i32 [ 0, %if.then86 ], [ %inc.i, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i ]
-  %xor.i = xor i32 %i.0.i, %34
+  %xor.i = xor i32 %i.0.i, %36
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
-  %35 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
-  %cmp.i161 = icmp eq i64 %35, %or.i
+  %37 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
+  %cmp.i161 = icmp eq i64 %37, %or.i
   br i1 %cmp.i161, label %seqcst_fail50.i.i, label %do.cond.i
 
 seqcst_fail50.i.i:                                ; preds = %do.body.i
-  %36 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
-  %37 = extractvalue { i64, i1 } %36, 1
-  br i1 %37, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
+  %38 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  br i1 %39, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread: ; preds = %seqcst_fail50.i.i
   store atomic i32 %xor.i, ptr %4 monotonic, align 4
@@ -966,8 +968,8 @@ while.cond.backedge:                              ; preds = %_ZN5folly15SharedMu
 
 do.cond.i:                                        ; preds = %seqcst_fail50.i.i, %do.body.i
   %inc.i = add nuw i32 %i.0.i, 1
-  %38 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
-  %tobool.not.i.i = icmp eq i32 %38, 0
+  %40 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
+  %tobool.not.i.i = icmp eq i32 %40, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
@@ -975,17 +977,17 @@ cond.false.i.i:                                   ; preds = %do.cond.i
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
-  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %38, %do.cond.i ]
+  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %40, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
   br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !26
 
 if.then88:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
-  %39 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %40 = add i32 %39, -2048
-  store i32 %40, ptr %state.i, align 4, !tbaa !17
-  %cmp.i162 = icmp ugt i32 %40, 2047
-  %and.i.i = and i32 %39, 16
+  %41 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %42 = add i32 %41, -2048
+  store i32 %42, ptr %state.i, align 4, !tbaa !17
+  %cmp.i162 = icmp ugt i32 %42, 2047
+  %and.i.i = and i32 %41, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i162, %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
@@ -999,17 +1001,17 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 if.else:                                          ; preds = %if.end75
-  %41 = cmpxchg ptr %arrayidx.i160, i64 %3, i64 0 seq_cst seq_cst, align 8
-  %42 = extractvalue { i64, i1 } %41, 1
-  br i1 %42, label %while.cond.backedge, label %if.then92
+  %43 = cmpxchg ptr %arrayidx.i160, i64 %3, i64 0 seq_cst seq_cst, align 8
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %while.cond.backedge, label %if.then92
 
 if.then92:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i167) #17
-  %43 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %44 = add i32 %43, -2048
-  store i32 %44, ptr %state.i167, align 4, !tbaa !17
-  %cmp.i168 = icmp ugt i32 %44, 2047
-  %and.i.i169 = and i32 %43, 16
+  %45 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %46 = add i32 %45, -2048
+  store i32 %46, ptr %state.i167, align 4, !tbaa !17
+  %cmp.i168 = icmp ugt i32 %46, 2047
+  %and.i.i169 = and i32 %45, 16
   %cmp.not.i.i170 = icmp eq i32 %and.i.i169, 0
   %or.cond.i171 = or i1 %cmp.i168, %cmp.not.i.i170
   br i1 %or.cond.i171, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit174, label %if.then.i.i172, !prof !27
@@ -3601,8 +3603,9 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp22.not, label %if.end47, label %if.then23
 
 if.then23:                                        ; preds = %if.then19
-  %11 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i153 = icmp eq i64 %11, 0
+  %11 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %12 = load atomic i64, ptr %11 acquire, align 8
+  %tobool.not.i153 = icmp eq i64 %12, 0
   br i1 %tobool.not.i153, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !19
 
 if.then.i:                                        ; preds = %if.then23
@@ -3611,22 +3614,23 @@ if.then.i:                                        ; preds = %if.then23
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #17
-  %12 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i = inttoptr i64 %12 to ptr
+  %13 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
-  %13 = load i32, ptr %cpu.i, align 4, !tbaa !17
-  %rem.i = and i32 %13, 255
+  %15 = load i32, ptr %cpu.i, align 4, !tbaa !17
+  %rem.i = and i32 %15, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i154 = zext nneg i32 %rem.i to i64
   %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
-  %14 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
+  %16 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #17
-  %conv27 = zext i8 %14 to i32
+  %conv27 = zext i8 %16 to i32
   %mul.i155 = shl nuw nsw i32 %conv27, 2
   %idxprom.i156 = zext nneg i32 %mul.i155 to i64
   %arrayidx.i157 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
-  %15 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
-  %cmp31 = icmp eq i64 %15, 0
+  %17 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
+  %cmp31 = icmp eq i64 %17, 0
   br i1 %cmp31, label %if.then32, label %for.cond
 
 for.cond:                                         ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit
@@ -3634,8 +3638,8 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %mul.i155.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i156.1 = zext nneg i32 %mul.i155.1 to i64
   %arrayidx.i157.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
-  %16 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
-  %cmp31.1 = icmp eq i64 %16, 0
+  %18 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
+  %cmp31.1 = icmp eq i64 %18, 0
   br i1 %cmp31.1, label %if.then32, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
@@ -3649,15 +3653,15 @@ if.then32:                                        ; preds = %for.cond, %_ZN5foll
   br label %if.end47
 
 seqcst_fail50.i:                                  ; preds = %for.cond.1, %lor.lhs.false
-  %17 = phi i32 [ %.pre198, %for.cond.1 ], [ %8, %lor.lhs.false ]
-  %add = add i32 %17, 2048
-  %18 = cmpxchg ptr %this, i32 %17, i32 %add seq_cst seq_cst, align 4
-  %19 = extractvalue { i32, i1 } %18, 1
-  br i1 %19, label %if.then41, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %19 = phi i32 [ %.pre198, %for.cond.1 ], [ %8, %lor.lhs.false ]
+  %add = add i32 %19, 2048
+  %20 = cmpxchg ptr %this, i32 %19, i32 %add seq_cst seq_cst, align 4
+  %21 = extractvalue { i32, i1 } %20, 1
+  br i1 %21, label %if.then41, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i
-  %20 = extractvalue { i32, i1 } %18, 0
-  store i32 %20, ptr %state, align 4
+  %22 = extractvalue { i32, i1 } %20, 0
+  store i32 %22, ptr %state, align 4
   br label %while.cond.backedge
 
 if.then41:                                        ; preds = %seqcst_fail50.i
@@ -3668,22 +3672,22 @@ if.then43:                                        ; preds = %if.then41
   br label %cleanup102
 
 if.end47:                                         ; preds = %if.then32, %if.then19
-  %21 = phi i32 [ %.pre, %if.then32 ], [ %8, %if.then19 ]
+  %23 = phi i32 [ %.pre, %if.then32 ], [ %8, %if.then19 ]
   %slot.2.ph = phi i32 [ %xor.lcssa, %if.then32 ], [ %9, %if.then19 ]
-  %and48 = and i32 %21, 512
+  %and48 = and i32 %23, 512
   %cmp49 = icmp eq i32 %and48, 0
   br i1 %cmp49, label %seqcst_fail50.i134, label %if.end59
 
 seqcst_fail50.i134:                               ; preds = %if.end47
-  %or = or disjoint i32 %21, 512
-  %22 = cmpxchg ptr %this, i32 %21, i32 %or seq_cst seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 1
-  br i1 %23, label %if.end59, label %if.then53
+  %or = or disjoint i32 %23, 512
+  %24 = cmpxchg ptr %this, i32 %23, i32 %or seq_cst seq_cst, align 4
+  %25 = extractvalue { i32, i1 } %24, 1
+  br i1 %25, label %if.end59, label %if.then53
 
 if.then53:                                        ; preds = %seqcst_fail50.i134
-  %24 = extractvalue { i32, i1 } %22, 0
-  store i32 %24, ptr %state, align 4
-  %and54 = and i32 %24, 640
+  %26 = extractvalue { i32, i1 } %24, 0
+  store i32 %26, ptr %state, align 4
+  %and54 = and i32 %26, 640
   %cmp55.not = icmp eq i32 %and54, 512
   br i1 %cmp55.not, label %if.end59, label %while.cond.backedge
 
@@ -3694,33 +3698,33 @@ if.end59:                                         ; preds = %if.then53, %seqcst_
   br i1 %cmp61, label %seqcst_fail50.i146, label %seqcst_fail50.i146.thread
 
 seqcst_fail50.i146:                               ; preds = %if.end59
-  %25 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %or.i seq_cst seq_cst, align 8
-  %26 = extractvalue { i64, i1 } %25, 1
-  br i1 %26, label %if.end75.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %27 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %or.i seq_cst seq_cst, align 8
+  %28 = extractvalue { i64, i1 } %27, 1
+  br i1 %28, label %if.end75.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 seqcst_fail50.i146.thread:                        ; preds = %if.end59
-  %27 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %3 seq_cst seq_cst, align 8
-  %28 = extractvalue { i64, i1 } %27, 1
-  br i1 %28, label %if.end75, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %29 = cmpxchg ptr %arrayidx.i160, i64 0, i64 %3 seq_cst seq_cst, align 8
+  %30 = extractvalue { i64, i1 } %29, 1
+  br i1 %30, label %if.end75, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i146.thread, %seqcst_fail50.i146
-  %29 = load atomic i32, ptr %this acquire, align 4
-  store i32 %29, ptr %state, align 4, !tbaa !17
+  %31 = load atomic i32, ptr %this acquire, align 4
+  store i32 %31, ptr %state, align 4, !tbaa !17
   br label %while.cond.backedge
 
 if.end75:                                         ; preds = %seqcst_fail50.i146.thread
-  %30 = load atomic i32, ptr %this acquire, align 4
-  store i32 %30, ptr %state, align 4, !tbaa !17
-  %and76 = and i32 %30, 512
+  %32 = load atomic i32, ptr %this acquire, align 4
+  store i32 %32, ptr %state, align 4, !tbaa !17
+  %and76 = and i32 %32, 512
   %cmp77.not = icmp eq i32 %and76, 0
   br i1 %cmp77.not, label %if.else, label %if.then80
 
 if.end75.thread:                                  ; preds = %seqcst_fail50.i146
-  %31 = load atomic i32, ptr %this acquire, align 4
-  store i32 %31, ptr %state, align 4, !tbaa !17
+  %33 = load atomic i32, ptr %this acquire, align 4
+  store i32 %33, ptr %state, align 4, !tbaa !17
   store atomic i32 %slot.2.ph, ptr %4 monotonic, align 4
-  %32 = load i32, ptr %state, align 4, !tbaa !17
-  %and76190 = and i32 %32, 512
+  %34 = load i32, ptr %state, align 4, !tbaa !17
+  %and76190 = and i32 %34, 512
   %cmp77.not191 = icmp eq i32 %and76190, 0
   br i1 %cmp77.not191, label %if.then86, label %cleanup102
 
@@ -3732,23 +3736,23 @@ if.then80:                                        ; preds = %if.end75
   br label %cleanup102
 
 if.then86:                                        ; preds = %if.end75.thread
-  %33 = load atomic i32, ptr %4 monotonic, align 4
+  %35 = load atomic i32, ptr %4 monotonic, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %if.then86
   %i.0.i = phi i32 [ 0, %if.then86 ], [ %inc.i162, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i ]
-  %xor.i = xor i32 %i.0.i, %33
+  %xor.i = xor i32 %i.0.i, %35
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
-  %34 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
-  %cmp.i161 = icmp eq i64 %34, %or.i
+  %36 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
+  %cmp.i161 = icmp eq i64 %36, %or.i
   br i1 %cmp.i161, label %seqcst_fail50.i.i, label %do.cond.i
 
 seqcst_fail50.i.i:                                ; preds = %do.body.i
-  %35 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
-  %36 = extractvalue { i64, i1 } %35, 1
-  br i1 %36, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
+  %37 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
+  %38 = extractvalue { i64, i1 } %37, 1
+  br i1 %38, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread: ; preds = %seqcst_fail50.i.i
   store atomic i32 %xor.i, ptr %4 monotonic, align 4
@@ -3759,8 +3763,8 @@ while.cond.backedge:                              ; preds = %_ZN5folly15SharedMu
 
 do.cond.i:                                        ; preds = %seqcst_fail50.i.i, %do.body.i
   %inc.i162 = add nuw i32 %i.0.i, 1
-  %37 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
-  %tobool.not.i.i = icmp eq i32 %37, 0
+  %39 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
+  %tobool.not.i.i = icmp eq i32 %39, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
@@ -3768,17 +3772,17 @@ cond.false.i.i:                                   ; preds = %do.cond.i
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
-  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %37, %do.cond.i ]
+  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %39, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i162, %cond.i.i
   br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !77
 
 if.then88:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
-  %38 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %39 = add i32 %38, -2048
-  store i32 %39, ptr %state.i, align 4, !tbaa !17
-  %cmp.i163 = icmp ugt i32 %39, 2047
-  %and.i.i = and i32 %38, 16
+  %40 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %41 = add i32 %40, -2048
+  store i32 %41, ptr %state.i, align 4, !tbaa !17
+  %cmp.i163 = icmp ugt i32 %41, 2047
+  %and.i.i = and i32 %40, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i164 = or i1 %cmp.i163, %cmp.not.i.i
   br i1 %or.cond.i164, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
@@ -3792,17 +3796,17 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 if.else:                                          ; preds = %if.end75
-  %40 = cmpxchg ptr %arrayidx.i160, i64 %3, i64 0 seq_cst seq_cst, align 8
-  %41 = extractvalue { i64, i1 } %40, 1
-  br i1 %41, label %while.cond.backedge, label %if.then92
+  %42 = cmpxchg ptr %arrayidx.i160, i64 %3, i64 0 seq_cst seq_cst, align 8
+  %43 = extractvalue { i64, i1 } %42, 1
+  br i1 %43, label %while.cond.backedge, label %if.then92
 
 if.then92:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i169) #17
-  %42 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %43 = add i32 %42, -2048
-  store i32 %43, ptr %state.i169, align 4, !tbaa !17
-  %cmp.i170 = icmp ugt i32 %43, 2047
-  %and.i.i171 = and i32 %42, 16
+  %44 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %45 = add i32 %44, -2048
+  store i32 %45, ptr %state.i169, align 4, !tbaa !17
+  %cmp.i170 = icmp ugt i32 %45, 2047
+  %and.i.i171 = and i32 %44, 16
   %cmp.not.i.i172 = icmp eq i32 %and.i.i171, 0
   %or.cond.i173 = or i1 %cmp.i170, %cmp.not.i.i172
   br i1 %or.cond.i173, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit176, label %if.then.i.i174, !prof !27
@@ -4104,8 +4108,9 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i149 = icmp eq i64 %13, 0
+  %13 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %14 = load atomic i64, ptr %13 acquire, align 8
+  %tobool.not.i149 = icmp eq i64 %14, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !19
 
 if.then.i:                                        ; preds = %if.then20
@@ -4114,22 +4119,23 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #17
-  %14 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
+  %15 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %16 = load atomic i64, ptr %15 monotonic, align 8
+  %atomic-temp.0.i.i.i = inttoptr i64 %16 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
-  %15 = load i32, ptr %cpu.i, align 4, !tbaa !17
-  %rem.i = and i32 %15, 255
+  %17 = load i32, ptr %cpu.i, align 4, !tbaa !17
+  %rem.i = and i32 %17, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i150 = zext nneg i32 %rem.i to i64
   %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
-  %16 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
+  %18 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #17
-  %conv24 = zext i8 %16 to i32
+  %conv24 = zext i8 %18 to i32
   %mul.i151 = shl nuw nsw i32 %conv24, 2
   %idxprom.i152 = zext nneg i32 %mul.i151 to i64
   %arrayidx.i153 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
-  %17 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
-  %cmp28 = icmp eq i64 %17, 0
+  %19 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
+  %cmp28 = icmp eq i64 %19, 0
   br i1 %cmp28, label %if.then29, label %for.cond
 
 for.cond:                                         ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit
@@ -4137,8 +4143,8 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %mul.i151.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i152.1 = zext nneg i32 %mul.i151.1 to i64
   %arrayidx.i153.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
-  %18 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
-  %cmp28.1 = icmp eq i64 %18, 0
+  %20 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
+  %cmp28.1 = icmp eq i64 %20, 0
   br i1 %cmp28.1, label %if.then29, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
@@ -4152,15 +4158,15 @@ if.then29:                                        ; preds = %for.cond, %_ZN5foll
   br label %if.end44
 
 seqcst_fail50.i:                                  ; preds = %for.cond.1, %if.end
-  %19 = phi i32 [ %.pre195, %for.cond.1 ], [ %9, %if.end ]
-  %add = add i32 %19, 2048
-  %20 = cmpxchg ptr %this, i32 %19, i32 %add seq_cst seq_cst, align 4
-  %21 = extractvalue { i32, i1 } %20, 1
-  br i1 %21, label %if.then38, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %21 = phi i32 [ %.pre195, %for.cond.1 ], [ %9, %if.end ]
+  %add = add i32 %21, 2048
+  %22 = cmpxchg ptr %this, i32 %21, i32 %add seq_cst seq_cst, align 4
+  %23 = extractvalue { i32, i1 } %22, 1
+  br i1 %23, label %if.then38, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i
-  %22 = extractvalue { i32, i1 } %20, 0
-  store i32 %22, ptr %state, align 4
+  %24 = extractvalue { i32, i1 } %22, 0
+  store i32 %24, ptr %state, align 4
   br label %while.cond.backedge
 
 if.then38:                                        ; preds = %seqcst_fail50.i
@@ -4171,22 +4177,22 @@ if.then40:                                        ; preds = %if.then38
   br label %cleanup99
 
 if.end44:                                         ; preds = %if.then29, %if.then16
-  %23 = phi i32 [ %.pre194, %if.then29 ], [ %9, %if.then16 ]
+  %25 = phi i32 [ %.pre194, %if.then29 ], [ %9, %if.then16 ]
   %slot.2.ph = phi i32 [ %xor.lcssa, %if.then29 ], [ %10, %if.then16 ]
-  %and45 = and i32 %23, 512
+  %and45 = and i32 %25, 512
   %cmp46 = icmp eq i32 %and45, 0
   br i1 %cmp46, label %seqcst_fail50.i130, label %if.end56
 
 seqcst_fail50.i130:                               ; preds = %if.end44
-  %or = or disjoint i32 %23, 512
-  %24 = cmpxchg ptr %this, i32 %23, i32 %or seq_cst seq_cst, align 4
-  %25 = extractvalue { i32, i1 } %24, 1
-  br i1 %25, label %if.end56, label %if.then50
+  %or = or disjoint i32 %25, 512
+  %26 = cmpxchg ptr %this, i32 %25, i32 %or seq_cst seq_cst, align 4
+  %27 = extractvalue { i32, i1 } %26, 1
+  br i1 %27, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %seqcst_fail50.i130
-  %26 = extractvalue { i32, i1 } %24, 0
-  store i32 %26, ptr %state, align 4
-  %and51 = and i32 %26, 640
+  %28 = extractvalue { i32, i1 } %26, 0
+  store i32 %28, ptr %state, align 4
+  %and51 = and i32 %28, 640
   %cmp52.not = icmp eq i32 %and51, 512
   br i1 %cmp52.not, label %if.end56, label %while.cond.backedge
 
@@ -4197,33 +4203,33 @@ if.end56:                                         ; preds = %if.then50, %seqcst_
   br i1 %cmp58, label %seqcst_fail50.i142, label %seqcst_fail50.i142.thread
 
 seqcst_fail50.i142:                               ; preds = %if.end56
-  %27 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %or.i seq_cst seq_cst, align 8
-  %28 = extractvalue { i64, i1 } %27, 1
-  br i1 %28, label %if.end72.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %29 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %or.i seq_cst seq_cst, align 8
+  %30 = extractvalue { i64, i1 } %29, 1
+  br i1 %30, label %if.end72.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 seqcst_fail50.i142.thread:                        ; preds = %if.end56
-  %29 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %3 seq_cst seq_cst, align 8
-  %30 = extractvalue { i64, i1 } %29, 1
-  br i1 %30, label %if.end72, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %31 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %3 seq_cst seq_cst, align 8
+  %32 = extractvalue { i64, i1 } %31, 1
+  br i1 %32, label %if.end72, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i142.thread, %seqcst_fail50.i142
-  %31 = load atomic i32, ptr %this acquire, align 4
-  store i32 %31, ptr %state, align 4, !tbaa !17
+  %33 = load atomic i32, ptr %this acquire, align 4
+  store i32 %33, ptr %state, align 4, !tbaa !17
   br label %while.cond.backedge
 
 if.end72:                                         ; preds = %seqcst_fail50.i142.thread
-  %32 = load atomic i32, ptr %this acquire, align 4
-  store i32 %32, ptr %state, align 4, !tbaa !17
-  %and73 = and i32 %32, 512
+  %34 = load atomic i32, ptr %this acquire, align 4
+  store i32 %34, ptr %state, align 4, !tbaa !17
+  %and73 = and i32 %34, 512
   %cmp74.not = icmp eq i32 %and73, 0
   br i1 %cmp74.not, label %if.else, label %if.then77
 
 if.end72.thread:                                  ; preds = %seqcst_fail50.i142
-  %33 = load atomic i32, ptr %this acquire, align 4
-  store i32 %33, ptr %state, align 4, !tbaa !17
+  %35 = load atomic i32, ptr %this acquire, align 4
+  store i32 %35, ptr %state, align 4, !tbaa !17
   store atomic i32 %slot.2.ph, ptr %4 monotonic, align 4
-  %34 = load i32, ptr %state, align 4, !tbaa !17
-  %and73184 = and i32 %34, 512
+  %36 = load i32, ptr %state, align 4, !tbaa !17
+  %and73184 = and i32 %36, 512
   %cmp74.not185 = icmp eq i32 %and73184, 0
   br i1 %cmp74.not185, label %if.then83, label %cleanup99
 
@@ -4235,23 +4241,23 @@ if.then77:                                        ; preds = %if.end72
   br label %cleanup99
 
 if.then83:                                        ; preds = %if.end72.thread
-  %35 = load atomic i32, ptr %4 monotonic, align 4
+  %37 = load atomic i32, ptr %4 monotonic, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %if.then83
   %i.0.i = phi i32 [ 0, %if.then83 ], [ %inc.i, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i ]
-  %xor.i = xor i32 %i.0.i, %35
+  %xor.i = xor i32 %i.0.i, %37
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
-  %36 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
-  %cmp.i157 = icmp eq i64 %36, %or.i
+  %38 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
+  %cmp.i157 = icmp eq i64 %38, %or.i
   br i1 %cmp.i157, label %seqcst_fail50.i.i, label %do.cond.i
 
 seqcst_fail50.i.i:                                ; preds = %do.body.i
-  %37 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
-  %38 = extractvalue { i64, i1 } %37, 1
-  br i1 %38, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
+  %39 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
+  %40 = extractvalue { i64, i1 } %39, 1
+  br i1 %40, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread: ; preds = %seqcst_fail50.i.i
   store atomic i32 %xor.i, ptr %4 monotonic, align 4
@@ -4262,8 +4268,8 @@ while.cond.backedge:                              ; preds = %_ZN5folly15SharedMu
 
 do.cond.i:                                        ; preds = %seqcst_fail50.i.i, %do.body.i
   %inc.i = add nuw i32 %i.0.i, 1
-  %39 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
-  %tobool.not.i.i = icmp eq i32 %39, 0
+  %41 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
+  %tobool.not.i.i = icmp eq i32 %41, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
@@ -4271,17 +4277,17 @@ cond.false.i.i:                                   ; preds = %do.cond.i
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
-  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %39, %do.cond.i ]
+  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %41, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
   br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !85
 
 if.then85:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
-  %40 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %41 = add i32 %40, -2048
-  store i32 %41, ptr %state.i, align 4, !tbaa !17
-  %cmp.i158 = icmp ugt i32 %41, 2047
-  %and.i.i = and i32 %40, 16
+  %42 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %43 = add i32 %42, -2048
+  store i32 %43, ptr %state.i, align 4, !tbaa !17
+  %cmp.i158 = icmp ugt i32 %43, 2047
+  %and.i.i = and i32 %42, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i158, %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
@@ -4295,17 +4301,17 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 if.else:                                          ; preds = %if.end72
-  %42 = cmpxchg ptr %arrayidx.i156, i64 %3, i64 0 seq_cst seq_cst, align 8
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %while.cond.backedge, label %if.then89
+  %44 = cmpxchg ptr %arrayidx.i156, i64 %3, i64 0 seq_cst seq_cst, align 8
+  %45 = extractvalue { i64, i1 } %44, 1
+  br i1 %45, label %while.cond.backedge, label %if.then89
 
 if.then89:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i163) #17
-  %44 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %45 = add i32 %44, -2048
-  store i32 %45, ptr %state.i163, align 4, !tbaa !17
-  %cmp.i164 = icmp ugt i32 %45, 2047
-  %and.i.i165 = and i32 %44, 16
+  %46 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %47 = add i32 %46, -2048
+  store i32 %47, ptr %state.i163, align 4, !tbaa !17
+  %cmp.i164 = icmp ugt i32 %47, 2047
+  %and.i.i165 = and i32 %46, 16
   %cmp.not.i.i166 = icmp eq i32 %and.i.i165, 0
   %or.cond.i167 = or i1 %cmp.i164, %cmp.not.i.i166
   br i1 %or.cond.i167, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit170, label %if.then.i.i168, !prof !27
@@ -6689,8 +6695,9 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %12 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i149 = icmp eq i64 %12, 0
+  %12 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %13 = load atomic i64, ptr %12 acquire, align 8
+  %tobool.not.i149 = icmp eq i64 %13, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !19
 
 if.then.i:                                        ; preds = %if.then20
@@ -6699,22 +6706,23 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #17
-  %13 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i = inttoptr i64 %13 to ptr
+  %14 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.2" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %15 = load atomic i64, ptr %14 monotonic, align 8
+  %atomic-temp.0.i.i.i = inttoptr i64 %15 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
-  %14 = load i32, ptr %cpu.i, align 4, !tbaa !17
-  %rem.i = and i32 %14, 255
+  %16 = load i32, ptr %cpu.i, align 4, !tbaa !17
+  %rem.i = and i32 %16, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i150 = zext nneg i32 %rem.i to i64
   %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
-  %15 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
+  %17 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #17
-  %conv24 = zext i8 %15 to i32
+  %conv24 = zext i8 %17 to i32
   %mul.i151 = shl nuw nsw i32 %conv24, 2
   %idxprom.i152 = zext nneg i32 %mul.i151 to i64
   %arrayidx.i153 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
-  %16 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
-  %cmp28 = icmp eq i64 %16, 0
+  %18 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
+  %cmp28 = icmp eq i64 %18, 0
   br i1 %cmp28, label %if.then29, label %for.cond
 
 for.cond:                                         ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit
@@ -6722,8 +6730,8 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %mul.i151.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i152.1 = zext nneg i32 %mul.i151.1 to i64
   %arrayidx.i153.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
-  %17 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
-  %cmp28.1 = icmp eq i64 %17, 0
+  %19 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
+  %cmp28.1 = icmp eq i64 %19, 0
   br i1 %cmp28.1, label %if.then29, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
@@ -6737,15 +6745,15 @@ if.then29:                                        ; preds = %for.cond, %_ZN5foll
   br label %if.end44
 
 seqcst_fail50.i:                                  ; preds = %for.cond.1, %if.end
-  %18 = phi i32 [ %.pre194, %for.cond.1 ], [ %8, %if.end ]
-  %add = add i32 %18, 2048
-  %19 = cmpxchg ptr %this, i32 %18, i32 %add seq_cst seq_cst, align 4
-  %20 = extractvalue { i32, i1 } %19, 1
-  br i1 %20, label %if.then38, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %20 = phi i32 [ %.pre194, %for.cond.1 ], [ %8, %if.end ]
+  %add = add i32 %20, 2048
+  %21 = cmpxchg ptr %this, i32 %20, i32 %add seq_cst seq_cst, align 4
+  %22 = extractvalue { i32, i1 } %21, 1
+  br i1 %22, label %if.then38, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i
-  %21 = extractvalue { i32, i1 } %19, 0
-  store i32 %21, ptr %state, align 4
+  %23 = extractvalue { i32, i1 } %21, 0
+  store i32 %23, ptr %state, align 4
   br label %while.cond.backedge
 
 if.then38:                                        ; preds = %seqcst_fail50.i
@@ -6756,22 +6764,22 @@ if.then40:                                        ; preds = %if.then38
   br label %cleanup99
 
 if.end44:                                         ; preds = %if.then29, %if.then16
-  %22 = phi i32 [ %.pre, %if.then29 ], [ %8, %if.then16 ]
+  %24 = phi i32 [ %.pre, %if.then29 ], [ %8, %if.then16 ]
   %slot.2.ph = phi i32 [ %xor.lcssa, %if.then29 ], [ %9, %if.then16 ]
-  %and45 = and i32 %22, 512
+  %and45 = and i32 %24, 512
   %cmp46 = icmp eq i32 %and45, 0
   br i1 %cmp46, label %seqcst_fail50.i130, label %if.end56
 
 seqcst_fail50.i130:                               ; preds = %if.end44
-  %or = or disjoint i32 %22, 512
-  %23 = cmpxchg ptr %this, i32 %22, i32 %or seq_cst seq_cst, align 4
-  %24 = extractvalue { i32, i1 } %23, 1
-  br i1 %24, label %if.end56, label %if.then50
+  %or = or disjoint i32 %24, 512
+  %25 = cmpxchg ptr %this, i32 %24, i32 %or seq_cst seq_cst, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %seqcst_fail50.i130
-  %25 = extractvalue { i32, i1 } %23, 0
-  store i32 %25, ptr %state, align 4
-  %and51 = and i32 %25, 640
+  %27 = extractvalue { i32, i1 } %25, 0
+  store i32 %27, ptr %state, align 4
+  %and51 = and i32 %27, 640
   %cmp52.not = icmp eq i32 %and51, 512
   br i1 %cmp52.not, label %if.end56, label %while.cond.backedge
 
@@ -6782,33 +6790,33 @@ if.end56:                                         ; preds = %if.then50, %seqcst_
   br i1 %cmp58, label %seqcst_fail50.i142, label %seqcst_fail50.i142.thread
 
 seqcst_fail50.i142:                               ; preds = %if.end56
-  %26 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %or.i seq_cst seq_cst, align 8
-  %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %if.end72.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %28 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %or.i seq_cst seq_cst, align 8
+  %29 = extractvalue { i64, i1 } %28, 1
+  br i1 %29, label %if.end72.thread, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 seqcst_fail50.i142.thread:                        ; preds = %if.end56
-  %28 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %3 seq_cst seq_cst, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  br i1 %29, label %if.end72, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
+  %30 = cmpxchg ptr %arrayidx.i156, i64 0, i64 %3 seq_cst seq_cst, align 8
+  %31 = extractvalue { i64, i1 } %30, 1
+  br i1 %31, label %if.end72, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %seqcst_fail50.i142.thread, %seqcst_fail50.i142
-  %30 = load atomic i32, ptr %this acquire, align 4
-  store i32 %30, ptr %state, align 4, !tbaa !17
+  %32 = load atomic i32, ptr %this acquire, align 4
+  store i32 %32, ptr %state, align 4, !tbaa !17
   br label %while.cond.backedge
 
 if.end72:                                         ; preds = %seqcst_fail50.i142.thread
-  %31 = load atomic i32, ptr %this acquire, align 4
-  store i32 %31, ptr %state, align 4, !tbaa !17
-  %and73 = and i32 %31, 512
+  %33 = load atomic i32, ptr %this acquire, align 4
+  store i32 %33, ptr %state, align 4, !tbaa !17
+  %and73 = and i32 %33, 512
   %cmp74.not = icmp eq i32 %and73, 0
   br i1 %cmp74.not, label %if.else, label %if.then77
 
 if.end72.thread:                                  ; preds = %seqcst_fail50.i142
-  %32 = load atomic i32, ptr %this acquire, align 4
-  store i32 %32, ptr %state, align 4, !tbaa !17
+  %34 = load atomic i32, ptr %this acquire, align 4
+  store i32 %34, ptr %state, align 4, !tbaa !17
   store atomic i32 %slot.2.ph, ptr %4 monotonic, align 4
-  %33 = load i32, ptr %state, align 4, !tbaa !17
-  %and73186 = and i32 %33, 512
+  %35 = load i32, ptr %state, align 4, !tbaa !17
+  %and73186 = and i32 %35, 512
   %cmp74.not187 = icmp eq i32 %and73186, 0
   br i1 %cmp74.not187, label %if.then83, label %cleanup99
 
@@ -6820,23 +6828,23 @@ if.then77:                                        ; preds = %if.end72
   br label %cleanup99
 
 if.then83:                                        ; preds = %if.end72.thread
-  %34 = load atomic i32, ptr %4 monotonic, align 4
+  %36 = load atomic i32, ptr %4 monotonic, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %if.then83
   %i.0.i = phi i32 [ 0, %if.then83 ], [ %inc.i158, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i ]
-  %xor.i = xor i32 %i.0.i, %34
+  %xor.i = xor i32 %i.0.i, %36
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
-  %35 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
-  %cmp.i157 = icmp eq i64 %35, %or.i
+  %37 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
+  %cmp.i157 = icmp eq i64 %37, %or.i
   br i1 %cmp.i157, label %seqcst_fail50.i.i, label %do.cond.i
 
 seqcst_fail50.i.i:                                ; preds = %do.body.i
-  %36 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
-  %37 = extractvalue { i64, i1 } %36, 1
-  br i1 %37, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
+  %38 = cmpxchg ptr %arrayidx.i.i, i64 %or.i, i64 0 seq_cst seq_cst, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  br i1 %39, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, label %do.cond.i
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread: ; preds = %seqcst_fail50.i.i
   store atomic i32 %xor.i, ptr %4 monotonic, align 4
@@ -6847,8 +6855,8 @@ while.cond.backedge:                              ; preds = %_ZN5folly15SharedMu
 
 do.cond.i:                                        ; preds = %seqcst_fail50.i.i, %do.body.i
   %inc.i158 = add nuw i32 %i.0.i, 1
-  %38 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
-  %tobool.not.i.i = icmp eq i32 %38, 0
+  %40 = load atomic i32, ptr @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache monotonic, align 4
+  %tobool.not.i.i = icmp eq i32 %40, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
@@ -6856,17 +6864,17 @@ cond.false.i.i:                                   ; preds = %do.cond.i
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
-  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %38, %do.cond.i ]
+  %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %40, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i158, %cond.i.i
   br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !114
 
 if.then85:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
-  %39 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %40 = add i32 %39, -2048
-  store i32 %40, ptr %state.i, align 4, !tbaa !17
-  %cmp.i159 = icmp ugt i32 %40, 2047
-  %and.i.i = and i32 %39, 16
+  %41 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %42 = add i32 %41, -2048
+  store i32 %42, ptr %state.i, align 4, !tbaa !17
+  %cmp.i159 = icmp ugt i32 %42, 2047
+  %and.i.i = and i32 %41, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i160 = or i1 %cmp.i159, %cmp.not.i.i
   br i1 %or.cond.i160, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
@@ -6880,17 +6888,17 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 if.else:                                          ; preds = %if.end72
-  %41 = cmpxchg ptr %arrayidx.i156, i64 %3, i64 0 seq_cst seq_cst, align 8
-  %42 = extractvalue { i64, i1 } %41, 1
-  br i1 %42, label %while.cond.backedge, label %if.then89
+  %43 = cmpxchg ptr %arrayidx.i156, i64 %3, i64 0 seq_cst seq_cst, align 8
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %while.cond.backedge, label %if.then89
 
 if.then89:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i165) #17
-  %43 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
-  %44 = add i32 %43, -2048
-  store i32 %44, ptr %state.i165, align 4, !tbaa !17
-  %cmp.i166 = icmp ugt i32 %44, 2047
-  %and.i.i167 = and i32 %43, 16
+  %45 = atomicrmw sub ptr %this, i32 2048 seq_cst, align 4
+  %46 = add i32 %45, -2048
+  store i32 %46, ptr %state.i165, align 4, !tbaa !17
+  %cmp.i166 = icmp ugt i32 %46, 2047
+  %and.i.i167 = and i32 %45, 16
   %cmp.not.i.i168 = icmp eq i32 %and.i.i167, 0
   %or.cond.i169 = or i1 %cmp.i166, %cmp.not.i.i168
   br i1 %or.cond.i169, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit172, label %if.then.i.i170, !prof !27
@@ -7106,7 +7114,8 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !121
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2
+  store ptr %4, ptr %this, align 8, !tbaa !121
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !17
   %__ec.sroa.39.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -7114,27 +7123,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
-  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i3 = icmp eq ptr %5, %6
+  %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i3 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %if.then.i.i4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %lpad
   %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %7 = load i64, ptr %_M_string_length.i.i.i6, align 8, !tbaa !129
-  %cmp3.i.i.i7 = icmp ult i64 %7, 16
+  %8 = load i64, ptr %_M_string_length.i.i.i6, align 8, !tbaa !129
+  %cmp3.i.i.i7 = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i7)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 if.then.i.i4:                                     ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %5) #23
+  call void @_ZdlPv(ptr noundef %6) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %if.then.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #17
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: nounwind
@@ -7146,7 +7155,8 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !121
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2
+  store ptr %1, ptr %this, align 8, !tbaa !121
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !130

@@ -1274,27 +1274,48 @@ entry:
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
 entry:
   call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i32 noundef 1, ptr noundef @.str, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 1), i32 noundef 2, ptr noundef @.str.2, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 2), i32 noundef 4, ptr noundef @.str.3, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 3), i32 noundef 5, ptr noundef @.str.4, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 4), i32 noundef 6, ptr noundef @.str.5, i32 noundef 2, i32 noundef 0, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 5), i32 noundef 7, ptr noundef @.str.6, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 6), i32 noundef 8, ptr noundef @.str.7, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 7), i32 noundef 9, ptr noundef @.str.8, i32 noundef 2, i32 noundef 0, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 8), i32 noundef 12, ptr noundef @.str.9, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 9), i32 noundef 16, ptr noundef @.str.10, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 10), i32 noundef 19, ptr noundef @.str.11, i32 noundef 4, i32 noundef 4, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 11), i32 noundef 21, ptr noundef @.str.12, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 12), i32 noundef 26, ptr noundef @.str.13, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 13), i32 noundef 28, ptr noundef @.str.14, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 14), i32 noundef 30, ptr noundef @.str.15, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 15), i32 noundef 35, ptr noundef @.str.16, i32 noundef 4, i32 noundef 2, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 16), i32 noundef 40, ptr noundef @.str.17, i32 noundef 1, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 17), i32 noundef 149, ptr noundef @.str.18, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 18), i32 noundef 152, ptr noundef @.str.19, i32 noundef 3, i32 noundef 4, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 19), i32 noundef 174, ptr noundef @.str.20, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 20), i32 noundef 224, ptr noundef @.str.21, i32 noundef 3, i32 noundef 17, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
-  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 21), i32 noundef 16400, ptr noundef @.str.22, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
+  %0 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 1
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef @.str.2, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
+  %1 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 2
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 4, ptr noundef @.str.3, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
+  %2 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 3
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 5, ptr noundef @.str.4, i32 noundef 3, i32 noundef 0, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
+  %3 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 4
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 6, ptr noundef @.str.5, i32 noundef 2, i32 noundef 0, ptr noundef null) #3
+  %4 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 5
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 7, ptr noundef @.str.6, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
+  %5 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 6
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 8, ptr noundef @.str.7, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
+  %6 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 7
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 9, ptr noundef @.str.8, i32 noundef 2, i32 noundef 0, ptr noundef null) #3
+  %7 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 8
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 12, ptr noundef @.str.9, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
+  %8 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 9
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 16, ptr noundef @.str.10, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
+  %9 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 10
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 19, ptr noundef @.str.11, i32 noundef 4, i32 noundef 4, ptr noundef null) #3
+  %10 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 11
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 21, ptr noundef @.str.12, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
+  %11 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 12
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 26, ptr noundef @.str.13, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
+  %12 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 13
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 28, ptr noundef @.str.14, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
+  %13 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 14
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 30, ptr noundef @.str.15, i32 noundef 4, i32 noundef 1, ptr noundef null) #3
+  %14 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 15
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 35, ptr noundef @.str.16, i32 noundef 4, i32 noundef 2, ptr noundef null) #3
+  %15 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 16
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 40, ptr noundef @.str.17, i32 noundef 1, i32 noundef 1, ptr noundef null) #3
+  %16 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 17
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 149, ptr noundef @.str.18, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
+  %17 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 18
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 152, ptr noundef @.str.19, i32 noundef 3, i32 noundef 4, ptr noundef null) #3
+  %18 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 19
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 174, ptr noundef @.str.20, i32 noundef 3, i32 noundef 1, ptr noundef null) #3
+  %19 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 20
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 224, ptr noundef @.str.21, i32 noundef 3, i32 noundef 17, ptr noundef @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi) #3
+  %20 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 21
+  call void @_ZN18OpenImageIO_v2_6_07TagInfoC2EiPKc12TIFFDataTypeiPFvRKS0_RK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbiE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 16400, ptr noundef @.str.22, i32 noundef 2, i32 noundef 1, ptr noundef null) #3
   ret void
 }
 
@@ -1693,63 +1714,64 @@ entry:
   store i64 %offset_correction, ptr %offset_correction.addr, align 8
   store ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, ptr %__range2, align 8
   store ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 22), ptr %__end2, align 8
+  %0 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 22
+  store ptr %0, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %t, align 8
-  %3 = load ptr, ptr %t, align 8
-  %handler = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %handler, align 8
-  %tobool = icmp ne ptr %4, null
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %t, align 8
+  %4 = load ptr, ptr %t, align 8
+  %handler = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %4, i32 0, i32 4
+  %5 = load ptr, ptr %handler, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %5 = load ptr, ptr %spec.addr, align 8
-  %6 = load ptr, ptr %t, align 8
-  %name = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %name, align 8
-  call void @_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %7) #3
+  %6 = load ptr, ptr %spec.addr, align 8
+  %7 = load ptr, ptr %t, align 8
+  %name = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %name, align 8
+  call void @_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %8) #3
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  %call = call noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, i1 noundef zeroext false)
+  %call = call noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, i1 noundef zeroext false)
   store ptr %call, ptr %param, align 8
-  %8 = load ptr, ptr %param, align 8
-  %tobool2 = icmp ne ptr %8, null
+  %9 = load ptr, ptr %param, align 8
+  %tobool2 = icmp ne ptr %9, null
   br i1 %tobool2, label %if.then3, label %if.end12
 
 if.then3:                                         ; preds = %if.end
-  %9 = load ptr, ptr %t, align 8
-  %tiffcount = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %9, i32 0, i32 3
-  %10 = load i32, ptr %tiffcount, align 4
-  %conv = sext i32 %10 to i64
+  %10 = load ptr, ptr %t, align 8
+  %tiffcount = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %10, i32 0, i32 3
+  %11 = load i32, ptr %tiffcount, align 4
+  %conv = sext i32 %11 to i64
   store i64 %conv, ptr %count, align 8
-  %11 = load ptr, ptr %param, align 8
-  %call4 = call noundef ptr @_ZNK18OpenImageIO_v2_6_010ParamValue4dataEv(ptr noundef nonnull align 8 dereferenceable(39) %11) #3
+  %12 = load ptr, ptr %param, align 8
+  %call4 = call noundef ptr @_ZNK18OpenImageIO_v2_6_010ParamValue4dataEv(ptr noundef nonnull align 8 dereferenceable(39) %12) #3
   store ptr %call4, ptr %d, align 8
-  %12 = load ptr, ptr %t, align 8
-  %tifftype = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %tifftype, align 8
-  %cmp5 = icmp eq i32 %13, 2
+  %13 = load ptr, ptr %t, align 8
+  %tifftype = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %13, i32 0, i32 2
+  %14 = load i32, ptr %tifftype, align 8
+  %cmp5 = icmp eq i32 %14, 2
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.then3
-  %14 = load ptr, ptr %param, align 8
-  call void @_ZNK18OpenImageIO_v2_6_010ParamValue11get_ustringEi(ptr sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(39) %14, i32 noundef 64)
+  %15 = load ptr, ptr %param, align 8
+  call void @_ZNK18OpenImageIO_v2_6_010ParamValue11get_ustringEi(ptr sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(39) %15, i32 noundef 64)
   %call7 = call noundef ptr @_ZNK18OpenImageIO_v2_6_07ustring5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   store ptr %call7, ptr %d, align 8
   call void @_ZN18OpenImageIO_v2_6_07ustringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  %15 = load ptr, ptr %param, align 8
-  call void @_ZNK18OpenImageIO_v2_6_010ParamValue11get_ustringEi(ptr sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(39) %15, i32 noundef 64)
+  %16 = load ptr, ptr %param, align 8
+  call void @_ZNK18OpenImageIO_v2_6_010ParamValue11get_ustringEi(ptr sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(39) %16, i32 noundef 64)
   %call9 = call noundef i64 @_ZNK18OpenImageIO_v2_6_07ustring4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8) #3
   %add = add i64 %call9, 1
   store i64 %add, ptr %count, align 8
@@ -1757,80 +1779,80 @@ if.then6:                                         ; preds = %if.then3
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.then3
-  %16 = load ptr, ptr %makerdirs.addr, align 8
-  %17 = load ptr, ptr %data.addr, align 8
-  %18 = load ptr, ptr %t, align 8
-  %tifftag = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %tifftag, align 8
-  %20 = load ptr, ptr %t, align 8
-  %tifftype11 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %20, i32 0, i32 2
-  %21 = load i32, ptr %tifftype11, align 8
-  %22 = load i64, ptr %count, align 8
-  %23 = load ptr, ptr %d, align 8
-  %24 = load i64, ptr %offset_correction.addr, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef %19, i32 noundef %21, i64 noundef %22, ptr noundef %23, i64 noundef %24, i64 noundef 0, i32 noundef 1234)
+  %17 = load ptr, ptr %makerdirs.addr, align 8
+  %18 = load ptr, ptr %data.addr, align 8
+  %19 = load ptr, ptr %t, align 8
+  %tifftag = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %19, i32 0, i32 0
+  %20 = load i32, ptr %tifftag, align 8
+  %21 = load ptr, ptr %t, align 8
+  %tifftype11 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %21, i32 0, i32 2
+  %22 = load i32, ptr %tifftype11, align 8
+  %23 = load i64, ptr %count, align 8
+  %24 = load ptr, ptr %d, align 8
+  %25 = load i64, ptr %offset_correction.addr, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %20, i32 noundef %22, i64 noundef %23, ptr noundef %24, i64 noundef %25, i64 noundef 0, i32 noundef 1234)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end10, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12, %if.then
-  %25 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %25, i32 1
+  %26 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TagInfo", ptr %26, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   call void @_ZN18OpenImageIO_v2_6_04spanIKNS_3pvt10LabelIndexELln1EEC2ILm37EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(592) @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_indicesE)
-  %26 = load ptr, ptr %data.addr, align 8
-  %27 = load ptr, ptr %makerdirs.addr, align 8
-  %28 = load ptr, ptr %spec.addr, align 8
-  %29 = load i64, ptr %offset_correction.addr, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 1, i32 noundef 8, ptr %31, i64 %33, ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(160) %28, i64 noundef %29)
+  %27 = load ptr, ptr %data.addr, align 8
+  %28 = load ptr, ptr %makerdirs.addr, align 8
+  %29 = load ptr, ptr %spec.addr, align 8
+  %30 = load i64, ptr %offset_correction.addr, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 1, i32 noundef 8, ptr %32, i64 %34, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(160) %29, i64 noundef %30)
   call void @_ZN18OpenImageIO_v2_6_04spanIKNS_3pvt10LabelIndexELln1EEC2ILm4EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(64) @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE)
-  %34 = load ptr, ptr %data.addr, align 8
-  %35 = load ptr, ptr %makerdirs.addr, align 8
-  %36 = load ptr, ptr %spec.addr, align 8
-  %37 = load i64, ptr %offset_correction.addr, align 8
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagItEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 2, i32 noundef 3, ptr %39, i64 %41, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(160) %36, i64 noundef %37)
+  %35 = load ptr, ptr %data.addr, align 8
+  %36 = load ptr, ptr %makerdirs.addr, align 8
+  %37 = load ptr, ptr %spec.addr, align 8
+  %38 = load i64, ptr %offset_correction.addr, align 8
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagItEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 2, i32 noundef 3, ptr %40, i64 %42, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(160) %37, i64 noundef %38)
   call void @_ZN18OpenImageIO_v2_6_04spanIKNS_3pvt10LabelIndexELln1EEC2ILm29EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(464) @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_indicesE)
-  %42 = load ptr, ptr %data.addr, align 8
-  %43 = load ptr, ptr %makerdirs.addr, align 8
-  %44 = load ptr, ptr %spec.addr, align 8
-  %45 = load i64, ptr %offset_correction.addr, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 4, i32 noundef 8, ptr %47, i64 %49, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(160) %44, i64 noundef %45)
+  %43 = load ptr, ptr %data.addr, align 8
+  %44 = load ptr, ptr %makerdirs.addr, align 8
+  %45 = load ptr, ptr %spec.addr, align 8
+  %46 = load i64, ptr %offset_correction.addr, align 8
+  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 4, i32 noundef 8, ptr %48, i64 %50, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(160) %45, i64 noundef %46)
   call void @_ZN18OpenImageIO_v2_6_04spanIKNS_3pvt10LabelIndexELln1EEC2ILm29EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(464) @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_indicesE)
-  %50 = load ptr, ptr %data.addr, align 8
-  %51 = load ptr, ptr %makerdirs.addr, align 8
-  %52 = load ptr, ptr %spec.addr, align 8
-  %53 = load i64, ptr %offset_correction.addr, align 8
-  %54 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 4, i32 noundef 8, ptr %55, i64 %57, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(160) %52, i64 noundef %53)
+  %51 = load ptr, ptr %data.addr, align 8
+  %52 = load ptr, ptr %makerdirs.addr, align 8
+  %53 = load ptr, ptr %spec.addr, align 8
+  %54 = load i64, ptr %offset_correction.addr, align 8
+  %55 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %58 = load i64, ptr %57, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 4, i32 noundef 8, ptr %56, i64 %58, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(160) %53, i64 noundef %54)
   call void @_ZN18OpenImageIO_v2_6_04spanIKNS_3pvt10LabelIndexELln1EEC2ILm2EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(32) @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_indicesE)
-  %58 = load ptr, ptr %data.addr, align 8
-  %59 = load ptr, ptr %makerdirs.addr, align 8
-  %60 = load ptr, ptr %spec.addr, align 8
-  %61 = load i64, ptr %offset_correction.addr, align 8
-  %62 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
-  %65 = load i64, ptr %64, align 8
-  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 5, i32 noundef 8, ptr %63, i64 %65, ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(160) %60, i64 noundef %61)
+  %59 = load ptr, ptr %data.addr, align 8
+  %60 = load ptr, ptr %makerdirs.addr, align 8
+  %61 = load ptr, ptr %spec.addr, align 8
+  %62 = load i64, ptr %offset_correction.addr, align 8
+  %63 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  call void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 5, i32 noundef 8, ptr %64, i64 %66, ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(160) %61, i64 noundef %62)
   ret void
 }
 

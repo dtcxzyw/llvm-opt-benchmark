@@ -49,7 +49,7 @@ define noalias ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1) #0 {
 12:                                               ; preds = %9, %2
   %13 = call ptr @opal_obj_new(ptr noundef @opal_cstring_t_class)
   store ptr %13, ptr %3, align 8
-  br label %46
+  br label %47
 
 14:                                               ; preds = %9
   %15 = load i64, ptr %5, align 8
@@ -62,7 +62,7 @@ define noalias ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1) #0 {
 
 20:                                               ; preds = %14
   store ptr null, ptr %3, align 8
-  br label %46
+  br label %47
 
 21:                                               ; preds = %14
   br label %22
@@ -72,47 +72,48 @@ define noalias ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1) #0 {
 
 23:                                               ; preds = %22
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_cstring_t_class, i32 0, i32 4), align 8
-  %26 = icmp ne i32 %24, %25
-  br i1 %26, label %27, label %28
+  %25 = getelementptr inbounds %struct.opal_class_t, ptr @opal_cstring_t_class, i32 0, i32 4
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ne i32 %24, %26
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %23
+28:                                               ; preds = %23
   call void @opal_class_initialize(ptr noundef @opal_cstring_t_class)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %23
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
-  store ptr @opal_cstring_t_class, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %6, align 8
-  call void @opal_obj_run_constructors(ptr noundef %33)
-  br label %34
-
-34:                                               ; preds = %28
+29:                                               ; preds = %28, %23
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_cstring_t_class, ptr %31, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
+  store volatile i32 1, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  call void @opal_obj_run_constructors(ptr noundef %34)
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load i64, ptr %5, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.opal_cstring_t, ptr %37, i32 0, i32 1
-  store i64 %36, ptr %38, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.opal_cstring_t, ptr %39, i32 0, i32 3
-  %41 = getelementptr inbounds [0 x i8], ptr %40, i64 0, i64 0
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i64, ptr %5, align 8
-  %44 = add i64 %43, 1
-  call void @opal_string_copy(ptr noundef %41, ptr noundef %42, i64 noundef %44)
-  %45 = load ptr, ptr %6, align 8
-  store ptr %45, ptr %3, align 8
-  br label %46
+35:                                               ; preds = %29
+  br label %36
 
-46:                                               ; preds = %35, %20, %12
-  %47 = load ptr, ptr %3, align 8
-  ret ptr %47
+36:                                               ; preds = %35
+  %37 = load i64, ptr %5, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct.opal_cstring_t, ptr %38, i32 0, i32 1
+  store i64 %37, ptr %39, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.opal_cstring_t, ptr %40, i32 0, i32 3
+  %42 = getelementptr inbounds [0 x i8], ptr %41, i64 0, i64 0
+  %43 = load ptr, ptr %4, align 8
+  %44 = load i64, ptr %5, align 8
+  %45 = add i64 %44, 1
+  call void @opal_string_copy(ptr noundef %42, ptr noundef %43, i64 noundef %45)
+  %46 = load ptr, ptr %6, align 8
+  store ptr %46, ptr %3, align 8
+  br label %47
+
+47:                                               ; preds = %36, %20, %12
+  %48 = load ptr, ptr %3, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind uwtable

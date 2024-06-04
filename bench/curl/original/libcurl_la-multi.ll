@@ -4699,7 +4699,8 @@ if.then:                                          ; preds = %entry
   %old_pipe_act9 = getelementptr inbounds %struct.sigpipe_ignore, ptr %4, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %action, ptr align 8 %old_pipe_act9, i64 152, i1 false)
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %action, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %__sigaction_handler, align 8
   %call10 = call i32 @sigaction(i32 noundef 13, ptr noundef %action, ptr noundef null) #7
   br label %if.end
 
@@ -7649,7 +7650,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %param, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %4 = load i32, ptr %option.addr, align 4
   switch i32 %4, label %sw.default [
     i32 20001, label %sw.bb
@@ -8057,7 +8058,7 @@ sw.default:                                       ; preds = %if.end3
 
 sw.epilog:                                        ; preds = %sw.default, %if.end151, %sw.bb132, %sw.bb131, %sw.bb130, %sw.bb129, %sw.bb128, %vaarg.end126, %vaarg.end113, %if.end101, %vaarg.end84, %vaarg.end71, %vaarg.end55, %vaarg.end42, %vaarg.end29, %vaarg.end16, %vaarg.end
   %arraydecay153 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %param, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay153)
+  call void @llvm.va_end.p0(ptr %arraydecay153)
   %66 = load i32, ptr %res, align 4
   store i32 %66, ptr %retval, align 4
   br label %return
@@ -8066,12 +8067,6 @@ return:                                           ; preds = %sw.epilog, %if.then
   %67 = load i32, ptr %retval, align 4
   ret i32 %67
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @curl_multi_socket(ptr noundef %multi, i32 noundef %s, ptr noundef %running_handles) #0 {
@@ -8666,65 +8661,66 @@ if.then2:                                         ; preds = %if.end
   %timetree3 = getelementptr inbounds %struct.Curl_multi, ptr %8, i32 0, i32 14
   %9 = load ptr, ptr %timetree3, align 8
   %10 = load i64, ptr @multi_timeout.tv_zero, align 8
-  %11 = load i32, ptr getelementptr inbounds ({ i64, i32 }, ptr @multi_timeout.tv_zero, i32 0, i32 1), align 8
-  %call4 = call ptr @Curl_splay(i64 %10, i32 %11, ptr noundef %9)
-  %12 = load ptr, ptr %multi.addr, align 8
-  %timetree5 = getelementptr inbounds %struct.Curl_multi, ptr %12, i32 0, i32 14
-  store ptr %call4, ptr %timetree5, align 8
+  %11 = getelementptr inbounds { i64, i32 }, ptr @multi_timeout.tv_zero, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %call4 = call ptr @Curl_splay(i64 %10, i32 %12, ptr noundef %9)
   %13 = load ptr, ptr %multi.addr, align 8
-  %timetree6 = getelementptr inbounds %struct.Curl_multi, ptr %13, i32 0, i32 14
-  %14 = load ptr, ptr %timetree6, align 8
-  %key = getelementptr inbounds %struct.Curl_tree, ptr %14, i32 0, i32 4
+  %timetree5 = getelementptr inbounds %struct.Curl_multi, ptr %13, i32 0, i32 14
+  store ptr %call4, ptr %timetree5, align 8
+  %14 = load ptr, ptr %multi.addr, align 8
+  %timetree6 = getelementptr inbounds %struct.Curl_multi, ptr %14, i32 0, i32 14
+  %15 = load ptr, ptr %timetree6, align 8
+  %key = getelementptr inbounds %struct.Curl_tree, ptr %15, i32 0, i32 4
   %tv_sec = getelementptr inbounds %struct.curltime, ptr %key, i32 0, i32 0
-  %15 = load i64, ptr %tv_sec, align 8
+  %16 = load i64, ptr %tv_sec, align 8
   %tv_sec7 = getelementptr inbounds %struct.curltime, ptr %now, i32 0, i32 0
-  %16 = load i64, ptr %tv_sec7, align 8
-  %cmp = icmp slt i64 %15, %16
+  %17 = load i64, ptr %tv_sec7, align 8
+  %cmp = icmp slt i64 %16, %17
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then2
   br label %cond.end29
 
 cond.false:                                       ; preds = %if.then2
-  %17 = load ptr, ptr %multi.addr, align 8
-  %timetree8 = getelementptr inbounds %struct.Curl_multi, ptr %17, i32 0, i32 14
-  %18 = load ptr, ptr %timetree8, align 8
-  %key9 = getelementptr inbounds %struct.Curl_tree, ptr %18, i32 0, i32 4
+  %18 = load ptr, ptr %multi.addr, align 8
+  %timetree8 = getelementptr inbounds %struct.Curl_multi, ptr %18, i32 0, i32 14
+  %19 = load ptr, ptr %timetree8, align 8
+  %key9 = getelementptr inbounds %struct.Curl_tree, ptr %19, i32 0, i32 4
   %tv_sec10 = getelementptr inbounds %struct.curltime, ptr %key9, i32 0, i32 0
-  %19 = load i64, ptr %tv_sec10, align 8
+  %20 = load i64, ptr %tv_sec10, align 8
   %tv_sec11 = getelementptr inbounds %struct.curltime, ptr %now, i32 0, i32 0
-  %20 = load i64, ptr %tv_sec11, align 8
-  %cmp12 = icmp sgt i64 %19, %20
+  %21 = load i64, ptr %tv_sec11, align 8
+  %cmp12 = icmp sgt i64 %20, %21
   br i1 %cmp12, label %cond.true13, label %cond.false14
 
 cond.true13:                                      ; preds = %cond.false
   br label %cond.end27
 
 cond.false14:                                     ; preds = %cond.false
-  %21 = load ptr, ptr %multi.addr, align 8
-  %timetree15 = getelementptr inbounds %struct.Curl_multi, ptr %21, i32 0, i32 14
-  %22 = load ptr, ptr %timetree15, align 8
-  %key16 = getelementptr inbounds %struct.Curl_tree, ptr %22, i32 0, i32 4
+  %22 = load ptr, ptr %multi.addr, align 8
+  %timetree15 = getelementptr inbounds %struct.Curl_multi, ptr %22, i32 0, i32 14
+  %23 = load ptr, ptr %timetree15, align 8
+  %key16 = getelementptr inbounds %struct.Curl_tree, ptr %23, i32 0, i32 4
   %tv_usec = getelementptr inbounds %struct.curltime, ptr %key16, i32 0, i32 1
-  %23 = load i32, ptr %tv_usec, align 8
+  %24 = load i32, ptr %tv_usec, align 8
   %tv_usec17 = getelementptr inbounds %struct.curltime, ptr %now, i32 0, i32 1
-  %24 = load i32, ptr %tv_usec17, align 8
-  %cmp18 = icmp slt i32 %23, %24
+  %25 = load i32, ptr %tv_usec17, align 8
+  %cmp18 = icmp slt i32 %24, %25
   br i1 %cmp18, label %cond.true19, label %cond.false20
 
 cond.true19:                                      ; preds = %cond.false14
   br label %cond.end
 
 cond.false20:                                     ; preds = %cond.false14
-  %25 = load ptr, ptr %multi.addr, align 8
-  %timetree21 = getelementptr inbounds %struct.Curl_multi, ptr %25, i32 0, i32 14
-  %26 = load ptr, ptr %timetree21, align 8
-  %key22 = getelementptr inbounds %struct.Curl_tree, ptr %26, i32 0, i32 4
+  %26 = load ptr, ptr %multi.addr, align 8
+  %timetree21 = getelementptr inbounds %struct.Curl_multi, ptr %26, i32 0, i32 14
+  %27 = load ptr, ptr %timetree21, align 8
+  %key22 = getelementptr inbounds %struct.Curl_tree, ptr %27, i32 0, i32 4
   %tv_usec23 = getelementptr inbounds %struct.curltime, ptr %key22, i32 0, i32 1
-  %27 = load i32, ptr %tv_usec23, align 8
+  %28 = load i32, ptr %tv_usec23, align 8
   %tv_usec24 = getelementptr inbounds %struct.curltime, ptr %now, i32 0, i32 1
-  %28 = load i32, ptr %tv_usec24, align 8
-  %cmp25 = icmp sgt i32 %27, %28
+  %29 = load i32, ptr %tv_usec24, align 8
+  %cmp25 = icmp sgt i32 %28, %29
   %cond = select i1 %cmp25, i32 1, i32 0
   br label %cond.end
 
@@ -8742,36 +8738,36 @@ cond.end29:                                       ; preds = %cond.end27, %cond.t
   br i1 %cmp31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %cond.end29
-  %29 = load ptr, ptr %multi.addr, align 8
-  %timetree33 = getelementptr inbounds %struct.Curl_multi, ptr %29, i32 0, i32 14
-  %30 = load ptr, ptr %timetree33, align 8
-  %key34 = getelementptr inbounds %struct.Curl_tree, ptr %30, i32 0, i32 4
-  %31 = getelementptr inbounds { i64, i32 }, ptr %key34, i32 0, i32 0
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds { i64, i32 }, ptr %key34, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, i32 }, ptr %now, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, i32 }, ptr %now, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %call35 = call i64 @Curl_timediff_ceil(i64 %32, i32 %34, i64 %36, i32 %38)
+  %30 = load ptr, ptr %multi.addr, align 8
+  %timetree33 = getelementptr inbounds %struct.Curl_multi, ptr %30, i32 0, i32 14
+  %31 = load ptr, ptr %timetree33, align 8
+  %key34 = getelementptr inbounds %struct.Curl_tree, ptr %31, i32 0, i32 4
+  %32 = getelementptr inbounds { i64, i32 }, ptr %key34, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, i32 }, ptr %key34, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds { i64, i32 }, ptr %now, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds { i64, i32 }, ptr %now, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %call35 = call i64 @Curl_timediff_ceil(i64 %33, i32 %35, i64 %37, i32 %39)
   store i64 %call35, ptr %diff, align 8
-  %39 = load i64, ptr %diff, align 8
-  %40 = load ptr, ptr %timeout_ms.addr, align 8
-  store i64 %39, ptr %40, align 8
+  %40 = load i64, ptr %diff, align 8
+  %41 = load ptr, ptr %timeout_ms.addr, align 8
+  store i64 %40, ptr %41, align 8
   br label %if.end36
 
 if.else:                                          ; preds = %cond.end29
-  %41 = load ptr, ptr %timeout_ms.addr, align 8
-  store i64 0, ptr %41, align 8
+  %42 = load ptr, ptr %timeout_ms.addr, align 8
+  store i64 0, ptr %42, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then32
   br label %if.end38
 
 if.else37:                                        ; preds = %if.end
-  %42 = load ptr, ptr %timeout_ms.addr, align 8
-  store i64 -1, ptr %42, align 8
+  %43 = load ptr, ptr %timeout_ms.addr, align 8
+  store i64 -1, ptr %43, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else37, %if.end36
@@ -8779,12 +8775,12 @@ if.end38:                                         ; preds = %if.else37, %if.end3
   br label %return
 
 return:                                           ; preds = %if.end38, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+  %44 = load i32, ptr %retval, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @multi_deltimeout(ptr noundef %data, i32 noundef %eid) #0 {
@@ -10859,13 +10855,19 @@ declare ptr @Curl_splay(i64, i32, ptr noundef) #1
 
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }
 

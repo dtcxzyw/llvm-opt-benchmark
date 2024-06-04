@@ -176,10 +176,11 @@ define void @_ZN7XMLNodeC2EP6XMLTag(ptr noundef nonnull align 8 dereferenceable(
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7XMLNode, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.XMLNode, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV7XMLNode, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.XMLNode, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -188,20 +189,21 @@ define void @_ZN7XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7XMLNode, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.XMLNode, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV7XMLNode, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.XMLNode, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  br label %12
 
-11:                                               ; preds = %7, %1
+12:                                               ; preds = %8, %1
   ret void
 }
 
@@ -217,7 +219,8 @@ define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr noundef nonnull align 8 derefe
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7XMLNodeC2EP6XMLTag(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11XMLLeafNode, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11XMLLeafNode, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -242,9 +245,10 @@ define void @_ZN15XMLInteriorNodeC2EP6XMLTag(ptr noundef nonnull align 8 derefer
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7XMLNodeC2EP6XMLTag(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15XMLInteriorNode, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.XMLInteriorNode, ptr %5, i32 0, i32 1
-  call void @_ZN7QVectorIP7XMLNodeEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15XMLInteriorNode, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.XMLInteriorNode, ptr %5, i32 0, i32 1
+  call void @_ZN7QVectorIP7XMLNodeEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   ret void
 }
 
@@ -1231,58 +1235,59 @@ define void @_ZN15XMLInteriorNodeD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15XMLInteriorNode, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
-  %6 = invoke noundef ptr @_ZN7QVectorIP7XMLNodeE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %7 unwind label %28
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15XMLInteriorNode, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
+  %7 = invoke noundef ptr @_ZN7QVectorIP7XMLNodeE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %8 unwind label %29
 
-7:                                                ; preds = %1
-  store ptr %6, ptr %3, align 8
-  br label %8
+8:                                                ; preds = %1
+  store ptr %7, ptr %3, align 8
+  br label %9
 
-8:                                                ; preds = %23, %7
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
-  %11 = invoke noundef ptr @_ZN7QVectorIP7XMLNodeE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %12 unwind label %28
+9:                                                ; preds = %24, %8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
+  %12 = invoke noundef ptr @_ZN7QVectorIP7XMLNodeE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %13 unwind label %29
 
-12:                                               ; preds = %8
-  %13 = icmp ne ptr %9, %11
-  br i1 %13, label %14, label %26
+13:                                               ; preds = %9
+  %14 = icmp ne ptr %10, %12
+  br i1 %14, label %15, label %27
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %3, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %22, label %18
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %23, label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 1
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #9
-  br label %22
-
-22:                                               ; preds = %18, %14
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 1
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %17) #9
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i32 1
-  store ptr %25, ptr %3, align 8
-  br label %8, !llvm.loop !8
+23:                                               ; preds = %19, %15
+  br label %24
 
-26:                                               ; preds = %12
-  %27 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
-  call void @_ZN7QVectorIP7XMLNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #9
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i32 1
+  store ptr %26, ptr %3, align 8
+  br label %9, !llvm.loop !8
+
+27:                                               ; preds = %13
+  %28 = getelementptr inbounds %class.XMLInteriorNode, ptr %4, i32 0, i32 1
+  call void @_ZN7QVectorIP7XMLNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #9
   call void @_ZN7XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
   ret void
 
-28:                                               ; preds = %8, %1
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %9, %1
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #8
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #8
   unreachable
 }
 

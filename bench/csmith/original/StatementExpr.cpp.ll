@@ -990,31 +990,32 @@ define dso_local void @_ZN13StatementExprC2EP5BlockRK18FunctionInvocation(ptr no
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 4, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.StatementExpr, ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(56) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.StatementExpr, ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(56) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 declare void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) unnamed_addr #1
@@ -1039,35 +1040,36 @@ define dso_local void @_ZN13StatementExprC2ERKS_(ptr noundef nonnull align 8 der
   %11 = getelementptr inbounds %class.Statement, ptr %10, i32 0, i32 4
   %12 = load ptr, ptr %11, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %9, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %7, align 8
-  %13 = getelementptr inbounds %class.StatementExpr, ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = invoke noundef ptr @_ZNK13StatementExpr10get_invokeEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
-          to label %16 unwind label %18
+  %13 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2
+  store ptr %13, ptr %7, align 8
+  %14 = getelementptr inbounds %class.StatementExpr, ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = invoke noundef ptr @_ZNK13StatementExpr10get_invokeEv(ptr noundef nonnull align 8 dereferenceable(64) %15)
+          to label %17 unwind label %19
 
-16:                                               ; preds = %2
-  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(56) %15)
-          to label %17 unwind label %18
+17:                                               ; preds = %2
+  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(56) %16)
+          to label %18 unwind label %19
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   ret void
 
-18:                                               ; preds = %16, %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %17, %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %22
+  br label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1095,9 +1097,10 @@ define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.StatementExpr, ptr %3, i32 0, i32 1
-  call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.StatementExpr, ptr %3, i32 0, i32 1
+  call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 }

@@ -92,24 +92,25 @@ define dso_local ptr @ext4_alloc_io_end_vec(ptr noundef %0) local_unnamed_addr #
   %2 = load ptr, ptr @io_end_vec_cachep, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 3392) #9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %10, label %5
+  %5 = inttoptr i64 -12 to ptr
+  br i1 %4, label %11, label %6
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   store volatile ptr %3, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store volatile ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8
-  store ptr %3, ptr %8, align 8
-  store ptr %7, ptr %3, align 8
-  store ptr %9, ptr %6, align 8
-  store volatile ptr %3, ptr %9, align 8
-  br label %10
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store volatile ptr %3, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %8, ptr %3, align 8
+  store ptr %10, ptr %7, align 8
+  store volatile ptr %3, ptr %10, align 8
+  br label %11
 
-10:                                               ; preds = %5, %1
-  %11 = phi ptr [ %3, %5 ], [ inttoptr (i64 -12 to ptr), %1 ]
-  ret ptr %11
+11:                                               ; preds = %6, %1
+  %12 = phi ptr [ %3, %6 ], [ %5, %1 ]
+  ret ptr %12
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -427,7 +428,7 @@ define internal fastcc void @ext4_release_io_end(ptr noundef %0) unnamed_addr #2
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %26
-  br i1 %28, label %37, label %29
+  br i1 %28, label %39, label %29
 
 29:                                               ; preds = %29, %25
   %30 = phi ptr [ %31, %29 ], [ %27, %25 ]
@@ -437,16 +438,18 @@ define internal fastcc void @ext4_release_io_end(ptr noundef %0) unnamed_addr #2
   %34 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %33, ptr %34, align 8
   store volatile ptr %31, ptr %33, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %30, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %32, align 8
-  %35 = load ptr, ptr @io_end_vec_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %35, ptr noundef %30) #9
-  %36 = icmp eq ptr %31, %26
-  br i1 %36, label %37, label %29, !llvm.loop !29
+  %35 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %35, ptr %30, align 8
+  %36 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %36, ptr %32, align 8
+  %37 = load ptr, ptr @io_end_vec_cachep, align 8
+  tail call void @kmem_cache_free(ptr noundef %37, ptr noundef %30) #9
+  %38 = icmp eq ptr %31, %26
+  br i1 %38, label %39, label %29, !llvm.loop !29
 
-37:                                               ; preds = %29, %25
-  %38 = load ptr, ptr @io_end_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %38, ptr noundef %0) #9
+39:                                               ; preds = %29, %25
+  %40 = load ptr, ptr @io_end_cachep, align 8
+  tail call void @kmem_cache_free(ptr noundef %40, ptr noundef %0) #9
   ret void
 }
 

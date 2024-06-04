@@ -525,13 +525,14 @@ entry:
   store ptr %url, ptr %url.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net26QuicClientPushPromiseIndex9TryHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %session.addr, align 8
-  store ptr %0, ptr %session_, align 8
+  %1 = load ptr, ptr %session.addr, align 8
+  store ptr %1, ptr %session_, align 8
   %id_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %id.addr, align 4
-  store i32 %1, ptr %id_, align 8
+  %2 = load i32, ptr %id.addr, align 4
+  store i32 %2, ptr %id_, align 8
   %url_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_, ptr noundef nonnull align 8 dereferenceable(32) %url) #9
   %request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 4
@@ -553,7 +554,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndex9TryHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndex9TryHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -590,7 +592,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cleanup_alarm_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cleanup_alarm_) #9
   %client_request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this1, i32 0, i32 6
@@ -882,10 +885,11 @@ entry:
   store ptr %promised, ptr %promised.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfo12CleanupAlarmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfo12CleanupAlarmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %promised_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo::CleanupAlarm", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %promised.addr, align 8
-  store ptr %0, ptr %promised_, align 8
+  %1 = load ptr, ptr %promised.addr, align 8
+  store ptr %1, ptr %promised_, align 8
   ret void
 }
 
@@ -1696,7 +1700,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

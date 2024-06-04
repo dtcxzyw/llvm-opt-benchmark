@@ -1097,15 +1097,16 @@ define linkonce_odr dso_local void @_ZN25cmCPackeIFWUpdatesPatcherC2EP20cmCPackI
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 3
-  store i8 0, ptr %12, align 8
+  %8 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 3
+  store i8 0, ptr %13, align 8
   ret void
 }
 

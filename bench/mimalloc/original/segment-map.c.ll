@@ -481,8 +481,9 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %1 = ptrtoint ptr %0 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %xor = xor i64 %1, %2
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %3 = load i64, ptr %2, align 8
+  %xor = xor i64 %1, %3
   ret i64 %xor
 }
 

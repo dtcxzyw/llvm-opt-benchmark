@@ -28,146 +28,149 @@ entry:
   store i32 %xor, ptr %arrayidx, align 16
   %2 = load ptr, ptr %key.addr, align 8
   %call1 = call i32 @load_u32_be(ptr noundef %2, i32 noundef 1)
-  %3 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 1), align 4
-  %xor2 = xor i32 %call1, %3
+  %3 = getelementptr inbounds [4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 1
+  %4 = load i32, ptr %3, align 4
+  %xor2 = xor i32 %call1, %4
   %arrayidx3 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
   store i32 %xor2, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %key.addr, align 8
-  %call4 = call i32 @load_u32_be(ptr noundef %4, i32 noundef 2)
-  %5 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 2), align 8
-  %xor5 = xor i32 %call4, %5
+  %5 = load ptr, ptr %key.addr, align 8
+  %call4 = call i32 @load_u32_be(ptr noundef %5, i32 noundef 2)
+  %6 = getelementptr inbounds [4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 2
+  %7 = load i32, ptr %6, align 8
+  %xor5 = xor i32 %call4, %7
   %arrayidx6 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
   store i32 %xor5, ptr %arrayidx6, align 8
-  %6 = load ptr, ptr %key.addr, align 8
-  %call7 = call i32 @load_u32_be(ptr noundef %6, i32 noundef 3)
-  %7 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 3), align 4
-  %xor8 = xor i32 %call7, %7
+  %8 = load ptr, ptr %key.addr, align 8
+  %call7 = call i32 @load_u32_be(ptr noundef %8, i32 noundef 3)
+  %9 = getelementptr inbounds [4 x i32], ptr @ossl_sm4_set_key.FK, i64 0, i64 3
+  %10 = load i32, ptr %9, align 4
+  %xor8 = xor i32 %call7, %10
   %arrayidx9 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
   store i32 %xor8, ptr %arrayidx9, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %8 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %8, 32
+  %11 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %11, 32
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %arrayidx10 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
-  %9 = load i32, ptr %arrayidx10, align 4
+  %12 = load i32, ptr %arrayidx10, align 4
   %arrayidx11 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
-  %10 = load i32, ptr %arrayidx11, align 8
-  %xor12 = xor i32 %9, %10
+  %13 = load i32, ptr %arrayidx11, align 8
+  %xor12 = xor i32 %12, %13
   %arrayidx13 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
-  %11 = load i32, ptr %arrayidx13, align 4
-  %xor14 = xor i32 %xor12, %11
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
+  %14 = load i32, ptr %arrayidx13, align 4
+  %xor14 = xor i32 %xor12, %14
+  %15 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %15 to i64
   %arrayidx15 = getelementptr inbounds [32 x i32], ptr @ossl_sm4_set_key.CK, i64 0, i64 %idxprom
-  %13 = load i32, ptr %arrayidx15, align 4
-  %xor16 = xor i32 %xor14, %13
+  %16 = load i32, ptr %arrayidx15, align 4
+  %xor16 = xor i32 %xor14, %16
   %call17 = call i32 @SM4_key_sub(i32 noundef %xor16)
   %arrayidx18 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 0
-  %14 = load i32, ptr %arrayidx18, align 16
-  %xor19 = xor i32 %14, %call17
+  %17 = load i32, ptr %arrayidx18, align 16
+  %xor19 = xor i32 %17, %call17
   store i32 %xor19, ptr %arrayidx18, align 16
   %arrayidx20 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
-  %15 = load i32, ptr %arrayidx20, align 8
+  %18 = load i32, ptr %arrayidx20, align 8
   %arrayidx21 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
-  %16 = load i32, ptr %arrayidx21, align 4
-  %xor22 = xor i32 %15, %16
+  %19 = load i32, ptr %arrayidx21, align 4
+  %xor22 = xor i32 %18, %19
   %arrayidx23 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 0
-  %17 = load i32, ptr %arrayidx23, align 16
-  %xor24 = xor i32 %xor22, %17
-  %18 = load i32, ptr %i, align 4
-  %add = add nsw i32 %18, 1
+  %20 = load i32, ptr %arrayidx23, align 16
+  %xor24 = xor i32 %xor22, %20
+  %21 = load i32, ptr %i, align 4
+  %add = add nsw i32 %21, 1
   %idxprom25 = sext i32 %add to i64
   %arrayidx26 = getelementptr inbounds [32 x i32], ptr @ossl_sm4_set_key.CK, i64 0, i64 %idxprom25
-  %19 = load i32, ptr %arrayidx26, align 4
-  %xor27 = xor i32 %xor24, %19
+  %22 = load i32, ptr %arrayidx26, align 4
+  %xor27 = xor i32 %xor24, %22
   %call28 = call i32 @SM4_key_sub(i32 noundef %xor27)
   %arrayidx29 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
-  %20 = load i32, ptr %arrayidx29, align 4
-  %xor30 = xor i32 %20, %call28
+  %23 = load i32, ptr %arrayidx29, align 4
+  %xor30 = xor i32 %23, %call28
   store i32 %xor30, ptr %arrayidx29, align 4
   %arrayidx31 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
-  %21 = load i32, ptr %arrayidx31, align 4
+  %24 = load i32, ptr %arrayidx31, align 4
   %arrayidx32 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 0
-  %22 = load i32, ptr %arrayidx32, align 16
-  %xor33 = xor i32 %21, %22
+  %25 = load i32, ptr %arrayidx32, align 16
+  %xor33 = xor i32 %24, %25
   %arrayidx34 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
-  %23 = load i32, ptr %arrayidx34, align 4
-  %xor35 = xor i32 %xor33, %23
-  %24 = load i32, ptr %i, align 4
-  %add36 = add nsw i32 %24, 2
+  %26 = load i32, ptr %arrayidx34, align 4
+  %xor35 = xor i32 %xor33, %26
+  %27 = load i32, ptr %i, align 4
+  %add36 = add nsw i32 %27, 2
   %idxprom37 = sext i32 %add36 to i64
   %arrayidx38 = getelementptr inbounds [32 x i32], ptr @ossl_sm4_set_key.CK, i64 0, i64 %idxprom37
-  %25 = load i32, ptr %arrayidx38, align 4
-  %xor39 = xor i32 %xor35, %25
+  %28 = load i32, ptr %arrayidx38, align 4
+  %xor39 = xor i32 %xor35, %28
   %call40 = call i32 @SM4_key_sub(i32 noundef %xor39)
   %arrayidx41 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
-  %26 = load i32, ptr %arrayidx41, align 8
-  %xor42 = xor i32 %26, %call40
+  %29 = load i32, ptr %arrayidx41, align 8
+  %xor42 = xor i32 %29, %call40
   store i32 %xor42, ptr %arrayidx41, align 8
   %arrayidx43 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 0
-  %27 = load i32, ptr %arrayidx43, align 16
+  %30 = load i32, ptr %arrayidx43, align 16
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
-  %28 = load i32, ptr %arrayidx44, align 4
-  %xor45 = xor i32 %27, %28
+  %31 = load i32, ptr %arrayidx44, align 4
+  %xor45 = xor i32 %30, %31
   %arrayidx46 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
-  %29 = load i32, ptr %arrayidx46, align 8
-  %xor47 = xor i32 %xor45, %29
-  %30 = load i32, ptr %i, align 4
-  %add48 = add nsw i32 %30, 3
+  %32 = load i32, ptr %arrayidx46, align 8
+  %xor47 = xor i32 %xor45, %32
+  %33 = load i32, ptr %i, align 4
+  %add48 = add nsw i32 %33, 3
   %idxprom49 = sext i32 %add48 to i64
   %arrayidx50 = getelementptr inbounds [32 x i32], ptr @ossl_sm4_set_key.CK, i64 0, i64 %idxprom49
-  %31 = load i32, ptr %arrayidx50, align 4
-  %xor51 = xor i32 %xor47, %31
+  %34 = load i32, ptr %arrayidx50, align 4
+  %xor51 = xor i32 %xor47, %34
   %call52 = call i32 @SM4_key_sub(i32 noundef %xor51)
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
-  %32 = load i32, ptr %arrayidx53, align 4
-  %xor54 = xor i32 %32, %call52
+  %35 = load i32, ptr %arrayidx53, align 4
+  %xor54 = xor i32 %35, %call52
   store i32 %xor54, ptr %arrayidx53, align 4
   %arrayidx55 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 0
-  %33 = load i32, ptr %arrayidx55, align 16
-  %34 = load ptr, ptr %ks.addr, align 8
-  %rk = getelementptr inbounds %struct.SM4_KEY_st, ptr %34, i32 0, i32 0
-  %35 = load i32, ptr %i, align 4
-  %idxprom56 = sext i32 %35 to i64
-  %arrayidx57 = getelementptr inbounds [32 x i32], ptr %rk, i64 0, i64 %idxprom56
-  store i32 %33, ptr %arrayidx57, align 4
-  %arrayidx58 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
-  %36 = load i32, ptr %arrayidx58, align 4
+  %36 = load i32, ptr %arrayidx55, align 16
   %37 = load ptr, ptr %ks.addr, align 8
-  %rk59 = getelementptr inbounds %struct.SM4_KEY_st, ptr %37, i32 0, i32 0
+  %rk = getelementptr inbounds %struct.SM4_KEY_st, ptr %37, i32 0, i32 0
   %38 = load i32, ptr %i, align 4
-  %add60 = add nsw i32 %38, 1
+  %idxprom56 = sext i32 %38 to i64
+  %arrayidx57 = getelementptr inbounds [32 x i32], ptr %rk, i64 0, i64 %idxprom56
+  store i32 %36, ptr %arrayidx57, align 4
+  %arrayidx58 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 1
+  %39 = load i32, ptr %arrayidx58, align 4
+  %40 = load ptr, ptr %ks.addr, align 8
+  %rk59 = getelementptr inbounds %struct.SM4_KEY_st, ptr %40, i32 0, i32 0
+  %41 = load i32, ptr %i, align 4
+  %add60 = add nsw i32 %41, 1
   %idxprom61 = sext i32 %add60 to i64
   %arrayidx62 = getelementptr inbounds [32 x i32], ptr %rk59, i64 0, i64 %idxprom61
-  store i32 %36, ptr %arrayidx62, align 4
+  store i32 %39, ptr %arrayidx62, align 4
   %arrayidx63 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 2
-  %39 = load i32, ptr %arrayidx63, align 8
-  %40 = load ptr, ptr %ks.addr, align 8
-  %rk64 = getelementptr inbounds %struct.SM4_KEY_st, ptr %40, i32 0, i32 0
-  %41 = load i32, ptr %i, align 4
-  %add65 = add nsw i32 %41, 2
+  %42 = load i32, ptr %arrayidx63, align 8
+  %43 = load ptr, ptr %ks.addr, align 8
+  %rk64 = getelementptr inbounds %struct.SM4_KEY_st, ptr %43, i32 0, i32 0
+  %44 = load i32, ptr %i, align 4
+  %add65 = add nsw i32 %44, 2
   %idxprom66 = sext i32 %add65 to i64
   %arrayidx67 = getelementptr inbounds [32 x i32], ptr %rk64, i64 0, i64 %idxprom66
-  store i32 %39, ptr %arrayidx67, align 4
+  store i32 %42, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %K, i64 0, i64 3
-  %42 = load i32, ptr %arrayidx68, align 4
-  %43 = load ptr, ptr %ks.addr, align 8
-  %rk69 = getelementptr inbounds %struct.SM4_KEY_st, ptr %43, i32 0, i32 0
-  %44 = load i32, ptr %i, align 4
-  %add70 = add nsw i32 %44, 3
+  %45 = load i32, ptr %arrayidx68, align 4
+  %46 = load ptr, ptr %ks.addr, align 8
+  %rk69 = getelementptr inbounds %struct.SM4_KEY_st, ptr %46, i32 0, i32 0
+  %47 = load i32, ptr %i, align 4
+  %add70 = add nsw i32 %47, 3
   %idxprom71 = sext i32 %add70 to i64
   %arrayidx72 = getelementptr inbounds [32 x i32], ptr %rk69, i64 0, i64 %idxprom71
-  store i32 %42, ptr %arrayidx72, align 4
+  store i32 %45, ptr %arrayidx72, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %45 = load i32, ptr %i, align 4
-  %add73 = add nsw i32 %45, 4
+  %48 = load i32, ptr %i, align 4
+  %add73 = add nsw i32 %48, 4
   store i32 %add73, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 

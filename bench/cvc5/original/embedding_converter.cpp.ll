@@ -2849,13 +2849,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EmbeddingConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EmbeddingConverterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmbeddingConverter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_parent = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmbeddingConverter", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %p.addr, align 8
-  store ptr %2, ptr %d_parent, align 8
+  %3 = load ptr, ptr %p.addr, align 8
+  store ptr %3, ptr %d_parent, align 8
   %d_synth_fun_vars = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmbeddingConverter", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_synth_fun_vars) #3
   %d_is_syntax_restricted = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmbeddingConverter", ptr %this1, i32 0, i32 4
@@ -6051,7 +6052,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tries = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers9OpPosTrieESt4lessIS2_ESaISt4pairIKS2_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_tries) #3
   %d_unres_t_all = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 4
@@ -10827,7 +10829,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EmbeddingConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EmbeddingConverterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_synth_fun_vars = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmbeddingConverter", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_synth_fun_vars) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3

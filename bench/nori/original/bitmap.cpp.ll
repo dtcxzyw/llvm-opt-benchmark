@@ -564,13 +564,13 @@ define internal noundef i32 @_ZL7outfilePKciiiiiPviiS0_z(ptr noundef %0, i32 nou
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %23, i64 0, i64 0
-  call void @llvm.va_start(ptr %36)
+  call void @llvm.va_start.p0(ptr %36)
   %37 = load ptr, ptr %22, align 8
   %38 = load ptr, ptr %21, align 8
   %39 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %23, i64 0, i64 0
   call void @_ZL7writefvP8_IO_FILEPKcP13__va_list_tag(ptr noundef %37, ptr noundef %38, ptr noundef %39)
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %23, i64 0, i64 0
-  call void @llvm.va_end(ptr %40)
+  call void @llvm.va_end.p0(ptr %40)
   %41 = load ptr, ptr %22, align 8
   %42 = load i32, ptr %13, align 4
   %43 = load i32, ptr %14, align 4
@@ -2129,110 +2129,111 @@ define hidden noundef i32 @_Z11stbi__crc32Phi(ptr noundef %0, i32 noundef %1) #5
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   store i32 -1, ptr %5, align 4
-  %8 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 1), align 4
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %47
+  %8 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 1
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %48
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   store i32 0, ptr %6, align 4
-  br label %11
+  br label %12
 
-11:                                               ; preds = %43, %10
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp slt i32 %12, 256
-  br i1 %13, label %14, label %46
+12:                                               ; preds = %44, %11
+  %13 = load i32, ptr %6, align 4
+  %14 = icmp slt i32 %13, 256
+  br i1 %14, label %15, label %47
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %6, align 4
+15:                                               ; preds = %12
   %16 = load i32, ptr %6, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %17
-  store i32 %15, ptr %18, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %18
+  store i32 %16, ptr %19, align 4
   store i32 0, ptr %7, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %39, %14
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp slt i32 %20, 8
-  br i1 %21, label %22, label %42
+20:                                               ; preds = %40, %15
+  %21 = load i32, ptr %7, align 4
+  %22 = icmp slt i32 %21, 8
+  br i1 %22, label %23, label %43
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %6, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4
-  %27 = lshr i32 %26, 1
-  %28 = load i32, ptr %6, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 1
-  %33 = icmp ne i32 %32, 0
-  %34 = select i1 %33, i32 -306674912, i32 0
-  %35 = xor i32 %27, %34
-  %36 = load i32, ptr %6, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %37
-  store i32 %35, ptr %38, align 4
-  br label %39
+23:                                               ; preds = %20
+  %24 = load i32, ptr %6, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4
+  %28 = lshr i32 %27, 1
+  %29 = load i32, ptr %6, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 1
+  %34 = icmp ne i32 %33, 0
+  %35 = select i1 %34, i32 -306674912, i32 0
+  %36 = xor i32 %28, %35
+  %37 = load i32, ptr %6, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %38
+  store i32 %36, ptr %39, align 4
+  br label %40
 
-39:                                               ; preds = %22
-  %40 = load i32, ptr %7, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %7, align 4
-  br label %19, !llvm.loop !20
+40:                                               ; preds = %23
+  %41 = load i32, ptr %7, align 4
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %7, align 4
+  br label %20, !llvm.loop !20
 
-42:                                               ; preds = %19
-  br label %43
+43:                                               ; preds = %20
+  br label %44
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr %6, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %6, align 4
-  br label %11, !llvm.loop !21
+44:                                               ; preds = %43
+  %45 = load i32, ptr %6, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %6, align 4
+  br label %12, !llvm.loop !21
 
-46:                                               ; preds = %11
-  br label %47
-
-47:                                               ; preds = %46, %2
-  store i32 0, ptr %6, align 4
+47:                                               ; preds = %12
   br label %48
 
-48:                                               ; preds = %68, %47
-  %49 = load i32, ptr %6, align 4
-  %50 = load i32, ptr %4, align 4
-  %51 = icmp slt i32 %49, %50
-  br i1 %51, label %52, label %71
+48:                                               ; preds = %47, %2
+  store i32 0, ptr %6, align 4
+  br label %49
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %5, align 4
-  %54 = lshr i32 %53, 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = load i32, ptr %6, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %55, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load i32, ptr %5, align 4
-  %62 = and i32 %61, 255
-  %63 = xor i32 %60, %62
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = xor i32 %54, %66
-  store i32 %67, ptr %5, align 4
-  br label %68
+49:                                               ; preds = %69, %48
+  %50 = load i32, ptr %6, align 4
+  %51 = load i32, ptr %4, align 4
+  %52 = icmp slt i32 %50, %51
+  br i1 %52, label %53, label %72
 
-68:                                               ; preds = %52
-  %69 = load i32, ptr %6, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %6, align 4
-  br label %48, !llvm.loop !22
+53:                                               ; preds = %49
+  %54 = load i32, ptr %5, align 4
+  %55 = lshr i32 %54, 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = load i32, ptr %6, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %56, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = load i32, ptr %5, align 4
+  %63 = and i32 %62, 255
+  %64 = xor i32 %61, %63
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds [256 x i32], ptr @_ZZ11stbi__crc32PhiE9crc_table, i64 0, i64 %65
+  %67 = load i32, ptr %66, align 4
+  %68 = xor i32 %55, %67
+  store i32 %68, ptr %5, align 4
+  br label %69
 
-71:                                               ; preds = %48
-  %72 = load i32, ptr %5, align 4
-  %73 = xor i32 %72, -1
-  ret i32 %73
+69:                                               ; preds = %53
+  %70 = load i32, ptr %6, align 4
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %6, align 4
+  br label %49, !llvm.loop !22
+
+72:                                               ; preds = %49
+  %73 = load i32, ptr %5, align 4
+  %74 = xor i32 %73, -1
+  ret i32 %74
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2297,7 +2298,7 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %0, i32
 
 49:                                               ; preds = %38
   store ptr null, ptr %7, align 8
-  br label %651
+  br label %660
 
 50:                                               ; preds = %38
   %51 = load i32, ptr %10, align 4
@@ -2314,7 +2315,7 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %0, i32
   %59 = load ptr, ptr %18, align 8
   call void @free(ptr noundef %59) #3
   store ptr null, ptr %7, align 8
-  br label %651
+  br label %660
 
 60:                                               ; preds = %50
   store i32 0, ptr %22, align 4
@@ -2896,7 +2897,7 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %0, i32
 
 480:                                              ; preds = %467
   store ptr null, ptr %7, align 8
-  br label %651
+  br label %660
 
 481:                                              ; preds = %467
   %482 = load i32, ptr %25, align 4
@@ -2911,7 +2912,7 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %0, i32
 
 489:                                              ; preds = %481
   store ptr null, ptr %7, align 8
-  br label %651
+  br label %660
 
 490:                                              ; preds = %481
   %491 = load i32, ptr %25, align 4
@@ -2946,200 +2947,209 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %0, i32
   %511 = load ptr, ptr %17, align 8
   %512 = getelementptr inbounds i8, ptr %511, i64 0
   store i8 %510, ptr %512, align 1
-  %513 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 1), align 1
-  %514 = load ptr, ptr %17, align 8
-  %515 = getelementptr inbounds i8, ptr %514, i64 1
-  store i8 %513, ptr %515, align 1
-  %516 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 2), align 1
-  %517 = load ptr, ptr %17, align 8
-  %518 = getelementptr inbounds i8, ptr %517, i64 2
-  store i8 %516, ptr %518, align 1
-  %519 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 3), align 1
-  %520 = load ptr, ptr %17, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 3
-  store i8 %519, ptr %521, align 1
-  %522 = load ptr, ptr %17, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 4
-  store ptr %523, ptr %17, align 8
-  %524 = load i32, ptr %10, align 4
-  %525 = ashr i32 %524, 24
-  %526 = trunc i32 %525 to i8
-  %527 = load ptr, ptr %17, align 8
-  %528 = getelementptr inbounds i8, ptr %527, i64 0
-  store i8 %526, ptr %528, align 1
-  %529 = load i32, ptr %10, align 4
-  %530 = ashr i32 %529, 16
-  %531 = trunc i32 %530 to i8
-  %532 = load ptr, ptr %17, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 1
-  store i8 %531, ptr %533, align 1
-  %534 = load i32, ptr %10, align 4
-  %535 = ashr i32 %534, 8
-  %536 = trunc i32 %535 to i8
-  %537 = load ptr, ptr %17, align 8
-  %538 = getelementptr inbounds i8, ptr %537, i64 2
-  store i8 %536, ptr %538, align 1
-  %539 = load i32, ptr %10, align 4
-  %540 = trunc i32 %539 to i8
-  %541 = load ptr, ptr %17, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 3
-  store i8 %540, ptr %542, align 1
-  %543 = load ptr, ptr %17, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 4
-  store ptr %544, ptr %17, align 8
-  %545 = load i32, ptr %11, align 4
-  %546 = ashr i32 %545, 24
-  %547 = trunc i32 %546 to i8
-  %548 = load ptr, ptr %17, align 8
-  %549 = getelementptr inbounds i8, ptr %548, i64 0
-  store i8 %547, ptr %549, align 1
-  %550 = load i32, ptr %11, align 4
-  %551 = ashr i32 %550, 16
-  %552 = trunc i32 %551 to i8
-  %553 = load ptr, ptr %17, align 8
-  %554 = getelementptr inbounds i8, ptr %553, i64 1
-  store i8 %552, ptr %554, align 1
-  %555 = load i32, ptr %11, align 4
-  %556 = ashr i32 %555, 8
-  %557 = trunc i32 %556 to i8
-  %558 = load ptr, ptr %17, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 2
-  store i8 %557, ptr %559, align 1
-  %560 = load i32, ptr %11, align 4
-  %561 = trunc i32 %560 to i8
-  %562 = load ptr, ptr %17, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 3
-  store i8 %561, ptr %563, align 1
-  %564 = load ptr, ptr %17, align 8
-  %565 = getelementptr inbounds i8, ptr %564, i64 4
-  store ptr %565, ptr %17, align 8
-  %566 = load ptr, ptr %17, align 8
-  %567 = getelementptr inbounds i8, ptr %566, i32 1
-  store ptr %567, ptr %17, align 8
-  store i8 8, ptr %566, align 1
-  %568 = load i32, ptr %12, align 4
-  %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 %569
-  %571 = load i32, ptr %570, align 4
-  %572 = trunc i32 %571 to i8
-  %573 = load ptr, ptr %17, align 8
-  %574 = getelementptr inbounds i8, ptr %573, i32 1
-  store ptr %574, ptr %17, align 8
-  store i8 %572, ptr %573, align 1
-  %575 = load ptr, ptr %17, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i32 1
-  store ptr %576, ptr %17, align 8
-  store i8 0, ptr %575, align 1
-  %577 = load ptr, ptr %17, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i32 1
-  store ptr %578, ptr %17, align 8
-  store i8 0, ptr %577, align 1
-  %579 = load ptr, ptr %17, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i32 1
-  store ptr %580, ptr %17, align 8
-  store i8 0, ptr %579, align 1
+  %513 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 1
+  %514 = load i8, ptr %513, align 1
+  %515 = load ptr, ptr %17, align 8
+  %516 = getelementptr inbounds i8, ptr %515, i64 1
+  store i8 %514, ptr %516, align 1
+  %517 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 2
+  %518 = load i8, ptr %517, align 1
+  %519 = load ptr, ptr %17, align 8
+  %520 = getelementptr inbounds i8, ptr %519, i64 2
+  store i8 %518, ptr %520, align 1
+  %521 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 3
+  %522 = load i8, ptr %521, align 1
+  %523 = load ptr, ptr %17, align 8
+  %524 = getelementptr inbounds i8, ptr %523, i64 3
+  store i8 %522, ptr %524, align 1
+  %525 = load ptr, ptr %17, align 8
+  %526 = getelementptr inbounds i8, ptr %525, i64 4
+  store ptr %526, ptr %17, align 8
+  %527 = load i32, ptr %10, align 4
+  %528 = ashr i32 %527, 24
+  %529 = trunc i32 %528 to i8
+  %530 = load ptr, ptr %17, align 8
+  %531 = getelementptr inbounds i8, ptr %530, i64 0
+  store i8 %529, ptr %531, align 1
+  %532 = load i32, ptr %10, align 4
+  %533 = ashr i32 %532, 16
+  %534 = trunc i32 %533 to i8
+  %535 = load ptr, ptr %17, align 8
+  %536 = getelementptr inbounds i8, ptr %535, i64 1
+  store i8 %534, ptr %536, align 1
+  %537 = load i32, ptr %10, align 4
+  %538 = ashr i32 %537, 8
+  %539 = trunc i32 %538 to i8
+  %540 = load ptr, ptr %17, align 8
+  %541 = getelementptr inbounds i8, ptr %540, i64 2
+  store i8 %539, ptr %541, align 1
+  %542 = load i32, ptr %10, align 4
+  %543 = trunc i32 %542 to i8
+  %544 = load ptr, ptr %17, align 8
+  %545 = getelementptr inbounds i8, ptr %544, i64 3
+  store i8 %543, ptr %545, align 1
+  %546 = load ptr, ptr %17, align 8
+  %547 = getelementptr inbounds i8, ptr %546, i64 4
+  store ptr %547, ptr %17, align 8
+  %548 = load i32, ptr %11, align 4
+  %549 = ashr i32 %548, 24
+  %550 = trunc i32 %549 to i8
+  %551 = load ptr, ptr %17, align 8
+  %552 = getelementptr inbounds i8, ptr %551, i64 0
+  store i8 %550, ptr %552, align 1
+  %553 = load i32, ptr %11, align 4
+  %554 = ashr i32 %553, 16
+  %555 = trunc i32 %554 to i8
+  %556 = load ptr, ptr %17, align 8
+  %557 = getelementptr inbounds i8, ptr %556, i64 1
+  store i8 %555, ptr %557, align 1
+  %558 = load i32, ptr %11, align 4
+  %559 = ashr i32 %558, 8
+  %560 = trunc i32 %559 to i8
+  %561 = load ptr, ptr %17, align 8
+  %562 = getelementptr inbounds i8, ptr %561, i64 2
+  store i8 %560, ptr %562, align 1
+  %563 = load i32, ptr %11, align 4
+  %564 = trunc i32 %563 to i8
+  %565 = load ptr, ptr %17, align 8
+  %566 = getelementptr inbounds i8, ptr %565, i64 3
+  store i8 %564, ptr %566, align 1
+  %567 = load ptr, ptr %17, align 8
+  %568 = getelementptr inbounds i8, ptr %567, i64 4
+  store ptr %568, ptr %17, align 8
+  %569 = load ptr, ptr %17, align 8
+  %570 = getelementptr inbounds i8, ptr %569, i32 1
+  store ptr %570, ptr %17, align 8
+  store i8 8, ptr %569, align 1
+  %571 = load i32, ptr %12, align 4
+  %572 = sext i32 %571 to i64
+  %573 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 %572
+  %574 = load i32, ptr %573, align 4
+  %575 = trunc i32 %574 to i8
+  %576 = load ptr, ptr %17, align 8
+  %577 = getelementptr inbounds i8, ptr %576, i32 1
+  store ptr %577, ptr %17, align 8
+  store i8 %575, ptr %576, align 1
+  %578 = load ptr, ptr %17, align 8
+  %579 = getelementptr inbounds i8, ptr %578, i32 1
+  store ptr %579, ptr %17, align 8
+  store i8 0, ptr %578, align 1
+  %580 = load ptr, ptr %17, align 8
+  %581 = getelementptr inbounds i8, ptr %580, i32 1
+  store ptr %581, ptr %17, align 8
+  store i8 0, ptr %580, align 1
+  %582 = load ptr, ptr %17, align 8
+  %583 = getelementptr inbounds i8, ptr %582, i32 1
+  store ptr %583, ptr %17, align 8
+  store i8 0, ptr %582, align 1
   call void @_ZL11stbi__wpcrcPPhi(ptr noundef %17, i32 noundef 13)
-  %581 = load i32, ptr %25, align 4
-  %582 = ashr i32 %581, 24
-  %583 = trunc i32 %582 to i8
-  %584 = load ptr, ptr %17, align 8
-  %585 = getelementptr inbounds i8, ptr %584, i64 0
-  store i8 %583, ptr %585, align 1
-  %586 = load i32, ptr %25, align 4
-  %587 = ashr i32 %586, 16
-  %588 = trunc i32 %587 to i8
-  %589 = load ptr, ptr %17, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 1
-  store i8 %588, ptr %590, align 1
-  %591 = load i32, ptr %25, align 4
-  %592 = ashr i32 %591, 8
-  %593 = trunc i32 %592 to i8
-  %594 = load ptr, ptr %17, align 8
-  %595 = getelementptr inbounds i8, ptr %594, i64 2
-  store i8 %593, ptr %595, align 1
-  %596 = load i32, ptr %25, align 4
-  %597 = trunc i32 %596 to i8
-  %598 = load ptr, ptr %17, align 8
-  %599 = getelementptr inbounds i8, ptr %598, i64 3
-  store i8 %597, ptr %599, align 1
-  %600 = load ptr, ptr %17, align 8
-  %601 = getelementptr inbounds i8, ptr %600, i64 4
-  store ptr %601, ptr %17, align 8
-  %602 = load i8, ptr @.str.3, align 1
+  %584 = load i32, ptr %25, align 4
+  %585 = ashr i32 %584, 24
+  %586 = trunc i32 %585 to i8
+  %587 = load ptr, ptr %17, align 8
+  %588 = getelementptr inbounds i8, ptr %587, i64 0
+  store i8 %586, ptr %588, align 1
+  %589 = load i32, ptr %25, align 4
+  %590 = ashr i32 %589, 16
+  %591 = trunc i32 %590 to i8
+  %592 = load ptr, ptr %17, align 8
+  %593 = getelementptr inbounds i8, ptr %592, i64 1
+  store i8 %591, ptr %593, align 1
+  %594 = load i32, ptr %25, align 4
+  %595 = ashr i32 %594, 8
+  %596 = trunc i32 %595 to i8
+  %597 = load ptr, ptr %17, align 8
+  %598 = getelementptr inbounds i8, ptr %597, i64 2
+  store i8 %596, ptr %598, align 1
+  %599 = load i32, ptr %25, align 4
+  %600 = trunc i32 %599 to i8
+  %601 = load ptr, ptr %17, align 8
+  %602 = getelementptr inbounds i8, ptr %601, i64 3
+  store i8 %600, ptr %602, align 1
   %603 = load ptr, ptr %17, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 0
-  store i8 %602, ptr %604, align 1
-  %605 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 1), align 1
+  %604 = getelementptr inbounds i8, ptr %603, i64 4
+  store ptr %604, ptr %17, align 8
+  %605 = load i8, ptr @.str.3, align 1
   %606 = load ptr, ptr %17, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 1
+  %607 = getelementptr inbounds i8, ptr %606, i64 0
   store i8 %605, ptr %607, align 1
-  %608 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 2), align 1
-  %609 = load ptr, ptr %17, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 2
-  store i8 %608, ptr %610, align 1
-  %611 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 3), align 1
-  %612 = load ptr, ptr %17, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 3
-  store i8 %611, ptr %613, align 1
+  %608 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 1
+  %609 = load i8, ptr %608, align 1
+  %610 = load ptr, ptr %17, align 8
+  %611 = getelementptr inbounds i8, ptr %610, i64 1
+  store i8 %609, ptr %611, align 1
+  %612 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 2
+  %613 = load i8, ptr %612, align 1
   %614 = load ptr, ptr %17, align 8
-  %615 = getelementptr inbounds i8, ptr %614, i64 4
-  store ptr %615, ptr %17, align 8
-  %616 = load ptr, ptr %17, align 8
-  %617 = load ptr, ptr %19, align 8
-  %618 = load i32, ptr %25, align 4
-  %619 = sext i32 %618 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %616, ptr align 1 %617, i64 %619, i1 false)
-  %620 = load i32, ptr %25, align 4
-  %621 = load ptr, ptr %17, align 8
-  %622 = sext i32 %620 to i64
-  %623 = getelementptr inbounds i8, ptr %621, i64 %622
-  store ptr %623, ptr %17, align 8
-  %624 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %624) #3
-  %625 = load i32, ptr %25, align 4
-  call void @_ZL11stbi__wpcrcPPhi(ptr noundef %17, i32 noundef %625)
-  %626 = load ptr, ptr %17, align 8
-  %627 = getelementptr inbounds i8, ptr %626, i64 0
-  store i8 0, ptr %627, align 1
-  %628 = load ptr, ptr %17, align 8
-  %629 = getelementptr inbounds i8, ptr %628, i64 1
-  store i8 0, ptr %629, align 1
-  %630 = load ptr, ptr %17, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 2
-  store i8 0, ptr %631, align 1
+  %615 = getelementptr inbounds i8, ptr %614, i64 2
+  store i8 %613, ptr %615, align 1
+  %616 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 3
+  %617 = load i8, ptr %616, align 1
+  %618 = load ptr, ptr %17, align 8
+  %619 = getelementptr inbounds i8, ptr %618, i64 3
+  store i8 %617, ptr %619, align 1
+  %620 = load ptr, ptr %17, align 8
+  %621 = getelementptr inbounds i8, ptr %620, i64 4
+  store ptr %621, ptr %17, align 8
+  %622 = load ptr, ptr %17, align 8
+  %623 = load ptr, ptr %19, align 8
+  %624 = load i32, ptr %25, align 4
+  %625 = sext i32 %624 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %622, ptr align 1 %623, i64 %625, i1 false)
+  %626 = load i32, ptr %25, align 4
+  %627 = load ptr, ptr %17, align 8
+  %628 = sext i32 %626 to i64
+  %629 = getelementptr inbounds i8, ptr %627, i64 %628
+  store ptr %629, ptr %17, align 8
+  %630 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %630) #3
+  %631 = load i32, ptr %25, align 4
+  call void @_ZL11stbi__wpcrcPPhi(ptr noundef %17, i32 noundef %631)
   %632 = load ptr, ptr %17, align 8
-  %633 = getelementptr inbounds i8, ptr %632, i64 3
+  %633 = getelementptr inbounds i8, ptr %632, i64 0
   store i8 0, ptr %633, align 1
   %634 = load ptr, ptr %17, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 4
-  store ptr %635, ptr %17, align 8
-  %636 = load i8, ptr @.str.4, align 1
-  %637 = load ptr, ptr %17, align 8
-  %638 = getelementptr inbounds i8, ptr %637, i64 0
-  store i8 %636, ptr %638, align 1
-  %639 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
+  %635 = getelementptr inbounds i8, ptr %634, i64 1
+  store i8 0, ptr %635, align 1
+  %636 = load ptr, ptr %17, align 8
+  %637 = getelementptr inbounds i8, ptr %636, i64 2
+  store i8 0, ptr %637, align 1
+  %638 = load ptr, ptr %17, align 8
+  %639 = getelementptr inbounds i8, ptr %638, i64 3
+  store i8 0, ptr %639, align 1
   %640 = load ptr, ptr %17, align 8
-  %641 = getelementptr inbounds i8, ptr %640, i64 1
-  store i8 %639, ptr %641, align 1
-  %642 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
+  %641 = getelementptr inbounds i8, ptr %640, i64 4
+  store ptr %641, ptr %17, align 8
+  %642 = load i8, ptr @.str.4, align 1
   %643 = load ptr, ptr %17, align 8
-  %644 = getelementptr inbounds i8, ptr %643, i64 2
+  %644 = getelementptr inbounds i8, ptr %643, i64 0
   store i8 %642, ptr %644, align 1
-  %645 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %646 = load ptr, ptr %17, align 8
-  %647 = getelementptr inbounds i8, ptr %646, i64 3
-  store i8 %645, ptr %647, align 1
-  %648 = load ptr, ptr %17, align 8
-  %649 = getelementptr inbounds i8, ptr %648, i64 4
-  store ptr %649, ptr %17, align 8
+  %645 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %646 = load i8, ptr %645, align 1
+  %647 = load ptr, ptr %17, align 8
+  %648 = getelementptr inbounds i8, ptr %647, i64 1
+  store i8 %646, ptr %648, align 1
+  %649 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %650 = load i8, ptr %649, align 1
+  %651 = load ptr, ptr %17, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 2
+  store i8 %650, ptr %652, align 1
+  %653 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %654 = load i8, ptr %653, align 1
+  %655 = load ptr, ptr %17, align 8
+  %656 = getelementptr inbounds i8, ptr %655, i64 3
+  store i8 %654, ptr %656, align 1
+  %657 = load ptr, ptr %17, align 8
+  %658 = getelementptr inbounds i8, ptr %657, i64 4
+  store ptr %658, ptr %17, align 8
   call void @_ZL11stbi__wpcrcPPhi(ptr noundef %17, i32 noundef 0)
-  %650 = load ptr, ptr %16, align 8
-  store ptr %650, ptr %7, align 8
-  br label %651
+  %659 = load ptr, ptr %16, align 8
+  store ptr %659, ptr %7, align 8
+  br label %660
 
-651:                                              ; preds = %490, %489, %480, %58, %49
-  %652 = load ptr, ptr %7, align 8
-  ret ptr %652
+660:                                              ; preds = %490, %489, %480, %58, %49
+  %661 = load ptr, ptr %7, align 8
+  ret ptr %661
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -4625,29 +4635,30 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
   %9 = load ptr, ptr %4, align 8
   call void @_ZN10tinyformat6formatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %9)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %10 unwind label %11
+          to label %10 unwind label %12
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %6, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %7, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %15
+  br label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -5079,31 +5090,32 @@ define linkonce_odr hidden void @_ZN3Imf14TypedAttributeINSt7__cxx1112basic_stri
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3Imf9AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN3Imf9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN3Imf9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5111,9 +5123,10 @@ define linkonce_odr hidden void @_ZN3Imf14TypedAttributeINSt7__cxx1112basic_stri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN3Imf9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -5443,9 +5456,6 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN5E
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL7writefvP8_IO_FILEPKcP13__va_list_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = alloca ptr, align 8
@@ -5615,9 +5625,6 @@ define internal void @_ZL7writefvP8_IO_FILEPKcP13__va_list_tag(ptr noundef %0, p
 108:                                              ; preds = %106, %12
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL12write_pixelsP8_IO_FILEiiiiiPvii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) #4 {
@@ -5905,7 +5912,7 @@ define internal void @_ZL6write3P8_IO_FILEhhh(ptr noundef %0, i8 noundef zeroext
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #12
+declare ptr @realloc(ptr noundef, i64 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Imath4Vec2IiEC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
@@ -5999,7 +6006,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKN3Imf4Nam
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #22
   unreachable
@@ -6034,14 +6041,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #16
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #15
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
@@ -6533,7 +6540,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #15
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #5 comdat align 2 {
@@ -6851,7 +6858,8 @@ define linkonce_odr dso_local void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6863,7 +6871,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8817,9 +8826,10 @@ define linkonce_odr hidden void @_ZN3Imf14TypedAttributeINSt7__cxx1112basic_stri
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3Imf9AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3Imf14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Imf::TypedAttribute", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -8872,7 +8882,7 @@ define linkonce_odr hidden noundef ptr @_ZN3Imf14TypedAttributeINSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #16
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3Iex7TypeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
@@ -8883,7 +8893,8 @@ define linkonce_odr hidden void @_ZN3Iex7TypeExcC2EPKc(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3Iex7BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3Iex7TypeExcE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3Iex7TypeExcE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -9123,6 +9134,12 @@ define internal void @_GLOBAL__sub_I_bitmap.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9134,12 +9151,12 @@ attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nounwind allocsize(1) }
 attributes #18 = { nounwind allocsize(0) }
 attributes #19 = { noreturn }

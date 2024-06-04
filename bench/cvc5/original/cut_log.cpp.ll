@@ -2966,16 +2966,17 @@ entry:
   store i32 %eid, ptr %eid.addr, align 4
   store i32 %o, ptr %o.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_klass = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %kl.addr, align 4
-  store i32 %0, ptr %d_klass, align 8
+  %1 = load i32, ptr %kl.addr, align 4
+  store i32 %1, ptr %d_klass, align 8
   %d_execOrd = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %eid.addr, align 4
-  store i32 %1, ptr %d_execOrd, align 4
+  %2 = load i32, ptr %eid.addr, align 4
+  store i32 %2, ptr %d_execOrd, align 4
   %d_poolOrd = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %o.addr, align 4
-  store i32 %2, ptr %d_poolOrd, align 8
+  %3 = load i32, ptr %o.addr, align 4
+  store i32 %3, ptr %d_poolOrd, align 8
   %d_cutType = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 4
   store i32 -1, ptr %d_cutType, align 4
   %d_cutRhs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 5
@@ -3029,7 +3030,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 11
   call void @_ZNSt10unique_ptrISt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS8_EESt14default_deleteISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_explanation) #3
   %d_exactPrecision = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 10
@@ -9445,10 +9447,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %execOrd.addr, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr noundef nonnull align 8 dereferenceable(88) %this1, i32 noundef 3, i32 noundef %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_cutVec = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
-  %1 = load i32, ptr %nrows.addr, align 4
-  invoke void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr noundef nonnull align 8 dereferenceable(24) %d_cutVec, i32 noundef %1)
+  %2 = load i32, ptr %nrows.addr, align 4
+  invoke void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr noundef nonnull align 8 dereferenceable(24) %d_cutVec, i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -9456,46 +9459,46 @@ invoke.cont:                                      ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont
-  %2 = load i32, ptr %j, align 4
-  %3 = load i32, ptr %nrows.addr, align 4
-  %cmp = icmp sle i32 %2, %3
+  %3 = load i32, ptr %j, align 4
+  %4 = load i32, ptr %nrows.addr, align 4
+  %cmp = icmp sle i32 %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %d_cutVec2 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   %coeffs = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::PrimitiveVec", ptr %d_cutVec2, i32 0, i32 2
-  %4 = load ptr, ptr %coeffs, align 8
-  %5 = load i32, ptr %j, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds double, ptr %4, i64 %idxprom
+  %5 = load ptr, ptr %coeffs, align 8
+  %6 = load i32, ptr %j, align 4
+  %idxprom = sext i32 %6 to i64
+  %arrayidx = getelementptr inbounds double, ptr %5, i64 %idxprom
   store double 0.000000e+00, ptr %arrayidx, align 8
-  %6 = load ptr, ptr %num.addr, align 8
-  %7 = load i32, ptr %j, align 4
-  %idxprom3 = sext i32 %7 to i64
-  %arrayidx4 = getelementptr inbounds i32, ptr %6, i64 %idxprom3
-  %8 = load i32, ptr %arrayidx4, align 4
+  %7 = load ptr, ptr %num.addr, align 8
+  %8 = load i32, ptr %j, align 4
+  %idxprom3 = sext i32 %8 to i64
+  %arrayidx4 = getelementptr inbounds i32, ptr %7, i64 %idxprom3
+  %9 = load i32, ptr %arrayidx4, align 4
   %d_cutVec5 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   %inds = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::PrimitiveVec", ptr %d_cutVec5, i32 0, i32 1
-  %9 = load ptr, ptr %inds, align 8
-  %10 = load i32, ptr %j, align 4
-  %idxprom6 = sext i32 %10 to i64
-  %arrayidx7 = getelementptr inbounds i32, ptr %9, i64 %idxprom6
-  store i32 %8, ptr %arrayidx7, align 4
+  %10 = load ptr, ptr %inds, align 8
+  %11 = load i32, ptr %j, align 4
+  %idxprom6 = sext i32 %11 to i64
+  %arrayidx7 = getelementptr inbounds i32, ptr %10, i64 %idxprom6
+  store i32 %9, ptr %arrayidx7, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %11 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !35
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
   br label %eh.resume
 
@@ -9528,38 +9531,39 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %execOrd.addr, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr noundef nonnull align 8 dereferenceable(88) %this1, i32 noundef 2, i32 noundef %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_cutVec = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   invoke void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr noundef nonnull align 8 dereferenceable(24) %d_cutVec, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load i32, ptr %br.addr, align 4
+  %2 = load i32, ptr %br.addr, align 4
   %d_cutVec2 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   %inds = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::PrimitiveVec", ptr %d_cutVec2, i32 0, i32 1
-  %2 = load ptr, ptr %inds, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 1
-  store i32 %1, ptr %arrayidx, align 4
+  %3 = load ptr, ptr %inds, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %3, i64 1
+  store i32 %2, ptr %arrayidx, align 4
   %d_cutVec3 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   %coeffs = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::PrimitiveVec", ptr %d_cutVec3, i32 0, i32 2
-  %3 = load ptr, ptr %coeffs, align 8
-  %arrayidx4 = getelementptr inbounds double, ptr %3, i64 1
+  %4 = load ptr, ptr %coeffs, align 8
+  %arrayidx4 = getelementptr inbounds double, ptr %4, i64 1
   store double 1.000000e+00, ptr %arrayidx4, align 8
-  %4 = load double, ptr %val.addr, align 8
+  %5 = load double, ptr %val.addr, align 8
   %d_cutRhs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 5
-  store double %4, ptr %d_cutRhs, align 8
-  %5 = load i32, ptr %dir.addr, align 4
+  store double %5, ptr %d_cutRhs, align 8
+  %6 = load i32, ptr %dir.addr, align 4
   %d_cutType = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 4
-  store i32 %5, ptr %d_cutType, align 4
+  store i32 %6, ptr %d_cutType, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
   br label %eh.resume
 

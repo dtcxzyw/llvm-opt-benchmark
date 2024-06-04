@@ -381,7 +381,7 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 23:                                               ; preds = %2
   store i32 1, ptr %3, align 4
-  br label %91
+  br label %92
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr %8, align 8
@@ -391,7 +391,7 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 28:                                               ; preds = %24
   store i32 1, ptr %3, align 4
-  br label %91
+  br label %92
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %8, align 8
@@ -403,7 +403,7 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 35:                                               ; preds = %29
   store i32 1, ptr %3, align 4
-  br label %91
+  br label %92
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %8, align 8
@@ -418,7 +418,7 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 44:                                               ; preds = %36
   store i32 1, ptr %3, align 4
-  br label %91
+  br label %92
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %8, align 8
@@ -431,13 +431,13 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 51:                                               ; preds = %45
   store i32 1, ptr %3, align 4
-  br label %91
+  br label %92
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 4
   %54 = load ptr, ptr %53, align 16
   %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %77
+  br i1 %55, label %56, label %78
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 4
@@ -451,57 +451,58 @@ define internal i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr 
 
 64:                                               ; preds = %56
   store i32 1, ptr %11, align 4
-  br label %76
-
-65:                                               ; preds = %56
-  %66 = load i32, ptr getelementptr inbounds (%struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2), align 4
-  %67 = icmp sge i32 %66, 20
-  br i1 %67, label %68, label %75
-
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 4
-  %70 = load ptr, ptr %69, align 16
-  %71 = call i32 @nla_get_u32(ptr noundef %70)
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %72, i32 0, i32 0
-  %74 = load i32, ptr %73, align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.7, i32 noundef %71, i32 noundef %74)
-  br label %75
-
-75:                                               ; preds = %68, %65
-  br label %76
-
-76:                                               ; preds = %75, %64
   br label %77
 
-77:                                               ; preds = %76, %52
-  %78 = load i32, ptr %11, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %87
+65:                                               ; preds = %56
+  %66 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp sge i32 %67, 20
+  br i1 %68, label %69, label %76
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 5
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %87
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 4
+  %71 = load ptr, ptr %70, align 16
+  %72 = call i32 @nla_get_u32(ptr noundef %71)
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.7, i32 noundef %72, i32 noundef %75)
+  br label %76
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %85, i32 0, i32 2
-  store i32 1, ptr %86, align 8
-  br label %87
+76:                                               ; preds = %69, %65
+  br label %77
 
-87:                                               ; preds = %84, %80, %77
-  %88 = load i32, ptr %11, align 4
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %89, i32 0, i32 1
-  store i32 %88, ptr %90, align 4
+77:                                               ; preds = %76, %64
+  br label %78
+
+78:                                               ; preds = %77, %52
+  %79 = load i32, ptr %11, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %88
+
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds [31 x ptr], ptr %10, i64 0, i64 5
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %88
+
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %86, i32 0, i32 2
+  store i32 1, ptr %87, align 8
+  br label %88
+
+88:                                               ; preds = %85, %81, %78
+  %89 = load i32, ptr %11, align 4
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr inbounds %struct.prte_reachable_netlink_rt_cb_arg, ptr %90, i32 0, i32 1
+  store i32 %89, ptr %91, align 4
   store i32 2, ptr %3, align 4
-  br label %91
+  br label %92
 
-91:                                               ; preds = %87, %51, %44, %35, %28, %23
-  %92 = load i32, ptr %3, align 4
-  ret i32 %92
+92:                                               ; preds = %88, %51, %44, %35, %28, %23
+  %93 = load i32, ptr %3, align 4
+  ret i32 %93
 }
 
 declare i32 @nl_recvmsgs_default(ptr noundef) #2
@@ -594,7 +595,7 @@ define internal i32 @prte_reachable_netlink_is_nlreply_err(ptr noundef %0) #0 {
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = icmp eq i32 %8, 2
-  br i1 %9, label %10, label %29
+  br i1 %9, label %10, label %31
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %3, align 8
@@ -605,43 +606,45 @@ define internal i32 @prte_reachable_netlink_is_nlreply_err(ptr noundef %0) #0 {
   %15 = load i32, ptr %14, align 4
   %16 = call i32 @nlmsg_size(i32 noundef 20)
   %17 = icmp uge i32 %15, %16
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %10
-  %19 = load i32, ptr getelementptr inbounds (%struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2), align 4
-  %20 = icmp sge i32 %19, 20
-  br i1 %20, label %21, label %22
+  %19 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sge i32 %20, 20
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %18
+22:                                               ; preds = %18
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.8)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %18
-  br label %28
+23:                                               ; preds = %22, %18
+  br label %30
 
-23:                                               ; preds = %10
-  %24 = load i32, ptr getelementptr inbounds (%struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2), align 4
-  %25 = icmp sge i32 %24, 20
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %10
+  %25 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp sge i32 %26, 20
+  br i1 %27, label %28, label %29
 
-26:                                               ; preds = %23
+28:                                               ; preds = %24
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.9)
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %23
-  br label %28
+29:                                               ; preds = %28, %24
+  br label %30
 
-28:                                               ; preds = %27, %22
+30:                                               ; preds = %29, %23
   store i32 1, ptr %2, align 4
-  br label %30
+  br label %32
 
-29:                                               ; preds = %1
+31:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %30
+  br label %32
 
-30:                                               ; preds = %29, %28
-  %31 = load i32, ptr %2, align 4
-  ret i32 %31
+32:                                               ; preds = %31, %30
+  %33 = load i32, ptr %2, align 4
+  ret i32 %33
 }
 
 declare ptr @nlmsg_data(ptr noundef) #2

@@ -2189,26 +2189,27 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %2 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %0, ptr %2, i32 noundef %1, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %state_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this3, i32 0, i32 1
   store i32 0, ptr %state_, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this3, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_)
   %handle_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this3, i32 0, i32 3
-  %3 = load ptr, ptr %handle.addr, align 8
-  store ptr %3, ptr %handle_, align 8
+  %4 = load ptr, ptr %handle.addr, align 8
+  store ptr %4, ptr %handle_, align 8
   %handle_7 = getelementptr inbounds %"class.node::HandleWrap", ptr %this3, i32 0, i32 3
-  %4 = load ptr, ptr %handle_7, align 8
-  %data = getelementptr inbounds %struct.uv_handle_s, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %handle_7, align 8
+  %data = getelementptr inbounds %struct.uv_handle_s, ptr %5, i32 0, i32 0
   store ptr %this3, ptr %data, align 8
-  %5 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %5)
+  %6 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %6)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %call)
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %6 = load ptr, ptr %env.addr, align 8
-  %call8 = call noundef zeroext i1 @_ZNK4node11Environment26has_run_bootstrapping_codeEv(ptr noundef nonnull align 8 dereferenceable(2872) %6)
+  %7 = load ptr, ptr %env.addr, align 8
+  %call8 = call noundef zeroext i1 @_ZNK4node11Environment26has_run_bootstrapping_codeEv(ptr noundef nonnull align 8 dereferenceable(2872) %7)
   %lnot = xor i1 %call8, true
   %lnot9 = xor i1 %lnot, true
   %lnot10 = xor i1 %lnot9, true
@@ -2235,8 +2236,8 @@ do.cond12:                                        ; preds = %if.end
   br label %do.end13
 
 do.end13:                                         ; preds = %do.cond12
-  %7 = load ptr, ptr %env.addr, align 8
-  %call14 = call noundef ptr @_ZN4node11Environment17handle_wrap_queueEv(ptr noundef nonnull align 8 dereferenceable(2872) %7)
+  %8 = load ptr, ptr %env.addr, align 8
+  %call14 = call noundef ptr @_ZN4node11Environment17handle_wrap_queueEv(ptr noundef nonnull align 8 dereferenceable(2872) %8)
   call void @_ZN4node8ListHeadINS_10HandleWrapEXadL_ZNS1_18handle_wrap_queue_EEEE8PushBackEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %call14, ptr noundef %this3)
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #3
   ret void
@@ -2884,7 +2885,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3

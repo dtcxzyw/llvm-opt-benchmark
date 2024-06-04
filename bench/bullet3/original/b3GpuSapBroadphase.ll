@@ -618,16 +618,17 @@ entry:
   store i32 %kernelType, ptr %kernelType.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24b3GpuBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV18b3GpuSapBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV18b3GpuSapBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_device = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %device.addr, align 8
-  store ptr %1, ptr %m_device, align 8
+  %2 = load ptr, ptr %device.addr, align 8
+  store ptr %2, ptr %m_device, align 8
   %m_queue = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %q.addr, align 8
-  store ptr %2, ptr %m_queue, align 8
+  %3 = load ptr, ptr %q.addr, align 8
+  store ptr %3, ptr %m_queue, align 8
   %m_sortedAxisCPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 11
   %array.begin = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray]], ptr %m_sortedAxisCPU, i32 0, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.b3AlignedObjectArray, ptr %array.begin, i64 6
@@ -661,130 +662,130 @@ invoke.cont8:                                     ; preds = %arrayctor.loop5
 
 arrayctor.cont17:                                 ; preds = %invoke.cont8
   %m_objectMinMaxIndexGPUaxis0 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 13
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %4 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis0, ptr noundef %3, ptr noundef %4, i64 noundef 0, i1 noundef zeroext true)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %5 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis0, ptr noundef %4, ptr noundef %5, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %arrayctor.cont17
   %m_objectMinMaxIndexGPUaxis1 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 14
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %6 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis1, ptr noundef %5, ptr noundef %6, i64 noundef 0, i1 noundef zeroext true)
+  %6 = load ptr, ptr %ctx.addr, align 8
+  %7 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis1, ptr noundef %6, ptr noundef %7, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %m_objectMinMaxIndexGPUaxis2 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 15
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %8 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis2, ptr noundef %7, ptr noundef %8, i64 noundef 0, i1 noundef zeroext true)
+  %8 = load ptr, ptr %ctx.addr, align 8
+  %9 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis2, ptr noundef %8, ptr noundef %9, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %m_objectMinMaxIndexGPUaxis0prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 16
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %10 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis0prev, ptr noundef %9, ptr noundef %10, i64 noundef 0, i1 noundef zeroext true)
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %11 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis0prev, ptr noundef %10, ptr noundef %11, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %m_objectMinMaxIndexGPUaxis1prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 17
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %12 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis1prev, ptr noundef %11, ptr noundef %12, i64 noundef 0, i1 noundef zeroext true)
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %13 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis1prev, ptr noundef %12, ptr noundef %13, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %m_objectMinMaxIndexGPUaxis2prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 18
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %14 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis2prev, ptr noundef %13, ptr noundef %14, i64 noundef 0, i1 noundef zeroext true)
+  %14 = load ptr, ptr %ctx.addr, align 8
+  %15 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis2prev, ptr noundef %14, ptr noundef %15, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %m_sortedAxisGPU0 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 19
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %16 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU0, ptr noundef %15, ptr noundef %16, i64 noundef 0, i1 noundef zeroext true)
+  %16 = load ptr, ptr %ctx.addr, align 8
+  %17 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU0, ptr noundef %16, ptr noundef %17, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %m_sortedAxisGPU1 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 20
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %18 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU1, ptr noundef %17, ptr noundef %18, i64 noundef 0, i1 noundef zeroext true)
+  %18 = load ptr, ptr %ctx.addr, align 8
+  %19 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU1, ptr noundef %18, ptr noundef %19, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   %m_sortedAxisGPU2 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 21
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %20 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU2, ptr noundef %19, ptr noundef %20, i64 noundef 0, i1 noundef zeroext true)
+  %20 = load ptr, ptr %ctx.addr, align 8
+  %21 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU2, ptr noundef %20, ptr noundef %21, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
   %m_sortedAxisGPU0prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 22
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %22 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU0prev, ptr noundef %21, ptr noundef %22, i64 noundef 0, i1 noundef zeroext true)
+  %22 = load ptr, ptr %ctx.addr, align 8
+  %23 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU0prev, ptr noundef %22, ptr noundef %23, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
   %m_sortedAxisGPU1prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 23
-  %23 = load ptr, ptr %ctx.addr, align 8
-  %24 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU1prev, ptr noundef %23, ptr noundef %24, i64 noundef 0, i1 noundef zeroext true)
+  %24 = load ptr, ptr %ctx.addr, align 8
+  %25 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU1prev, ptr noundef %24, ptr noundef %25, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
   %m_sortedAxisGPU2prev = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 24
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %26 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU2prev, ptr noundef %25, ptr noundef %26, i64 noundef 0, i1 noundef zeroext true)
+  %26 = load ptr, ptr %ctx.addr, align 8
+  %27 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sortedAxisGPU2prev, ptr noundef %26, ptr noundef %27, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont39
   %m_addedHostPairsGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 25
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %28 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_addedHostPairsGPU, ptr noundef %27, ptr noundef %28, i64 noundef 0, i1 noundef zeroext true)
+  %28 = load ptr, ptr %ctx.addr, align 8
+  %29 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_addedHostPairsGPU, ptr noundef %28, ptr noundef %29, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   %m_removedHostPairsGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 26
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %30 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_removedHostPairsGPU, ptr noundef %29, ptr noundef %30, i64 noundef 0, i1 noundef zeroext true)
+  %30 = load ptr, ptr %ctx.addr, align 8
+  %31 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_removedHostPairsGPU, ptr noundef %30, ptr noundef %31, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
   %m_addedCountGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 27
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %32 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_addedCountGPU, ptr noundef %31, ptr noundef %32, i64 noundef 0, i1 noundef zeroext true)
+  %32 = load ptr, ptr %ctx.addr, align 8
+  %33 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_addedCountGPU, ptr noundef %32, ptr noundef %33, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont45
   %m_removedCountGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 28
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %34 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_removedCountGPU, ptr noundef %33, ptr noundef %34, i64 noundef 0, i1 noundef zeroext true)
+  %34 = load ptr, ptr %ctx.addr, align 8
+  %35 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_removedCountGPU, ptr noundef %34, ptr noundef %35, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont47
   %m_currentBuffer = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 29
   store i32 -1, ptr %m_currentBuffer, align 8
   %m_pairCount = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 31
-  %35 = load ptr, ptr %ctx.addr, align 8
-  %36 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_pairCount, ptr noundef %35, ptr noundef %36, i64 noundef 0, i1 noundef zeroext true)
+  %36 = load ptr, ptr %ctx.addr, align 8
+  %37 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_pairCount, ptr noundef %36, ptr noundef %37, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
   %m_allAabbsGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 32
-  %37 = load ptr, ptr %ctx.addr, align 8
-  %38 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3SapAabbEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_allAabbsGPU, ptr noundef %37, ptr noundef %38, i64 noundef 0, i1 noundef zeroext true)
+  %38 = load ptr, ptr %ctx.addr, align 8
+  %39 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3SapAabbEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_allAabbsGPU, ptr noundef %38, ptr noundef %39, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -794,30 +795,30 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %m_sum = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 34
-  %39 = load ptr, ptr %ctx.addr, align 8
-  %40 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sum, ptr noundef %39, ptr noundef %40, i64 noundef 0, i1 noundef zeroext true)
+  %40 = load ptr, ptr %ctx.addr, align 8
+  %41 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sum, ptr noundef %40, ptr noundef %41, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %m_sum2 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 35
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %42 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sum2, ptr noundef %41, ptr noundef %42, i64 noundef 0, i1 noundef zeroext true)
+  %42 = load ptr, ptr %ctx.addr, align 8
+  %43 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sum2, ptr noundef %42, ptr noundef %43, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
   %m_dst = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 36
-  %43 = load ptr, ptr %ctx.addr, align 8
-  %44 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_dst, ptr noundef %43, ptr noundef %44, i64 noundef 0, i1 noundef zeroext true)
+  %44 = load ptr, ptr %ctx.addr, align 8
+  %45 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_dst, ptr noundef %44, ptr noundef %45, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %m_smallAabbsMappingGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 37
-  %45 = load ptr, ptr %ctx.addr, align 8
-  %46 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_smallAabbsMappingGPU, ptr noundef %45, ptr noundef %46, i64 noundef 0, i1 noundef zeroext true)
+  %46 = load ptr, ptr %ctx.addr, align 8
+  %47 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_smallAabbsMappingGPU, ptr noundef %46, ptr noundef %47, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont61
@@ -827,9 +828,9 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 invoke.cont65:                                    ; preds = %invoke.cont63
   %m_largeAabbsMappingGPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 39
-  %47 = load ptr, ptr %ctx.addr, align 8
-  %48 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_largeAabbsMappingGPU, ptr noundef %47, ptr noundef %48, i64 noundef 0, i1 noundef zeroext true)
+  %48 = load ptr, ptr %ctx.addr, align 8
+  %49 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_largeAabbsMappingGPU, ptr noundef %48, ptr noundef %49, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -839,35 +840,35 @@ invoke.cont67:                                    ; preds = %invoke.cont65
 
 invoke.cont69:                                    ; preds = %invoke.cont67
   %m_overlappingPairs = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 41
-  %49 = load ptr, ptr %ctx.addr, align 8
-  %50 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_overlappingPairs, ptr noundef %49, ptr noundef %50, i64 noundef 0, i1 noundef zeroext true)
+  %50 = load ptr, ptr %ctx.addr, align 8
+  %51 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_overlappingPairs, ptr noundef %50, ptr noundef %51, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %invoke.cont69
   %m_gpuSmallSortData = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 42
-  %51 = load ptr, ptr %ctx.addr, align 8
-  %52 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuSmallSortData, ptr noundef %51, ptr noundef %52, i64 noundef 0, i1 noundef zeroext true)
+  %52 = load ptr, ptr %ctx.addr, align 8
+  %53 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuSmallSortData, ptr noundef %52, ptr noundef %53, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
   %m_gpuSmallSortedAabbs = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 43
-  %53 = load ptr, ptr %ctx.addr, align 8
-  %54 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3SapAabbEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuSmallSortedAabbs, ptr noundef %53, ptr noundef %54, i64 noundef 0, i1 noundef zeroext true)
+  %54 = load ptr, ptr %ctx.addr, align 8
+  %55 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3SapAabbEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuSmallSortedAabbs, ptr noundef %54, ptr noundef %55, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %55 = load ptr, ptr @_ZL5sapCL, align 8
-  store ptr %55, ptr %sapSrc, align 8
+  %56 = load ptr, ptr @_ZL5sapCL, align 8
+  store ptr %56, ptr %sapSrc, align 8
   store i32 0, ptr %errNum, align 4
   %m_context76 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %56 = load ptr, ptr %m_context76, align 8
+  %57 = load ptr, ptr %m_context76, align 8
   %m_device77 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %57 = load ptr, ptr %m_device77, align 8
-  %58 = load ptr, ptr %sapSrc, align 8
-  %call = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %errNum, ptr noundef @.str, ptr noundef @.str.1, i1 noundef zeroext false)
+  %58 = load ptr, ptr %m_device77, align 8
+  %59 = load ptr, ptr %sapSrc, align 8
+  %call = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %errNum, ptr noundef @.str, ptr noundef @.str.1, i1 noundef zeroext false)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont75
@@ -877,12 +878,12 @@ invoke.cont79:                                    ; preds = %invoke.cont75
 
 invoke.cont80:                                    ; preds = %invoke.cont79
   %m_context82 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %59 = load ptr, ptr %m_context82, align 8
+  %60 = load ptr, ptr %m_context82, align 8
   %m_device83 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %60 = load ptr, ptr %m_device83, align 8
+  %61 = load ptr, ptr %m_device83, align 8
   %m_queue84 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 3
-  %61 = load ptr, ptr %m_queue84, align 8
-  invoke void @_ZN20b3PrefixScanFloat4CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call81, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef 0)
+  %62 = load ptr, ptr %m_queue84, align 8
+  invoke void @_ZN20b3PrefixScanFloat4CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call81, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef 0)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont80
@@ -890,8 +891,8 @@ invoke.cont86:                                    ; preds = %invoke.cont80
   store ptr %call81, ptr %m_prefixScanFloat4, align 8
   %m_sapKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 7
   store ptr null, ptr %m_sapKernel, align 8
-  %62 = load i32, ptr %kernelType.addr, align 4
-  switch i32 %62, label %sw.default [
+  %63 = load i32, ptr %kernelType.addr, align 4
+  switch i32 %63, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb88
     i32 3, label %sw.bb94
@@ -900,12 +901,12 @@ invoke.cont86:                                    ; preds = %invoke.cont80
   ]
 
 lpad:                                             ; preds = %arrayctor.loop
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %exn.slot, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %ehselector.slot, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %exn.slot, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -920,12 +921,12 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup188
 
 lpad7:                                            ; preds = %arrayctor.loop5
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %exn.slot, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %ehselector.slot, align 4
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %exn.slot, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %ehselector.slot, align 4
   %arraydestroy.isempty9 = icmp eq ptr %array.begin3, %arrayctor.cur6
   br i1 %arraydestroy.isempty9, label %arraydestroy.done14, label %arraydestroy.body10
 
@@ -940,282 +941,282 @@ arraydestroy.done14:                              ; preds = %arraydestroy.body10
   br label %ehcleanup181
 
 lpad18:                                           ; preds = %arrayctor.cont17
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %exn.slot, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %ehselector.slot, align 4
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %exn.slot, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %ehselector.slot, align 4
   br label %ehcleanup174
 
 lpad20:                                           ; preds = %invoke.cont19
-  %72 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %exn.slot, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %ehselector.slot, align 4
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %exn.slot, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %ehselector.slot, align 4
   br label %ehcleanup173
 
 lpad22:                                           ; preds = %invoke.cont21
-  %75 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %exn.slot, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %ehselector.slot, align 4
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %exn.slot, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %ehselector.slot, align 4
   br label %ehcleanup172
 
 lpad24:                                           ; preds = %invoke.cont23
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %exn.slot, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %ehselector.slot, align 4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %exn.slot, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %ehselector.slot, align 4
   br label %ehcleanup171
 
 lpad26:                                           ; preds = %invoke.cont25
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %exn.slot, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %ehselector.slot, align 4
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %exn.slot, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %ehselector.slot, align 4
   br label %ehcleanup170
 
 lpad28:                                           ; preds = %invoke.cont27
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %exn.slot, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %ehselector.slot, align 4
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %exn.slot, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %ehselector.slot, align 4
   br label %ehcleanup169
 
 lpad30:                                           ; preds = %invoke.cont29
-  %87 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %exn.slot, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %ehselector.slot, align 4
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %exn.slot, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %ehselector.slot, align 4
   br label %ehcleanup168
 
 lpad32:                                           ; preds = %invoke.cont31
-  %90 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %exn.slot, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %ehselector.slot, align 4
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %exn.slot, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %ehselector.slot, align 4
   br label %ehcleanup167
 
 lpad34:                                           ; preds = %invoke.cont33
-  %93 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %exn.slot, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %ehselector.slot, align 4
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %exn.slot, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %ehselector.slot, align 4
   br label %ehcleanup166
 
 lpad36:                                           ; preds = %invoke.cont35
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %exn.slot, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %ehselector.slot, align 4
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %exn.slot, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %ehselector.slot, align 4
   br label %ehcleanup165
 
 lpad38:                                           ; preds = %invoke.cont37
-  %99 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %exn.slot, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %ehselector.slot, align 4
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %exn.slot, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %ehselector.slot, align 4
   br label %ehcleanup164
 
 lpad40:                                           ; preds = %invoke.cont39
-  %102 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %exn.slot, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %ehselector.slot, align 4
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %exn.slot, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %ehselector.slot, align 4
   br label %ehcleanup163
 
 lpad42:                                           ; preds = %invoke.cont41
-  %105 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %exn.slot, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %ehselector.slot, align 4
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %exn.slot, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %ehselector.slot, align 4
   br label %ehcleanup162
 
 lpad44:                                           ; preds = %invoke.cont43
-  %108 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %exn.slot, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %ehselector.slot, align 4
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %exn.slot, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %ehselector.slot, align 4
   br label %ehcleanup161
 
 lpad46:                                           ; preds = %invoke.cont45
-  %111 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %exn.slot, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %ehselector.slot, align 4
   br label %ehcleanup160
 
 lpad48:                                           ; preds = %invoke.cont47
-  %114 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %exn.slot, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %ehselector.slot, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %exn.slot, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %ehselector.slot, align 4
   br label %ehcleanup159
 
 lpad50:                                           ; preds = %invoke.cont49
-  %117 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %exn.slot, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %ehselector.slot, align 4
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %exn.slot, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %ehselector.slot, align 4
   br label %ehcleanup158
 
 lpad52:                                           ; preds = %invoke.cont51
-  %120 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %exn.slot, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %ehselector.slot, align 4
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %exn.slot, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %ehselector.slot, align 4
   br label %ehcleanup157
 
 lpad54:                                           ; preds = %invoke.cont53
-  %123 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %exn.slot, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %ehselector.slot, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %exn.slot, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %ehselector.slot, align 4
   br label %ehcleanup156
 
 lpad56:                                           ; preds = %invoke.cont55
-  %126 = landingpad { ptr, i32 }
+  %127 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %exn.slot, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %ehselector.slot, align 4
+  %128 = extractvalue { ptr, i32 } %127, 0
+  store ptr %128, ptr %exn.slot, align 8
+  %129 = extractvalue { ptr, i32 } %127, 1
+  store i32 %129, ptr %ehselector.slot, align 4
   br label %ehcleanup155
 
 lpad58:                                           ; preds = %invoke.cont57
-  %129 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %exn.slot, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %ehselector.slot, align 4
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %exn.slot, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %ehselector.slot, align 4
   br label %ehcleanup154
 
 lpad60:                                           ; preds = %invoke.cont59
-  %132 = landingpad { ptr, i32 }
+  %133 = landingpad { ptr, i32 }
           cleanup
-  %133 = extractvalue { ptr, i32 } %132, 0
-  store ptr %133, ptr %exn.slot, align 8
-  %134 = extractvalue { ptr, i32 } %132, 1
-  store i32 %134, ptr %ehselector.slot, align 4
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %exn.slot, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %ehselector.slot, align 4
   br label %ehcleanup153
 
 lpad62:                                           ; preds = %invoke.cont61
-  %135 = landingpad { ptr, i32 }
+  %136 = landingpad { ptr, i32 }
           cleanup
-  %136 = extractvalue { ptr, i32 } %135, 0
-  store ptr %136, ptr %exn.slot, align 8
-  %137 = extractvalue { ptr, i32 } %135, 1
-  store i32 %137, ptr %ehselector.slot, align 4
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %exn.slot, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %ehselector.slot, align 4
   br label %ehcleanup152
 
 lpad64:                                           ; preds = %invoke.cont63
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %exn.slot, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %ehselector.slot, align 4
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %exn.slot, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %ehselector.slot, align 4
   br label %ehcleanup151
 
 lpad66:                                           ; preds = %invoke.cont65
-  %141 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %exn.slot, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %ehselector.slot, align 4
+  %143 = extractvalue { ptr, i32 } %142, 0
+  store ptr %143, ptr %exn.slot, align 8
+  %144 = extractvalue { ptr, i32 } %142, 1
+  store i32 %144, ptr %ehselector.slot, align 4
   br label %ehcleanup150
 
 lpad68:                                           ; preds = %invoke.cont67
-  %144 = landingpad { ptr, i32 }
+  %145 = landingpad { ptr, i32 }
           cleanup
-  %145 = extractvalue { ptr, i32 } %144, 0
-  store ptr %145, ptr %exn.slot, align 8
-  %146 = extractvalue { ptr, i32 } %144, 1
-  store i32 %146, ptr %ehselector.slot, align 4
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %exn.slot, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %ehselector.slot, align 4
   br label %ehcleanup149
 
 lpad70:                                           ; preds = %invoke.cont69
-  %147 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %148 = extractvalue { ptr, i32 } %147, 0
-  store ptr %148, ptr %exn.slot, align 8
-  %149 = extractvalue { ptr, i32 } %147, 1
-  store i32 %149, ptr %ehselector.slot, align 4
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %exn.slot, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 lpad72:                                           ; preds = %invoke.cont71
-  %150 = landingpad { ptr, i32 }
+  %151 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %exn.slot, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %ehselector.slot, align 4
+  %152 = extractvalue { ptr, i32 } %151, 0
+  store ptr %152, ptr %exn.slot, align 8
+  %153 = extractvalue { ptr, i32 } %151, 1
+  store i32 %153, ptr %ehselector.slot, align 4
   br label %ehcleanup147
 
 lpad74:                                           ; preds = %invoke.cont73
-  %153 = landingpad { ptr, i32 }
+  %154 = landingpad { ptr, i32 }
           cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %exn.slot, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %ehselector.slot, align 4
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %exn.slot, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %ehselector.slot, align 4
   br label %ehcleanup146
 
 lpad78:                                           ; preds = %invoke.cont137, %invoke.cont133, %invoke.cont129, %invoke.cont125, %invoke.cont121, %sw.epilog, %invoke.cont117, %do.body, %sw.default, %sw.bb106, %sw.bb100, %sw.bb94, %sw.bb88, %invoke.cont79, %invoke.cont75
-  %156 = landingpad { ptr, i32 }
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %157 = extractvalue { ptr, i32 } %156, 0
-  store ptr %157, ptr %exn.slot, align 8
-  %158 = extractvalue { ptr, i32 } %156, 1
-  store i32 %158, ptr %ehselector.slot, align 4
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %exn.slot, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad85:                                           ; preds = %invoke.cont80
-  %159 = landingpad { ptr, i32 }
+  %160 = landingpad { ptr, i32 }
           cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %exn.slot, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %ehselector.slot, align 4
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %exn.slot, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call81) #14
   br label %ehcleanup
 
@@ -1226,12 +1227,12 @@ sw.bb:                                            ; preds = %invoke.cont86
 
 sw.bb88:                                          ; preds = %invoke.cont86
   %m_context89 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %162 = load ptr, ptr %m_context89, align 8
+  %163 = load ptr, ptr %m_context89, align 8
   %m_device90 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %163 = load ptr, ptr %m_device90, align 8
-  %164 = load ptr, ptr %sapSrc, align 8
-  %165 = load ptr, ptr %sapProg, align 8
-  %call92 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef @.str.2, ptr noundef %errNum, ptr noundef %165, ptr noundef @.str)
+  %164 = load ptr, ptr %m_device90, align 8
+  %165 = load ptr, ptr %sapSrc, align 8
+  %166 = load ptr, ptr %sapProg, align 8
+  %call92 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef @.str.2, ptr noundef %errNum, ptr noundef %166, ptr noundef @.str)
           to label %invoke.cont91 unwind label %lpad78
 
 invoke.cont91:                                    ; preds = %sw.bb88
@@ -1241,12 +1242,12 @@ invoke.cont91:                                    ; preds = %sw.bb88
 
 sw.bb94:                                          ; preds = %invoke.cont86
   %m_context95 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %166 = load ptr, ptr %m_context95, align 8
+  %167 = load ptr, ptr %m_context95, align 8
   %m_device96 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %167 = load ptr, ptr %m_device96, align 8
-  %168 = load ptr, ptr %sapSrc, align 8
-  %169 = load ptr, ptr %sapProg, align 8
-  %call98 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %166, ptr noundef %167, ptr noundef %168, ptr noundef @.str.3, ptr noundef %errNum, ptr noundef %169, ptr noundef @.str)
+  %168 = load ptr, ptr %m_device96, align 8
+  %169 = load ptr, ptr %sapSrc, align 8
+  %170 = load ptr, ptr %sapProg, align 8
+  %call98 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef @.str.3, ptr noundef %errNum, ptr noundef %170, ptr noundef @.str)
           to label %invoke.cont97 unwind label %lpad78
 
 invoke.cont97:                                    ; preds = %sw.bb94
@@ -1256,12 +1257,12 @@ invoke.cont97:                                    ; preds = %sw.bb94
 
 sw.bb100:                                         ; preds = %invoke.cont86
   %m_context101 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %170 = load ptr, ptr %m_context101, align 8
+  %171 = load ptr, ptr %m_context101, align 8
   %m_device102 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %171 = load ptr, ptr %m_device102, align 8
-  %172 = load ptr, ptr %sapSrc, align 8
-  %173 = load ptr, ptr %sapProg, align 8
-  %call104 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %173, ptr noundef @.str)
+  %172 = load ptr, ptr %m_device102, align 8
+  %173 = load ptr, ptr %sapSrc, align 8
+  %174 = load ptr, ptr %sapProg, align 8
+  %call104 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %174, ptr noundef @.str)
           to label %invoke.cont103 unwind label %lpad78
 
 invoke.cont103:                                   ; preds = %sw.bb100
@@ -1271,12 +1272,12 @@ invoke.cont103:                                   ; preds = %sw.bb100
 
 sw.bb106:                                         ; preds = %invoke.cont86
   %m_context107 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %174 = load ptr, ptr %m_context107, align 8
+  %175 = load ptr, ptr %m_context107, align 8
   %m_device108 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %175 = load ptr, ptr %m_device108, align 8
-  %176 = load ptr, ptr %sapSrc, align 8
-  %177 = load ptr, ptr %sapProg, align 8
-  %call110 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %174, ptr noundef %175, ptr noundef %176, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %177, ptr noundef @.str)
+  %176 = load ptr, ptr %m_device108, align 8
+  %177 = load ptr, ptr %sapSrc, align 8
+  %178 = load ptr, ptr %sapProg, align 8
+  %call110 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %175, ptr noundef %176, ptr noundef %177, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %178, ptr noundef @.str)
           to label %invoke.cont109 unwind label %lpad78
 
 invoke.cont109:                                   ; preds = %sw.bb106
@@ -1286,12 +1287,12 @@ invoke.cont109:                                   ; preds = %sw.bb106
 
 sw.default:                                       ; preds = %invoke.cont86
   %m_context112 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %178 = load ptr, ptr %m_context112, align 8
+  %179 = load ptr, ptr %m_context112, align 8
   %m_device113 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %179 = load ptr, ptr %m_device113, align 8
-  %180 = load ptr, ptr %sapSrc, align 8
-  %181 = load ptr, ptr %sapProg, align 8
-  %call115 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %181, ptr noundef @.str)
+  %180 = load ptr, ptr %m_device113, align 8
+  %181 = load ptr, ptr %sapSrc, align 8
+  %182 = load ptr, ptr %sapProg, align 8
+  %call115 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %182, ptr noundef @.str)
           to label %invoke.cont114 unwind label %lpad78
 
 invoke.cont114:                                   ; preds = %sw.default
@@ -1318,60 +1319,60 @@ do.end:                                           ; preds = %do.cond
 
 sw.epilog:                                        ; preds = %do.end, %invoke.cont109, %invoke.cont103, %invoke.cont97, %invoke.cont91, %sw.bb
   %m_context119 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %182 = load ptr, ptr %m_context119, align 8
+  %183 = load ptr, ptr %m_context119, align 8
   %m_device120 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %183 = load ptr, ptr %m_device120, align 8
-  %184 = load ptr, ptr %sapSrc, align 8
-  %185 = load ptr, ptr %sapProg, align 8
-  %call122 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef @.str.9, ptr noundef %errNum, ptr noundef %185, ptr noundef @.str)
+  %184 = load ptr, ptr %m_device120, align 8
+  %185 = load ptr, ptr %sapSrc, align 8
+  %186 = load ptr, ptr %sapProg, align 8
+  %call122 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %183, ptr noundef %184, ptr noundef %185, ptr noundef @.str.9, ptr noundef %errNum, ptr noundef %186, ptr noundef @.str)
           to label %invoke.cont121 unwind label %lpad78
 
 invoke.cont121:                                   ; preds = %sw.epilog
   %m_sap2Kernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 8
   store ptr %call122, ptr %m_sap2Kernel, align 8
   %m_context123 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %186 = load ptr, ptr %m_context123, align 8
+  %187 = load ptr, ptr %m_context123, align 8
   %m_device124 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %187 = load ptr, ptr %m_device124, align 8
-  %188 = load ptr, ptr %sapSrc, align 8
-  %189 = load ptr, ptr %sapProg, align 8
-  %call126 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %186, ptr noundef %187, ptr noundef %188, ptr noundef @.str.10, ptr noundef %errNum, ptr noundef %189, ptr noundef @.str)
+  %188 = load ptr, ptr %m_device124, align 8
+  %189 = load ptr, ptr %sapSrc, align 8
+  %190 = load ptr, ptr %sapProg, align 8
+  %call126 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %187, ptr noundef %188, ptr noundef %189, ptr noundef @.str.10, ptr noundef %errNum, ptr noundef %190, ptr noundef @.str)
           to label %invoke.cont125 unwind label %lpad78
 
 invoke.cont125:                                   ; preds = %invoke.cont121
   %m_prepareSumVarianceKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 9
   store ptr %call126, ptr %m_prepareSumVarianceKernel, align 8
   %m_context127 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %190 = load ptr, ptr %m_context127, align 8
+  %191 = load ptr, ptr %m_context127, align 8
   %m_device128 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %191 = load ptr, ptr %m_device128, align 8
-  %192 = load ptr, ptr %sapSrc, align 8
-  %193 = load ptr, ptr %sapProg, align 8
-  %call130 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef @.str.11, ptr noundef %errNum, ptr noundef %193, ptr noundef @.str)
+  %192 = load ptr, ptr %m_device128, align 8
+  %193 = load ptr, ptr %sapSrc, align 8
+  %194 = load ptr, ptr %sapProg, align 8
+  %call130 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %191, ptr noundef %192, ptr noundef %193, ptr noundef @.str.11, ptr noundef %errNum, ptr noundef %194, ptr noundef @.str)
           to label %invoke.cont129 unwind label %lpad78
 
 invoke.cont129:                                   ; preds = %invoke.cont125
   %m_flipFloatKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 4
   store ptr %call130, ptr %m_flipFloatKernel, align 8
   %m_context131 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %194 = load ptr, ptr %m_context131, align 8
+  %195 = load ptr, ptr %m_context131, align 8
   %m_device132 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %195 = load ptr, ptr %m_device132, align 8
-  %196 = load ptr, ptr %sapSrc, align 8
-  %197 = load ptr, ptr %sapProg, align 8
-  %call134 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %194, ptr noundef %195, ptr noundef %196, ptr noundef @.str.12, ptr noundef %errNum, ptr noundef %197, ptr noundef @.str)
+  %196 = load ptr, ptr %m_device132, align 8
+  %197 = load ptr, ptr %sapSrc, align 8
+  %198 = load ptr, ptr %sapProg, align 8
+  %call134 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %195, ptr noundef %196, ptr noundef %197, ptr noundef @.str.12, ptr noundef %errNum, ptr noundef %198, ptr noundef @.str)
           to label %invoke.cont133 unwind label %lpad78
 
 invoke.cont133:                                   ; preds = %invoke.cont129
   %m_copyAabbsKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 6
   store ptr %call134, ptr %m_copyAabbsKernel, align 8
   %m_context135 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %198 = load ptr, ptr %m_context135, align 8
+  %199 = load ptr, ptr %m_context135, align 8
   %m_device136 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %199 = load ptr, ptr %m_device136, align 8
-  %200 = load ptr, ptr %sapSrc, align 8
-  %201 = load ptr, ptr %sapProg, align 8
-  %call138 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef @.str.13, ptr noundef %errNum, ptr noundef %201, ptr noundef @.str)
+  %200 = load ptr, ptr %m_device136, align 8
+  %201 = load ptr, ptr %sapSrc, align 8
+  %202 = load ptr, ptr %sapProg, align 8
+  %call138 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %199, ptr noundef %200, ptr noundef %201, ptr noundef @.str.13, ptr noundef %errNum, ptr noundef %202, ptr noundef @.str)
           to label %invoke.cont137 unwind label %lpad78
 
 invoke.cont137:                                   ; preds = %invoke.cont133
@@ -1382,12 +1383,12 @@ invoke.cont137:                                   ; preds = %invoke.cont133
 
 invoke.cont139:                                   ; preds = %invoke.cont137
   %m_context141 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 1
-  %202 = load ptr, ptr %m_context141, align 8
+  %203 = load ptr, ptr %m_context141, align 8
   %m_device142 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 2
-  %203 = load ptr, ptr %m_device142, align 8
+  %204 = load ptr, ptr %m_device142, align 8
   %m_queue143 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 3
-  %204 = load ptr, ptr %m_queue143, align 8
-  invoke void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(128) %call140, ptr noundef %202, ptr noundef %203, ptr noundef %204, i32 noundef 0)
+  %205 = load ptr, ptr %m_queue143, align 8
+  invoke void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(128) %call140, ptr noundef %203, ptr noundef %204, ptr noundef %205, i32 noundef 0)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont139
@@ -1396,12 +1397,12 @@ invoke.cont145:                                   ; preds = %invoke.cont139
   ret void
 
 lpad144:                                          ; preds = %invoke.cont139
-  %205 = landingpad { ptr, i32 }
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %exn.slot, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %ehselector.slot, align 4
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %exn.slot, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call140) #14
   br label %ehcleanup
 
@@ -1523,11 +1524,11 @@ ehcleanup173:                                     ; preds = %ehcleanup172, %lpad
 
 ehcleanup174:                                     ; preds = %ehcleanup173, %lpad18
   %array.begin175 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray.0]], ptr %m_objectMinMaxIndexCPU, i32 0, i32 0, i32 0
-  %208 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %array.begin175, i64 6
+  %209 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %array.begin175, i64 6
   br label %arraydestroy.body176
 
 arraydestroy.body176:                             ; preds = %arraydestroy.body176, %ehcleanup174
-  %arraydestroy.elementPast177 = phi ptr [ %208, %ehcleanup174 ], [ %arraydestroy.element178, %arraydestroy.body176 ]
+  %arraydestroy.elementPast177 = phi ptr [ %209, %ehcleanup174 ], [ %arraydestroy.element178, %arraydestroy.body176 ]
   %arraydestroy.element178 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %arraydestroy.elementPast177, i64 -1
   call void @_ZN20b3AlignedObjectArrayI14b3UnsignedInt2ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %arraydestroy.element178) #8
   %arraydestroy.done179 = icmp eq ptr %arraydestroy.element178, %array.begin175
@@ -1538,11 +1539,11 @@ arraydestroy.done180:                             ; preds = %arraydestroy.body17
 
 ehcleanup181:                                     ; preds = %arraydestroy.done180, %arraydestroy.done14
   %array.begin182 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray]], ptr %m_sortedAxisCPU, i32 0, i32 0, i32 0
-  %209 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %array.begin182, i64 6
+  %210 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %array.begin182, i64 6
   br label %arraydestroy.body183
 
 arraydestroy.body183:                             ; preds = %arraydestroy.body183, %ehcleanup181
-  %arraydestroy.elementPast184 = phi ptr [ %209, %ehcleanup181 ], [ %arraydestroy.element185, %arraydestroy.body183 ]
+  %arraydestroy.elementPast184 = phi ptr [ %210, %ehcleanup181 ], [ %arraydestroy.element185, %arraydestroy.body183 ]
   %arraydestroy.element185 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %arraydestroy.elementPast184, i64 -1
   call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %arraydestroy.element185) #8
   %arraydestroy.done186 = icmp eq ptr %arraydestroy.element185, %array.begin182
@@ -1569,7 +1570,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV24b3GpuBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV24b3GpuBroadphaseInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1654,7 +1656,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI14b3UnsignedInt2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI14b3UnsignedInt2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -1662,27 +1665,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI14b3UnsignedInt2E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI14b3UnsignedInt2E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1704,7 +1707,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 2
@@ -1712,27 +1716,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.4, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1754,7 +1758,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 2
@@ -1762,27 +1767,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI6b3Int4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI6b3Int4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.6, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1804,7 +1809,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 2
@@ -1812,27 +1818,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1854,7 +1860,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 2
@@ -1862,27 +1869,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.10, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1916,7 +1923,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 2
@@ -1924,27 +1932,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -2039,7 +2047,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2051,10 +2060,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2064,7 +2073,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2076,10 +2086,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2089,7 +2099,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2101,10 +2112,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2134,7 +2145,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2146,10 +2158,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2159,7 +2171,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2171,10 +2184,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2204,7 +2217,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI14b3UnsignedInt2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI14b3UnsignedInt2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI14b3UnsignedInt2E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2216,10 +2230,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2229,72 +2243,73 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV18b3GpuSapBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV18b3GpuSapBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_sorter = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %m_sorter, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_sorter, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(128) %0) #8
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(128) %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %m_prefixScanFloat4 = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 44
-  %2 = load ptr, ptr %m_prefixScanFloat4, align 8
-  %isnull2 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %m_prefixScanFloat4, align 8
+  %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %vtable4 = load ptr, ptr %2, align 8
+  %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
-  %3 = load ptr, ptr %vfn5, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(48) %2) #8
+  %4 = load ptr, ptr %vfn5, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #8
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
-  %4 = load ptr, ptr @__clewReleaseKernel, align 8
+  %5 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_scatterKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_scatterKernel, align 8
-  %call = invoke i32 %4(ptr noundef %5)
+  %6 = load ptr, ptr %m_scatterKernel, align 8
+  %call = invoke i32 %5(ptr noundef %6)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %delete.end6
-  %6 = load ptr, ptr @__clewReleaseKernel, align 8
+  %7 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_flipFloatKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %m_flipFloatKernel, align 8
-  %call8 = invoke i32 %6(ptr noundef %7)
+  %8 = load ptr, ptr %m_flipFloatKernel, align 8
+  %call8 = invoke i32 %7(ptr noundef %8)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %8 = load ptr, ptr @__clewReleaseKernel, align 8
+  %9 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_copyAabbsKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 6
-  %9 = load ptr, ptr %m_copyAabbsKernel, align 8
-  %call10 = invoke i32 %8(ptr noundef %9)
+  %10 = load ptr, ptr %m_copyAabbsKernel, align 8
+  %call10 = invoke i32 %9(ptr noundef %10)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %10 = load ptr, ptr @__clewReleaseKernel, align 8
+  %11 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_sapKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 7
-  %11 = load ptr, ptr %m_sapKernel, align 8
-  %call12 = invoke i32 %10(ptr noundef %11)
+  %12 = load ptr, ptr %m_sapKernel, align 8
+  %call12 = invoke i32 %11(ptr noundef %12)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %12 = load ptr, ptr @__clewReleaseKernel, align 8
+  %13 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_sap2Kernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 8
-  %13 = load ptr, ptr %m_sap2Kernel, align 8
-  %call14 = invoke i32 %12(ptr noundef %13)
+  %14 = load ptr, ptr %m_sap2Kernel, align 8
+  %call14 = invoke i32 %13(ptr noundef %14)
           to label %invoke.cont13 unwind label %terminate.lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %14 = load ptr, ptr @__clewReleaseKernel, align 8
+  %15 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_prepareSumVarianceKernel = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 9
-  %15 = load ptr, ptr %m_prepareSumVarianceKernel, align 8
-  %call16 = invoke i32 %14(ptr noundef %15)
+  %16 = load ptr, ptr %m_prepareSumVarianceKernel, align 8
+  %call16 = invoke i32 %15(ptr noundef %16)
           to label %invoke.cont15 unwind label %terminate.lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -2358,11 +2373,11 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZN13b3OpenCLArrayI14b3UnsignedInt2ED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %m_objectMinMaxIndexGPUaxis0) #8
   %m_objectMinMaxIndexCPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 12
   %array.begin = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray.0]], ptr %m_objectMinMaxIndexCPU, i32 0, i32 0, i32 0
-  %16 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %array.begin, i64 6
+  %17 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %array.begin, i64 6
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %invoke.cont15
-  %arraydestroy.elementPast = phi ptr [ %16, %invoke.cont15 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %17, %invoke.cont15 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN20b3AlignedObjectArrayI14b3UnsignedInt2ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %arraydestroy.element) #8
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -2371,11 +2386,11 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
 arraydestroy.done17:                              ; preds = %arraydestroy.body
   %m_sortedAxisCPU = getelementptr inbounds %class.b3GpuSapBroadphase, ptr %this1, i32 0, i32 11
   %array.begin18 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray]], ptr %m_sortedAxisCPU, i32 0, i32 0, i32 0
-  %17 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %array.begin18, i64 6
+  %18 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %array.begin18, i64 6
   br label %arraydestroy.body19
 
 arraydestroy.body19:                              ; preds = %arraydestroy.body19, %arraydestroy.done17
-  %arraydestroy.elementPast20 = phi ptr [ %17, %arraydestroy.done17 ], [ %arraydestroy.element21, %arraydestroy.body19 ]
+  %arraydestroy.elementPast20 = phi ptr [ %18, %arraydestroy.done17 ], [ %arraydestroy.element21, %arraydestroy.body19 ]
   %arraydestroy.element21 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %arraydestroy.elementPast20, i64 -1
   call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %arraydestroy.element21) #8
   %arraydestroy.done22 = icmp eq ptr %arraydestroy.element21, %array.begin18
@@ -2386,10 +2401,10 @@ arraydestroy.done23:                              ; preds = %arraydestroy.body19
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %delete.end6
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #15
   unreachable
 }
 

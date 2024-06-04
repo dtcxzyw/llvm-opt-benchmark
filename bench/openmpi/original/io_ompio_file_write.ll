@@ -1295,17 +1295,18 @@ define i32 @mca_io_ompio_file_write_all_end(ptr noundef %0, ptr noundef %1, ptr 
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds %struct.mca_common_ompio_data_t, ptr %13, i32 0, i32 0
   store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.ompio_file_t, ptr %16, i32 0, i32 23
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i32 %15(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %7, align 4
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.ompio_file_t, ptr %20, i32 0, i32 24
-  store i8 0, ptr %21, align 8
-  %22 = load i32, ptr %7, align 4
-  ret i32 %22
+  %15 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = getelementptr inbounds %struct.ompio_file_t, ptr %17, i32 0, i32 23
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i32 %16(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %7, align 4
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds %struct.ompio_file_t, ptr %21, i32 0, i32 24
+  store i8 0, ptr %22, align 8
+  %23 = load i32, ptr %7, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1433,17 +1434,18 @@ define i32 @mca_io_ompio_file_write_at_all_end(ptr noundef %0, ptr noundef %1, p
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds %struct.mca_common_ompio_data_t, ptr %13, i32 0, i32 0
   store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds %struct.ompio_file_t, ptr %16, i32 0, i32 23
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i32 %15(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %7, align 4
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.ompio_file_t, ptr %20, i32 0, i32 24
-  store i8 0, ptr %21, align 8
-  %22 = load i32, ptr %7, align 4
-  ret i32 %22
+  %15 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = getelementptr inbounds %struct.ompio_file_t, ptr %17, i32 0, i32 23
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i32 %16(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %7, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds %struct.ompio_file_t, ptr %21, i32 0, i32 24
+  store i8 0, ptr %22, align 8
+  %23 = load i32, ptr %7, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable

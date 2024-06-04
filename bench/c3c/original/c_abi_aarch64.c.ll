@@ -57,65 +57,66 @@ define dso_local ptr @aarch64_coerce_illegal_vector(ptr noundef %0) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = call i32 @type_size(ptr noundef %5)
   store i32 %6, ptr %4, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %8 = icmp eq i32 %7, 12
-  br i1 %8, label %9, label %15
+  %7 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 12
+  br i1 %9, label %10, label %16
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ule i32 %10, 2
-  br i1 %11, label %12, label %15
+10:                                               ; preds = %1
+  %11 = load i32, ptr %4, align 4
+  %12 = icmp ule i32 %11, 2
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr @type_ushort, align 8
-  %14 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %13)
-  store ptr %14, ptr %2, align 8
-  br label %38
+13:                                               ; preds = %10
+  %14 = load ptr, ptr @type_ushort, align 8
+  %15 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %14)
+  store ptr %15, ptr %2, align 8
+  br label %39
 
-15:                                               ; preds = %9, %1
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ule i32 %16, 4
-  br i1 %17, label %18, label %21
+16:                                               ; preds = %10, %1
+  %17 = load i32, ptr %4, align 4
+  %18 = icmp ule i32 %17, 4
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr @type_uint, align 8
-  %20 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %19)
-  store ptr %20, ptr %2, align 8
-  br label %38
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @type_uint, align 8
+  %21 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %20)
+  store ptr %21, ptr %2, align 8
+  br label %39
 
-21:                                               ; preds = %15
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp ule i32 %22, 8
-  br i1 %23, label %24, label %28
+22:                                               ; preds = %16
+  %23 = load i32, ptr %4, align 4
+  %24 = icmp ule i32 %23, 8
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @type_uint, align 8
-  %26 = call ptr @type_get_vector(ptr noundef %25, i32 noundef 2)
-  %27 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %26)
-  store ptr %27, ptr %2, align 8
-  br label %38
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @type_uint, align 8
+  %27 = call ptr @type_get_vector(ptr noundef %26, i32 noundef 2)
+  %28 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %27)
+  store ptr %28, ptr %2, align 8
+  br label %39
 
-28:                                               ; preds = %21
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp eq i32 %29, 128
-  br i1 %30, label %31, label %35
+29:                                               ; preds = %22
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp eq i32 %30, 128
+  br i1 %31, label %32, label %36
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr @type_uint, align 8
-  %33 = call ptr @type_get_vector(ptr noundef %32, i32 noundef 4)
-  %34 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %33)
-  store ptr %34, ptr %2, align 8
-  br label %38
+32:                                               ; preds = %29
+  %33 = load ptr, ptr @type_uint, align 8
+  %34 = call ptr @type_get_vector(ptr noundef %33, i32 noundef 4)
+  %35 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %34)
+  store ptr %35, ptr %2, align 8
+  br label %39
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %3, align 8
-  %37 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %36)
-  store ptr %37, ptr %2, align 8
-  br label %38
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %3, align 8
+  %38 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %37)
+  store ptr %38, ptr %2, align 8
+  br label %39
 
-38:                                               ; preds = %35, %31, %24, %18, %12
-  %39 = load ptr, ptr %2, align 8
-  ret ptr %39
+39:                                               ; preds = %36, %32, %25, %19, %13
+  %40 = load ptr, ptr %2, align 8
+  ret ptr %40
 }
 
 declare i32 @type_size(ptr noundef) #1
@@ -158,7 +159,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef %0) #0 {
 24:                                               ; preds = %1
   %25 = call ptr @abi_arg_ignore()
   store ptr %25, ptr %9, align 8
-  br label %165
+  br label %168
 
 26:                                               ; preds = %1
   %27 = load ptr, ptr %10, align 8
@@ -217,7 +218,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef %0) #0 {
   %52 = load ptr, ptr %10, align 8
   %53 = call ptr @aarch64_coerce_illegal_vector(ptr noundef %52)
   store ptr %53, ptr %9, align 8
-  br label %165
+  br label %168
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %10, align 8
@@ -225,7 +226,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef %0) #0 {
   store i32 %56, ptr %11, align 4
   %57 = load ptr, ptr %10, align 8
   %58 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %57)
-  br i1 %58, label %98, label %59
+  br i1 %58, label %100, label %59
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %10, align 8
@@ -259,159 +260,162 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef %0) #0 {
 
 77:                                               ; preds = %74, %71
   %78 = phi i1 [ false, %71 ], [ %76, %74 ]
-  br i1 %78, label %79, label %86
+  br i1 %78, label %79, label %87
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %4, align 8
   %81 = getelementptr inbounds %struct.Type_, ptr %80, i32 0, i32 7
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 255
-  %84 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %85 = icmp ult i32 %83, %84
-  br label %86
+  %84 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp ult i32 %83, %85
+  br label %87
 
-86:                                               ; preds = %79, %77
-  %87 = phi i1 [ false, %77 ], [ %85, %79 ]
-  br i1 %87, label %88, label %96
+87:                                               ; preds = %79, %77
+  %88 = phi i1 [ false, %77 ], [ %86, %79 ]
+  br i1 %88, label %89, label %98
 
-88:                                               ; preds = %86
-  %89 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %90 = lshr i8 %89, 1
-  %91 = and i8 %90, 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %96
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %91 = load i8, ptr %90, align 8
+  %92 = lshr i8 %91, 1
+  %93 = and i8 %92, 1
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %98
 
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %10, align 8
-  %95 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %94)
-  store ptr %95, ptr %9, align 8
-  br label %165
-
-96:                                               ; preds = %88, %86
-  %97 = call ptr @abi_arg_new_direct()
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %10, align 8
+  %97 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %96)
   store ptr %97, ptr %9, align 8
-  br label %165
+  br label %168
 
-98:                                               ; preds = %54
-  %99 = load i32, ptr %11, align 4
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %103, label %101
+98:                                               ; preds = %89, %87
+  %99 = call ptr @abi_arg_new_direct()
+  store ptr %99, ptr %9, align 8
+  br label %168
 
-101:                                              ; preds = %98
-  %102 = call ptr @abi_arg_ignore()
-  store ptr %102, ptr %9, align 8
-  br label %165
+100:                                              ; preds = %54
+  %101 = load i32, ptr %11, align 4
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %105, label %103
 
-103:                                              ; preds = %98
+103:                                              ; preds = %100
+  %104 = call ptr @abi_arg_ignore()
+  store ptr %104, ptr %9, align 8
+  br label %168
+
+105:                                              ; preds = %100
   store ptr null, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %104 = load ptr, ptr %10, align 8
-  %105 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %104, ptr noundef %12, ptr noundef %13)
-  br i1 %105, label %106, label %117
+  %106 = load ptr, ptr %10, align 8
+  %107 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %106, ptr noundef %12, ptr noundef %13)
+  br i1 %107, label %108, label %119
 
-106:                                              ; preds = %103
-  %107 = load i32, ptr %13, align 4
-  %108 = icmp ugt i32 %107, 1
-  br i1 %108, label %109, label %114
+108:                                              ; preds = %105
+  %109 = load i32, ptr %13, align 4
+  %110 = icmp ugt i32 %109, 1
+  br i1 %110, label %111, label %116
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %12, align 8
-  %111 = load i32, ptr %13, align 4
-  %112 = call ptr @type_get_array(ptr noundef %110, i32 noundef %111)
-  %113 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %112)
-  store ptr %113, ptr %9, align 8
-  br label %165
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %12, align 8
+  %113 = load i32, ptr %13, align 4
+  %114 = call ptr @type_get_array(ptr noundef %112, i32 noundef %113)
+  %115 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %114)
+  store ptr %115, ptr %9, align 8
+  br label %168
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %12, align 8
-  %116 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %115)
-  store ptr %116, ptr %9, align 8
-  br label %165
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %12, align 8
+  %118 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %117)
+  store ptr %118, ptr %9, align 8
+  br label %168
 
-117:                                              ; preds = %103
-  %118 = load i32, ptr %11, align 4
-  %119 = icmp ule i32 %118, 16
-  br i1 %119, label %120, label %162
+119:                                              ; preds = %105
+  %120 = load i32, ptr %11, align 4
+  %121 = icmp ule i32 %120, 16
+  br i1 %121, label %122, label %165
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %10, align 8
-  %122 = call i32 @type_abi_alignment(ptr noundef %121)
-  store i32 %122, ptr %14, align 4
-  %123 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %124 = and i8 %123, 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %126, label %130
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %10, align 8
+  %124 = call i32 @type_abi_alignment(ptr noundef %123)
+  store i32 %124, ptr %14, align 4
+  %125 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %126 = load i8, ptr %125, align 8
+  %127 = and i8 %126, 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %133
 
-126:                                              ; preds = %120
-  %127 = load i32, ptr %14, align 4
-  %128 = icmp ult i32 %127, 16
-  %129 = select i1 %128, i32 8, i32 16
-  store i32 %129, ptr %14, align 4
-  br label %139
+129:                                              ; preds = %122
+  %130 = load i32, ptr %14, align 4
+  %131 = icmp ult i32 %130, 16
+  %132 = select i1 %131, i32 8, i32 16
+  store i32 %132, ptr %14, align 4
+  br label %142
 
-130:                                              ; preds = %120
-  %131 = load i32, ptr %14, align 4
-  %132 = load ptr, ptr @type_voidptr, align 8
-  %133 = call i32 @type_abi_alignment(ptr noundef %132)
-  %134 = icmp ult i32 %131, %133
-  br i1 %134, label %135, label %138
+133:                                              ; preds = %122
+  %134 = load i32, ptr %14, align 4
+  %135 = load ptr, ptr @type_voidptr, align 8
+  %136 = call i32 @type_abi_alignment(ptr noundef %135)
+  %137 = icmp ult i32 %134, %136
+  br i1 %137, label %138, label %141
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr @type_voidptr, align 8
-  %137 = call i32 @type_abi_alignment(ptr noundef %136)
-  store i32 %137, ptr %14, align 4
-  br label %138
+138:                                              ; preds = %133
+  %139 = load ptr, ptr @type_voidptr, align 8
+  %140 = call i32 @type_abi_alignment(ptr noundef %139)
+  store i32 %140, ptr %14, align 4
+  br label %141
 
-138:                                              ; preds = %135, %130
-  br label %139
+141:                                              ; preds = %138, %133
+  br label %142
 
-139:                                              ; preds = %138, %126
-  %140 = load i32, ptr %11, align 4
-  %141 = load i32, ptr %14, align 4
-  %142 = call i32 @aligned_offset(i32 noundef %140, i32 noundef %141)
-  store i32 %142, ptr %11, align 4
-  %143 = load i32, ptr %14, align 4
-  %144 = icmp eq i32 %143, 16
-  br i1 %144, label %145, label %148
+142:                                              ; preds = %141, %129
+  %143 = load i32, ptr %11, align 4
+  %144 = load i32, ptr %14, align 4
+  %145 = call i32 @aligned_offset(i32 noundef %143, i32 noundef %144)
+  store i32 %145, ptr %11, align 4
+  %146 = load i32, ptr %14, align 4
+  %147 = icmp eq i32 %146, 16
+  br i1 %147, label %148, label %151
 
-145:                                              ; preds = %139
-  %146 = load ptr, ptr @type_u128, align 8
-  %147 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %146)
-  store ptr %147, ptr %9, align 8
-  br label %165
+148:                                              ; preds = %142
+  %149 = load ptr, ptr @type_u128, align 8
+  %150 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %149)
+  store ptr %150, ptr %9, align 8
+  br label %168
 
-148:                                              ; preds = %139
-  %149 = load i32, ptr %11, align 4
-  %150 = load i32, ptr %14, align 4
-  %151 = udiv i32 %149, %150
-  store i32 %151, ptr %15, align 4
-  %152 = load i32, ptr %15, align 4
-  %153 = icmp ugt i32 %152, 1
-  br i1 %153, label %154, label %159
+151:                                              ; preds = %142
+  %152 = load i32, ptr %11, align 4
+  %153 = load i32, ptr %14, align 4
+  %154 = udiv i32 %152, %153
+  store i32 %154, ptr %15, align 4
+  %155 = load i32, ptr %15, align 4
+  %156 = icmp ugt i32 %155, 1
+  br i1 %156, label %157, label %162
 
-154:                                              ; preds = %148
-  %155 = load ptr, ptr @type_ulong, align 8
-  %156 = load i32, ptr %15, align 4
-  %157 = call ptr @type_get_array(ptr noundef %155, i32 noundef %156)
-  %158 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %157)
-  store ptr %158, ptr %9, align 8
-  br label %165
-
-159:                                              ; preds = %148
-  %160 = load ptr, ptr @type_ulong, align 8
+157:                                              ; preds = %151
+  %158 = load ptr, ptr @type_ulong, align 8
+  %159 = load i32, ptr %15, align 4
+  %160 = call ptr @type_get_array(ptr noundef %158, i32 noundef %159)
   %161 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %160)
   store ptr %161, ptr %9, align 8
-  br label %165
+  br label %168
 
-162:                                              ; preds = %117
-  %163 = load ptr, ptr %10, align 8
-  %164 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %163)
+162:                                              ; preds = %151
+  %163 = load ptr, ptr @type_ulong, align 8
+  %164 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %163)
   store ptr %164, ptr %9, align 8
-  br label %165
+  br label %168
 
-165:                                              ; preds = %162, %159, %154, %145, %114, %109, %101, %96, %93, %51, %24
-  %166 = load ptr, ptr %9, align 8
-  ret ptr %166
+165:                                              ; preds = %119
+  %166 = load ptr, ptr %10, align 8
+  %167 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %166)
+  store ptr %167, ptr %9, align 8
+  br label %168
+
+168:                                              ; preds = %165, %162, %157, %148, %116, %111, %103, %98, %95, %51, %24
+  %169 = load ptr, ptr %9, align 8
+  ret ptr %169
 }
 
 ; Function Attrs: nounwind uwtable
@@ -700,7 +704,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef %0, i1 noundef ze
 26:                                               ; preds = %2
   %27 = call ptr @abi_arg_ignore()
   store ptr %27, ptr %10, align 8
-  br label %167
+  br label %171
 
 28:                                               ; preds = %2
   %29 = load ptr, ptr %11, align 8
@@ -759,7 +763,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef %0, i1 noundef ze
   %54 = load ptr, ptr %11, align 8
   %55 = call ptr @aarch64_coerce_illegal_vector(ptr noundef %54)
   store ptr %55, ptr %10, align 8
-  br label %167
+  br label %171
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %11, align 8
@@ -780,12 +784,12 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef %0, i1 noundef ze
   %67 = load ptr, ptr %11, align 8
   %68 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %67)
   store ptr %68, ptr %10, align 8
-  br label %167
+  br label %171
 
 69:                                               ; preds = %63, %56
   %70 = load ptr, ptr %11, align 8
   %71 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %70)
-  br i1 %71, label %111, label %72
+  br i1 %71, label %113, label %72
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %11, align 8
@@ -819,138 +823,142 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef %0, i1 noundef ze
 
 90:                                               ; preds = %87, %84
   %91 = phi i1 [ false, %84 ], [ %89, %87 ]
-  br i1 %91, label %92, label %99
+  br i1 %91, label %92, label %100
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %5, align 8
   %94 = getelementptr inbounds %struct.Type_, ptr %93, i32 0, i32 7
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 255
-  %97 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %98 = icmp ult i32 %96, %97
-  br label %99
+  %97 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp ult i32 %96, %98
+  br label %100
 
-99:                                               ; preds = %92, %90
-  %100 = phi i1 [ false, %90 ], [ %98, %92 ]
-  br i1 %100, label %101, label %109
+100:                                              ; preds = %92, %90
+  %101 = phi i1 [ false, %90 ], [ %99, %92 ]
+  br i1 %101, label %102, label %111
 
-101:                                              ; preds = %99
-  %102 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %103 = lshr i8 %102, 1
-  %104 = and i8 %103, 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %109
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %104 = load i8, ptr %103, align 8
+  %105 = lshr i8 %104, 1
+  %106 = and i8 %105, 1
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %111
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %11, align 8
-  %108 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %107)
-  store ptr %108, ptr %10, align 8
-  br label %167
-
-109:                                              ; preds = %101, %99
-  %110 = call ptr @abi_arg_new_direct()
+108:                                              ; preds = %102
+  %109 = load ptr, ptr %11, align 8
+  %110 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %109)
   store ptr %110, ptr %10, align 8
-  br label %167
+  br label %171
 
-111:                                              ; preds = %69
-  %112 = load i32, ptr %13, align 4
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %116, label %114
+111:                                              ; preds = %102, %100
+  %112 = call ptr @abi_arg_new_direct()
+  store ptr %112, ptr %10, align 8
+  br label %171
 
-114:                                              ; preds = %111
-  %115 = call ptr @abi_arg_ignore()
-  store ptr %115, ptr %10, align 8
-  br label %167
+113:                                              ; preds = %69
+  %114 = load i32, ptr %13, align 4
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %118, label %116
 
-116:                                              ; preds = %111
+116:                                              ; preds = %113
+  %117 = call ptr @abi_arg_ignore()
+  store ptr %117, ptr %10, align 8
+  br label %171
+
+118:                                              ; preds = %113
   store ptr null, ptr %14, align 8
   store i32 0, ptr %15, align 4
-  %117 = load ptr, ptr %11, align 8
-  %118 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %117, ptr noundef %14, ptr noundef %15)
-  br i1 %118, label %119, label %127
+  %119 = load ptr, ptr %11, align 8
+  %120 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %119, ptr noundef %14, ptr noundef %15)
+  br i1 %120, label %121, label %130
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %121 = icmp eq i32 %120, 5
-  br i1 %121, label %122, label %125
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 5
+  br i1 %124, label %125, label %128
 
-122:                                              ; preds = %119
-  %123 = load i8, ptr %12, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %127, label %125
+125:                                              ; preds = %121
+  %126 = load i8, ptr %12, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %130, label %128
 
-125:                                              ; preds = %122, %119
-  %126 = call ptr @abi_arg_new_direct()
-  store ptr %126, ptr %10, align 8
-  br label %167
+128:                                              ; preds = %125, %121
+  %129 = call ptr @abi_arg_new_direct()
+  store ptr %129, ptr %10, align 8
+  br label %171
 
-127:                                              ; preds = %122, %116
-  %128 = load i32, ptr %13, align 4
-  %129 = icmp ule i32 %128, 16
-  br i1 %129, label %130, label %164
-
-130:                                              ; preds = %127
+130:                                              ; preds = %125, %118
   %131 = load i32, ptr %13, align 4
-  %132 = icmp ule i32 %131, 8
-  br i1 %132, label %133, label %142
+  %132 = icmp ule i32 %131, 16
+  br i1 %132, label %133, label %168
 
 133:                                              ; preds = %130
-  %134 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 17), align 8
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %142, label %136
+  %134 = load i32, ptr %13, align 4
+  %135 = icmp ule i32 %134, 8
+  br i1 %135, label %136, label %146
 
 136:                                              ; preds = %133
-  %137 = load i32, ptr %13, align 4
-  %138 = mul i32 %137, 8
-  %139 = zext i32 %138 to i64
-  %140 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %139)
-  %141 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %140)
-  store ptr %141, ptr %10, align 8
-  br label %167
+  %137 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 17
+  %138 = load i8, ptr %137, align 8
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %146, label %140
 
-142:                                              ; preds = %133, %130
-  %143 = load ptr, ptr %11, align 8
-  %144 = call i32 @type_abi_alignment(ptr noundef %143)
-  store i32 %144, ptr %16, align 4
-  %145 = load i32, ptr %13, align 4
-  %146 = call i32 @aligned_offset(i32 noundef %145, i32 noundef 8)
-  store i32 %146, ptr %13, align 4
-  %147 = load i32, ptr %16, align 4
-  %148 = icmp ult i32 %147, 16
-  br i1 %148, label %149, label %158
+140:                                              ; preds = %136
+  %141 = load i32, ptr %13, align 4
+  %142 = mul i32 %141, 8
+  %143 = zext i32 %142 to i64
+  %144 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %143)
+  %145 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %144)
+  store ptr %145, ptr %10, align 8
+  br label %171
 
-149:                                              ; preds = %142
-  %150 = load i32, ptr %13, align 4
-  %151 = icmp eq i32 %150, 16
-  br i1 %151, label %152, label %158
+146:                                              ; preds = %136, %133
+  %147 = load ptr, ptr %11, align 8
+  %148 = call i32 @type_abi_alignment(ptr noundef %147)
+  store i32 %148, ptr %16, align 4
+  %149 = load i32, ptr %13, align 4
+  %150 = call i32 @aligned_offset(i32 noundef %149, i32 noundef 8)
+  store i32 %150, ptr %13, align 4
+  %151 = load i32, ptr %16, align 4
+  %152 = icmp ult i32 %151, 16
+  br i1 %152, label %153, label %162
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr @type_ulong, align 8
+153:                                              ; preds = %146
   %154 = load i32, ptr %13, align 4
-  %155 = udiv i32 %154, 8
-  %156 = call ptr @type_get_array(ptr noundef %153, i32 noundef %155)
-  %157 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %156)
-  store ptr %157, ptr %10, align 8
-  br label %167
+  %155 = icmp eq i32 %154, 16
+  br i1 %155, label %156, label %162
 
-158:                                              ; preds = %149, %142
-  %159 = load i32, ptr %13, align 4
-  %160 = mul i32 %159, 8
-  %161 = zext i32 %160 to i64
-  %162 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %161)
-  %163 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %162)
-  store ptr %163, ptr %10, align 8
-  br label %167
+156:                                              ; preds = %153
+  %157 = load ptr, ptr @type_ulong, align 8
+  %158 = load i32, ptr %13, align 4
+  %159 = udiv i32 %158, 8
+  %160 = call ptr @type_get_array(ptr noundef %157, i32 noundef %159)
+  %161 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %160)
+  store ptr %161, ptr %10, align 8
+  br label %171
 
-164:                                              ; preds = %127
-  %165 = load ptr, ptr %11, align 8
-  %166 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %165)
-  store ptr %166, ptr %10, align 8
-  br label %167
+162:                                              ; preds = %153, %146
+  %163 = load i32, ptr %13, align 4
+  %164 = mul i32 %163, 8
+  %165 = zext i32 %164 to i64
+  %166 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %165)
+  %167 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %166)
+  store ptr %167, ptr %10, align 8
+  br label %171
 
-167:                                              ; preds = %164, %158, %152, %136, %125, %114, %109, %106, %66, %53, %26
-  %168 = load ptr, ptr %10, align 8
-  ret ptr %168
+168:                                              ; preds = %130
+  %169 = load ptr, ptr %11, align 8
+  %170 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %169)
+  store ptr %170, ptr %10, align 8
+  br label %171
+
+171:                                              ; preds = %168, %162, %156, %140, %128, %116, %111, %108, %66, %53, %26
+  %172 = load ptr, ptr %10, align 8
+  ret ptr %172
 }
 
 declare ptr @type_int_unsigned_by_bitsize(i64 noundef) #1

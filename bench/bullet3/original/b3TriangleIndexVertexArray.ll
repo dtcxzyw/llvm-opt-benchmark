@@ -108,7 +108,8 @@ entry:
   store i32 %vertexStride, ptr %vertexStride.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23b3StridingMeshInterfaceC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_indexedMeshes = getelementptr inbounds %class.b3TriangleIndexVertexArray, ptr %this1, i32 0, i32 1
   invoke void @_ZN20b3AlignedObjectArrayI13b3IndexedMeshEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes)
           to label %invoke.cont unwind label %lpad
@@ -120,24 +121,24 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %0 = load i32, ptr %numTriangles.addr, align 4
+  %1 = load i32, ptr %numTriangles.addr, align 4
   %m_numTriangles = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 0
-  store i32 %0, ptr %m_numTriangles, align 16
-  %1 = load ptr, ptr %triangleIndexBase.addr, align 8
+  store i32 %1, ptr %m_numTriangles, align 16
+  %2 = load ptr, ptr %triangleIndexBase.addr, align 8
   %m_triangleIndexBase = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 2
-  store ptr %1, ptr %m_triangleIndexBase, align 8
-  %2 = load i32, ptr %triangleIndexStride.addr, align 4
+  store ptr %2, ptr %m_triangleIndexBase, align 8
+  %3 = load i32, ptr %triangleIndexStride.addr, align 4
   %m_triangleIndexStride = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 3
-  store i32 %2, ptr %m_triangleIndexStride, align 16
-  %3 = load i32, ptr %numVertices.addr, align 4
+  store i32 %3, ptr %m_triangleIndexStride, align 16
+  %4 = load i32, ptr %numVertices.addr, align 4
   %m_numVertices = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 4
-  store i32 %3, ptr %m_numVertices, align 4
-  %4 = load ptr, ptr %vertexBase.addr, align 8
+  store i32 %4, ptr %m_numVertices, align 4
+  %5 = load ptr, ptr %vertexBase.addr, align 8
   %m_vertexBase = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 5
-  store ptr %4, ptr %m_vertexBase, align 8
-  %5 = load i32, ptr %vertexStride.addr, align 4
+  store ptr %5, ptr %m_vertexBase, align 8
+  %6 = load i32, ptr %vertexStride.addr, align 4
   %m_vertexStride = getelementptr inbounds %struct.b3IndexedMesh, ptr %mesh, i32 0, i32 6
-  store i32 %5, ptr %m_vertexStride, align 16
+  store i32 %6, ptr %m_vertexStride, align 16
   invoke void @_ZN26b3TriangleIndexVertexArray14addIndexedMeshERK13b3IndexedMesh14PHY_ScalarType(ptr noundef nonnull align 16 dereferenceable(112) %this1, ptr noundef nonnull align 16 dereferenceable(44) %mesh, i32 noundef 2)
           to label %invoke.cont4 unwind label %lpad2
 
@@ -145,21 +146,21 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes) #7
   br label %ehcleanup
 
@@ -181,17 +182,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV23b3StridingMeshInterface, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV23b3StridingMeshInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_scaling = getelementptr inbounds %class.b3StridingMeshInterface, ptr %this1, i32 0, i32 2
   %call = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
   %coerce.dive = getelementptr inbounds %class.b3Vector3, ptr %m_scaling, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %union.anon, ptr %coerce.dive, i32 0, i32 0
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 0
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %1, ptr %0, align 16
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 1
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %3, ptr %2, align 8
+  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 0
+  %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
+  store <2 x float> %2, ptr %1, align 16
+  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 1
+  %4 = extractvalue { <2 x float>, <2 x float> } %call, 1
+  store <2 x float> %4, ptr %3, align 8
   ret void
 }
 
@@ -275,7 +277,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_indexedMeshes = getelementptr inbounds %class.b3TriangleIndexVertexArray, ptr %this1, i32 0, i32 1
   call void @_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes) #7
   call void @_ZN23b3StridingMeshInterfaceD2Ev(ptr noundef nonnull align 16 dereferenceable(32) %this1) #7

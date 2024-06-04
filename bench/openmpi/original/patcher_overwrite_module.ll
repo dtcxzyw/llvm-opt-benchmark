@@ -32,84 +32,85 @@ define internal i32 @mca_patcher_overwrite_patch_symbol(ptr noundef %0, i64 noun
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = call ptr @dlsym(ptr noundef inttoptr (i64 -1 to ptr), ptr noundef %11) #4
-  store ptr %12, ptr %8, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = icmp eq ptr null, %13
-  br i1 %14, label %15, label %27
+  %12 = inttoptr i64 -1 to ptr
+  %13 = call ptr @dlsym(ptr noundef %12, ptr noundef %11) #4
+  store ptr %13, ptr %8, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = icmp eq ptr null, %14
+  br i1 %15, label %16, label %28
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr @dlsym(ptr noundef null, ptr noundef %16) #4
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %26
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = call ptr @dlsym(ptr noundef null, ptr noundef %17) #4
+  store ptr %18, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %15
-  %21 = call ptr @dlerror() #4
-  store ptr %21, ptr %9, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %26
+21:                                               ; preds = %16
+  %22 = call ptr @dlerror() #4
+  store ptr %22, ptr %9, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %24, ptr noundef %25)
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %9, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %25, ptr noundef %26)
   store i32 -13, ptr %4, align 4
-  br label %49
+  br label %50
 
-26:                                               ; preds = %20, %15
-  br label %27
+27:                                               ; preds = %21, %16
+  br label %28
 
-27:                                               ; preds = %26, %3
-  %28 = load ptr, ptr %8, align 8
-  %29 = ptrtoint ptr %28 to i64
-  store i64 %29, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %34
+28:                                               ; preds = %27, %3
+  %29 = load ptr, ptr %8, align 8
+  %30 = ptrtoint ptr %29 to i64
+  store i64 %30, ptr %10, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %7, align 8
-  store i64 0, ptr %33, align 8
-  br label %34
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %7, align 8
+  store i64 0, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %32, %27
-  %35 = load i64, ptr %10, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = call zeroext i1 @mca_patcher_is_function_patched(ptr noundef %36)
-  br i1 %37, label %38, label %45
+35:                                               ; preds = %33, %28
+  %36 = load i64, ptr %10, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = call zeroext i1 @mca_patcher_is_function_patched(ptr noundef %37)
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %34
-  br label %39
+39:                                               ; preds = %35
+  br label %40
 
-39:                                               ; preds = %38
-  %40 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0)
-  br i1 %40, label %41, label %43
+40:                                               ; preds = %39
+  %41 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0)
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %42)
-  br label %43
-
-43:                                               ; preds = %41, %39
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %43)
   br label %44
 
-44:                                               ; preds = %43
+44:                                               ; preds = %42, %40
+  br label %45
+
+45:                                               ; preds = %44
   store i32 -4, ptr %4, align 4
-  br label %49
+  br label %50
 
-45:                                               ; preds = %34
-  %46 = load i64, ptr %10, align 8
-  %47 = load i64, ptr %6, align 8
-  %48 = call i32 @mca_patcher_overwrite_patch_address(i64 noundef %46, i64 noundef %47)
-  store i32 %48, ptr %4, align 4
-  br label %49
+46:                                               ; preds = %35
+  %47 = load i64, ptr %10, align 8
+  %48 = load i64, ptr %6, align 8
+  %49 = call i32 @mca_patcher_overwrite_patch_address(i64 noundef %47, i64 noundef %48)
+  store i32 %49, ptr %4, align 4
+  br label %50
 
-49:                                               ; preds = %45, %44, %23
-  %50 = load i32, ptr %4, align 4
-  ret i32 %50
+50:                                               ; preds = %46, %45, %24
+  %51 = load i32, ptr %4, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -134,7 +135,7 @@ define internal i32 @mca_patcher_overwrite_patch_address(i64 noundef %0, i64 nou
 
 16:                                               ; preds = %2
   store i32 -2, ptr %3, align 4
-  br label %34
+  br label %37
 
 17:                                               ; preds = %2
   %18 = load i64, ptr %4, align 8
@@ -145,34 +146,37 @@ define internal i32 @mca_patcher_overwrite_patch_address(i64 noundef %0, i64 nou
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds %struct.mca_patcher_base_patch_t, ptr %22, i32 0, i32 2
   store i64 %21, ptr %23, align 8
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 2))
-  br label %24
+  %24 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 2
+  call void @opal_mutex_lock(ptr noundef %24)
+  br label %25
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @mca_patcher_overwrite_apply_patch(ptr noundef %25)
-  store i32 %26, ptr %7, align 4
-  %27 = load i32, ptr %7, align 4
-  %28 = icmp ne i32 0, %27
-  br i1 %28, label %29, label %30
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %6, align 8
+  %27 = call i32 @mca_patcher_overwrite_apply_patch(ptr noundef %26)
+  store i32 %27, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4
+  %29 = icmp ne i32 0, %28
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %24
-  br label %33
+30:                                               ; preds = %25
+  br label %35
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.mca_patcher_base_patch_t, ptr %31, i32 0, i32 0
-  call void @_opal_list_append(ptr noundef getelementptr inbounds (%struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 1), ptr noundef %32)
-  br label %33
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct.mca_patcher_base_patch_t, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 1
+  call void @_opal_list_append(ptr noundef %34, ptr noundef %33)
+  br label %35
 
-33:                                               ; preds = %30, %29
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 2))
+35:                                               ; preds = %31, %30
+  %36 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr @mca_patcher_overwrite_module, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %36)
   store i32 0, ptr %3, align 4
-  br label %34
+  br label %37
 
-34:                                               ; preds = %33, %16
-  %35 = load i32, ptr %3, align 4
-  ret i32 %35
+37:                                               ; preds = %35, %16
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind

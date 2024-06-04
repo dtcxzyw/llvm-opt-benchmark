@@ -59,7 +59,7 @@ define i32 @PMPI_Bsend_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   store ptr %6, ptr %15, align 8
   %20 = load i8, ptr @ompi_mpi_param_check, align 1
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %95
+  br i1 %21, label %22, label %96
 
 22:                                               ; preds = %7
   store i32 0, ptr %16, align 4
@@ -87,7 +87,7 @@ define i32 @PMPI_Bsend_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %38 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 5)
   %39 = call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %38, ptr noundef @FUNC_NAME)
   store i32 %39, ptr %8, align 4
-  br label %154
+  br label %156
 
 40:                                               ; preds = %33
   %41 = load i32, ptr %10, align 4
@@ -96,7 +96,7 @@ define i32 @PMPI_Bsend_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 43:                                               ; preds = %40
   store i32 2, ptr %16, align 4
-  br label %72
+  br label %73
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %11, align 8
@@ -105,176 +105,178 @@ define i32 @PMPI_Bsend_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 47:                                               ; preds = %44
   store i32 3, ptr %16, align 4
-  br label %71
+  br label %72
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %13, align 4
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %55, label %51
+  br i1 %50, label %56, label %51
 
 51:                                               ; preds = %48
   %52 = load i32, ptr %13, align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 22), align 4
-  %54 = icmp sgt i32 %52, %53
-  br i1 %54, label %55, label %56
+  %53 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 22
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp sgt i32 %52, %54
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %51, %48
+56:                                               ; preds = %51, %48
   store i32 4, ptr %16, align 4
-  br label %70
-
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %14, align 8
-  %58 = load i32, ptr %12, align 4
-  %59 = call zeroext i1 @ompi_comm_peer_invalid(ptr noundef %57, i32 noundef %58)
-  br i1 %59, label %60, label %64
-
-60:                                               ; preds = %56
-  %61 = load i32, ptr %12, align 4
-  %62 = icmp ne i32 -2, %61
-  br i1 %62, label %63, label %64
-
-63:                                               ; preds = %60
-  store i32 6, ptr %16, align 4
-  br label %69
-
-64:                                               ; preds = %60, %56
-  %65 = load ptr, ptr %15, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %64
-  store i32 7, ptr %16, align 4
-  br label %68
-
-68:                                               ; preds = %67, %64
-  br label %69
-
-69:                                               ; preds = %68, %63
-  br label %70
-
-70:                                               ; preds = %69, %55
   br label %71
 
-71:                                               ; preds = %70, %47
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %14, align 8
+  %59 = load i32, ptr %12, align 4
+  %60 = call zeroext i1 @ompi_comm_peer_invalid(ptr noundef %58, i32 noundef %59)
+  br i1 %60, label %61, label %65
+
+61:                                               ; preds = %57
+  %62 = load i32, ptr %12, align 4
+  %63 = icmp ne i32 -2, %62
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %61
+  store i32 6, ptr %16, align 4
+  br label %70
+
+65:                                               ; preds = %61, %57
+  %66 = load ptr, ptr %15, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %65
+  store i32 7, ptr %16, align 4
+  br label %69
+
+69:                                               ; preds = %68, %65
+  br label %70
+
+70:                                               ; preds = %69, %64
+  br label %71
+
+71:                                               ; preds = %70, %56
   br label %72
 
-72:                                               ; preds = %71, %43
+72:                                               ; preds = %71, %47
   br label %73
 
-73:                                               ; preds = %72
-  %74 = load i32, ptr %16, align 4
-  %75 = icmp ne i32 %74, 0
-  %76 = xor i1 %75, true
+73:                                               ; preds = %72, %43
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load i32, ptr %16, align 4
+  %76 = icmp ne i32 %75, 0
   %77 = xor i1 %76, true
-  %78 = zext i1 %77 to i32
-  %79 = sext i32 %78 to i64
-  %80 = icmp ne i64 %79, 0
-  br i1 %80, label %81, label %94
+  %78 = xor i1 %77, true
+  %79 = zext i1 %78 to i32
+  %80 = sext i32 %79 to i64
+  %81 = icmp ne i64 %80, 0
+  br i1 %81, label %82, label %95
 
-81:                                               ; preds = %73
-  %82 = load i32, ptr %16, align 4
-  %83 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %82)
-  store i32 %83, ptr %17, align 4
-  %84 = load ptr, ptr %14, align 8
-  %85 = getelementptr inbounds %struct.ompi_communicator_t, ptr %84, i32 0, i32 19
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %14, align 8
+82:                                               ; preds = %74
+  %83 = load i32, ptr %16, align 4
+  %84 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %83)
+  store i32 %84, ptr %17, align 4
+  %85 = load ptr, ptr %14, align 8
+  %86 = getelementptr inbounds %struct.ompi_communicator_t, ptr %85, i32 0, i32 19
+  %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %14, align 8
-  %89 = getelementptr inbounds %struct.ompi_communicator_t, ptr %88, i32 0, i32 20
-  %90 = load i32, ptr %89, align 8
-  %91 = load i32, ptr %17, align 4
-  %92 = call i32 @ompi_errhandler_invoke(ptr noundef %86, ptr noundef %87, i32 noundef %90, i32 noundef %91, ptr noundef @FUNC_NAME)
-  %93 = load i32, ptr %17, align 4
-  store i32 %93, ptr %8, align 4
-  br label %154
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %struct.ompi_communicator_t, ptr %89, i32 0, i32 20
+  %91 = load i32, ptr %90, align 8
+  %92 = load i32, ptr %17, align 4
+  %93 = call i32 @ompi_errhandler_invoke(ptr noundef %87, ptr noundef %88, i32 noundef %91, i32 noundef %92, ptr noundef @FUNC_NAME)
+  %94 = load i32, ptr %17, align 4
+  store i32 %94, ptr %8, align 4
+  br label %156
 
-94:                                               ; preds = %73
-  br label %95
+95:                                               ; preds = %74
+  br label %96
 
-95:                                               ; preds = %94, %7
-  %96 = load i32, ptr %12, align 4
-  %97 = icmp eq i32 -2, %96
-  br i1 %97, label %98, label %122
+96:                                               ; preds = %95, %7
+  %97 = load i32, ptr %12, align 4
+  %98 = icmp eq i32 -2, %97
+  br i1 %98, label %99, label %123
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %15, align 8
-  %100 = call i32 @ompi_request_persistent_noop_create(ptr noundef %99)
-  store i32 %100, ptr %16, align 4
-  %101 = load i32, ptr %16, align 4
-  %102 = icmp ne i32 0, %101
-  %103 = xor i1 %102, true
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %15, align 8
+  %101 = call i32 @ompi_request_persistent_noop_create(ptr noundef %100)
+  store i32 %101, ptr %16, align 4
+  %102 = load i32, ptr %16, align 4
+  %103 = icmp ne i32 0, %102
   %104 = xor i1 %103, true
-  %105 = zext i1 %104 to i32
-  %106 = sext i32 %105 to i64
-  %107 = icmp ne i64 %106, 0
-  br i1 %107, label %108, label %121
+  %105 = xor i1 %104, true
+  %106 = zext i1 %105 to i32
+  %107 = sext i32 %106 to i64
+  %108 = icmp ne i64 %107, 0
+  br i1 %108, label %109, label %122
 
-108:                                              ; preds = %98
-  %109 = load i32, ptr %16, align 4
-  %110 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %109)
-  store i32 %110, ptr %18, align 4
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds %struct.ompi_communicator_t, ptr %111, i32 0, i32 19
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %14, align 8
+109:                                              ; preds = %99
+  %110 = load i32, ptr %16, align 4
+  %111 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %110)
+  store i32 %111, ptr %18, align 4
+  %112 = load ptr, ptr %14, align 8
+  %113 = getelementptr inbounds %struct.ompi_communicator_t, ptr %112, i32 0, i32 19
+  %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %14, align 8
-  %116 = getelementptr inbounds %struct.ompi_communicator_t, ptr %115, i32 0, i32 20
-  %117 = load i32, ptr %116, align 8
-  %118 = load i32, ptr %18, align 4
-  %119 = call i32 @ompi_errhandler_invoke(ptr noundef %113, ptr noundef %114, i32 noundef %117, i32 noundef %118, ptr noundef @FUNC_NAME)
-  %120 = load i32, ptr %18, align 4
-  store i32 %120, ptr %8, align 4
-  br label %154
+  %116 = load ptr, ptr %14, align 8
+  %117 = getelementptr inbounds %struct.ompi_communicator_t, ptr %116, i32 0, i32 20
+  %118 = load i32, ptr %117, align 8
+  %119 = load i32, ptr %18, align 4
+  %120 = call i32 @ompi_errhandler_invoke(ptr noundef %114, ptr noundef %115, i32 noundef %118, i32 noundef %119, ptr noundef @FUNC_NAME)
+  %121 = load i32, ptr %18, align 4
+  store i32 %121, ptr %8, align 4
+  br label %156
 
-121:                                              ; preds = %98
+122:                                              ; preds = %99
   store i32 0, ptr %8, align 4
-  br label %154
+  br label %156
 
-122:                                              ; preds = %95
-  %123 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 10), align 8
-  %124 = load ptr, ptr %9, align 8
-  %125 = load i32, ptr %10, align 4
-  %126 = sext i32 %125 to i64
-  %127 = load ptr, ptr %11, align 8
-  %128 = load i32, ptr %12, align 4
-  %129 = load i32, ptr %13, align 4
-  %130 = load ptr, ptr %14, align 8
-  %131 = load ptr, ptr %15, align 8
-  %132 = call i32 %123(ptr noundef %124, i64 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef 2, ptr noundef %130, ptr noundef %131)
-  store i32 %132, ptr %16, align 4
-  %133 = load i32, ptr %16, align 4
-  %134 = icmp ne i32 0, %133
-  %135 = xor i1 %134, true
-  %136 = xor i1 %135, true
-  %137 = zext i1 %136 to i32
-  %138 = sext i32 %137 to i64
-  %139 = icmp ne i64 %138, 0
-  br i1 %139, label %140, label %153
+123:                                              ; preds = %96
+  %124 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 10
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %9, align 8
+  %127 = load i32, ptr %10, align 4
+  %128 = sext i32 %127 to i64
+  %129 = load ptr, ptr %11, align 8
+  %130 = load i32, ptr %12, align 4
+  %131 = load i32, ptr %13, align 4
+  %132 = load ptr, ptr %14, align 8
+  %133 = load ptr, ptr %15, align 8
+  %134 = call i32 %125(ptr noundef %126, i64 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef %131, i32 noundef 2, ptr noundef %132, ptr noundef %133)
+  store i32 %134, ptr %16, align 4
+  %135 = load i32, ptr %16, align 4
+  %136 = icmp ne i32 0, %135
+  %137 = xor i1 %136, true
+  %138 = xor i1 %137, true
+  %139 = zext i1 %138 to i32
+  %140 = sext i32 %139 to i64
+  %141 = icmp ne i64 %140, 0
+  br i1 %141, label %142, label %155
 
-140:                                              ; preds = %122
-  %141 = load i32, ptr %16, align 4
-  %142 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %141)
-  store i32 %142, ptr %19, align 4
-  %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr inbounds %struct.ompi_communicator_t, ptr %143, i32 0, i32 19
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %14, align 8
-  %147 = load ptr, ptr %14, align 8
-  %148 = getelementptr inbounds %struct.ompi_communicator_t, ptr %147, i32 0, i32 20
-  %149 = load i32, ptr %148, align 8
-  %150 = load i32, ptr %19, align 4
-  %151 = call i32 @ompi_errhandler_invoke(ptr noundef %145, ptr noundef %146, i32 noundef %149, i32 noundef %150, ptr noundef @FUNC_NAME)
+142:                                              ; preds = %123
+  %143 = load i32, ptr %16, align 4
+  %144 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %143)
+  store i32 %144, ptr %19, align 4
+  %145 = load ptr, ptr %14, align 8
+  %146 = getelementptr inbounds %struct.ompi_communicator_t, ptr %145, i32 0, i32 19
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %14, align 8
+  %149 = load ptr, ptr %14, align 8
+  %150 = getelementptr inbounds %struct.ompi_communicator_t, ptr %149, i32 0, i32 20
+  %151 = load i32, ptr %150, align 8
   %152 = load i32, ptr %19, align 4
-  store i32 %152, ptr %8, align 4
-  br label %154
+  %153 = call i32 @ompi_errhandler_invoke(ptr noundef %147, ptr noundef %148, i32 noundef %151, i32 noundef %152, ptr noundef @FUNC_NAME)
+  %154 = load i32, ptr %19, align 4
+  store i32 %154, ptr %8, align 4
+  br label %156
 
-153:                                              ; preds = %122
+155:                                              ; preds = %123
   store i32 0, ptr %8, align 4
-  br label %154
+  br label %156
 
-154:                                              ; preds = %153, %140, %121, %108, %81, %37
-  %155 = load i32, ptr %8, align 4
-  ret i32 %155
+156:                                              ; preds = %155, %142, %122, %109, %82, %37
+  %157 = load i32, ptr %8, align 4
+  ret i32 %157
 }
 
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1

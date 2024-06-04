@@ -89,7 +89,7 @@ define dso_local noundef i32 @scsi_proc_hostdir_add(ptr noundef %0) local_unname
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %44, label %5
+  br i1 %4, label %47, label %5
 
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @global_host_template_mutex) #10
@@ -110,59 +110,62 @@ define dso_local noundef i32 @scsi_proc_hostdir_add(ptr noundef %0) local_unname
 14:                                               ; preds = %10, %6
   %15 = phi ptr [ %8, %10 ], [ null, %6 ]
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %19 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 40) #11
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %41, label %21
+  %18 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %19 = load ptr, ptr %18, align 16
+  %20 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 40) #11
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %44, label %22
 
-21:                                               ; preds = %17, %14
-  %22 = phi ptr [ %15, %14 ], [ %19, %17 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = load i32, ptr %23, align 8
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 8
-  %26 = icmp eq i32 %24, 0
-  br i1 %26, label %27, label %41
+22:                                               ; preds = %17, %14
+  %23 = phi ptr [ %15, %14 ], [ %20, %17 ]
+  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 8
+  %27 = icmp eq i32 %25, 0
+  br i1 %27, label %28, label %44
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 264
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @proc_scsi, align 8
-  %31 = tail call ptr @proc_mkdir(ptr noundef %29, ptr noundef %30) #10
-  %32 = getelementptr inbounds i8, ptr %22, i64 24
-  store ptr %31, ptr %32, align 8
-  %33 = icmp eq ptr %31, null
-  br i1 %33, label %34, label %37
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 264
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr @proc_scsi, align 8
+  %32 = tail call ptr @proc_mkdir(ptr noundef %30, ptr noundef %31) #10
+  %33 = getelementptr inbounds i8, ptr %23, i64 24
+  store ptr %32, ptr %33, align 8
+  %34 = icmp eq ptr %32, null
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %28, align 8
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.scsi_proc_hostdir_add, ptr noundef %35) #12
-  br label %41
-
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %0, ptr %38, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @scsi_proc_list, i64 0, i32 1), align 8
-  store ptr %22, ptr getelementptr inbounds (%struct.list_head, ptr @scsi_proc_list, i64 0, i32 1), align 8
-  store ptr @scsi_proc_list, ptr %22, align 8
-  %40 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %39, ptr %40, align 8
-  store volatile ptr %22, ptr %39, align 8
-  br label %41
-
-41:                                               ; preds = %37, %34, %21, %17
-  %42 = phi ptr [ %22, %34 ], [ null, %17 ], [ null, %21 ], [ null, %37 ]
-  %43 = phi i32 [ -12, %34 ], [ -12, %17 ], [ 0, %21 ], [ 0, %37 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @global_host_template_mutex) #10
-  tail call void @kfree(ptr noundef %42) #10
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %29, align 8
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.scsi_proc_hostdir_add, ptr noundef %36) #12
   br label %44
 
-44:                                               ; preds = %41, %1
-  %45 = phi i32 [ %43, %41 ], [ 0, %1 ]
-  ret i32 %45
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds i8, ptr %23, i64 16
+  store ptr %0, ptr %39, align 8
+  %40 = getelementptr inbounds %struct.list_head, ptr @scsi_proc_list, i64 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.list_head, ptr @scsi_proc_list, i64 0, i32 1
+  store ptr %23, ptr %42, align 8
+  store ptr @scsi_proc_list, ptr %23, align 8
+  %43 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %41, ptr %43, align 8
+  store volatile ptr %23, ptr %41, align 8
+  br label %44
+
+44:                                               ; preds = %38, %35, %22, %17
+  %45 = phi ptr [ %23, %35 ], [ null, %17 ], [ null, %22 ], [ null, %38 ]
+  %46 = phi i32 [ -12, %35 ], [ -12, %17 ], [ 0, %22 ], [ 0, %38 ]
+  tail call void @mutex_unlock(ptr noundef nonnull @global_host_template_mutex) #10
+  tail call void @kfree(ptr noundef %45) #10
+  br label %47
+
+47:                                               ; preds = %44, %1
+  %48 = phi i32 [ %46, %44 ], [ 0, %1 ]
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -185,7 +188,7 @@ define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly %0) local_unnam
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %31, label %5
+  br i1 %4, label %33, label %5
 
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @global_host_template_mutex) #10
@@ -206,7 +209,7 @@ define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly %0) local_unnam
 14:                                               ; preds = %10, %6
   %15 = phi ptr [ %8, %10 ], [ null, %6 ]
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %30, label %17
+  br i1 %16, label %32, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %15, i64 32
@@ -214,7 +217,7 @@ define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly %0) local_unnam
   %20 = add i32 %19, -1
   store i32 %20, ptr %18, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %30
+  br i1 %21, label %22, label %32
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 264
@@ -227,16 +230,18 @@ define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly %0) local_unnam
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %27, ptr %29, align 8
   store volatile ptr %28, ptr %27, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %15, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %26, align 8
+  %30 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %30, ptr %15, align 8
+  %31 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %31, ptr %26, align 8
   tail call void @kfree(ptr noundef nonnull %15) #10
-  br label %30
+  br label %32
 
-30:                                               ; preds = %22, %17, %14
+32:                                               ; preds = %22, %17, %14
   tail call void @mutex_unlock(ptr noundef nonnull @global_host_template_mutex) #10
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %1
+33:                                               ; preds = %32, %1
   ret void
 }
 

@@ -161114,12 +161114,12 @@ entry:
   %call2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call2, i64 noundef 0) #9
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %2, ptr noundef %arraydecay3)
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   ret void
 }
 
@@ -161249,9 +161249,6 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pFormat, ptr noundef %arguments) #0 comdat align 2 {
 entry:
@@ -161276,7 +161273,7 @@ entry:
   store i64 %call4, ptr %nInitialRemainingCapacity, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
   %0 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
   %call6 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call5) #9
   %1 = load i64, ptr %nInitialRemainingCapacity, align 8
@@ -161294,10 +161291,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %6)
+  call void @llvm.va_end.p0(ptr %6)
   %7 = load ptr, ptr %arguments.addr, align 8
   %arraydecay9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %7, ptr %arraydecay9)
+  call void @llvm.va_copy.p0(ptr %7, ptr %arraydecay9)
   %8 = load i64, ptr %nInitialSize, align 8
   %9 = load i32, ptr %nReturnValue, align 4
   %conv10 = sext i32 %9 to i64
@@ -161344,10 +161341,10 @@ land.end:                                         ; preds = %land.rhs, %for.cond
 
 for.body:                                         ; preds = %land.end
   %19 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load ptr, ptr %arguments.addr, align 8
   %arraydecay22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %20, ptr %arraydecay22)
+  call void @llvm.va_copy.p0(ptr %20, ptr %arraydecay22)
   %21 = load i64, ptr %n, align 8
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %21)
   %22 = load i64, ptr %n, align 8
@@ -161418,12 +161415,9 @@ if.then40:                                        ; preds = %if.end38
 
 if.end44:                                         ; preds = %if.then40, %if.end38
   %arraydecay45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay45)
+  call void @llvm.va_end.p0(ptr %arraydecay45)
   ret ptr %this1
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl19compressed_pair_impINS_12basic_stringIcNS_9allocatorEE6LayoutES2_Li2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
@@ -161607,7 +161601,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #9
   call void @_ZSt9terminatev() #11
   unreachable
@@ -161701,9 +161695,6 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   ret i64 %sub.ptr.sub
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN5eastl9VsnprintfEPcmPKcP13__va_list_tag(ptr noalias noundef %pDestination, i64 noundef %n, ptr noalias noundef %pFormat, ptr noundef %arguments) #0 comdat {
@@ -162122,7 +162113,7 @@ if.end13:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -162516,10 +162507,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) #6
+declare void @_ZdaPv(ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout12HeapBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -162553,12 +162544,12 @@ entry:
   %call2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIwNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
   call void @_ZN5eastl12basic_stringIwNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call2, i64 noundef 0) #9
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIwNS_9allocatorEE22append_sprintf_va_listEPKwP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %2, ptr noundef %arraydecay3)
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   ret void
 }
 
@@ -162713,7 +162704,7 @@ entry:
   store i64 %call4, ptr %nInitialRemainingCapacity, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
   %0 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIwNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
   %call6 = call noundef ptr @_ZN5eastl12basic_stringIwNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call5) #9
   %1 = load i64, ptr %nInitialRemainingCapacity, align 8
@@ -162731,10 +162722,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %6)
+  call void @llvm.va_end.p0(ptr %6)
   %7 = load ptr, ptr %arguments.addr, align 8
   %arraydecay9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %7, ptr %arraydecay9)
+  call void @llvm.va_copy.p0(ptr %7, ptr %arraydecay9)
   %8 = load i64, ptr %nInitialSize, align 8
   %9 = load i32, ptr %nReturnValue, align 4
   %conv10 = sext i32 %9 to i64
@@ -162781,10 +162772,10 @@ land.end:                                         ; preds = %land.rhs, %for.cond
 
 for.body:                                         ; preds = %land.end
   %19 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load ptr, ptr %arguments.addr, align 8
   %arraydecay22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %20, ptr %arraydecay22)
+  call void @llvm.va_copy.p0(ptr %20, ptr %arraydecay22)
   %21 = load i64, ptr %n, align 8
   call void @_ZN5eastl12basic_stringIwNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %21)
   %22 = load i64, ptr %n, align 8
@@ -162855,7 +162846,7 @@ if.then40:                                        ; preds = %if.end38
 
 if.end44:                                         ; preds = %if.then40, %if.end38
   %arraydecay45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay45)
+  call void @llvm.va_end.p0(ptr %arraydecay45)
   ret ptr %this1
 }
 
@@ -170844,7 +170835,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5eastl12basic_stringIc20StompDetectAllocatorEaSENS_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %v.coerce0, i64 %v.coerce1) #0 comdat align 2 {
@@ -171789,7 +171780,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5eastl12basic_stringIcZ15TestBasicStringINS0_Ic20StompDetectAllocatorEEEivE10FailocatorE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -179214,7 +179205,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #8
+declare i32 @tolower(i32 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef signext i8 @_ZN5eastl11CharToUpperEc(i8 noundef signext %c) #1 comdat {
@@ -179229,7 +179220,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) #8
+declare i32 @toupper(i32 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl12basic_stringIc20StompDetectAllocatorEC2ERKS2_RKS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %x, ptr noundef nonnull align 8 dereferenceable(32) %allocator) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -256458,12 +256449,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pName.addr, align 8
   call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %inc = add i64 %1, 1
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %2 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
-  %inc2 = add i64 %2, 1
+  %3 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
+  %inc2 = add i64 %3, 1
   store i64 %inc2, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   ret void
 }
@@ -262252,12 +262244,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %x.addr, align 8
   call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %inc = add i64 %1, 1
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %2 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
-  %inc2 = add i64 %2, 1
+  %3 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
+  %inc2 = add i64 %3, 1
   store i64 %inc2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   ret void
 }
@@ -262405,7 +262398,7 @@ entry:
 declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPv(ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIc17CountingAllocatorE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -301723,15 +301716,24 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i1 %2
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #8
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { noreturn nounwind }

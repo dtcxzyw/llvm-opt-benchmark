@@ -132,7 +132,7 @@ entry:
   store i64 %n, ptr %n.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %buf.addr, align 8
   %1 = load i64, ptr %n.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -140,7 +140,7 @@ entry:
   %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %arraydecay1) #10
   store i32 %call, ptr %len, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load i32, ptr %len, align 4
   %conv = zext i32 %3 to i64
   %4 = load i64, ptr %n.addr, align 8
@@ -166,16 +166,10 @@ return:                                           ; preds = %if.end, %if.then
   ret ptr %9
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
-declare i64 @gitstrlcpy(ptr noundef, ptr noundef, i64 noundef) #3
+declare i64 @gitstrlcpy(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cleanup_path(ptr noundef %path) #0 {
@@ -298,11 +292,11 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #3
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @get_git_dir() #3
+declare ptr @get_git_dir() #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_setlen(ptr noundef %sb, i64 noundef %len) #0 {
@@ -379,9 +373,9 @@ entry:
   ret void
 }
 
-declare i32 @file_exists(ptr noundef) #3
+declare i32 @file_exists(ptr noundef) #2
 
-declare void @strbuf_release(ptr noundef) #3
+declare void @strbuf_release(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @repo_git_path(ptr noundef %repo, ptr noundef %fmt, ...) #0 {
@@ -394,13 +388,13 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path, ptr align 8 @__const.repo_git_path.path, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %repo.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %path, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %call = call ptr @strbuf_detach(ptr noundef %path, ptr noundef null)
   ret ptr %call
 }
@@ -476,7 +470,7 @@ if.end8:                                          ; preds = %if.then7, %if.end
   ret void
 }
 
-declare ptr @strbuf_detach(ptr noundef, ptr noundef) #3
+declare ptr @strbuf_detach(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_repo_git_path(ptr noundef %sb, ptr noundef %repo, ptr noundef %fmt, ...) #0 {
@@ -489,14 +483,14 @@ entry:
   store ptr %repo, ptr %repo.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %repo.addr, align 8
   %1 = load ptr, ptr %sb.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -511,14 +505,14 @@ entry:
   %0 = load ptr, ptr %buf.addr, align 8
   call void @strbuf_setlen(ptr noundef %0, i64 noundef 0)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr @the_repository, align 8
   %2 = load ptr, ptr %buf.addr, align 8
   %3 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load ptr, ptr %buf.addr, align 8
   %buf3 = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 2
   %5 = load ptr, ptr %buf3, align 8
@@ -534,14 +528,14 @@ entry:
   store ptr %sb, ptr %sb.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %sb.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -555,14 +549,14 @@ entry:
   %call = call ptr @get_pathname()
   store ptr %call, ptr %pathname, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %pathname, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load ptr, ptr %pathname, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 2
   %4 = load ptr, ptr %buf, align 8
@@ -598,13 +592,13 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path, ptr align 8 @__const.git_pathdup.path, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %path, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %call = call ptr @strbuf_detach(ptr noundef %path, ptr noundef null)
   ret ptr %call
 }
@@ -618,18 +612,18 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %sb, ptr align 8 @__const.mkpathdup.sb, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %sb, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   call void @strbuf_cleanup_path(ptr noundef %sb)
   %call = call ptr @strbuf_detach(ptr noundef %sb, ptr noundef null)
   ret ptr %call
 }
 
-declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_cleanup_path(ptr noundef %sb) #0 {
@@ -675,13 +669,13 @@ entry:
   %call = call ptr @get_pathname()
   store ptr %call, ptr %pathname, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %pathname, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %pathname, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %2, i32 0, i32 2
   %3 = load ptr, ptr %buf, align 8
@@ -701,7 +695,7 @@ entry:
   %call = call ptr @get_pathname()
   store ptr %call, ptr %pathname, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %wt.addr, align 8
   %2 = load ptr, ptr %pathname, align 8
@@ -709,7 +703,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load ptr, ptr %pathname, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 2
   %5 = load ptr, ptr %buf, align 8
@@ -739,13 +733,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %repo.addr, align 8
   %3 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_worktree_path(ptr noundef %2, ptr noundef %path, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %call = call ptr @strbuf_detach(ptr noundef %path, ptr noundef null)
   store ptr %call, ptr %retval, align 8
   br label %return
@@ -828,14 +822,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %repo.addr, align 8
   %3 = load ptr, ptr %sb.addr, align 8
   %4 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_worktree_path(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -855,14 +849,14 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.git_pathdup_submodule.buf, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %path.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @do_submodule_path(ptr noundef %buf, ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %err, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %err, align 4
   %tobool = icmp ne i32 %2, 0
   br i1 %tobool, label %if.then, label %if.end
@@ -956,7 +950,7 @@ entry:
   store ptr %path, ptr %path.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %buf.addr, align 8
   %1 = load ptr, ptr %path.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -964,7 +958,7 @@ entry:
   %call = call i32 @do_submodule_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   store i32 %call, ptr %err, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load i32, ptr %err, align 4
   ret i32 %3
 }
@@ -979,14 +973,14 @@ entry:
   %call = call ptr @get_pathname()
   store ptr %call, ptr %pathname, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @the_repository, align 8
   %1 = load ptr, ptr %pathname, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_common_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load ptr, ptr %pathname, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 2
   %4 = load ptr, ptr %buf, align 8
@@ -1056,14 +1050,14 @@ entry:
   store ptr %repo, ptr %repo.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %repo.addr, align 8
   %1 = load ptr, ptr %sb.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @do_git_common_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -1206,19 +1200,19 @@ return:                                           ; preds = %if.end36, %if.then3
 }
 
 ; Function Attrs: nounwind
-declare i32 @lstat64(ptr noundef, ptr noundef) #2
+declare i32 @lstat64(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i64 @readlink(ptr noundef, ptr noundef, i64 noundef) #2
+declare i64 @readlink(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
-declare i32 @open64(ptr noundef, i32 noundef, ...) #3
+declare i32 @open64(ptr noundef, i32 noundef, ...) #2
 
-declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) #3
+declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @close(i32 noundef) #3
+declare i32 @close(i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @skip_prefix(ptr noundef %str, ptr noundef %prefix, ptr noundef %out) #0 {
@@ -1271,9 +1265,9 @@ return:                                           ; preds = %do.end, %if.then
   ret i1 %8
 }
 
-declare i32 @starts_with(ptr noundef, ptr noundef) #3
+declare i32 @starts_with(ptr noundef, ptr noundef) #2
 
-declare i32 @get_oid_hex(ptr noundef, ptr noundef) #3
+declare i32 @get_oid_hex(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @interpolate_path(ptr noundef %path, i32 noundef %real_home) #0 {
@@ -1405,15 +1399,15 @@ return:                                           ; preds = %return_null, %if.en
   ret ptr %22
 }
 
-declare ptr @system_path(ptr noundef) #3
+declare ptr @system_path(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchrnul(ptr noundef, i32 noundef) #5
+declare ptr @strchrnul(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #2
+declare ptr @getenv(ptr noundef) #1
 
-declare void @strbuf_add_real_path(ptr noundef, ptr noundef) #3
+declare void @strbuf_add_real_path(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @getpw_str(ptr noundef %username, i64 noundef %len) #0 {
@@ -1518,19 +1512,21 @@ if.end10:                                         ; preds = %while.end
   %13 = load i32, ptr %len, align 4
   %conv12 = sext i32 %13 to i64
   call void @strbuf_add(ptr noundef @enter_repo.validated_path, ptr noundef %12, i64 noundef %conv12)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %14, i64 0
-  %15 = load i8, ptr %arrayidx13, align 1
-  %conv14 = sext i8 %15 to i32
+  %14 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %arrayidx13 = getelementptr inbounds i8, ptr %15, i64 0
+  %16 = load i8, ptr %arrayidx13, align 1
+  %conv14 = sext i8 %16 to i32
   %cmp15 = icmp eq i32 %conv14, 126
   br i1 %cmp15, label %if.then17, label %if.end24
 
 if.then17:                                        ; preds = %if.end10
-  %16 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %call18 = call ptr @interpolate_path(ptr noundef %16, i32 noundef 0)
+  %17 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %call18 = call ptr @interpolate_path(ptr noundef %18, i32 noundef 0)
   store ptr %call18, ptr %newpath, align 8
-  %17 = load ptr, ptr %newpath, align 8
-  %tobool19 = icmp ne ptr %17, null
+  %19 = load ptr, ptr %newpath, align 8
+  %tobool19 = icmp ne ptr %19, null
   br i1 %tobool19, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.then17
@@ -1538,12 +1534,12 @@ if.then20:                                        ; preds = %if.then17
   br label %return
 
 if.end21:                                         ; preds = %if.then17
-  %18 = load ptr, ptr %newpath, align 8
-  %19 = load ptr, ptr %newpath, align 8
-  %call22 = call i64 @strlen(ptr noundef %19) #12
   %20 = load ptr, ptr %newpath, align 8
-  %call23 = call i64 @strlen(ptr noundef %20) #12
-  call void @strbuf_attach(ptr noundef @enter_repo.used_path, ptr noundef %18, i64 noundef %call22, i64 noundef %call23)
+  %21 = load ptr, ptr %newpath, align 8
+  %call22 = call i64 @strlen(ptr noundef %21) #12
+  %22 = load ptr, ptr %newpath, align 8
+  %call23 = call i64 @strlen(ptr noundef %22) #12
+  call void @strbuf_attach(ptr noundef @enter_repo.used_path, ptr noundef %20, i64 noundef %call22, i64 noundef %call23)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end21, %if.end10
@@ -1551,71 +1547,74 @@ if.end24:                                         ; preds = %if.end21, %if.end10
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end24
-  %21 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %21 to i64
+  %23 = load i32, ptr %i, align 4
+  %idxprom25 = sext i32 %23 to i64
   %arrayidx26 = getelementptr inbounds [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %idxprom25
-  %22 = load ptr, ptr %arrayidx26, align 8
-  %tobool27 = icmp ne ptr %22, null
+  %24 = load ptr, ptr %arrayidx26, align 8
+  %tobool27 = icmp ne ptr %24, null
   br i1 %tobool27, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %23 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 1), align 8
-  store i64 %23, ptr %baselen, align 8
-  %24 = load i32, ptr %i, align 4
-  %idxprom28 = sext i32 %24 to i64
+  %25 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %baselen, align 8
+  %27 = load i32, ptr %i, align 4
+  %idxprom28 = sext i32 %27 to i64
   %arrayidx29 = getelementptr inbounds [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %idxprom28
-  %25 = load ptr, ptr %arrayidx29, align 8
-  call void @strbuf_addstr(ptr noundef @enter_repo.used_path, ptr noundef %25)
-  %26 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %call30 = call i32 @stat64(ptr noundef %26, ptr noundef %st) #10
+  %28 = load ptr, ptr %arrayidx29, align 8
+  call void @strbuf_addstr(ptr noundef @enter_repo.used_path, ptr noundef %28)
+  %29 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %call30 = call i32 @stat64(ptr noundef %30, ptr noundef %st) #10
   %tobool31 = icmp ne i32 %call30, 0
   br i1 %tobool31, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %st_mode = getelementptr inbounds %struct.stat, ptr %st, i32 0, i32 3
-  %27 = load i32, ptr %st_mode, align 8
-  %and = and i32 %27, 61440
+  %31 = load i32, ptr %st_mode, align 8
+  %and = and i32 %31, 61440
   %cmp32 = icmp eq i32 %and, 32768
   br i1 %cmp32, label %if.then41, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %st_mode34 = getelementptr inbounds %struct.stat, ptr %st, i32 0, i32 3
-  %28 = load i32, ptr %st_mode34, align 8
-  %and35 = and i32 %28, 61440
+  %32 = load i32, ptr %st_mode34, align 8
+  %and35 = and i32 %32, 61440
   %cmp36 = icmp eq i32 %and35, 16384
   br i1 %cmp36, label %land.lhs.true38, label %if.end44
 
 land.lhs.true38:                                  ; preds = %lor.lhs.false
-  %29 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %call39 = call i32 @is_git_directory(ptr noundef %29)
+  %33 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %call39 = call i32 @is_git_directory(ptr noundef %34)
   %tobool40 = icmp ne i32 %call39, 0
   br i1 %tobool40, label %if.then41, label %if.end44
 
 if.then41:                                        ; preds = %land.lhs.true38, %land.lhs.true
-  %30 = load i32, ptr %i, align 4
-  %idxprom42 = sext i32 %30 to i64
+  %35 = load i32, ptr %i, align 4
+  %idxprom42 = sext i32 %35 to i64
   %arrayidx43 = getelementptr inbounds [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %idxprom42
-  %31 = load ptr, ptr %arrayidx43, align 8
-  call void @strbuf_addstr(ptr noundef @enter_repo.validated_path, ptr noundef %31)
+  %36 = load ptr, ptr %arrayidx43, align 8
+  call void @strbuf_addstr(ptr noundef @enter_repo.validated_path, ptr noundef %36)
   br label %for.end
 
 if.end44:                                         ; preds = %land.lhs.true38, %lor.lhs.false, %for.body
-  %32 = load i64, ptr %baselen, align 8
-  call void @strbuf_setlen(ptr noundef @enter_repo.used_path, i64 noundef %32)
+  %37 = load i64, ptr %baselen, align 8
+  call void @strbuf_setlen(ptr noundef @enter_repo.used_path, i64 noundef %37)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end44
-  %33 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %33, 1
+  %38 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %38, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %if.then41, %for.cond
-  %34 = load i32, ptr %i, align 4
-  %idxprom45 = sext i32 %34 to i64
+  %39 = load i32, ptr %i, align 4
+  %idxprom45 = sext i32 %39 to i64
   %arrayidx46 = getelementptr inbounds [5 x ptr], ptr @enter_repo.suffix, i64 0, i64 %idxprom45
-  %35 = load ptr, ptr %arrayidx46, align 8
-  %tobool47 = icmp ne ptr %35, null
+  %40 = load ptr, ptr %arrayidx46, align 8
+  %tobool47 = icmp ne ptr %40, null
   br i1 %tobool47, label %if.end49, label %if.then48
 
 if.then48:                                        ; preds = %for.end
@@ -1623,22 +1622,24 @@ if.then48:                                        ; preds = %for.end
   br label %return
 
 if.end49:                                         ; preds = %for.end
-  %36 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %call50 = call ptr @read_gitfile_gently(ptr noundef %36, ptr noundef null)
+  %41 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %call50 = call ptr @read_gitfile_gently(ptr noundef %42, ptr noundef null)
   store ptr %call50, ptr %gitfile, align 8
-  %37 = load ptr, ptr %gitfile, align 8
-  %tobool51 = icmp ne ptr %37, null
+  %43 = load ptr, ptr %gitfile, align 8
+  %tobool51 = icmp ne ptr %43, null
   br i1 %tobool51, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.end49
   call void @strbuf_setlen(ptr noundef @enter_repo.used_path, i64 noundef 0)
-  %38 = load ptr, ptr %gitfile, align 8
-  call void @strbuf_addstr(ptr noundef @enter_repo.used_path, ptr noundef %38)
+  %44 = load ptr, ptr %gitfile, align 8
+  call void @strbuf_addstr(ptr noundef @enter_repo.used_path, ptr noundef %44)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.end49
-  %39 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2), align 8
-  %call54 = call i32 @chdir(ptr noundef %39) #10
+  %45 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.used_path, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %call54 = call i32 @chdir(ptr noundef %46) #10
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.then56, label %if.end57
 
@@ -1647,26 +1648,27 @@ if.then56:                                        ; preds = %if.end53
   br label %return
 
 if.end57:                                         ; preds = %if.end53
-  %40 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.validated_path, i32 0, i32 2), align 8
-  store ptr %40, ptr %path.addr, align 8
+  %47 = getelementptr inbounds %struct.strbuf, ptr @enter_repo.validated_path, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %path.addr, align 8
   br label %if.end67
 
 if.else:                                          ; preds = %if.end
-  %41 = load ptr, ptr %path.addr, align 8
-  %call59 = call ptr @read_gitfile_gently(ptr noundef %41, ptr noundef null)
+  %49 = load ptr, ptr %path.addr, align 8
+  %call59 = call ptr @read_gitfile_gently(ptr noundef %49, ptr noundef null)
   store ptr %call59, ptr %gitfile58, align 8
-  %42 = load ptr, ptr %gitfile58, align 8
-  %tobool60 = icmp ne ptr %42, null
+  %50 = load ptr, ptr %gitfile58, align 8
+  %tobool60 = icmp ne ptr %50, null
   br i1 %tobool60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %if.else
-  %43 = load ptr, ptr %gitfile58, align 8
-  store ptr %43, ptr %path.addr, align 8
+  %51 = load ptr, ptr %gitfile58, align 8
+  store ptr %51, ptr %path.addr, align 8
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %if.else
-  %44 = load ptr, ptr %path.addr, align 8
-  %call63 = call i32 @chdir(ptr noundef %44) #10
+  %52 = load ptr, ptr %path.addr, align 8
+  %call63 = call i32 @chdir(ptr noundef %52) #10
   %tobool64 = icmp ne i32 %call63, 0
   br i1 %tobool64, label %if.then65, label %if.end66
 
@@ -1685,8 +1687,8 @@ if.end67:                                         ; preds = %if.end66, %if.end57
 if.then70:                                        ; preds = %if.end67
   call void @set_git_dir(ptr noundef @.str.9, i32 noundef 0)
   call void @check_repository_format(ptr noundef null)
-  %45 = load ptr, ptr %path.addr, align 8
-  store ptr %45, ptr %retval, align 8
+  %53 = load ptr, ptr %path.addr, align 8
+  store ptr %53, ptr %retval, align 8
   br label %return
 
 if.end71:                                         ; preds = %if.end67
@@ -1694,30 +1696,30 @@ if.end71:                                         ; preds = %if.end67
   br label %return
 
 return:                                           ; preds = %if.end71, %if.then70, %if.then65, %if.then56, %if.then48, %if.then20, %if.then9, %if.then
-  %46 = load ptr, ptr %retval, align 8
-  ret ptr %46
+  %54 = load ptr, ptr %retval, align 8
+  ret ptr %54
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #3
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare void @strbuf_attach(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @stat64(ptr noundef, ptr noundef) #2
-
-declare i32 @is_git_directory(ptr noundef) #3
-
-declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) #3
+declare void @strbuf_attach(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) #2
+declare i32 @stat64(ptr noundef, ptr noundef) #1
 
-declare void @set_git_dir(ptr noundef, i32 noundef) #3
+declare i32 @is_git_directory(ptr noundef) #2
 
-declare void @check_repository_format(ptr noundef) #3
+declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @chdir(ptr noundef) #1
+
+declare void @set_git_dir(ptr noundef, i32 noundef) #2
+
+declare void @check_repository_format(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @adjust_shared_perm(ptr noundef %path) #0 {
@@ -1804,7 +1806,7 @@ return:                                           ; preds = %if.end20, %if.then1
   ret i32 %11
 }
 
-declare i32 @get_shared_repository() #3
+declare i32 @get_shared_repository() #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_st_mode_bits(ptr noundef %path, ptr noundef %mode) #0 {
@@ -1911,7 +1913,7 @@ if.end18:                                         ; preds = %if.else16, %if.then
 }
 
 ; Function Attrs: nounwind
-declare i32 @chmod(ptr noundef, i32 noundef) #2
+declare i32 @chmod(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @safe_create_dir(ptr noundef %dir, i32 noundef %share) #0 {
@@ -1966,20 +1968,20 @@ if.end10:                                         ; preds = %if.end9, %if.end
 }
 
 ; Function Attrs: nounwind
-declare i32 @mkdir(ptr noundef, i32 noundef) #2
+declare i32 @mkdir(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #6
+declare ptr @__errno_location() #5
 
-declare void @perror(ptr noundef) #3
+declare void @perror(ptr noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #7
+declare void @exit(i32 noundef) #6
 
-declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) #3
+declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #8
+declare void @die(ptr noundef, ...) #7
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_(ptr noundef %msgid) #0 {
@@ -2534,7 +2536,7 @@ entry:
   ret i32 %conv
 }
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) #3
+declare void @strbuf_grow(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @remove_leading_path(ptr noundef %in, ptr noundef %prefix) #0 {
@@ -2760,13 +2762,14 @@ if.else74:                                        ; preds = %while.end69
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else74, %if.then73
-  %50 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @remove_leading_path.buf, i32 0, i32 2), align 8
-  store ptr %50, ptr %retval, align 8
+  %50 = getelementptr inbounds %struct.strbuf, ptr @remove_leading_path.buf, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end75, %if.then59, %if.then38, %if.then13, %if.then
-  %51 = load ptr, ptr %retval, align 8
-  ret ptr %51
+  %52 = load ptr, ptr %retval, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3362,10 +3365,10 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ends_with_path_components(ptr noundef %path, ptr noundef %components) #0 {
@@ -3549,7 +3552,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret ptr %cond
 }
 
-declare ptr @xstrndup(ptr noundef, i64 noundef) #3
+declare ptr @xstrndup(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @daemon_avoid_alias(ptr noundef %p) #0 {
@@ -4385,7 +4388,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #8
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_worktree_gitdir(ptr noundef %buf, ptr noundef %repo, ptr noundef %wt) #0 {
@@ -4717,7 +4720,7 @@ return:                                           ; preds = %while.end, %if.then
   ret i32 %14
 }
 
-declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) #3
+declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dir_prefix(ptr noundef %buf, ptr noundef %dir) #0 {
@@ -5630,10 +5633,10 @@ return:                                           ; preds = %if.end74, %if.else,
   ret ptr %82
 }
 
-declare ptr @xmalloc(i64 noundef) #3
+declare ptr @xmalloc(i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @make_trie_node(ptr noundef %key, ptr noundef %value) #0 {
@@ -5686,11 +5689,11 @@ if.end:                                           ; preds = %if.then, %entry
   ret ptr %14
 }
 
-declare ptr @xcalloc(i64 noundef, i64 noundef) #3
+declare ptr @xcalloc(i64 noundef, i64 noundef) #2
 
-declare void @strbuf_remove(ptr noundef, i64 noundef, i64 noundef) #3
+declare void @strbuf_remove(ptr noundef, i64 noundef, i64 noundef) #2
 
-declare i32 @submodule_to_gitdir(ptr noundef, ptr noundef) #3
+declare i32 @submodule_to_gitdir(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_complete(ptr noundef %sb, i8 noundef signext %term) #0 {
@@ -5732,19 +5735,19 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   ret void
 }
 
-declare void @strbuf_addbuf(ptr noundef, ptr noundef) #3
+declare void @strbuf_addbuf(ptr noundef, ptr noundef) #2
 
-declare i32 @get_common_dir_noenv(ptr noundef, ptr noundef) #3
+declare i32 @get_common_dir_noenv(ptr noundef, ptr noundef) #2
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) #3
+declare ptr @xmemdupz(ptr noundef, i64 noundef) #2
 
-declare ptr @getpwnam(ptr noundef) #3
-
-; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare ptr @getpwnam(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #2
+declare void @free(ptr noundef) #1
+
+; Function Attrs: nounwind
+declare ptr @gettext(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @is_absolute_path(ptr noundef %path) #0 {
@@ -6123,18 +6126,24 @@ return:                                           ; preds = %if.then93, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn }
 attributes #12 = { nounwind willreturn memory(read) }

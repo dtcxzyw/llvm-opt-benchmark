@@ -94,46 +94,47 @@ define dso_local noundef zeroext i1 @list_lru_add_obj(ptr nocapture noundef read
   %4 = inttoptr i64 %3 to ptr
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %5, 2147483648
-  %7 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %8 = load i64, ptr @phys_base, align 8
-  %9 = load i64, ptr @page_offset_base, align 8
-  %10 = sub i64 -2147483648, %9
-  %11 = select i1 %7, i64 %8, i64 %10
-  %12 = add i64 %6, %11
-  %13 = lshr i64 %12, 12
-  %14 = getelementptr %struct.page, ptr %4, i64 %13
-  %15 = load i64, ptr %14, align 16
-  %16 = lshr i64 %15, 58
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr %struct.list_lru_node, ptr %17, i64 %16
-  tail call void @_raw_spin_lock(ptr noundef %18) #6
-  %19 = load volatile ptr, ptr %1, align 8
-  %20 = icmp eq ptr %19, %1
-  br i1 %20, label %21, label %33
+  %7 = inttoptr i64 -2147483649 to ptr
+  %8 = icmp ugt ptr %1, %7
+  %9 = load i64, ptr @phys_base, align 8
+  %10 = load i64, ptr @page_offset_base, align 8
+  %11 = sub i64 -2147483648, %10
+  %12 = select i1 %8, i64 %9, i64 %11
+  %13 = add i64 %6, %12
+  %14 = lshr i64 %13, 12
+  %15 = getelementptr %struct.page, ptr %4, i64 %14
+  %16 = load i64, ptr %15, align 16
+  %17 = lshr i64 %16, 58
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr %struct.list_lru_node, ptr %18, i64 %17
+  tail call void @_raw_spin_lock(ptr noundef %19) #6
+  %20 = load volatile ptr, ptr %1, align 8
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %22, label %34
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr %struct.list_lru_node, ptr %22, i64 %16, i32 1
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %1, ptr %24, align 8
-  store ptr %23, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %25, ptr %26, align 8
-  store volatile ptr %1, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 32
-  %31 = load i64, ptr %30, align 32
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %30, align 32
-  br label %33
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr %struct.list_lru_node, ptr %23, i64 %17, i32 1
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %1, ptr %25, align 8
+  store ptr %24, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %26, ptr %27, align 8
+  store volatile ptr %1, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %19, i64 32
+  %32 = load i64, ptr %31, align 32
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %31, align 32
+  br label %34
 
-33:                                               ; preds = %21, %2
-  tail call void @_raw_spin_unlock(ptr noundef %18) #6
-  ret i1 %20
+34:                                               ; preds = %22, %2
+  tail call void @_raw_spin_unlock(ptr noundef %19) #6
+  ret i1 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -176,45 +177,46 @@ define dso_local noundef zeroext i1 @list_lru_del_obj(ptr nocapture noundef read
   %4 = inttoptr i64 %3 to ptr
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %5, 2147483648
-  %7 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %8 = load i64, ptr @phys_base, align 8
-  %9 = load i64, ptr @page_offset_base, align 8
-  %10 = sub i64 -2147483648, %9
-  %11 = select i1 %7, i64 %8, i64 %10
-  %12 = add i64 %6, %11
-  %13 = lshr i64 %12, 12
-  %14 = getelementptr %struct.page, ptr %4, i64 %13
-  %15 = load i64, ptr %14, align 16
-  %16 = lshr i64 %15, 58
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr %struct.list_lru_node, ptr %17, i64 %16
-  tail call void @_raw_spin_lock(ptr noundef %18) #6
-  %19 = load volatile ptr, ptr %1, align 8
-  %20 = icmp ne ptr %19, %1
-  br i1 %20, label %21, label %32
+  %7 = inttoptr i64 -2147483649 to ptr
+  %8 = icmp ugt ptr %1, %7
+  %9 = load i64, ptr @phys_base, align 8
+  %10 = load i64, ptr @page_offset_base, align 8
+  %11 = sub i64 -2147483648, %10
+  %12 = select i1 %8, i64 %9, i64 %11
+  %13 = add i64 %6, %12
+  %14 = lshr i64 %13, 12
+  %15 = getelementptr %struct.page, ptr %4, i64 %14
+  %16 = load i64, ptr %15, align 16
+  %17 = lshr i64 %16, 58
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr %struct.list_lru_node, ptr %18, i64 %17
+  tail call void @_raw_spin_lock(ptr noundef %19) #6
+  %20 = load volatile ptr, ptr %1, align 8
+  %21 = icmp ne ptr %20, %1
+  br i1 %21, label %22, label %33
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %24, ptr %25, align 8
-  store volatile ptr %19, ptr %24, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %25, ptr %26, align 8
+  store volatile ptr %20, ptr %25, align 8
   store volatile ptr %1, ptr %1, align 8
-  store volatile ptr %1, ptr %23, align 8
-  %26 = getelementptr %struct.list_lru_node, ptr %22, i64 %16, i32 1, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, -1
-  store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %18, i64 32
-  %30 = load i64, ptr %29, align 32
-  %31 = add i64 %30, -1
-  store i64 %31, ptr %29, align 32
-  br label %32
+  store volatile ptr %1, ptr %24, align 8
+  %27 = getelementptr %struct.list_lru_node, ptr %23, i64 %17, i32 1, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, -1
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %19, i64 32
+  %31 = load i64, ptr %30, align 32
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %30, align 32
+  br label %33
 
-32:                                               ; preds = %21, %2
-  tail call void @_raw_spin_unlock(ptr noundef %18) #6
-  ret i1 %20
+33:                                               ; preds = %22, %2
+  tail call void @_raw_spin_unlock(ptr noundef %19) #6
+  ret i1 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid

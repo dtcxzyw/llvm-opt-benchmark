@@ -109,24 +109,25 @@ entry:
   store i32 %capacity, ptr %capacity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %outbuf_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %outbuf.addr, align 8
-  store ptr %0, ptr %outbuf_, align 8
+  %1 = load ptr, ptr %outbuf.addr, align 8
+  store ptr %1, ptr %outbuf_, align 8
   %capacity_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %capacity.addr, align 4
-  %cmp = icmp slt i32 %1, 0
+  %2 = load i32, ptr %capacity.addr, align 4
+  %cmp = icmp slt i32 %2, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %2 = load i32, ptr %capacity.addr, align 4
+  %3 = load i32, ptr %capacity.addr, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %2, %cond.false ]
+  %cond = phi i32 [ 0, %cond.true ], [ %3, %cond.false ]
   store i32 %cond, ptr %capacity_, align 8
   %size_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this1, i32 0, i32 3
   store i32 0, ptr %size_, align 4
@@ -143,7 +144,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

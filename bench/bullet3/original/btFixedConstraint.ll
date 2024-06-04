@@ -162,7 +162,8 @@ entry:
   %2 = load ptr, ptr %frameInA.addr, align 8
   %3 = load ptr, ptr %frameInB.addr, align 8
   call void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   store float 0.000000e+00, ptr %ref.tmp2, align 4
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 0.000000e+00, ptr %ref.tmp4, align 4
@@ -210,12 +211,12 @@ invoke.cont23:                                    ; preds = %invoke.cont22
   ret void
 
 lpad:                                             ; preds = %invoke.cont22, %invoke.cont17, %invoke.cont16, %invoke.cont11, %invoke.cont10, %invoke.cont5, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN30btGeneric6DofSpring2ConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this1) #8
   br label %eh.resume
 
@@ -437,7 +438,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

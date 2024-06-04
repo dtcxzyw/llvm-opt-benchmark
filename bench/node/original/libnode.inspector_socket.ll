@@ -956,10 +956,11 @@ entry:
   store ptr %inspector, ptr %inspector.addr, align 8
   store ptr %tcp, ptr %tcp.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inspector_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %inspector.addr, align 8
-  store ptr %0, ptr %inspector_, align 8
+  %1 = load ptr, ptr %inspector.addr, align 8
+  store ptr %1, ptr %inspector_, align 8
   %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %tcp_, ptr noundef nonnull align 8 dereferenceable(8) %tcp) #13
   br label %do.body
@@ -1957,7 +1958,8 @@ entry:
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %tcp) #13
   call void @_ZN4node9inspector15ProtocolHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS5_XadL_ZNS5_20DisconnectAndDisposeEPS5_EEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, ptr noundef %agg.tmp)
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %parsing_value_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this1, i32 0, i32 1
   store i8 0, ptr %parsing_value_, align 8
   %events_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this1, i32 0, i32 4
@@ -2191,7 +2193,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tcp_) #13
   ret void
@@ -3794,7 +3797,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %path_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #13
   %headers_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this1, i32 0, i32 6
@@ -7039,7 +7043,8 @@ entry:
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %tcp) #13
   call void @_ZN4node9inspector15ProtocolHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS5_XadL_ZNS5_20DisconnectAndDisposeEPS5_EEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, ptr noundef %agg.tmp)
   call void @_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %OnCloseSent = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this1, i32 0, i32 1
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv to i64), i64 0 }, ptr %OnCloseSent, align 8
   %OnCloseReceived = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this1, i32 0, i32 2
@@ -9030,7 +9035,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  call void @_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef @_ZN4node9inspector12_GLOBAL__N_111CLOSE_FRAMEE, ptr noundef getelementptr inbounds (i8, ptr @_ZN4node9inspector12_GLOBAL__N_111CLOSE_FRAMEE, i64 2), ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  %0 = getelementptr inbounds i8, ptr @_ZN4node9inspector12_GLOBAL__N_111CLOSE_FRAMEE, i64 2
+  call void @_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef @_ZN4node9inspector12_GLOBAL__N_111CLOSE_FRAMEE, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
   %call = call noundef i32 @_ZN4node9inspector15ProtocolHandler8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef @_ZN4node9inspector12_GLOBAL__N_19WsHandler19OnCloseFrameWrittenEP10uv_write_si)
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13

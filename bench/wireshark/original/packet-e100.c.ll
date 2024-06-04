@@ -127,7 +127,7 @@ define internal i32 @dissect_e100(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 34:                                               ; preds = %25, %19, %4
   store i32 0, ptr %5, align 4
-  br label %110
+  br label %118
 
 35:                                               ; preds = %25
   %36 = load ptr, ptr %7, align 8
@@ -152,69 +152,77 @@ define internal i32 @dissect_e100(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %51 = load i32, ptr @hf_e100_header, align 4
   %52 = load ptr, ptr %6, align 8
   %53 = load i32, ptr @e100_header_ver, align 4
-  %54 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_header_ver, i32 0, i32 1), align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef 0)
-  %56 = load ptr, ptr %14, align 8
-  %57 = load i32, ptr @hf_e100_port, align 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = load i32, ptr @e100_port_recv, align 4
-  %60 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_port_recv, i32 0, i32 1), align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef 0)
-  %62 = load ptr, ptr %14, align 8
-  %63 = load i32, ptr @hf_e100_seq, align 4
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr @e100_seq, align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_seq, i32 0, i32 1), align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef %66, i32 noundef 0)
-  %68 = load ptr, ptr %14, align 8
-  %69 = load i32, ptr @hf_e100_ip, align 4
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i32, ptr @e100_ip, align 4
-  %72 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_ip, i32 0, i32 1), align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef 0)
-  %74 = load ptr, ptr %14, align 8
-  %75 = load i32, ptr @hf_e100_mon_pkt_id, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr @e100_mon_pkt_id, align 4
-  %78 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_mon_pkt_id, i32 0, i32 1), align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef 0)
-  %80 = load ptr, ptr %14, align 8
-  %81 = load i32, ptr @hf_e100_pkt_ts, align 4
-  %82 = load ptr, ptr %6, align 8
-  %83 = load i32, ptr @e100_ts, align 4
-  %84 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_ts, i32 0, i32 1), align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef 16)
-  %86 = load ptr, ptr %14, align 8
-  %87 = load i32, ptr @hf_e100_bytes_cap, align 4
-  %88 = load ptr, ptr %6, align 8
-  %89 = load i32, ptr @e100_bytes_cap, align 4
-  %90 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_bytes_cap, i32 0, i32 1), align 4
-  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef 0, ptr noundef %11)
+  %54 = getelementptr inbounds %struct._e100_encap, ptr @e100_header_ver, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef 0)
+  %57 = load ptr, ptr %14, align 8
+  %58 = load i32, ptr @hf_e100_port, align 4
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i32, ptr @e100_port_recv, align 4
+  %61 = getelementptr inbounds %struct._e100_encap, ptr @e100_port_recv, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef %62, i32 noundef 0)
+  %64 = load ptr, ptr %14, align 8
+  %65 = load i32, ptr @hf_e100_seq, align 4
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i32, ptr @e100_seq, align 4
+  %68 = getelementptr inbounds %struct._e100_encap, ptr @e100_seq, i32 0, i32 1
+  %69 = load i32, ptr %68, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef %69, i32 noundef 0)
+  %71 = load ptr, ptr %14, align 8
+  %72 = load i32, ptr @hf_e100_ip, align 4
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr @e100_ip, align 4
+  %75 = getelementptr inbounds %struct._e100_encap, ptr @e100_ip, i32 0, i32 1
+  %76 = load i32, ptr %75, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %76, i32 noundef 0)
+  %78 = load ptr, ptr %14, align 8
+  %79 = load i32, ptr @hf_e100_mon_pkt_id, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr @e100_mon_pkt_id, align 4
+  %82 = getelementptr inbounds %struct._e100_encap, ptr @e100_mon_pkt_id, i32 0, i32 1
+  %83 = load i32, ptr %82, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %83, i32 noundef 0)
+  %85 = load ptr, ptr %14, align 8
+  %86 = load i32, ptr @hf_e100_pkt_ts, align 4
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr @e100_ts, align 4
+  %89 = getelementptr inbounds %struct._e100_encap, ptr @e100_ts, i32 0, i32 1
+  %90 = load i32, ptr %89, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef %90, i32 noundef 16)
   %92 = load ptr, ptr %14, align 8
-  %93 = load i32, ptr @hf_e100_bytes_orig, align 4
+  %93 = load i32, ptr @hf_e100_bytes_cap, align 4
   %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr @e100_bytes_orig, align 4
-  %96 = load i32, ptr getelementptr inbounds (%struct._e100_encap, ptr @e100_bytes_orig, i32 0, i32 1), align 4
-  %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %96, i32 noundef 0, ptr noundef %12)
-  %98 = load ptr, ptr %6, align 8
-  %99 = load i32, ptr @e100_encap_len, align 4
-  %100 = load i32, ptr %11, align 4
-  %101 = load i32, ptr %12, align 4
-  %102 = call ptr @tvb_new_subset_length_caplen(ptr noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101)
-  store ptr %102, ptr %10, align 8
-  %103 = load ptr, ptr @eth_handle, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call i32 @call_dissector(ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106)
-  %108 = load ptr, ptr %6, align 8
-  %109 = call i32 @tvb_captured_length(ptr noundef %108)
-  store i32 %109, ptr %5, align 4
-  br label %110
+  %95 = load i32, ptr @e100_bytes_cap, align 4
+  %96 = getelementptr inbounds %struct._e100_encap, ptr @e100_bytes_cap, i32 0, i32 1
+  %97 = load i32, ptr %96, align 4
+  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %97, i32 noundef 0, ptr noundef %11)
+  %99 = load ptr, ptr %14, align 8
+  %100 = load i32, ptr @hf_e100_bytes_orig, align 4
+  %101 = load ptr, ptr %6, align 8
+  %102 = load i32, ptr @e100_bytes_orig, align 4
+  %103 = getelementptr inbounds %struct._e100_encap, ptr @e100_bytes_orig, i32 0, i32 1
+  %104 = load i32, ptr %103, align 4
+  %105 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef %104, i32 noundef 0, ptr noundef %12)
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr @e100_encap_len, align 4
+  %108 = load i32, ptr %11, align 4
+  %109 = load i32, ptr %12, align 4
+  %110 = call ptr @tvb_new_subset_length_caplen(ptr noundef %106, i32 noundef %107, i32 noundef %108, i32 noundef %109)
+  store ptr %110, ptr %10, align 8
+  %111 = load ptr, ptr @eth_handle, align 8
+  %112 = load ptr, ptr %10, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %8, align 8
+  %115 = call i32 @call_dissector(ptr noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114)
+  %116 = load ptr, ptr %6, align 8
+  %117 = call i32 @tvb_captured_length(ptr noundef %116)
+  store i32 %117, ptr %5, align 4
+  br label %118
 
-110:                                              ; preds = %35, %34
-  %111 = load i32, ptr %5, align 4
-  ret i32 %111
+118:                                              ; preds = %35, %34
+  %119 = load i32, ptr %5, align 4
+  ret i32 %119
 }
 
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1

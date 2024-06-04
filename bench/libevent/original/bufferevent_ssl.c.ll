@@ -1671,11 +1671,12 @@ do.body1:                                         ; preds = %do.body
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %locking, align 8
-  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %4, i32 0, i32 11
-  %5 = load ptr, ptr %lock2, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %locking, align 8
+  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %5, i32 0, i32 11
+  %6 = load ptr, ptr %lock2, align 8
+  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
@@ -1685,16 +1686,16 @@ do.end:                                           ; preds = %if.end
   br label %do.end3
 
 do.end3:                                          ; preds = %do.end
-  %6 = load ptr, ptr %bev.addr, align 8
-  %call4 = call ptr @bufferevent_ssl_upcast(ptr noundef %6)
+  %7 = load ptr, ptr %bev.addr, align 8
+  %call4 = call ptr @bufferevent_ssl_upcast(ptr noundef %7)
   store ptr %call4, ptr %bev_ssl, align 8
-  %7 = load ptr, ptr %bev_ssl, align 8
-  %tobool5 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %bev_ssl, align 8
+  %tobool5 = icmp ne ptr %8, null
   br i1 %tobool5, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %do.end3
-  %8 = load ptr, ptr %bev_ssl, align 8
-  %n_errors = getelementptr inbounds %struct.bufferevent_ssl, ptr %8, i32 0, i32 8
+  %9 = load ptr, ptr %bev_ssl, align 8
+  %n_errors = getelementptr inbounds %struct.bufferevent_ssl, ptr %9, i32 0, i32 8
   %bf.load = load i8, ptr %n_errors, align 4
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 3
@@ -1703,18 +1704,18 @@ land.lhs.true:                                    ; preds = %do.end3
   br i1 %tobool6, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr %bev_ssl, align 8
-  %errors = getelementptr inbounds %struct.bufferevent_ssl, ptr %9, i32 0, i32 7
   %10 = load ptr, ptr %bev_ssl, align 8
-  %n_errors8 = getelementptr inbounds %struct.bufferevent_ssl, ptr %10, i32 0, i32 8
+  %errors = getelementptr inbounds %struct.bufferevent_ssl, ptr %10, i32 0, i32 7
+  %11 = load ptr, ptr %bev_ssl, align 8
+  %n_errors8 = getelementptr inbounds %struct.bufferevent_ssl, ptr %11, i32 0, i32 8
   %bf.load9 = load i8, ptr %n_errors8, align 4
   %bf.lshr10 = lshr i8 %bf.load9, 2
   %bf.clear11 = and i8 %bf.lshr10, 3
   %bf.cast12 = zext i8 %bf.clear11 to i32
   %dec = add i32 %bf.cast12, -1
-  %11 = trunc i32 %dec to i8
+  %12 = trunc i32 %dec to i8
   %bf.load13 = load i8, ptr %n_errors8, align 4
-  %bf.value = and i8 %11, 3
+  %bf.value = and i8 %12, 3
   %bf.shl = shl i8 %bf.value, 2
   %bf.clear14 = and i8 %bf.load13, -13
   %bf.set = or i8 %bf.clear14, %bf.shl
@@ -1722,8 +1723,8 @@ if.then7:                                         ; preds = %land.lhs.true
   %bf.result.cast = zext i8 %bf.value to i32
   %idxprom = zext i32 %bf.result.cast to i64
   %arrayidx = getelementptr inbounds [3 x i32], ptr %errors, i64 0, i64 %idxprom
-  %12 = load i32, ptr %arrayidx, align 4
-  %conv = zext i32 %12 to i64
+  %13 = load i32, ptr %arrayidx, align 4
+  %conv = zext i32 %13 to i64
   store i64 %conv, ptr %err, align 8
   br label %if.end15
 
@@ -1731,24 +1732,25 @@ if.end15:                                         ; preds = %if.then7, %land.lhs
   br label %do.body16
 
 do.body16:                                        ; preds = %if.end15
-  %13 = load ptr, ptr %bev.addr, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %13, i64 0
+  %14 = load ptr, ptr %bev.addr, align 8
+  %add.ptr18 = getelementptr inbounds i8, ptr %14, i64 0
   store ptr %add.ptr18, ptr %locking17, align 8
   br label %do.body19
 
 do.body19:                                        ; preds = %do.body16
-  %14 = load ptr, ptr %locking17, align 8
-  %lock20 = getelementptr inbounds %struct.bufferevent_private, ptr %14, i32 0, i32 11
-  %15 = load ptr, ptr %lock20, align 8
-  %tobool21 = icmp ne ptr %15, null
+  %15 = load ptr, ptr %locking17, align 8
+  %lock20 = getelementptr inbounds %struct.bufferevent_private, ptr %15, i32 0, i32 11
+  %16 = load ptr, ptr %lock20, align 8
+  %tobool21 = icmp ne ptr %16, null
   br i1 %tobool21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %do.body19
-  %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %17 = load ptr, ptr %locking17, align 8
-  %lock23 = getelementptr inbounds %struct.bufferevent_private, ptr %17, i32 0, i32 11
-  %18 = load ptr, ptr %lock23, align 8
-  %call24 = call i32 %16(i32 noundef 0, ptr noundef %18)
+  %17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %locking17, align 8
+  %lock23 = getelementptr inbounds %struct.bufferevent_private, ptr %19, i32 0, i32 11
+  %20 = load ptr, ptr %lock23, align 8
+  %call24 = call i32 %18(i32 noundef 0, ptr noundef %20)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %do.body19
@@ -1758,8 +1760,8 @@ do.end26:                                         ; preds = %if.end25
   br label %do.end27
 
 do.end27:                                         ; preds = %do.end26
-  %19 = load i64, ptr %err, align 8
-  ret i64 %19
+  %21 = load i64, ptr %err, align 8
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1788,11 +1790,12 @@ do.body1:                                         ; preds = %do.body
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %locking, align 8
-  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %4, i32 0, i32 11
-  %5 = load ptr, ptr %lock2, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %locking, align 8
+  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %5, i32 0, i32 11
+  %6 = load ptr, ptr %lock2, align 8
+  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
@@ -1802,42 +1805,43 @@ do.end:                                           ; preds = %if.end
   br label %do.end3
 
 do.end3:                                          ; preds = %do.end
-  %6 = load ptr, ptr %bev.addr, align 8
-  %call4 = call ptr @bufferevent_ssl_upcast(ptr noundef %6)
+  %7 = load ptr, ptr %bev.addr, align 8
+  %call4 = call ptr @bufferevent_ssl_upcast(ptr noundef %7)
   store ptr %call4, ptr %bev_ssl, align 8
-  %7 = load ptr, ptr %bev_ssl, align 8
-  %tobool5 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %bev_ssl, align 8
+  %tobool5 = icmp ne ptr %8, null
   br i1 %tobool5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %do.end3
-  %8 = load ptr, ptr %bev_ssl, align 8
-  %flags7 = getelementptr inbounds %struct.bufferevent_ssl, ptr %8, i32 0, i32 9
-  %9 = load i64, ptr %flags7, align 8
-  store i64 %9, ptr %flags, align 8
+  %9 = load ptr, ptr %bev_ssl, align 8
+  %flags7 = getelementptr inbounds %struct.bufferevent_ssl, ptr %9, i32 0, i32 9
+  %10 = load i64, ptr %flags7, align 8
+  store i64 %10, ptr %flags, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %do.end3
   br label %do.body9
 
 do.body9:                                         ; preds = %if.end8
-  %10 = load ptr, ptr %bev.addr, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %10, i64 0
+  %11 = load ptr, ptr %bev.addr, align 8
+  %add.ptr11 = getelementptr inbounds i8, ptr %11, i64 0
   store ptr %add.ptr11, ptr %locking10, align 8
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body9
-  %11 = load ptr, ptr %locking10, align 8
-  %lock13 = getelementptr inbounds %struct.bufferevent_private, ptr %11, i32 0, i32 11
-  %12 = load ptr, ptr %lock13, align 8
-  %tobool14 = icmp ne ptr %12, null
+  %12 = load ptr, ptr %locking10, align 8
+  %lock13 = getelementptr inbounds %struct.bufferevent_private, ptr %12, i32 0, i32 11
+  %13 = load ptr, ptr %lock13, align 8
+  %tobool14 = icmp ne ptr %13, null
   br i1 %tobool14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.body12
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %14 = load ptr, ptr %locking10, align 8
-  %lock16 = getelementptr inbounds %struct.bufferevent_private, ptr %14, i32 0, i32 11
-  %15 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %13(i32 noundef 0, ptr noundef %15)
+  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %locking10, align 8
+  %lock16 = getelementptr inbounds %struct.bufferevent_private, ptr %16, i32 0, i32 11
+  %17 = load ptr, ptr %lock16, align 8
+  %call17 = call i32 %15(i32 noundef 0, ptr noundef %17)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.body12
@@ -1847,8 +1851,8 @@ do.end19:                                         ; preds = %if.end18
   br label %do.end20
 
 do.end20:                                         ; preds = %do.end19
-  %16 = load i64, ptr %flags, align 8
-  ret i64 %16
+  %18 = load i64, ptr %flags, align 8
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1893,11 +1897,12 @@ do.body1:                                         ; preds = %do.body
   br i1 %tobool2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.body1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %locking, align 8
-  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %7, i32 0, i32 11
-  %8 = load ptr, ptr %lock4, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %locking, align 8
+  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %8, i32 0, i32 11
+  %9 = load ptr, ptr %lock4, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %do.body1
@@ -1907,23 +1912,23 @@ do.end:                                           ; preds = %if.end5
   br label %do.end6
 
 do.end6:                                          ; preds = %do.end
-  %9 = load ptr, ptr %bev.addr, align 8
-  %call7 = call ptr @bufferevent_ssl_upcast(ptr noundef %9)
+  %10 = load ptr, ptr %bev.addr, align 8
+  %call7 = call ptr @bufferevent_ssl_upcast(ptr noundef %10)
   store ptr %call7, ptr %bev_ssl, align 8
-  %10 = load ptr, ptr %bev_ssl, align 8
-  %tobool8 = icmp ne ptr %10, null
+  %11 = load ptr, ptr %bev_ssl, align 8
+  %tobool8 = icmp ne ptr %11, null
   br i1 %tobool8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %do.end6
-  %11 = load ptr, ptr %bev_ssl, align 8
-  %flags10 = getelementptr inbounds %struct.bufferevent_ssl, ptr %11, i32 0, i32 9
-  %12 = load i64, ptr %flags10, align 8
-  store i64 %12, ptr %old_flags, align 8
-  %13 = load i64, ptr %flags.addr, align 8
-  %14 = load ptr, ptr %bev_ssl, align 8
-  %flags11 = getelementptr inbounds %struct.bufferevent_ssl, ptr %14, i32 0, i32 9
-  %15 = load i64, ptr %flags11, align 8
-  %or = or i64 %15, %13
+  %12 = load ptr, ptr %bev_ssl, align 8
+  %flags10 = getelementptr inbounds %struct.bufferevent_ssl, ptr %12, i32 0, i32 9
+  %13 = load i64, ptr %flags10, align 8
+  store i64 %13, ptr %old_flags, align 8
+  %14 = load i64, ptr %flags.addr, align 8
+  %15 = load ptr, ptr %bev_ssl, align 8
+  %flags11 = getelementptr inbounds %struct.bufferevent_ssl, ptr %15, i32 0, i32 9
+  %16 = load i64, ptr %flags11, align 8
+  %or = or i64 %16, %14
   store i64 %or, ptr %flags11, align 8
   br label %if.end12
 
@@ -1931,24 +1936,25 @@ if.end12:                                         ; preds = %if.then9, %do.end6
   br label %do.body13
 
 do.body13:                                        ; preds = %if.end12
-  %16 = load ptr, ptr %bev.addr, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %16, i64 0
+  %17 = load ptr, ptr %bev.addr, align 8
+  %add.ptr15 = getelementptr inbounds i8, ptr %17, i64 0
   store ptr %add.ptr15, ptr %locking14, align 8
   br label %do.body16
 
 do.body16:                                        ; preds = %do.body13
-  %17 = load ptr, ptr %locking14, align 8
-  %lock17 = getelementptr inbounds %struct.bufferevent_private, ptr %17, i32 0, i32 11
-  %18 = load ptr, ptr %lock17, align 8
-  %tobool18 = icmp ne ptr %18, null
+  %18 = load ptr, ptr %locking14, align 8
+  %lock17 = getelementptr inbounds %struct.bufferevent_private, ptr %18, i32 0, i32 11
+  %19 = load ptr, ptr %lock17, align 8
+  %tobool18 = icmp ne ptr %19, null
   br i1 %tobool18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %do.body16
-  %19 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %20 = load ptr, ptr %locking14, align 8
-  %lock20 = getelementptr inbounds %struct.bufferevent_private, ptr %20, i32 0, i32 11
-  %21 = load ptr, ptr %lock20, align 8
-  %call21 = call i32 %19(i32 noundef 0, ptr noundef %21)
+  %20 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %locking14, align 8
+  %lock20 = getelementptr inbounds %struct.bufferevent_private, ptr %22, i32 0, i32 11
+  %23 = load ptr, ptr %lock20, align 8
+  %call21 = call i32 %21(i32 noundef 0, ptr noundef %23)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %do.body16
@@ -1958,13 +1964,13 @@ do.end23:                                         ; preds = %if.end22
   br label %do.end24
 
 do.end24:                                         ; preds = %do.end23
-  %22 = load i64, ptr %old_flags, align 8
-  store i64 %22, ptr %retval, align 8
+  %24 = load i64, ptr %old_flags, align 8
+  store i64 %24, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end24, %if.then
-  %23 = load i64, ptr %retval, align 8
-  ret i64 %23
+  %25 = load i64, ptr %retval, align 8
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2009,11 +2015,12 @@ do.body1:                                         ; preds = %do.body
   br i1 %tobool2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.body1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %locking, align 8
-  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %7, i32 0, i32 11
-  %8 = load ptr, ptr %lock4, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %locking, align 8
+  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %8, i32 0, i32 11
+  %9 = load ptr, ptr %lock4, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %do.body1
@@ -2023,24 +2030,24 @@ do.end:                                           ; preds = %if.end5
   br label %do.end6
 
 do.end6:                                          ; preds = %do.end
-  %9 = load ptr, ptr %bev.addr, align 8
-  %call7 = call ptr @bufferevent_ssl_upcast(ptr noundef %9)
+  %10 = load ptr, ptr %bev.addr, align 8
+  %call7 = call ptr @bufferevent_ssl_upcast(ptr noundef %10)
   store ptr %call7, ptr %bev_ssl, align 8
-  %10 = load ptr, ptr %bev_ssl, align 8
-  %tobool8 = icmp ne ptr %10, null
+  %11 = load ptr, ptr %bev_ssl, align 8
+  %tobool8 = icmp ne ptr %11, null
   br i1 %tobool8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %do.end6
-  %11 = load ptr, ptr %bev_ssl, align 8
-  %flags10 = getelementptr inbounds %struct.bufferevent_ssl, ptr %11, i32 0, i32 9
-  %12 = load i64, ptr %flags10, align 8
-  store i64 %12, ptr %old_flags, align 8
-  %13 = load i64, ptr %flags.addr, align 8
-  %not = xor i64 %13, -1
-  %14 = load ptr, ptr %bev_ssl, align 8
-  %flags11 = getelementptr inbounds %struct.bufferevent_ssl, ptr %14, i32 0, i32 9
-  %15 = load i64, ptr %flags11, align 8
-  %and12 = and i64 %15, %not
+  %12 = load ptr, ptr %bev_ssl, align 8
+  %flags10 = getelementptr inbounds %struct.bufferevent_ssl, ptr %12, i32 0, i32 9
+  %13 = load i64, ptr %flags10, align 8
+  store i64 %13, ptr %old_flags, align 8
+  %14 = load i64, ptr %flags.addr, align 8
+  %not = xor i64 %14, -1
+  %15 = load ptr, ptr %bev_ssl, align 8
+  %flags11 = getelementptr inbounds %struct.bufferevent_ssl, ptr %15, i32 0, i32 9
+  %16 = load i64, ptr %flags11, align 8
+  %and12 = and i64 %16, %not
   store i64 %and12, ptr %flags11, align 8
   br label %if.end13
 
@@ -2048,24 +2055,25 @@ if.end13:                                         ; preds = %if.then9, %do.end6
   br label %do.body14
 
 do.body14:                                        ; preds = %if.end13
-  %16 = load ptr, ptr %bev.addr, align 8
-  %add.ptr16 = getelementptr inbounds i8, ptr %16, i64 0
+  %17 = load ptr, ptr %bev.addr, align 8
+  %add.ptr16 = getelementptr inbounds i8, ptr %17, i64 0
   store ptr %add.ptr16, ptr %locking15, align 8
   br label %do.body17
 
 do.body17:                                        ; preds = %do.body14
-  %17 = load ptr, ptr %locking15, align 8
-  %lock18 = getelementptr inbounds %struct.bufferevent_private, ptr %17, i32 0, i32 11
-  %18 = load ptr, ptr %lock18, align 8
-  %tobool19 = icmp ne ptr %18, null
+  %18 = load ptr, ptr %locking15, align 8
+  %lock18 = getelementptr inbounds %struct.bufferevent_private, ptr %18, i32 0, i32 11
+  %19 = load ptr, ptr %lock18, align 8
+  %tobool19 = icmp ne ptr %19, null
   br i1 %tobool19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %do.body17
-  %19 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %20 = load ptr, ptr %locking15, align 8
-  %lock21 = getelementptr inbounds %struct.bufferevent_private, ptr %20, i32 0, i32 11
-  %21 = load ptr, ptr %lock21, align 8
-  %call22 = call i32 %19(i32 noundef 0, ptr noundef %21)
+  %20 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %locking15, align 8
+  %lock21 = getelementptr inbounds %struct.bufferevent_private, ptr %22, i32 0, i32 11
+  %23 = load ptr, ptr %lock21, align 8
+  %call22 = call i32 %21(i32 noundef 0, ptr noundef %23)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %do.body17
@@ -2075,13 +2083,13 @@ do.end24:                                         ; preds = %if.end23
   br label %do.end25
 
 do.end25:                                         ; preds = %do.end24
-  %22 = load i64, ptr %old_flags, align 8
-  store i64 %22, ptr %retval, align 8
+  %24 = load i64, ptr %old_flags, align 8
+  store i64 %24, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end25, %if.then
-  %23 = load i64, ptr %retval, align 8
-  ret i64 %23
+  %25 = load i64, ptr %retval, align 8
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2144,11 +2152,12 @@ do.body1:                                         ; preds = %do.body
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %locking, align 8
-  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %4, i32 0, i32 11
-  %5 = load ptr, ptr %lock2, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %locking, align 8
+  %lock2 = getelementptr inbounds %struct.bufferevent_private, ptr %5, i32 0, i32 11
+  %6 = load ptr, ptr %lock2, align 8
+  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
@@ -2158,42 +2167,43 @@ do.end:                                           ; preds = %if.end
   br label %do.end3
 
 do.end3:                                          ; preds = %do.end
-  %6 = load i32, ptr %allow_dirty_shutdown.addr, align 4
-  %tobool4 = icmp ne i32 %6, 0
+  %7 = load i32, ptr %allow_dirty_shutdown.addr, align 4
+  %tobool4 = icmp ne i32 %7, 0
   br i1 %tobool4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %do.end3
-  %7 = load ptr, ptr %bev.addr, align 8
-  %call6 = call i64 @bufferevent_ssl_set_flags(ptr noundef %7, i64 noundef 1)
+  %8 = load ptr, ptr %bev.addr, align 8
+  %call6 = call i64 @bufferevent_ssl_set_flags(ptr noundef %8, i64 noundef 1)
   br label %if.end8
 
 if.else:                                          ; preds = %do.end3
-  %8 = load ptr, ptr %bev.addr, align 8
-  %call7 = call i64 @bufferevent_ssl_clear_flags(ptr noundef %8, i64 noundef 1)
+  %9 = load ptr, ptr %bev.addr, align 8
+  %call7 = call i64 @bufferevent_ssl_clear_flags(ptr noundef %9, i64 noundef 1)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then5
   br label %do.body9
 
 do.body9:                                         ; preds = %if.end8
-  %9 = load ptr, ptr %bev.addr, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %9, i64 0
+  %10 = load ptr, ptr %bev.addr, align 8
+  %add.ptr11 = getelementptr inbounds i8, ptr %10, i64 0
   store ptr %add.ptr11, ptr %locking10, align 8
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body9
-  %10 = load ptr, ptr %locking10, align 8
-  %lock13 = getelementptr inbounds %struct.bufferevent_private, ptr %10, i32 0, i32 11
-  %11 = load ptr, ptr %lock13, align 8
-  %tobool14 = icmp ne ptr %11, null
+  %11 = load ptr, ptr %locking10, align 8
+  %lock13 = getelementptr inbounds %struct.bufferevent_private, ptr %11, i32 0, i32 11
+  %12 = load ptr, ptr %lock13, align 8
+  %tobool14 = icmp ne ptr %12, null
   br i1 %tobool14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.body12
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %13 = load ptr, ptr %locking10, align 8
-  %lock16 = getelementptr inbounds %struct.bufferevent_private, ptr %13, i32 0, i32 11
-  %14 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %12(i32 noundef 0, ptr noundef %14)
+  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %locking10, align 8
+  %lock16 = getelementptr inbounds %struct.bufferevent_private, ptr %15, i32 0, i32 11
+  %16 = load ptr, ptr %lock16, align 8
+  %call17 = call i32 %14(i32 noundef 0, ptr noundef %16)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.body12

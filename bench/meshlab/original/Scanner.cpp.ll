@@ -1685,119 +1685,120 @@ define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 8
-  store ptr %9, ptr %10, align 8
-  %11 = load i8, ptr %6, align 1
-  %12 = trunc i8 %11 to i1
-  %13 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 9
-  %14 = zext i1 %12 to i8
-  store i8 %14, ptr %13, align 8
-  %15 = call noundef zeroext i1 @_ZN14VrmlTranslator6Buffer7CanSeekEv(ptr noundef nonnull align 8 dereferenceable(49) %8)
-  br i1 %15, label %16, label %36
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 8
+  store ptr %10, ptr %11, align 8
+  %12 = load i8, ptr %6, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 9
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 8
+  %16 = call noundef zeroext i1 @_ZN14VrmlTranslator6Buffer7CanSeekEv(ptr noundef nonnull align 8 dereferenceable(49) %8)
+  br i1 %16, label %17, label %37
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = call i32 @fseek(ptr noundef %17, i64 noundef 0, i32 noundef 2)
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i64 @ftell(ptr noundef %19)
-  %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  store i32 %21, ptr %22, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = call i32 @fseek(ptr noundef %23, i64 noundef 0, i32 noundef 0)
-  %25 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %26, 65536
-  br i1 %27, label %28, label %31
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = call i32 @fseek(ptr noundef %18, i64 noundef 0, i32 noundef 2)
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i64 @ftell(ptr noundef %20)
+  %22 = trunc i64 %21 to i32
+  %23 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  store i32 %22, ptr %23, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = call i32 @fseek(ptr noundef %24, i64 noundef 0, i32 noundef 0)
+  %26 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp slt i32 %27, 65536
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %16
-  %29 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  %30 = load i32, ptr %29, align 4
-  br label %32
+29:                                               ; preds = %17
+  %30 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  %31 = load i32, ptr %30, align 4
+  br label %33
 
-31:                                               ; preds = %16
-  br label %32
+32:                                               ; preds = %17
+  br label %33
 
-32:                                               ; preds = %31, %28
-  %33 = phi i32 [ %30, %28 ], [ 65536, %31 ]
-  %34 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
-  store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 3
-  store i32 2147483647, ptr %35, align 4
-  br label %40
+33:                                               ; preds = %32, %29
+  %34 = phi i32 [ %31, %29 ], [ 65536, %32 ]
+  %35 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 3
+  store i32 2147483647, ptr %36, align 4
+  br label %41
 
-36:                                               ; preds = %3
-  %37 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 3
-  store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  store i32 0, ptr %39, align 4
-  br label %40
+37:                                               ; preds = %3
+  %38 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 3
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
+  store i32 0, ptr %39, align 8
+  %40 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  store i32 0, ptr %40, align 4
+  br label %41
 
-40:                                               ; preds = %36, %32
-  %41 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %47
+41:                                               ; preds = %37, %33
+  %42 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  br label %48
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8
+  br label %49
 
-47:                                               ; preds = %40
-  br label %48
+48:                                               ; preds = %41
+  br label %49
 
-48:                                               ; preds = %47, %44
-  %49 = phi i32 [ %46, %44 ], [ 1024, %47 ]
-  %50 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 2
-  store i32 %49, ptr %50, align 8
+49:                                               ; preds = %48, %45
+  %50 = phi i32 [ %47, %45 ], [ 1024, %48 ]
   %51 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 2
-  %52 = load i32, ptr %51, align 8
-  %53 = sext i32 %52 to i64
-  %54 = call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #14
-  %55 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 1
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %63
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 2
+  %53 = load i32, ptr %52, align 8
+  %54 = sext i32 %53 to i64
+  %55 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #14
+  %56 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 1
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %48
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 7
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(49) %8, i32 noundef 0)
-  br label %65
+60:                                               ; preds = %49
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds ptr, ptr %61, i64 7
+  %63 = load ptr, ptr %62, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(49) %8, i32 noundef 0)
+  br label %66
 
-63:                                               ; preds = %48
-  %64 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 6
-  store i32 0, ptr %64, align 8
-  br label %65
+64:                                               ; preds = %49
+  %65 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 6
+  store i32 0, ptr %65, align 8
+  br label %66
 
-65:                                               ; preds = %63, %59
-  %66 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %67, %69
-  br i1 %70, label %71, label %77
+66:                                               ; preds = %64, %60
+  %67 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 5
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %68, %70
+  br i1 %71, label %72, label %78
 
-71:                                               ; preds = %65
-  %72 = call noundef zeroext i1 @_ZN14VrmlTranslator6Buffer7CanSeekEv(ptr noundef nonnull align 8 dereferenceable(49) %8)
-  br i1 %72, label %73, label %77
+72:                                               ; preds = %66
+  %73 = call noundef zeroext i1 @_ZN14VrmlTranslator6Buffer7CanSeekEv(ptr noundef nonnull align 8 dereferenceable(49) %8)
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 2
-  %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(49) %8)
-  br label %77
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds ptr, ptr %75, i64 2
+  %77 = load ptr, ptr %76, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(49) %8)
+  br label %78
 
-77:                                               ; preds = %73, %71, %65
+78:                                               ; preds = %74, %72, %66
   ret void
 }
 
@@ -1834,55 +1835,56 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 1
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %10, i32 0, i32 2
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 2
-  store i32 %12, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %14, i32 0, i32 1
-  store ptr null, ptr %15, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 3
-  store i32 %18, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 4
-  store i32 %22, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %24, i32 0, i32 5
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 5
-  store i32 %26, ptr %27, align 4
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %28, i32 0, i32 6
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 6
-  store i32 %30, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %32, i32 0, i32 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 8
-  store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %36, i32 0, i32 8
-  store ptr null, ptr %37, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %38, i32 0, i32 9
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  %42 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 9
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 8
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 2
+  store i32 %13, ptr %14, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %15, i32 0, i32 1
+  store ptr null, ptr %16, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 3
+  store i32 %19, ptr %20, align 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 4
+  store i32 %23, ptr %24, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %25, i32 0, i32 5
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 5
+  store i32 %27, ptr %28, align 4
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %29, i32 0, i32 6
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 6
+  store i32 %31, ptr %32, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %33, i32 0, i32 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 8
+  store ptr %35, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %37, i32 0, i32 8
+  store ptr null, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %39, i32 0, i32 9
+  %41 = load i8, ptr %40, align 8
+  %42 = trunc i8 %41 to i1
+  %43 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %5, i32 0, i32 9
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 8
   ret void
 }
 
@@ -1895,33 +1897,34 @@ define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr noundef nonnull align 8 deref
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = load i32, ptr %6, align 4
-  %9 = sext i32 %8 to i64
-  %10 = call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #14
-  %11 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 1
-  store ptr %10, ptr %11, align 8
+  %8 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = load i32, ptr %6, align 4
+  %10 = sext i32 %9 to i64
+  %11 = call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #14
   %12 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i32, ptr %6, align 4
-  %16 = sext i32 %15 to i64
-  %17 = mul i64 %16, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %17, i1 false)
-  %18 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 3
-  store i32 0, ptr %18, align 4
-  %19 = load i32, ptr %6, align 4
-  %20 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 4
-  store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 2
-  store i32 %19, ptr %21, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 5
-  store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 6
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 8
-  store ptr null, ptr %25, align 8
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 %17, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %18, i1 false)
+  %19 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 3
+  store i32 0, ptr %19, align 4
+  %20 = load i32, ptr %6, align 4
+  %21 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 4
+  store i32 %20, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 2
+  store i32 %20, ptr %22, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 5
+  store i32 %23, ptr %24, align 4
+  %25 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 6
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %7, i32 0, i32 8
+  store ptr null, ptr %26, align 8
   ret void
 }
 
@@ -1933,42 +1936,43 @@ define void @_ZN14VrmlTranslator6BufferD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 2
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(49) %3)
-          to label %7 unwind label %19
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 2
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(49) %3)
+          to label %8 unwind label %20
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %19
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %16, label %15
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %11
-  call void @_ZdaPv(ptr noundef %13) #13
-  br label %16
+16:                                               ; preds = %12
+  call void @_ZdaPv(ptr noundef %14) #13
+  br label %17
 
-16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
-  store ptr null, ptr %17, align 8
-  br label %18
+17:                                               ; preds = %16, %12
+  %18 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %3, i32 0, i32 1
+  store ptr null, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %16, %7
+19:                                               ; preds = %17, %8
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #17
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #17
   unreachable
 }
 
@@ -2180,13 +2184,14 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
-  %5 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %3, i32 0, i32 1
-  store ptr %4, ptr %5, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
   %6 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %3, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 1024, i1 false)
+  store ptr %5, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 1024, i1 false)
   ret void
 }
 
@@ -2195,13 +2200,14 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
-  %5 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %3, i32 0, i32 1
-  store ptr %4, ptr %5, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
   %6 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %3, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 1024, i1 false)
+  store ptr %5, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 1024, i1 false)
   ret void
 }
 
@@ -2798,71 +2804,72 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
   store i32 0, ptr %3, align 4
-  br label %7
+  br label %8
 
-7:                                                ; preds = %33, %1
-  %8 = load i32, ptr %3, align 4
-  %9 = icmp slt i32 %8, 128
-  br i1 %9, label %10, label %36
+8:                                                ; preds = %34, %1
+  %9 = load i32, ptr %3, align 4
+  %10 = icmp slt i32 %9, 128
+  br i1 %10, label %11, label %37
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %6, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %3, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %4, align 8
-  br label %17
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %6, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %3, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %30, %10
-  %18 = load ptr, ptr %4, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %32
+18:                                               ; preds = %31, %11
+  %19 = load ptr, ptr %4, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %33
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %21, i32 0, i32 3
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %30, label %26
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 1
-  %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(32) %24) #12
-  br label %30
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds ptr, ptr %28, i64 1
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %25) #12
+  br label %31
 
-30:                                               ; preds = %26, %20
-  %31 = load ptr, ptr %5, align 8
-  store ptr %31, ptr %4, align 8
-  br label %17, !llvm.loop !27
+31:                                               ; preds = %27, %21
+  %32 = load ptr, ptr %5, align 8
+  store ptr %32, ptr %4, align 8
+  br label %18, !llvm.loop !27
 
-32:                                               ; preds = %17
-  br label %33
+33:                                               ; preds = %18
+  br label %34
 
-33:                                               ; preds = %32
-  %34 = load i32, ptr %3, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %3, align 4
-  br label %7, !llvm.loop !28
+34:                                               ; preds = %33
+  %35 = load i32, ptr %3, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %3, align 4
+  br label %8, !llvm.loop !28
 
-36:                                               ; preds = %7
-  %37 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %6, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %41, label %40
+37:                                               ; preds = %8
+  %38 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %6, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %36
-  call void @_ZdaPv(ptr noundef %38) #13
-  br label %41
+41:                                               ; preds = %37
+  call void @_ZdaPv(ptr noundef %39) #13
+  br label %42
 
-41:                                               ; preds = %40, %36
+42:                                               ; preds = %41, %37
   ret void
 }
 
@@ -2874,68 +2881,69 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
   store i32 0, ptr %3, align 4
-  br label %7
+  br label %8
 
-7:                                                ; preds = %30, %1
-  %8 = load i32, ptr %3, align 4
-  %9 = icmp slt i32 %8, 128
-  br i1 %9, label %10, label %33
+8:                                                ; preds = %31, %1
+  %9 = load i32, ptr %3, align 4
+  %10 = icmp slt i32 %9, 128
+  br i1 %10, label %11, label %34
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %6, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %3, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %4, align 8
-  br label %17
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %6, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %3, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %27, %10
-  %18 = load ptr, ptr %4, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %29
+18:                                               ; preds = %28, %11
+  %19 = load ptr, ptr %4, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %30
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.VrmlTranslator::StartStates::Elem", ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %27, label %26
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.VrmlTranslator::StartStates::Elem", ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %28, label %27
 
-26:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef %24) #13
-  br label %27
+27:                                               ; preds = %21
+  call void @_ZdlPv(ptr noundef %25) #13
+  br label %28
 
-27:                                               ; preds = %26, %20
-  %28 = load ptr, ptr %5, align 8
-  store ptr %28, ptr %4, align 8
-  br label %17, !llvm.loop !29
+28:                                               ; preds = %27, %21
+  %29 = load ptr, ptr %5, align 8
+  store ptr %29, ptr %4, align 8
+  br label %18, !llvm.loop !29
 
-29:                                               ; preds = %17
-  br label %30
+30:                                               ; preds = %18
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %3, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %3, align 4
-  br label %7, !llvm.loop !30
+31:                                               ; preds = %30
+  %32 = load i32, ptr %3, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %3, align 4
+  br label %8, !llvm.loop !30
 
-33:                                               ; preds = %7
-  %34 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %6, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %38, label %37
+34:                                               ; preds = %8
+  %35 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %6, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %39, label %38
 
-37:                                               ; preds = %33
-  call void @_ZdaPv(ptr noundef %35) #13
-  br label %38
+38:                                               ; preds = %34
+  call void @_ZdaPv(ptr noundef %36) #13
+  br label %39
 
-38:                                               ; preds = %37, %33
+39:                                               ; preds = %38, %34
   ret void
 }
 
@@ -3439,7 +3447,8 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferC2EPNS_6BufferE(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3509,16 +3518,17 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemC2EPKwi(ptr nounde
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef %8)
-  %10 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
-  %11 = load i32, ptr %6, align 4
-  %12 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 2
-  store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 3
-  store ptr null, ptr %13, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef %9)
+  %11 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 1
+  store ptr %10, ptr %11, align 8
+  %12 = load i32, ptr %6, align 4
+  %13 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 2
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 3
+  store ptr null, ptr %14, align 8
   ret void
 }
 
@@ -3527,9 +3537,10 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %3, i32 0, i32 1
-  call void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %3, i32 0, i32 1
+  call void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %5)
   ret void
 }
 

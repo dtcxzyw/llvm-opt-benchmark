@@ -406,50 +406,51 @@ define void @_ZN5Yosys5RTLIL7BindingC2ENS0_8IdStringES2_(ptr noundef nonnull ali
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 1
-  call void @_ZN5Yosys5RTLIL8IdStringC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %11 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 2
-  invoke void @_ZN5Yosys5RTLIL8IdStringC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %12 unwind label %15
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 1
+  call void @_ZN5Yosys5RTLIL8IdStringC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %12 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 2
+  invoke void @_ZN5Yosys5RTLIL8IdStringC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %13 unwind label %16
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 3
-  invoke void @_ZN5Yosys5RTLIL8IdStringC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %14 unwind label %19
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %9, i32 0, i32 3
+  invoke void @_ZN5Yosys5RTLIL8IdStringC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
-  br label %23
-
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #3
-  br label %23
-
-23:                                               ; preds = %19, %15
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   br label %24
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %8, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #3
+  br label %24
+
+24:                                               ; preds = %20, %16
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #3
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -506,13 +507,14 @@ define linkonce_odr void @_ZN5Yosys5RTLIL7BindingD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 3
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #3
-  %5 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 3
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #3
-  %6 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 2
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #3
+  %7 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 1
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #3
   ret void
 }
 

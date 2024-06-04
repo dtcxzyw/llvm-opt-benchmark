@@ -229,7 +229,8 @@ entry:
   store ptr %collisionConfiguration, ptr %collisionConfiguration.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12btDispatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_dispatcherFlags = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_dispatcherFlags, align 8
   %m_manifoldsPtr = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 3
@@ -238,27 +239,27 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %m_collisionConfiguration = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 9
-  %0 = load ptr, ptr %collisionConfiguration.addr, align 8
-  store ptr %0, ptr %m_collisionConfiguration, align 8
+  %1 = load ptr, ptr %collisionConfiguration.addr, align 8
+  store ptr %1, ptr %m_collisionConfiguration, align 8
   invoke void @_ZN21btCollisionDispatcher15setNearCallbackEPFvR16btBroadphasePairRS_RK16btDispatcherInfoE(ptr noundef nonnull align 8 dereferenceable(20816) %this1, ptr noundef @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroadphasePairRS_RK16btDispatcherInfo)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %1 = load ptr, ptr %collisionConfiguration.addr, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %collisionConfiguration.addr, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %2 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   %m_collisionAlgorithmPoolAllocator = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 5
   store ptr %call, ptr %m_collisionAlgorithmPoolAllocator, align 8
-  %3 = load ptr, ptr %collisionConfiguration.addr, align 8
-  %vtable5 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %collisionConfiguration.addr, align 8
+  %vtable5 = load ptr, ptr %4, align 8
   %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
-  %4 = load ptr, ptr %vfn6, align 8
-  %call8 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn6, align 8
+  %call8 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -268,8 +269,8 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc28, %invoke.cont7
-  %5 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %5, 36
+  %6 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %6, 36
   br i1 %cmp, label %for.body, label %for.end30
 
 for.body:                                         ; preds = %for.cond
@@ -277,73 +278,73 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.inc, %for.body
-  %6 = load i32, ptr %j, align 4
-  %cmp10 = icmp slt i32 %6, 36
+  %7 = load i32, ptr %j, align 4
+  %cmp10 = icmp slt i32 %7, 36
   br i1 %cmp10, label %for.body11, label %for.end
 
 for.body11:                                       ; preds = %for.cond9
   %m_collisionConfiguration12 = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 9
-  %7 = load ptr, ptr %m_collisionConfiguration12, align 8
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %j, align 4
-  %vtable13 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %m_collisionConfiguration12, align 8
+  %9 = load i32, ptr %i, align 4
+  %10 = load i32, ptr %j, align 4
+  %vtable13 = load ptr, ptr %8, align 8
   %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 4
-  %10 = load ptr, ptr %vfn14, align 8
-  %call16 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8, i32 noundef %9)
+  %11 = load ptr, ptr %vfn14, align 8
+  %call16 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %9, i32 noundef %10)
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %for.body11
   %m_doubleDispatchContactPoints = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 7
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
   %arrayidx = getelementptr inbounds [36 x [36 x ptr]], ptr %m_doubleDispatchContactPoints, i64 0, i64 %idxprom
-  %12 = load i32, ptr %j, align 4
-  %idxprom17 = sext i32 %12 to i64
+  %13 = load i32, ptr %j, align 4
+  %idxprom17 = sext i32 %13 to i64
   %arrayidx18 = getelementptr inbounds [36 x ptr], ptr %arrayidx, i64 0, i64 %idxprom17
   store ptr %call16, ptr %arrayidx18, align 8
   %m_collisionConfiguration19 = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 9
-  %13 = load ptr, ptr %m_collisionConfiguration19, align 8
-  %14 = load i32, ptr %i, align 4
-  %15 = load i32, ptr %j, align 4
-  %vtable20 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %m_collisionConfiguration19, align 8
+  %15 = load i32, ptr %i, align 4
+  %16 = load i32, ptr %j, align 4
+  %vtable20 = load ptr, ptr %14, align 8
   %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 5
-  %16 = load ptr, ptr %vfn21, align 8
-  %call23 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %14, i32 noundef %15)
+  %17 = load ptr, ptr %vfn21, align 8
+  %call23 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15, i32 noundef %16)
           to label %invoke.cont22 unwind label %lpad2
 
 invoke.cont22:                                    ; preds = %invoke.cont15
   %m_doubleDispatchClosestPoints = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom24 = sext i32 %17 to i64
+  %18 = load i32, ptr %i, align 4
+  %idxprom24 = sext i32 %18 to i64
   %arrayidx25 = getelementptr inbounds [36 x [36 x ptr]], ptr %m_doubleDispatchClosestPoints, i64 0, i64 %idxprom24
-  %18 = load i32, ptr %j, align 4
-  %idxprom26 = sext i32 %18 to i64
+  %19 = load i32, ptr %j, align 4
+  %idxprom26 = sext i32 %19 to i64
   %arrayidx27 = getelementptr inbounds [36 x ptr], ptr %arrayidx25, i64 0, i64 %idxprom26
   store ptr %call23, ptr %arrayidx27, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont22
-  %19 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %19, 1
+  %20 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %20, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond9, !llvm.loop !5
 
 lpad:                                             ; preds = %entry
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont15, %for.body11, %invoke.cont4, %invoke.cont3, %invoke.cont
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldsPtr) #8
   br label %ehcleanup
 
@@ -351,8 +352,8 @@ for.end:                                          ; preds = %for.cond9
   br label %for.inc28
 
 for.inc28:                                        ; preds = %for.end
-  %26 = load i32, ptr %i, align 4
-  %inc29 = add nsw i32 %26, 1
+  %27 = load i32, ptr %i, align 4
+  %inc29 = add nsw i32 %27, 1
   store i32 %inc29, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -377,7 +378,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV12btDispatcher, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV12btDispatcher, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -643,7 +645,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV21btCollisionDispatcher, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_manifoldsPtr = getelementptr inbounds %class.btCollisionDispatcher, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldsPtr) #8
   call void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
@@ -1662,13 +1665,14 @@ entry:
   store ptr %dispatcher, ptr %dispatcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btCollisionPairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV23btCollisionPairCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_dispatchInfo = getelementptr inbounds %class.btCollisionPairCallback, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %dispatchInfo.addr, align 8
-  store ptr %0, ptr %m_dispatchInfo, align 8
+  %1 = load ptr, ptr %dispatchInfo.addr, align 8
+  store ptr %1, ptr %m_dispatchInfo, align 8
   %m_dispatcher = getelementptr inbounds %class.btCollisionPairCallback, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %dispatcher.addr, align 8
-  store ptr %1, ptr %m_dispatcher, align 8
+  %2 = load ptr, ptr %dispatcher.addr, align 8
+  store ptr %2, ptr %m_dispatcher, align 8
   ret void
 }
 
@@ -2003,7 +2007,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17btOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17btOverlapCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

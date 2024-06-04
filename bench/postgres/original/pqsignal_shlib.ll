@@ -23,72 +23,74 @@ define ptr @pqsignal(i32 noundef %0, ptr noundef %1) #0 {
   %12 = load volatile ptr, ptr %11, align 8
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = icmp ne ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %15, label %23
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp ne ptr %13, %14
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %5, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %23
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %4, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr [65 x ptr], ptr @pqsignal_handlers, i64 0, i64 %21
-  store volatile ptr %19, ptr %22, align 8
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %4, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr [65 x ptr], ptr @pqsignal_handlers, i64 0, i64 %22
+  store volatile ptr %20, ptr %23, align 8
   store ptr @wrapper_handler, ptr %5, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %18, %15, %2
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 1
-  %27 = call i32 @sigemptyset(ptr noundef %26) #3
-  %28 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
-  store i32 268435456, ptr %28, align 8
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp eq i32 %29, 17
-  br i1 %30, label %31, label %35
+24:                                               ; preds = %19, %16, %2
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 1
+  %28 = call i32 @sigemptyset(ptr noundef %27) #3
+  %29 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
+  store i32 268435456, ptr %29, align 8
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp eq i32 %30, 17
+  br i1 %31, label %32, label %36
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
-  %33 = load i32, ptr %32, align 8
-  %34 = or i32 %33, 1
-  store i32 %34, ptr %32, align 8
-  br label %35
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
+  %34 = load i32, ptr %33, align 8
+  %35 = or i32 %34, 1
+  store i32 %35, ptr %33, align 8
+  br label %36
 
-35:                                               ; preds = %31, %23
-  %36 = load i32, ptr %4, align 4
-  %37 = call i32 @sigaction(i32 noundef %36, ptr noundef %7, ptr noundef %8) #3
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %32, %24
+  %37 = load i32, ptr %4, align 4
+  %38 = call i32 @sigaction(i32 noundef %37, ptr noundef %7, ptr noundef %8) #3
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
-  br label %49
+40:                                               ; preds = %36
+  %41 = inttoptr i64 -1 to ptr
+  store ptr %41, ptr %3, align 8
+  br label %51
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds %struct.sigaction, ptr %8, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, @wrapper_handler
-  br i1 %43, label %44, label %46
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds %struct.sigaction, ptr %8, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, @wrapper_handler
+  br i1 %45, label %46, label %48
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %6, align 8
-  store ptr %45, ptr %3, align 8
-  br label %49
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %6, align 8
+  store ptr %47, ptr %3, align 8
+  br label %51
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds %struct.sigaction, ptr %8, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %3, align 8
-  br label %49
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds %struct.sigaction, ptr %8, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %3, align 8
+  br label %51
 
-49:                                               ; preds = %46, %44, %39
-  %50 = load ptr, ptr %3, align 8
-  ret ptr %50
+51:                                               ; preds = %48, %46, %40
+  %52 = load ptr, ptr %3, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind uwtable

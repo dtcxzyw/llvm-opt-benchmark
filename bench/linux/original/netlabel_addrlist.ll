@@ -436,7 +436,8 @@ define dso_local void @netlbl_af4list_remove_entry(ptr nocapture noundef %0) loc
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %4, align 8
+  %8 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %8, ptr %4, align 8
   ret void
 }
 
@@ -473,7 +474,7 @@ define dso_local ptr @netlbl_af4list_remove(i32 noundef %0, i32 noundef %1, ptr 
 22:                                               ; preds = %19, %15, %3
   %23 = phi ptr [ null, %3 ], [ %8, %15 ], [ null, %19 ]
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %32, label %25
+  br i1 %24, label %33, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %23, i64 8
@@ -485,12 +486,13 @@ define dso_local ptr @netlbl_af4list_remove(i32 noundef %0, i32 noundef %1, ptr 
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   store volatile ptr %30, ptr %29, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %28, align 8
-  br label %32
+  %32 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %32, ptr %28, align 8
+  br label %33
 
-32:                                               ; preds = %25, %22
-  %33 = phi ptr [ %23, %25 ], [ null, %22 ]
-  ret ptr %33
+33:                                               ; preds = %25, %22
+  %34 = phi ptr [ %23, %25 ], [ null, %22 ]
+  ret ptr %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
@@ -504,7 +506,8 @@ define dso_local void @netlbl_af6list_remove_entry(ptr nocapture noundef %0) loc
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %4, align 8
+  %8 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %8, ptr %4, align 8
   ret void
 }
 
@@ -558,7 +561,7 @@ define dso_local ptr @netlbl_af6list_remove(ptr nocapture noundef readonly %0, p
 37:                                               ; preds = %34, %24, %3
   %38 = phi ptr [ null, %3 ], [ %11, %24 ], [ null, %34 ]
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %47, label %40
+  br i1 %39, label %48, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %38, i64 32
@@ -570,12 +573,13 @@ define dso_local ptr @netlbl_af6list_remove(ptr nocapture noundef readonly %0, p
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
   store volatile ptr %45, ptr %44, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %43, align 8
-  br label %47
+  %47 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %47, ptr %43, align 8
+  br label %48
 
-47:                                               ; preds = %40, %37
-  %48 = phi ptr [ %38, %40 ], [ null, %37 ]
-  ret ptr %48
+48:                                               ; preds = %40, %37
+  %49 = phi ptr [ %38, %40 ], [ null, %37 ]
+  ret ptr %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -54,7 +54,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %47, label %6
+  br i1 %5, label %48, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq ptr %3, null
@@ -65,83 +65,84 @@ define dso_local i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %11 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 328) #9
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %47, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 328) #9
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %48, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 232
-  tail call void @__init_waitqueue_head(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @snd_hwdep_new.__key) #10
-  %15 = getelementptr inbounds i8, ptr %11, i64 280
-  tail call void @__mutex_init(ptr noundef %15, ptr noundef nonnull @.str.2, ptr noundef nonnull @snd_hwdep_new.__key.1) #10
-  store ptr %0, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
-  store i32 %2, ptr %16, align 8
-  %17 = icmp eq ptr %1, null
-  br i1 %17, label %21, label %18
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %12, i64 232
+  tail call void @__init_waitqueue_head(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @snd_hwdep_new.__key) #10
+  %16 = getelementptr inbounds i8, ptr %12, i64 280
+  tail call void @__mutex_init(ptr noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @snd_hwdep_new.__key.1) #10
+  store ptr %0, ptr %12, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  store i32 %2, ptr %17, align 8
+  %18 = icmp eq ptr %1, null
+  br i1 %18, label %22, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %11, i64 28
-  %20 = tail call i64 @strscpy(ptr noundef %19, ptr noundef nonnull %1, i64 noundef 32) #10
-  br label %21
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %12, i64 28
+  %21 = tail call i64 @strscpy(ptr noundef %20, ptr noundef nonnull %1, i64 noundef 32) #10
+  br label %22
 
-21:                                               ; preds = %18, %13
-  %22 = getelementptr inbounds i8, ptr %11, i64 272
-  %23 = tail call i32 @snd_device_alloc(ptr noundef %22, ptr noundef nonnull %0) #10
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %32
+22:                                               ; preds = %19, %14
+  %23 = getelementptr inbounds i8, ptr %12, i64 272
+  %24 = tail call i32 @snd_device_alloc(ptr noundef %23, ptr noundef nonnull %0) #10
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %11, i64 264
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %29
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %12, i64 264
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %25
-  tail call void %27(ptr noundef nonnull %11) #10
-  br label %30
+30:                                               ; preds = %26
+  tail call void %28(ptr noundef nonnull %12) #10
+  br label %31
 
-30:                                               ; preds = %29, %25
-  %31 = load ptr, ptr %22, align 8
-  tail call void @put_device(ptr noundef %31) #10
-  tail call void @kfree(ptr noundef nonnull %11) #10
-  br label %47
+31:                                               ; preds = %30, %26
+  %32 = load ptr, ptr %23, align 8
+  tail call void @put_device(ptr noundef %32) #10
+  tail call void @kfree(ptr noundef nonnull %12) #10
+  br label %48
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %22, align 8
-  %34 = load i32, ptr %0, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %33, ptr noundef nonnull @.str.3, i32 noundef %34, i32 noundef %2) #10
-  %36 = tail call i32 @snd_device_new(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %11, ptr noundef nonnull @snd_hwdep_new.ops) #10
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %45
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %23, align 8
+  %35 = load i32, ptr %0, align 8
+  %36 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %34, ptr noundef nonnull @.str.3, i32 noundef %35, i32 noundef %2) #10
+  %37 = tail call i32 @snd_device_new(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %12, ptr noundef nonnull @snd_hwdep_new.ops) #10
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %11, i64 264
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %43, label %42
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %12, i64 264
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %44, label %43
 
-42:                                               ; preds = %38
-  tail call void %40(ptr noundef nonnull %11) #10
-  br label %43
+43:                                               ; preds = %39
+  tail call void %41(ptr noundef nonnull %12) #10
+  br label %44
 
-43:                                               ; preds = %42, %38
-  %44 = load ptr, ptr %22, align 8
-  tail call void @put_device(ptr noundef %44) #10
-  tail call void @kfree(ptr noundef nonnull %11) #10
-  br label %47
+44:                                               ; preds = %43, %39
+  %45 = load ptr, ptr %23, align 8
+  tail call void @put_device(ptr noundef %45) #10
+  tail call void @kfree(ptr noundef nonnull %12) #10
+  br label %48
 
-45:                                               ; preds = %32
-  br i1 %7, label %47, label %46
+46:                                               ; preds = %33
+  br i1 %7, label %48, label %47
 
-46:                                               ; preds = %45
-  store ptr %11, ptr %3, align 8
-  br label %47
+47:                                               ; preds = %46
+  store ptr %12, ptr %3, align 8
+  br label %48
 
-47:                                               ; preds = %46, %45, %43, %30, %9, %4
-  %48 = phi i32 [ %23, %30 ], [ %36, %43 ], [ -6, %4 ], [ -12, %9 ], [ 0, %46 ], [ 0, %45 ]
-  ret i32 %48
+48:                                               ; preds = %47, %46, %44, %31, %9, %4
+  %49 = phi i32 [ %24, %31 ], [ %37, %44 ], [ -6, %4 ], [ -12, %9 ], [ 0, %47 ], [ 0, %46 ]
+  ret i32 %49
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -208,40 +209,44 @@ define internal i32 @snd_hwdep_dev_register(ptr nocapture noundef readonly %0) #
 21:                                               ; preds = %14
   %22 = getelementptr i8, ptr %10, i64 -8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %39
+  br i1 %23, label %24, label %43
 
 24:                                               ; preds = %21, %18, %1
   %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @snd_hwdep_devices, i64 0, i32 1), align 8
-  store ptr %25, ptr getelementptr inbounds (%struct.list_head, ptr @snd_hwdep_devices, i64 0, i32 1), align 8
+  %26 = getelementptr inbounds %struct.list_head, ptr @snd_hwdep_devices, i64 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.list_head, ptr @snd_hwdep_devices, i64 0, i32 1
+  store ptr %25, ptr %28, align 8
   store ptr @snd_hwdep_devices, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %26, ptr %27, align 8
-  store volatile ptr %25, ptr %26, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i32, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 272
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @snd_register_device(i32 noundef 4, ptr noundef %28, i32 noundef %29, ptr noundef nonnull @snd_hwdep_f_ops, ptr noundef %3, ptr noundef %31) #10
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %39
+  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %27, ptr %29, align 8
+  store volatile ptr %25, ptr %27, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %5, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 272
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 @snd_register_device(i32 noundef 4, ptr noundef %30, i32 noundef %31, ptr noundef nonnull @snd_hwdep_f_ops, ptr noundef %3, ptr noundef %33) #10
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %43
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %30, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %35, ptr noundef nonnull @.str.5) #11
-  %36 = load ptr, ptr %27, align 8
-  %37 = load ptr, ptr %25, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %36, ptr %38, align 8
-  store volatile ptr %37, ptr %36, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %25, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %27, align 8
-  br label %39
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %32, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.5) #11
+  %38 = load ptr, ptr %29, align 8
+  %39 = load ptr, ptr %25, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %38, ptr %40, align 8
+  store volatile ptr %39, ptr %38, align 8
+  %41 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %41, ptr %25, align 8
+  %42 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %42, ptr %29, align 8
+  br label %43
 
-39:                                               ; preds = %34, %24, %21
-  %40 = phi i32 [ %32, %34 ], [ -16, %21 ], [ 0, %24 ]
+43:                                               ; preds = %36, %24, %21
+  %44 = phi i32 [ %34, %36 ], [ -16, %21 ], [ 0, %24 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #10
-  ret i32 %40
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

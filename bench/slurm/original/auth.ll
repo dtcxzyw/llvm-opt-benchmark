@@ -254,178 +254,184 @@ define i32 @auth_g_init() #0 {
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  br label %102
+  br label %108
 
 21:                                               ; preds = %17
   %22 = call ptr @getenv(ptr noundef @.str.9) #6
   %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %27
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20))
-  %25 = call ptr @auth_get_plugin_name(i32 noundef 102)
-  %26 = call ptr @xstrdup(ptr noundef %25)
-  store ptr %26, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20), align 8
-  br label %27
+  %25 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20
+  call void @slurm_xfree(ptr noundef %25)
+  %26 = call ptr @auth_get_plugin_name(i32 noundef 102)
+  %27 = call ptr @xstrdup(ptr noundef %26)
+  %28 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20
+  store ptr %27, ptr %28, align 8
+  br label %29
 
-27:                                               ; preds = %24, %21
-  %28 = call ptr @getenv(ptr noundef @.str.10) #6
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %33
+29:                                               ; preds = %24, %21
+  %30 = call ptr @getenv(ptr noundef @.str.10) #6
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-30:                                               ; preds = %27
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20))
-  %31 = call ptr @auth_get_plugin_name(i32 noundef 103)
-  %32 = call ptr @xstrdup(ptr noundef %31)
-  store ptr %32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20), align 8
-  br label %33
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20
+  call void @slurm_xfree(ptr noundef %33)
+  %34 = call ptr @auth_get_plugin_name(i32 noundef 103)
+  %35 = call ptr @xstrdup(ptr noundef %34)
+  %36 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20
+  store ptr %35, ptr %36, align 8
+  br label %37
 
-33:                                               ; preds = %30, %27
-  %34 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20), align 8
-  store ptr %34, ptr %4, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %43
+37:                                               ; preds = %32, %29
+  %38 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 20
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %4, align 8
+  %40 = load ptr, ptr %4, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %48
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 0
-  %40 = load i8, ptr %39, align 1
-  %41 = sext i8 %40 to i32
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %44
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 0
+  %45 = load i8, ptr %44, align 1
+  %46 = sext i8 %45 to i32
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-43:                                               ; preds = %37, %33
-  br label %102
-
-44:                                               ; preds = %37
-  %45 = call zeroext i1 @run_in_daemon(ptr noundef @auth_g_init.daemon_run, ptr noundef @auth_g_init.daemon_set, ptr noundef @.str.11)
-  br i1 %45, label %46, label %49
-
-46:                                               ; preds = %44
-  %47 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 17), align 8
-  %48 = call ptr @xstrdup(ptr noundef %47)
-  store ptr %48, ptr %2, align 8
-  store ptr %48, ptr %3, align 8
-  br label %49
-
-49:                                               ; preds = %46, %44
-  store i32 0, ptr @g_context_num, align 4
-  br label %50
-
-50:                                               ; preds = %100, %49
-  %51 = load ptr, ptr %4, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %101
-
-53:                                               ; preds = %50
-  %54 = load i32, ptr @g_context_num, align 4
-  %55 = add nsw i32 %54, 1
-  %56 = sext i32 %55 to i64
-  %57 = call ptr @slurm_xrecalloc(ptr noundef @ops, i64 noundef %56, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 221, ptr noundef @__func__.auth_g_init)
-  %58 = load i32, ptr @g_context_num, align 4
-  %59 = add nsw i32 %58, 1
-  %60 = sext i32 %59 to i64
-  %61 = call ptr @slurm_xrecalloc(ptr noundef @g_context, i64 noundef %60, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 223, ptr noundef @__func__.auth_g_init)
-  %62 = load ptr, ptr %4, align 8
-  %63 = call i32 @xstrncmp(ptr noundef %62, ptr noundef @.str.12, i64 noundef 5)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %68, label %65
-
-65:                                               ; preds = %53
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 5
-  store ptr %67, ptr %4, align 8
-  br label %68
-
-68:                                               ; preds = %65, %53
-  %69 = load ptr, ptr %4, align 8
-  %70 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.13, ptr noundef %69)
-  store ptr %70, ptr %4, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %4, align 8
-  %73 = load ptr, ptr @ops, align 8
-  %74 = load i32, ptr @g_context_num, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.auth_ops_t, ptr %73, i64 %75
-  %77 = call ptr @plugin_context_create(ptr noundef %71, ptr noundef %72, ptr noundef %76, ptr noundef @syms, i64 noundef 120)
-  %78 = load ptr, ptr @g_context, align 8
-  %79 = load i32, ptr @g_context_num, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
-  store ptr %77, ptr %81, align 8
-  %82 = load ptr, ptr @g_context, align 8
-  %83 = load i32, ptr @g_context_num, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %92, label %88
-
-88:                                               ; preds = %68
-  %89 = load ptr, ptr %6, align 8
-  %90 = load ptr, ptr %4, align 8
-  %91 = call i32 (ptr, ...) @error(ptr noundef @.str.14, ptr noundef %89, ptr noundef %90)
-  store i32 -1, ptr %1, align 4
-  call void @slurm_xfree(ptr noundef %4)
-  br label %102
-
-92:                                               ; preds = %68
-  %93 = load i32, ptr @g_context_num, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr @g_context_num, align 4
-  call void @slurm_xfree(ptr noundef %4)
-  %95 = load ptr, ptr %2, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %100
-
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %3, align 8
-  %99 = call ptr @strtok_r(ptr noundef %98, ptr noundef @.str.15, ptr noundef %5) #6
-  store ptr %99, ptr %4, align 8
-  store ptr null, ptr %3, align 8
-  br label %100
-
-100:                                              ; preds = %97, %92
-  br label %50, !llvm.loop !9
-
-101:                                              ; preds = %50
-  br label %102
-
-102:                                              ; preds = %101, %88, %43, %20
-  %103 = load i8, ptr @at_forked, align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %107, label %105
-
-105:                                              ; preds = %102
-  %106 = call i32 @pthread_atfork(ptr noundef null, ptr noundef null, ptr noundef @_atfork_child) #6
-  store i8 1, ptr @at_forked, align 1
-  br label %107
-
-107:                                              ; preds = %105, %102
-  call void @slurm_xfree(ptr noundef %2)
+48:                                               ; preds = %42, %37
   br label %108
 
-108:                                              ; preds = %107
-  %109 = call i32 @pthread_rwlock_unlock(ptr noundef @context_lock) #6
-  store i32 %109, ptr %8, align 4
-  %110 = load i32, ptr %8, align 4
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %115
+49:                                               ; preds = %42
+  %50 = call zeroext i1 @run_in_daemon(ptr noundef @auth_g_init.daemon_run, ptr noundef @auth_g_init.daemon_set, ptr noundef @.str.11)
+  br i1 %50, label %51, label %55
 
-112:                                              ; preds = %108
-  %113 = load i32, ptr %8, align 4
-  %114 = call ptr @__errno_location() #7
-  store i32 %113, ptr %114, align 4
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 17
+  %53 = load ptr, ptr %52, align 8
+  %54 = call ptr @xstrdup(ptr noundef %53)
+  store ptr %54, ptr %2, align 8
+  store ptr %54, ptr %3, align 8
+  br label %55
+
+55:                                               ; preds = %51, %49
+  store i32 0, ptr @g_context_num, align 4
+  br label %56
+
+56:                                               ; preds = %106, %55
+  %57 = load ptr, ptr %4, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %107
+
+59:                                               ; preds = %56
+  %60 = load i32, ptr @g_context_num, align 4
+  %61 = add nsw i32 %60, 1
+  %62 = sext i32 %61 to i64
+  %63 = call ptr @slurm_xrecalloc(ptr noundef @ops, i64 noundef %62, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 221, ptr noundef @__func__.auth_g_init)
+  %64 = load i32, ptr @g_context_num, align 4
+  %65 = add nsw i32 %64, 1
+  %66 = sext i32 %65 to i64
+  %67 = call ptr @slurm_xrecalloc(ptr noundef @g_context, i64 noundef %66, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 223, ptr noundef @__func__.auth_g_init)
+  %68 = load ptr, ptr %4, align 8
+  %69 = call i32 @xstrncmp(ptr noundef %68, ptr noundef @.str.12, i64 noundef 5)
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %74, label %71
+
+71:                                               ; preds = %59
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 5
+  store ptr %73, ptr %4, align 8
+  br label %74
+
+74:                                               ; preds = %71, %59
+  %75 = load ptr, ptr %4, align 8
+  %76 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.13, ptr noundef %75)
+  store ptr %76, ptr %4, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = load ptr, ptr @ops, align 8
+  %80 = load i32, ptr @g_context_num, align 4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.auth_ops_t, ptr %79, i64 %81
+  %83 = call ptr @plugin_context_create(ptr noundef %77, ptr noundef %78, ptr noundef %82, ptr noundef @syms, i64 noundef 120)
+  %84 = load ptr, ptr @g_context, align 8
+  %85 = load i32, ptr @g_context_num, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  store ptr %83, ptr %87, align 8
+  %88 = load ptr, ptr @g_context, align 8
+  %89 = load i32, ptr @g_context_num, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds ptr, ptr %88, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %98, label %94
+
+94:                                               ; preds = %74
+  %95 = load ptr, ptr %6, align 8
+  %96 = load ptr, ptr %4, align 8
+  %97 = call i32 (ptr, ...) @error(ptr noundef @.str.14, ptr noundef %95, ptr noundef %96)
+  store i32 -1, ptr %1, align 4
+  call void @slurm_xfree(ptr noundef %4)
+  br label %108
+
+98:                                               ; preds = %74
+  %99 = load i32, ptr @g_context_num, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr @g_context_num, align 4
+  call void @slurm_xfree(ptr noundef %4)
+  %101 = load ptr, ptr %2, align 8
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %106
+
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %3, align 8
+  %105 = call ptr @strtok_r(ptr noundef %104, ptr noundef @.str.15, ptr noundef %5) #6
+  store ptr %105, ptr %4, align 8
+  store ptr null, ptr %3, align 8
+  br label %106
+
+106:                                              ; preds = %103, %98
+  br label %56, !llvm.loop !9
+
+107:                                              ; preds = %56
+  br label %108
+
+108:                                              ; preds = %107, %94, %48, %20
+  %109 = load i8, ptr @at_forked, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %113, label %111
+
+111:                                              ; preds = %108
+  %112 = call i32 @pthread_atfork(ptr noundef null, ptr noundef null, ptr noundef @_atfork_child) #6
+  store i8 1, ptr @at_forked, align 1
+  br label %113
+
+113:                                              ; preds = %111, %108
+  call void @slurm_xfree(ptr noundef %2)
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = call i32 @pthread_rwlock_unlock(ptr noundef @context_lock) #6
+  store i32 %115, ptr %8, align 4
+  %116 = load i32, ptr %8, align 4
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %121
+
+118:                                              ; preds = %114
+  %119 = load i32, ptr %8, align 4
+  %120 = call ptr @__errno_location() #7
+  store i32 %119, ptr %120, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.16, ptr noundef @.str.8, i32 noundef 254, ptr noundef @__func__.auth_g_init) #5
   unreachable
 
-115:                                              ; preds = %108
-  br label %116
+121:                                              ; preds = %114
+  br label %122
 
-116:                                              ; preds = %115
-  %117 = load i32, ptr %1, align 4
-  ret i32 %117
+122:                                              ; preds = %121
+  %123 = load i32, ptr %1, align 4
+  ret i32 %123
 }
 
 ; Function Attrs: nounwind

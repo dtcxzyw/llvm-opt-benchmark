@@ -2429,14 +2429,15 @@ entry:
   store ptr %t, ptr %val.addr.i, align 8
   %0 = load ptr, ptr %val.addr.i, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #4, !srcloc !5
-  store ptr inttoptr (i64 3735928559 to ptr), ptr %p, align 8
+  %1 = inttoptr i64 3735928559 to ptr
+  store ptr %1, ptr %p, align 8
   store ptr %p, ptr %val.addr.i2, align 8
-  %1 = load ptr, ptr %val.addr.i2, align 8
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #4, !srcloc !5
+  %2 = load ptr, ptr %val.addr.i2, align 8
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #4, !srcloc !5
   store i8 0, ptr %b, align 1
   store ptr %b, ptr %val.addr.i1, align 8
-  %2 = load ptr, ptr %val.addr.i1, align 8
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #4, !srcloc !5
+  %3 = load ptr, ptr %val.addr.i1, align 8
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #4, !srcloc !5
   ret void
 }
 

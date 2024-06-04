@@ -199,324 +199,333 @@ define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #
   %41 = load i32, ptr %40, align 16
   %42 = and i32 %41, 64
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %45, label %44
+  br i1 %43, label %46, label %44
 
 44:                                               ; preds = %39
-  store i32 32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3), align 8
-  br label %45
+  %45 = getelementptr inbounds { i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3
+  store i32 32, ptr %45, align 8
+  br label %46
 
-45:                                               ; preds = %44, %39
-  %46 = load i32, ptr @num_RxIntDelay, align 4
-  %47 = icmp ugt i32 %46, %9
-  br i1 %47, label %48, label %54
+46:                                               ; preds = %44, %39
+  %47 = load i32, ptr @num_RxIntDelay, align 4
+  %48 = icmp ugt i32 %47, %9
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %45
-  %49 = sext i32 %9 to i64
-  %50 = getelementptr [33 x i32], ptr @RxIntDelay, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 1368
-  store i32 %51, ptr %52, align 8
-  %53 = tail call fastcc i32 @e1000_validate_option(ptr noundef %52, ptr noundef nonnull @e1000e_check_options.opt.7, ptr noundef %0), !range !5
-  br label %57
+49:                                               ; preds = %46
+  %50 = sext i32 %9 to i64
+  %51 = getelementptr [33 x i32], ptr @RxIntDelay, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 1368
+  store i32 %52, ptr %53, align 8
+  %54 = tail call fastcc i32 @e1000_validate_option(ptr noundef %53, ptr noundef nonnull @e1000e_check_options.opt.7, ptr noundef %0), !range !5
+  br label %59
 
-54:                                               ; preds = %45
-  %55 = load i32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3), align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 1368
-  store i32 %55, ptr %56, align 8
-  br label %57
+55:                                               ; preds = %46
+  %56 = getelementptr inbounds { i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.7, i64 0, i32 3
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 1368
+  store i32 %57, ptr %58, align 8
+  br label %59
 
-57:                                               ; preds = %54, %48
-  %58 = load i32, ptr %40, align 16
-  %59 = and i32 %58, 64
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %62, label %61
+59:                                               ; preds = %55, %49
+  %60 = load i32, ptr %40, align 16
+  %61 = and i32 %60, 64
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %65, label %63
 
-61:                                               ; preds = %57
-  store i32 32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3), align 8
-  br label %62
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds { i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3
+  store i32 32, ptr %64, align 8
+  br label %65
 
-62:                                               ; preds = %61, %57
-  %63 = load i32, ptr @num_RxAbsIntDelay, align 4
-  %64 = icmp ugt i32 %63, %9
-  br i1 %64, label %65, label %71
+65:                                               ; preds = %63, %59
+  %66 = load i32, ptr @num_RxAbsIntDelay, align 4
+  %67 = icmp ugt i32 %66, %9
+  br i1 %67, label %68, label %74
 
-65:                                               ; preds = %62
-  %66 = sext i32 %9 to i64
-  %67 = getelementptr [33 x i32], ptr @RxAbsIntDelay, i64 0, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 1372
-  store i32 %68, ptr %69, align 4
-  %70 = tail call fastcc i32 @e1000_validate_option(ptr noundef %69, ptr noundef nonnull @e1000e_check_options.opt.10, ptr noundef %0), !range !5
-  br label %74
+68:                                               ; preds = %65
+  %69 = sext i32 %9 to i64
+  %70 = getelementptr [33 x i32], ptr @RxAbsIntDelay, i64 0, i64 %69
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 1372
+  store i32 %71, ptr %72, align 4
+  %73 = tail call fastcc i32 @e1000_validate_option(ptr noundef %72, ptr noundef nonnull @e1000e_check_options.opt.10, ptr noundef %0), !range !5
+  br label %78
 
-71:                                               ; preds = %62
-  %72 = load i32, ptr getelementptr inbounds ({ i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3), align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 1372
-  store i32 %72, ptr %73, align 4
-  br label %74
+74:                                               ; preds = %65
+  %75 = getelementptr inbounds { i32, ptr, ptr, i32, [4 x i8], { %struct.anon.6, [8 x i8] } }, ptr @e1000e_check_options.opt.10, i64 0, i32 3
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 1372
+  store i32 %76, ptr %77, align 4
+  br label %78
 
-74:                                               ; preds = %71, %65
-  %75 = load i32, ptr @num_InterruptThrottleRate, align 4
-  %76 = icmp ugt i32 %75, %9
-  br i1 %76, label %77, label %86
+78:                                               ; preds = %74, %68
+  %79 = load i32, ptr @num_InterruptThrottleRate, align 4
+  %80 = icmp ugt i32 %79, %9
+  br i1 %80, label %81, label %90
 
-77:                                               ; preds = %74
-  %78 = sext i32 %9 to i64
-  %79 = getelementptr [33 x i32], ptr @InterruptThrottleRate, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 728
-  store i32 %80, ptr %81, align 8
-  %82 = icmp ugt i32 %80, 4
-  br i1 %82, label %83, label %90
+81:                                               ; preds = %78
+  %82 = sext i32 %9 to i64
+  %83 = getelementptr [33 x i32], ptr @InterruptThrottleRate, i64 0, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = getelementptr inbounds i8, ptr %0, i64 728
+  store i32 %84, ptr %85, align 8
+  %86 = icmp ugt i32 %84, 4
+  br i1 %86, label %87, label %94
 
-83:                                               ; preds = %77
-  %84 = tail call fastcc i32 @e1000_validate_option(ptr noundef %81, ptr noundef nonnull @e1000e_check_options.opt.12, ptr noundef %0), !range !5
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %90, label %88
+87:                                               ; preds = %81
+  %88 = tail call fastcc i32 @e1000_validate_option(ptr noundef %85, ptr noundef nonnull @e1000e_check_options.opt.12, ptr noundef %0), !range !5
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %94, label %92
 
-86:                                               ; preds = %74
-  %87 = getelementptr inbounds i8, ptr %0, i64 728
-  br label %88
-
-88:                                               ; preds = %86, %83
-  %89 = phi ptr [ %87, %86 ], [ %81, %83 ]
-  store i32 3, ptr %89, align 8
-  br label %90
-
-90:                                               ; preds = %88, %83, %77
+90:                                               ; preds = %78
   %91 = getelementptr inbounds i8, ptr %0, i64 728
-  %92 = load i32, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 732
-  store i32 %92, ptr %93, align 4
-  switch i32 %92, label %114 [
-    i32 0, label %94
-    i32 1, label %98
-    i32 2, label %102
-    i32 3, label %106
-    i32 4, label %110
+  br label %92
+
+92:                                               ; preds = %90, %87
+  %93 = phi ptr [ %91, %90 ], [ %85, %87 ]
+  store i32 3, ptr %93, align 8
+  br label %94
+
+94:                                               ; preds = %92, %87, %81
+  %95 = getelementptr inbounds i8, ptr %0, i64 728
+  %96 = load i32, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 732
+  store i32 %96, ptr %97, align 4
+  switch i32 %96, label %118 [
+    i32 0, label %98
+    i32 1, label %102
+    i32 2, label %106
+    i32 3, label %110
+    i32 4, label %114
   ]
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %0, i64 1456
-  %96 = load ptr, ptr %95, align 16
-  %97 = getelementptr inbounds i8, ptr %96, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %97, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13) #4
-  br label %116
-
-98:                                               ; preds = %90
+98:                                               ; preds = %94
   %99 = getelementptr inbounds i8, ptr %0, i64 1456
   %100 = load ptr, ptr %99, align 16
   %101 = getelementptr inbounds i8, ptr %100, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %101, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13) #4
-  store i32 20000, ptr %91, align 8
-  br label %116
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %101, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13) #4
+  br label %120
 
-102:                                              ; preds = %90
+102:                                              ; preds = %94
   %103 = getelementptr inbounds i8, ptr %0, i64 1456
   %104 = load ptr, ptr %103, align 16
   %105 = getelementptr inbounds i8, ptr %104, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %105, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13) #4
-  store i32 3, ptr %93, align 4
-  br label %106
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %105, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13) #4
+  store i32 20000, ptr %95, align 8
+  br label %120
 
-106:                                              ; preds = %102, %90
+106:                                              ; preds = %94
   %107 = getelementptr inbounds i8, ptr %0, i64 1456
   %108 = load ptr, ptr %107, align 16
   %109 = getelementptr inbounds i8, ptr %108, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %109, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13) #4
-  store i32 20000, ptr %91, align 8
-  br label %116
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %109, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13) #4
+  store i32 3, ptr %97, align 4
+  br label %110
 
-110:                                              ; preds = %90
+110:                                              ; preds = %106, %94
   %111 = getelementptr inbounds i8, ptr %0, i64 1456
   %112 = load ptr, ptr %111, align 16
   %113 = getelementptr inbounds i8, ptr %112, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %113, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13) #4
-  br label %116
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %113, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13) #4
+  store i32 20000, ptr %95, align 8
+  br label %120
 
-114:                                              ; preds = %90
-  %115 = and i32 %92, -4
-  store i32 %115, ptr %93, align 4
-  br label %116
+114:                                              ; preds = %94
+  %115 = getelementptr inbounds i8, ptr %0, i64 1456
+  %116 = load ptr, ptr %115, align 16
+  %117 = getelementptr inbounds i8, ptr %116, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %117, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13) #4
+  br label %120
 
-116:                                              ; preds = %114, %110, %106, %98, %94
-  %117 = getelementptr inbounds i8, ptr %0, i64 11916
-  %118 = load i32, ptr %117, align 4
-  %119 = and i32 %118, 1024
-  %120 = icmp eq i32 %119, 0
-  %121 = select i1 %120, ptr @.str.24, ptr @.str.23
-  %122 = select i1 %120, i32 1, i32 2
-  %123 = tail call noalias ptr @kstrdup(ptr noundef nonnull %121, i32 noundef 3264) #5
-  store ptr %123, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2), align 8
-  store i32 %122, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 3), align 8
-  store i32 %122, ptr getelementptr inbounds (%struct.anon.6, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 4), i64 0, i32 1), align 4
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %129
+118:                                              ; preds = %94
+  %119 = and i32 %96, -4
+  store i32 %119, ptr %97, align 4
+  br label %120
 
-125:                                              ; preds = %116
-  %126 = getelementptr inbounds i8, ptr %0, i64 1456
-  %127 = load ptr, ptr %126, align 16
-  %128 = getelementptr inbounds i8, ptr %127, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %128, ptr noundef nonnull @.str.25) #4
-  br label %212
+120:                                              ; preds = %118, %114, %110, %102, %98
+  %121 = getelementptr inbounds i8, ptr %0, i64 11916
+  %122 = load i32, ptr %121, align 4
+  %123 = and i32 %122, 1024
+  %124 = icmp eq i32 %123, 0
+  %125 = select i1 %124, ptr @.str.24, ptr @.str.23
+  %126 = select i1 %124, i32 1, i32 2
+  %127 = tail call noalias ptr @kstrdup(ptr noundef nonnull %125, i32 noundef 3264) #5
+  %128 = getelementptr inbounds %struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2
+  store ptr %127, ptr %128, align 8
+  %129 = getelementptr inbounds %struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 3
+  store i32 %126, ptr %129, align 8
+  %130 = getelementptr inbounds %struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 4
+  %131 = getelementptr inbounds %struct.anon.6, ptr %130, i64 0, i32 1
+  store i32 %126, ptr %131, align 4
+  %132 = icmp eq ptr %127, null
+  br i1 %132, label %133, label %137
 
-129:                                              ; preds = %116
-  %130 = load i32, ptr @num_IntMode, align 4
-  %131 = icmp ugt i32 %130, %9
-  br i1 %131, label %132, label %139
+133:                                              ; preds = %120
+  %134 = getelementptr inbounds i8, ptr %0, i64 1456
+  %135 = load ptr, ptr %134, align 16
+  %136 = getelementptr inbounds i8, ptr %135, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %136, ptr noundef nonnull @.str.25) #4
+  br label %221
 
-132:                                              ; preds = %129
+137:                                              ; preds = %120
+  %138 = load i32, ptr @num_IntMode, align 4
+  %139 = icmp ugt i32 %138, %9
+  br i1 %139, label %140, label %147
+
+140:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
   store i32 0, ptr %2, align 4, !annotation !6
-  %133 = sext i32 %9 to i64
-  %134 = getelementptr [33 x i32], ptr @IntMode, i64 0, i64 %133
-  %135 = load i32, ptr %134, align 4
-  store i32 %135, ptr %2, align 4
-  %136 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %2, ptr noundef nonnull @e1000e_check_options.opt.21, ptr noundef %0), !range !5
-  %137 = load i32, ptr %2, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 11888
-  store i32 %137, ptr %138, align 16
+  %141 = sext i32 %9 to i64
+  %142 = getelementptr [33 x i32], ptr @IntMode, i64 0, i64 %141
+  %143 = load i32, ptr %142, align 4
+  store i32 %143, ptr %2, align 4
+  %144 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %2, ptr noundef nonnull @e1000e_check_options.opt.21, ptr noundef %0), !range !5
+  %145 = load i32, ptr %2, align 4
+  %146 = getelementptr inbounds i8, ptr %0, i64 11888
+  store i32 %145, ptr %146, align 16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  br label %141
+  br label %149
 
-139:                                              ; preds = %129
-  %140 = getelementptr inbounds i8, ptr %0, i64 11888
-  store i32 %122, ptr %140, align 16
-  br label %141
+147:                                              ; preds = %137
+  %148 = getelementptr inbounds i8, ptr %0, i64 11888
+  store i32 %126, ptr %148, align 16
+  br label %149
 
-141:                                              ; preds = %139, %132
-  %142 = load ptr, ptr getelementptr inbounds (%struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2), align 8
-  tail call void @kfree(ptr noundef %142) #5
-  %143 = load i32, ptr @num_SmartPowerDownEnable, align 4
-  %144 = icmp ugt i32 %143, %9
-  br i1 %144, label %145, label %159
+149:                                              ; preds = %147, %140
+  %150 = getelementptr inbounds %struct.e1000_option, ptr @e1000e_check_options.opt.21, i64 0, i32 2
+  %151 = load ptr, ptr %150, align 8
+  tail call void @kfree(ptr noundef %151) #5
+  %152 = load i32, ptr @num_SmartPowerDownEnable, align 4
+  %153 = icmp ugt i32 %152, %9
+  br i1 %153, label %154, label %168
 
-145:                                              ; preds = %141
+154:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   store i32 0, ptr %3, align 4, !annotation !6
-  %146 = sext i32 %9 to i64
-  %147 = getelementptr [33 x i32], ptr @SmartPowerDownEnable, i64 0, i64 %146
-  %148 = load i32, ptr %147, align 4
-  store i32 %148, ptr %3, align 4
-  %149 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %3, ptr noundef nonnull @e1000e_check_options.opt.26, ptr noundef %0), !range !5
-  %150 = load i32, ptr %117, align 4
-  %151 = and i32 %150, 2048
-  %152 = icmp ne i32 %151, 0
-  %153 = load i32, ptr %3, align 4
-  %154 = icmp ne i32 %153, 0
-  %155 = select i1 %152, i1 %154, i1 false
-  br i1 %155, label %156, label %158
+  %155 = sext i32 %9 to i64
+  %156 = getelementptr [33 x i32], ptr @SmartPowerDownEnable, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  store i32 %157, ptr %3, align 4
+  %158 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %3, ptr noundef nonnull @e1000e_check_options.opt.26, ptr noundef %0), !range !5
+  %159 = load i32, ptr %121, align 4
+  %160 = and i32 %159, 2048
+  %161 = icmp ne i32 %160, 0
+  %162 = load i32, ptr %3, align 4
+  %163 = icmp ne i32 %162, 0
+  %164 = select i1 %161, i1 %163, i1 false
+  br i1 %164, label %165, label %167
 
-156:                                              ; preds = %145
-  %157 = or i32 %150, 67108864
-  store i32 %157, ptr %117, align 4
-  br label %158
+165:                                              ; preds = %154
+  %166 = or i32 %159, 67108864
+  store i32 %166, ptr %121, align 4
+  br label %167
 
-158:                                              ; preds = %156, %145
+167:                                              ; preds = %165, %154
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  br label %159
+  br label %168
 
-159:                                              ; preds = %158, %141
-  %160 = load i32, ptr @num_CrcStripping, align 4
-  %161 = icmp ugt i32 %160, %9
-  br i1 %161, label %162, label %173
+168:                                              ; preds = %167, %149
+  %169 = load i32, ptr @num_CrcStripping, align 4
+  %170 = icmp ugt i32 %169, %9
+  br i1 %170, label %171, label %182
 
-162:                                              ; preds = %159
+171:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   store i32 0, ptr %4, align 4, !annotation !6
-  %163 = sext i32 %9 to i64
-  %164 = getelementptr [33 x i32], ptr @CrcStripping, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  store i32 %165, ptr %4, align 4
-  %166 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %4, ptr noundef nonnull @e1000e_check_options.opt.29, ptr noundef %0), !range !5
-  %167 = load i32, ptr %4, align 4
-  %168 = icmp eq i32 %167, 1
-  br i1 %168, label %169, label %172
+  %172 = sext i32 %9 to i64
+  %173 = getelementptr [33 x i32], ptr @CrcStripping, i64 0, i64 %172
+  %174 = load i32, ptr %173, align 4
+  store i32 %174, ptr %4, align 4
+  %175 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %4, ptr noundef nonnull @e1000e_check_options.opt.29, ptr noundef %0), !range !5
+  %176 = load i32, ptr %4, align 4
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %178, label %181
 
-169:                                              ; preds = %162
-  %170 = load i32, ptr %40, align 16
-  %171 = or i32 %170, 4097
-  store i32 %171, ptr %40, align 16
-  br label %172
+178:                                              ; preds = %171
+  %179 = load i32, ptr %40, align 16
+  %180 = or i32 %179, 4097
+  store i32 %180, ptr %40, align 16
+  br label %181
 
-172:                                              ; preds = %169, %162
+181:                                              ; preds = %178, %171
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  br label %176
+  br label %185
 
-173:                                              ; preds = %159
-  %174 = load i32, ptr %40, align 16
-  %175 = or i32 %174, 4097
-  store i32 %175, ptr %40, align 16
-  br label %176
+182:                                              ; preds = %168
+  %183 = load i32, ptr %40, align 16
+  %184 = or i32 %183, 4097
+  store i32 %184, ptr %40, align 16
+  br label %185
 
-176:                                              ; preds = %173, %172
-  %177 = load i32, ptr @num_KumeranLockLoss, align 4
-  %178 = icmp ugt i32 %177, %9
-  br i1 %178, label %179, label %186
+185:                                              ; preds = %182, %181
+  %186 = load i32, ptr @num_KumeranLockLoss, align 4
+  %187 = icmp ugt i32 %186, %9
+  br i1 %187, label %188, label %195
 
-179:                                              ; preds = %176
+188:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   store i32 0, ptr %5, align 4, !annotation !6
-  %180 = sext i32 %9 to i64
-  %181 = getelementptr [33 x i32], ptr @KumeranLockLoss, i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4
-  store i32 %182, ptr %5, align 4
-  %183 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %5, ptr noundef nonnull @e1000e_check_options.opt.32, ptr noundef %0), !range !5
-  %184 = load i32, ptr %5, align 4
-  %185 = icmp ne i32 %184, 0
+  %189 = sext i32 %9 to i64
+  %190 = getelementptr [33 x i32], ptr @KumeranLockLoss, i64 0, i64 %189
+  %191 = load i32, ptr %190, align 4
+  store i32 %191, ptr %5, align 4
+  %192 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %5, ptr noundef nonnull @e1000e_check_options.opt.32, ptr noundef %0), !range !5
+  %193 = load i32, ptr %5, align 4
+  %194 = icmp ne i32 %193, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  br label %186
+  br label %195
 
-186:                                              ; preds = %179, %176
-  %187 = phi i1 [ %185, %179 ], [ true, %176 ]
-  %188 = getelementptr inbounds i8, ptr %0, i64 1684
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp eq i32 %189, 6
-  br i1 %190, label %191, label %192
+195:                                              ; preds = %188, %185
+  %196 = phi i1 [ %194, %188 ], [ true, %185 ]
+  %197 = getelementptr inbounds i8, ptr %0, i64 1684
+  %198 = load i32, ptr %197, align 4
+  %199 = icmp eq i32 %198, 6
+  br i1 %199, label %200, label %201
 
-191:                                              ; preds = %186
-  tail call void @e1000e_set_kmrn_lock_loss_workaround_ich8lan(ptr noundef %7, i1 noundef zeroext %187) #5
-  br label %192
+200:                                              ; preds = %195
+  tail call void @e1000e_set_kmrn_lock_loss_workaround_ich8lan(ptr noundef %7, i1 noundef zeroext %196) #5
+  br label %201
 
-192:                                              ; preds = %191, %186
-  %193 = load i32, ptr %117, align 4
-  %194 = and i32 %193, 512
-  %195 = icmp eq i32 %194, 0
-  br i1 %195, label %212, label %196
+201:                                              ; preds = %200, %195
+  %202 = load i32, ptr %121, align 4
+  %203 = and i32 %202, 512
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %221, label %205
 
-196:                                              ; preds = %192
-  %197 = load i32, ptr @num_WriteProtectNVM, align 4
-  %198 = icmp ugt i32 %197, %9
-  br i1 %198, label %199, label %210
+205:                                              ; preds = %201
+  %206 = load i32, ptr @num_WriteProtectNVM, align 4
+  %207 = icmp ugt i32 %206, %9
+  br i1 %207, label %208, label %219
 
-199:                                              ; preds = %196
+208:                                              ; preds = %205
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   store i32 0, ptr %6, align 4, !annotation !6
-  %200 = sext i32 %9 to i64
-  %201 = getelementptr [33 x i32], ptr @WriteProtectNVM, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4
-  store i32 %202, ptr %6, align 4
-  %203 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %6, ptr noundef nonnull @e1000e_check_options.opt.34, ptr noundef %0), !range !5
-  %204 = load i32, ptr %6, align 4
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %209, label %206
+  %209 = sext i32 %9 to i64
+  %210 = getelementptr [33 x i32], ptr @WriteProtectNVM, i64 0, i64 %209
+  %211 = load i32, ptr %210, align 4
+  store i32 %211, ptr %6, align 4
+  %212 = call fastcc i32 @e1000_validate_option(ptr noundef nonnull %6, ptr noundef nonnull @e1000e_check_options.opt.34, ptr noundef %0), !range !5
+  %213 = load i32, ptr %6, align 4
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %218, label %215
 
-206:                                              ; preds = %199
-  %207 = load i32, ptr %117, align 4
-  %208 = or i32 %207, 256
-  store i32 %208, ptr %117, align 4
-  br label %209
+215:                                              ; preds = %208
+  %216 = load i32, ptr %121, align 4
+  %217 = or i32 %216, 256
+  store i32 %217, ptr %121, align 4
+  br label %218
 
-209:                                              ; preds = %206, %199
+218:                                              ; preds = %215, %208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  br label %212
+  br label %221
 
-210:                                              ; preds = %196
-  %211 = or i32 %193, 256
-  store i32 %211, ptr %117, align 4
-  br label %212
+219:                                              ; preds = %205
+  %220 = or i32 %202, 256
+  store i32 %220, ptr %121, align 4
+  br label %221
 
-212:                                              ; preds = %210, %209, %192, %125
+221:                                              ; preds = %219, %218, %201, %133
   ret void
 }
 

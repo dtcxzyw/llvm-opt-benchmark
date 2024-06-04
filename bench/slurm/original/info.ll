@@ -429,95 +429,100 @@ define ptr @job_attr_get(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = call i32 @slurm_xstrcmp(ptr noundef %4, ptr noundef @.str.8)
   %6 = icmp ne i32 %5, 0
-  br i1 %6, label %9, label %7
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 10), align 8
-  store ptr %8, ptr %2, align 8
-  br label %47
+  %8 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 10
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %2, align 8
+  br label %52
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @slurm_xstrcmp(ptr noundef %10, ptr noundef @.str.9)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %16, label %13
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = call i32 @slurm_xstrcmp(ptr noundef %11, ptr noundef @.str.9)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %18, label %14
 
-13:                                               ; preds = %9
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 4), align 8
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @job_attr_get.attr, i64 noundef 1024, ptr noundef @.str.10, i32 noundef %14) #3
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 4
+  %16 = load i32, ptr %15, align 8
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @job_attr_get.attr, i64 noundef 1024, ptr noundef @.str.10, i32 noundef %16) #3
   store ptr @job_attr_get.attr, ptr %2, align 8
-  br label %47
+  br label %52
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr %3, align 8
-  %18 = call i32 @slurm_xstrcmp(ptr noundef %17, ptr noundef @.str.11)
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %36, label %20
+18:                                               ; preds = %10
+  %19 = load ptr, ptr %3, align 8
+  %20 = call i32 @slurm_xstrcmp(ptr noundef %19, ptr noundef @.str.11)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %41, label %22
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 16), align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %27, label %26
 
-23:                                               ; preds = %20
+26:                                               ; preds = %22
   store ptr null, ptr %2, align 8
-  br label %47
+  br label %52
 
-24:                                               ; preds = %20
-  br label %25
+27:                                               ; preds = %22
+  br label %28
 
-25:                                               ; preds = %24
-  br label %26
+28:                                               ; preds = %27
+  br label %29
 
-26:                                               ; preds = %25
-  %27 = call i32 @slurm_get_log_level()
-  %28 = icmp sge i32 %27, 7
-  br i1 %28, label %29, label %31
+29:                                               ; preds = %28
+  %30 = call i32 @slurm_get_log_level()
+  %31 = icmp sge i32 %30, 7
+  br i1 %31, label %32, label %35
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 16), align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.job_attr_get, ptr noundef @__func__.job_attr_get, ptr noundef %30)
-  br label %31
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 16
+  %34 = load ptr, ptr %33, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.job_attr_get, ptr noundef @__func__.job_attr_get, ptr noundef %34)
+  br label %35
 
-31:                                               ; preds = %29, %26
-  br label %32
+35:                                               ; preds = %32, %29
+  br label %36
 
-32:                                               ; preds = %31
-  br label %33
+36:                                               ; preds = %35
+  br label %37
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 16), align 8
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @job_attr_get.attr, i64 noundef 1024, ptr noundef @.str.13, ptr noundef %34) #3
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @job_attr_get.attr, i64 noundef 1024, ptr noundef @.str.13, ptr noundef %39) #3
   store ptr @job_attr_get.attr, ptr %2, align 8
-  br label %47
+  br label %52
 
-36:                                               ; preds = %16
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 @slurm_xstrcmp(ptr noundef %37, ptr noundef @.str.14)
-  %39 = icmp sge i32 %38, 0
-  br i1 %39, label %40, label %46
+41:                                               ; preds = %18
+  %42 = load ptr, ptr %3, align 8
+  %43 = call i32 @slurm_xstrcmp(ptr noundef %42, ptr noundef @.str.14)
+  %44 = icmp sge i32 %43, 0
+  br i1 %44, label %45, label %51
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %3, align 8
-  %42 = call ptr @job_attr_get_netinfo(ptr noundef %41, ptr noundef @job_attr_get.attr)
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %45
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %3, align 8
+  %47 = call ptr @job_attr_get_netinfo(ptr noundef %46, ptr noundef @job_attr_get.attr)
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
 
-44:                                               ; preds = %40
+49:                                               ; preds = %45
   store ptr null, ptr %2, align 8
-  br label %47
+  br label %52
 
-45:                                               ; preds = %40
+50:                                               ; preds = %45
   store ptr @job_attr_get.attr, ptr %2, align 8
-  br label %47
+  br label %52
 
-46:                                               ; preds = %36
+51:                                               ; preds = %41
   store ptr null, ptr %2, align 8
-  br label %47
+  br label %52
 
-47:                                               ; preds = %46, %45, %44, %33, %23, %13, %7
-  %48 = load ptr, ptr %2, align 8
-  ret ptr %48
+52:                                               ; preds = %51, %50, %49, %37, %26, %14, %7
+  %53 = load ptr, ptr %2, align 8
+  ret ptr %53
 }
 
 ; Function Attrs: nounwind

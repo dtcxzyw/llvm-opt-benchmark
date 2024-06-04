@@ -81,77 +81,81 @@ define dso_local noundef zeroext i1 @intel_dsb_buffer_create(ptr nocapture nound
   %11 = icmp eq i32 %10, 0
   %12 = add i64 %2, 4095
   %13 = and i64 %12, -4096
-  br i1 %11, label %17, label %14
+  br i1 %11, label %18, label %14
 
 14:                                               ; preds = %3
   %15 = tail call ptr @i915_gem_object_create_lmem(ptr noundef %5, i64 noundef %13, i32 noundef 1) #6
-  %16 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
-  br i1 %16, label %44, label %21
+  %16 = inttoptr i64 -4096 to ptr
+  %17 = icmp ugt ptr %15, %16
+  br i1 %17, label %48, label %23
 
-17:                                               ; preds = %3
-  %18 = tail call ptr @i915_gem_object_create_internal(ptr noundef %5, i64 noundef %13) #6
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %44, label %20
+18:                                               ; preds = %3
+  %19 = tail call ptr @i915_gem_object_create_internal(ptr noundef %5, i64 noundef %13) #6
+  %20 = inttoptr i64 -4096 to ptr
+  %21 = icmp ugt ptr %19, %20
+  br i1 %21, label %48, label %22
 
-20:                                               ; preds = %17
-  tail call void @i915_gem_object_set_cache_coherency(ptr noundef %18, i32 noundef 0) #6
-  br label %21
+22:                                               ; preds = %18
+  tail call void @i915_gem_object_set_cache_coherency(ptr noundef %19, i32 noundef 0) #6
+  br label %23
 
-21:                                               ; preds = %20, %14
-  %22 = phi ptr [ %15, %14 ], [ %18, %20 ]
-  %23 = tail call ptr @i915_gem_object_ggtt_pin(ptr noundef %22, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
-  store ptr %23, ptr %4, align 8
-  %24 = icmp ugt ptr %23, inttoptr (i64 -4096 to ptr)
-  br i1 %24, label %25, label %34
+23:                                               ; preds = %22, %14
+  %24 = phi ptr [ %15, %14 ], [ %19, %22 ]
+  %25 = tail call ptr @i915_gem_object_ggtt_pin(ptr noundef %24, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  store ptr %25, ptr %4, align 8
+  %26 = inttoptr i64 -4096 to ptr
+  %27 = icmp ugt ptr %25, %26
+  br i1 %27, label %28, label %37
 
-25:                                               ; preds = %21
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 -1, ptr elementtype(i32) %22) #6, !srcloc !10
-  %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %29
+28:                                               ; preds = %23
+  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 -1, ptr elementtype(i32) %24) #6, !srcloc !10
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %32
 
-28:                                               ; preds = %25
+31:                                               ; preds = %28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !11
-  br label %32
+  br label %35
 
-29:                                               ; preds = %25
-  %30 = icmp sgt i32 %26, 0
-  br i1 %30, label %32, label %31, !prof !12
+32:                                               ; preds = %28
+  %33 = icmp sgt i32 %29, 0
+  br i1 %33, label %35, label %34, !prof !12
 
-31:                                               ; preds = %29
-  tail call void @refcount_warn_saturate(ptr noundef %22, i32 noundef 3) #6
-  br label %32
+34:                                               ; preds = %32
+  tail call void @refcount_warn_saturate(ptr noundef %24, i32 noundef 3) #6
+  br label %35
 
-32:                                               ; preds = %31, %29, %28
-  br i1 %27, label %33, label %44
+35:                                               ; preds = %34, %32, %31
+  br i1 %30, label %36, label %48
 
-33:                                               ; preds = %32
-  tail call void @drm_gem_object_free(ptr noundef %22) #6
-  br label %44
+36:                                               ; preds = %35
+  tail call void @drm_gem_object_free(ptr noundef %24) #6
+  br label %48
 
-34:                                               ; preds = %21
-  %35 = getelementptr inbounds i8, ptr %23, i64 184
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %36, i32 noundef 1) #6
-  %38 = icmp ugt ptr %37, inttoptr (i64 -4096 to ptr)
-  br i1 %38, label %39, label %40
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds i8, ptr %25, i64 184
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %39, i32 noundef 1) #6
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %40, %41
+  br i1 %42, label %43, label %44
 
-39:                                               ; preds = %34
+43:                                               ; preds = %37
   call void @i915_vma_unpin_and_release(ptr noundef nonnull %4, i32 noundef 1) #6
-  br label %44
+  br label %48
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %41, ptr %42, align 8
-  store ptr %37, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %2, ptr %43, align 8
-  br label %44
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %45, ptr %46, align 8
+  store ptr %40, ptr %1, align 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %2, ptr %47, align 8
+  br label %48
 
-44:                                               ; preds = %40, %39, %33, %32, %17, %14
-  %45 = phi i1 [ false, %39 ], [ true, %40 ], [ false, %14 ], [ false, %17 ], [ false, %32 ], [ false, %33 ]
+48:                                               ; preds = %44, %43, %36, %35, %18, %14
+  %49 = phi i1 [ false, %43 ], [ true, %44 ], [ false, %14 ], [ false, %18 ], [ false, %35 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  ret i1 %45
+  ret i1 %49
 }
 
 ; Function Attrs: null_pointer_is_valid

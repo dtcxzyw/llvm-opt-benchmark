@@ -201,17 +201,18 @@ define dso_local void @jit_release_context(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load i8, ptr @provider_successfully_loaded, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %8
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.JitProviderCallbacks, ptr @provider, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %2, align 8
-  call void %6(ptr noundef %7)
-  br label %8
+  %6 = getelementptr inbounds %struct.JitProviderCallbacks, ptr @provider, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %2, align 8
+  call void %7(ptr noundef %8)
+  br label %9
 
-8:                                                ; preds = %5, %1
-  %9 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %9)
+9:                                                ; preds = %5, %1
+  %10 = load ptr, ptr %2, align 8
+  call void @pfree(ptr noundef %10)
   ret void
 }
 
@@ -230,7 +231,7 @@ define dso_local zeroext i1 @jit_compile_expr(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %38
+  br label %39
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %3, align 8
@@ -246,7 +247,7 @@ define dso_local zeroext i1 @jit_compile_expr(ptr noundef %0) #0 {
 
 19:                                               ; preds = %9
   store i1 false, ptr %2, align 1
-  br label %38
+  br label %39
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr %3, align 8
@@ -262,26 +263,27 @@ define dso_local zeroext i1 @jit_compile_expr(ptr noundef %0) #0 {
 
 30:                                               ; preds = %20
   store i1 false, ptr %2, align 1
-  br label %38
+  br label %39
 
 31:                                               ; preds = %20
   %32 = call zeroext i1 @provider_init()
-  br i1 %32, label %33, label %37
+  br i1 %32, label %33, label %38
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds (%struct.JitProviderCallbacks, ptr @provider, i32 0, i32 2), align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = call zeroext i1 %34(ptr noundef %35)
-  store i1 %36, ptr %2, align 1
-  br label %38
+  %34 = getelementptr inbounds %struct.JitProviderCallbacks, ptr @provider, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = call zeroext i1 %35(ptr noundef %36)
+  store i1 %37, ptr %2, align 1
+  br label %39
 
-37:                                               ; preds = %31
+38:                                               ; preds = %31
   store i1 false, ptr %2, align 1
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %33, %30, %19, %8
-  %39 = load i1, ptr %2, align 1
-  ret i1 %39
+39:                                               ; preds = %38, %33, %30, %19, %8
+  %40 = load i1, ptr %2, align 1
+  ret i1 %40
 }
 
 ; Function Attrs: nounwind uwtable

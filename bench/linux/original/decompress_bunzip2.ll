@@ -15,146 +15,148 @@ define dso_local noundef i32 @bunzip2(ptr noundef %0, i64 noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   store ptr null, ptr %8, align 8, !annotation !5
   %9 = icmp eq ptr %3, null
-  br i1 %9, label %13, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %12 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 4096) #9
-  br label %13
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %12 = load ptr, ptr %11, align 16
+  %13 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 4096) #9
+  br label %14
 
-13:                                               ; preds = %10, %7
-  %14 = phi ptr [ %12, %10 ], [ %4, %7 ]
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %10, %7
+  %15 = phi ptr [ %13, %10 ], [ %4, %7 ]
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   tail call void %6(ptr noundef nonnull @.str) #8
-  br label %81
+  br label %83
 
-17:                                               ; preds = %13
-  %18 = icmp eq ptr %0, null
-  br i1 %18, label %19, label %22
+18:                                               ; preds = %14
+  %19 = icmp eq ptr %0, null
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %21 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3264, i64 noundef 4096) #9
-  br label %22
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %22 = load ptr, ptr %21, align 16
+  %23 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 4096) #9
+  br label %24
 
-22:                                               ; preds = %19, %17
-  %23 = phi ptr [ %21, %19 ], [ %0, %17 ]
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %20, %18
+  %25 = phi ptr [ %23, %20 ], [ %0, %18 ]
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %22
+27:                                               ; preds = %24
   tail call void %6(ptr noundef nonnull @.str.1) #8
-  br label %77
+  br label %79
 
-26:                                               ; preds = %22
-  %27 = call fastcc i32 @start_bunzip(ptr noundef nonnull %8, ptr noundef nonnull %23, i64 noundef %1, ptr noundef %2) #10, !range !6
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %47
+28:                                               ; preds = %24
+  %29 = call fastcc i32 @start_bunzip(ptr noundef nonnull %8, ptr noundef nonnull %25, i64 noundef %1, ptr noundef %2) #10, !range !6
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %49
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %8, align 8
-  %31 = tail call fastcc i32 @read_bunzip(ptr noundef %30, ptr noundef nonnull %14) #10
-  %32 = icmp slt i32 %31, 1
-  br i1 %32, label %47, label %33
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %8, align 8
+  %33 = tail call fastcc i32 @read_bunzip(ptr noundef %32, ptr noundef nonnull %15) #10
+  %34 = icmp slt i32 %33, 1
+  br i1 %34, label %49, label %35
 
-33:                                               ; preds = %42, %29
-  %34 = phi i32 [ %45, %42 ], [ %31, %29 ]
-  %35 = phi ptr [ %43, %42 ], [ %14, %29 ]
-  %36 = zext nneg i32 %34 to i64
-  br i1 %9, label %37, label %39
+35:                                               ; preds = %44, %31
+  %36 = phi i32 [ %47, %44 ], [ %33, %31 ]
+  %37 = phi ptr [ %45, %44 ], [ %15, %31 ]
+  %38 = zext nneg i32 %36 to i64
+  br i1 %9, label %39, label %41
 
-37:                                               ; preds = %33
-  %38 = getelementptr i8, ptr %35, i64 %36
-  br label %42
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %37, i64 %38
+  br label %44
 
-39:                                               ; preds = %33
-  %40 = tail call i64 %3(ptr noundef %35, i64 noundef %36) #8
-  %41 = icmp eq i64 %40, %36
-  br i1 %41, label %42, label %47
+41:                                               ; preds = %35
+  %42 = tail call i64 %3(ptr noundef %37, i64 noundef %38) #8
+  %43 = icmp eq i64 %42, %38
+  br i1 %43, label %44, label %49
 
-42:                                               ; preds = %39, %37
-  %43 = phi ptr [ %35, %39 ], [ %38, %37 ]
-  %44 = load ptr, ptr %8, align 8
-  %45 = tail call fastcc i32 @read_bunzip(ptr noundef %44, ptr noundef %43) #10
-  %46 = icmp slt i32 %45, 1
-  br i1 %46, label %47, label %33, !llvm.loop !7
+44:                                               ; preds = %41, %39
+  %45 = phi ptr [ %37, %41 ], [ %40, %39 ]
+  %46 = load ptr, ptr %8, align 8
+  %47 = tail call fastcc i32 @read_bunzip(ptr noundef %46, ptr noundef %45) #10
+  %48 = icmp slt i32 %47, 1
+  br i1 %48, label %49, label %35, !llvm.loop !7
 
-47:                                               ; preds = %42, %39, %29, %26
-  %48 = phi ptr [ %14, %26 ], [ %14, %29 ], [ %35, %39 ], [ %43, %42 ]
-  %49 = phi i32 [ %27, %26 ], [ %31, %29 ], [ -4, %39 ], [ %45, %42 ]
-  switch i32 %49, label %60 [
-    i32 -1, label %50
-    i32 -4, label %57
+49:                                               ; preds = %44, %41, %31, %28
+  %50 = phi ptr [ %15, %28 ], [ %15, %31 ], [ %37, %41 ], [ %45, %44 ]
+  %51 = phi i32 [ %29, %28 ], [ %33, %31 ], [ -4, %41 ], [ %47, %44 ]
+  switch i32 %51, label %62 [
+    i32 -1, label %52
+    i32 -4, label %59
   ]
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1088
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 1092
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %53, %55
-  br i1 %56, label %60, label %57
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 1088
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 1092
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %55, %57
+  br i1 %58, label %62, label %59
 
-57:                                               ; preds = %50, %47
-  %58 = phi ptr [ @.str.2, %50 ], [ @.str.3, %47 ]
-  %59 = phi i32 [ -1, %50 ], [ %49, %47 ]
-  tail call void %6(ptr noundef nonnull %58) #8
-  br label %60
+59:                                               ; preds = %52, %49
+  %60 = phi ptr [ @.str.2, %52 ], [ @.str.3, %49 ]
+  %61 = phi i32 [ -1, %52 ], [ %51, %49 ]
+  tail call void %6(ptr noundef nonnull %60) #8
+  br label %62
 
-60:                                               ; preds = %57, %50, %47
-  %61 = phi i32 [ 0, %50 ], [ %49, %47 ], [ %59, %57 ]
-  %62 = load ptr, ptr %8, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %75, label %64
+62:                                               ; preds = %59, %52, %49
+  %63 = phi i32 [ 0, %52 ], [ %51, %49 ], [ %61, %59 ]
+  %64 = load ptr, ptr %8, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %77, label %66
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %62, i64 1104
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %69, label %68
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %64, i64 1104
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %71, label %70
 
-68:                                               ; preds = %64
-  tail call void @vfree(ptr noundef nonnull %66) #8
-  br label %69
+70:                                               ; preds = %66
+  tail call void @vfree(ptr noundef nonnull %68) #8
+  br label %71
 
-69:                                               ; preds = %68, %64
-  %70 = icmp eq ptr %5, null
-  br i1 %70, label %74, label %71
+71:                                               ; preds = %70, %66
+  %72 = icmp eq ptr %5, null
+  br i1 %72, label %76, label %73
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %62, i64 40
-  %73 = load i64, ptr %72, align 8
-  store i64 %73, ptr %5, align 8
-  br label %74
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %64, i64 40
+  %75 = load i64, ptr %74, align 8
+  store i64 %75, ptr %5, align 8
+  br label %76
 
-74:                                               ; preds = %71, %69
-  tail call void @kfree(ptr noundef nonnull %62) #8
-  br label %75
-
-75:                                               ; preds = %74, %60
-  br i1 %18, label %76, label %77
-
-76:                                               ; preds = %75
-  tail call void @kfree(ptr noundef nonnull %23) #8
+76:                                               ; preds = %73, %71
+  tail call void @kfree(ptr noundef nonnull %64) #8
   br label %77
 
-77:                                               ; preds = %76, %75, %25
-  %78 = phi ptr [ %48, %75 ], [ %48, %76 ], [ %14, %25 ]
-  %79 = phi i32 [ %61, %75 ], [ %61, %76 ], [ -6, %25 ]
-  br i1 %9, label %81, label %80
+77:                                               ; preds = %76, %62
+  br i1 %19, label %78, label %79
 
-80:                                               ; preds = %77
-  tail call void @kfree(ptr noundef %78) #8
-  br label %81
+78:                                               ; preds = %77
+  tail call void @kfree(ptr noundef nonnull %25) #8
+  br label %79
 
-81:                                               ; preds = %80, %77, %16
-  %82 = phi i32 [ -6, %16 ], [ %79, %80 ], [ %79, %77 ]
+79:                                               ; preds = %78, %77, %27
+  %80 = phi ptr [ %50, %77 ], [ %50, %78 ], [ %15, %27 ]
+  %81 = phi i32 [ %63, %77 ], [ %63, %78 ], [ -6, %27 ]
+  br i1 %9, label %83, label %82
+
+82:                                               ; preds = %79
+  tail call void @kfree(ptr noundef %80) #8
+  br label %83
+
+83:                                               ; preds = %82, %79, %17
+  %84 = phi i32 [ -6, %17 ], [ %81, %82 ], [ %81, %79 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  ret i32 %82
+  ret i32 %84
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -384,16 +384,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusEnumeratorCallback", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_stats = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusEnumeratorCallback", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %s.addr, align 8
-  store ptr %2, ptr %d_stats, align 8
+  %3 = load ptr, ptr %s.addr, align 8
+  store ptr %3, ptr %d_stats, align 8
   %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusEnumeratorCallback", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %eec.addr, align 8
-  store ptr %3, ptr %d_eec, align 8
+  %4 = load ptr, ptr %eec.addr, align 8
+  store ptr %4, ptr %d_eec, align 8
   ret void
 }
 

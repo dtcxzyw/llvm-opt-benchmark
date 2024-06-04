@@ -607,88 +607,90 @@ define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext
   %15 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %14, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   %17 = icmp ule i64 %13, %16
-  br i1 %17, label %18, label %20
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %5
-  %19 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23))
-  store ptr %19, ptr %12, align 8
-  br label %29
+  %19 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23
+  %20 = call ptr @opal_free_list_get(ptr noundef %19)
+  store ptr %20, ptr %12, align 8
+  br label %31
 
-20:                                               ; preds = %5
-  %21 = load i64, ptr %10, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %22, i32 0, i32 3
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp ule i64 %21, %24
-  br i1 %25, label %26, label %28
+21:                                               ; preds = %5
+  %22 = load i64, ptr %10, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %23, i32 0, i32 3
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp ule i64 %22, %25
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %20
-  %27 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24))
-  store ptr %27, ptr %12, align 8
-  br label %28
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24
+  %29 = call ptr @opal_free_list_get(ptr noundef %28)
+  store ptr %29, ptr %12, align 8
+  br label %30
 
-28:                                               ; preds = %26, %20
-  br label %29
+30:                                               ; preds = %27, %21
+  br label %31
 
-29:                                               ; preds = %28, %18
-  %30 = load ptr, ptr %12, align 8
-  %31 = icmp eq ptr null, %30
-  %32 = xor i1 %31, true
-  %33 = xor i1 %32, true
-  %34 = zext i1 %33 to i32
-  %35 = sext i32 %34 to i64
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %38
+31:                                               ; preds = %30, %18
+  %32 = load ptr, ptr %12, align 8
+  %33 = icmp eq ptr null, %32
+  %34 = xor i1 %33, true
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %40
 
-37:                                               ; preds = %29
+39:                                               ; preds = %31
   store ptr null, ptr %6, align 8
-  br label %70
+  br label %72
 
-38:                                               ; preds = %29
-  %39 = load i64, ptr %10, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %40, i32 0, i32 1
-  %42 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %41, i64 0, i64 0
-  %43 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %42, i32 0, i32 1
-  store i64 %39, ptr %43, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %44, i64 1
+40:                                               ; preds = %31
+  %41 = load i64, ptr %10, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %43, i64 0, i64 0
+  %45 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %44, i32 0, i32 1
+  store i64 %41, ptr %45, align 8
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %46, i32 0, i32 1
-  %48 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %47, i64 0, i64 0
-  %49 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %48, i32 0, i32 0
-  store ptr %45, ptr %49, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %50, i32 0, i32 1
-  %52 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %51, i64 0, i64 0
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %53, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %54, i32 0, i32 1
-  store ptr %52, ptr %55, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %57, i32 0, i32 2
-  store i64 1, ptr %58, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %61, i32 0, i32 6
-  store i32 %59, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %63, i32 0, i32 0
-  %65 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %64, i32 0, i32 7
-  store i8 -1, ptr %65, align 4
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %12, align 8
-  %68 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %67, i32 0, i32 3
-  store ptr %66, ptr %68, align 8
+  %47 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %46, i64 1
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %48, i32 0, i32 1
+  %50 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %49, i64 0, i64 0
+  %51 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %50, i32 0, i32 0
+  store ptr %47, ptr %51, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %53, i64 0, i64 0
+  %55 = load ptr, ptr %12, align 8
+  %56 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %56, i32 0, i32 1
+  store ptr %54, ptr %57, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %58, i32 0, i32 0
+  %60 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %59, i32 0, i32 2
+  store i64 1, ptr %60, align 8
+  %61 = load i32, ptr %11, align 4
+  %62 = load ptr, ptr %12, align 8
+  %63 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %63, i32 0, i32 6
+  store i32 %61, ptr %64, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %66, i32 0, i32 7
+  store i8 -1, ptr %67, align 4
+  %68 = load ptr, ptr %7, align 8
   %69 = load ptr, ptr %12, align 8
-  store ptr %69, ptr %6, align 8
-  br label %70
+  %70 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %69, i32 0, i32 3
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %12, align 8
+  store ptr %71, ptr %6, align 8
+  br label %72
 
-70:                                               ; preds = %38, %37
-  %71 = load ptr, ptr %6, align 8
-  ret ptr %71
+72:                                               ; preds = %40, %39
+  %73 = load ptr, ptr %6, align 8
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -755,198 +757,200 @@ define ptr @mca_btl_tcp_prepare_src(ptr noundef %0, ptr noundef %1, ptr noundef 
   %36 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %35, i32 0, i32 1
   %37 = load i64, ptr %36, align 8
   %38 = icmp ule i64 %34, %37
-  br i1 %38, label %39, label %41
+  br i1 %38, label %39, label %42
 
 39:                                               ; preds = %31
-  %40 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23))
-  store ptr %40, ptr %16, align 8
-  br label %43
+  %40 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23
+  %41 = call ptr @opal_free_list_get(ptr noundef %40)
+  store ptr %41, ptr %16, align 8
+  br label %45
 
-41:                                               ; preds = %31
-  %42 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24))
-  store ptr %42, ptr %16, align 8
-  br label %43
+42:                                               ; preds = %31
+  %43 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24
+  %44 = call ptr @opal_free_list_get(ptr noundef %43)
+  store ptr %44, ptr %16, align 8
+  br label %45
 
-43:                                               ; preds = %41, %39
-  %44 = load ptr, ptr %16, align 8
-  %45 = icmp eq ptr null, %44
-  %46 = xor i1 %45, true
-  %47 = xor i1 %46, true
-  %48 = zext i1 %47 to i32
-  %49 = sext i32 %48 to i64
-  %50 = icmp ne i64 %49, 0
-  br i1 %50, label %51, label %52
+45:                                               ; preds = %42, %39
+  %46 = load ptr, ptr %16, align 8
+  %47 = icmp eq ptr null, %46
+  %48 = xor i1 %47, true
+  %49 = xor i1 %48, true
+  %50 = zext i1 %49 to i32
+  %51 = sext i32 %50 to i64
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %53, label %54
 
-51:                                               ; preds = %43
+53:                                               ; preds = %45
   store ptr null, ptr %8, align 8
-  br label %172
+  br label %174
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %16, align 8
-  %54 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %53, i64 1
+54:                                               ; preds = %45
   %55 = load ptr, ptr %16, align 8
-  %56 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %55, i32 0, i32 1
-  %57 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %56, i64 0, i64 0
-  %58 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %57, i32 0, i32 0
-  store ptr %54, ptr %58, align 8
-  %59 = load i64, ptr %13, align 8
-  %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %60, i32 0, i32 1
-  %62 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %61, i64 0, i64 0
-  %63 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %62, i32 0, i32 1
-  store i64 %59, ptr %63, align 8
-  %64 = load ptr, ptr %16, align 8
-  %65 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %64, i32 0, i32 0
-  %66 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %65, i32 0, i32 2
-  store i64 1, ptr %66, align 8
-  %67 = load ptr, ptr %11, align 8
-  %68 = call i32 @opal_convertor_need_buffers(ptr noundef %67)
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %74, label %70
+  %56 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %55, i64 1
+  %57 = load ptr, ptr %16, align 8
+  %58 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %58, i64 0, i64 0
+  %60 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %59, i32 0, i32 0
+  store ptr %56, ptr %60, align 8
+  %61 = load i64, ptr %13, align 8
+  %62 = load ptr, ptr %16, align 8
+  %63 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %62, i32 0, i32 1
+  %64 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %63, i64 0, i64 0
+  %65 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %64, i32 0, i32 1
+  store i64 %61, ptr %65, align 8
+  %66 = load ptr, ptr %16, align 8
+  %67 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %66, i32 0, i32 0
+  %68 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %67, i32 0, i32 2
+  store i64 1, ptr %68, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = call i32 @opal_convertor_need_buffers(ptr noundef %69)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %76, label %72
 
-70:                                               ; preds = %52
-  %71 = load ptr, ptr %11, align 8
-  %72 = call i32 @opal_convertor_on_device(ptr noundef %71)
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %121
+72:                                               ; preds = %54
+  %73 = load ptr, ptr %11, align 8
+  %74 = call i32 @opal_convertor_on_device(ptr noundef %73)
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %123
 
-74:                                               ; preds = %70, %52
-  %75 = load i64, ptr %19, align 8
-  %76 = load i64, ptr %13, align 8
-  %77 = add i64 %75, %76
-  %78 = load ptr, ptr %16, align 8
-  %79 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %78, i32 0, i32 9
-  %80 = load i64, ptr %79, align 8
-  %81 = icmp ugt i64 %77, %80
-  br i1 %81, label %82, label %88
+76:                                               ; preds = %72, %54
+  %77 = load i64, ptr %19, align 8
+  %78 = load i64, ptr %13, align 8
+  %79 = add i64 %77, %78
+  %80 = load ptr, ptr %16, align 8
+  %81 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %80, i32 0, i32 9
+  %82 = load i64, ptr %81, align 8
+  %83 = icmp ugt i64 %79, %82
+  br i1 %83, label %84, label %90
 
-82:                                               ; preds = %74
-  %83 = load ptr, ptr %16, align 8
-  %84 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %83, i32 0, i32 9
-  %85 = load i64, ptr %84, align 8
-  %86 = load i64, ptr %13, align 8
-  %87 = sub i64 %85, %86
-  store i64 %87, ptr %19, align 8
-  br label %88
+84:                                               ; preds = %76
+  %85 = load ptr, ptr %16, align 8
+  %86 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %85, i32 0, i32 9
+  %87 = load i64, ptr %86, align 8
+  %88 = load i64, ptr %13, align 8
+  %89 = sub i64 %87, %88
+  store i64 %89, ptr %19, align 8
+  br label %90
 
-88:                                               ; preds = %82, %74
-  %89 = load i64, ptr %19, align 8
-  %90 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 1
-  store i64 %89, ptr %90, align 8
-  %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %91, i32 0, i32 1
-  %93 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %92, i64 0, i64 0
-  %94 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i64, ptr %13, align 8
-  %97 = getelementptr inbounds i8, ptr %95, i64 %96
-  %98 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
-  store ptr %97, ptr %98, align 8
-  %99 = load ptr, ptr %11, align 8
-  %100 = call i32 @opal_convertor_pack(ptr noundef %99, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  store i32 %100, ptr %20, align 4
-  %101 = load i32, ptr %20, align 4
-  %102 = icmp slt i32 %101, 0
-  %103 = xor i1 %102, true
-  %104 = xor i1 %103, true
-  %105 = zext i1 %104 to i32
-  %106 = sext i32 %105 to i64
-  %107 = icmp ne i64 %106, 0
-  br i1 %107, label %108, label %113
+90:                                               ; preds = %84, %76
+  %91 = load i64, ptr %19, align 8
+  %92 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 1
+  store i64 %91, ptr %92, align 8
+  %93 = load ptr, ptr %16, align 8
+  %94 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %93, i32 0, i32 1
+  %95 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %94, i64 0, i64 0
+  %96 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i64, ptr %13, align 8
+  %99 = getelementptr inbounds i8, ptr %97, i64 %98
+  %100 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
+  store ptr %99, ptr %100, align 8
+  %101 = load ptr, ptr %11, align 8
+  %102 = call i32 @opal_convertor_pack(ptr noundef %101, ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  store i32 %102, ptr %20, align 4
+  %103 = load i32, ptr %20, align 4
+  %104 = icmp slt i32 %103, 0
+  %105 = xor i1 %104, true
+  %106 = xor i1 %105, true
+  %107 = zext i1 %106 to i32
+  %108 = sext i32 %107 to i64
+  %109 = icmp ne i64 %108, 0
+  br i1 %109, label %110, label %115
 
-108:                                              ; preds = %88
-  %109 = load ptr, ptr %9, align 8
-  %110 = load ptr, ptr %16, align 8
-  %111 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %110, i32 0, i32 0
-  %112 = call i32 @mca_btl_tcp_free(ptr noundef %109, ptr noundef %111)
+110:                                              ; preds = %90
+  %111 = load ptr, ptr %9, align 8
+  %112 = load ptr, ptr %16, align 8
+  %113 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %112, i32 0, i32 0
+  %114 = call i32 @mca_btl_tcp_free(ptr noundef %111, ptr noundef %113)
   store ptr null, ptr %8, align 8
-  br label %172
+  br label %174
 
-113:                                              ; preds = %88
-  %114 = load i64, ptr %19, align 8
-  %115 = load ptr, ptr %16, align 8
-  %116 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %115, i32 0, i32 1
-  %117 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %116, i64 0, i64 0
-  %118 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %117, i32 0, i32 1
-  %119 = load i64, ptr %118, align 8
-  %120 = add i64 %119, %114
-  store i64 %120, ptr %118, align 8
-  br label %154
+115:                                              ; preds = %90
+  %116 = load i64, ptr %19, align 8
+  %117 = load ptr, ptr %16, align 8
+  %118 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %117, i32 0, i32 1
+  %119 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %118, i64 0, i64 0
+  %120 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %119, i32 0, i32 1
+  %121 = load i64, ptr %120, align 8
+  %122 = add i64 %121, %116
+  store i64 %122, ptr %120, align 8
+  br label %156
 
-121:                                              ; preds = %70
-  %122 = load i64, ptr %19, align 8
-  %123 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 1
-  store i64 %122, ptr %123, align 8
-  %124 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
-  store ptr null, ptr %124, align 8
-  %125 = load ptr, ptr %11, align 8
-  %126 = call i32 @opal_convertor_pack(ptr noundef %125, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  store i32 %126, ptr %20, align 4
-  %127 = load i32, ptr %20, align 4
-  %128 = icmp slt i32 %127, 0
-  %129 = xor i1 %128, true
-  %130 = xor i1 %129, true
-  %131 = zext i1 %130 to i32
-  %132 = sext i32 %131 to i64
-  %133 = icmp ne i64 %132, 0
-  br i1 %133, label %134, label %139
+123:                                              ; preds = %72
+  %124 = load i64, ptr %19, align 8
+  %125 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 1
+  store i64 %124, ptr %125, align 8
+  %126 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
+  store ptr null, ptr %126, align 8
+  %127 = load ptr, ptr %11, align 8
+  %128 = call i32 @opal_convertor_pack(ptr noundef %127, ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  store i32 %128, ptr %20, align 4
+  %129 = load i32, ptr %20, align 4
+  %130 = icmp slt i32 %129, 0
+  %131 = xor i1 %130, true
+  %132 = xor i1 %131, true
+  %133 = zext i1 %132 to i32
+  %134 = sext i32 %133 to i64
+  %135 = icmp ne i64 %134, 0
+  br i1 %135, label %136, label %141
 
-134:                                              ; preds = %121
-  %135 = load ptr, ptr %9, align 8
-  %136 = load ptr, ptr %16, align 8
-  %137 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %136, i32 0, i32 0
-  %138 = call i32 @mca_btl_tcp_free(ptr noundef %135, ptr noundef %137)
+136:                                              ; preds = %123
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %16, align 8
+  %139 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %138, i32 0, i32 0
+  %140 = call i32 @mca_btl_tcp_free(ptr noundef %137, ptr noundef %139)
   store ptr null, ptr %8, align 8
-  br label %172
+  br label %174
 
-139:                                              ; preds = %121
-  %140 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %16, align 8
-  %143 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %142, i32 0, i32 1
-  %144 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %143, i64 0, i64 1
-  %145 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %144, i32 0, i32 0
-  store ptr %141, ptr %145, align 8
-  %146 = load i64, ptr %19, align 8
-  %147 = load ptr, ptr %16, align 8
-  %148 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %147, i32 0, i32 1
-  %149 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %148, i64 0, i64 1
-  %150 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %149, i32 0, i32 1
-  store i64 %146, ptr %150, align 8
-  %151 = load ptr, ptr %16, align 8
-  %152 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %151, i32 0, i32 0
-  %153 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %152, i32 0, i32 2
-  store i64 2, ptr %153, align 8
-  br label %154
+141:                                              ; preds = %123
+  %142 = getelementptr inbounds %struct.iovec, ptr %17, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %16, align 8
+  %145 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %144, i32 0, i32 1
+  %146 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %145, i64 0, i64 1
+  %147 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %146, i32 0, i32 0
+  store ptr %143, ptr %147, align 8
+  %148 = load i64, ptr %19, align 8
+  %149 = load ptr, ptr %16, align 8
+  %150 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %149, i32 0, i32 1
+  %151 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %150, i64 0, i64 1
+  %152 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %151, i32 0, i32 1
+  store i64 %148, ptr %152, align 8
+  %153 = load ptr, ptr %16, align 8
+  %154 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %154, i32 0, i32 2
+  store i64 2, ptr %155, align 8
+  br label %156
 
-154:                                              ; preds = %139, %113
-  %155 = load ptr, ptr %16, align 8
-  %156 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %155, i32 0, i32 1
-  %157 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %156, i64 0, i64 0
-  %158 = load ptr, ptr %16, align 8
-  %159 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %158, i32 0, i32 0
-  %160 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %159, i32 0, i32 1
-  store ptr %157, ptr %160, align 8
-  %161 = load i32, ptr %15, align 4
-  %162 = load ptr, ptr %16, align 8
-  %163 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %162, i32 0, i32 0
-  %164 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %163, i32 0, i32 6
-  store i32 %161, ptr %164, align 8
-  %165 = load ptr, ptr %16, align 8
-  %166 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %165, i32 0, i32 0
-  %167 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %166, i32 0, i32 7
-  store i8 -1, ptr %167, align 4
-  %168 = load i64, ptr %19, align 8
-  %169 = load ptr, ptr %14, align 8
-  store i64 %168, ptr %169, align 8
-  %170 = load ptr, ptr %16, align 8
-  %171 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %170, i32 0, i32 0
-  store ptr %171, ptr %8, align 8
-  br label %172
+156:                                              ; preds = %141, %115
+  %157 = load ptr, ptr %16, align 8
+  %158 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %157, i32 0, i32 1
+  %159 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %158, i64 0, i64 0
+  %160 = load ptr, ptr %16, align 8
+  %161 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %160, i32 0, i32 0
+  %162 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %161, i32 0, i32 1
+  store ptr %159, ptr %162, align 8
+  %163 = load i32, ptr %15, align 4
+  %164 = load ptr, ptr %16, align 8
+  %165 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %164, i32 0, i32 0
+  %166 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %165, i32 0, i32 6
+  store i32 %163, ptr %166, align 8
+  %167 = load ptr, ptr %16, align 8
+  %168 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %167, i32 0, i32 0
+  %169 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %168, i32 0, i32 7
+  store i8 -1, ptr %169, align 4
+  %170 = load i64, ptr %19, align 8
+  %171 = load ptr, ptr %14, align 8
+  store i64 %170, ptr %171, align 8
+  %172 = load ptr, ptr %16, align 8
+  %173 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %172, i32 0, i32 0
+  store ptr %173, ptr %8, align 8
+  br label %174
 
-172:                                              ; preds = %154, %134, %108, %51
-  %173 = load ptr, ptr %8, align 8
-  ret ptr %173
+174:                                              ; preds = %156, %136, %110, %53
+  %175 = load ptr, ptr %8, align 8
+  ret ptr %175
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1165,305 +1169,306 @@ define i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 
   %29 = load ptr, ptr %14, align 8
   store ptr %29, ptr %26, align 8
   store ptr null, ptr %27, align 8
-  %30 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 25))
-  store ptr %30, ptr %27, align 8
-  %31 = load ptr, ptr %27, align 8
-  %32 = icmp eq ptr null, %31
-  %33 = xor i1 %32, true
+  %30 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 25
+  %31 = call ptr @opal_free_list_get(ptr noundef %30)
+  store ptr %31, ptr %27, align 8
+  %32 = load ptr, ptr %27, align 8
+  %33 = icmp eq ptr null, %32
   %34 = xor i1 %33, true
-  %35 = zext i1 %34 to i32
-  %36 = sext i32 %35 to i64
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %12
-  store i32 -2, ptr %13, align 4
-  br label %253
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %12
-  %40 = load ptr, ptr %15, align 8
-  %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %41, i32 0, i32 2
-  store ptr %40, ptr %42, align 8
-  %43 = load i64, ptr %20, align 8
-  %44 = load ptr, ptr %27, align 8
-  %45 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %45, i64 0, i64 0
-  %47 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %46, i32 0, i32 1
-  store i64 %43, ptr %47, align 8
-  %48 = load ptr, ptr %16, align 8
-  %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %49, i32 0, i32 1
-  %51 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %50, i64 0, i64 0
-  %52 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %51, i32 0, i32 0
-  store ptr %48, ptr %52, align 8
-  %53 = load ptr, ptr %27, align 8
-  %54 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %53, i32 0, i32 1
-  %55 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %54, i64 0, i64 0
-  %56 = load ptr, ptr %27, align 8
-  %57 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %57, i32 0, i32 1
-  store ptr %55, ptr %58, align 8
-  %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %60, i32 0, i32 2
-  store i64 1, ptr %61, align 8
-  %62 = load ptr, ptr %27, align 8
-  %63 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %62, i32 0, i32 0
-  %64 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %63, i32 0, i32 7
-  store i8 -1, ptr %64, align 4
-  %65 = load ptr, ptr %16, align 8
-  %66 = load ptr, ptr %27, align 8
-  %67 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %66, i32 0, i32 1
-  %68 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %67, i64 0, i64 0
-  %69 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %68, i32 0, i32 0
-  store ptr %65, ptr %69, align 8
-  %70 = load i64, ptr %20, align 8
-  %71 = load ptr, ptr %27, align 8
-  %72 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %72, i64 0, i64 0
-  %74 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %73, i32 0, i32 1
-  store i64 %70, ptr %74, align 8
-  %75 = load i64, ptr %17, align 8
-  %76 = load ptr, ptr %27, align 8
-  %77 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %76, i32 0, i32 1
-  %78 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %77, i64 0, i64 1
-  %79 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %78, i32 0, i32 0
-  store i64 %75, ptr %79, align 8
-  %80 = load i64, ptr %20, align 8
-  %81 = load ptr, ptr %27, align 8
-  %82 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %81, i32 0, i32 1
-  %83 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %82, i64 0, i64 1
-  %84 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %83, i32 0, i32 1
-  store i64 %80, ptr %84, align 8
-  %85 = load ptr, ptr %15, align 8
-  %86 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %85, i32 0, i32 19
-  %87 = load i8, ptr %86, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %90
+  store i32 -2, ptr %13, align 4
+  br label %254
 
-89:                                               ; preds = %39
-  br label %90
+40:                                               ; preds = %12
+  %41 = load ptr, ptr %15, align 8
+  %42 = load ptr, ptr %27, align 8
+  %43 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %42, i32 0, i32 2
+  store ptr %41, ptr %43, align 8
+  %44 = load i64, ptr %20, align 8
+  %45 = load ptr, ptr %27, align 8
+  %46 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %46, i64 0, i64 0
+  %48 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %47, i32 0, i32 1
+  store i64 %44, ptr %48, align 8
+  %49 = load ptr, ptr %16, align 8
+  %50 = load ptr, ptr %27, align 8
+  %51 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %51, i64 0, i64 0
+  %53 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %52, i32 0, i32 0
+  store ptr %49, ptr %53, align 8
+  %54 = load ptr, ptr %27, align 8
+  %55 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %54, i32 0, i32 1
+  %56 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %55, i64 0, i64 0
+  %57 = load ptr, ptr %27, align 8
+  %58 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %58, i32 0, i32 1
+  store ptr %56, ptr %59, align 8
+  %60 = load ptr, ptr %27, align 8
+  %61 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %61, i32 0, i32 2
+  store i64 1, ptr %62, align 8
+  %63 = load ptr, ptr %27, align 8
+  %64 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %63, i32 0, i32 0
+  %65 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %64, i32 0, i32 7
+  store i8 -1, ptr %65, align 4
+  %66 = load ptr, ptr %16, align 8
+  %67 = load ptr, ptr %27, align 8
+  %68 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %67, i32 0, i32 1
+  %69 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %68, i64 0, i64 0
+  %70 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %69, i32 0, i32 0
+  store ptr %66, ptr %70, align 8
+  %71 = load i64, ptr %20, align 8
+  %72 = load ptr, ptr %27, align 8
+  %73 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %72, i32 0, i32 1
+  %74 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %73, i64 0, i64 0
+  %75 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %74, i32 0, i32 1
+  store i64 %71, ptr %75, align 8
+  %76 = load i64, ptr %17, align 8
+  %77 = load ptr, ptr %27, align 8
+  %78 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %77, i32 0, i32 1
+  %79 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %78, i64 0, i64 1
+  %80 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %79, i32 0, i32 0
+  store i64 %76, ptr %80, align 8
+  %81 = load i64, ptr %20, align 8
+  %82 = load ptr, ptr %27, align 8
+  %83 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %82, i32 0, i32 1
+  %84 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %83, i64 0, i64 1
+  %85 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %84, i32 0, i32 1
+  store i64 %81, ptr %85, align 8
+  %86 = load ptr, ptr %15, align 8
+  %87 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %86, i32 0, i32 19
+  %88 = load i8, ptr %87, align 8
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %91
 
-90:                                               ; preds = %89, %39
-  %91 = load ptr, ptr %27, align 8
-  %92 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %91, i32 0, i32 0
-  %93 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %92, i32 0, i32 6
-  store i32 6, ptr %93, align 8
-  %94 = load ptr, ptr %27, align 8
-  %95 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %94, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %95, i32 0, i32 3
-  store ptr @fake_rdma_complete, ptr %96, align 8
-  %97 = load ptr, ptr %23, align 8
-  %98 = load ptr, ptr %27, align 8
-  %99 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %98, i32 0, i32 13
-  %100 = getelementptr inbounds %struct.anon.11, ptr %99, i32 0, i32 0
-  store ptr %97, ptr %100, align 8
-  %101 = load ptr, ptr %25, align 8
-  %102 = load ptr, ptr %27, align 8
-  %103 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %102, i32 0, i32 13
-  %104 = getelementptr inbounds %struct.anon.11, ptr %103, i32 0, i32 1
-  store ptr %101, ptr %104, align 8
-  %105 = load ptr, ptr %24, align 8
-  %106 = load ptr, ptr %27, align 8
-  %107 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %106, i32 0, i32 13
-  %108 = getelementptr inbounds %struct.anon.11, ptr %107, i32 0, i32 2
-  store ptr %105, ptr %108, align 8
-  %109 = load ptr, ptr %26, align 8
-  %110 = load ptr, ptr %27, align 8
-  %111 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %110, i32 0, i32 3
-  store ptr %109, ptr %111, align 8
-  %112 = load ptr, ptr %15, align 8
-  %113 = load ptr, ptr %27, align 8
-  %114 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %113, i32 0, i32 2
-  store ptr %112, ptr %114, align 8
-  %115 = load ptr, ptr %27, align 8
-  %116 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %115, i32 0, i32 11
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr %27, align 8
-  %118 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %117, i32 0, i32 8
-  store i32 0, ptr %118, align 4
-  %119 = load ptr, ptr %27, align 8
-  %120 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %119, i32 0, i32 4
-  %121 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %120, i32 0, i32 3
-  store i32 0, ptr %121, align 4
-  %122 = load ptr, ptr %27, align 8
-  %123 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %122, i32 0, i32 7
-  store i32 2, ptr %123, align 8
-  %124 = load ptr, ptr %27, align 8
-  %125 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %124, i32 0, i32 5
-  %126 = getelementptr inbounds [5 x %struct.iovec], ptr %125, i64 0, i64 0
-  %127 = load ptr, ptr %27, align 8
-  %128 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %127, i32 0, i32 6
-  store ptr %126, ptr %128, align 8
-  %129 = load ptr, ptr %27, align 8
-  %130 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %129, i32 0, i32 4
-  %131 = load ptr, ptr %27, align 8
-  %132 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %131, i32 0, i32 5
-  %133 = getelementptr inbounds [5 x %struct.iovec], ptr %132, i64 0, i64 0
-  %134 = getelementptr inbounds %struct.iovec, ptr %133, i32 0, i32 0
-  store ptr %130, ptr %134, align 8
-  %135 = load ptr, ptr %27, align 8
-  %136 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %135, i32 0, i32 5
-  %137 = getelementptr inbounds [5 x %struct.iovec], ptr %136, i64 0, i64 0
-  %138 = getelementptr inbounds %struct.iovec, ptr %137, i32 0, i32 1
-  store i64 8, ptr %138, align 8
-  %139 = load ptr, ptr %27, align 8
-  %140 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %139, i32 0, i32 1
-  %141 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %140, i64 0, i64 0
-  %142 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %141, i64 1
-  %143 = load ptr, ptr %27, align 8
-  %144 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %143, i32 0, i32 5
-  %145 = getelementptr inbounds [5 x %struct.iovec], ptr %144, i64 0, i64 1
-  %146 = getelementptr inbounds %struct.iovec, ptr %145, i32 0, i32 0
-  store ptr %142, ptr %146, align 8
-  %147 = load ptr, ptr %27, align 8
-  %148 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %147, i32 0, i32 5
-  %149 = getelementptr inbounds [5 x %struct.iovec], ptr %148, i64 0, i64 1
-  %150 = getelementptr inbounds %struct.iovec, ptr %149, i32 0, i32 1
-  store i64 16, ptr %150, align 8
+90:                                               ; preds = %40
+  br label %91
+
+91:                                               ; preds = %90, %40
+  %92 = load ptr, ptr %27, align 8
+  %93 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %92, i32 0, i32 0
+  %94 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %93, i32 0, i32 6
+  store i32 6, ptr %94, align 8
+  %95 = load ptr, ptr %27, align 8
+  %96 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %96, i32 0, i32 3
+  store ptr @fake_rdma_complete, ptr %97, align 8
+  %98 = load ptr, ptr %23, align 8
+  %99 = load ptr, ptr %27, align 8
+  %100 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %99, i32 0, i32 13
+  %101 = getelementptr inbounds %struct.anon.11, ptr %100, i32 0, i32 0
+  store ptr %98, ptr %101, align 8
+  %102 = load ptr, ptr %25, align 8
+  %103 = load ptr, ptr %27, align 8
+  %104 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %103, i32 0, i32 13
+  %105 = getelementptr inbounds %struct.anon.11, ptr %104, i32 0, i32 1
+  store ptr %102, ptr %105, align 8
+  %106 = load ptr, ptr %24, align 8
+  %107 = load ptr, ptr %27, align 8
+  %108 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %107, i32 0, i32 13
+  %109 = getelementptr inbounds %struct.anon.11, ptr %108, i32 0, i32 2
+  store ptr %106, ptr %109, align 8
+  %110 = load ptr, ptr %26, align 8
+  %111 = load ptr, ptr %27, align 8
+  %112 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %111, i32 0, i32 3
+  store ptr %110, ptr %112, align 8
+  %113 = load ptr, ptr %15, align 8
+  %114 = load ptr, ptr %27, align 8
+  %115 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %114, i32 0, i32 2
+  store ptr %113, ptr %115, align 8
+  %116 = load ptr, ptr %27, align 8
+  %117 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %116, i32 0, i32 11
+  store i32 0, ptr %117, align 4
+  %118 = load ptr, ptr %27, align 8
+  %119 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %118, i32 0, i32 8
+  store i32 0, ptr %119, align 4
+  %120 = load ptr, ptr %27, align 8
+  %121 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %120, i32 0, i32 4
+  %122 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %121, i32 0, i32 3
+  store i32 0, ptr %122, align 4
+  %123 = load ptr, ptr %27, align 8
+  %124 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %123, i32 0, i32 7
+  store i32 2, ptr %124, align 8
+  %125 = load ptr, ptr %27, align 8
+  %126 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %125, i32 0, i32 5
+  %127 = getelementptr inbounds [5 x %struct.iovec], ptr %126, i64 0, i64 0
+  %128 = load ptr, ptr %27, align 8
+  %129 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %128, i32 0, i32 6
+  store ptr %127, ptr %129, align 8
+  %130 = load ptr, ptr %27, align 8
+  %131 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %130, i32 0, i32 4
+  %132 = load ptr, ptr %27, align 8
+  %133 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %132, i32 0, i32 5
+  %134 = getelementptr inbounds [5 x %struct.iovec], ptr %133, i64 0, i64 0
+  %135 = getelementptr inbounds %struct.iovec, ptr %134, i32 0, i32 0
+  store ptr %131, ptr %135, align 8
+  %136 = load ptr, ptr %27, align 8
+  %137 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %136, i32 0, i32 5
+  %138 = getelementptr inbounds [5 x %struct.iovec], ptr %137, i64 0, i64 0
+  %139 = getelementptr inbounds %struct.iovec, ptr %138, i32 0, i32 1
+  store i64 8, ptr %139, align 8
+  %140 = load ptr, ptr %27, align 8
+  %141 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %140, i32 0, i32 1
+  %142 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %141, i64 0, i64 0
+  %143 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %142, i64 1
+  %144 = load ptr, ptr %27, align 8
+  %145 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %144, i32 0, i32 5
+  %146 = getelementptr inbounds [5 x %struct.iovec], ptr %145, i64 0, i64 1
+  %147 = getelementptr inbounds %struct.iovec, ptr %146, i32 0, i32 0
+  store ptr %143, ptr %147, align 8
+  %148 = load ptr, ptr %27, align 8
+  %149 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %148, i32 0, i32 5
+  %150 = getelementptr inbounds [5 x %struct.iovec], ptr %149, i64 0, i64 1
+  %151 = getelementptr inbounds %struct.iovec, ptr %150, i32 0, i32 1
+  store i64 16, ptr %151, align 8
   store i32 0, ptr %28, align 4
-  br label %151
+  br label %152
 
-151:                                              ; preds = %206, %90
-  %152 = load i32, ptr %28, align 4
-  %153 = load ptr, ptr %27, align 8
-  %154 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %153, i32 0, i32 0
-  %155 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %154, i32 0, i32 2
-  %156 = load i64, ptr %155, align 8
-  %157 = trunc i64 %156 to i32
-  %158 = icmp slt i32 %152, %157
-  br i1 %158, label %159, label %209
+152:                                              ; preds = %207, %91
+  %153 = load i32, ptr %28, align 4
+  %154 = load ptr, ptr %27, align 8
+  %155 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %154, i32 0, i32 0
+  %156 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %155, i32 0, i32 2
+  %157 = load i64, ptr %156, align 8
+  %158 = trunc i64 %157 to i32
+  %159 = icmp slt i32 %153, %158
+  br i1 %159, label %160, label %210
 
-159:                                              ; preds = %151
-  %160 = load ptr, ptr %27, align 8
-  %161 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %160, i32 0, i32 1
-  %162 = load i32, ptr %28, align 4
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %161, i64 0, i64 %163
-  %165 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %164, i32 0, i32 1
-  %166 = load i64, ptr %165, align 8
-  %167 = load ptr, ptr %27, align 8
-  %168 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %167, i32 0, i32 4
-  %169 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %168, i32 0, i32 3
-  %170 = load i32, ptr %169, align 4
-  %171 = zext i32 %170 to i64
-  %172 = add i64 %171, %166
-  %173 = trunc i64 %172 to i32
-  store i32 %173, ptr %169, align 4
-  %174 = load ptr, ptr %27, align 8
-  %175 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %174, i32 0, i32 1
-  %176 = load i32, ptr %28, align 4
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %175, i64 0, i64 %177
-  %179 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %178, i32 0, i32 1
-  %180 = load i64, ptr %179, align 8
-  %181 = load ptr, ptr %27, align 8
-  %182 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %181, i32 0, i32 5
-  %183 = load i32, ptr %28, align 4
-  %184 = add nsw i32 %183, 2
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [5 x %struct.iovec], ptr %182, i64 0, i64 %185
-  %187 = getelementptr inbounds %struct.iovec, ptr %186, i32 0, i32 1
-  store i64 %180, ptr %187, align 8
-  %188 = load ptr, ptr %27, align 8
-  %189 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %188, i32 0, i32 1
-  %190 = load i32, ptr %28, align 4
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %189, i64 0, i64 %191
-  %193 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %192, i32 0, i32 0
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %27, align 8
-  %196 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %195, i32 0, i32 5
-  %197 = load i32, ptr %28, align 4
-  %198 = add nsw i32 %197, 2
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds [5 x %struct.iovec], ptr %196, i64 0, i64 %199
-  %201 = getelementptr inbounds %struct.iovec, ptr %200, i32 0, i32 0
-  store ptr %194, ptr %201, align 8
-  %202 = load ptr, ptr %27, align 8
-  %203 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %202, i32 0, i32 7
-  %204 = load i32, ptr %203, align 8
-  %205 = add i32 %204, 1
-  store i32 %205, ptr %203, align 8
-  br label %206
+160:                                              ; preds = %152
+  %161 = load ptr, ptr %27, align 8
+  %162 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %161, i32 0, i32 1
+  %163 = load i32, ptr %28, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %162, i64 0, i64 %164
+  %166 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %165, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = load ptr, ptr %27, align 8
+  %169 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %168, i32 0, i32 4
+  %170 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %169, i32 0, i32 3
+  %171 = load i32, ptr %170, align 4
+  %172 = zext i32 %171 to i64
+  %173 = add i64 %172, %167
+  %174 = trunc i64 %173 to i32
+  store i32 %174, ptr %170, align 4
+  %175 = load ptr, ptr %27, align 8
+  %176 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %175, i32 0, i32 1
+  %177 = load i32, ptr %28, align 4
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %176, i64 0, i64 %178
+  %180 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %179, i32 0, i32 1
+  %181 = load i64, ptr %180, align 8
+  %182 = load ptr, ptr %27, align 8
+  %183 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %182, i32 0, i32 5
+  %184 = load i32, ptr %28, align 4
+  %185 = add nsw i32 %184, 2
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds [5 x %struct.iovec], ptr %183, i64 0, i64 %186
+  %188 = getelementptr inbounds %struct.iovec, ptr %187, i32 0, i32 1
+  store i64 %181, ptr %188, align 8
+  %189 = load ptr, ptr %27, align 8
+  %190 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %189, i32 0, i32 1
+  %191 = load i32, ptr %28, align 4
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %190, i64 0, i64 %192
+  %194 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %193, i32 0, i32 0
+  %195 = load ptr, ptr %194, align 8
+  %196 = load ptr, ptr %27, align 8
+  %197 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %196, i32 0, i32 5
+  %198 = load i32, ptr %28, align 4
+  %199 = add nsw i32 %198, 2
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds [5 x %struct.iovec], ptr %197, i64 0, i64 %200
+  %202 = getelementptr inbounds %struct.iovec, ptr %201, i32 0, i32 0
+  store ptr %195, ptr %202, align 8
+  %203 = load ptr, ptr %27, align 8
+  %204 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %203, i32 0, i32 7
+  %205 = load i32, ptr %204, align 8
+  %206 = add i32 %205, 1
+  store i32 %206, ptr %204, align 8
+  br label %207
 
-206:                                              ; preds = %159
-  %207 = load i32, ptr %28, align 4
-  %208 = add nsw i32 %207, 1
-  store i32 %208, ptr %28, align 4
-  br label %151, !llvm.loop !10
+207:                                              ; preds = %160
+  %208 = load i32, ptr %28, align 4
+  %209 = add nsw i32 %208, 1
+  store i32 %209, ptr %28, align 4
+  br label %152, !llvm.loop !10
 
-209:                                              ; preds = %151
-  %210 = load ptr, ptr %27, align 8
-  %211 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %210, i32 0, i32 4
-  %212 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %211, i32 0, i32 0
-  %213 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %212, i32 0, i32 0
-  store i8 32, ptr %213, align 8
-  %214 = load ptr, ptr %27, align 8
-  %215 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %214, i32 0, i32 4
-  %216 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %215, i32 0, i32 1
-  store i8 2, ptr %216, align 1
-  %217 = load ptr, ptr %27, align 8
-  %218 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %217, i32 0, i32 4
-  %219 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %218, i32 0, i32 2
-  store i16 1, ptr %219, align 2
-  %220 = load ptr, ptr %15, align 8
-  %221 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %220, i32 0, i32 19
-  %222 = load i8, ptr %221, align 8
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %224, label %243
+210:                                              ; preds = %152
+  %211 = load ptr, ptr %27, align 8
+  %212 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %211, i32 0, i32 4
+  %213 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %212, i32 0, i32 0
+  %214 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %213, i32 0, i32 0
+  store i8 32, ptr %214, align 8
+  %215 = load ptr, ptr %27, align 8
+  %216 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %215, i32 0, i32 4
+  %217 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %216, i32 0, i32 1
+  store i8 2, ptr %217, align 1
+  %218 = load ptr, ptr %27, align 8
+  %219 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %218, i32 0, i32 4
+  %220 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %219, i32 0, i32 2
+  store i16 1, ptr %220, align 2
+  %221 = load ptr, ptr %15, align 8
+  %222 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %221, i32 0, i32 19
+  %223 = load i8, ptr %222, align 8
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %225, label %244
 
-224:                                              ; preds = %209
-  br label %225
+225:                                              ; preds = %210
+  br label %226
 
-225:                                              ; preds = %224
-  %226 = load ptr, ptr %27, align 8
-  %227 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %226, i32 0, i32 4
-  %228 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %227, i32 0, i32 2
-  %229 = load i16, ptr %228, align 2
-  %230 = call zeroext i16 @htons(i16 noundef zeroext %229) #6
-  %231 = load ptr, ptr %27, align 8
-  %232 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %231, i32 0, i32 4
-  %233 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %232, i32 0, i32 2
-  store i16 %230, ptr %233, align 2
-  %234 = load ptr, ptr %27, align 8
-  %235 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %234, i32 0, i32 4
-  %236 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %235, i32 0, i32 3
-  %237 = load i32, ptr %236, align 4
-  %238 = call i32 @htonl(i32 noundef %237) #6
-  %239 = load ptr, ptr %27, align 8
-  %240 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %239, i32 0, i32 4
-  %241 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %240, i32 0, i32 3
-  store i32 %238, ptr %241, align 4
-  br label %242
-
-242:                                              ; preds = %225
+226:                                              ; preds = %225
+  %227 = load ptr, ptr %27, align 8
+  %228 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %227, i32 0, i32 4
+  %229 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %228, i32 0, i32 2
+  %230 = load i16, ptr %229, align 2
+  %231 = call zeroext i16 @htons(i16 noundef zeroext %230) #6
+  %232 = load ptr, ptr %27, align 8
+  %233 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %232, i32 0, i32 4
+  %234 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %233, i32 0, i32 2
+  store i16 %231, ptr %234, align 2
+  %235 = load ptr, ptr %27, align 8
+  %236 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %235, i32 0, i32 4
+  %237 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %236, i32 0, i32 3
+  %238 = load i32, ptr %237, align 4
+  %239 = call i32 @htonl(i32 noundef %238) #6
+  %240 = load ptr, ptr %27, align 8
+  %241 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %240, i32 0, i32 4
+  %242 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %241, i32 0, i32 3
+  store i32 %239, ptr %242, align 4
   br label %243
 
-243:                                              ; preds = %242, %209
-  %244 = load ptr, ptr %15, align 8
-  %245 = load ptr, ptr %27, align 8
-  %246 = call i32 @mca_btl_tcp_endpoint_send(ptr noundef %244, ptr noundef %245)
-  store i32 %246, ptr %28, align 4
-  %247 = icmp sge i32 %246, 0
-  br i1 %247, label %248, label %249
+243:                                              ; preds = %226
+  br label %244
 
-248:                                              ; preds = %243
-  br label %251
+244:                                              ; preds = %243, %210
+  %245 = load ptr, ptr %15, align 8
+  %246 = load ptr, ptr %27, align 8
+  %247 = call i32 @mca_btl_tcp_endpoint_send(ptr noundef %245, ptr noundef %246)
+  store i32 %247, ptr %28, align 4
+  %248 = icmp sge i32 %247, 0
+  br i1 %248, label %249, label %250
 
-249:                                              ; preds = %243
-  %250 = load i32, ptr %28, align 4
-  br label %251
+249:                                              ; preds = %244
+  br label %252
 
-251:                                              ; preds = %249, %248
-  %252 = phi i32 [ 0, %248 ], [ %250, %249 ]
-  store i32 %252, ptr %13, align 4
-  br label %253
+250:                                              ; preds = %244
+  %251 = load i32, ptr %28, align 4
+  br label %252
 
-253:                                              ; preds = %251, %38
-  %254 = load i32, ptr %13, align 4
-  ret i32 %254
+252:                                              ; preds = %250, %249
+  %253 = phi i32 [ 0, %249 ], [ %251, %250 ]
+  store i32 %253, ptr %13, align 4
+  br label %254
+
+254:                                              ; preds = %252, %39
+  %255 = load i32, ptr %13, align 4
+  ret i32 %255
 }
 
 declare void @mca_btl_base_dump(ptr noundef, ptr noundef, i32 noundef) #1
@@ -1871,221 +1876,222 @@ define i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 
   %29 = load ptr, ptr %14, align 8
   store ptr %29, ptr %26, align 8
   store ptr null, ptr %27, align 8
-  %30 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 25))
-  store ptr %30, ptr %27, align 8
-  %31 = load ptr, ptr %27, align 8
-  %32 = icmp eq ptr null, %31
-  %33 = xor i1 %32, true
+  %30 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 25
+  %31 = call ptr @opal_free_list_get(ptr noundef %30)
+  store ptr %31, ptr %27, align 8
+  %32 = load ptr, ptr %27, align 8
+  %33 = icmp eq ptr null, %32
   %34 = xor i1 %33, true
-  %35 = zext i1 %34 to i32
-  %36 = sext i32 %35 to i64
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %12
-  store i32 -2, ptr %13, align 4
-  br label %187
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %12
-  %40 = load ptr, ptr %15, align 8
-  %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %41, i32 0, i32 2
-  store ptr %40, ptr %42, align 8
-  %43 = load i64, ptr %20, align 8
-  %44 = load ptr, ptr %27, align 8
-  %45 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %45, i64 0, i64 0
-  %47 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %46, i32 0, i32 1
-  store i64 %43, ptr %47, align 8
-  %48 = load ptr, ptr %16, align 8
-  %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %49, i32 0, i32 1
-  %51 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %50, i64 0, i64 0
-  %52 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %51, i32 0, i32 0
-  store ptr %48, ptr %52, align 8
-  %53 = load ptr, ptr %27, align 8
-  %54 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %53, i32 0, i32 1
-  %55 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %54, i64 0, i64 0
-  %56 = load ptr, ptr %27, align 8
-  %57 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %57, i32 0, i32 1
-  store ptr %55, ptr %58, align 8
-  %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %60, i32 0, i32 2
-  store i64 1, ptr %61, align 8
-  %62 = load ptr, ptr %27, align 8
-  %63 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %62, i32 0, i32 0
-  %64 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %63, i32 0, i32 7
-  store i8 -1, ptr %64, align 4
-  %65 = load ptr, ptr %16, align 8
-  %66 = load ptr, ptr %27, align 8
-  %67 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %66, i32 0, i32 1
-  %68 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %67, i64 0, i64 0
-  %69 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %68, i32 0, i32 0
-  store ptr %65, ptr %69, align 8
-  %70 = load i64, ptr %20, align 8
-  %71 = load ptr, ptr %27, align 8
-  %72 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %72, i64 0, i64 0
-  %74 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %73, i32 0, i32 1
-  store i64 %70, ptr %74, align 8
-  %75 = load i64, ptr %17, align 8
-  %76 = load ptr, ptr %27, align 8
-  %77 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %76, i32 0, i32 1
-  %78 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %77, i64 0, i64 1
-  %79 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %78, i32 0, i32 0
-  store i64 %75, ptr %79, align 8
-  %80 = load i64, ptr %20, align 8
-  %81 = load ptr, ptr %27, align 8
-  %82 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %81, i32 0, i32 1
-  %83 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %82, i64 0, i64 1
-  %84 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %83, i32 0, i32 1
-  store i64 %80, ptr %84, align 8
-  %85 = load ptr, ptr %27, align 8
-  %86 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %85, i32 0, i32 0
-  %87 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %86, i32 0, i32 6
-  store i32 6, ptr %87, align 8
-  %88 = load ptr, ptr %27, align 8
-  %89 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %88, i32 0, i32 0
-  %90 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %89, i32 0, i32 3
-  store ptr @fake_rdma_complete, ptr %90, align 8
-  %91 = load ptr, ptr %23, align 8
-  %92 = load ptr, ptr %27, align 8
-  %93 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %92, i32 0, i32 13
-  %94 = getelementptr inbounds %struct.anon.11, ptr %93, i32 0, i32 0
-  store ptr %91, ptr %94, align 8
-  %95 = load ptr, ptr %25, align 8
-  %96 = load ptr, ptr %27, align 8
-  %97 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %96, i32 0, i32 13
-  %98 = getelementptr inbounds %struct.anon.11, ptr %97, i32 0, i32 1
-  store ptr %95, ptr %98, align 8
-  %99 = load ptr, ptr %24, align 8
-  %100 = load ptr, ptr %27, align 8
-  %101 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %100, i32 0, i32 13
-  %102 = getelementptr inbounds %struct.anon.11, ptr %101, i32 0, i32 2
-  store ptr %99, ptr %102, align 8
-  %103 = load ptr, ptr %26, align 8
-  %104 = load ptr, ptr %27, align 8
-  %105 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %104, i32 0, i32 3
-  store ptr %103, ptr %105, align 8
-  %106 = load ptr, ptr %15, align 8
-  %107 = load ptr, ptr %27, align 8
-  %108 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %107, i32 0, i32 2
-  store ptr %106, ptr %108, align 8
-  %109 = load ptr, ptr %27, align 8
-  %110 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %109, i32 0, i32 11
-  store i32 0, ptr %110, align 4
-  %111 = load ptr, ptr %27, align 8
-  %112 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %111, i32 0, i32 8
-  store i32 0, ptr %112, align 4
-  %113 = load ptr, ptr %27, align 8
-  %114 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %113, i32 0, i32 4
-  %115 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %114, i32 0, i32 3
-  store i32 0, ptr %115, align 4
-  %116 = load ptr, ptr %27, align 8
-  %117 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %116, i32 0, i32 7
-  store i32 2, ptr %117, align 8
-  %118 = load ptr, ptr %27, align 8
-  %119 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %118, i32 0, i32 5
-  %120 = getelementptr inbounds [5 x %struct.iovec], ptr %119, i64 0, i64 0
-  %121 = load ptr, ptr %27, align 8
-  %122 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %121, i32 0, i32 6
-  store ptr %120, ptr %122, align 8
-  %123 = load ptr, ptr %27, align 8
-  %124 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %123, i32 0, i32 4
-  %125 = load ptr, ptr %27, align 8
-  %126 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %125, i32 0, i32 5
-  %127 = getelementptr inbounds [5 x %struct.iovec], ptr %126, i64 0, i64 0
-  %128 = getelementptr inbounds %struct.iovec, ptr %127, i32 0, i32 0
-  store ptr %124, ptr %128, align 8
-  %129 = load ptr, ptr %27, align 8
-  %130 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %129, i32 0, i32 5
-  %131 = getelementptr inbounds [5 x %struct.iovec], ptr %130, i64 0, i64 0
-  %132 = getelementptr inbounds %struct.iovec, ptr %131, i32 0, i32 1
-  store i64 8, ptr %132, align 8
-  %133 = load ptr, ptr %27, align 8
-  %134 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %133, i32 0, i32 1
-  %135 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %134, i64 0, i64 1
-  %136 = load ptr, ptr %27, align 8
-  %137 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %136, i32 0, i32 5
-  %138 = getelementptr inbounds [5 x %struct.iovec], ptr %137, i64 0, i64 1
-  %139 = getelementptr inbounds %struct.iovec, ptr %138, i32 0, i32 0
-  store ptr %135, ptr %139, align 8
-  %140 = load ptr, ptr %27, align 8
-  %141 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %140, i32 0, i32 5
-  %142 = getelementptr inbounds [5 x %struct.iovec], ptr %141, i64 0, i64 1
-  %143 = getelementptr inbounds %struct.iovec, ptr %142, i32 0, i32 1
-  store i64 16, ptr %143, align 8
-  %144 = load ptr, ptr %27, align 8
-  %145 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %144, i32 0, i32 4
-  %146 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %145, i32 0, i32 0
-  %147 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %146, i32 0, i32 0
-  store i8 32, ptr %147, align 8
-  %148 = load ptr, ptr %27, align 8
-  %149 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %148, i32 0, i32 4
-  %150 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %149, i32 0, i32 1
-  store i8 3, ptr %150, align 1
-  %151 = load ptr, ptr %27, align 8
-  %152 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %151, i32 0, i32 4
-  %153 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %152, i32 0, i32 2
-  store i16 1, ptr %153, align 2
-  %154 = load ptr, ptr %15, align 8
-  %155 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %154, i32 0, i32 19
-  %156 = load i8, ptr %155, align 8
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %177
+  store i32 -2, ptr %13, align 4
+  br label %188
 
-158:                                              ; preds = %39
-  br label %159
+40:                                               ; preds = %12
+  %41 = load ptr, ptr %15, align 8
+  %42 = load ptr, ptr %27, align 8
+  %43 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %42, i32 0, i32 2
+  store ptr %41, ptr %43, align 8
+  %44 = load i64, ptr %20, align 8
+  %45 = load ptr, ptr %27, align 8
+  %46 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %46, i64 0, i64 0
+  %48 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %47, i32 0, i32 1
+  store i64 %44, ptr %48, align 8
+  %49 = load ptr, ptr %16, align 8
+  %50 = load ptr, ptr %27, align 8
+  %51 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %51, i64 0, i64 0
+  %53 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %52, i32 0, i32 0
+  store ptr %49, ptr %53, align 8
+  %54 = load ptr, ptr %27, align 8
+  %55 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %54, i32 0, i32 1
+  %56 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %55, i64 0, i64 0
+  %57 = load ptr, ptr %27, align 8
+  %58 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %58, i32 0, i32 1
+  store ptr %56, ptr %59, align 8
+  %60 = load ptr, ptr %27, align 8
+  %61 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %61, i32 0, i32 2
+  store i64 1, ptr %62, align 8
+  %63 = load ptr, ptr %27, align 8
+  %64 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %63, i32 0, i32 0
+  %65 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %64, i32 0, i32 7
+  store i8 -1, ptr %65, align 4
+  %66 = load ptr, ptr %16, align 8
+  %67 = load ptr, ptr %27, align 8
+  %68 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %67, i32 0, i32 1
+  %69 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %68, i64 0, i64 0
+  %70 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %69, i32 0, i32 0
+  store ptr %66, ptr %70, align 8
+  %71 = load i64, ptr %20, align 8
+  %72 = load ptr, ptr %27, align 8
+  %73 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %72, i32 0, i32 1
+  %74 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %73, i64 0, i64 0
+  %75 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %74, i32 0, i32 1
+  store i64 %71, ptr %75, align 8
+  %76 = load i64, ptr %17, align 8
+  %77 = load ptr, ptr %27, align 8
+  %78 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %77, i32 0, i32 1
+  %79 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %78, i64 0, i64 1
+  %80 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %79, i32 0, i32 0
+  store i64 %76, ptr %80, align 8
+  %81 = load i64, ptr %20, align 8
+  %82 = load ptr, ptr %27, align 8
+  %83 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %82, i32 0, i32 1
+  %84 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %83, i64 0, i64 1
+  %85 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %84, i32 0, i32 1
+  store i64 %81, ptr %85, align 8
+  %86 = load ptr, ptr %27, align 8
+  %87 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %86, i32 0, i32 0
+  %88 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %87, i32 0, i32 6
+  store i32 6, ptr %88, align 8
+  %89 = load ptr, ptr %27, align 8
+  %90 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %89, i32 0, i32 0
+  %91 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %90, i32 0, i32 3
+  store ptr @fake_rdma_complete, ptr %91, align 8
+  %92 = load ptr, ptr %23, align 8
+  %93 = load ptr, ptr %27, align 8
+  %94 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %93, i32 0, i32 13
+  %95 = getelementptr inbounds %struct.anon.11, ptr %94, i32 0, i32 0
+  store ptr %92, ptr %95, align 8
+  %96 = load ptr, ptr %25, align 8
+  %97 = load ptr, ptr %27, align 8
+  %98 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %97, i32 0, i32 13
+  %99 = getelementptr inbounds %struct.anon.11, ptr %98, i32 0, i32 1
+  store ptr %96, ptr %99, align 8
+  %100 = load ptr, ptr %24, align 8
+  %101 = load ptr, ptr %27, align 8
+  %102 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %101, i32 0, i32 13
+  %103 = getelementptr inbounds %struct.anon.11, ptr %102, i32 0, i32 2
+  store ptr %100, ptr %103, align 8
+  %104 = load ptr, ptr %26, align 8
+  %105 = load ptr, ptr %27, align 8
+  %106 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %105, i32 0, i32 3
+  store ptr %104, ptr %106, align 8
+  %107 = load ptr, ptr %15, align 8
+  %108 = load ptr, ptr %27, align 8
+  %109 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %108, i32 0, i32 2
+  store ptr %107, ptr %109, align 8
+  %110 = load ptr, ptr %27, align 8
+  %111 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %110, i32 0, i32 11
+  store i32 0, ptr %111, align 4
+  %112 = load ptr, ptr %27, align 8
+  %113 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %112, i32 0, i32 8
+  store i32 0, ptr %113, align 4
+  %114 = load ptr, ptr %27, align 8
+  %115 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %114, i32 0, i32 4
+  %116 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %115, i32 0, i32 3
+  store i32 0, ptr %116, align 4
+  %117 = load ptr, ptr %27, align 8
+  %118 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %117, i32 0, i32 7
+  store i32 2, ptr %118, align 8
+  %119 = load ptr, ptr %27, align 8
+  %120 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %119, i32 0, i32 5
+  %121 = getelementptr inbounds [5 x %struct.iovec], ptr %120, i64 0, i64 0
+  %122 = load ptr, ptr %27, align 8
+  %123 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %122, i32 0, i32 6
+  store ptr %121, ptr %123, align 8
+  %124 = load ptr, ptr %27, align 8
+  %125 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %124, i32 0, i32 4
+  %126 = load ptr, ptr %27, align 8
+  %127 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %126, i32 0, i32 5
+  %128 = getelementptr inbounds [5 x %struct.iovec], ptr %127, i64 0, i64 0
+  %129 = getelementptr inbounds %struct.iovec, ptr %128, i32 0, i32 0
+  store ptr %125, ptr %129, align 8
+  %130 = load ptr, ptr %27, align 8
+  %131 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %130, i32 0, i32 5
+  %132 = getelementptr inbounds [5 x %struct.iovec], ptr %131, i64 0, i64 0
+  %133 = getelementptr inbounds %struct.iovec, ptr %132, i32 0, i32 1
+  store i64 8, ptr %133, align 8
+  %134 = load ptr, ptr %27, align 8
+  %135 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %134, i32 0, i32 1
+  %136 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %135, i64 0, i64 1
+  %137 = load ptr, ptr %27, align 8
+  %138 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %137, i32 0, i32 5
+  %139 = getelementptr inbounds [5 x %struct.iovec], ptr %138, i64 0, i64 1
+  %140 = getelementptr inbounds %struct.iovec, ptr %139, i32 0, i32 0
+  store ptr %136, ptr %140, align 8
+  %141 = load ptr, ptr %27, align 8
+  %142 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %141, i32 0, i32 5
+  %143 = getelementptr inbounds [5 x %struct.iovec], ptr %142, i64 0, i64 1
+  %144 = getelementptr inbounds %struct.iovec, ptr %143, i32 0, i32 1
+  store i64 16, ptr %144, align 8
+  %145 = load ptr, ptr %27, align 8
+  %146 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %145, i32 0, i32 4
+  %147 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %146, i32 0, i32 0
+  %148 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %147, i32 0, i32 0
+  store i8 32, ptr %148, align 8
+  %149 = load ptr, ptr %27, align 8
+  %150 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %149, i32 0, i32 4
+  %151 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %150, i32 0, i32 1
+  store i8 3, ptr %151, align 1
+  %152 = load ptr, ptr %27, align 8
+  %153 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %152, i32 0, i32 4
+  %154 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %153, i32 0, i32 2
+  store i16 1, ptr %154, align 2
+  %155 = load ptr, ptr %15, align 8
+  %156 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %155, i32 0, i32 19
+  %157 = load i8, ptr %156, align 8
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %178
 
-159:                                              ; preds = %158
-  %160 = load ptr, ptr %27, align 8
-  %161 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %160, i32 0, i32 4
-  %162 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %161, i32 0, i32 2
-  %163 = load i16, ptr %162, align 2
-  %164 = call zeroext i16 @htons(i16 noundef zeroext %163) #6
-  %165 = load ptr, ptr %27, align 8
-  %166 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %165, i32 0, i32 4
-  %167 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %166, i32 0, i32 2
-  store i16 %164, ptr %167, align 2
-  %168 = load ptr, ptr %27, align 8
-  %169 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %168, i32 0, i32 4
-  %170 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %169, i32 0, i32 3
-  %171 = load i32, ptr %170, align 4
-  %172 = call i32 @htonl(i32 noundef %171) #6
-  %173 = load ptr, ptr %27, align 8
-  %174 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %173, i32 0, i32 4
-  %175 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %174, i32 0, i32 3
-  store i32 %172, ptr %175, align 4
-  br label %176
+159:                                              ; preds = %40
+  br label %160
 
-176:                                              ; preds = %159
+160:                                              ; preds = %159
+  %161 = load ptr, ptr %27, align 8
+  %162 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %161, i32 0, i32 4
+  %163 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %162, i32 0, i32 2
+  %164 = load i16, ptr %163, align 2
+  %165 = call zeroext i16 @htons(i16 noundef zeroext %164) #6
+  %166 = load ptr, ptr %27, align 8
+  %167 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %166, i32 0, i32 4
+  %168 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %167, i32 0, i32 2
+  store i16 %165, ptr %168, align 2
+  %169 = load ptr, ptr %27, align 8
+  %170 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %169, i32 0, i32 4
+  %171 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %170, i32 0, i32 3
+  %172 = load i32, ptr %171, align 4
+  %173 = call i32 @htonl(i32 noundef %172) #6
+  %174 = load ptr, ptr %27, align 8
+  %175 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %174, i32 0, i32 4
+  %176 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %175, i32 0, i32 3
+  store i32 %173, ptr %176, align 4
   br label %177
 
-177:                                              ; preds = %176, %39
-  %178 = load ptr, ptr %15, align 8
-  %179 = load ptr, ptr %27, align 8
-  %180 = call i32 @mca_btl_tcp_endpoint_send(ptr noundef %178, ptr noundef %179)
-  store i32 %180, ptr %28, align 4
-  %181 = icmp sge i32 %180, 0
-  br i1 %181, label %182, label %183
+177:                                              ; preds = %160
+  br label %178
 
-182:                                              ; preds = %177
-  br label %185
+178:                                              ; preds = %177, %40
+  %179 = load ptr, ptr %15, align 8
+  %180 = load ptr, ptr %27, align 8
+  %181 = call i32 @mca_btl_tcp_endpoint_send(ptr noundef %179, ptr noundef %180)
+  store i32 %181, ptr %28, align 4
+  %182 = icmp sge i32 %181, 0
+  br i1 %182, label %183, label %184
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr %28, align 4
-  br label %185
+183:                                              ; preds = %178
+  br label %186
 
-185:                                              ; preds = %183, %182
-  %186 = phi i32 [ 0, %182 ], [ %184, %183 ]
-  store i32 %186, ptr %13, align 4
-  br label %187
+184:                                              ; preds = %178
+  %185 = load i32, ptr %28, align 4
+  br label %186
 
-187:                                              ; preds = %185, %38
-  %188 = load i32, ptr %13, align 4
-  ret i32 %188
+186:                                              ; preds = %184, %183
+  %187 = phi i32 [ 0, %183 ], [ %185, %184 ]
+  store i32 %187, ptr %13, align 4
+  br label %188
+
+188:                                              ; preds = %186, %39
+  %189 = load i32, ptr %13, align 4
+  ret i32 %189
 }
 
 ; Function Attrs: nounwind uwtable

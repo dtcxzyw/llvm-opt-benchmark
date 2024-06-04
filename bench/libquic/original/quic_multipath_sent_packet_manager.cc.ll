@@ -314,15 +314,16 @@ entry:
   store ptr %delegate, ptr %delegate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net30QuicSentPacketManagerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %path_managers_info_ = getelementptr inbounds %"class.net::QuicMultipathSentPacketManager", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %path_managers_info_) #10
   %delegate_ = getelementptr inbounds %"class.net::QuicMultipathSentPacketManager", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %delegate.addr, align 8
-  store ptr %0, ptr %delegate_, align 8
+  %1 = load ptr, ptr %delegate.addr, align 8
+  store ptr %1, ptr %delegate_, align 8
   %path_managers_info_2 = getelementptr inbounds %"class.net::QuicMultipathSentPacketManager", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %manager.addr, align 8
-  invoke void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1EPNS_30QuicSentPacketManagerInterfaceENS0_26PathSentPacketManagerStateE(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef %1, i32 noundef 0)
+  %2 = load ptr, ptr %manager.addr, align 8
+  invoke void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1EPNS_30QuicSentPacketManagerInterfaceENS0_26PathSentPacketManagerStateE(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef %2, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -333,12 +334,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %path_managers_info_) #10
   call void @_ZN3net30QuicSentPacketManagerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
@@ -357,7 +358,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -424,15 +426,16 @@ entry:
   %path_manager_info = alloca %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %path_managers_info_ = getelementptr inbounds %"class.net::QuicMultipathSentPacketManager", ptr %this1, i32 0, i32 1
   store ptr %path_managers_info_, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
+  %1 = load ptr, ptr %__range1, align 8
+  %call = call ptr @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #10
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin1, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call2 = call ptr @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %2 = load ptr, ptr %__range1, align 8
+  %call2 = call ptr @_ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #10
   %coerce.dive3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end1, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   br label %for.cond
@@ -448,15 +451,15 @@ for.body:                                         ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %for.body
   %manager = getelementptr inbounds %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %path_manager_info, i32 0, i32 0
-  %2 = load ptr, ptr %manager, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %manager, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
@@ -473,10 +476,10 @@ for.end:                                          ; preds = %for.cond
   ret void
 
 terminate.lpad:                                   ; preds = %for.body
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #11
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #11
   unreachable
 }
 

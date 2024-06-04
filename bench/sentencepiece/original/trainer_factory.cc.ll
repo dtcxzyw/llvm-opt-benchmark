@@ -1217,7 +1217,8 @@ define linkonce_odr void @_ZN13sentencepiece7unigram7TrainerC2ERKNS_11TrainerSpe
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(336) %10, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7TrainerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -1611,15 +1612,16 @@ define linkonce_odr void @_ZN13sentencepiece3bpe7TrainerC2ERKNS_11TrainerSpecERK
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(336) %10, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN13sentencepiece3bpe7TrainerE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 1
-  call void @_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #3
-  %14 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 2
-  call void @_ZNSt3setIPN13sentencepiece3bpe7Trainer6SymbolESt4lessIS4_ESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 3
-  call void @_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 4
-  call void @_ZNSt6vectorIS_IPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN13sentencepiece3bpe7TrainerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 1
+  call void @_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #3
+  %15 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 2
+  call void @_ZNSt3setIPN13sentencepiece3bpe7Trainer6SymbolESt4lessIS4_ESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %16 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 3
+  call void @_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %"class.sentencepiece::bpe::Trainer", ptr %9, i32 0, i32 4
+  call void @_ZNSt6vectorIS_IPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
   ret void
 }
 
@@ -2335,7 +2337,8 @@ define linkonce_odr void @_ZN13sentencepiece4word7TrainerC2ERKNS_11TrainerSpecER
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(336) %10, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN13sentencepiece4word7TrainerE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN13sentencepiece4word7TrainerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -2710,7 +2713,8 @@ define linkonce_odr void @_ZN13sentencepiece9character7TrainerC2ERKNS_11TrainerS
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(336) %10, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN13sentencepiece9character7TrainerE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN13sentencepiece9character7TrainerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 

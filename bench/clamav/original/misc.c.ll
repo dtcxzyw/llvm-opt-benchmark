@@ -493,7 +493,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %5, align 8
   %8 = load i32, ptr @filelist.cnt, align 4
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %79, label %10
+  br i1 %9, label %80, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
@@ -502,7 +502,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef %1) #0 {
   %13 = getelementptr inbounds %struct.optstruct, ptr %12, i32 0, i32 4
   %14 = load i32, ptr %13, align 8
   %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %79
+  br i1 %15, label %16, label %80
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @filelist.fs, align 8
@@ -536,7 +536,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef %1) #0 {
 
 36:                                               ; preds = %34, %26
   store ptr null, ptr %3, align 8
-  br label %96
+  br label %97
 
 37:                                               ; preds = %19
   br label %38
@@ -545,105 +545,106 @@ define ptr @filelist(ptr noundef %0, ptr noundef %1) #0 {
   %39 = load ptr, ptr @filelist.fs, align 8
   %40 = call ptr @fgets(ptr noundef @filelist.buff, i32 noundef 1024, ptr noundef %39)
   %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %76
+  br i1 %41, label %42, label %77
 
 42:                                               ; preds = %38
-  store i8 0, ptr getelementptr inbounds ([1025 x i8], ptr @filelist.buff, i64 0, i64 1024), align 16
-  %43 = call i64 @strlen(ptr noundef @filelist.buff) #8
-  store i64 %43, ptr %7, align 8
-  %44 = load i64, ptr %7, align 8
-  %45 = icmp ne i64 %44, 0
-  br i1 %45, label %49, label %46
+  %43 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 1024
+  store i8 0, ptr %43, align 16
+  %44 = call i64 @strlen(ptr noundef @filelist.buff) #8
+  store i64 %44, ptr %7, align 8
+  %45 = load i64, ptr %7, align 8
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %50, label %47
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr @filelist.fs, align 8
-  %48 = call i32 @fclose(ptr noundef %47)
+47:                                               ; preds = %42
+  %48 = load ptr, ptr @filelist.fs, align 8
+  %49 = call i32 @fclose(ptr noundef %48)
   store ptr null, ptr %3, align 8
-  br label %96
+  br label %97
 
-49:                                               ; preds = %42
-  %50 = load i64, ptr %7, align 8
-  %51 = add i64 %50, -1
-  store i64 %51, ptr %7, align 8
-  br label %52
+50:                                               ; preds = %42
+  %51 = load i64, ptr %7, align 8
+  %52 = add i64 %51, -1
+  store i64 %52, ptr %7, align 8
+  br label %53
 
-52:                                               ; preds = %71, %49
-  %53 = load i64, ptr %7, align 8
-  %54 = icmp ne i64 %53, 0
-  br i1 %54, label %55, label %69
+53:                                               ; preds = %72, %50
+  %54 = load i64, ptr %7, align 8
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %70
 
-55:                                               ; preds = %52
-  %56 = load i64, ptr %7, align 8
-  %57 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %58 to i32
-  %60 = icmp eq i32 %59, 10
-  br i1 %60, label %67, label %61
+56:                                               ; preds = %53
+  %57 = load i64, ptr %7, align 8
+  %58 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1
+  %60 = sext i8 %59 to i32
+  %61 = icmp eq i32 %60, 10
+  br i1 %61, label %68, label %62
 
-61:                                               ; preds = %55
-  %62 = load i64, ptr %7, align 8
-  %63 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1
-  %65 = sext i8 %64 to i32
-  %66 = icmp eq i32 %65, 13
-  br label %67
+62:                                               ; preds = %56
+  %63 = load i64, ptr %7, align 8
+  %64 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %63
+  %65 = load i8, ptr %64, align 1
+  %66 = sext i8 %65 to i32
+  %67 = icmp eq i32 %66, 13
+  br label %68
 
-67:                                               ; preds = %61, %55
-  %68 = phi i1 [ true, %55 ], [ %66, %61 ]
-  br label %69
+68:                                               ; preds = %62, %56
+  %69 = phi i1 [ true, %56 ], [ %67, %62 ]
+  br label %70
 
-69:                                               ; preds = %67, %52
-  %70 = phi i1 [ false, %52 ], [ %68, %67 ]
-  br i1 %70, label %71, label %75
+70:                                               ; preds = %68, %53
+  %71 = phi i1 [ false, %53 ], [ %69, %68 ]
+  br i1 %71, label %72, label %76
 
-71:                                               ; preds = %69
-  %72 = load i64, ptr %7, align 8
-  %73 = add i64 %72, -1
-  store i64 %73, ptr %7, align 8
-  %74 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %72
-  store i8 0, ptr %74, align 1
-  br label %52
+72:                                               ; preds = %70
+  %73 = load i64, ptr %7, align 8
+  %74 = add i64 %73, -1
+  store i64 %74, ptr %7, align 8
+  %75 = getelementptr inbounds [1025 x i8], ptr @filelist.buff, i64 0, i64 %73
+  store i8 0, ptr %75, align 1
+  br label %53
 
-75:                                               ; preds = %69
+76:                                               ; preds = %70
   store ptr @filelist.buff, ptr %3, align 8
-  br label %96
+  br label %97
 
-76:                                               ; preds = %38
-  %77 = load ptr, ptr @filelist.fs, align 8
-  %78 = call i32 @fclose(ptr noundef %77)
+77:                                               ; preds = %38
+  %78 = load ptr, ptr @filelist.fs, align 8
+  %79 = call i32 @fclose(ptr noundef %78)
   store ptr null, ptr %3, align 8
-  br label %96
+  br label %97
 
-79:                                               ; preds = %10, %2
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.optstruct, ptr %80, i32 0, i32 10
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %93
+80:                                               ; preds = %10, %2
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.optstruct, ptr %81, i32 0, i32 10
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %94
 
-84:                                               ; preds = %79
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.optstruct, ptr %85, i32 0, i32 10
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr @filelist.cnt, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr @filelist.cnt, align 4
-  %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds ptr, ptr %87, i64 %90
-  %92 = load ptr, ptr %91, align 8
-  br label %94
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds %struct.optstruct, ptr %86, i32 0, i32 10
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr @filelist.cnt, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr @filelist.cnt, align 4
+  %91 = zext i32 %89 to i64
+  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  br label %95
 
-93:                                               ; preds = %79
-  br label %94
+94:                                               ; preds = %80
+  br label %95
 
-94:                                               ; preds = %93, %84
-  %95 = phi ptr [ %92, %84 ], [ null, %93 ]
-  store ptr %95, ptr %3, align 8
-  br label %96
+95:                                               ; preds = %94, %85
+  %96 = phi ptr [ %93, %85 ], [ null, %94 ]
+  store ptr %96, ptr %3, align 8
+  br label %97
 
-96:                                               ; preds = %94, %76, %75, %46, %36
-  %97 = load ptr, ptr %3, align 8
-  ret ptr %97
+97:                                               ; preds = %95, %77, %76, %47, %36
+  %98 = load ptr, ptr %3, align 8
+  ret ptr %98
 }
 
 declare noalias ptr @fopen(ptr noundef, ptr noundef) #1

@@ -333,585 +333,587 @@ define i32 @opal_pack_homogeneous_contig_with_gaps_checksum(ptr noundef %0, ptr 
   %37 = getelementptr inbounds %struct.dt_stack_t, ptr %36, i32 0, i32 1
   %38 = load i16, ptr %37, align 4
   %39 = sext i16 %38 to i32
-  %40 = load i16, ptr getelementptr inbounds (%struct.opal_datatype_t, ptr @opal_datatype_uint1, i32 0, i32 2), align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp ne i32 %39, %41
-  br i1 %42, label %43, label %62
+  %40 = getelementptr inbounds %struct.opal_datatype_t, ptr @opal_datatype_uint1, i32 0, i32 2
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i32
+  %43 = icmp ne i32 %39, %42
+  br i1 %43, label %44, label %64
 
-43:                                               ; preds = %4
-  %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds %struct.dt_stack_t, ptr %44, i64 1
-  %46 = getelementptr inbounds %struct.dt_stack_t, ptr %45, i32 0, i32 1
-  %47 = load i16, ptr %46, align 4
-  %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.opal_datatype_t, ptr %50, i32 0, i32 4
-  %52 = load i64, ptr %51, align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = getelementptr inbounds %struct.dt_stack_t, ptr %53, i64 1
-  %55 = getelementptr inbounds %struct.dt_stack_t, ptr %54, i32 0, i32 3
-  %56 = load i64, ptr %55, align 8
-  %57 = mul i64 %56, %52
-  store i64 %57, ptr %55, align 8
-  %58 = load i16, ptr getelementptr inbounds (%struct.opal_datatype_t, ptr @opal_datatype_uint1, i32 0, i32 2), align 2
-  %59 = load ptr, ptr %13, align 8
-  %60 = getelementptr inbounds %struct.dt_stack_t, ptr %59, i64 1
-  %61 = getelementptr inbounds %struct.dt_stack_t, ptr %60, i32 0, i32 1
-  store i16 %58, ptr %61, align 4
-  br label %62
+44:                                               ; preds = %4
+  %45 = load ptr, ptr %13, align 8
+  %46 = getelementptr inbounds %struct.dt_stack_t, ptr %45, i64 1
+  %47 = getelementptr inbounds %struct.dt_stack_t, ptr %46, i32 0, i32 1
+  %48 = load i16, ptr %47, align 4
+  %49 = sext i16 %48 to i64
+  %50 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct.opal_datatype_t, ptr %51, i32 0, i32 4
+  %53 = load i64, ptr %52, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = getelementptr inbounds %struct.dt_stack_t, ptr %54, i64 1
+  %56 = getelementptr inbounds %struct.dt_stack_t, ptr %55, i32 0, i32 3
+  %57 = load i64, ptr %56, align 8
+  %58 = mul i64 %57, %53
+  store i64 %58, ptr %56, align 8
+  %59 = getelementptr inbounds %struct.opal_datatype_t, ptr @opal_datatype_uint1, i32 0, i32 2
+  %60 = load i16, ptr %59, align 2
+  %61 = load ptr, ptr %13, align 8
+  %62 = getelementptr inbounds %struct.dt_stack_t, ptr %61, i64 1
+  %63 = getelementptr inbounds %struct.dt_stack_t, ptr %62, i32 0, i32 1
+  store i16 %60, ptr %63, align 4
+  br label %64
 
-62:                                               ; preds = %43, %4
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.iovec, ptr %63, i64 0
-  %65 = getelementptr inbounds %struct.iovec, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr null, %66
-  br i1 %67, label %68, label %170
+64:                                               ; preds = %44, %4
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds %struct.iovec, ptr %65, i64 0
+  %67 = getelementptr inbounds %struct.iovec, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr null, %68
+  br i1 %69, label %70, label %172
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.opal_convertor_t, ptr %69, i32 0, i32 9
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds %struct.opal_datatype_t, ptr %72, i32 0, i32 5
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  store ptr %75, ptr %15, align 8
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds %struct.opal_convertor_t, ptr %71, i32 0, i32 9
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds %struct.opal_datatype_t, ptr %74, i32 0, i32 5
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %73, i64 %76
+  store ptr %77, ptr %15, align 8
   store i32 0, ptr %17, align 4
-  br label %76
+  br label %78
 
-76:                                               ; preds = %166, %68
-  %77 = load i32, ptr %17, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp ult i32 %77, %79
-  br i1 %80, label %81, label %87
+78:                                               ; preds = %168, %70
+  %79 = load i32, ptr %17, align 4
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp ult i32 %79, %81
+  br i1 %82, label %83, label %89
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct.dt_stack_t, ptr %82, i64 0
-  %84 = getelementptr inbounds %struct.dt_stack_t, ptr %83, i32 0, i32 3
-  %85 = load i64, ptr %84, align 8
-  %86 = icmp ne i64 %85, 0
-  br label %87
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr inbounds %struct.dt_stack_t, ptr %84, i64 0
+  %86 = getelementptr inbounds %struct.dt_stack_t, ptr %85, i32 0, i32 3
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp ne i64 %87, 0
+  br label %89
 
-87:                                               ; preds = %81, %76
-  %88 = phi i1 [ false, %76 ], [ %86, %81 ]
-  br i1 %88, label %89, label %169
+89:                                               ; preds = %83, %78
+  %90 = phi i1 [ false, %78 ], [ %88, %83 ]
+  br i1 %90, label %91, label %171
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %15, align 8
-  %91 = load ptr, ptr %13, align 8
-  %92 = getelementptr inbounds %struct.dt_stack_t, ptr %91, i64 0
-  %93 = getelementptr inbounds %struct.dt_stack_t, ptr %92, i32 0, i32 4
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %90, i64 %94
-  %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %struct.dt_stack_t, ptr %96, i64 1
-  %98 = getelementptr inbounds %struct.dt_stack_t, ptr %97, i32 0, i32 4
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 %99
-  %101 = load ptr, ptr %6, align 8
-  %102 = load i32, ptr %17, align 4
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.iovec, ptr %101, i64 %103
-  %105 = getelementptr inbounds %struct.iovec, ptr %104, i32 0, i32 0
-  store ptr %100, ptr %105, align 8
-  %106 = load ptr, ptr %13, align 8
-  %107 = getelementptr inbounds %struct.dt_stack_t, ptr %106, i64 1
-  %108 = getelementptr inbounds %struct.dt_stack_t, ptr %107, i32 0, i32 3
-  %109 = load i64, ptr %108, align 8
-  %110 = load ptr, ptr %6, align 8
-  %111 = load i32, ptr %17, align 4
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.iovec, ptr %110, i64 %112
-  %114 = getelementptr inbounds %struct.iovec, ptr %113, i32 0, i32 1
-  store i64 %109, ptr %114, align 8
-  br label %115
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %15, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds %struct.dt_stack_t, ptr %93, i64 0
+  %95 = getelementptr inbounds %struct.dt_stack_t, ptr %94, i32 0, i32 4
+  %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %92, i64 %96
+  %98 = load ptr, ptr %13, align 8
+  %99 = getelementptr inbounds %struct.dt_stack_t, ptr %98, i64 1
+  %100 = getelementptr inbounds %struct.dt_stack_t, ptr %99, i32 0, i32 4
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %97, i64 %101
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i32, ptr %17, align 4
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds %struct.iovec, ptr %103, i64 %105
+  %107 = getelementptr inbounds %struct.iovec, ptr %106, i32 0, i32 0
+  store ptr %102, ptr %107, align 8
+  %108 = load ptr, ptr %13, align 8
+  %109 = getelementptr inbounds %struct.dt_stack_t, ptr %108, i64 1
+  %110 = getelementptr inbounds %struct.dt_stack_t, ptr %109, i32 0, i32 3
+  %111 = load i64, ptr %110, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = load i32, ptr %17, align 4
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.iovec, ptr %112, i64 %114
+  %116 = getelementptr inbounds %struct.iovec, ptr %115, i32 0, i32 1
+  store i64 %111, ptr %116, align 8
+  br label %117
 
-115:                                              ; preds = %89
-  %116 = load ptr, ptr %6, align 8
-  %117 = load i32, ptr %17, align 4
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.iovec, ptr %116, i64 %118
-  %120 = getelementptr inbounds %struct.iovec, ptr %119, i32 0, i32 0
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = load i32, ptr %17, align 4
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.iovec, ptr %122, i64 %124
-  %126 = getelementptr inbounds %struct.iovec, ptr %125, i32 0, i32 1
-  %127 = load i64, ptr %126, align 8
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.opal_convertor_t, ptr %128, i32 0, i32 17
+117:                                              ; preds = %91
+  %118 = load ptr, ptr %6, align 8
+  %119 = load i32, ptr %17, align 4
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds %struct.iovec, ptr %118, i64 %120
+  %122 = getelementptr inbounds %struct.iovec, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = load ptr, ptr %6, align 8
+  %125 = load i32, ptr %17, align 4
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds %struct.iovec, ptr %124, i64 %126
+  %128 = getelementptr inbounds %struct.iovec, ptr %127, i32 0, i32 1
+  %129 = load i64, ptr %128, align 8
   %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds %struct.opal_convertor_t, ptr %130, i32 0, i32 18
-  %132 = call i32 @opal_uicsum_partial(ptr noundef %121, i64 noundef %127, ptr noundef %129, ptr noundef %131)
-  %133 = load ptr, ptr %5, align 8
-  %134 = getelementptr inbounds %struct.opal_convertor_t, ptr %133, i32 0, i32 16
-  %135 = load i32, ptr %134, align 8
-  %136 = add i32 %135, %132
-  store i32 %136, ptr %134, align 8
-  br label %137
+  %131 = getelementptr inbounds %struct.opal_convertor_t, ptr %130, i32 0, i32 17
+  %132 = load ptr, ptr %5, align 8
+  %133 = getelementptr inbounds %struct.opal_convertor_t, ptr %132, i32 0, i32 18
+  %134 = call i32 @opal_uicsum_partial(ptr noundef %123, i64 noundef %129, ptr noundef %131, ptr noundef %133)
+  %135 = load ptr, ptr %5, align 8
+  %136 = getelementptr inbounds %struct.opal_convertor_t, ptr %135, i32 0, i32 16
+  %137 = load i32, ptr %136, align 8
+  %138 = add i32 %137, %134
+  store i32 %138, ptr %136, align 8
+  br label %139
 
-137:                                              ; preds = %115
-  %138 = load ptr, ptr %13, align 8
-  %139 = getelementptr inbounds %struct.dt_stack_t, ptr %138, i64 1
-  %140 = getelementptr inbounds %struct.dt_stack_t, ptr %139, i32 0, i32 3
-  %141 = load i64, ptr %140, align 8
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.opal_convertor_t, ptr %142, i32 0, i32 15
-  %144 = load i64, ptr %143, align 8
-  %145 = add i64 %144, %141
-  store i64 %145, ptr %143, align 8
-  %146 = load i64, ptr %14, align 8
-  %147 = load ptr, ptr %13, align 8
-  %148 = getelementptr inbounds %struct.dt_stack_t, ptr %147, i64 0
-  %149 = getelementptr inbounds %struct.dt_stack_t, ptr %148, i32 0, i32 4
-  %150 = load i64, ptr %149, align 8
-  %151 = add nsw i64 %150, %146
-  store i64 %151, ptr %149, align 8
-  %152 = load ptr, ptr %13, align 8
-  %153 = getelementptr inbounds %struct.dt_stack_t, ptr %152, i64 0
-  %154 = getelementptr inbounds %struct.dt_stack_t, ptr %153, i32 0, i32 3
-  %155 = load i64, ptr %154, align 8
-  %156 = add i64 %155, -1
-  store i64 %156, ptr %154, align 8
-  %157 = load ptr, ptr %13, align 8
-  %158 = getelementptr inbounds %struct.dt_stack_t, ptr %157, i64 1
-  %159 = getelementptr inbounds %struct.dt_stack_t, ptr %158, i32 0, i32 4
-  store i64 0, ptr %159, align 8
-  %160 = load ptr, ptr %12, align 8
-  %161 = getelementptr inbounds %struct.opal_datatype_t, ptr %160, i32 0, i32 4
-  %162 = load i64, ptr %161, align 8
-  %163 = load ptr, ptr %13, align 8
-  %164 = getelementptr inbounds %struct.dt_stack_t, ptr %163, i64 1
-  %165 = getelementptr inbounds %struct.dt_stack_t, ptr %164, i32 0, i32 3
-  store i64 %162, ptr %165, align 8
-  br label %166
+139:                                              ; preds = %117
+  %140 = load ptr, ptr %13, align 8
+  %141 = getelementptr inbounds %struct.dt_stack_t, ptr %140, i64 1
+  %142 = getelementptr inbounds %struct.dt_stack_t, ptr %141, i32 0, i32 3
+  %143 = load i64, ptr %142, align 8
+  %144 = load ptr, ptr %5, align 8
+  %145 = getelementptr inbounds %struct.opal_convertor_t, ptr %144, i32 0, i32 15
+  %146 = load i64, ptr %145, align 8
+  %147 = add i64 %146, %143
+  store i64 %147, ptr %145, align 8
+  %148 = load i64, ptr %14, align 8
+  %149 = load ptr, ptr %13, align 8
+  %150 = getelementptr inbounds %struct.dt_stack_t, ptr %149, i64 0
+  %151 = getelementptr inbounds %struct.dt_stack_t, ptr %150, i32 0, i32 4
+  %152 = load i64, ptr %151, align 8
+  %153 = add nsw i64 %152, %148
+  store i64 %153, ptr %151, align 8
+  %154 = load ptr, ptr %13, align 8
+  %155 = getelementptr inbounds %struct.dt_stack_t, ptr %154, i64 0
+  %156 = getelementptr inbounds %struct.dt_stack_t, ptr %155, i32 0, i32 3
+  %157 = load i64, ptr %156, align 8
+  %158 = add i64 %157, -1
+  store i64 %158, ptr %156, align 8
+  %159 = load ptr, ptr %13, align 8
+  %160 = getelementptr inbounds %struct.dt_stack_t, ptr %159, i64 1
+  %161 = getelementptr inbounds %struct.dt_stack_t, ptr %160, i32 0, i32 4
+  store i64 0, ptr %161, align 8
+  %162 = load ptr, ptr %12, align 8
+  %163 = getelementptr inbounds %struct.opal_datatype_t, ptr %162, i32 0, i32 4
+  %164 = load i64, ptr %163, align 8
+  %165 = load ptr, ptr %13, align 8
+  %166 = getelementptr inbounds %struct.dt_stack_t, ptr %165, i64 1
+  %167 = getelementptr inbounds %struct.dt_stack_t, ptr %166, i32 0, i32 3
+  store i64 %164, ptr %167, align 8
+  br label %168
 
-166:                                              ; preds = %137
-  %167 = load i32, ptr %17, align 4
-  %168 = add i32 %167, 1
-  store i32 %168, ptr %17, align 4
-  br label %76, !llvm.loop !6
+168:                                              ; preds = %139
+  %169 = load i32, ptr %17, align 4
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %17, align 4
+  br label %78, !llvm.loop !6
 
-169:                                              ; preds = %87
-  br label %447
+171:                                              ; preds = %89
+  br label %449
 
-170:                                              ; preds = %62
+172:                                              ; preds = %64
   store i32 0, ptr %17, align 4
-  br label %171
+  br label %173
 
-171:                                              ; preds = %443, %170
-  %172 = load i32, ptr %17, align 4
-  %173 = load ptr, ptr %7, align 8
-  %174 = load i32, ptr %173, align 4
-  %175 = icmp ult i32 %172, %174
-  br i1 %175, label %176, label %446
+173:                                              ; preds = %445, %172
+  %174 = load i32, ptr %17, align 4
+  %175 = load ptr, ptr %7, align 8
+  %176 = load i32, ptr %175, align 4
+  %177 = icmp ult i32 %174, %176
+  br i1 %177, label %178, label %448
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %5, align 8
-  %178 = getelementptr inbounds %struct.opal_convertor_t, ptr %177, i32 0, i32 3
-  %179 = load i64, ptr %178, align 8
-  %180 = load ptr, ptr %5, align 8
-  %181 = getelementptr inbounds %struct.opal_convertor_t, ptr %180, i32 0, i32 15
-  %182 = load i64, ptr %181, align 8
-  %183 = sub i64 %179, %182
-  store i64 %183, ptr %9, align 8
-  %184 = load i64, ptr %9, align 8
-  %185 = icmp eq i64 0, %184
-  br i1 %185, label %186, label %187
+178:                                              ; preds = %173
+  %179 = load ptr, ptr %5, align 8
+  %180 = getelementptr inbounds %struct.opal_convertor_t, ptr %179, i32 0, i32 3
+  %181 = load i64, ptr %180, align 8
+  %182 = load ptr, ptr %5, align 8
+  %183 = getelementptr inbounds %struct.opal_convertor_t, ptr %182, i32 0, i32 15
+  %184 = load i64, ptr %183, align 8
+  %185 = sub i64 %181, %184
+  store i64 %185, ptr %9, align 8
+  %186 = load i64, ptr %9, align 8
+  %187 = icmp eq i64 0, %186
+  br i1 %187, label %188, label %189
 
-186:                                              ; preds = %176
-  br label %446
+188:                                              ; preds = %178
+  br label %448
 
-187:                                              ; preds = %176
-  %188 = load i64, ptr %9, align 8
-  %189 = load ptr, ptr %6, align 8
-  %190 = load i32, ptr %17, align 4
-  %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds %struct.iovec, ptr %189, i64 %191
-  %193 = getelementptr inbounds %struct.iovec, ptr %192, i32 0, i32 1
-  %194 = load i64, ptr %193, align 8
-  %195 = icmp ugt i64 %188, %194
-  br i1 %195, label %196, label %203
+189:                                              ; preds = %178
+  %190 = load i64, ptr %9, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = load i32, ptr %17, align 4
+  %193 = zext i32 %192 to i64
+  %194 = getelementptr inbounds %struct.iovec, ptr %191, i64 %193
+  %195 = getelementptr inbounds %struct.iovec, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8
+  %197 = icmp ugt i64 %190, %196
+  br i1 %197, label %198, label %205
 
-196:                                              ; preds = %187
-  %197 = load ptr, ptr %6, align 8
-  %198 = load i32, ptr %17, align 4
-  %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.iovec, ptr %197, i64 %199
-  %201 = getelementptr inbounds %struct.iovec, ptr %200, i32 0, i32 1
-  %202 = load i64, ptr %201, align 8
-  store i64 %202, ptr %9, align 8
-  br label %203
+198:                                              ; preds = %189
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr %17, align 4
+  %201 = zext i32 %200 to i64
+  %202 = getelementptr inbounds %struct.iovec, ptr %199, i64 %201
+  %203 = getelementptr inbounds %struct.iovec, ptr %202, i32 0, i32 1
+  %204 = load i64, ptr %203, align 8
+  store i64 %204, ptr %9, align 8
+  br label %205
 
-203:                                              ; preds = %196, %187
-  %204 = load ptr, ptr %6, align 8
-  %205 = load i32, ptr %17, align 4
-  %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds %struct.iovec, ptr %204, i64 %206
-  %208 = getelementptr inbounds %struct.iovec, ptr %207, i32 0, i32 0
-  %209 = load ptr, ptr %208, align 8
-  store ptr %209, ptr %16, align 8
-  %210 = load i64, ptr %9, align 8
-  %211 = load ptr, ptr %5, align 8
-  %212 = getelementptr inbounds %struct.opal_convertor_t, ptr %211, i32 0, i32 15
-  %213 = load i64, ptr %212, align 8
-  %214 = add i64 %213, %210
-  store i64 %214, ptr %212, align 8
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct.opal_convertor_t, ptr %215, i32 0, i32 9
-  %217 = load ptr, ptr %216, align 8
-  %218 = load ptr, ptr %12, align 8
-  %219 = getelementptr inbounds %struct.opal_datatype_t, ptr %218, i32 0, i32 5
-  %220 = load i64, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %217, i64 %220
-  %222 = load ptr, ptr %13, align 8
-  %223 = getelementptr inbounds %struct.dt_stack_t, ptr %222, i64 0
-  %224 = getelementptr inbounds %struct.dt_stack_t, ptr %223, i32 0, i32 4
-  %225 = load i64, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %221, i64 %225
-  %227 = load ptr, ptr %13, align 8
-  %228 = getelementptr inbounds %struct.dt_stack_t, ptr %227, i64 1
-  %229 = getelementptr inbounds %struct.dt_stack_t, ptr %228, i32 0, i32 4
-  %230 = load i64, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %226, i64 %230
-  store ptr %231, ptr %15, align 8
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds %struct.opal_convertor_t, ptr %232, i32 0, i32 13
-  %234 = load i32, ptr %233, align 8
-  %235 = icmp eq i32 0, %234
-  br i1 %235, label %236, label %237
+205:                                              ; preds = %198, %189
+  %206 = load ptr, ptr %6, align 8
+  %207 = load i32, ptr %17, align 4
+  %208 = zext i32 %207 to i64
+  %209 = getelementptr inbounds %struct.iovec, ptr %206, i64 %208
+  %210 = getelementptr inbounds %struct.iovec, ptr %209, i32 0, i32 0
+  %211 = load ptr, ptr %210, align 8
+  store ptr %211, ptr %16, align 8
+  %212 = load i64, ptr %9, align 8
+  %213 = load ptr, ptr %5, align 8
+  %214 = getelementptr inbounds %struct.opal_convertor_t, ptr %213, i32 0, i32 15
+  %215 = load i64, ptr %214, align 8
+  %216 = add i64 %215, %212
+  store i64 %216, ptr %214, align 8
+  %217 = load ptr, ptr %5, align 8
+  %218 = getelementptr inbounds %struct.opal_convertor_t, ptr %217, i32 0, i32 9
+  %219 = load ptr, ptr %218, align 8
+  %220 = load ptr, ptr %12, align 8
+  %221 = getelementptr inbounds %struct.opal_datatype_t, ptr %220, i32 0, i32 5
+  %222 = load i64, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %219, i64 %222
+  %224 = load ptr, ptr %13, align 8
+  %225 = getelementptr inbounds %struct.dt_stack_t, ptr %224, i64 0
+  %226 = getelementptr inbounds %struct.dt_stack_t, ptr %225, i32 0, i32 4
+  %227 = load i64, ptr %226, align 8
+  %228 = getelementptr inbounds i8, ptr %223, i64 %227
+  %229 = load ptr, ptr %13, align 8
+  %230 = getelementptr inbounds %struct.dt_stack_t, ptr %229, i64 1
+  %231 = getelementptr inbounds %struct.dt_stack_t, ptr %230, i32 0, i32 4
+  %232 = load i64, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %228, i64 %232
+  store ptr %233, ptr %15, align 8
+  %234 = load ptr, ptr %5, align 8
+  %235 = getelementptr inbounds %struct.opal_convertor_t, ptr %234, i32 0, i32 13
+  %236 = load i32, ptr %235, align 8
+  %237 = icmp eq i32 0, %236
+  br i1 %237, label %238, label %239
 
-236:                                              ; preds = %203
-  br label %242
+238:                                              ; preds = %205
+  br label %244
 
-237:                                              ; preds = %203
-  %238 = load ptr, ptr %13, align 8
-  %239 = getelementptr inbounds %struct.dt_stack_t, ptr %238, i64 1
-  %240 = getelementptr inbounds %struct.dt_stack_t, ptr %239, i32 0, i32 3
-  %241 = load i64, ptr %240, align 8
-  br label %242
+239:                                              ; preds = %205
+  %240 = load ptr, ptr %13, align 8
+  %241 = getelementptr inbounds %struct.dt_stack_t, ptr %240, i64 1
+  %242 = getelementptr inbounds %struct.dt_stack_t, ptr %241, i32 0, i32 3
+  %243 = load i64, ptr %242, align 8
+  br label %244
 
-242:                                              ; preds = %237, %236
-  %243 = phi i64 [ 0, %236 ], [ %241, %237 ]
-  store i64 %243, ptr %10, align 8
-  %244 = load ptr, ptr %12, align 8
-  %245 = getelementptr inbounds %struct.opal_datatype_t, ptr %244, i32 0, i32 4
-  %246 = load i64, ptr %245, align 8
-  %247 = load i64, ptr %10, align 8
-  %248 = icmp ne i64 %246, %247
-  br i1 %248, label %249, label %338
+244:                                              ; preds = %239, %238
+  %245 = phi i64 [ 0, %238 ], [ %243, %239 ]
+  store i64 %245, ptr %10, align 8
+  %246 = load ptr, ptr %12, align 8
+  %247 = getelementptr inbounds %struct.opal_datatype_t, ptr %246, i32 0, i32 4
+  %248 = load i64, ptr %247, align 8
+  %249 = load i64, ptr %10, align 8
+  %250 = icmp ne i64 %248, %249
+  br i1 %250, label %251, label %340
 
-249:                                              ; preds = %242
-  %250 = load i64, ptr %10, align 8
-  %251 = load i64, ptr %9, align 8
-  %252 = icmp ule i64 %250, %251
-  br i1 %252, label %253, label %338
+251:                                              ; preds = %244
+  %252 = load i64, ptr %10, align 8
+  %253 = load i64, ptr %9, align 8
+  %254 = icmp ule i64 %252, %253
+  br i1 %254, label %255, label %340
 
-253:                                              ; preds = %249
-  br label %254
+255:                                              ; preds = %251
+  br label %256
 
-254:                                              ; preds = %253
-  %255 = load ptr, ptr %15, align 8
-  %256 = load ptr, ptr %16, align 8
-  %257 = load i64, ptr %10, align 8
-  %258 = load i64, ptr %10, align 8
-  %259 = load ptr, ptr %5, align 8
-  %260 = getelementptr inbounds %struct.opal_convertor_t, ptr %259, i32 0, i32 17
+256:                                              ; preds = %255
+  %257 = load ptr, ptr %15, align 8
+  %258 = load ptr, ptr %16, align 8
+  %259 = load i64, ptr %10, align 8
+  %260 = load i64, ptr %10, align 8
   %261 = load ptr, ptr %5, align 8
-  %262 = getelementptr inbounds %struct.opal_convertor_t, ptr %261, i32 0, i32 18
-  %263 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %255, ptr noundef %256, i64 noundef %257, i64 noundef %258, ptr noundef %260, ptr noundef %262)
-  %264 = load ptr, ptr %5, align 8
-  %265 = getelementptr inbounds %struct.opal_convertor_t, ptr %264, i32 0, i32 16
-  %266 = load i32, ptr %265, align 8
-  %267 = add i32 %266, %263
-  store i32 %267, ptr %265, align 8
-  br label %268
+  %262 = getelementptr inbounds %struct.opal_convertor_t, ptr %261, i32 0, i32 17
+  %263 = load ptr, ptr %5, align 8
+  %264 = getelementptr inbounds %struct.opal_convertor_t, ptr %263, i32 0, i32 18
+  %265 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %257, ptr noundef %258, i64 noundef %259, i64 noundef %260, ptr noundef %262, ptr noundef %264)
+  %266 = load ptr, ptr %5, align 8
+  %267 = getelementptr inbounds %struct.opal_convertor_t, ptr %266, i32 0, i32 16
+  %268 = load i32, ptr %267, align 8
+  %269 = add i32 %268, %265
+  store i32 %269, ptr %267, align 8
+  br label %270
 
-268:                                              ; preds = %254
-  %269 = load i64, ptr %10, align 8
-  %270 = load ptr, ptr %16, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 %269
-  store ptr %271, ptr %16, align 8
-  %272 = load i64, ptr %10, align 8
-  %273 = load i64, ptr %9, align 8
-  %274 = sub i64 %273, %272
-  store i64 %274, ptr %9, align 8
-  %275 = load i64, ptr %10, align 8
-  %276 = load ptr, ptr %13, align 8
-  %277 = getelementptr inbounds %struct.dt_stack_t, ptr %276, i64 1
-  %278 = getelementptr inbounds %struct.dt_stack_t, ptr %277, i32 0, i32 3
-  %279 = load i64, ptr %278, align 8
-  %280 = sub i64 %279, %275
-  store i64 %280, ptr %278, align 8
-  %281 = load i64, ptr %10, align 8
-  %282 = load ptr, ptr %13, align 8
-  %283 = getelementptr inbounds %struct.dt_stack_t, ptr %282, i64 1
-  %284 = getelementptr inbounds %struct.dt_stack_t, ptr %283, i32 0, i32 4
-  %285 = load i64, ptr %284, align 8
-  %286 = add i64 %285, %281
-  store i64 %286, ptr %284, align 8
-  %287 = load ptr, ptr %13, align 8
-  %288 = getelementptr inbounds %struct.dt_stack_t, ptr %287, i64 1
-  %289 = getelementptr inbounds %struct.dt_stack_t, ptr %288, i32 0, i32 3
-  %290 = load i64, ptr %289, align 8
-  %291 = icmp eq i64 0, %290
-  br i1 %291, label %292, label %320
+270:                                              ; preds = %256
+  %271 = load i64, ptr %10, align 8
+  %272 = load ptr, ptr %16, align 8
+  %273 = getelementptr inbounds i8, ptr %272, i64 %271
+  store ptr %273, ptr %16, align 8
+  %274 = load i64, ptr %10, align 8
+  %275 = load i64, ptr %9, align 8
+  %276 = sub i64 %275, %274
+  store i64 %276, ptr %9, align 8
+  %277 = load i64, ptr %10, align 8
+  %278 = load ptr, ptr %13, align 8
+  %279 = getelementptr inbounds %struct.dt_stack_t, ptr %278, i64 1
+  %280 = getelementptr inbounds %struct.dt_stack_t, ptr %279, i32 0, i32 3
+  %281 = load i64, ptr %280, align 8
+  %282 = sub i64 %281, %277
+  store i64 %282, ptr %280, align 8
+  %283 = load i64, ptr %10, align 8
+  %284 = load ptr, ptr %13, align 8
+  %285 = getelementptr inbounds %struct.dt_stack_t, ptr %284, i64 1
+  %286 = getelementptr inbounds %struct.dt_stack_t, ptr %285, i32 0, i32 4
+  %287 = load i64, ptr %286, align 8
+  %288 = add i64 %287, %283
+  store i64 %288, ptr %286, align 8
+  %289 = load ptr, ptr %13, align 8
+  %290 = getelementptr inbounds %struct.dt_stack_t, ptr %289, i64 1
+  %291 = getelementptr inbounds %struct.dt_stack_t, ptr %290, i32 0, i32 3
+  %292 = load i64, ptr %291, align 8
+  %293 = icmp eq i64 0, %292
+  br i1 %293, label %294, label %322
 
-292:                                              ; preds = %268
-  %293 = load ptr, ptr %13, align 8
-  %294 = getelementptr inbounds %struct.dt_stack_t, ptr %293, i64 0
-  %295 = getelementptr inbounds %struct.dt_stack_t, ptr %294, i32 0, i32 3
-  %296 = load i64, ptr %295, align 8
-  %297 = add i64 %296, -1
-  store i64 %297, ptr %295, align 8
-  %298 = load i64, ptr %14, align 8
-  %299 = load ptr, ptr %13, align 8
-  %300 = getelementptr inbounds %struct.dt_stack_t, ptr %299, i64 0
-  %301 = getelementptr inbounds %struct.dt_stack_t, ptr %300, i32 0, i32 4
-  %302 = load i64, ptr %301, align 8
-  %303 = add nsw i64 %302, %298
-  store i64 %303, ptr %301, align 8
-  %304 = load ptr, ptr %13, align 8
-  %305 = getelementptr inbounds %struct.dt_stack_t, ptr %304, i64 0
-  %306 = getelementptr inbounds %struct.dt_stack_t, ptr %305, i32 0, i32 3
-  %307 = load i64, ptr %306, align 8
-  %308 = icmp eq i64 0, %307
-  br i1 %308, label %309, label %310
+294:                                              ; preds = %270
+  %295 = load ptr, ptr %13, align 8
+  %296 = getelementptr inbounds %struct.dt_stack_t, ptr %295, i64 0
+  %297 = getelementptr inbounds %struct.dt_stack_t, ptr %296, i32 0, i32 3
+  %298 = load i64, ptr %297, align 8
+  %299 = add i64 %298, -1
+  store i64 %299, ptr %297, align 8
+  %300 = load i64, ptr %14, align 8
+  %301 = load ptr, ptr %13, align 8
+  %302 = getelementptr inbounds %struct.dt_stack_t, ptr %301, i64 0
+  %303 = getelementptr inbounds %struct.dt_stack_t, ptr %302, i32 0, i32 4
+  %304 = load i64, ptr %303, align 8
+  %305 = add nsw i64 %304, %300
+  store i64 %305, ptr %303, align 8
+  %306 = load ptr, ptr %13, align 8
+  %307 = getelementptr inbounds %struct.dt_stack_t, ptr %306, i64 0
+  %308 = getelementptr inbounds %struct.dt_stack_t, ptr %307, i32 0, i32 3
+  %309 = load i64, ptr %308, align 8
+  %310 = icmp eq i64 0, %309
+  br i1 %310, label %311, label %312
 
-309:                                              ; preds = %292
-  br label %446
+311:                                              ; preds = %294
+  br label %448
 
-310:                                              ; preds = %292
-  %311 = load ptr, ptr %12, align 8
-  %312 = getelementptr inbounds %struct.opal_datatype_t, ptr %311, i32 0, i32 4
-  %313 = load i64, ptr %312, align 8
-  %314 = load ptr, ptr %13, align 8
-  %315 = getelementptr inbounds %struct.dt_stack_t, ptr %314, i64 1
-  %316 = getelementptr inbounds %struct.dt_stack_t, ptr %315, i32 0, i32 3
-  store i64 %313, ptr %316, align 8
-  %317 = load ptr, ptr %13, align 8
-  %318 = getelementptr inbounds %struct.dt_stack_t, ptr %317, i64 1
-  %319 = getelementptr inbounds %struct.dt_stack_t, ptr %318, i32 0, i32 4
-  store i64 0, ptr %319, align 8
-  br label %320
+312:                                              ; preds = %294
+  %313 = load ptr, ptr %12, align 8
+  %314 = getelementptr inbounds %struct.opal_datatype_t, ptr %313, i32 0, i32 4
+  %315 = load i64, ptr %314, align 8
+  %316 = load ptr, ptr %13, align 8
+  %317 = getelementptr inbounds %struct.dt_stack_t, ptr %316, i64 1
+  %318 = getelementptr inbounds %struct.dt_stack_t, ptr %317, i32 0, i32 3
+  store i64 %315, ptr %318, align 8
+  %319 = load ptr, ptr %13, align 8
+  %320 = getelementptr inbounds %struct.dt_stack_t, ptr %319, i64 1
+  %321 = getelementptr inbounds %struct.dt_stack_t, ptr %320, i32 0, i32 4
+  store i64 0, ptr %321, align 8
+  br label %322
 
-320:                                              ; preds = %310, %268
-  %321 = load ptr, ptr %5, align 8
-  %322 = getelementptr inbounds %struct.opal_convertor_t, ptr %321, i32 0, i32 9
-  %323 = load ptr, ptr %322, align 8
-  %324 = load ptr, ptr %12, align 8
-  %325 = getelementptr inbounds %struct.opal_datatype_t, ptr %324, i32 0, i32 5
-  %326 = load i64, ptr %325, align 8
-  %327 = getelementptr inbounds i8, ptr %323, i64 %326
-  %328 = load ptr, ptr %13, align 8
-  %329 = getelementptr inbounds %struct.dt_stack_t, ptr %328, i64 0
-  %330 = getelementptr inbounds %struct.dt_stack_t, ptr %329, i32 0, i32 4
-  %331 = load i64, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %327, i64 %331
-  %333 = load ptr, ptr %13, align 8
-  %334 = getelementptr inbounds %struct.dt_stack_t, ptr %333, i64 1
-  %335 = getelementptr inbounds %struct.dt_stack_t, ptr %334, i32 0, i32 4
-  %336 = load i64, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %332, i64 %336
-  store ptr %337, ptr %15, align 8
-  br label %338
+322:                                              ; preds = %312, %270
+  %323 = load ptr, ptr %5, align 8
+  %324 = getelementptr inbounds %struct.opal_convertor_t, ptr %323, i32 0, i32 9
+  %325 = load ptr, ptr %324, align 8
+  %326 = load ptr, ptr %12, align 8
+  %327 = getelementptr inbounds %struct.opal_datatype_t, ptr %326, i32 0, i32 5
+  %328 = load i64, ptr %327, align 8
+  %329 = getelementptr inbounds i8, ptr %325, i64 %328
+  %330 = load ptr, ptr %13, align 8
+  %331 = getelementptr inbounds %struct.dt_stack_t, ptr %330, i64 0
+  %332 = getelementptr inbounds %struct.dt_stack_t, ptr %331, i32 0, i32 4
+  %333 = load i64, ptr %332, align 8
+  %334 = getelementptr inbounds i8, ptr %329, i64 %333
+  %335 = load ptr, ptr %13, align 8
+  %336 = getelementptr inbounds %struct.dt_stack_t, ptr %335, i64 1
+  %337 = getelementptr inbounds %struct.dt_stack_t, ptr %336, i32 0, i32 4
+  %338 = load i64, ptr %337, align 8
+  %339 = getelementptr inbounds i8, ptr %334, i64 %338
+  store ptr %339, ptr %15, align 8
+  br label %340
 
-338:                                              ; preds = %320, %249, %242
+340:                                              ; preds = %322, %251, %244
   store i64 0, ptr %18, align 8
-  br label %339
+  br label %341
 
-339:                                              ; preds = %378, %338
-  %340 = load ptr, ptr %12, align 8
-  %341 = getelementptr inbounds %struct.opal_datatype_t, ptr %340, i32 0, i32 4
-  %342 = load i64, ptr %341, align 8
-  %343 = load i64, ptr %9, align 8
-  %344 = icmp ule i64 %342, %343
-  br i1 %344, label %345, label %381
+341:                                              ; preds = %380, %340
+  %342 = load ptr, ptr %12, align 8
+  %343 = getelementptr inbounds %struct.opal_datatype_t, ptr %342, i32 0, i32 4
+  %344 = load i64, ptr %343, align 8
+  %345 = load i64, ptr %9, align 8
+  %346 = icmp ule i64 %344, %345
+  br i1 %346, label %347, label %383
 
-345:                                              ; preds = %339
-  br label %346
+347:                                              ; preds = %341
+  br label %348
 
-346:                                              ; preds = %345
-  %347 = load ptr, ptr %15, align 8
-  %348 = load ptr, ptr %16, align 8
-  %349 = load ptr, ptr %12, align 8
-  %350 = getelementptr inbounds %struct.opal_datatype_t, ptr %349, i32 0, i32 4
-  %351 = load i64, ptr %350, align 8
-  %352 = load ptr, ptr %12, align 8
-  %353 = getelementptr inbounds %struct.opal_datatype_t, ptr %352, i32 0, i32 4
-  %354 = load i64, ptr %353, align 8
-  %355 = load ptr, ptr %5, align 8
-  %356 = getelementptr inbounds %struct.opal_convertor_t, ptr %355, i32 0, i32 17
+348:                                              ; preds = %347
+  %349 = load ptr, ptr %15, align 8
+  %350 = load ptr, ptr %16, align 8
+  %351 = load ptr, ptr %12, align 8
+  %352 = getelementptr inbounds %struct.opal_datatype_t, ptr %351, i32 0, i32 4
+  %353 = load i64, ptr %352, align 8
+  %354 = load ptr, ptr %12, align 8
+  %355 = getelementptr inbounds %struct.opal_datatype_t, ptr %354, i32 0, i32 4
+  %356 = load i64, ptr %355, align 8
   %357 = load ptr, ptr %5, align 8
-  %358 = getelementptr inbounds %struct.opal_convertor_t, ptr %357, i32 0, i32 18
-  %359 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %347, ptr noundef %348, i64 noundef %351, i64 noundef %354, ptr noundef %356, ptr noundef %358)
-  %360 = load ptr, ptr %5, align 8
-  %361 = getelementptr inbounds %struct.opal_convertor_t, ptr %360, i32 0, i32 16
-  %362 = load i32, ptr %361, align 8
-  %363 = add i32 %362, %359
-  store i32 %363, ptr %361, align 8
-  br label %364
+  %358 = getelementptr inbounds %struct.opal_convertor_t, ptr %357, i32 0, i32 17
+  %359 = load ptr, ptr %5, align 8
+  %360 = getelementptr inbounds %struct.opal_convertor_t, ptr %359, i32 0, i32 18
+  %361 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %349, ptr noundef %350, i64 noundef %353, i64 noundef %356, ptr noundef %358, ptr noundef %360)
+  %362 = load ptr, ptr %5, align 8
+  %363 = getelementptr inbounds %struct.opal_convertor_t, ptr %362, i32 0, i32 16
+  %364 = load i32, ptr %363, align 8
+  %365 = add i32 %364, %361
+  store i32 %365, ptr %363, align 8
+  br label %366
 
-364:                                              ; preds = %346
-  %365 = load ptr, ptr %12, align 8
-  %366 = getelementptr inbounds %struct.opal_datatype_t, ptr %365, i32 0, i32 4
-  %367 = load i64, ptr %366, align 8
-  %368 = load ptr, ptr %16, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 %367
-  store ptr %369, ptr %16, align 8
-  %370 = load i64, ptr %14, align 8
-  %371 = load ptr, ptr %15, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 %370
-  store ptr %372, ptr %15, align 8
-  %373 = load ptr, ptr %12, align 8
-  %374 = getelementptr inbounds %struct.opal_datatype_t, ptr %373, i32 0, i32 4
-  %375 = load i64, ptr %374, align 8
-  %376 = load i64, ptr %9, align 8
-  %377 = sub i64 %376, %375
-  store i64 %377, ptr %9, align 8
-  br label %378
+366:                                              ; preds = %348
+  %367 = load ptr, ptr %12, align 8
+  %368 = getelementptr inbounds %struct.opal_datatype_t, ptr %367, i32 0, i32 4
+  %369 = load i64, ptr %368, align 8
+  %370 = load ptr, ptr %16, align 8
+  %371 = getelementptr inbounds i8, ptr %370, i64 %369
+  store ptr %371, ptr %16, align 8
+  %372 = load i64, ptr %14, align 8
+  %373 = load ptr, ptr %15, align 8
+  %374 = getelementptr inbounds i8, ptr %373, i64 %372
+  store ptr %374, ptr %15, align 8
+  %375 = load ptr, ptr %12, align 8
+  %376 = getelementptr inbounds %struct.opal_datatype_t, ptr %375, i32 0, i32 4
+  %377 = load i64, ptr %376, align 8
+  %378 = load i64, ptr %9, align 8
+  %379 = sub i64 %378, %377
+  store i64 %379, ptr %9, align 8
+  br label %380
 
-378:                                              ; preds = %364
-  %379 = load i64, ptr %18, align 8
-  %380 = add i64 %379, 1
-  store i64 %380, ptr %18, align 8
-  br label %339, !llvm.loop !7
+380:                                              ; preds = %366
+  %381 = load i64, ptr %18, align 8
+  %382 = add i64 %381, 1
+  store i64 %382, ptr %18, align 8
+  br label %341, !llvm.loop !7
 
-381:                                              ; preds = %339
-  %382 = load i64, ptr %18, align 8
-  %383 = load ptr, ptr %13, align 8
-  %384 = getelementptr inbounds %struct.dt_stack_t, ptr %383, i64 0
-  %385 = getelementptr inbounds %struct.dt_stack_t, ptr %384, i32 0, i32 3
-  %386 = load i64, ptr %385, align 8
-  %387 = sub i64 %386, %382
-  store i64 %387, ptr %385, align 8
-  %388 = load i64, ptr %18, align 8
-  %389 = load i64, ptr %14, align 8
-  %390 = mul i64 %388, %389
-  %391 = load ptr, ptr %13, align 8
-  %392 = getelementptr inbounds %struct.dt_stack_t, ptr %391, i64 0
-  %393 = getelementptr inbounds %struct.dt_stack_t, ptr %392, i32 0, i32 4
-  %394 = load i64, ptr %393, align 8
-  %395 = add i64 %394, %390
-  store i64 %395, ptr %393, align 8
-  %396 = load i64, ptr %9, align 8
-  %397 = icmp ne i64 0, %396
-  br i1 %397, label %398, label %442
+383:                                              ; preds = %341
+  %384 = load i64, ptr %18, align 8
+  %385 = load ptr, ptr %13, align 8
+  %386 = getelementptr inbounds %struct.dt_stack_t, ptr %385, i64 0
+  %387 = getelementptr inbounds %struct.dt_stack_t, ptr %386, i32 0, i32 3
+  %388 = load i64, ptr %387, align 8
+  %389 = sub i64 %388, %384
+  store i64 %389, ptr %387, align 8
+  %390 = load i64, ptr %18, align 8
+  %391 = load i64, ptr %14, align 8
+  %392 = mul i64 %390, %391
+  %393 = load ptr, ptr %13, align 8
+  %394 = getelementptr inbounds %struct.dt_stack_t, ptr %393, i64 0
+  %395 = getelementptr inbounds %struct.dt_stack_t, ptr %394, i32 0, i32 4
+  %396 = load i64, ptr %395, align 8
+  %397 = add i64 %396, %392
+  store i64 %397, ptr %395, align 8
+  %398 = load i64, ptr %9, align 8
+  %399 = icmp ne i64 0, %398
+  br i1 %399, label %400, label %444
 
-398:                                              ; preds = %381
-  br label %399
+400:                                              ; preds = %383
+  br label %401
 
-399:                                              ; preds = %398
-  %400 = load ptr, ptr %15, align 8
-  %401 = load ptr, ptr %16, align 8
-  %402 = load i64, ptr %9, align 8
-  %403 = load i64, ptr %9, align 8
-  %404 = load ptr, ptr %5, align 8
-  %405 = getelementptr inbounds %struct.opal_convertor_t, ptr %404, i32 0, i32 17
+401:                                              ; preds = %400
+  %402 = load ptr, ptr %15, align 8
+  %403 = load ptr, ptr %16, align 8
+  %404 = load i64, ptr %9, align 8
+  %405 = load i64, ptr %9, align 8
   %406 = load ptr, ptr %5, align 8
-  %407 = getelementptr inbounds %struct.opal_convertor_t, ptr %406, i32 0, i32 18
-  %408 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %400, ptr noundef %401, i64 noundef %402, i64 noundef %403, ptr noundef %405, ptr noundef %407)
-  %409 = load ptr, ptr %5, align 8
-  %410 = getelementptr inbounds %struct.opal_convertor_t, ptr %409, i32 0, i32 16
-  %411 = load i32, ptr %410, align 8
-  %412 = add i32 %411, %408
-  store i32 %412, ptr %410, align 8
-  br label %413
+  %407 = getelementptr inbounds %struct.opal_convertor_t, ptr %406, i32 0, i32 17
+  %408 = load ptr, ptr %5, align 8
+  %409 = getelementptr inbounds %struct.opal_convertor_t, ptr %408, i32 0, i32 18
+  %410 = call i32 @opal_bcopy_uicsum_partial(ptr noundef %402, ptr noundef %403, i64 noundef %404, i64 noundef %405, ptr noundef %407, ptr noundef %409)
+  %411 = load ptr, ptr %5, align 8
+  %412 = getelementptr inbounds %struct.opal_convertor_t, ptr %411, i32 0, i32 16
+  %413 = load i32, ptr %412, align 8
+  %414 = add i32 %413, %410
+  store i32 %414, ptr %412, align 8
+  br label %415
 
-413:                                              ; preds = %399
-  %414 = load i64, ptr %9, align 8
-  %415 = load ptr, ptr %13, align 8
-  %416 = getelementptr inbounds %struct.dt_stack_t, ptr %415, i64 1
-  %417 = getelementptr inbounds %struct.dt_stack_t, ptr %416, i32 0, i32 3
-  %418 = load i64, ptr %417, align 8
-  %419 = sub i64 %418, %414
-  store i64 %419, ptr %417, align 8
-  %420 = load i64, ptr %9, align 8
-  %421 = load ptr, ptr %13, align 8
-  %422 = getelementptr inbounds %struct.dt_stack_t, ptr %421, i64 1
-  %423 = getelementptr inbounds %struct.dt_stack_t, ptr %422, i32 0, i32 4
-  %424 = load i64, ptr %423, align 8
-  %425 = add i64 %424, %420
-  store i64 %425, ptr %423, align 8
-  %426 = load ptr, ptr %13, align 8
-  %427 = getelementptr inbounds %struct.dt_stack_t, ptr %426, i64 1
-  %428 = getelementptr inbounds %struct.dt_stack_t, ptr %427, i32 0, i32 3
-  %429 = load i64, ptr %428, align 8
-  %430 = icmp eq i64 0, %429
-  br i1 %430, label %431, label %441
+415:                                              ; preds = %401
+  %416 = load i64, ptr %9, align 8
+  %417 = load ptr, ptr %13, align 8
+  %418 = getelementptr inbounds %struct.dt_stack_t, ptr %417, i64 1
+  %419 = getelementptr inbounds %struct.dt_stack_t, ptr %418, i32 0, i32 3
+  %420 = load i64, ptr %419, align 8
+  %421 = sub i64 %420, %416
+  store i64 %421, ptr %419, align 8
+  %422 = load i64, ptr %9, align 8
+  %423 = load ptr, ptr %13, align 8
+  %424 = getelementptr inbounds %struct.dt_stack_t, ptr %423, i64 1
+  %425 = getelementptr inbounds %struct.dt_stack_t, ptr %424, i32 0, i32 4
+  %426 = load i64, ptr %425, align 8
+  %427 = add i64 %426, %422
+  store i64 %427, ptr %425, align 8
+  %428 = load ptr, ptr %13, align 8
+  %429 = getelementptr inbounds %struct.dt_stack_t, ptr %428, i64 1
+  %430 = getelementptr inbounds %struct.dt_stack_t, ptr %429, i32 0, i32 3
+  %431 = load i64, ptr %430, align 8
+  %432 = icmp eq i64 0, %431
+  br i1 %432, label %433, label %443
 
-431:                                              ; preds = %413
-  %432 = load ptr, ptr %12, align 8
-  %433 = getelementptr inbounds %struct.opal_datatype_t, ptr %432, i32 0, i32 4
-  %434 = load i64, ptr %433, align 8
-  %435 = load ptr, ptr %13, align 8
-  %436 = getelementptr inbounds %struct.dt_stack_t, ptr %435, i64 1
-  %437 = getelementptr inbounds %struct.dt_stack_t, ptr %436, i32 0, i32 3
-  store i64 %434, ptr %437, align 8
-  %438 = load ptr, ptr %13, align 8
-  %439 = getelementptr inbounds %struct.dt_stack_t, ptr %438, i64 1
-  %440 = getelementptr inbounds %struct.dt_stack_t, ptr %439, i32 0, i32 4
-  store i64 0, ptr %440, align 8
-  br label %441
-
-441:                                              ; preds = %431, %413
-  br label %442
-
-442:                                              ; preds = %441, %381
+433:                                              ; preds = %415
+  %434 = load ptr, ptr %12, align 8
+  %435 = getelementptr inbounds %struct.opal_datatype_t, ptr %434, i32 0, i32 4
+  %436 = load i64, ptr %435, align 8
+  %437 = load ptr, ptr %13, align 8
+  %438 = getelementptr inbounds %struct.dt_stack_t, ptr %437, i64 1
+  %439 = getelementptr inbounds %struct.dt_stack_t, ptr %438, i32 0, i32 3
+  store i64 %436, ptr %439, align 8
+  %440 = load ptr, ptr %13, align 8
+  %441 = getelementptr inbounds %struct.dt_stack_t, ptr %440, i64 1
+  %442 = getelementptr inbounds %struct.dt_stack_t, ptr %441, i32 0, i32 4
+  store i64 0, ptr %442, align 8
   br label %443
 
-443:                                              ; preds = %442
-  %444 = load i32, ptr %17, align 4
-  %445 = add i32 %444, 1
-  store i32 %445, ptr %17, align 4
-  br label %171, !llvm.loop !8
+443:                                              ; preds = %433, %415
+  br label %444
 
-446:                                              ; preds = %309, %186, %171
-  br label %447
+444:                                              ; preds = %443, %383
+  br label %445
 
-447:                                              ; preds = %446, %169
-  %448 = load i32, ptr %17, align 4
-  %449 = load ptr, ptr %7, align 8
-  store i32 %448, ptr %449, align 4
-  %450 = load ptr, ptr %5, align 8
-  %451 = getelementptr inbounds %struct.opal_convertor_t, ptr %450, i32 0, i32 15
-  %452 = load i64, ptr %451, align 8
-  %453 = load i64, ptr %11, align 8
-  %454 = sub i64 %452, %453
-  %455 = load ptr, ptr %8, align 8
-  store i64 %454, ptr %455, align 8
-  %456 = load ptr, ptr %5, align 8
-  %457 = getelementptr inbounds %struct.opal_convertor_t, ptr %456, i32 0, i32 15
-  %458 = load i64, ptr %457, align 8
-  %459 = load ptr, ptr %5, align 8
-  %460 = getelementptr inbounds %struct.opal_convertor_t, ptr %459, i32 0, i32 3
-  %461 = load i64, ptr %460, align 8
-  %462 = icmp eq i64 %458, %461
-  br i1 %462, label %463, label %468
+445:                                              ; preds = %444
+  %446 = load i32, ptr %17, align 4
+  %447 = add i32 %446, 1
+  store i32 %447, ptr %17, align 4
+  br label %173, !llvm.loop !8
 
-463:                                              ; preds = %447
-  %464 = load ptr, ptr %5, align 8
-  %465 = getelementptr inbounds %struct.opal_convertor_t, ptr %464, i32 0, i32 2
-  %466 = load i32, ptr %465, align 4
-  %467 = or i32 %466, 134217728
-  store i32 %467, ptr %465, align 4
-  br label %468
+448:                                              ; preds = %311, %188, %173
+  br label %449
 
-468:                                              ; preds = %463, %447
-  %469 = load ptr, ptr %5, align 8
-  %470 = getelementptr inbounds %struct.opal_convertor_t, ptr %469, i32 0, i32 2
-  %471 = load i32, ptr %470, align 4
-  %472 = and i32 %471, 134217728
-  %473 = icmp ne i32 %472, 0
-  %474 = xor i1 %473, true
-  %475 = xor i1 %474, true
-  %476 = zext i1 %475 to i32
-  ret i32 %476
+449:                                              ; preds = %448, %171
+  %450 = load i32, ptr %17, align 4
+  %451 = load ptr, ptr %7, align 8
+  store i32 %450, ptr %451, align 4
+  %452 = load ptr, ptr %5, align 8
+  %453 = getelementptr inbounds %struct.opal_convertor_t, ptr %452, i32 0, i32 15
+  %454 = load i64, ptr %453, align 8
+  %455 = load i64, ptr %11, align 8
+  %456 = sub i64 %454, %455
+  %457 = load ptr, ptr %8, align 8
+  store i64 %456, ptr %457, align 8
+  %458 = load ptr, ptr %5, align 8
+  %459 = getelementptr inbounds %struct.opal_convertor_t, ptr %458, i32 0, i32 15
+  %460 = load i64, ptr %459, align 8
+  %461 = load ptr, ptr %5, align 8
+  %462 = getelementptr inbounds %struct.opal_convertor_t, ptr %461, i32 0, i32 3
+  %463 = load i64, ptr %462, align 8
+  %464 = icmp eq i64 %460, %463
+  br i1 %464, label %465, label %470
+
+465:                                              ; preds = %449
+  %466 = load ptr, ptr %5, align 8
+  %467 = getelementptr inbounds %struct.opal_convertor_t, ptr %466, i32 0, i32 2
+  %468 = load i32, ptr %467, align 4
+  %469 = or i32 %468, 134217728
+  store i32 %469, ptr %467, align 4
+  br label %470
+
+470:                                              ; preds = %465, %449
+  %471 = load ptr, ptr %5, align 8
+  %472 = getelementptr inbounds %struct.opal_convertor_t, ptr %471, i32 0, i32 2
+  %473 = load i32, ptr %472, align 4
+  %474 = and i32 %473, 134217728
+  %475 = icmp ne i32 %474, 0
+  %476 = xor i1 %475, true
+  %477 = xor i1 %476, true
+  %478 = zext i1 %477 to i32
+  ret i32 %478
 }
 
 ; Function Attrs: nounwind uwtable

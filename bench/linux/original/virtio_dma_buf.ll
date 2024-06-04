@@ -20,27 +20,30 @@ define dso_local ptr @virtio_dma_buf_export(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %15, label %5
+  %5 = inttoptr i64 -22 to ptr
+  br i1 %4, label %18, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, @virtio_dma_buf_attach
-  br i1 %8, label %9, label %15
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, @virtio_dma_buf_attach
+  %10 = inttoptr i64 -22 to ptr
+  br i1 %9, label %11, label %18
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 112
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %15, label %13
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %3, i64 112
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  %15 = inttoptr i64 -22 to ptr
+  br i1 %14, label %18, label %16
 
-13:                                               ; preds = %9
-  %14 = tail call ptr @dma_buf_export(ptr noundef %0) #3
-  br label %15
+16:                                               ; preds = %11
+  %17 = tail call ptr @dma_buf_export(ptr noundef %0) #3
+  br label %18
 
-15:                                               ; preds = %13, %9, %5, %1
-  %16 = phi ptr [ %14, %13 ], [ inttoptr (i64 -22 to ptr), %9 ], [ inttoptr (i64 -22 to ptr), %5 ], [ inttoptr (i64 -22 to ptr), %1 ]
-  ret ptr %16
+18:                                               ; preds = %16, %11, %6, %1
+  %19 = phi ptr [ %17, %16 ], [ %15, %11 ], [ %10, %6 ], [ %5, %1 ]
+  ret ptr %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

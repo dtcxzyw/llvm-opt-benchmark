@@ -214,16 +214,22 @@ if.end25:                                         ; preds = %cond.end19
 
 if.end26:                                         ; preds = %if.end25, %if.then11
   %19 = load i64, ptr %size.addr, align 8
-  store i64 %19, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %20 = load i64, ptr %minsize.addr, align 8
-  store i64 %20, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 6), align 8
-  %21 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 6), align 8
-  %div = udiv i64 %21, %22
+  %20 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  store i64 %19, ptr %20, align 8
+  %21 = load i64, ptr %minsize.addr, align 8
+  %22 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 6
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 6
+  %26 = load i64, ptr %25, align 8
+  %div = udiv i64 %24, %26
   %mul = mul i64 %div, 2
-  store i64 %mul, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %23 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %shr27 = lshr i64 %23, 3
+  %27 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  store i64 %mul, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %29 = load i64, ptr %28, align 8
+  %shr27 = lshr i64 %29, 3
   %cmp28 = icmp eq i64 %shr27, 0
   br i1 %cmp28, label %if.then29, label %if.end30
 
@@ -231,35 +237,42 @@ if.then29:                                        ; preds = %if.end26
   br label %err
 
 if.end30:                                         ; preds = %if.end26
-  store i64 -1, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  store i64 %24, ptr %i, align 8
+  %30 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  store i64 -1, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %32 = load i64, ptr %31, align 8
+  store i64 %32, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end30
-  %25 = load i64, ptr %i, align 8
-  %tobool = icmp ne i64 %25, 0
+  %33 = load i64, ptr %i, align 8
+  %tobool = icmp ne i64 %33, 0
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %26 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %inc31 = add nsw i64 %26, 1
-  store i64 %inc31, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
+  %34 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %35 = load i64, ptr %34, align 8
+  %inc31 = add nsw i64 %35, 1
+  %36 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  store i64 %inc31, ptr %36, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %27 = load i64, ptr %i, align 8
-  %shr32 = lshr i64 %27, 1
+  %37 = load i64, ptr %i, align 8
+  %shr32 = lshr i64 %37, 1
   store i64 %shr32, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %28 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %mul33 = mul i64 %28, 8
+  %38 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %39 = load i64, ptr %38, align 8
+  %mul33 = mul i64 %39, 8
   %call = call noalias ptr @CRYPTO_zalloc(i64 noundef %mul33, ptr noundef @.str.1, i32 noundef 485)
-  store ptr %call, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %cmp34 = icmp ne ptr %29, null
+  %40 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  store ptr %call, ptr %40, align 8
+  %41 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8
+  %cmp34 = icmp ne ptr %42, null
   br i1 %cmp34, label %cond.true35, label %cond.false36
 
 cond.true35:                                      ; preds = %for.end
@@ -269,24 +282,28 @@ cond.false36:                                     ; preds = %for.end
   call void @OPENSSL_die(ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 486) #6
   unreachable
 
-30:                                               ; No predecessors!
+43:                                               ; No predecessors!
   br label %cond.end37
 
-cond.end37:                                       ; preds = %30, %cond.true35
-  %31 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %cmp39 = icmp eq ptr %31, null
+cond.end37:                                       ; preds = %43, %cond.true35
+  %44 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8
+  %cmp39 = icmp eq ptr %45, null
   br i1 %cmp39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %cond.end37
   br label %err
 
 if.end41:                                         ; preds = %cond.end37
-  %32 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %shr42 = lshr i64 %32, 3
+  %46 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %47 = load i64, ptr %46, align 8
+  %shr42 = lshr i64 %47, 3
   %call43 = call noalias ptr @CRYPTO_zalloc(i64 noundef %shr42, ptr noundef @.str.1, i32 noundef 490)
-  store ptr %call43, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %cmp44 = icmp ne ptr %33, null
+  %48 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  store ptr %call43, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %50 = load ptr, ptr %49, align 8
+  %cmp44 = icmp ne ptr %50, null
   br i1 %cmp44, label %cond.true45, label %cond.false46
 
 cond.true45:                                      ; preds = %if.end41
@@ -296,24 +313,28 @@ cond.false46:                                     ; preds = %if.end41
   call void @OPENSSL_die(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 491) #6
   unreachable
 
-34:                                               ; No predecessors!
+51:                                               ; No predecessors!
   br label %cond.end47
 
-cond.end47:                                       ; preds = %34, %cond.true45
-  %35 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %cmp49 = icmp eq ptr %35, null
+cond.end47:                                       ; preds = %51, %cond.true45
+  %52 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %53 = load ptr, ptr %52, align 8
+  %cmp49 = icmp eq ptr %53, null
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %cond.end47
   br label %err
 
 if.end51:                                         ; preds = %cond.end47
-  %36 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %shr52 = lshr i64 %36, 3
+  %54 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %55 = load i64, ptr %54, align 8
+  %shr52 = lshr i64 %55, 3
   %call53 = call noalias ptr @CRYPTO_zalloc(i64 noundef %shr52, ptr noundef @.str.1, i32 noundef 495)
-  store ptr %call53, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %cmp54 = icmp ne ptr %37, null
+  %56 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  store ptr %call53, ptr %56, align 8
+  %57 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %58 = load ptr, ptr %57, align 8
+  %cmp54 = icmp ne ptr %58, null
   br i1 %cmp54, label %cond.true55, label %cond.false56
 
 cond.true55:                                      ; preds = %if.end51
@@ -323,12 +344,13 @@ cond.false56:                                     ; preds = %if.end51
   call void @OPENSSL_die(ptr noundef @.str.6, ptr noundef @.str.1, i32 noundef 496) #6
   unreachable
 
-38:                                               ; No predecessors!
+59:                                               ; No predecessors!
   br label %cond.end57
 
-cond.end57:                                       ; preds = %38, %cond.true55
-  %39 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %cmp59 = icmp eq ptr %39, null
+cond.end57:                                       ; preds = %59, %cond.true55
+  %60 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %61 = load ptr, ptr %60, align 8
+  %cmp59 = icmp eq ptr %61, null
   br i1 %cmp59, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %cond.end57
@@ -337,8 +359,8 @@ if.then60:                                        ; preds = %cond.end57
 if.end61:                                         ; preds = %cond.end57
   %call62 = call i64 @sysconf(i32 noundef 30) #7
   store i64 %call62, ptr %tmppgsize, align 8
-  %40 = load i64, ptr %tmppgsize, align 8
-  %cmp63 = icmp slt i64 %40, 1
+  %62 = load i64, ptr %tmppgsize, align 8
+  %cmp63 = icmp slt i64 %62, 1
   br i1 %cmp63, label %if.then64, label %if.else65
 
 if.then64:                                        ; preds = %if.end61
@@ -346,43 +368,52 @@ if.then64:                                        ; preds = %if.end61
   br label %if.end66
 
 if.else65:                                        ; preds = %if.end61
-  %41 = load i64, ptr %tmppgsize, align 8
-  store i64 %41, ptr %pgsize, align 8
+  %63 = load i64, ptr %tmppgsize, align 8
+  store i64 %63, ptr %pgsize, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.else65, %if.then64
-  %42 = load i64, ptr %pgsize, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %add = add i64 %42, %43
-  %44 = load i64, ptr %pgsize, align 8
-  %add67 = add i64 %add, %44
-  store i64 %add67, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 1), align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 1), align 8
-  %call68 = call ptr @mmap(ptr noundef null, i64 noundef %45, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
+  %64 = load i64, ptr %pgsize, align 8
+  %65 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %66 = load i64, ptr %65, align 8
+  %add = add i64 %64, %66
+  %67 = load i64, ptr %pgsize, align 8
+  %add67 = add i64 %add, %67
+  %68 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 1
+  store i64 %add67, ptr %68, align 8
+  %69 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 1
+  %70 = load i64, ptr %69, align 8
+  %call68 = call ptr @mmap(ptr noundef null, i64 noundef %70, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
   store ptr %call68, ptr @sh, align 8
-  %46 = load ptr, ptr @sh, align 8
-  %cmp69 = icmp eq ptr %46, inttoptr (i64 -1 to ptr)
+  %71 = load ptr, ptr @sh, align 8
+  %72 = inttoptr i64 -1 to ptr
+  %cmp69 = icmp eq ptr %71, %72
   br i1 %cmp69, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %if.end66
   br label %err
 
 if.end71:                                         ; preds = %if.end66
-  %47 = load ptr, ptr @sh, align 8
-  %48 = load i64, ptr %pgsize, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %47, i64 %48
-  store ptr %add.ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_setbit(ptr noundef %49, i32 noundef 0, ptr noundef %50)
-  %51 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %51, i64 0
-  %52 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  call void @sh_add_to_list(ptr noundef %arrayidx, ptr noundef %52)
+  %73 = load ptr, ptr @sh, align 8
+  %74 = load i64, ptr %pgsize, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %73, i64 %74
+  %75 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  store ptr %add.ptr, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %79 = load ptr, ptr %78, align 8
+  call void @sh_setbit(ptr noundef %77, i32 noundef 0, ptr noundef %79)
+  %80 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %81, i64 0
+  %82 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  call void @sh_add_to_list(ptr noundef %arrayidx, ptr noundef %83)
   store i32 1, ptr %ret, align 4
-  %53 = load ptr, ptr @sh, align 8
-  %54 = load i64, ptr %pgsize, align 8
-  %call72 = call i32 @mprotect(ptr noundef %53, i64 noundef %54, i32 noundef 0) #7
+  %84 = load ptr, ptr @sh, align 8
+  %85 = load i64, ptr %pgsize, align 8
+  %call72 = call i32 @mprotect(ptr noundef %84, i64 noundef %85, i32 noundef 0) #7
   %cmp73 = icmp slt i32 %call72, 0
   br i1 %cmp73, label %if.then74, label %if.end75
 
@@ -391,22 +422,23 @@ if.then74:                                        ; preds = %if.end71
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then74, %if.end71
-  %55 = load i64, ptr %pgsize, align 8
-  %56 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %add76 = add i64 %55, %56
-  %57 = load i64, ptr %pgsize, align 8
-  %sub77 = sub i64 %57, 1
+  %86 = load i64, ptr %pgsize, align 8
+  %87 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %88 = load i64, ptr %87, align 8
+  %add76 = add i64 %86, %88
+  %89 = load i64, ptr %pgsize, align 8
+  %sub77 = sub i64 %89, 1
   %add78 = add i64 %add76, %sub77
-  %58 = load i64, ptr %pgsize, align 8
-  %sub79 = sub i64 %58, 1
+  %90 = load i64, ptr %pgsize, align 8
+  %sub79 = sub i64 %90, 1
   %not = xor i64 %sub79, -1
   %and80 = and i64 %add78, %not
   store i64 %and80, ptr %aligned, align 8
-  %59 = load ptr, ptr @sh, align 8
-  %60 = load i64, ptr %aligned, align 8
-  %add.ptr81 = getelementptr inbounds i8, ptr %59, i64 %60
-  %61 = load i64, ptr %pgsize, align 8
-  %call82 = call i32 @mprotect(ptr noundef %add.ptr81, i64 noundef %61, i32 noundef 0) #7
+  %91 = load ptr, ptr @sh, align 8
+  %92 = load i64, ptr %aligned, align 8
+  %add.ptr81 = getelementptr inbounds i8, ptr %91, i64 %92
+  %93 = load i64, ptr %pgsize, align 8
+  %call82 = call i32 @mprotect(ptr noundef %add.ptr81, i64 noundef %93, i32 noundef 0) #7
   %cmp83 = icmp slt i32 %call82, 0
   br i1 %cmp83, label %if.then84, label %if.end85
 
@@ -415,22 +447,26 @@ if.then84:                                        ; preds = %if.end75
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then84, %if.end75
-  %62 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %call86 = call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %62, i64 noundef %63, i32 noundef 1) #7
+  %94 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %97 = load i64, ptr %96, align 8
+  %call86 = call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %95, i64 noundef %97, i32 noundef 1) #7
   %cmp87 = icmp slt i64 %call86, 0
   br i1 %cmp87, label %if.then88, label %if.end98
 
 if.then88:                                        ; preds = %if.end85
   %call89 = call ptr @__errno_location() #8
-  %64 = load i32, ptr %call89, align 4
-  %cmp90 = icmp eq i32 %64, 38
+  %98 = load i32, ptr %call89, align 4
+  %cmp90 = icmp eq i32 %98, 38
   br i1 %cmp90, label %if.then91, label %if.else96
 
 if.then91:                                        ; preds = %if.then88
-  %65 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %66 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %call92 = call i32 @mlock(ptr noundef %65, i64 noundef %66) #7
+  %99 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %102 = load i64, ptr %101, align 8
+  %call92 = call i32 @mlock(ptr noundef %100, i64 noundef %102) #7
   %cmp93 = icmp slt i32 %call92, 0
   br i1 %cmp93, label %if.then94, label %if.end95
 
@@ -449,9 +485,11 @@ if.end97:                                         ; preds = %if.else96, %if.end9
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end97, %if.end85
-  %67 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %68 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %call99 = call i32 @madvise(ptr noundef %67, i64 noundef %68, i32 noundef 16) #7
+  %103 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %106 = load i64, ptr %105, align 8
+  %call99 = call i32 @madvise(ptr noundef %104, i64 noundef %106, i32 noundef 16) #7
   %cmp100 = icmp slt i32 %call99, 0
   br i1 %cmp100, label %if.then101, label %if.end102
 
@@ -460,8 +498,8 @@ if.then101:                                       ; preds = %if.end98
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then101, %if.end98
-  %69 = load i32, ptr %ret, align 4
-  store i32 %69, ptr %retval, align 4
+  %107 = load i32, ptr %ret, align 4
+  store i32 %107, ptr %retval, align 4
   br label %return
 
 err:                                              ; preds = %if.then70, %if.then60, %if.then50, %if.then40, %if.then29, %if.then24, %if.then
@@ -470,8 +508,8 @@ err:                                              ; preds = %if.then70, %if.then
   br label %return
 
 return:                                           ; preds = %err, %if.end102
-  %70 = load i32, ptr %retval, align 4
-  ret i32 %70
+  %108 = load i32, ptr %retval, align 4
+  ret i32 %108
 }
 
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) #1
@@ -505,25 +543,31 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @sh_done() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  call void @CRYPTO_free(ptr noundef %0, ptr noundef @.str.1, i32 noundef 602)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @CRYPTO_free(ptr noundef %1, ptr noundef @.str.1, i32 noundef 603)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  call void @CRYPTO_free(ptr noundef %2, ptr noundef @.str.1, i32 noundef 604)
-  %3 = load ptr, ptr @sh, align 8
-  %cmp = icmp ne ptr %3, inttoptr (i64 -1 to ptr)
+  %0 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  call void @CRYPTO_free(ptr noundef %1, ptr noundef @.str.1, i32 noundef 602)
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %3 = load ptr, ptr %2, align 8
+  call void @CRYPTO_free(ptr noundef %3, ptr noundef @.str.1, i32 noundef 603)
+  %4 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8
+  call void @CRYPTO_free(ptr noundef %5, ptr noundef @.str.1, i32 noundef 604)
+  %6 = load ptr, ptr @sh, align 8
+  %7 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %6, %7
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 1), align 8
-  %tobool = icmp ne i64 %4, 0
+  %8 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %tobool = icmp ne i64 %9, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr @sh, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 1), align 8
-  %call = call i32 @munmap(ptr noundef %5, i64 noundef %6) #7
+  %10 = load ptr, ptr @sh, align 8
+  %11 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %call = call i32 @munmap(ptr noundef %10, i64 noundef %12) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -652,8 +696,9 @@ entry:
   %temp = alloca ptr, align 8
   store i64 %size, ptr %size.addr, align 8
   %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %cmp = icmp ugt i64 %0, %1
+  %1 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ugt i64 %0, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -661,34 +706,36 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %sub = sub nsw i64 %2, 1
+  %3 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %4 = load i64, ptr %3, align 8
+  %sub = sub nsw i64 %4, 1
   store i64 %sub, ptr %list, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 6), align 8
-  store i64 %3, ptr %i, align 8
+  %5 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 6
+  %6 = load i64, ptr %5, align 8
+  store i64 %6, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr %size.addr, align 8
-  %cmp1 = icmp ult i64 %4, %5
+  %7 = load i64, ptr %i, align 8
+  %8 = load i64, ptr %size.addr, align 8
+  %cmp1 = icmp ult i64 %7, %8
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load i64, ptr %list, align 8
-  %dec = add nsw i64 %6, -1
+  %9 = load i64, ptr %list, align 8
+  %dec = add nsw i64 %9, -1
   store i64 %dec, ptr %list, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %shl = shl i64 %7, 1
+  %10 = load i64, ptr %i, align 8
+  %shl = shl i64 %10, 1
   store i64 %shl, ptr %i, align 8
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %8 = load i64, ptr %list, align 8
-  %cmp2 = icmp slt i64 %8, 0
+  %11 = load i64, ptr %list, align 8
+  %cmp2 = icmp slt i64 %11, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %for.end
@@ -696,21 +743,22 @@ if.then3:                                         ; preds = %for.end
   br label %return
 
 if.end4:                                          ; preds = %for.end
-  %9 = load i64, ptr %list, align 8
-  store i64 %9, ptr %slist, align 8
+  %12 = load i64, ptr %list, align 8
+  store i64 %12, ptr %slist, align 8
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc11, %if.end4
-  %10 = load i64, ptr %slist, align 8
-  %cmp6 = icmp sge i64 %10, 0
+  %13 = load i64, ptr %slist, align 8
+  %cmp6 = icmp sge i64 %13, 0
   br i1 %cmp6, label %for.body7, label %for.end13
 
 for.body7:                                        ; preds = %for.cond5
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %12 = load i64, ptr %slist, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %12
-  %13 = load ptr, ptr %arrayidx, align 8
-  %cmp8 = icmp ne ptr %13, null
+  %14 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i64, ptr %slist, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = load ptr, ptr %arrayidx, align 8
+  %cmp8 = icmp ne ptr %17, null
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %for.body7
@@ -720,14 +768,14 @@ if.end10:                                         ; preds = %for.body7
   br label %for.inc11
 
 for.inc11:                                        ; preds = %if.end10
-  %14 = load i64, ptr %slist, align 8
-  %dec12 = add nsw i64 %14, -1
+  %18 = load i64, ptr %slist, align 8
+  %dec12 = add nsw i64 %18, -1
   store i64 %dec12, ptr %slist, align 8
   br label %for.cond5, !llvm.loop !7
 
 for.end13:                                        ; preds = %if.then9, %for.cond5
-  %15 = load i64, ptr %slist, align 8
-  %cmp14 = icmp slt i64 %15, 0
+  %19 = load i64, ptr %slist, align 8
+  %cmp14 = icmp slt i64 %19, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %for.end13
@@ -738,22 +786,24 @@ if.end16:                                         ; preds = %for.end13
   br label %while.cond
 
 while.cond:                                       ; preds = %cond.end67, %if.end16
-  %16 = load i64, ptr %slist, align 8
-  %17 = load i64, ptr %list, align 8
-  %cmp17 = icmp ne i64 %16, %17
+  %20 = load i64, ptr %slist, align 8
+  %21 = load i64, ptr %list, align 8
+  %cmp17 = icmp ne i64 %20, %21
   br i1 %cmp17, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %18 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %19 = load i64, ptr %slist, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %arrayidx18, align 8
-  store ptr %20, ptr %temp, align 8
-  %21 = load ptr, ptr %temp, align 8
-  %22 = load i64, ptr %slist, align 8
-  %conv = trunc i64 %22 to i32
-  %23 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call = call i32 @sh_testbit(ptr noundef %21, i32 noundef %conv, ptr noundef %23)
+  %22 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i64, ptr %slist, align 8
+  %arrayidx18 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = load ptr, ptr %arrayidx18, align 8
+  store ptr %25, ptr %temp, align 8
+  %26 = load ptr, ptr %temp, align 8
+  %27 = load i64, ptr %slist, align 8
+  %conv = trunc i64 %27 to i32
+  %28 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %29 = load ptr, ptr %28, align 8
+  %call = call i32 @sh_testbit(ptr noundef %26, i32 noundef %conv, ptr noundef %29)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %cond.false, label %cond.true
 
@@ -764,23 +814,25 @@ cond.false:                                       ; preds = %while.body
   call void @OPENSSL_die(ptr noundef @.str.15, ptr noundef @.str.1, i32 noundef 661) #6
   unreachable
 
-24:                                               ; No predecessors!
+30:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %24, %cond.true
-  %25 = load ptr, ptr %temp, align 8
-  %26 = load i64, ptr %slist, align 8
-  %conv19 = trunc i64 %26 to i32
-  %27 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_clearbit(ptr noundef %25, i32 noundef %conv19, ptr noundef %27)
-  %28 = load ptr, ptr %temp, align 8
-  call void @sh_remove_from_list(ptr noundef %28)
-  %29 = load ptr, ptr %temp, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %31 = load i64, ptr %slist, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %30, i64 %31
-  %32 = load ptr, ptr %arrayidx20, align 8
-  %cmp21 = icmp ne ptr %29, %32
+cond.end:                                         ; preds = %30, %cond.true
+  %31 = load ptr, ptr %temp, align 8
+  %32 = load i64, ptr %slist, align 8
+  %conv19 = trunc i64 %32 to i32
+  %33 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %34 = load ptr, ptr %33, align 8
+  call void @sh_clearbit(ptr noundef %31, i32 noundef %conv19, ptr noundef %34)
+  %35 = load ptr, ptr %temp, align 8
+  call void @sh_remove_from_list(ptr noundef %35)
+  %36 = load ptr, ptr %temp, align 8
+  %37 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i64, ptr %slist, align 8
+  %arrayidx20 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %40 = load ptr, ptr %arrayidx20, align 8
+  %cmp21 = icmp ne ptr %36, %40
   br i1 %cmp21, label %cond.true23, label %cond.false24
 
 cond.true23:                                      ; preds = %cond.end
@@ -790,18 +842,19 @@ cond.false24:                                     ; preds = %cond.end
   call void @OPENSSL_die(ptr noundef @.str.16, ptr noundef @.str.1, i32 noundef 664) #6
   unreachable
 
-33:                                               ; No predecessors!
+41:                                               ; No predecessors!
   br label %cond.end25
 
-cond.end25:                                       ; preds = %33, %cond.true23
-  %34 = load i64, ptr %slist, align 8
-  %inc = add nsw i64 %34, 1
+cond.end25:                                       ; preds = %41, %cond.true23
+  %42 = load i64, ptr %slist, align 8
+  %inc = add nsw i64 %42, 1
   store i64 %inc, ptr %slist, align 8
-  %35 = load ptr, ptr %temp, align 8
-  %36 = load i64, ptr %slist, align 8
-  %conv27 = trunc i64 %36 to i32
-  %37 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call28 = call i32 @sh_testbit(ptr noundef %35, i32 noundef %conv27, ptr noundef %37)
+  %43 = load ptr, ptr %temp, align 8
+  %44 = load i64, ptr %slist, align 8
+  %conv27 = trunc i64 %44 to i32
+  %45 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %46 = load ptr, ptr %45, align 8
+  %call28 = call i32 @sh_testbit(ptr noundef %43, i32 noundef %conv27, ptr noundef %46)
   %tobool29 = icmp ne i32 %call28, 0
   br i1 %tobool29, label %cond.false31, label %cond.true30
 
@@ -812,26 +865,29 @@ cond.false31:                                     ; preds = %cond.end25
   call void @OPENSSL_die(ptr noundef @.str.15, ptr noundef @.str.1, i32 noundef 670) #6
   unreachable
 
-38:                                               ; No predecessors!
+47:                                               ; No predecessors!
   br label %cond.end32
 
-cond.end32:                                       ; preds = %38, %cond.true30
-  %39 = load ptr, ptr %temp, align 8
-  %40 = load i64, ptr %slist, align 8
-  %conv34 = trunc i64 %40 to i32
-  %41 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_setbit(ptr noundef %39, i32 noundef %conv34, ptr noundef %41)
-  %42 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %43 = load i64, ptr %slist, align 8
-  %arrayidx35 = getelementptr inbounds ptr, ptr %42, i64 %43
-  %44 = load ptr, ptr %temp, align 8
-  call void @sh_add_to_list(ptr noundef %arrayidx35, ptr noundef %44)
-  %45 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %46 = load i64, ptr %slist, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %45, i64 %46
-  %47 = load ptr, ptr %arrayidx36, align 8
+cond.end32:                                       ; preds = %47, %cond.true30
   %48 = load ptr, ptr %temp, align 8
-  %cmp37 = icmp eq ptr %47, %48
+  %49 = load i64, ptr %slist, align 8
+  %conv34 = trunc i64 %49 to i32
+  %50 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %51 = load ptr, ptr %50, align 8
+  call void @sh_setbit(ptr noundef %48, i32 noundef %conv34, ptr noundef %51)
+  %52 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i64, ptr %slist, align 8
+  %arrayidx35 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = load ptr, ptr %temp, align 8
+  call void @sh_add_to_list(ptr noundef %arrayidx35, ptr noundef %55)
+  %56 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i64, ptr %slist, align 8
+  %arrayidx36 = getelementptr inbounds ptr, ptr %57, i64 %58
+  %59 = load ptr, ptr %arrayidx36, align 8
+  %60 = load ptr, ptr %temp, align 8
+  %cmp37 = icmp eq ptr %59, %60
   br i1 %cmp37, label %cond.true39, label %cond.false40
 
 cond.true39:                                      ; preds = %cond.end32
@@ -841,21 +897,23 @@ cond.false40:                                     ; preds = %cond.end32
   call void @OPENSSL_die(ptr noundef @.str.17, ptr noundef @.str.1, i32 noundef 673) #6
   unreachable
 
-49:                                               ; No predecessors!
+61:                                               ; No predecessors!
   br label %cond.end41
 
-cond.end41:                                       ; preds = %49, %cond.true39
-  %50 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %51 = load i64, ptr %slist, align 8
-  %shr = lshr i64 %50, %51
-  %52 = load ptr, ptr %temp, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %52, i64 %shr
+cond.end41:                                       ; preds = %61, %cond.true39
+  %62 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %63 = load i64, ptr %62, align 8
+  %64 = load i64, ptr %slist, align 8
+  %shr = lshr i64 %63, %64
+  %65 = load ptr, ptr %temp, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %65, i64 %shr
   store ptr %add.ptr, ptr %temp, align 8
-  %53 = load ptr, ptr %temp, align 8
-  %54 = load i64, ptr %slist, align 8
-  %conv43 = trunc i64 %54 to i32
-  %55 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call44 = call i32 @sh_testbit(ptr noundef %53, i32 noundef %conv43, ptr noundef %55)
+  %66 = load ptr, ptr %temp, align 8
+  %67 = load i64, ptr %slist, align 8
+  %conv43 = trunc i64 %67 to i32
+  %68 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8
+  %call44 = call i32 @sh_testbit(ptr noundef %66, i32 noundef %conv43, ptr noundef %69)
   %tobool45 = icmp ne i32 %call44, 0
   br i1 %tobool45, label %cond.false47, label %cond.true46
 
@@ -866,26 +924,29 @@ cond.false47:                                     ; preds = %cond.end41
   call void @OPENSSL_die(ptr noundef @.str.15, ptr noundef @.str.1, i32 noundef 677) #6
   unreachable
 
-56:                                               ; No predecessors!
+70:                                               ; No predecessors!
   br label %cond.end48
 
-cond.end48:                                       ; preds = %56, %cond.true46
-  %57 = load ptr, ptr %temp, align 8
-  %58 = load i64, ptr %slist, align 8
-  %conv50 = trunc i64 %58 to i32
-  %59 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_setbit(ptr noundef %57, i32 noundef %conv50, ptr noundef %59)
-  %60 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %61 = load i64, ptr %slist, align 8
-  %arrayidx51 = getelementptr inbounds ptr, ptr %60, i64 %61
-  %62 = load ptr, ptr %temp, align 8
-  call void @sh_add_to_list(ptr noundef %arrayidx51, ptr noundef %62)
-  %63 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %64 = load i64, ptr %slist, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %63, i64 %64
-  %65 = load ptr, ptr %arrayidx52, align 8
-  %66 = load ptr, ptr %temp, align 8
-  %cmp53 = icmp eq ptr %65, %66
+cond.end48:                                       ; preds = %70, %cond.true46
+  %71 = load ptr, ptr %temp, align 8
+  %72 = load i64, ptr %slist, align 8
+  %conv50 = trunc i64 %72 to i32
+  %73 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %74 = load ptr, ptr %73, align 8
+  call void @sh_setbit(ptr noundef %71, i32 noundef %conv50, ptr noundef %74)
+  %75 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i64, ptr %slist, align 8
+  %arrayidx51 = getelementptr inbounds ptr, ptr %76, i64 %77
+  %78 = load ptr, ptr %temp, align 8
+  call void @sh_add_to_list(ptr noundef %arrayidx51, ptr noundef %78)
+  %79 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i64, ptr %slist, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %80, i64 %81
+  %82 = load ptr, ptr %arrayidx52, align 8
+  %83 = load ptr, ptr %temp, align 8
+  %cmp53 = icmp eq ptr %82, %83
   br i1 %cmp53, label %cond.true55, label %cond.false56
 
 cond.true55:                                      ; preds = %cond.end48
@@ -895,20 +956,21 @@ cond.false56:                                     ; preds = %cond.end48
   call void @OPENSSL_die(ptr noundef @.str.17, ptr noundef @.str.1, i32 noundef 680) #6
   unreachable
 
-67:                                               ; No predecessors!
+84:                                               ; No predecessors!
   br label %cond.end57
 
-cond.end57:                                       ; preds = %67, %cond.true55
-  %68 = load ptr, ptr %temp, align 8
-  %69 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %70 = load i64, ptr %slist, align 8
-  %shr59 = lshr i64 %69, %70
+cond.end57:                                       ; preds = %84, %cond.true55
+  %85 = load ptr, ptr %temp, align 8
+  %86 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %87 = load i64, ptr %86, align 8
+  %88 = load i64, ptr %slist, align 8
+  %shr59 = lshr i64 %87, %88
   %idx.neg = sub i64 0, %shr59
-  %add.ptr60 = getelementptr inbounds i8, ptr %68, i64 %idx.neg
-  %71 = load ptr, ptr %temp, align 8
-  %72 = load i64, ptr %slist, align 8
-  %conv61 = trunc i64 %72 to i32
-  %call62 = call ptr @sh_find_my_buddy(ptr noundef %71, i32 noundef %conv61)
+  %add.ptr60 = getelementptr inbounds i8, ptr %85, i64 %idx.neg
+  %89 = load ptr, ptr %temp, align 8
+  %90 = load i64, ptr %slist, align 8
+  %conv61 = trunc i64 %90 to i32
+  %call62 = call ptr @sh_find_my_buddy(ptr noundef %89, i32 noundef %conv61)
   %cmp63 = icmp eq ptr %add.ptr60, %call62
   br i1 %cmp63, label %cond.true65, label %cond.false66
 
@@ -919,23 +981,25 @@ cond.false66:                                     ; preds = %cond.end57
   call void @OPENSSL_die(ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 682) #6
   unreachable
 
-73:                                               ; No predecessors!
+91:                                               ; No predecessors!
   br label %cond.end67
 
-cond.end67:                                       ; preds = %73, %cond.true65
+cond.end67:                                       ; preds = %91, %cond.true65
   br label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
-  %74 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %75 = load i64, ptr %list, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %74, i64 %75
-  %76 = load ptr, ptr %arrayidx69, align 8
-  store ptr %76, ptr %chunk, align 8
-  %77 = load ptr, ptr %chunk, align 8
-  %78 = load i64, ptr %list, align 8
-  %conv70 = trunc i64 %78 to i32
-  %79 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %call71 = call i32 @sh_testbit(ptr noundef %77, i32 noundef %conv70, ptr noundef %79)
+  %92 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i64, ptr %list, align 8
+  %arrayidx69 = getelementptr inbounds ptr, ptr %93, i64 %94
+  %95 = load ptr, ptr %arrayidx69, align 8
+  store ptr %95, ptr %chunk, align 8
+  %96 = load ptr, ptr %chunk, align 8
+  %97 = load i64, ptr %list, align 8
+  %conv70 = trunc i64 %97 to i32
+  %98 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %99 = load ptr, ptr %98, align 8
+  %call71 = call i32 @sh_testbit(ptr noundef %96, i32 noundef %conv70, ptr noundef %99)
   %tobool72 = icmp ne i32 %call71, 0
   br i1 %tobool72, label %cond.true73, label %cond.false74
 
@@ -946,28 +1010,32 @@ cond.false74:                                     ; preds = %while.end
   call void @OPENSSL_die(ptr noundef @.str.19, ptr noundef @.str.1, i32 noundef 687) #6
   unreachable
 
-80:                                               ; No predecessors!
+100:                                              ; No predecessors!
   br label %cond.end75
 
-cond.end75:                                       ; preds = %80, %cond.true73
-  %81 = load ptr, ptr %chunk, align 8
-  %82 = load i64, ptr %list, align 8
-  %conv77 = trunc i64 %82 to i32
-  %83 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  call void @sh_setbit(ptr noundef %81, i32 noundef %conv77, ptr noundef %83)
-  %84 = load ptr, ptr %chunk, align 8
-  call void @sh_remove_from_list(ptr noundef %84)
-  %85 = load ptr, ptr %chunk, align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp78 = icmp uge ptr %85, %86
+cond.end75:                                       ; preds = %100, %cond.true73
+  %101 = load ptr, ptr %chunk, align 8
+  %102 = load i64, ptr %list, align 8
+  %conv77 = trunc i64 %102 to i32
+  %103 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %104 = load ptr, ptr %103, align 8
+  call void @sh_setbit(ptr noundef %101, i32 noundef %conv77, ptr noundef %104)
+  %105 = load ptr, ptr %chunk, align 8
+  call void @sh_remove_from_list(ptr noundef %105)
+  %106 = load ptr, ptr %chunk, align 8
+  %107 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %108 = load ptr, ptr %107, align 8
+  %cmp78 = icmp uge ptr %106, %108
   br i1 %cmp78, label %land.lhs.true, label %cond.false84
 
 land.lhs.true:                                    ; preds = %cond.end75
-  %87 = load ptr, ptr %chunk, align 8
-  %88 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %89 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx80 = getelementptr inbounds i8, ptr %88, i64 %89
-  %cmp81 = icmp ult ptr %87, %arrayidx80
+  %109 = load ptr, ptr %chunk, align 8
+  %110 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %113 = load i64, ptr %112, align 8
+  %arrayidx80 = getelementptr inbounds i8, ptr %111, i64 %113
+  %cmp81 = icmp ult ptr %109, %arrayidx80
   br i1 %cmp81, label %cond.true83, label %cond.false84
 
 cond.true83:                                      ; preds = %land.lhs.true
@@ -977,19 +1045,19 @@ cond.false84:                                     ; preds = %land.lhs.true, %con
   call void @OPENSSL_die(ptr noundef @.str.20, ptr noundef @.str.1, i32 noundef 691) #6
   unreachable
 
-90:                                               ; No predecessors!
+114:                                              ; No predecessors!
   br label %cond.end85
 
-cond.end85:                                       ; preds = %90, %cond.true83
-  %91 = load ptr, ptr %chunk, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %91, i8 0, i64 16, i1 false)
-  %92 = load ptr, ptr %chunk, align 8
-  store ptr %92, ptr %retval, align 8
+cond.end85:                                       ; preds = %114, %cond.true83
+  %115 = load ptr, ptr %chunk, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %115, i8 0, i64 16, i1 false)
+  %116 = load ptr, ptr %chunk, align 8
+  store ptr %116, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end85, %if.then15, %if.then3, %if.then
-  %93 = load ptr, ptr %retval, align 8
-  ret ptr %93
+  %117 = load ptr, ptr %retval, align 8
+  ret ptr %117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1000,16 +1068,19 @@ entry:
   %list = alloca i32, align 4
   store ptr %ptr, ptr %ptr.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp = icmp uge ptr %0, %1
+  %1 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp uge ptr %0, %2
   br i1 %cmp, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %4
-  %cmp1 = icmp ult ptr %2, %arrayidx
+  %3 = load ptr, ptr %ptr.addr, align 8
+  %4 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %7 = load i64, ptr %6, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %7
+  %cmp1 = icmp ult ptr %3, %arrayidx
   br i1 %cmp1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -1019,21 +1090,24 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
   call void @OPENSSL_die(ptr noundef @.str.12, ptr noundef @.str.1, i32 noundef 744) #6
   unreachable
 
-5:                                                ; No predecessors!
+8:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %5, %cond.true
-  %6 = load ptr, ptr %ptr.addr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp2 = icmp uge ptr %6, %7
+cond.end:                                         ; preds = %8, %cond.true
+  %9 = load ptr, ptr %ptr.addr, align 8
+  %10 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %cmp2 = icmp uge ptr %9, %11
   br i1 %cmp2, label %land.lhs.true3, label %if.then
 
 land.lhs.true3:                                   ; preds = %cond.end
-  %8 = load ptr, ptr %ptr.addr, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %9, i64 %10
-  %cmp5 = icmp ult ptr %8, %arrayidx4
+  %12 = load ptr, ptr %ptr.addr, align 8
+  %13 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %14, i64 %16
+  %cmp5 = icmp ult ptr %12, %arrayidx4
   br i1 %cmp5, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true3, %cond.end
@@ -1041,14 +1115,15 @@ if.then:                                          ; preds = %land.lhs.true3, %co
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true3
-  %11 = load ptr, ptr %ptr.addr, align 8
-  %call = call i64 @sh_getlist(ptr noundef %11)
+  %17 = load ptr, ptr %ptr.addr, align 8
+  %call = call i64 @sh_getlist(ptr noundef %17)
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %list, align 4
-  %12 = load ptr, ptr %ptr.addr, align 8
-  %13 = load i32, ptr %list, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %call6 = call i32 @sh_testbit(ptr noundef %12, i32 noundef %13, ptr noundef %14)
+  %18 = load ptr, ptr %ptr.addr, align 8
+  %19 = load i32, ptr %list, align 4
+  %20 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %21 = load ptr, ptr %20, align 8
+  %call6 = call i32 @sh_testbit(ptr noundef %18, i32 noundef %19, ptr noundef %21)
   %tobool = icmp ne i32 %call6, 0
   br i1 %tobool, label %cond.true7, label %cond.false8
 
@@ -1059,21 +1134,22 @@ cond.false8:                                      ; preds = %if.end
   call void @OPENSSL_die(ptr noundef @.str.23, ptr noundef @.str.1, i32 noundef 748) #6
   unreachable
 
-15:                                               ; No predecessors!
+22:                                               ; No predecessors!
   br label %cond.end9
 
-cond.end9:                                        ; preds = %15, %cond.true7
-  %16 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %17 = load i32, ptr %list, align 4
-  %sh_prom = zext i32 %17 to i64
+cond.end9:                                        ; preds = %22, %cond.true7
+  %23 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8
+  %25 = load i32, ptr %list, align 4
+  %sh_prom = zext i32 %25 to i64
   %shl = shl i64 1, %sh_prom
-  %div = udiv i64 %16, %shl
+  %div = udiv i64 %24, %shl
   store i64 %div, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end9, %if.then
-  %18 = load i64, ptr %retval, align 8
-  ret i64 %18
+  %26 = load i64, ptr %retval, align 8
+  ret i64 %26
 }
 
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) #1
@@ -1226,16 +1302,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp1 = icmp uge ptr %1, %2
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %cmp1 = icmp uge ptr %1, %3
   br i1 %cmp1, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %ptr.addr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %5
-  %cmp2 = icmp ult ptr %3, %arrayidx
+  %4 = load ptr, ptr %ptr.addr, align 8
+  %5 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %8 = load i64, ptr %7, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %8
+  %cmp2 = icmp ult ptr %4, %arrayidx
   br i1 %cmp2, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -1245,35 +1324,39 @@ cond.false:                                       ; preds = %land.lhs.true, %if.
   call void @OPENSSL_die(ptr noundef @.str.12, ptr noundef @.str.1, i32 noundef 706) #6
   unreachable
 
-6:                                                ; No predecessors!
+9:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %6, %cond.true
-  %7 = load ptr, ptr %ptr.addr, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp3 = icmp uge ptr %7, %8
+cond.end:                                         ; preds = %9, %cond.true
+  %10 = load ptr, ptr %ptr.addr, align 8
+  %11 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %cmp3 = icmp uge ptr %10, %12
   br i1 %cmp3, label %land.lhs.true4, label %if.then7
 
 land.lhs.true4:                                   ; preds = %cond.end
-  %9 = load ptr, ptr %ptr.addr, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %10, i64 %11
-  %cmp6 = icmp ult ptr %9, %arrayidx5
+  %13 = load ptr, ptr %ptr.addr, align 8
+  %14 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8
+  %arrayidx5 = getelementptr inbounds i8, ptr %15, i64 %17
+  %cmp6 = icmp ult ptr %13, %arrayidx5
   br i1 %cmp6, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true4, %cond.end
   br label %while.end
 
 if.end8:                                          ; preds = %land.lhs.true4
-  %12 = load ptr, ptr %ptr.addr, align 8
-  %call = call i64 @sh_getlist(ptr noundef %12)
+  %18 = load ptr, ptr %ptr.addr, align 8
+  %call = call i64 @sh_getlist(ptr noundef %18)
   store i64 %call, ptr %list, align 8
-  %13 = load ptr, ptr %ptr.addr, align 8
-  %14 = load i64, ptr %list, align 8
-  %conv = trunc i64 %14 to i32
-  %15 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %call9 = call i32 @sh_testbit(ptr noundef %13, i32 noundef %conv, ptr noundef %15)
+  %19 = load ptr, ptr %ptr.addr, align 8
+  %20 = load i64, ptr %list, align 8
+  %conv = trunc i64 %20 to i32
+  %21 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %22 = load ptr, ptr %21, align 8
+  %call9 = call i32 @sh_testbit(ptr noundef %19, i32 noundef %conv, ptr noundef %22)
   %tobool = icmp ne i32 %call9, 0
   br i1 %tobool, label %cond.true10, label %cond.false11
 
@@ -1284,38 +1367,40 @@ cond.false11:                                     ; preds = %if.end8
   call void @OPENSSL_die(ptr noundef @.str.23, ptr noundef @.str.1, i32 noundef 711) #6
   unreachable
 
-16:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cond.end12
 
-cond.end12:                                       ; preds = %16, %cond.true10
-  %17 = load ptr, ptr %ptr.addr, align 8
-  %18 = load i64, ptr %list, align 8
-  %conv14 = trunc i64 %18 to i32
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  call void @sh_clearbit(ptr noundef %17, i32 noundef %conv14, ptr noundef %19)
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %21 = load i64, ptr %list, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %20, i64 %21
-  %22 = load ptr, ptr %ptr.addr, align 8
-  call void @sh_add_to_list(ptr noundef %arrayidx15, ptr noundef %22)
+cond.end12:                                       ; preds = %23, %cond.true10
+  %24 = load ptr, ptr %ptr.addr, align 8
+  %25 = load i64, ptr %list, align 8
+  %conv14 = trunc i64 %25 to i32
+  %26 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8
+  call void @sh_clearbit(ptr noundef %24, i32 noundef %conv14, ptr noundef %27)
+  %28 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i64, ptr %list, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = load ptr, ptr %ptr.addr, align 8
+  call void @sh_add_to_list(ptr noundef %arrayidx15, ptr noundef %31)
   br label %while.cond
 
 while.cond:                                       ; preds = %cond.end74, %cond.end12
-  %23 = load ptr, ptr %ptr.addr, align 8
-  %24 = load i64, ptr %list, align 8
-  %conv16 = trunc i64 %24 to i32
-  %call17 = call ptr @sh_find_my_buddy(ptr noundef %23, i32 noundef %conv16)
+  %32 = load ptr, ptr %ptr.addr, align 8
+  %33 = load i64, ptr %list, align 8
+  %conv16 = trunc i64 %33 to i32
+  %call17 = call ptr @sh_find_my_buddy(ptr noundef %32, i32 noundef %conv16)
   store ptr %call17, ptr %buddy, align 8
   %cmp18 = icmp ne ptr %call17, null
   br i1 %cmp18, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %25 = load ptr, ptr %ptr.addr, align 8
-  %26 = load ptr, ptr %buddy, align 8
-  %27 = load i64, ptr %list, align 8
-  %conv20 = trunc i64 %27 to i32
-  %call21 = call ptr @sh_find_my_buddy(ptr noundef %26, i32 noundef %conv20)
-  %cmp22 = icmp eq ptr %25, %call21
+  %34 = load ptr, ptr %ptr.addr, align 8
+  %35 = load ptr, ptr %buddy, align 8
+  %36 = load i64, ptr %list, align 8
+  %conv20 = trunc i64 %36 to i32
+  %call21 = call ptr @sh_find_my_buddy(ptr noundef %35, i32 noundef %conv20)
+  %cmp22 = icmp eq ptr %34, %call21
   br i1 %cmp22, label %cond.true24, label %cond.false25
 
 cond.true24:                                      ; preds = %while.body
@@ -1325,12 +1410,12 @@ cond.false25:                                     ; preds = %while.body
   call void @OPENSSL_die(ptr noundef @.str.24, ptr noundef @.str.1, i32 noundef 717) #6
   unreachable
 
-28:                                               ; No predecessors!
+37:                                               ; No predecessors!
   br label %cond.end26
 
-cond.end26:                                       ; preds = %28, %cond.true24
-  %29 = load ptr, ptr %ptr.addr, align 8
-  %cmp28 = icmp ne ptr %29, null
+cond.end26:                                       ; preds = %37, %cond.true24
+  %38 = load ptr, ptr %ptr.addr, align 8
+  %cmp28 = icmp ne ptr %38, null
   br i1 %cmp28, label %cond.true30, label %cond.false31
 
 cond.true30:                                      ; preds = %cond.end26
@@ -1340,15 +1425,16 @@ cond.false31:                                     ; preds = %cond.end26
   call void @OPENSSL_die(ptr noundef @.str.25, ptr noundef @.str.1, i32 noundef 718) #6
   unreachable
 
-30:                                               ; No predecessors!
+39:                                               ; No predecessors!
   br label %cond.end32
 
-cond.end32:                                       ; preds = %30, %cond.true30
-  %31 = load ptr, ptr %ptr.addr, align 8
-  %32 = load i64, ptr %list, align 8
-  %conv34 = trunc i64 %32 to i32
-  %33 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call35 = call i32 @sh_testbit(ptr noundef %31, i32 noundef %conv34, ptr noundef %33)
+cond.end32:                                       ; preds = %39, %cond.true30
+  %40 = load ptr, ptr %ptr.addr, align 8
+  %41 = load i64, ptr %list, align 8
+  %conv34 = trunc i64 %41 to i32
+  %42 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8
+  %call35 = call i32 @sh_testbit(ptr noundef %40, i32 noundef %conv34, ptr noundef %43)
   %tobool36 = icmp ne i32 %call35, 0
   br i1 %tobool36, label %cond.false38, label %cond.true37
 
@@ -1359,22 +1445,24 @@ cond.false38:                                     ; preds = %cond.end32
   call void @OPENSSL_die(ptr noundef @.str.26, ptr noundef @.str.1, i32 noundef 719) #6
   unreachable
 
-34:                                               ; No predecessors!
+44:                                               ; No predecessors!
   br label %cond.end39
 
-cond.end39:                                       ; preds = %34, %cond.true37
-  %35 = load ptr, ptr %ptr.addr, align 8
-  %36 = load i64, ptr %list, align 8
-  %conv41 = trunc i64 %36 to i32
-  %37 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_clearbit(ptr noundef %35, i32 noundef %conv41, ptr noundef %37)
-  %38 = load ptr, ptr %ptr.addr, align 8
-  call void @sh_remove_from_list(ptr noundef %38)
-  %39 = load ptr, ptr %ptr.addr, align 8
-  %40 = load i64, ptr %list, align 8
-  %conv42 = trunc i64 %40 to i32
-  %41 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call43 = call i32 @sh_testbit(ptr noundef %39, i32 noundef %conv42, ptr noundef %41)
+cond.end39:                                       ; preds = %44, %cond.true37
+  %45 = load ptr, ptr %ptr.addr, align 8
+  %46 = load i64, ptr %list, align 8
+  %conv41 = trunc i64 %46 to i32
+  %47 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %48 = load ptr, ptr %47, align 8
+  call void @sh_clearbit(ptr noundef %45, i32 noundef %conv41, ptr noundef %48)
+  %49 = load ptr, ptr %ptr.addr, align 8
+  call void @sh_remove_from_list(ptr noundef %49)
+  %50 = load ptr, ptr %ptr.addr, align 8
+  %51 = load i64, ptr %list, align 8
+  %conv42 = trunc i64 %51 to i32
+  %52 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %53 = load ptr, ptr %52, align 8
+  %call43 = call i32 @sh_testbit(ptr noundef %50, i32 noundef %conv42, ptr noundef %53)
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %cond.false46, label %cond.true45
 
@@ -1385,52 +1473,54 @@ cond.false46:                                     ; preds = %cond.end39
   call void @OPENSSL_die(ptr noundef @.str.26, ptr noundef @.str.1, i32 noundef 722) #6
   unreachable
 
-42:                                               ; No predecessors!
+54:                                               ; No predecessors!
   br label %cond.end47
 
-cond.end47:                                       ; preds = %42, %cond.true45
-  %43 = load ptr, ptr %buddy, align 8
-  %44 = load i64, ptr %list, align 8
-  %conv49 = trunc i64 %44 to i32
-  %45 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_clearbit(ptr noundef %43, i32 noundef %conv49, ptr noundef %45)
-  %46 = load ptr, ptr %buddy, align 8
-  call void @sh_remove_from_list(ptr noundef %46)
-  %47 = load i64, ptr %list, align 8
-  %dec = add i64 %47, -1
+cond.end47:                                       ; preds = %54, %cond.true45
+  %55 = load ptr, ptr %buddy, align 8
+  %56 = load i64, ptr %list, align 8
+  %conv49 = trunc i64 %56 to i32
+  %57 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %58 = load ptr, ptr %57, align 8
+  call void @sh_clearbit(ptr noundef %55, i32 noundef %conv49, ptr noundef %58)
+  %59 = load ptr, ptr %buddy, align 8
+  call void @sh_remove_from_list(ptr noundef %59)
+  %60 = load i64, ptr %list, align 8
+  %dec = add i64 %60, -1
   store i64 %dec, ptr %list, align 8
-  %48 = load ptr, ptr %ptr.addr, align 8
-  %49 = load ptr, ptr %buddy, align 8
-  %cmp50 = icmp ugt ptr %48, %49
+  %61 = load ptr, ptr %ptr.addr, align 8
+  %62 = load ptr, ptr %buddy, align 8
+  %cmp50 = icmp ugt ptr %61, %62
   br i1 %cmp50, label %cond.true52, label %cond.false53
 
 cond.true52:                                      ; preds = %cond.end47
-  %50 = load ptr, ptr %ptr.addr, align 8
+  %63 = load ptr, ptr %ptr.addr, align 8
   br label %cond.end54
 
 cond.false53:                                     ; preds = %cond.end47
-  %51 = load ptr, ptr %buddy, align 8
+  %64 = load ptr, ptr %buddy, align 8
   br label %cond.end54
 
 cond.end54:                                       ; preds = %cond.false53, %cond.true52
-  %cond55 = phi ptr [ %50, %cond.true52 ], [ %51, %cond.false53 ]
+  %cond55 = phi ptr [ %63, %cond.true52 ], [ %64, %cond.false53 ]
   call void @llvm.memset.p0.i64(ptr align 1 %cond55, i8 0, i64 16, i1 false)
-  %52 = load ptr, ptr %ptr.addr, align 8
-  %53 = load ptr, ptr %buddy, align 8
-  %cmp56 = icmp ugt ptr %52, %53
+  %65 = load ptr, ptr %ptr.addr, align 8
+  %66 = load ptr, ptr %buddy, align 8
+  %cmp56 = icmp ugt ptr %65, %66
   br i1 %cmp56, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %cond.end54
-  %54 = load ptr, ptr %buddy, align 8
-  store ptr %54, ptr %ptr.addr, align 8
+  %67 = load ptr, ptr %buddy, align 8
+  store ptr %67, ptr %ptr.addr, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %cond.end54
-  %55 = load ptr, ptr %ptr.addr, align 8
-  %56 = load i64, ptr %list, align 8
-  %conv60 = trunc i64 %56 to i32
-  %57 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %call61 = call i32 @sh_testbit(ptr noundef %55, i32 noundef %conv60, ptr noundef %57)
+  %68 = load ptr, ptr %ptr.addr, align 8
+  %69 = load i64, ptr %list, align 8
+  %conv60 = trunc i64 %69 to i32
+  %70 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %71 = load ptr, ptr %70, align 8
+  %call61 = call i32 @sh_testbit(ptr noundef %68, i32 noundef %conv60, ptr noundef %71)
   %tobool62 = icmp ne i32 %call61, 0
   br i1 %tobool62, label %cond.false64, label %cond.true63
 
@@ -1441,26 +1531,29 @@ cond.false64:                                     ; preds = %if.end59
   call void @OPENSSL_die(ptr noundef @.str.26, ptr noundef @.str.1, i32 noundef 733) #6
   unreachable
 
-58:                                               ; No predecessors!
+72:                                               ; No predecessors!
   br label %cond.end65
 
-cond.end65:                                       ; preds = %58, %cond.true63
-  %59 = load ptr, ptr %ptr.addr, align 8
-  %60 = load i64, ptr %list, align 8
-  %conv67 = trunc i64 %60 to i32
-  %61 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  call void @sh_setbit(ptr noundef %59, i32 noundef %conv67, ptr noundef %61)
-  %62 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %63 = load i64, ptr %list, align 8
-  %arrayidx68 = getelementptr inbounds ptr, ptr %62, i64 %63
-  %64 = load ptr, ptr %ptr.addr, align 8
-  call void @sh_add_to_list(ptr noundef %arrayidx68, ptr noundef %64)
-  %65 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %66 = load i64, ptr %list, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %65, i64 %66
-  %67 = load ptr, ptr %arrayidx69, align 8
-  %68 = load ptr, ptr %ptr.addr, align 8
-  %cmp70 = icmp eq ptr %67, %68
+cond.end65:                                       ; preds = %72, %cond.true63
+  %73 = load ptr, ptr %ptr.addr, align 8
+  %74 = load i64, ptr %list, align 8
+  %conv67 = trunc i64 %74 to i32
+  %75 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %76 = load ptr, ptr %75, align 8
+  call void @sh_setbit(ptr noundef %73, i32 noundef %conv67, ptr noundef %76)
+  %77 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i64, ptr %list, align 8
+  %arrayidx68 = getelementptr inbounds ptr, ptr %78, i64 %79
+  %80 = load ptr, ptr %ptr.addr, align 8
+  call void @sh_add_to_list(ptr noundef %arrayidx68, ptr noundef %80)
+  %81 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i64, ptr %list, align 8
+  %arrayidx69 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %84 = load ptr, ptr %arrayidx69, align 8
+  %85 = load ptr, ptr %ptr.addr, align 8
+  %cmp70 = icmp eq ptr %84, %85
   br i1 %cmp70, label %cond.true72, label %cond.false73
 
 cond.true72:                                      ; preds = %cond.end65
@@ -1470,10 +1563,10 @@ cond.false73:                                     ; preds = %cond.end65
   call void @OPENSSL_die(ptr noundef @.str.27, ptr noundef @.str.1, i32 noundef 736) #6
   unreachable
 
-69:                                               ; No predecessors!
+86:                                               ; No predecessors!
   br label %cond.end74
 
-cond.end74:                                       ; preds = %69, %cond.true72
+cond.end74:                                       ; preds = %86, %cond.true72
   br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond, %if.then7, %if.then
@@ -1551,21 +1644,24 @@ entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp = icmp uge ptr %0, %1
+  %1 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp uge ptr %0, %2
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %4
-  %cmp1 = icmp ult ptr %2, %arrayidx
+  %3 = load ptr, ptr %ptr.addr, align 8
+  %4 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %7 = load i64, ptr %6, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %7
+  %cmp1 = icmp ult ptr %3, %arrayidx
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %5 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  %cond = select i1 %5, i32 1, i32 0
+  %8 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
+  %cond = select i1 %8, i32 1, i32 0
   ret i32 %cond
 }
 
@@ -1660,8 +1756,9 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %list.addr, align 4
   %conv = sext i32 %1 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %cmp1 = icmp slt i64 %conv, %2
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %3 = load i64, ptr %2, align 8
+  %cmp1 = icmp slt i64 %conv, %3
   br i1 %cmp1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -1671,19 +1768,21 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
   call void @OPENSSL_die(ptr noundef @.str.7, ptr noundef @.str.1, i32 noundef 388) #6
   unreachable
 
-3:                                                ; No predecessors!
+4:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %3, %cond.true
-  %4 = load ptr, ptr %ptr.addr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
+cond.end:                                         ; preds = %4, %cond.true
+  %5 = load ptr, ptr %ptr.addr, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %6 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %7 = load i32, ptr %list.addr, align 4
-  %sh_prom = zext i32 %7 to i64
-  %shr = lshr i64 %6, %sh_prom
+  %8 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %9 = load i64, ptr %8, align 8
+  %10 = load i32, ptr %list.addr, align 4
+  %sh_prom = zext i32 %10 to i64
+  %shr = lshr i64 %9, %sh_prom
   %sub = sub i64 %shr, 1
   %and = and i64 %sub.ptr.sub, %sub
   %cmp3 = icmp eq i64 %and, 0
@@ -1696,33 +1795,36 @@ cond.false6:                                      ; preds = %cond.end
   call void @OPENSSL_die(ptr noundef @.str.8, ptr noundef @.str.1, i32 noundef 389) #6
   unreachable
 
-8:                                                ; No predecessors!
+11:                                               ; No predecessors!
   br label %cond.end7
 
-cond.end7:                                        ; preds = %8, %cond.true5
-  %9 = load i32, ptr %list.addr, align 4
-  %sh_prom9 = zext i32 %9 to i64
+cond.end7:                                        ; preds = %11, %cond.true5
+  %12 = load i32, ptr %list.addr, align 4
+  %sh_prom9 = zext i32 %12 to i64
   %shl = shl i64 1, %sh_prom9
-  %10 = load ptr, ptr %ptr.addr, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast10 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast11 = ptrtoint ptr %11 to i64
+  %13 = load ptr, ptr %ptr.addr, align 8
+  %14 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %sub.ptr.lhs.cast10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast11
-  %12 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %13 = load i32, ptr %list.addr, align 4
-  %sh_prom13 = zext i32 %13 to i64
-  %shr14 = lshr i64 %12, %sh_prom13
+  %16 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8
+  %18 = load i32, ptr %list.addr, align 4
+  %sh_prom13 = zext i32 %18 to i64
+  %shr14 = lshr i64 %17, %sh_prom13
   %div = udiv i64 %sub.ptr.sub12, %shr14
   %add = add i64 %shl, %div
   store i64 %add, ptr %bit, align 8
-  %14 = load i64, ptr %bit, align 8
-  %cmp15 = icmp ugt i64 %14, 0
+  %19 = load i64, ptr %bit, align 8
+  %cmp15 = icmp ugt i64 %19, 0
   br i1 %cmp15, label %land.lhs.true17, label %cond.false21
 
 land.lhs.true17:                                  ; preds = %cond.end7
-  %15 = load i64, ptr %bit, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %cmp18 = icmp ult i64 %15, %16
+  %20 = load i64, ptr %bit, align 8
+  %21 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %22 = load i64, ptr %21, align 8
+  %cmp18 = icmp ult i64 %20, %22
   br i1 %cmp18, label %cond.true20, label %cond.false21
 
 cond.true20:                                      ; preds = %land.lhs.true17
@@ -1732,18 +1834,18 @@ cond.false21:                                     ; preds = %land.lhs.true17, %c
   call void @OPENSSL_die(ptr noundef @.str.9, ptr noundef @.str.1, i32 noundef 391) #6
   unreachable
 
-17:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cond.end22
 
-cond.end22:                                       ; preds = %17, %cond.true20
-  %18 = load ptr, ptr %table.addr, align 8
-  %19 = load i64, ptr %bit, align 8
-  %shr24 = lshr i64 %19, 3
-  %arrayidx = getelementptr inbounds i8, ptr %18, i64 %shr24
-  %20 = load i8, ptr %arrayidx, align 1
-  %conv25 = zext i8 %20 to i64
-  %21 = load i64, ptr %bit, align 8
-  %and26 = and i64 %21, 7
+cond.end22:                                       ; preds = %23, %cond.true20
+  %24 = load ptr, ptr %table.addr, align 8
+  %25 = load i64, ptr %bit, align 8
+  %shr24 = lshr i64 %25, 3
+  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %shr24
+  %26 = load i8, ptr %arrayidx, align 1
+  %conv25 = zext i8 %26 to i64
+  %27 = load i64, ptr %bit, align 8
+  %and26 = and i64 %27, 7
   %shl27 = shl i64 1, %and26
   %and28 = and i64 %conv25, %shl27
   %tobool = icmp ne i64 %and28, 0
@@ -1756,19 +1858,19 @@ cond.false30:                                     ; preds = %cond.end22
   call void @OPENSSL_die(ptr noundef @.str.10, ptr noundef @.str.1, i32 noundef 392) #6
   unreachable
 
-22:                                               ; No predecessors!
+28:                                               ; No predecessors!
   br label %cond.end31
 
-cond.end31:                                       ; preds = %22, %cond.true29
-  %23 = load i64, ptr %bit, align 8
-  %and33 = and i64 %23, 7
+cond.end31:                                       ; preds = %28, %cond.true29
+  %29 = load i64, ptr %bit, align 8
+  %and33 = and i64 %29, 7
   %shl34 = shl i64 1, %and33
-  %24 = load ptr, ptr %table.addr, align 8
-  %25 = load i64, ptr %bit, align 8
-  %shr35 = lshr i64 %25, 3
-  %arrayidx36 = getelementptr inbounds i8, ptr %24, i64 %shr35
-  %26 = load i8, ptr %arrayidx36, align 1
-  %conv37 = zext i8 %26 to i64
+  %30 = load ptr, ptr %table.addr, align 8
+  %31 = load i64, ptr %bit, align 8
+  %shr35 = lshr i64 %31, 3
+  %arrayidx36 = getelementptr inbounds i8, ptr %30, i64 %shr35
+  %32 = load i8, ptr %arrayidx36, align 1
+  %conv37 = zext i8 %32 to i64
   %or = or i64 %conv37, %shl34
   %conv38 = trunc i64 %or to i8
   store i8 %conv38, ptr %arrayidx36, align 1
@@ -1784,16 +1886,19 @@ entry:
   store ptr %list, ptr %list.addr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
   %0 = load ptr, ptr %list.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %cmp = icmp uge ptr %0, %1
+  %1 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp uge ptr %0, %2
   br i1 %cmp, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %list.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  %cmp1 = icmp ult ptr %2, %arrayidx
+  %3 = load ptr, ptr %list.addr, align 8
+  %4 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %7 = load i64, ptr %6, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %7
+  %cmp1 = icmp ult ptr %3, %arrayidx
   br i1 %cmp1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -1803,21 +1908,24 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
   call void @OPENSSL_die(ptr noundef @.str.11, ptr noundef @.str.1, i32 noundef 400) #6
   unreachable
 
-5:                                                ; No predecessors!
+8:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %5, %cond.true
-  %6 = load ptr, ptr %ptr.addr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp2 = icmp uge ptr %6, %7
+cond.end:                                         ; preds = %8, %cond.true
+  %9 = load ptr, ptr %ptr.addr, align 8
+  %10 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %cmp2 = icmp uge ptr %9, %11
   br i1 %cmp2, label %land.lhs.true3, label %cond.false7
 
 land.lhs.true3:                                   ; preds = %cond.end
-  %8 = load ptr, ptr %ptr.addr, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %9, i64 %10
-  %cmp5 = icmp ult ptr %8, %arrayidx4
+  %12 = load ptr, ptr %ptr.addr, align 8
+  %13 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %14, i64 %16
+  %cmp5 = icmp ult ptr %12, %arrayidx4
   br i1 %cmp5, label %cond.true6, label %cond.false7
 
 cond.true6:                                       ; preds = %land.lhs.true3
@@ -1827,39 +1935,42 @@ cond.false7:                                      ; preds = %land.lhs.true3, %co
   call void @OPENSSL_die(ptr noundef @.str.12, ptr noundef @.str.1, i32 noundef 401) #6
   unreachable
 
-11:                                               ; No predecessors!
+17:                                               ; No predecessors!
   br label %cond.end8
 
-cond.end8:                                        ; preds = %11, %cond.true6
-  %12 = load ptr, ptr %ptr.addr, align 8
-  store ptr %12, ptr %temp, align 8
-  %13 = load ptr, ptr %list.addr, align 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %temp, align 8
-  %next = getelementptr inbounds %struct.sh_list_st, ptr %15, i32 0, i32 0
-  store ptr %14, ptr %next, align 8
-  %16 = load ptr, ptr %temp, align 8
-  %next10 = getelementptr inbounds %struct.sh_list_st, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %next10, align 8
-  %cmp11 = icmp eq ptr %17, null
+cond.end8:                                        ; preds = %17, %cond.true6
+  %18 = load ptr, ptr %ptr.addr, align 8
+  store ptr %18, ptr %temp, align 8
+  %19 = load ptr, ptr %list.addr, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %temp, align 8
+  %next = getelementptr inbounds %struct.sh_list_st, ptr %21, i32 0, i32 0
+  store ptr %20, ptr %next, align 8
+  %22 = load ptr, ptr %temp, align 8
+  %next10 = getelementptr inbounds %struct.sh_list_st, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %next10, align 8
+  %cmp11 = icmp eq ptr %23, null
   br i1 %cmp11, label %cond.true18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end8
-  %18 = load ptr, ptr %temp, align 8
-  %next12 = getelementptr inbounds %struct.sh_list_st, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %next12, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp13 = icmp uge ptr %19, %20
+  %24 = load ptr, ptr %temp, align 8
+  %next12 = getelementptr inbounds %struct.sh_list_st, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %next12, align 8
+  %26 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %cmp13 = icmp uge ptr %25, %27
   br i1 %cmp13, label %land.lhs.true14, label %cond.false19
 
 land.lhs.true14:                                  ; preds = %lor.lhs.false
-  %21 = load ptr, ptr %temp, align 8
-  %next15 = getelementptr inbounds %struct.sh_list_st, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %next15, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %23, i64 %24
-  %cmp17 = icmp ult ptr %22, %arrayidx16
+  %28 = load ptr, ptr %temp, align 8
+  %next15 = getelementptr inbounds %struct.sh_list_st, ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %next15, align 8
+  %30 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8
+  %arrayidx16 = getelementptr inbounds i8, ptr %31, i64 %33
+  %cmp17 = icmp ult ptr %29, %arrayidx16
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %land.lhs.true14, %cond.end8
@@ -1869,28 +1980,28 @@ cond.false19:                                     ; preds = %land.lhs.true14, %l
   call void @OPENSSL_die(ptr noundef @.str.13, ptr noundef @.str.1, i32 noundef 405) #6
   unreachable
 
-25:                                               ; No predecessors!
+34:                                               ; No predecessors!
   br label %cond.end20
 
-cond.end20:                                       ; preds = %25, %cond.true18
-  %26 = load ptr, ptr %list.addr, align 8
-  %27 = load ptr, ptr %temp, align 8
-  %p_next = getelementptr inbounds %struct.sh_list_st, ptr %27, i32 0, i32 1
-  store ptr %26, ptr %p_next, align 8
-  %28 = load ptr, ptr %temp, align 8
-  %next22 = getelementptr inbounds %struct.sh_list_st, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %next22, align 8
-  %cmp23 = icmp ne ptr %29, null
+cond.end20:                                       ; preds = %34, %cond.true18
+  %35 = load ptr, ptr %list.addr, align 8
+  %36 = load ptr, ptr %temp, align 8
+  %p_next = getelementptr inbounds %struct.sh_list_st, ptr %36, i32 0, i32 1
+  store ptr %35, ptr %p_next, align 8
+  %37 = load ptr, ptr %temp, align 8
+  %next22 = getelementptr inbounds %struct.sh_list_st, ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %next22, align 8
+  %cmp23 = icmp ne ptr %38, null
   br i1 %cmp23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end20
-  %30 = load ptr, ptr %temp, align 8
-  %next24 = getelementptr inbounds %struct.sh_list_st, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %next24, align 8
-  %p_next25 = getelementptr inbounds %struct.sh_list_st, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %p_next25, align 8
-  %33 = load ptr, ptr %list.addr, align 8
-  %cmp26 = icmp eq ptr %32, %33
+  %39 = load ptr, ptr %temp, align 8
+  %next24 = getelementptr inbounds %struct.sh_list_st, ptr %39, i32 0, i32 0
+  %40 = load ptr, ptr %next24, align 8
+  %p_next25 = getelementptr inbounds %struct.sh_list_st, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %p_next25, align 8
+  %42 = load ptr, ptr %list.addr, align 8
+  %cmp26 = icmp eq ptr %41, %42
   br i1 %cmp26, label %cond.true27, label %cond.false28
 
 cond.true27:                                      ; preds = %if.then
@@ -1900,23 +2011,23 @@ cond.false28:                                     ; preds = %if.then
   call void @OPENSSL_die(ptr noundef @.str.14, ptr noundef @.str.1, i32 noundef 409) #6
   unreachable
 
-34:                                               ; No predecessors!
+43:                                               ; No predecessors!
   br label %cond.end29
 
-cond.end29:                                       ; preds = %34, %cond.true27
-  %35 = load ptr, ptr %temp, align 8
-  %next31 = getelementptr inbounds %struct.sh_list_st, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %temp, align 8
-  %next32 = getelementptr inbounds %struct.sh_list_st, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %next32, align 8
-  %p_next33 = getelementptr inbounds %struct.sh_list_st, ptr %37, i32 0, i32 1
+cond.end29:                                       ; preds = %43, %cond.true27
+  %44 = load ptr, ptr %temp, align 8
+  %next31 = getelementptr inbounds %struct.sh_list_st, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %temp, align 8
+  %next32 = getelementptr inbounds %struct.sh_list_st, ptr %45, i32 0, i32 0
+  %46 = load ptr, ptr %next32, align 8
+  %p_next33 = getelementptr inbounds %struct.sh_list_st, ptr %46, i32 0, i32 1
   store ptr %next31, ptr %p_next33, align 8
   br label %if.end
 
 if.end:                                           ; preds = %cond.end29, %cond.end20
-  %38 = load ptr, ptr %ptr.addr, align 8
-  %39 = load ptr, ptr %list.addr, align 8
-  store ptr %38, ptr %39, align 8
+  %47 = load ptr, ptr %ptr.addr, align 8
+  %48 = load ptr, ptr %list.addr, align 8
+  store ptr %47, ptr %48, align 8
   ret void
 }
 
@@ -1955,8 +2066,9 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %list.addr, align 4
   %conv = sext i32 %1 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %cmp1 = icmp slt i64 %conv, %2
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %3 = load i64, ptr %2, align 8
+  %cmp1 = icmp slt i64 %conv, %3
   br i1 %cmp1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -1966,19 +2078,21 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
   call void @OPENSSL_die(ptr noundef @.str.7, ptr noundef @.str.1, i32 noundef 365) #6
   unreachable
 
-3:                                                ; No predecessors!
+4:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %3, %cond.true
-  %4 = load ptr, ptr %ptr.addr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
+cond.end:                                         ; preds = %4, %cond.true
+  %5 = load ptr, ptr %ptr.addr, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %6 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %7 = load i32, ptr %list.addr, align 4
-  %sh_prom = zext i32 %7 to i64
-  %shr = lshr i64 %6, %sh_prom
+  %8 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %9 = load i64, ptr %8, align 8
+  %10 = load i32, ptr %list.addr, align 4
+  %sh_prom = zext i32 %10 to i64
+  %shr = lshr i64 %9, %sh_prom
   %sub = sub i64 %shr, 1
   %and = and i64 %sub.ptr.sub, %sub
   %cmp3 = icmp eq i64 %and, 0
@@ -1991,33 +2105,36 @@ cond.false6:                                      ; preds = %cond.end
   call void @OPENSSL_die(ptr noundef @.str.8, ptr noundef @.str.1, i32 noundef 366) #6
   unreachable
 
-8:                                                ; No predecessors!
+11:                                               ; No predecessors!
   br label %cond.end7
 
-cond.end7:                                        ; preds = %8, %cond.true5
-  %9 = load i32, ptr %list.addr, align 4
-  %sh_prom9 = zext i32 %9 to i64
+cond.end7:                                        ; preds = %11, %cond.true5
+  %12 = load i32, ptr %list.addr, align 4
+  %sh_prom9 = zext i32 %12 to i64
   %shl = shl i64 1, %sh_prom9
-  %10 = load ptr, ptr %ptr.addr, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast10 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast11 = ptrtoint ptr %11 to i64
+  %13 = load ptr, ptr %ptr.addr, align 8
+  %14 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %sub.ptr.lhs.cast10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast11
-  %12 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %13 = load i32, ptr %list.addr, align 4
-  %sh_prom13 = zext i32 %13 to i64
-  %shr14 = lshr i64 %12, %sh_prom13
+  %16 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8
+  %18 = load i32, ptr %list.addr, align 4
+  %sh_prom13 = zext i32 %18 to i64
+  %shr14 = lshr i64 %17, %sh_prom13
   %div = udiv i64 %sub.ptr.sub12, %shr14
   %add = add i64 %shl, %div
   store i64 %add, ptr %bit, align 8
-  %14 = load i64, ptr %bit, align 8
-  %cmp15 = icmp ugt i64 %14, 0
+  %19 = load i64, ptr %bit, align 8
+  %cmp15 = icmp ugt i64 %19, 0
   br i1 %cmp15, label %land.lhs.true17, label %cond.false21
 
 land.lhs.true17:                                  ; preds = %cond.end7
-  %15 = load i64, ptr %bit, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %cmp18 = icmp ult i64 %15, %16
+  %20 = load i64, ptr %bit, align 8
+  %21 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %22 = load i64, ptr %21, align 8
+  %cmp18 = icmp ult i64 %20, %22
   br i1 %cmp18, label %cond.true20, label %cond.false21
 
 cond.true20:                                      ; preds = %land.lhs.true17
@@ -2027,18 +2144,18 @@ cond.false21:                                     ; preds = %land.lhs.true17, %c
   call void @OPENSSL_die(ptr noundef @.str.9, ptr noundef @.str.1, i32 noundef 368) #6
   unreachable
 
-17:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cond.end22
 
-cond.end22:                                       ; preds = %17, %cond.true20
-  %18 = load ptr, ptr %table.addr, align 8
-  %19 = load i64, ptr %bit, align 8
-  %shr24 = lshr i64 %19, 3
-  %arrayidx = getelementptr inbounds i8, ptr %18, i64 %shr24
-  %20 = load i8, ptr %arrayidx, align 1
-  %conv25 = zext i8 %20 to i64
-  %21 = load i64, ptr %bit, align 8
-  %and26 = and i64 %21, 7
+cond.end22:                                       ; preds = %23, %cond.true20
+  %24 = load ptr, ptr %table.addr, align 8
+  %25 = load i64, ptr %bit, align 8
+  %shr24 = lshr i64 %25, 3
+  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %shr24
+  %26 = load i8, ptr %arrayidx, align 1
+  %conv25 = zext i8 %26 to i64
+  %27 = load i64, ptr %bit, align 8
+  %and26 = and i64 %27, 7
   %shl27 = shl i64 1, %and26
   %and28 = and i64 %conv25, %shl27
   %conv29 = trunc i64 %and28 to i32
@@ -2062,8 +2179,9 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %list.addr, align 4
   %conv = sext i32 %1 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %cmp1 = icmp slt i64 %conv, %2
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %3 = load i64, ptr %2, align 8
+  %cmp1 = icmp slt i64 %conv, %3
   br i1 %cmp1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true
@@ -2073,19 +2191,21 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
   call void @OPENSSL_die(ptr noundef @.str.7, ptr noundef @.str.1, i32 noundef 376) #6
   unreachable
 
-3:                                                ; No predecessors!
+4:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %3, %cond.true
-  %4 = load ptr, ptr %ptr.addr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
+cond.end:                                         ; preds = %4, %cond.true
+  %5 = load ptr, ptr %ptr.addr, align 8
+  %6 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %6 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %7 = load i32, ptr %list.addr, align 4
-  %sh_prom = zext i32 %7 to i64
-  %shr = lshr i64 %6, %sh_prom
+  %8 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %9 = load i64, ptr %8, align 8
+  %10 = load i32, ptr %list.addr, align 4
+  %sh_prom = zext i32 %10 to i64
+  %shr = lshr i64 %9, %sh_prom
   %sub = sub i64 %shr, 1
   %and = and i64 %sub.ptr.sub, %sub
   %cmp3 = icmp eq i64 %and, 0
@@ -2098,33 +2218,36 @@ cond.false6:                                      ; preds = %cond.end
   call void @OPENSSL_die(ptr noundef @.str.8, ptr noundef @.str.1, i32 noundef 377) #6
   unreachable
 
-8:                                                ; No predecessors!
+11:                                               ; No predecessors!
   br label %cond.end7
 
-cond.end7:                                        ; preds = %8, %cond.true5
-  %9 = load i32, ptr %list.addr, align 4
-  %sh_prom9 = zext i32 %9 to i64
+cond.end7:                                        ; preds = %11, %cond.true5
+  %12 = load i32, ptr %list.addr, align 4
+  %sh_prom9 = zext i32 %12 to i64
   %shl = shl i64 1, %sh_prom9
-  %10 = load ptr, ptr %ptr.addr, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %sub.ptr.lhs.cast10 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast11 = ptrtoint ptr %11 to i64
+  %13 = load ptr, ptr %ptr.addr, align 8
+  %14 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %sub.ptr.lhs.cast10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast11
-  %12 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %13 = load i32, ptr %list.addr, align 4
-  %sh_prom13 = zext i32 %13 to i64
-  %shr14 = lshr i64 %12, %sh_prom13
+  %16 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8
+  %18 = load i32, ptr %list.addr, align 4
+  %sh_prom13 = zext i32 %18 to i64
+  %shr14 = lshr i64 %17, %sh_prom13
   %div = udiv i64 %sub.ptr.sub12, %shr14
   %add = add i64 %shl, %div
   store i64 %add, ptr %bit, align 8
-  %14 = load i64, ptr %bit, align 8
-  %cmp15 = icmp ugt i64 %14, 0
+  %19 = load i64, ptr %bit, align 8
+  %cmp15 = icmp ugt i64 %19, 0
   br i1 %cmp15, label %land.lhs.true17, label %cond.false21
 
 land.lhs.true17:                                  ; preds = %cond.end7
-  %15 = load i64, ptr %bit, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 9), align 8
-  %cmp18 = icmp ult i64 %15, %16
+  %20 = load i64, ptr %bit, align 8
+  %21 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 9
+  %22 = load i64, ptr %21, align 8
+  %cmp18 = icmp ult i64 %20, %22
   br i1 %cmp18, label %cond.true20, label %cond.false21
 
 cond.true20:                                      ; preds = %land.lhs.true17
@@ -2134,18 +2257,18 @@ cond.false21:                                     ; preds = %land.lhs.true17, %c
   call void @OPENSSL_die(ptr noundef @.str.9, ptr noundef @.str.1, i32 noundef 379) #6
   unreachable
 
-17:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cond.end22
 
-cond.end22:                                       ; preds = %17, %cond.true20
-  %18 = load ptr, ptr %table.addr, align 8
-  %19 = load i64, ptr %bit, align 8
-  %shr24 = lshr i64 %19, 3
-  %arrayidx = getelementptr inbounds i8, ptr %18, i64 %shr24
-  %20 = load i8, ptr %arrayidx, align 1
-  %conv25 = zext i8 %20 to i64
-  %21 = load i64, ptr %bit, align 8
-  %and26 = and i64 %21, 7
+cond.end22:                                       ; preds = %23, %cond.true20
+  %24 = load ptr, ptr %table.addr, align 8
+  %25 = load i64, ptr %bit, align 8
+  %shr24 = lshr i64 %25, 3
+  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %shr24
+  %26 = load i8, ptr %arrayidx, align 1
+  %conv25 = zext i8 %26 to i64
+  %27 = load i64, ptr %bit, align 8
+  %and26 = and i64 %27, 7
   %shl27 = shl i64 1, %and26
   %and28 = and i64 %conv25, %shl27
   %tobool = icmp ne i64 %and28, 0
@@ -2158,21 +2281,21 @@ cond.false30:                                     ; preds = %cond.end22
   call void @OPENSSL_die(ptr noundef @.str.21, ptr noundef @.str.1, i32 noundef 380) #6
   unreachable
 
-22:                                               ; No predecessors!
+28:                                               ; No predecessors!
   br label %cond.end31
 
-cond.end31:                                       ; preds = %22, %cond.true29
-  %23 = load i64, ptr %bit, align 8
-  %and33 = and i64 %23, 7
+cond.end31:                                       ; preds = %28, %cond.true29
+  %29 = load i64, ptr %bit, align 8
+  %and33 = and i64 %29, 7
   %shl34 = shl i64 1, %and33
   %not = xor i64 %shl34, -1
   %and35 = and i64 255, %not
-  %24 = load ptr, ptr %table.addr, align 8
-  %25 = load i64, ptr %bit, align 8
-  %shr36 = lshr i64 %25, 3
-  %arrayidx37 = getelementptr inbounds i8, ptr %24, i64 %shr36
-  %26 = load i8, ptr %arrayidx37, align 1
-  %conv38 = zext i8 %26 to i64
+  %30 = load ptr, ptr %table.addr, align 8
+  %31 = load i64, ptr %bit, align 8
+  %shr36 = lshr i64 %31, 3
+  %arrayidx37 = getelementptr inbounds i8, ptr %30, i64 %shr36
+  %32 = load i8, ptr %arrayidx37, align 1
+  %conv38 = zext i8 %32 to i64
   %and39 = and i64 %conv38, %and35
   %conv40 = trunc i64 %and39 to i8
   store i8 %conv40, ptr %arrayidx37, align 1
@@ -2230,36 +2353,42 @@ if.end8:                                          ; preds = %if.end
   %15 = load ptr, ptr %temp2, align 8
   %p_next10 = getelementptr inbounds %struct.sh_list_st, ptr %15, i32 0, i32 1
   %16 = load ptr, ptr %p_next10, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %cmp11 = icmp uge ptr %16, %17
+  %17 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %cmp11 = icmp uge ptr %16, %18
   br i1 %cmp11, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end8
-  %18 = load ptr, ptr %temp2, align 8
-  %p_next12 = getelementptr inbounds %struct.sh_list_st, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %p_next12, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 4), align 8
-  %21 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %21
-  %cmp13 = icmp ult ptr %19, %arrayidx
+  %19 = load ptr, ptr %temp2, align 8
+  %p_next12 = getelementptr inbounds %struct.sh_list_st, ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %p_next12, align 8
+  %21 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %24 = load i64, ptr %23, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %22, i64 %24
+  %cmp13 = icmp ult ptr %20, %arrayidx
   br i1 %cmp13, label %cond.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end8
-  %22 = load ptr, ptr %temp2, align 8
-  %p_next14 = getelementptr inbounds %struct.sh_list_st, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %p_next14, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %cmp15 = icmp uge ptr %23, %24
+  %25 = load ptr, ptr %temp2, align 8
+  %p_next14 = getelementptr inbounds %struct.sh_list_st, ptr %25, i32 0, i32 1
+  %26 = load ptr, ptr %p_next14, align 8
+  %27 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %cmp15 = icmp uge ptr %26, %28
   br i1 %cmp15, label %land.lhs.true16, label %cond.false
 
 land.lhs.true16:                                  ; preds = %lor.lhs.false
-  %25 = load ptr, ptr %temp2, align 8
-  %p_next17 = getelementptr inbounds %struct.sh_list_st, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %p_next17, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %28 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %27, i64 %28
-  %cmp19 = icmp ult ptr %26, %arrayidx18
+  %29 = load ptr, ptr %temp2, align 8
+  %p_next17 = getelementptr inbounds %struct.sh_list_st, ptr %29, i32 0, i32 1
+  %30 = load ptr, ptr %p_next17, align 8
+  %31 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %32, i64 %34
+  %cmp19 = icmp ult ptr %30, %arrayidx18
   br i1 %cmp19, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true16, %land.lhs.true
@@ -2269,10 +2398,10 @@ cond.false:                                       ; preds = %land.lhs.true16, %l
   call void @OPENSSL_die(ptr noundef @.str.22, ptr noundef @.str.1, i32 noundef 428) #6
   unreachable
 
-29:                                               ; No predecessors!
+35:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %29, %cond.true
+cond.end:                                         ; preds = %35, %cond.true
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then7
@@ -2293,67 +2422,73 @@ entry:
   %sh_prom = zext i32 %0 to i64
   %shl = shl i64 1, %sh_prom
   %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %3 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %4 = load i32, ptr %list.addr, align 4
-  %sh_prom1 = zext i32 %4 to i64
-  %shr = lshr i64 %3, %sh_prom1
+  %4 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8
+  %6 = load i32, ptr %list.addr, align 4
+  %sh_prom1 = zext i32 %6 to i64
+  %shr = lshr i64 %5, %sh_prom1
   %div = udiv i64 %sub.ptr.sub, %shr
   %add = add i64 %shl, %div
   store i64 %add, ptr %bit, align 8
-  %5 = load i64, ptr %bit, align 8
-  %xor = xor i64 %5, 1
-  store i64 %xor, ptr %bit, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
   %7 = load i64, ptr %bit, align 8
-  %shr2 = lshr i64 %7, 3
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %shr2
-  %8 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %8 to i64
-  %9 = load i64, ptr %bit, align 8
-  %and = and i64 %9, 7
+  %xor = xor i64 %7, 1
+  store i64 %xor, ptr %bit, align 8
+  %8 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %bit, align 8
+  %shr2 = lshr i64 %10, 3
+  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %shr2
+  %11 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %11 to i64
+  %12 = load i64, ptr %bit, align 8
+  %and = and i64 %12, 7
   %shl3 = shl i64 1, %and
   %and4 = and i64 %conv, %shl3
   %tobool = icmp ne i64 %and4, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 8), align 8
-  %11 = load i64, ptr %bit, align 8
-  %shr5 = lshr i64 %11, 3
-  %arrayidx6 = getelementptr inbounds i8, ptr %10, i64 %shr5
-  %12 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %12 to i64
-  %13 = load i64, ptr %bit, align 8
-  %and8 = and i64 %13, 7
+  %13 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %bit, align 8
+  %shr5 = lshr i64 %15, 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %14, i64 %shr5
+  %16 = load i8, ptr %arrayidx6, align 1
+  %conv7 = zext i8 %16 to i64
+  %17 = load i64, ptr %bit, align 8
+  %and8 = and i64 %17, 7
   %shl9 = shl i64 1, %and8
   %and10 = and i64 %conv7, %shl9
   %tobool11 = icmp ne i64 %and10, 0
   br i1 %tobool11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %14 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
-  %15 = load i64, ptr %bit, align 8
-  %16 = load i32, ptr %list.addr, align 4
-  %sh_prom12 = zext i32 %16 to i64
+  %18 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i64, ptr %bit, align 8
+  %21 = load i32, ptr %list.addr, align 4
+  %sh_prom12 = zext i32 %21 to i64
   %shl13 = shl i64 1, %sh_prom12
   %sub = sub i64 %shl13, 1
-  %and14 = and i64 %15, %sub
-  %17 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %18 = load i32, ptr %list.addr, align 4
-  %sh_prom15 = zext i32 %18 to i64
-  %shr16 = lshr i64 %17, %sh_prom15
+  %and14 = and i64 %20, %sub
+  %22 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  %24 = load i32, ptr %list.addr, align 4
+  %sh_prom15 = zext i32 %24 to i64
+  %shr16 = lshr i64 %23, %sh_prom15
   %mul = mul i64 %and14, %shr16
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 %mul
+  %add.ptr = getelementptr inbounds i8, ptr %19, i64 %mul
   store ptr %add.ptr, ptr %chunk, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %19 = load ptr, ptr %chunk, align 8
-  ret ptr %19
+  %25 = load ptr, ptr %chunk, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2363,35 +2498,40 @@ entry:
   %list = alloca i64, align 8
   %bit = alloca i64, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 5), align 8
-  %sub = sub nsw i64 %0, 1
+  %0 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 5
+  %1 = load i64, ptr %0, align 8
+  %sub = sub nsw i64 %1, 1
   store i64 %sub, ptr %list, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 3), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 3
+  %3 = load i64, ptr %2, align 8
+  %4 = load ptr, ptr %ptr.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %3
+  %5 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %4 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 6), align 8
-  %div = udiv i64 %sub.ptr.sub, %4
+  %7 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 6
+  %8 = load i64, ptr %7, align 8
+  %div = udiv i64 %sub.ptr.sub, %8
   store i64 %div, ptr %bit, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i64, ptr %bit, align 8
-  %tobool = icmp ne i64 %5, 0
+  %9 = load i64, ptr %bit, align 8
+  %tobool = icmp ne i64 %9, 0
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i32 0, i32 7), align 8
-  %7 = load i64, ptr %bit, align 8
-  %shr = lshr i64 %7, 3
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %shr
-  %8 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %8 to i64
-  %9 = load i64, ptr %bit, align 8
-  %and = and i64 %9, 7
+  %10 = getelementptr inbounds %struct.sh_st, ptr @sh, i32 0, i32 7
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i64, ptr %bit, align 8
+  %shr = lshr i64 %12, 3
+  %arrayidx = getelementptr inbounds i8, ptr %11, i64 %shr
+  %13 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %13 to i64
+  %14 = load i64, ptr %bit, align 8
+  %and = and i64 %14, 7
   %shl = shl i64 1, %and
   %and1 = and i64 %conv, %shl
   %tobool2 = icmp ne i64 %and1, 0
@@ -2401,8 +2541,8 @@ if.then:                                          ; preds = %for.body
   br label %for.end
 
 if.end:                                           ; preds = %for.body
-  %10 = load i64, ptr %bit, align 8
-  %and3 = and i64 %10, 1
+  %15 = load i64, ptr %bit, align 8
+  %and3 = and i64 %15, 1
   %cmp = icmp eq i64 %and3, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
@@ -2413,24 +2553,24 @@ cond.false:                                       ; preds = %if.end
   call void @OPENSSL_die(ptr noundef @.str.28, ptr noundef @.str.1, i32 noundef 354) #6
   unreachable
 
-11:                                               ; No predecessors!
+16:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %11, %cond.true
+cond.end:                                         ; preds = %16, %cond.true
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end
-  %12 = load i64, ptr %bit, align 8
-  %shr5 = lshr i64 %12, 1
+  %17 = load i64, ptr %bit, align 8
+  %shr5 = lshr i64 %17, 1
   store i64 %shr5, ptr %bit, align 8
-  %13 = load i64, ptr %list, align 8
-  %dec = add nsw i64 %13, -1
+  %18 = load i64, ptr %list, align 8
+  %dec = add nsw i64 %18, -1
   store i64 %dec, ptr %list, align 8
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %if.then, %for.cond
-  %14 = load i64, ptr %list, align 8
-  ret i64 %14
+  %19 = load i64, ptr %list, align 8
+  ret i64 %19
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

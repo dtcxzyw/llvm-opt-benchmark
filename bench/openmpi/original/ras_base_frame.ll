@@ -33,10 +33,14 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @ras_register(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  store i32 1, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 3), align 4
-  %3 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 3))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 4), align 8
-  %4 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.3, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 4))
+  %3 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 3
+  store i32 1, ptr %3, align 4
+  %4 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 3
+  %5 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 0, ptr noundef %4)
+  %6 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 4
+  store i8 0, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 4
+  %8 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.3, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef %7)
   ret i32 0
 }
 
@@ -51,20 +55,22 @@ define internal i32 @prte_ras_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_ras_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %8
+  %1 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %10
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1), align 8
-  %5 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %4, i32 0, i32 3
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %7 = call i32 %6()
-  br label %8
+  %7 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 %8()
+  br label %10
 
-8:                                                ; preds = %3, %0
-  %9 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_ras_base_framework, ptr noundef null)
-  ret i32 %9
+10:                                               ; preds = %4, %0
+  %11 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_ras_base_framework, ptr noundef null)
+  ret i32 %11
 }
 
 declare i32 @pmix_mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

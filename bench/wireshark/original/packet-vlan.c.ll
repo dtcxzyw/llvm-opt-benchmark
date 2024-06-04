@@ -321,7 +321,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %66 = load ptr, ptr %6, align 8
   %67 = call i32 @tvb_captured_length(ptr noundef %66)
   store i32 %67, ptr %5, align 4
-  br label %198
+  br label %199
 
 68:                                               ; preds = %47
   %69 = load ptr, ptr %7, align 8
@@ -330,7 +330,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @p_set_proto_depth(ptr noundef %69, i32 noundef %70, i32 noundef %71)
   %72 = load ptr, ptr %8, align 8
   %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %148
+  br i1 %73, label %74, label %149
 
 74:                                               ; preds = %68
   %75 = load i32, ptr @vlan_summary_in_tree, align 4
@@ -441,107 +441,108 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %132 = load ptr, ptr %6, align 8
   %133 = getelementptr inbounds [4 x ptr], ptr %20, i64 0, i64 0
   call void @proto_tree_add_bitmask_list(ptr noundef %131, ptr noundef %132, i32 noundef 0, i32 noundef 2, ptr noundef %133, i32 noundef 0)
-  %134 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5), align 4
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %147
+  %134 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %148
 
-136:                                              ; preds = %130
-  %137 = load ptr, ptr %15, align 8
-  %138 = load i32, ptr @hf_vlan_id_name, align 4
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 50
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i16, ptr %12, align 2
-  %144 = call ptr @get_vlan_name(ptr noundef %142, i16 noundef zeroext %143)
-  %145 = call ptr @proto_tree_add_string(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef 0, i32 noundef 2, ptr noundef %144)
-  store ptr %145, ptr %16, align 8
-  %146 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %146)
-  br label %147
-
-147:                                              ; preds = %136, %130
+137:                                              ; preds = %130
+  %138 = load ptr, ptr %15, align 8
+  %139 = load i32, ptr @hf_vlan_id_name, align 4
+  %140 = load ptr, ptr %6, align 8
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds %struct._packet_info, ptr %141, i32 0, i32 50
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i16, ptr %12, align 2
+  %145 = call ptr @get_vlan_name(ptr noundef %143, i16 noundef zeroext %144)
+  %146 = call ptr @proto_tree_add_string(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef 0, i32 noundef 2, ptr noundef %145)
+  store ptr %146, ptr %16, align 8
+  %147 = load ptr, ptr %16, align 8
+  call void @proto_item_set_generated(ptr noundef %147)
   br label %148
 
-148:                                              ; preds = %147, %68
-  %149 = load ptr, ptr %6, align 8
-  %150 = call zeroext i16 @tvb_get_ntohs(ptr noundef %149, i32 noundef 2)
-  store i16 %150, ptr %13, align 2
-  %151 = load i16, ptr %13, align 2
-  %152 = zext i16 %151 to i32
-  %153 = icmp sle i32 %152, 1500
-  br i1 %153, label %154, label %175
+148:                                              ; preds = %137, %130
+  br label %149
 
-154:                                              ; preds = %148
+149:                                              ; preds = %148, %68
+  %150 = load ptr, ptr %6, align 8
+  %151 = call zeroext i16 @tvb_get_ntohs(ptr noundef %150, i32 noundef 2)
+  store i16 %151, ptr %13, align 2
+  %152 = load i16, ptr %13, align 2
+  %153 = zext i16 %152 to i32
+  %154 = icmp sle i32 %153, 1500
+  br i1 %154, label %155, label %176
+
+155:                                              ; preds = %149
   store i32 1, ptr %14, align 4
-  %155 = load ptr, ptr %6, align 8
-  %156 = call i32 @tvb_captured_length_remaining(ptr noundef %155, i32 noundef 4)
-  %157 = icmp sge i32 %156, 2
-  br i1 %157, label %158, label %165
+  %156 = load ptr, ptr %6, align 8
+  %157 = call i32 @tvb_captured_length_remaining(ptr noundef %156, i32 noundef 4)
+  %158 = icmp sge i32 %157, 2
+  br i1 %158, label %159, label %166
 
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %6, align 8
-  %160 = call zeroext i16 @tvb_get_ntohs(ptr noundef %159, i32 noundef 4)
-  %161 = zext i16 %160 to i32
-  %162 = icmp eq i32 %161, 65535
-  br i1 %162, label %163, label %164
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %6, align 8
+  %161 = call zeroext i16 @tvb_get_ntohs(ptr noundef %160, i32 noundef 4)
+  %162 = zext i16 %161 to i32
+  %163 = icmp eq i32 %162, 65535
+  br i1 %163, label %164, label %165
 
-163:                                              ; preds = %158
+164:                                              ; preds = %159
   store i32 0, ptr %14, align 4
-  br label %164
-
-164:                                              ; preds = %163, %158
   br label %165
 
-165:                                              ; preds = %164, %154
-  %166 = load i16, ptr %13, align 2
-  %167 = zext i16 %166 to i32
-  %168 = load i32, ptr %14, align 4
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %7, align 8
-  %171 = load ptr, ptr %8, align 8
-  %172 = load ptr, ptr %15, align 8
-  %173 = load i32, ptr @hf_vlan_len, align 4
-  %174 = load i32, ptr @hf_vlan_trailer, align 4
-  call void @dissect_802_3(i32 noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef 4, ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef @ei_vlan_len, i32 noundef 0)
-  br label %195
+165:                                              ; preds = %164, %159
+  br label %166
 
-175:                                              ; preds = %148
-  %176 = load ptr, ptr %15, align 8
-  %177 = load i32, ptr @hf_vlan_etype, align 4
-  %178 = load ptr, ptr %6, align 8
-  %179 = load i16, ptr %13, align 2
-  %180 = zext i16 %179 to i32
-  %181 = call ptr @proto_tree_add_uint(ptr noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef 2, i32 noundef 2, i32 noundef %180)
-  %182 = load i16, ptr %13, align 2
-  %183 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 0
-  store i16 %182, ptr %183, align 8
-  %184 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 1
-  store i32 4, ptr %184, align 4
-  %185 = load ptr, ptr %15, align 8
-  %186 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 2
-  store ptr %185, ptr %186, align 8
-  %187 = load i32, ptr @hf_vlan_trailer, align 4
-  %188 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 3
-  store i32 %187, ptr %188, align 8
-  %189 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 4
-  store i32 0, ptr %189, align 4
-  %190 = load ptr, ptr @ethertype_handle, align 8
-  %191 = load ptr, ptr %6, align 8
-  %192 = load ptr, ptr %7, align 8
-  %193 = load ptr, ptr %8, align 8
-  %194 = call i32 @call_dissector_with_data(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193, ptr noundef %21)
-  br label %195
+166:                                              ; preds = %165, %155
+  %167 = load i16, ptr %13, align 2
+  %168 = zext i16 %167 to i32
+  %169 = load i32, ptr %14, align 4
+  %170 = load ptr, ptr %6, align 8
+  %171 = load ptr, ptr %7, align 8
+  %172 = load ptr, ptr %8, align 8
+  %173 = load ptr, ptr %15, align 8
+  %174 = load i32, ptr @hf_vlan_len, align 4
+  %175 = load i32, ptr @hf_vlan_trailer, align 4
+  call void @dissect_802_3(i32 noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef 4, ptr noundef %171, ptr noundef %172, ptr noundef %173, i32 noundef %174, i32 noundef %175, ptr noundef @ei_vlan_len, i32 noundef 0)
+  br label %196
 
-195:                                              ; preds = %175, %165
-  %196 = load ptr, ptr %6, align 8
-  %197 = call i32 @tvb_captured_length(ptr noundef %196)
-  store i32 %197, ptr %5, align 4
-  br label %198
+176:                                              ; preds = %149
+  %177 = load ptr, ptr %15, align 8
+  %178 = load i32, ptr @hf_vlan_etype, align 4
+  %179 = load ptr, ptr %6, align 8
+  %180 = load i16, ptr %13, align 2
+  %181 = zext i16 %180 to i32
+  %182 = call ptr @proto_tree_add_uint(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef 2, i32 noundef 2, i32 noundef %181)
+  %183 = load i16, ptr %13, align 2
+  %184 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 0
+  store i16 %183, ptr %184, align 8
+  %185 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 1
+  store i32 4, ptr %185, align 4
+  %186 = load ptr, ptr %15, align 8
+  %187 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 2
+  store ptr %186, ptr %187, align 8
+  %188 = load i32, ptr @hf_vlan_trailer, align 4
+  %189 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 3
+  store i32 %188, ptr %189, align 8
+  %190 = getelementptr inbounds %struct.ethertype_data_s, ptr %21, i32 0, i32 4
+  store i32 0, ptr %190, align 4
+  %191 = load ptr, ptr @ethertype_handle, align 8
+  %192 = load ptr, ptr %6, align 8
+  %193 = load ptr, ptr %7, align 8
+  %194 = load ptr, ptr %8, align 8
+  %195 = call i32 @call_dissector_with_data(ptr noundef %191, ptr noundef %192, ptr noundef %193, ptr noundef %194, ptr noundef %21)
+  br label %196
 
-198:                                              ; preds = %195, %62
-  %199 = load i32, ptr %5, align 4
-  ret i32 %199
+196:                                              ; preds = %176, %166
+  %197 = load ptr, ptr %6, align 8
+  %198 = call i32 @tvb_captured_length(ptr noundef %197)
+  store i32 %198, ptr %5, align 4
+  br label %199
+
+199:                                              ; preds = %196, %62
+  %200 = load i32, ptr %5, align 4
+  ret i32 %200
 }
 
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1

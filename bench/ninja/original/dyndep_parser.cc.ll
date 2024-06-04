@@ -621,12 +621,13 @@ define dso_local void @_ZN12DyndepParserC2EP5StateP10FileReaderP10DyndepFile(ptr
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN6ParserC2EP5StateP10FileReader(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12DyndepParser, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %struct.DyndepParser, ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.DyndepParser, ptr %9, i32 0, i32 2
-  call void @_ZN10BindingEnvC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %14)
+  %12 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV12DyndepParser, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %struct.DyndepParser, ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.DyndepParser, ptr %9, i32 0, i32 2
+  call void @_ZN10BindingEnvC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %15)
   ret void
 }
 
@@ -639,15 +640,16 @@ define linkonce_odr dso_local void @_ZN6ParserC2EP5StateP10FileReader(ptr nounde
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV6Parser, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 3
-  call void @_ZN5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV6Parser, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 3
+  call void @_ZN5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13)
   ret void
 }
 
@@ -657,13 +659,14 @@ define linkonce_odr dso_local void @_ZN10BindingEnvC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #11
-  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #11
-  %6 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 3
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #11
+  %6 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #11
+  %7 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
   ret void
 }
 
@@ -3372,7 +3375,8 @@ define linkonce_odr dso_local void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV3Env, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV3Env, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

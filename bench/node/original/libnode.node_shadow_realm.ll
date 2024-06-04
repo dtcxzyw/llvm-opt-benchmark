@@ -1447,7 +1447,8 @@ entry:
   %coerce.dive11 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive10, i32 0, i32 0
   %3 = load ptr, ptr %coerce.dive11, align 8
   call void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this1, ptr noundef %0, ptr %3, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %context_ = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 7
   store ptr %context_, ptr %this.addr.i12, align 8
   store ptr %this1, ptr %parameter.addr.i, align 8
@@ -1456,16 +1457,16 @@ entry:
   %this1.i13 = load ptr, ptr %this.addr.i12, align 8
   store ptr %this1.i13, ptr %this.addr.i18, align 8
   %this1.i19 = load ptr, ptr %this.addr.i18, align 8
-  %4 = load ptr, ptr %this1.i19, align 8
-  %5 = load ptr, ptr %parameter.addr.i, align 8
-  %6 = load ptr, ptr %callback.addr.i, align 8
-  %7 = load i32, ptr %type.addr.i, align 4
-  call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) #3
+  %5 = load ptr, ptr %this1.i19, align 8
+  %6 = load ptr, ptr %parameter.addr.i, align 8
+  %7 = load ptr, ptr %callback.addr.i, align 8
+  %8 = load i32, ptr %type.addr.i, align 4
+  call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) #3
   call void @_ZN4node5Realm16CreatePropertiesEv(ptr noundef nonnull align 8 dereferenceable(872) %this1)
-  %8 = load ptr, ptr %env.addr, align 8
-  call void @_ZN4node11Environment16TrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872) %8, ptr noundef %this1)
   %9 = load ptr, ptr %env.addr, align 8
-  call void @_ZN4node11Environment14AddCleanupHookEPFvPvES1_(ptr noundef nonnull align 8 dereferenceable(2872) %9, ptr noundef @_ZN4node12shadow_realm11ShadowRealm8DeleteMeEPv, ptr noundef %this1)
+  call void @_ZN4node11Environment16TrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872) %9, ptr noundef %this1)
+  %10 = load ptr, ptr %env.addr, align 8
+  call void @_ZN4node11Environment14AddCleanupHookEPFvPvES1_(ptr noundef nonnull align 8 dereferenceable(2872) %10, ptr noundef @_ZN4node12shadow_realm11ShadowRealm8DeleteMeEPv, ptr noundef %this1)
   ret void
 }
 
@@ -1507,7 +1508,8 @@ entry:
   %agg.tmp = alloca %"class.v8::Local", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -1520,13 +1522,13 @@ while.body:                                       ; preds = %while.cond
 
 while.end:                                        ; preds = %while.cond
   %env_ = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %env_, align 8
-  call void @_ZN4node11Environment18UntrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872) %0, ptr noundef %this1)
+  %1 = load ptr, ptr %env_, align 8
+  call void @_ZN4node11Environment18UntrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872) %1, ptr noundef %this1)
   %context_ = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 7
   store ptr %context_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
@@ -1537,11 +1539,11 @@ if.end:                                           ; preds = %while.end
   %call3 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %this1)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call3)
   %env_4 = getelementptr inbounds %"class.node::Realm", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %env_4, align 8
+  %3 = load ptr, ptr %env_4, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %3 = load ptr, ptr %vfn, align 8
-  %call5 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this1)
+  %4 = load ptr, ptr %vfn, align 8
+  %call5 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %this1)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive7 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive6, i32 0, i32 0
@@ -1549,8 +1551,8 @@ if.end:                                           ; preds = %while.end
   %coerce.dive8 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive8, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive10, align 8
-  call void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %2, ptr %4)
+  %5 = load ptr, ptr %coerce.dive10, align 8
+  call void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %3, ptr %5)
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
   store i32 0, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -34802,10 +34804,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %1, i64 8, i1 false)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %2, i64 8, i1 false)
   ret void
 }
 
@@ -34831,10 +34834,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %flags.addr, align 4
-  store i32 %0, ptr %flags_, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  store i32 %1, ptr %flags_, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -34893,7 +34897,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void

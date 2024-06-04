@@ -612,61 +612,62 @@ define dso_local zeroext i1 @blk_mq_sched_bio_merge(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i1 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #6
-  br label %53
+  br label %54
 
 14:                                               ; preds = %7, %3
-  %15 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #6, !srcloc !20
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = zext i32 %15 to i64
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, %18
-  %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 80
-  %27 = and i32 %25, 4194304
-  %28 = icmp eq i32 %27, 0
-  %29 = and i32 %25, 255
-  %30 = icmp eq i32 %29, 0
-  %31 = zext i1 %30 to i64
-  %32 = select i1 %28, i64 %31, i64 2
-  %33 = getelementptr [3 x ptr], ptr %26, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 168
-  %36 = load i64, ptr %35, align 8
-  %37 = and i64 %36, 1
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %53, label %39
+  %15 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %16 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15) #6, !srcloc !20
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = zext i32 %16 to i64
+  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, %19
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 80
+  %28 = and i32 %26, 4194304
+  %29 = icmp eq i32 %28, 0
+  %30 = and i32 %26, 255
+  %31 = icmp eq i32 %30, 0
+  %32 = zext i1 %31 to i64
+  %33 = select i1 %29, i64 %32, i64 2
+  %34 = getelementptr [3 x ptr], ptr %27, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %37, 1
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %54, label %40
 
-39:                                               ; preds = %14
-  %40 = getelementptr inbounds i8, ptr %34, i64 252
-  %41 = load i16, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %23, i64 8
-  %43 = zext i16 %41 to i64
-  %44 = getelementptr [3 x %struct.list_head], ptr %42, i64 0, i64 %43
-  %45 = load volatile ptr, ptr %44, align 8
+40:                                               ; preds = %14
+  %41 = getelementptr inbounds i8, ptr %35, i64 252
+  %42 = load i16, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %24, i64 8
+  %44 = zext i16 %42 to i64
+  %45 = getelementptr [3 x %struct.list_head], ptr %43, i64 0, i64 %44
+  %46 = load volatile ptr, ptr %45, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !11
-  %46 = icmp eq ptr %45, %44
-  br i1 %46, label %47, label %51
+  %47 = icmp eq ptr %46, %45
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
-  %49 = load volatile ptr, ptr %48, align 8
-  %50 = icmp eq ptr %45, %49
-  br i1 %50, label %53, label %51
+48:                                               ; preds = %40
+  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = load volatile ptr, ptr %49, align 8
+  %51 = icmp eq ptr %46, %50
+  br i1 %51, label %54, label %52
 
-51:                                               ; preds = %47, %39
-  tail call void @_raw_spin_lock(ptr noundef %23) #6
-  %52 = tail call zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noundef %44, ptr noundef %1, i32 noundef %2) #6
-  tail call void @_raw_spin_unlock(ptr noundef %23) #6
-  br label %53
+52:                                               ; preds = %48, %40
+  tail call void @_raw_spin_lock(ptr noundef %24) #6
+  %53 = tail call zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noundef %45, ptr noundef %1, i32 noundef %2) #6
+  tail call void @_raw_spin_unlock(ptr noundef %24) #6
+  br label %54
 
-53:                                               ; preds = %51, %47, %14, %12
-  %54 = phi i1 [ %13, %12 ], [ false, %47 ], [ %52, %51 ], [ false, %14 ]
-  ret i1 %54
+54:                                               ; preds = %52, %48, %14, %12
+  %55 = phi i1 [ %13, %12 ], [ false, %48 ], [ %53, %52 ], [ false, %14 ]
+  ret i1 %55
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -54,27 +54,29 @@ declare dso_local void @disable_local_APIC() local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crash_smp_send_stop() local_unnamed_addr #0 align 16 {
   %1 = load i1, ptr @crash_smp_send_stop.cpus_stopped, align 4
-  br i1 %1, label %9, label %2
+  br i1 %1, label %11, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 4), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %6, label %5
-
-5:                                                ; preds = %2
-  tail call void %3() #7
-  br label %8
+  %3 = getelementptr inbounds %struct.smp_ops, ptr @smp_ops, i64 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 3), align 8
-  tail call void %7(i32 noundef 0) #7
-  br label %8
+  tail call void %4() #7
+  br label %10
 
-8:                                                ; preds = %6, %5
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds %struct.smp_ops, ptr @smp_ops, i64 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(i32 noundef 0) #7
+  br label %10
+
+10:                                               ; preds = %7, %6
   store i1 true, ptr @crash_smp_send_stop.cpus_stopped, align 4
-  br label %9
+  br label %11
 
-9:                                                ; preds = %8, %0
+11:                                               ; preds = %10, %0
   ret void
 }
 
@@ -82,35 +84,38 @@ define dso_local void @crash_smp_send_stop() local_unnamed_addr #0 align 16 {
 define dso_local void @native_machine_crash_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
   %2 = load i1, ptr @crash_smp_send_stop.cpus_stopped, align 4
-  br i1 %2, label %10, label %3
+  br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 4), align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %3
-  tail call void %4() #7
-  br label %9
+  %4 = getelementptr inbounds %struct.smp_ops, ptr @smp_ops, i64 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.smp_ops, ptr @smp_ops, i64 0, i32 3), align 8
-  tail call void %8(i32 noundef 0) #7
-  br label %9
+  tail call void %5() #7
+  br label %11
 
-9:                                                ; preds = %7, %6
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds %struct.smp_ops, ptr @smp_ops, i64 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(i32 noundef 0) #7
+  br label %11
+
+11:                                               ; preds = %8, %7
   store i1 true, ptr @crash_smp_send_stop.cpus_stopped, align 4
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %1
+12:                                               ; preds = %11, %1
   tail call void @cpu_emergency_stop_pt() #7
   tail call void @ioapic_zap_locks() #7
   tail call void @clear_IO_APIC() #7
   tail call void @lapic_shutdown() #7
   tail call void @restore_boot_irq_mode() #7
   tail call void @hpet_disable() #7
-  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #8, !srcloc !6
-  tail call void @crash_save_cpu(ptr noundef %0, i32 noundef %11) #7
+  %13 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %14 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13) #8, !srcloc !6
+  tail call void @crash_save_cpu(ptr noundef %0, i32 noundef %14) #7
   ret void
 }
 
@@ -181,7 +186,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   %17 = icmp ult i32 %16, 2
-  br i1 %17, label %94, label %18
+  br i1 %17, label %96, label %18
 
 18:                                               ; preds = %13, %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
@@ -212,100 +217,102 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   %33 = phi ptr [ %27, %29 ], [ null, %18 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %57, label %35
+  br i1 %34, label %59, label %35
 
 35:                                               ; preds = %32
   %36 = call i32 @walk_system_ram_res(i64 noundef 0, i64 noundef -1, ptr noundef nonnull %33, ptr noundef nonnull @prepare_elf64_ram_headers_callback) #7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %56
+  br i1 %37, label %38, label %58
 
 38:                                               ; preds = %35
   %39 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %33, i64 noundef 0, i64 noundef 1048575) #7
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %56
+  br i1 %40, label %41, label %58
 
 41:                                               ; preds = %38
   %42 = load i64, ptr @crashk_res, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
-  %44 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %33, i64 noundef %42, i64 noundef %43) #7
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %56
+  %43 = getelementptr inbounds %struct.resource, ptr @crashk_res, i64 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %33, i64 noundef %42, i64 noundef %44) #7
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %58
 
-46:                                               ; preds = %41
-  %47 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_low_res, i64 0, i32 1), align 8
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %53, label %49
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds %struct.resource, ptr @crashk_low_res, i64 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %55, label %51
 
-49:                                               ; preds = %46
-  %50 = load i64, ptr @crashk_low_res, align 8
-  %51 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %33, i64 noundef %50, i64 noundef %47) #7
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %56
+51:                                               ; preds = %47
+  %52 = load i64, ptr @crashk_low_res, align 8
+  %53 = call i32 @crash_exclude_mem_range(ptr noundef nonnull %33, i64 noundef %52, i64 noundef %49) #7
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %58
 
-53:                                               ; preds = %49, %46
-  %54 = call i32 @crash_prepare_elf64_headers(ptr noundef nonnull %33, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
-  %55 = icmp eq i32 %54, 0
+55:                                               ; preds = %51, %47
+  %56 = call i32 @crash_prepare_elf64_headers(ptr noundef nonnull %33, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %57 = icmp eq i32 %56, 0
   call void @vfree(ptr noundef nonnull %33) #7
-  br i1 %55, label %59, label %57
+  br i1 %57, label %61, label %59
 
-56:                                               ; preds = %49, %41, %38, %35
+58:                                               ; preds = %51, %41, %38, %35
   call void @vfree(ptr noundef nonnull %33) #7
-  br label %57
+  br label %59
 
-57:                                               ; preds = %56, %53, %32
-  %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
-  br label %92
-
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
-  %61 = getelementptr inbounds i8, ptr %0, i64 676
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr [16 x %struct.kexec_segment], ptr %60, i64 0, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
-  %66 = load i64, ptr %65, align 8
-  %67 = load i64, ptr %4, align 8
-  %68 = icmp ugt i64 %67, %66
-  br i1 %68, label %69, label %71
-
-69:                                               ; preds = %59
-  %70 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %67, i64 noundef %66) #10
-  br label %92
-
-71:                                               ; preds = %59
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr @vmemmap_base, align 8
-  %75 = inttoptr i64 %74 to ptr
-  %76 = lshr i64 %73, 12
-  %77 = getelementptr %struct.page, ptr %75, i64 %76
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %78, %74
-  %80 = shl i64 %79, 6
-  %81 = load i64, ptr @page_offset_base, align 8
-  %82 = add i64 %80, %81
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %86
-
-84:                                               ; preds = %71
-  %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #10
-  br label %92
-
-86:                                               ; preds = %71
-  %87 = inttoptr i64 %82 to ptr
-  %88 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr null, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !9
-  %89 = load i64, ptr %4, align 8
-  %90 = load ptr, ptr %3, align 8
-  call void @__memcpy_flushcache(ptr noundef nonnull %87, ptr noundef %90, i64 noundef %89) #7
-  %91 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr %0, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !10
-  br label %92
-
-92:                                               ; preds = %86, %84, %69, %57
-  %93 = load ptr, ptr %3, align 8
-  call void @vfree(ptr noundef %93) #7
+59:                                               ; preds = %58, %55, %32
+  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
   br label %94
 
-94:                                               ; preds = %92, %13
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %63 = getelementptr inbounds i8, ptr %0, i64 676
+  %64 = load i32, ptr %63, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr [16 x %struct.kexec_segment], ptr %62, i64 0, i64 %65
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load i64, ptr %67, align 8
+  %69 = load i64, ptr %4, align 8
+  %70 = icmp ugt i64 %69, %68
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %61
+  %72 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %69, i64 noundef %68) #10
+  br label %94
+
+73:                                               ; preds = %61
+  %74 = getelementptr inbounds i8, ptr %66, i64 16
+  %75 = load i64, ptr %74, align 8
+  %76 = load i64, ptr @vmemmap_base, align 8
+  %77 = inttoptr i64 %76 to ptr
+  %78 = lshr i64 %75, 12
+  %79 = getelementptr %struct.page, ptr %77, i64 %78
+  %80 = ptrtoint ptr %79 to i64
+  %81 = sub i64 %80, %76
+  %82 = shl i64 %81, 6
+  %83 = load i64, ptr @page_offset_base, align 8
+  %84 = add i64 %82, %83
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %86, label %88
+
+86:                                               ; preds = %73
+  %87 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #10
+  br label %94
+
+88:                                               ; preds = %73
+  %89 = inttoptr i64 %84 to ptr
+  %90 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr null, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !9
+  %91 = load i64, ptr %4, align 8
+  %92 = load ptr, ptr %3, align 8
+  call void @__memcpy_flushcache(ptr noundef nonnull %89, ptr noundef %92, i64 noundef %91) #7
+  %93 = call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @kexec_crash_image, ptr %0, ptr nonnull elementtype(ptr) @kexec_crash_image) #7, !srcloc !10
+  br label %94
+
+94:                                               ; preds = %88, %86, %71, %59
+  %95 = load ptr, ptr %3, align 8
+  call void @vfree(ptr noundef %95) #7
+  br label %96
+
+96:                                               ; preds = %94, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void

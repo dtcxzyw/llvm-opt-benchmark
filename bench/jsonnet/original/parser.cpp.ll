@@ -19944,59 +19944,60 @@ define linkonce_odr void @_ZN7jsonnet8internal6AssertC2ERKNS0_13LocationRangeERK
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %11, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %21)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6AssertE, i32 0, i32 0, i32 2), ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 1
-  %23 = load ptr, ptr %12, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 2
-  %25 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %34
+  %22 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6AssertE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %19, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 1
+  %24 = load ptr, ptr %12, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 2
+  %26 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %35
 
-26:                                               ; preds = %8
-  %27 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 3
-  %28 = load ptr, ptr %14, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 4
-  %30 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
-          to label %31 unwind label %38
+27:                                               ; preds = %8
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 3
+  %29 = load ptr, ptr %14, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 4
+  %31 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31)
+          to label %32 unwind label %39
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 5
-  %33 = load ptr, ptr %16, align 8
-  store ptr %33, ptr %32, align 8
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %19, i32 0, i32 5
+  %34 = load ptr, ptr %16, align 8
+  store ptr %34, ptr %33, align 8
   ret void
 
-34:                                               ; preds = %8
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %8
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %17, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %18, align 4
-  br label %42
-
-38:                                               ; preds = %26
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %17, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %18, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #3
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %17, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %18, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %17, align 8
-  %45 = load i32, ptr %18, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+39:                                               ; preds = %27
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %17, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %18, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #3
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %17, align 8
+  %46 = load i32, ptr %18, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20030,39 +20031,40 @@ define linkonce_odr void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %7, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %20
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %14)
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %7, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %21
 
-18:                                               ; preds = %4
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #3
-  br label %24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #3
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20145,11 +20147,12 @@ define linkonce_odr void @_ZN7jsonnet8internal6AssertD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6AssertE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6AssertE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Assert", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -20196,13 +20199,14 @@ define linkonce_odr void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 1
-  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 1
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
   ret void
 }
 
@@ -21016,10 +21020,11 @@ define linkonce_odr void @_ZN7jsonnet8internal5ErrorC2ERKNS0_13LocationRangeERKS
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ErrorE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Error", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ErrorE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Error", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -21066,59 +21071,60 @@ define linkonce_odr void @_ZN7jsonnet8internal11ConditionalC2ERKNS0_13LocationRa
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %11, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %21)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11ConditionalE, i32 0, i32 0, i32 2), ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 1
-  %23 = load ptr, ptr %12, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 2
-  %25 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %34
+  %22 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11ConditionalE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %19, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 1
+  %24 = load ptr, ptr %12, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 2
+  %26 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %35
 
-26:                                               ; preds = %8
-  %27 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 3
-  %28 = load ptr, ptr %14, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 4
-  %30 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
-          to label %31 unwind label %38
+27:                                               ; preds = %8
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 3
+  %29 = load ptr, ptr %14, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 4
+  %31 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31)
+          to label %32 unwind label %39
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 5
-  %33 = load ptr, ptr %16, align 8
-  store ptr %33, ptr %32, align 8
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %19, i32 0, i32 5
+  %34 = load ptr, ptr %16, align 8
+  store ptr %34, ptr %33, align 8
   ret void
 
-34:                                               ; preds = %8
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %8
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %17, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %18, align 4
-  br label %42
-
-38:                                               ; preds = %26
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %17, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %18, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #3
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %17, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %18, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %17, align 8
-  %45 = load i32, ptr %18, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+39:                                               ; preds = %27
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %17, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %18, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #3
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %17, align 8
+  %46 = load i32, ptr %18, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21126,11 +21132,12 @@ define linkonce_odr void @_ZN7jsonnet8internal11ConditionalD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11ConditionalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11ConditionalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Conditional", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -26145,77 +26152,78 @@ define linkonce_odr void @_ZN7jsonnet8internal8FunctionC2ERKNS0_13LocationRangeE
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %11, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(24) %22)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal8FunctionE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 1
-  %24 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %25 unwind label %38
+  %23 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal8FunctionE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 1
+  %25 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %26 unwind label %39
 
-25:                                               ; preds = %8
-  %26 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 2
-  %27 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %28 unwind label %42
+26:                                               ; preds = %8
+  %27 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 2
+  %28 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %29 unwind label %43
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 3
-  %30 = load i8, ptr %14, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %29, align 8
-  %33 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 4
-  %34 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %35 unwind label %46
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 3
+  %31 = load i8, ptr %14, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %30, align 8
+  %34 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 4
+  %35 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %36 unwind label %47
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 5
-  %37 = load ptr, ptr %16, align 8
-  store ptr %37, ptr %36, align 8
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %20, i32 0, i32 5
+  %38 = load ptr, ptr %16, align 8
+  store ptr %38, ptr %37, align 8
   ret void
 
-38:                                               ; preds = %8
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %8
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %17, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %18, align 4
-  br label %51
-
-42:                                               ; preds = %25
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %17, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %18, align 4
-  br label %50
-
-46:                                               ; preds = %28
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %17, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %18, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
-  br label %50
-
-50:                                               ; preds = %46, %42
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  br label %51
-
-51:                                               ; preds = %50, %38
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #3
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %17, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %18, align 4
   br label %52
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %17, align 8
-  %54 = load i32, ptr %18, align 4
-  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
-  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
-  resume { ptr, i32 } %56
+43:                                               ; preds = %26
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %17, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %18, align 4
+  br label %51
+
+47:                                               ; preds = %29
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %17, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %18, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  br label %51
+
+51:                                               ; preds = %47, %43
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  br label %52
+
+52:                                               ; preds = %51, %39
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #3
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %17, align 8
+  %55 = load i32, ptr %18, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26298,13 +26306,14 @@ define linkonce_odr void @_ZN7jsonnet8internal8FunctionD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal8FunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal8FunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::Function", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -27014,10 +27023,11 @@ define linkonce_odr void @_ZN7jsonnet8internal6ImportC2ERKNS0_13LocationRangeERK
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ImportE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Import", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ImportE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Import", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -27054,10 +27064,11 @@ define linkonce_odr void @_ZN7jsonnet8internal9ImportstrC2ERKNS0_13LocationRange
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal9ImportstrE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Importstr", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal9ImportstrE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Importstr", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -27094,10 +27105,11 @@ define linkonce_odr void @_ZN7jsonnet8internal9ImportbinC2ERKNS0_13LocationRange
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal9ImportbinE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Importbin", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal9ImportbinE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Importbin", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -28762,34 +28774,35 @@ define linkonce_odr void @_ZN7jsonnet8internal5LocalC2ERKNS0_13LocationRangeERKS
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 22, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5LocalE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %13, i32 0, i32 1
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %21
+  %16 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5LocalE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %13, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %13, i32 0, i32 1
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %22
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %13, i32 0, i32 2
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %13, i32 0, i32 2
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
   ret void
 
-21:                                               ; preds = %5
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %5
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %11, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %12, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %11, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %12, align 4
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %13) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %11, align 8
-  %27 = load i32, ptr %12, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %11, align 8
+  %28 = load i32, ptr %12, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28872,9 +28885,10 @@ define linkonce_odr void @_ZN7jsonnet8internal5LocalD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5LocalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5LocalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Local", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -33192,13 +33206,14 @@ define linkonce_odr void @_ZN7jsonnet8internal5UnaryC2ERKNS0_13LocationRangeERKS
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5UnaryE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::Unary", ptr %11, i32 0, i32 1
-  %15 = load i32, ptr %9, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::Unary", ptr %11, i32 0, i32 2
-  %17 = load ptr, ptr %10, align 8
-  store ptr %17, ptr %16, align 8
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5UnaryE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::Unary", ptr %11, i32 0, i32 1
+  %16 = load i32, ptr %9, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::Unary", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %10, align 8
+  store ptr %18, ptr %17, align 8
   ret void
 }
 
@@ -34340,64 +34355,65 @@ define linkonce_odr void @_ZN7jsonnet8internal6ObjectC2ERKNS0_13LocationRangeERK
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 23, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ObjectE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %33
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ObjectE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %22 unwind label %34
 
-21:                                               ; preds = %6
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 2
-  %23 = load i8, ptr %11, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %22, align 8
-  %26 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 3
-  %27 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %28 unwind label %37
+22:                                               ; preds = %6
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 2
+  %24 = load i8, ptr %11, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %23, align 8
+  %27 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %16, i32 0, i32 3
+  %28 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %29 unwind label %38
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %10, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  %31 = icmp ugt i64 %30, 0
-  br i1 %31, label %32, label %41
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %10, align 8
+  %31 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  %32 = icmp ugt i64 %31, 0
+  br i1 %32, label %33, label %42
 
-32:                                               ; preds = %28
-  br label %41
-
-33:                                               ; preds = %6
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %13, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %14, align 4
+33:                                               ; preds = %29
   br label %42
 
-37:                                               ; preds = %21
-  %38 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %13, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %14, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  br label %42
-
-41:                                               ; preds = %32, %28
-  ret void
-
-42:                                               ; preds = %37, %33
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %16) #3
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %13, align 8
-  %45 = load i32, ptr %14, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+38:                                               ; preds = %22
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  br label %43
+
+42:                                               ; preds = %33, %29
+  ret void
+
+43:                                               ; preds = %38, %34
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %16) #3
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %13, align 8
+  %46 = load i32, ptr %14, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -34498,11 +34514,12 @@ define linkonce_odr void @_ZN7jsonnet8internal6ObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -35415,74 +35432,75 @@ define linkonce_odr void @_ZN7jsonnet8internal19ObjectComprehensionC2ERKNS0_13Lo
   %19 = load ptr, ptr %9, align 8
   %20 = load ptr, ptr %10, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(64) %19, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(24) %20)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %21 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 1
-  %22 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %34
+  %21 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %18, align 8
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 1
+  %23 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %35
 
-23:                                               ; preds = %7
-  %24 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 2
-  %25 = load i8, ptr %12, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = zext i1 %26 to i8
-  store i8 %27, ptr %24, align 8
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 3
-  %29 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %30 unwind label %38
+24:                                               ; preds = %7
+  %25 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 2
+  %26 = load i8, ptr %12, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = zext i1 %27 to i8
+  store i8 %28, ptr %25, align 8
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 3
+  %30 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %31 unwind label %39
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 4
-  %32 = load ptr, ptr %14, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %33 unwind label %42
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %18, i32 0, i32 4
+  %33 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %34 unwind label %43
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   ret void
 
-34:                                               ; preds = %7
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %7
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %15, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %16, align 4
-  br label %47
-
-38:                                               ; preds = %23
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %15, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %16, align 4
-  br label %46
-
-42:                                               ; preds = %30
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %15, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %16, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  br label %46
-
-46:                                               ; preds = %42, %38
-  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  br label %47
-
-47:                                               ; preds = %46, %34
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %18) #3
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %15, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %16, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %15, align 8
-  %50 = load i32, ptr %16, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+39:                                               ; preds = %24
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %15, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %16, align 4
+  br label %47
+
+43:                                               ; preds = %31
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %15, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %16, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  br label %48
+
+48:                                               ; preds = %47, %35
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %18) #3
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %15, align 8
+  %51 = load i32, ptr %16, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -35565,13 +35583,14 @@ define linkonce_odr void @_ZN7jsonnet8internal19ObjectComprehensionD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::ObjectComprehension", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -36398,72 +36417,73 @@ define linkonce_odr void @_ZN7jsonnet8internal13LiteralStringC2ERKNS0_13Location
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 1
-  %21 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %22 unwind label %31
+  %20 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 1
+  %22 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %23 unwind label %32
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 2
-  %24 = load i32, ptr %12, align 4
-  store i32 %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 3
-  %26 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %27 unwind label %35
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 2
+  %25 = load i32, ptr %12, align 4
+  store i32 %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 3
+  %27 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %28 unwind label %36
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 4
-  %29 = load ptr, ptr %14, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %30 unwind label %39
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %17, i32 0, i32 4
+  %30 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %31 unwind label %40
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   ret void
 
-31:                                               ; preds = %7
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %7
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %15, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %16, align 4
-  br label %44
-
-35:                                               ; preds = %22
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %15, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %16, align 4
-  br label %43
-
-39:                                               ; preds = %27
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %15, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %16, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
-  br label %43
-
-43:                                               ; preds = %39, %35
-  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %44
-
-44:                                               ; preds = %43, %31
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %15, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %16, align 4
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %15, align 8
-  %47 = load i32, ptr %16, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+36:                                               ; preds = %23
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %15, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %16, align 4
+  br label %44
+
+40:                                               ; preds = %28
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %15, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  br label %45
+
+45:                                               ; preds = %44, %32
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %15, align 8
+  %48 = load i32, ptr %16, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -36471,13 +36491,14 @@ define linkonce_odr void @_ZN7jsonnet8internal13LiteralStringD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::LiteralString", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -39759,55 +39780,56 @@ define linkonce_odr void @_ZN7jsonnet8internal5ArrayC2ERKNS0_13LocationRangeERKS
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ArrayE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %29
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ArrayE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %22 unwind label %30
 
-21:                                               ; preds = %6
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 2
-  %23 = load i8, ptr %11, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %22, align 8
-  %26 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 3
-  %27 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %28 unwind label %33
+22:                                               ; preds = %6
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 2
+  %24 = load i8, ptr %11, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %23, align 8
+  %27 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %16, i32 0, i32 3
+  %28 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %29 unwind label %34
 
-28:                                               ; preds = %21
+29:                                               ; preds = %22
   ret void
 
-29:                                               ; preds = %6
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %6
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %13, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %14, align 4
-  br label %37
-
-33:                                               ; preds = %21
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %13, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %14, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %16) #3
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %13, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %14, align 4
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8
-  %40 = load i32, ptr %14, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+34:                                               ; preds = %22
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  br label %38
+
+38:                                               ; preds = %34, %30
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %16) #3
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %13, align 8
+  %41 = load i32, ptr %14, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -39890,11 +39912,12 @@ define linkonce_odr void @_ZN7jsonnet8internal5ArrayD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ArrayE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ArrayE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Array", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -41861,77 +41884,78 @@ define linkonce_odr void @_ZN7jsonnet8internal18ArrayComprehensionC2ERKNS0_13Loc
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %11, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %22)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 1
-  %24 = load ptr, ptr %12, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 2
-  %26 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %27 unwind label %38
+  %23 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 1
+  %25 = load ptr, ptr %12, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 2
+  %27 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %28 unwind label %39
 
-27:                                               ; preds = %8
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 3
-  %29 = load i8, ptr %14, align 1
-  %30 = trunc i8 %29 to i1
-  %31 = zext i1 %30 to i8
-  store i8 %31, ptr %28, align 8
-  %32 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 4
-  %33 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33)
-          to label %34 unwind label %42
+28:                                               ; preds = %8
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 3
+  %30 = load i8, ptr %14, align 1
+  %31 = trunc i8 %30 to i1
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %29, align 8
+  %33 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 4
+  %34 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
+          to label %35 unwind label %43
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 5
-  %36 = load ptr, ptr %16, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
-          to label %37 unwind label %46
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %20, i32 0, i32 5
+  %37 = load ptr, ptr %16, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %37)
+          to label %38 unwind label %47
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   ret void
 
-38:                                               ; preds = %8
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %8
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %17, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %18, align 4
-  br label %51
-
-42:                                               ; preds = %27
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %17, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %18, align 4
-  br label %50
-
-46:                                               ; preds = %34
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %17, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %18, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
-  br label %50
-
-50:                                               ; preds = %46, %42
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %51
-
-51:                                               ; preds = %50, %38
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #3
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %17, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %18, align 4
   br label %52
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %17, align 8
-  %54 = load i32, ptr %18, align 4
-  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
-  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
-  resume { ptr, i32 } %56
+43:                                               ; preds = %28
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %17, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %18, align 4
+  br label %51
+
+47:                                               ; preds = %35
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %17, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %18, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
+  br label %51
+
+51:                                               ; preds = %47, %43
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+  br label %52
+
+52:                                               ; preds = %51, %39
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #3
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %17, align 8
+  %55 = load i32, ptr %18, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41939,13 +41963,14 @@ define linkonce_odr void @_ZN7jsonnet8internal18ArrayComprehensionD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::ArrayComprehension", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -42647,34 +42672,35 @@ define linkonce_odr void @_ZN7jsonnet8internal6ParensC2ERKNS0_13LocationRangeERK
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ParensE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %13, i32 0, i32 1
-  %17 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %20 unwind label %21
-
-20:                                               ; preds = %5
-  ret void
+  %16 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ParensE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %13, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %13, i32 0, i32 1
+  %18 = load ptr, ptr %9, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %13, i32 0, i32 2
+  %20 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+          to label %21 unwind label %22
 
 21:                                               ; preds = %5
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %11, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %12, align 4
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %13) #3
-  br label %25
+  ret void
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %11, align 8
-  %27 = load i32, ptr %12, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+22:                                               ; preds = %5
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %11, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %12, align 4
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %13) #3
+  br label %26
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %11, align 8
+  %28 = load i32, ptr %12, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -42682,9 +42708,10 @@ define linkonce_odr void @_ZN7jsonnet8internal6ParensD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ParensE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6ParensE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Parens", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -42715,36 +42742,37 @@ define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberC2ERKNS0_13Location
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %17 = call double @strtod(ptr noundef %16, ptr noundef null) #3
-  store double %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %11, i32 0, i32 2
-  %19 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %20 unwind label %21
-
-20:                                               ; preds = %4
-  ret void
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  %18 = call double @strtod(ptr noundef %17, ptr noundef null) #3
+  store double %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %11, i32 0, i32 2
+  %20 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %21 unwind label %22
 
 21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %9, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %10, align 4
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #3
-  br label %25
+  ret void
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #3
+  br label %26
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: nounwind
@@ -42755,9 +42783,10 @@ define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::LiteralNumber", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -42787,12 +42816,13 @@ define linkonce_odr void @_ZN7jsonnet8internal14LiteralBooleanC2ERKNS0_13Locatio
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 18, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal14LiteralBooleanE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.jsonnet::internal::LiteralBoolean", ptr %10, i32 0, i32 1
-  %14 = load i8, ptr %8, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %13, align 8
+  %13 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal14LiteralBooleanE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"struct.jsonnet::internal::LiteralBoolean", ptr %10, i32 0, i32 1
+  %15 = load i8, ptr %8, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %14, align 8
   ret void
 }
 
@@ -42827,7 +42857,8 @@ define linkonce_odr void @_ZN7jsonnet8internal11LiteralNullC2ERKNS0_13LocationRa
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 19, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11LiteralNullE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal11LiteralNullE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -42862,7 +42893,8 @@ define linkonce_odr void @_ZN7jsonnet8internal6DollarC2ERKNS0_13LocationRangeERK
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6DollarE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6DollarE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -42899,10 +42931,11 @@ define linkonce_odr void @_ZN7jsonnet8internal3VarC2ERKNS0_13LocationRangeERKSt6
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3VarE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Var", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3VarE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Var", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -42937,7 +42970,8 @@ define linkonce_odr void @_ZN7jsonnet8internal4SelfC2ERKNS0_13LocationRangeERKSt
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal4SelfE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal4SelfE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -42982,56 +43016,57 @@ define linkonce_odr void @_ZN7jsonnet8internal10SuperIndexC2ERKNS0_13LocationRan
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 1
-  %21 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %22 unwind label %30
+  %20 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 1
+  %22 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %23 unwind label %31
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 2
-  %24 = load ptr, ptr %12, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 3
-  %26 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %27 unwind label %34
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 2
+  %25 = load ptr, ptr %12, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 3
+  %27 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %28 unwind label %35
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 4
-  %29 = load ptr, ptr %14, align 8
-  store ptr %29, ptr %28, align 8
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %17, i32 0, i32 4
+  %30 = load ptr, ptr %14, align 8
+  store ptr %30, ptr %29, align 8
   ret void
 
-30:                                               ; preds = %7
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %7
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %15, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %16, align 4
-  br label %38
-
-34:                                               ; preds = %22
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %15, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %16, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %15, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %16, align 4
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %15, align 8
-  %41 = load i32, ptr %16, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+35:                                               ; preds = %23
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %15, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %16, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  br label %39
+
+39:                                               ; preds = %35, %31
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %15, align 8
+  %42 = load i32, ptr %16, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43039,11 +43074,12 @@ define linkonce_odr void @_ZN7jsonnet8internal10SuperIndexD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::SuperIndex", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -44043,107 +44079,108 @@ define linkonce_odr void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKS
   %29 = load ptr, ptr %14, align 8
   %30 = load ptr, ptr %15, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(64) %29, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(24) %30)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2), ptr %28, align 8
-  %31 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 1
-  %32 = load ptr, ptr %16, align 8
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 2
-  %34 = load ptr, ptr %17, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %35 unwind label %56
+  %31 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %28, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 1
+  %33 = load ptr, ptr %16, align 8
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 2
+  %35 = load ptr, ptr %17, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %36 unwind label %57
 
-35:                                               ; preds = %12
-  %36 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 3
-  %37 = load i8, ptr %18, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = zext i1 %38 to i8
-  store i8 %39, ptr %36, align 8
-  %40 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 4
-  %41 = load ptr, ptr %19, align 8
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 5
-  %43 = load ptr, ptr %20, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %43)
-          to label %44 unwind label %60
+36:                                               ; preds = %12
+  %37 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 3
+  %38 = load i8, ptr %18, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %37, align 8
+  %41 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 4
+  %42 = load ptr, ptr %19, align 8
+  store ptr %42, ptr %41, align 8
+  %43 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 5
+  %44 = load ptr, ptr %20, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %61
 
-44:                                               ; preds = %35
-  %45 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 6
-  %46 = load ptr, ptr %21, align 8
-  store ptr %46, ptr %45, align 8
-  %47 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 7
-  %48 = load ptr, ptr %22, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48)
-          to label %49 unwind label %64
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 6
+  %47 = load ptr, ptr %21, align 8
+  store ptr %47, ptr %46, align 8
+  %48 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 7
+  %49 = load ptr, ptr %22, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %49)
+          to label %50 unwind label %65
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 8
-  %51 = load ptr, ptr %23, align 8
-  store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 9
-  %53 = load ptr, ptr %24, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53)
-          to label %54 unwind label %68
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 8
+  %52 = load ptr, ptr %23, align 8
+  store ptr %52, ptr %51, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 9
+  %54 = load ptr, ptr %24, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54)
+          to label %55 unwind label %69
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 10
-  store ptr null, ptr %55, align 8
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %28, i32 0, i32 10
+  store ptr null, ptr %56, align 8
   ret void
 
-56:                                               ; preds = %12
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %12
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %25, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %26, align 4
-  br label %74
-
-60:                                               ; preds = %35
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %25, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %26, align 4
-  br label %73
-
-64:                                               ; preds = %44
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %25, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %26, align 4
-  br label %72
-
-68:                                               ; preds = %49
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %25, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %26, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #3
-  br label %72
-
-72:                                               ; preds = %68, %64
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #3
-  br label %73
-
-73:                                               ; preds = %72, %60
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  br label %74
-
-74:                                               ; preds = %73, %56
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %28) #3
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %25, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %26, align 4
   br label %75
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %25, align 8
-  %77 = load i32, ptr %26, align 4
-  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+61:                                               ; preds = %36
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %25, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %26, align 4
+  br label %74
+
+65:                                               ; preds = %45
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %25, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %26, align 4
+  br label %73
+
+69:                                               ; preds = %50
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %25, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %26, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #3
+  br label %73
+
+73:                                               ; preds = %69, %65
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #3
+  br label %74
+
+74:                                               ; preds = %73, %61
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
+  br label %75
+
+75:                                               ; preds = %74, %57
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %28) #3
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %25, align 8
+  %78 = load i32, ptr %26, align 4
+  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44151,15 +44188,16 @@ define linkonce_odr void @_ZN7jsonnet8internal5IndexD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 9
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 2
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -44196,70 +44234,71 @@ define linkonce_odr void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKS
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 1
-  %21 = load ptr, ptr %11, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 2
-  %23 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %24 unwind label %36
+  %20 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5IndexE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 1
+  %22 = load ptr, ptr %11, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 2
+  %24 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %25 unwind label %37
 
-24:                                               ; preds = %7
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 3
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 4
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 5
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 6
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 7
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  %30 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 8
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 9
-  %32 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %33 unwind label %40
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 3
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 4
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 5
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 6
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 7
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  %31 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 9
+  %33 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %34 unwind label %41
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 10
-  %35 = load ptr, ptr %14, align 8
-  store ptr %35, ptr %34, align 8
+34:                                               ; preds = %25
+  %35 = getelementptr inbounds %"struct.jsonnet::internal::Index", ptr %17, i32 0, i32 10
+  %36 = load ptr, ptr %14, align 8
+  store ptr %36, ptr %35, align 8
   ret void
 
-36:                                               ; preds = %7
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %7
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %15, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %16, align 4
-  br label %44
-
-40:                                               ; preds = %24
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %15, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %16, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
-  br label %44
-
-44:                                               ; preds = %40, %36
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %15, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %16, align 4
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %15, align 8
-  %47 = load i32, ptr %16, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+41:                                               ; preds = %25
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %15, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %16, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  br label %45
+
+45:                                               ; preds = %41, %37
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %15, align 8
+  %48 = load i32, ptr %16, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44292,101 +44331,102 @@ define linkonce_odr void @_ZN7jsonnet8internal5ApplyC2ERKNS0_13LocationRangeERKS
   %26 = load ptr, ptr %12, align 8
   %27 = load ptr, ptr %13, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(64) %26, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %27)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ApplyE, i32 0, i32 0, i32 2), ptr %25, align 8
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 1
-  %29 = load ptr, ptr %14, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 2
-  %31 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31)
-          to label %32 unwind label %50
+  %28 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ApplyE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %25, align 8
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 1
+  %30 = load ptr, ptr %14, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 2
+  %32 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32)
+          to label %33 unwind label %51
 
-32:                                               ; preds = %10
-  %33 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 3
-  %34 = load ptr, ptr %16, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %35 unwind label %54
+33:                                               ; preds = %10
+  %34 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 3
+  %35 = load ptr, ptr %16, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %36 unwind label %55
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 4
-  %37 = load i8, ptr %17, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = zext i1 %38 to i8
-  store i8 %39, ptr %36, align 8
-  %40 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 6
-  %41 = load ptr, ptr %18, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %41)
-          to label %42 unwind label %58
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 4
+  %38 = load i8, ptr %17, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %37, align 8
+  %41 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 6
+  %42 = load ptr, ptr %18, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
+          to label %43 unwind label %59
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 7
-  %44 = load ptr, ptr %19, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
-          to label %45 unwind label %62
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 7
+  %45 = load ptr, ptr %19, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %45)
+          to label %46 unwind label %63
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 8
-  %47 = load i8, ptr %20, align 1
-  %48 = trunc i8 %47 to i1
-  %49 = zext i1 %48 to i8
-  store i8 %49, ptr %46, align 8
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %25, i32 0, i32 8
+  %48 = load i8, ptr %20, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = zext i1 %49 to i8
+  store i8 %50, ptr %47, align 8
   ret void
 
-50:                                               ; preds = %10
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %10
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %21, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %22, align 4
-  br label %68
-
-54:                                               ; preds = %32
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %21, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %22, align 4
-  br label %67
-
-58:                                               ; preds = %35
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %21, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %22, align 4
-  br label %66
-
-62:                                               ; preds = %42
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %21, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %22, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
-  br label %66
-
-66:                                               ; preds = %62, %58
-  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  br label %67
-
-67:                                               ; preds = %66, %54
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  br label %68
-
-68:                                               ; preds = %67, %50
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %25) #3
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %21, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %22, align 4
   br label %69
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %21, align 8
-  %71 = load i32, ptr %22, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+55:                                               ; preds = %33
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %21, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %22, align 4
+  br label %68
+
+59:                                               ; preds = %36
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %21, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %22, align 4
+  br label %67
+
+63:                                               ; preds = %43
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %21, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %22, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  br label %67
+
+67:                                               ; preds = %63, %59
+  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
+  br label %68
+
+68:                                               ; preds = %67, %55
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  br label %69
+
+69:                                               ; preds = %68, %51
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %25) #3
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %21, align 8
+  %72 = load i32, ptr %22, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  resume { ptr, i32 } %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44394,15 +44434,16 @@ define linkonce_odr void @_ZN7jsonnet8internal5ApplyD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ApplyE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 6
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal5ApplyE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::Apply", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -44433,13 +44474,14 @@ define linkonce_odr void @_ZN7jsonnet8internal10ApplyBraceC2ERKNS0_13LocationRan
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10ApplyBraceE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::ApplyBrace", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %9, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::ApplyBrace", ptr %11, i32 0, i32 2
-  %17 = load ptr, ptr %10, align 8
-  store ptr %17, ptr %16, align 8
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal10ApplyBraceE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::ApplyBrace", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::ApplyBrace", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %10, align 8
+  store ptr %18, ptr %17, align 8
   ret void
 }
 
@@ -44482,53 +44524,54 @@ define linkonce_odr void @_ZN7jsonnet8internal7InSuperC2ERKNS0_13LocationRangeER
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %9, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(64) %16, i32 noundef 17, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal7InSuperE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %18 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 1
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 2
-  %21 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %22 unwind label %26
+  %18 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal7InSuperE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 1
+  %20 = load ptr, ptr %10, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 2
+  %22 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %23 unwind label %27
 
-22:                                               ; preds = %6
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 3
-  %24 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %25 unwind label %30
+23:                                               ; preds = %6
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %15, i32 0, i32 3
+  %25 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %26 unwind label %31
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   ret void
 
-26:                                               ; preds = %6
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %6
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %13, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %14, align 4
-  br label %34
-
-30:                                               ; preds = %22
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %13, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %14, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  br label %34
-
-34:                                               ; preds = %30, %26
-  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15) #3
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %13, align 8
-  %37 = load i32, ptr %14, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+31:                                               ; preds = %23
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %13, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %14, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15) #3
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8
+  %38 = load i32, ptr %14, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44536,11 +44579,12 @@ define linkonce_odr void @_ZN7jsonnet8internal7InSuperD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal7InSuperE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal7InSuperE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::InSuper", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -44577,40 +44621,41 @@ define linkonce_odr void @_ZN7jsonnet8internal6BinaryC2ERKNS0_13LocationRangeERK
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6BinaryE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 1
-  %21 = load ptr, ptr %11, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 2
-  %23 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %24 unwind label %29
+  %20 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6BinaryE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 1
+  %22 = load ptr, ptr %11, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 2
+  %24 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %25 unwind label %30
 
-24:                                               ; preds = %7
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 3
-  %26 = load i32, ptr %13, align 4
-  store i32 %26, ptr %25, align 8
-  %27 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 4
-  %28 = load ptr, ptr %14, align 8
-  store ptr %28, ptr %27, align 8
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 3
+  %27 = load i32, ptr %13, align 4
+  store i32 %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %17, i32 0, i32 4
+  %29 = load ptr, ptr %14, align 8
+  store ptr %29, ptr %28, align 8
   ret void
 
-29:                                               ; preds = %7
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %7
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %15, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %16, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %15, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %16, align 4
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #3
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %15, align 8
-  %35 = load i32, ptr %16, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %15, align 8
+  %36 = load i32, ptr %16, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44618,9 +44663,10 @@ define linkonce_odr void @_ZN7jsonnet8internal6BinaryD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6BinaryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal6BinaryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Binary", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }

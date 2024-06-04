@@ -231,129 +231,139 @@ define void @_ZN23CapturePreferencesFrameC2EP7QWidget(ptr noundef nonnull align 
   %12 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 0, i32 2), ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 1, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #12
-          to label %17 unwind label %74
-
-17:                                               ; preds = %2
+  %14 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %14, ptr %10, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 1, i32 2
   store ptr %16, ptr %15, align 8
-  %18 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  invoke void @_ZN26Ui_CapturePreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef %10)
-          to label %20 unwind label %74
+  %17 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #12
+          to label %19 unwind label %84
 
-20:                                               ; preds = %17
-  %21 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 55))
-          to label %22 unwind label %74
+19:                                               ; preds = %2
+  store ptr %18, ptr %17, align 8
+  %20 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  invoke void @_ZN26Ui_CapturePreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef %10)
+          to label %22 unwind label %84
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 2
-  store ptr %21, ptr %23, align 8
-  %24 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 64))
-          to label %25 unwind label %74
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 55
+  %24 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %23)
+          to label %25 unwind label %84
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 3
+  %26 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 2
   store ptr %24, ptr %26, align 8
-  %27 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 65))
-          to label %28 unwind label %74
+  %27 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 64
+  %28 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %27)
+          to label %29 unwind label %84
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 4
-  store ptr %27, ptr %29, align 8
-  %30 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 66))
-          to label %31 unwind label %74
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 3
+  store ptr %28, ptr %30, align 8
+  %31 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 65
+  %32 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %31)
+          to label %33 unwind label %84
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 5
-  store ptr %30, ptr %32, align 8
-  %33 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 67))
-          to label %34 unwind label %74
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 4
+  store ptr %32, ptr %34, align 8
+  %35 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 66
+  %36 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %35)
+          to label %37 unwind label %84
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 6
-  store ptr %33, ptr %35, align 8
-  %36 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 68))
-          to label %37 unwind label %74
-
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 7
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 5
   store ptr %36, ptr %38, align 8
-  %39 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 69))
-          to label %40 unwind label %74
+  %39 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 67
+  %40 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %39)
+          to label %41 unwind label %84
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 8
-  store ptr %39, ptr %41, align 8
-  %42 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 70))
-          to label %43 unwind label %74
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 6
+  store ptr %40, ptr %42, align 8
+  %43 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 68
+  %44 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %43)
+          to label %45 unwind label %84
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 9
-  store ptr %42, ptr %44, align 8
-  %45 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %46 unwind label %74
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 7
+  store ptr %44, ptr %46, align 8
+  %47 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 69
+  %48 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %47)
+          to label %49 unwind label %84
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 28
-  %49 = load ptr, ptr %48, align 8
-  %50 = invoke noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 75, ptr noundef null, ptr noundef null)
-          to label %51 unwind label %74
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 8
+  store ptr %48, ptr %50, align 8
+  %51 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 70
+  %52 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %51)
+          to label %53 unwind label %84
 
-51:                                               ; preds = %46
-  store i32 %50, ptr %8, align 4
-  %52 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %class.Ui_CapturePreferencesFrame, ptr %53, i32 0, i32 3
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 7
-  %58 = load ptr, ptr %57, align 8
-  %59 = invoke { i64, i64 } %58(ptr noundef nonnull align 8 dereferenceable(40) %55)
-          to label %60 unwind label %74
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 9
+  store ptr %52, ptr %54, align 8
+  %55 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+          to label %56 unwind label %84
 
-60:                                               ; preds = %51
-  %61 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %62 = extractvalue { i64, i64 } %59, 0
-  store i64 %62, ptr %61, align 4
-  %63 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
-  %64 = extractvalue { i64, i64 } %59, 1
-  store i64 %64, ptr %63, align 4
-  %65 = load i32, ptr %8, align 4
-  call void @_ZN5QRect8setWidthEi(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef %65) #11
-  %66 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %class.Ui_CapturePreferencesFrame, ptr %67, i32 0, i32 3
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 6
-  %72 = load ptr, ptr %71, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 4 dereferenceable(16) %9)
-          to label %73 unwind label %74
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %55, align 8
+  %58 = getelementptr inbounds ptr, ptr %57, i64 28
+  %59 = load ptr, ptr %58, align 8
+  %60 = invoke noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef 75, ptr noundef null, ptr noundef null)
+          to label %61 unwind label %84
 
-73:                                               ; preds = %60
+61:                                               ; preds = %56
+  store i32 %60, ptr %8, align 4
+  %62 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %class.Ui_CapturePreferencesFrame, ptr %63, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds ptr, ptr %66, i64 7
+  %68 = load ptr, ptr %67, align 8
+  %69 = invoke { i64, i64 } %68(ptr noundef nonnull align 8 dereferenceable(40) %65)
+          to label %70 unwind label %84
+
+70:                                               ; preds = %61
+  %71 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %72 = extractvalue { i64, i64 } %69, 0
+  store i64 %72, ptr %71, align 4
+  %73 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %74 = extractvalue { i64, i64 } %69, 1
+  store i64 %74, ptr %73, align 4
+  %75 = load i32, ptr %8, align 4
+  call void @_ZN5QRect8setWidthEi(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef %75) #11
+  %76 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %10, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %class.Ui_CapturePreferencesFrame, ptr %77, i32 0, i32 3
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 6
+  %82 = load ptr, ptr %81, align 8
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 4 dereferenceable(16) %9)
+          to label %83 unwind label %84
+
+83:                                               ; preds = %70
   ret void
 
-74:                                               ; preds = %60, %51, %46, %43, %40, %37, %34, %31, %28, %25, %22, %20, %17, %2
-  %75 = landingpad { ptr, i32 }
+84:                                               ; preds = %70, %61, %56, %53, %49, %45, %41, %37, %33, %29, %25, %22, %19, %2
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %6, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %7, align 4
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %6, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %7, align 4
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #11
-  br label %78
+  br label %88
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %7, align 4
-  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
-  resume { ptr, i32 } %82
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr %7, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1224,19 +1234,21 @@ define void @_ZN23CapturePreferencesFrameD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV23CapturePreferencesFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CapturePreferencesFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #13
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #13
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
   ret void
 }
@@ -1779,19 +1791,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.0, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #11
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #11
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #11
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #11
   ret void
 }
 
@@ -2583,9 +2596,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

@@ -855,55 +855,58 @@ declare noalias ptr @g_strconcat(ptr noundef, ...) #2
 ; Function Attrs: nounwind uwtable
 define hidden ptr @get_open_dialog_initial_dir() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 29), align 4
-  switch i32 %2, label %21 [
-    i32 0, label %3
-    i32 1, label %10
+  %2 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 29
+  %3 = load i32, ptr %2, align 4
+  switch i32 %3, label %24 [
+    i32 0, label %4
+    i32 1, label %11
   ]
 
-3:                                                ; preds = %0
-  %4 = call ptr @get_last_open_dir()
-  store ptr %4, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %9
+4:                                                ; preds = %0
+  %5 = call ptr @get_last_open_dir()
+  store ptr %5, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %3
-  %8 = call ptr @get_persdatafile_dir()
-  store ptr %8, ptr %1, align 8
-  br label %9
+8:                                                ; preds = %4
+  %9 = call ptr @get_persdatafile_dir()
+  store ptr %9, ptr %1, align 8
+  br label %10
 
-9:                                                ; preds = %7, %3
-  br label %22
+10:                                               ; preds = %8, %4
+  br label %25
 
-10:                                               ; preds = %0
-  %11 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), align 8
-  %12 = getelementptr i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
-  %14 = sext i8 %13 to i32
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %0
+  %12 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr i8, ptr %13, i64 0
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %21
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), align 8
-  store ptr %17, ptr %1, align 8
-  br label %20
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %1, align 8
+  br label %23
 
-18:                                               ; preds = %10
-  %19 = call ptr @get_persdatafile_dir()
-  store ptr %19, ptr %1, align 8
-  br label %20
+21:                                               ; preds = %11
+  %22 = call ptr @get_persdatafile_dir()
+  store ptr %22, ptr %1, align 8
+  br label %23
 
-20:                                               ; preds = %18, %16
-  br label %22
+23:                                               ; preds = %21, %18
+  br label %25
 
-21:                                               ; preds = %0
+24:                                               ; preds = %0
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.14, i64 noundef 409, ptr noundef @__func__.get_open_dialog_initial_dir, ptr noundef @.str.15) #10
   unreachable
 
-22:                                               ; preds = %20, %9
-  %23 = load ptr, ptr %1, align 8
-  ret ptr %23
+25:                                               ; preds = %23, %10
+  %26 = load ptr, ptr %1, align 8
+  ret ptr %26
 }
 
 declare ptr @get_persdatafile_dir() #2

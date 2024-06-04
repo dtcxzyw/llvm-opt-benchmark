@@ -102,22 +102,23 @@ define zeroext i1 @_ZN12actix_router9regex_set8RegexSet8is_match17h9a81afeda2363
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %13, ptr %15, align 8
   %16 = load i32, ptr @anon.660059735eec9a59f5089b6fb4fbb106.4, align 4, !range !4, !noundef !3
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @anon.660059735eec9a59f5089b6fb4fbb106.4, i64 4), align 4
+  %17 = getelementptr inbounds i8, ptr @anon.660059735eec9a59f5089b6fb4fbb106.4, i64 4
+  %18 = load i32, ptr %17, align 4
   store i32 %16, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %6, i32 0, i32 3
-  store i8 0, ptr %19, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %6, i32 0, i32 3
+  store i8 0, ptr %20, align 8
   store i64 0, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %2, ptr %20, align 8
-  %21 = load i64, ptr %5, align 8, !noundef !3
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !noundef !3
-  call void @_ZN14regex_automata4util6search5Input8set_span17h73fadf1495e1e518E(ptr align 8 %6, i64 %21, i64 %23)
+  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %2, ptr %21, align 8
+  %22 = load i64, ptr %5, align 8, !noundef !3
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = load i64, ptr %23, align 8, !noundef !3
+  call void @_ZN14regex_automata4util6search5Input8set_span17h73fadf1495e1e518E(ptr align 8 %6, i64 %22, i64 %24)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 48, i1 false)
-  %24 = call zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17h8ba4b60398f0920aE(ptr align 8 %0, ptr align 8 %7)
-  ret i1 %24
+  %25 = call zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17h8ba4b60398f0920aE(ptr align 8 %0, ptr align 8 %7)
+  ret i1 %25
 }
 
 ; Function Attrs: nonlazybind uwtable

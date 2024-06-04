@@ -1378,66 +1378,69 @@ define i32 @wmem_strong_hash(ptr noundef %0, i64 noundef %1) #0 {
   %52 = load i32, ptr %6, align 4
   %53 = xor i32 %52, %51
   store i32 %53, ptr %6, align 4
-  %54 = load i8, ptr getelementptr (i8, ptr @postseed, i64 1), align 1
-  %55 = zext i8 %54 to i32
-  %56 = load i32, ptr %6, align 4
-  %57 = add i32 %56, %55
-  store i32 %57, ptr %6, align 4
-  %58 = load i32, ptr %6, align 4
-  %59 = shl i32 %58, 10
-  %60 = load i32, ptr %6, align 4
-  %61 = add i32 %60, %59
-  store i32 %61, ptr %6, align 4
-  %62 = load i32, ptr %6, align 4
-  %63 = lshr i32 %62, 6
-  %64 = load i32, ptr %6, align 4
-  %65 = xor i32 %64, %63
-  store i32 %65, ptr %6, align 4
-  %66 = load i8, ptr getelementptr (i8, ptr @postseed, i64 2), align 2
-  %67 = zext i8 %66 to i32
-  %68 = load i32, ptr %6, align 4
-  %69 = add i32 %68, %67
-  store i32 %69, ptr %6, align 4
+  %54 = getelementptr i8, ptr @postseed, i64 1
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = load i32, ptr %6, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %6, align 4
+  %59 = load i32, ptr %6, align 4
+  %60 = shl i32 %59, 10
+  %61 = load i32, ptr %6, align 4
+  %62 = add i32 %61, %60
+  store i32 %62, ptr %6, align 4
+  %63 = load i32, ptr %6, align 4
+  %64 = lshr i32 %63, 6
+  %65 = load i32, ptr %6, align 4
+  %66 = xor i32 %65, %64
+  store i32 %66, ptr %6, align 4
+  %67 = getelementptr i8, ptr @postseed, i64 2
+  %68 = load i8, ptr %67, align 2
+  %69 = zext i8 %68 to i32
   %70 = load i32, ptr %6, align 4
-  %71 = shl i32 %70, 10
+  %71 = add i32 %70, %69
+  store i32 %71, ptr %6, align 4
   %72 = load i32, ptr %6, align 4
-  %73 = add i32 %72, %71
-  store i32 %73, ptr %6, align 4
+  %73 = shl i32 %72, 10
   %74 = load i32, ptr %6, align 4
-  %75 = lshr i32 %74, 6
+  %75 = add i32 %74, %73
+  store i32 %75, ptr %6, align 4
   %76 = load i32, ptr %6, align 4
-  %77 = xor i32 %76, %75
-  store i32 %77, ptr %6, align 4
-  %78 = load i8, ptr getelementptr (i8, ptr @postseed, i64 3), align 1
-  %79 = zext i8 %78 to i32
-  %80 = load i32, ptr %6, align 4
-  %81 = add i32 %80, %79
-  store i32 %81, ptr %6, align 4
-  %82 = load i32, ptr %6, align 4
-  %83 = shl i32 %82, 10
-  %84 = load i32, ptr %6, align 4
-  %85 = add i32 %84, %83
-  store i32 %85, ptr %6, align 4
-  %86 = load i32, ptr %6, align 4
-  %87 = lshr i32 %86, 6
-  %88 = load i32, ptr %6, align 4
-  %89 = xor i32 %88, %87
-  store i32 %89, ptr %6, align 4
-  %90 = load i32, ptr %6, align 4
-  %91 = shl i32 %90, 3
-  %92 = load i32, ptr %6, align 4
-  %93 = add i32 %92, %91
-  store i32 %93, ptr %6, align 4
-  %94 = load i32, ptr %6, align 4
-  %95 = lshr i32 %94, 11
-  %96 = load i32, ptr %6, align 4
-  %97 = xor i32 %96, %95
-  store i32 %97, ptr %6, align 4
-  %98 = load i32, ptr %6, align 4
+  %77 = lshr i32 %76, 6
+  %78 = load i32, ptr %6, align 4
+  %79 = xor i32 %78, %77
+  store i32 %79, ptr %6, align 4
+  %80 = getelementptr i8, ptr @postseed, i64 3
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = load i32, ptr %6, align 4
+  %84 = add i32 %83, %82
+  store i32 %84, ptr %6, align 4
+  %85 = load i32, ptr %6, align 4
+  %86 = shl i32 %85, 10
+  %87 = load i32, ptr %6, align 4
+  %88 = add i32 %87, %86
+  store i32 %88, ptr %6, align 4
+  %89 = load i32, ptr %6, align 4
+  %90 = lshr i32 %89, 6
+  %91 = load i32, ptr %6, align 4
+  %92 = xor i32 %91, %90
+  store i32 %92, ptr %6, align 4
+  %93 = load i32, ptr %6, align 4
+  %94 = shl i32 %93, 3
+  %95 = load i32, ptr %6, align 4
+  %96 = add i32 %95, %94
+  store i32 %96, ptr %6, align 4
+  %97 = load i32, ptr %6, align 4
+  %98 = lshr i32 %97, 11
   %99 = load i32, ptr %6, align 4
-  %100 = shl i32 %99, 15
-  %101 = add i32 %98, %100
-  ret i32 %101
+  %100 = xor i32 %99, %98
+  store i32 %100, ptr %6, align 4
+  %101 = load i32, ptr %6, align 4
+  %102 = load i32, ptr %6, align 4
+  %103 = shl i32 %102, 15
+  %104 = add i32 %101, %103
+  ret i32 %104
 }
 
 ; Function Attrs: nounwind uwtable

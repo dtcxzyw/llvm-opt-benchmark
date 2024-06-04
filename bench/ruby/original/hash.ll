@@ -2887,38 +2887,39 @@ define internal zeroext i1 @rb_hash_default_unredefined(i64 noundef %0) #0 {
   %12 = zext i1 %11 to i32
   %13 = sext i32 %12 to i64
   %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %27
+  br i1 %14, label %15, label %28
 
 15:                                               ; preds = %1
-  %16 = load i16, ptr getelementptr inbounds ([32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 31), align 2
-  %17 = sext i16 %16 to i32
-  %18 = and i32 %17, 16
-  %19 = icmp eq i32 %18, 0
-  %20 = xor i1 %19, true
+  %16 = getelementptr inbounds [32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 31
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = and i32 %18, 16
+  %20 = icmp eq i32 %19, 0
   %21 = xor i1 %20, true
-  %22 = zext i1 %21 to i32
-  %23 = sext i32 %22 to i64
-  %24 = icmp ne i64 %23, 0
-  %25 = xor i1 %24, true
+  %22 = xor i1 %21, true
+  %23 = zext i1 %22 to i32
+  %24 = sext i32 %23 to i64
+  %25 = icmp ne i64 %24, 0
   %26 = xor i1 %25, true
-  store i1 %26, ptr %2, align 1
-  br label %36
+  %27 = xor i1 %26, true
+  store i1 %27, ptr %2, align 1
+  br label %37
 
-27:                                               ; preds = %1
-  %28 = load i64, ptr %4, align 8
-  %29 = call i32 @rb_method_basic_definition_p(i64 noundef %28, i64 noundef 3809)
-  %30 = icmp ne i32 %29, 0
-  %31 = xor i1 %30, true
+28:                                               ; preds = %1
+  %29 = load i64, ptr %4, align 8
+  %30 = call i32 @rb_method_basic_definition_p(i64 noundef %29, i64 noundef 3809)
+  %31 = icmp ne i32 %30, 0
   %32 = xor i1 %31, true
-  %33 = zext i1 %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = icmp ne i64 %34, 0
-  store i1 %35, ptr %2, align 1
-  br label %36
+  %33 = xor i1 %32, true
+  %34 = zext i1 %33 to i32
+  %35 = sext i32 %34 to i64
+  %36 = icmp ne i64 %35, 0
+  store i1 %36, ptr %2, align 1
+  br label %37
 
-36:                                               ; preds = %27, %15
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+37:                                               ; preds = %28, %15
+  %38 = load i1, ptr %2, align 1
+  ret i1 %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6242,25 +6243,26 @@ define internal i64 @rb_hash_hash(i64 noundef %0) #0 {
   %8 = call i64 @rb_hash_start(i64 noundef %7)
   store i64 %8, ptr %4, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = call i64 @rb_st_hash_uint(i64 noundef %9, i64 noundef ptrtoint (ptr @rb_hash_hash to i64)) #18
-  store i64 %10, ptr %4, align 8
-  %11 = load i64, ptr %3, align 8
-  %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %16
+  %10 = ptrtoint ptr @rb_hash_hash to i64
+  %11 = call i64 @rb_st_hash_uint(i64 noundef %9, i64 noundef %10) #18
+  store i64 %11, ptr %4, align 8
+  %12 = load i64, ptr %3, align 8
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %1
-  %14 = load i64, ptr %2, align 8
-  %15 = ptrtoint ptr %4 to i64
-  call void @rb_hash_foreach(i64 noundef %14, ptr noundef @hash_i, i64 noundef %15)
-  br label %16
+14:                                               ; preds = %1
+  %15 = load i64, ptr %2, align 8
+  %16 = ptrtoint ptr %4 to i64
+  call void @rb_hash_foreach(i64 noundef %15, ptr noundef @hash_i, i64 noundef %16)
+  br label %17
 
-16:                                               ; preds = %13, %1
-  %17 = load i64, ptr %4, align 8
-  %18 = call i64 @rb_st_hash_end(i64 noundef %17) #18
-  store i64 %18, ptr %4, align 8
-  %19 = load i64, ptr %4, align 8
-  %20 = call i64 @RB_ST2FIX(i64 noundef %19) #18
-  ret i64 %20
+17:                                               ; preds = %14, %1
+  %18 = load i64, ptr %4, align 8
+  %19 = call i64 @rb_st_hash_end(i64 noundef %18) #18
+  store i64 %19, ptr %4, align 8
+  %20 = load i64, ptr %4, align 8
+  %21 = call i64 @RB_ST2FIX(i64 noundef %20) #18
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

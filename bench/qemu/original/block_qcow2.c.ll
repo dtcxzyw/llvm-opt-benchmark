@@ -1780,13 +1780,13 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
 
 if.end:                                           ; preds = %lor.lhs.false, %land.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %10 = load ptr, ptr %message_format.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call6 = call noalias ptr @g_strdup_vprintf(ptr noundef %10, ptr noundef %arraydecay5)
   store ptr %call6, ptr %message, align 8
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   %11 = load i8, ptr %fatal.addr, align 1
   %tobool8 = trunc i8 %11 to i1
   br i1 %tobool8, label %if.then9, label %if.else
@@ -1860,13 +1860,7 @@ return:                                           ; preds = %if.end23, %if.then
 
 declare zeroext i1 @bdrv_is_writable(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
@@ -3501,107 +3495,108 @@ entry:
   store ptr null, ptr %bs, align 8
   store ptr null, ptr %data_bs, align 8
   %0 = load ptr, ptr %opts.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.BlockDriver, ptr @bdrv_qcow2, i32 0, i32 9), align 8
-  %call = call ptr @qemu_opts_to_qdict_filtered(ptr noundef %0, ptr noundef null, ptr noundef %1, i1 noundef zeroext true)
+  %1 = getelementptr inbounds %struct.BlockDriver, ptr @bdrv_qcow2, i32 0, i32 9
+  %2 = load ptr, ptr %1, align 8
+  %call = call ptr @qemu_opts_to_qdict_filtered(ptr noundef %0, ptr noundef null, ptr noundef %2, i1 noundef zeroext true)
   store ptr %call, ptr %qdict, align 8
-  %2 = load ptr, ptr %qdict, align 8
-  %call1 = call ptr @qdict_get_try_str(ptr noundef %2, ptr noundef @.str.11)
+  %3 = load ptr, ptr %qdict, align 8
+  %call1 = call ptr @qdict_get_try_str(ptr noundef %3, ptr noundef @.str.11)
   store ptr %call1, ptr %val, align 8
-  %3 = load ptr, ptr %val, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %val, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr %val, align 8
-  %call2 = call i32 @strcmp(ptr noundef %4, ptr noundef @.str.232) #14
+  %5 = load ptr, ptr %val, align 8
+  %call2 = call i32 @strcmp(ptr noundef %5, ptr noundef @.str.232) #14
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr %qdict, align 8
-  call void @qdict_put_str(ptr noundef %5, ptr noundef @.str.11, ptr noundef @.str.111)
+  %6 = load ptr, ptr %qdict, align 8
+  call void @qdict_put_str(ptr noundef %6, ptr noundef @.str.11, ptr noundef @.str.111)
   br label %if.end9
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load ptr, ptr %val, align 8
-  %tobool4 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %val, align 8
+  %tobool4 = icmp ne ptr %7, null
   br i1 %tobool4, label %land.lhs.true5, label %if.end
 
 land.lhs.true5:                                   ; preds = %if.else
-  %7 = load ptr, ptr %val, align 8
-  %call6 = call i32 @strcmp(ptr noundef %7, ptr noundef @.str.34) #14
+  %8 = load ptr, ptr %val, align 8
+  %call6 = call i32 @strcmp(ptr noundef %8, ptr noundef @.str.34) #14
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.end, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true5
-  %8 = load ptr, ptr %qdict, align 8
-  call void @qdict_del(ptr noundef %8, ptr noundef @.str.11)
+  %9 = load ptr, ptr %qdict, align 8
+  call void @qdict_del(ptr noundef %9, ptr noundef @.str.11)
   br label %if.end
 
 if.end:                                           ; preds = %if.then8, %land.lhs.true5, %if.else
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %if.then
-  %9 = load ptr, ptr %qdict, align 8
-  %call10 = call ptr @qdict_get_try_str(ptr noundef %9, ptr noundef @.str.13)
+  %10 = load ptr, ptr %qdict, align 8
+  %call10 = call ptr @qdict_get_try_str(ptr noundef %10, ptr noundef @.str.13)
   store ptr %call10, ptr %val, align 8
-  %10 = load ptr, ptr %val, align 8
-  %tobool11 = icmp ne ptr %10, null
+  %11 = load ptr, ptr %val, align 8
+  %tobool11 = icmp ne ptr %11, null
   br i1 %tobool11, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %if.end9
-  %11 = load ptr, ptr %val, align 8
-  %call13 = call i32 @strcmp(ptr noundef %11, ptr noundef @.str.109) #14
+  %12 = load ptr, ptr %val, align 8
+  %call13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.109) #14
   %tobool14 = icmp ne i32 %call13, 0
   br i1 %tobool14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true12
-  %12 = load ptr, ptr %qdict, align 8
-  call void @qdict_put_str(ptr noundef %12, ptr noundef @.str.13, ptr noundef @.str.111)
+  %13 = load ptr, ptr %qdict, align 8
+  call void @qdict_put_str(ptr noundef %13, ptr noundef @.str.13, ptr noundef @.str.111)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %land.lhs.true12, %if.end9
-  %13 = load ptr, ptr %qdict, align 8
-  %call17 = call ptr @qdict_get_try_str(ptr noundef %13, ptr noundef @.str.42)
+  %14 = load ptr, ptr %qdict, align 8
+  %call17 = call ptr @qdict_get_try_str(ptr noundef %14, ptr noundef @.str.42)
   store ptr %call17, ptr %val, align 8
-  %14 = load ptr, ptr %val, align 8
-  %tobool18 = icmp ne ptr %14, null
+  %15 = load ptr, ptr %val, align 8
+  %tobool18 = icmp ne ptr %15, null
   br i1 %tobool18, label %land.lhs.true19, label %if.else23
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %15 = load ptr, ptr %val, align 8
-  %call20 = call i32 @strcmp(ptr noundef %15, ptr noundef @.str.233) #14
+  %16 = load ptr, ptr %val, align 8
+  %call20 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.233) #14
   %tobool21 = icmp ne i32 %call20, 0
   br i1 %tobool21, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %16 = load ptr, ptr %qdict, align 8
-  call void @qdict_put_str(ptr noundef %16, ptr noundef @.str.42, ptr noundef @.str.234)
+  %17 = load ptr, ptr %qdict, align 8
+  call void @qdict_put_str(ptr noundef %17, ptr noundef @.str.42, ptr noundef @.str.234)
   br label %if.end30
 
 if.else23:                                        ; preds = %land.lhs.true19, %if.end16
-  %17 = load ptr, ptr %val, align 8
-  %tobool24 = icmp ne ptr %17, null
+  %18 = load ptr, ptr %val, align 8
+  %tobool24 = icmp ne ptr %18, null
   br i1 %tobool24, label %land.lhs.true25, label %if.end29
 
 land.lhs.true25:                                  ; preds = %if.else23
-  %18 = load ptr, ptr %val, align 8
-  %call26 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.235) #14
+  %19 = load ptr, ptr %val, align 8
+  %call26 = call i32 @strcmp(ptr noundef %19, ptr noundef @.str.235) #14
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true25
-  %19 = load ptr, ptr %qdict, align 8
-  call void @qdict_put_str(ptr noundef %19, ptr noundef @.str.42, ptr noundef @.str.236)
+  %20 = load ptr, ptr %qdict, align 8
+  call void @qdict_put_str(ptr noundef %20, ptr noundef @.str.42, ptr noundef @.str.236)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %land.lhs.true25, %if.else23
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end29, %if.then22
-  %20 = load ptr, ptr %qdict, align 8
-  %21 = load ptr, ptr %errp.addr, align 8
-  %call31 = call zeroext i1 @qdict_rename_keys(ptr noundef %20, ptr noundef @qcow2_co_create_opts.opt_renames, ptr noundef %21)
+  %21 = load ptr, ptr %qdict, align 8
+  %22 = load ptr, ptr %errp.addr, align 8
+  %call31 = call zeroext i1 @qdict_rename_keys(ptr noundef %21, ptr noundef @qcow2_co_create_opts.opt_renames, ptr noundef %22)
   br i1 %call31, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
@@ -3609,25 +3604,25 @@ if.then32:                                        ; preds = %if.end30
   br label %finish
 
 if.end33:                                         ; preds = %if.end30
-  %22 = load ptr, ptr %filename.addr, align 8
-  %23 = load ptr, ptr %opts.addr, align 8
-  %24 = load ptr, ptr %errp.addr, align 8
-  %call34 = call i32 @bdrv_co_create_file(ptr noundef %22, ptr noundef %23, ptr noundef %24)
+  %23 = load ptr, ptr %filename.addr, align 8
+  %24 = load ptr, ptr %opts.addr, align 8
+  %25 = load ptr, ptr %errp.addr, align 8
+  %call34 = call i32 @bdrv_co_create_file(ptr noundef %23, ptr noundef %24, ptr noundef %25)
   store i32 %call34, ptr %ret, align 4
-  %25 = load i32, ptr %ret, align 4
-  %cmp = icmp slt i32 %25, 0
+  %26 = load i32, ptr %ret, align 4
+  %cmp = icmp slt i32 %26, 0
   br i1 %cmp, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end33
   br label %finish
 
 if.end36:                                         ; preds = %if.end33
-  %26 = load ptr, ptr %filename.addr, align 8
-  %27 = load ptr, ptr %errp.addr, align 8
-  %call37 = call ptr @bdrv_co_open(ptr noundef %26, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %27)
+  %27 = load ptr, ptr %filename.addr, align 8
+  %28 = load ptr, ptr %errp.addr, align 8
+  %call37 = call ptr @bdrv_co_open(ptr noundef %27, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %28)
   store ptr %call37, ptr %bs, align 8
-  %28 = load ptr, ptr %bs, align 8
-  %cmp38 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %bs, align 8
+  %cmp38 = icmp eq ptr %29, null
   br i1 %cmp38, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.end36
@@ -3635,33 +3630,33 @@ if.then39:                                        ; preds = %if.end36
   br label %finish
 
 if.end40:                                         ; preds = %if.end36
-  %29 = load ptr, ptr %qdict, align 8
-  %call41 = call ptr @qdict_get_try_str(ptr noundef %29, ptr noundef @.str.48)
+  %30 = load ptr, ptr %qdict, align 8
+  %call41 = call ptr @qdict_get_try_str(ptr noundef %30, ptr noundef @.str.48)
   store ptr %call41, ptr %val, align 8
-  %30 = load ptr, ptr %val, align 8
-  %tobool42 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %val, align 8
+  %tobool42 = icmp ne ptr %31, null
   br i1 %tobool42, label %if.then43, label %if.end52
 
 if.then43:                                        ; preds = %if.end40
-  %31 = load ptr, ptr %val, align 8
-  %32 = load ptr, ptr %opts.addr, align 8
-  %33 = load ptr, ptr %errp.addr, align 8
-  %call44 = call i32 @bdrv_co_create_file(ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  %32 = load ptr, ptr %val, align 8
+  %33 = load ptr, ptr %opts.addr, align 8
+  %34 = load ptr, ptr %errp.addr, align 8
+  %call44 = call i32 @bdrv_co_create_file(ptr noundef %32, ptr noundef %33, ptr noundef %34)
   store i32 %call44, ptr %ret, align 4
-  %34 = load i32, ptr %ret, align 4
-  %cmp45 = icmp slt i32 %34, 0
+  %35 = load i32, ptr %ret, align 4
+  %cmp45 = icmp slt i32 %35, 0
   br i1 %cmp45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.then43
   br label %finish
 
 if.end47:                                         ; preds = %if.then43
-  %35 = load ptr, ptr %val, align 8
-  %36 = load ptr, ptr %errp.addr, align 8
-  %call48 = call ptr @bdrv_co_open(ptr noundef %35, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %36)
+  %36 = load ptr, ptr %val, align 8
+  %37 = load ptr, ptr %errp.addr, align 8
+  %call48 = call ptr @bdrv_co_open(ptr noundef %36, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %37)
   store ptr %call48, ptr %data_bs, align 8
-  %37 = load ptr, ptr %data_bs, align 8
-  %cmp49 = icmp eq ptr %37, null
+  %38 = load ptr, ptr %data_bs, align 8
+  %cmp49 = icmp eq ptr %38, null
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end47
@@ -3669,29 +3664,29 @@ if.then50:                                        ; preds = %if.end47
   br label %finish
 
 if.end51:                                         ; preds = %if.end47
-  %38 = load ptr, ptr %qdict, align 8
-  call void @qdict_del(ptr noundef %38, ptr noundef @.str.48)
   %39 = load ptr, ptr %qdict, align 8
-  %40 = load ptr, ptr %data_bs, align 8
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %40, i32 0, i32 22
+  call void @qdict_del(ptr noundef %39, ptr noundef @.str.48)
+  %40 = load ptr, ptr %qdict, align 8
+  %41 = load ptr, ptr %data_bs, align 8
+  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %41, i32 0, i32 22
   %arraydecay = getelementptr inbounds [32 x i8], ptr %node_name, i64 0, i64 0
-  call void @qdict_put_str(ptr noundef %39, ptr noundef @.str.168, ptr noundef %arraydecay)
+  call void @qdict_put_str(ptr noundef %40, ptr noundef @.str.168, ptr noundef %arraydecay)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end51, %if.end40
-  %41 = load ptr, ptr %qdict, align 8
-  call void @qdict_put_str(ptr noundef %41, ptr noundef @.str.220, ptr noundef @.str.6)
   %42 = load ptr, ptr %qdict, align 8
-  %43 = load ptr, ptr %bs, align 8
-  %node_name53 = getelementptr inbounds %struct.BlockDriverState, ptr %43, i32 0, i32 22
+  call void @qdict_put_str(ptr noundef %42, ptr noundef @.str.220, ptr noundef @.str.6)
+  %43 = load ptr, ptr %qdict, align 8
+  %44 = load ptr, ptr %bs, align 8
+  %node_name53 = getelementptr inbounds %struct.BlockDriverState, ptr %44, i32 0, i32 22
   %arraydecay54 = getelementptr inbounds [32 x i8], ptr %node_name53, i64 0, i64 0
-  call void @qdict_put_str(ptr noundef %42, ptr noundef @.str.143, ptr noundef %arraydecay54)
-  %44 = load ptr, ptr %qdict, align 8
-  %45 = load ptr, ptr %errp.addr, align 8
-  %call55 = call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %44, ptr noundef %45)
+  call void @qdict_put_str(ptr noundef %43, ptr noundef @.str.143, ptr noundef %arraydecay54)
+  %45 = load ptr, ptr %qdict, align 8
+  %46 = load ptr, ptr %errp.addr, align 8
+  %call55 = call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %45, ptr noundef %46)
   store ptr %call55, ptr %v, align 8
-  %46 = load ptr, ptr %v, align 8
-  %tobool56 = icmp ne ptr %46, null
+  %47 = load ptr, ptr %v, align 8
+  %tobool56 = icmp ne ptr %47, null
   br i1 %tobool56, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %if.end52
@@ -3699,13 +3694,13 @@ if.then57:                                        ; preds = %if.end52
   br label %finish
 
 if.end58:                                         ; preds = %if.end52
-  %47 = load ptr, ptr %v, align 8
-  %48 = load ptr, ptr %errp.addr, align 8
-  %call59 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef %47, ptr noundef null, ptr noundef %create_options, ptr noundef %48)
-  %49 = load ptr, ptr %v, align 8
-  call void @visit_free(ptr noundef %49)
-  %50 = load ptr, ptr %create_options, align 8
-  %tobool60 = icmp ne ptr %50, null
+  %48 = load ptr, ptr %v, align 8
+  %49 = load ptr, ptr %errp.addr, align 8
+  %call59 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef %48, ptr noundef null, ptr noundef %create_options, ptr noundef %49)
+  %50 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %50)
+  %51 = load ptr, ptr %create_options, align 8
+  %tobool60 = icmp ne ptr %51, null
   br i1 %tobool60, label %if.end62, label %if.then61
 
 if.then61:                                        ; preds = %if.end58
@@ -3713,34 +3708,34 @@ if.then61:                                        ; preds = %if.end58
   br label %finish
 
 if.end62:                                         ; preds = %if.end58
-  %51 = load ptr, ptr %create_options, align 8
-  %u = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %51, i32 0, i32 1
+  %52 = load ptr, ptr %create_options, align 8
+  %u = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %52, i32 0, i32 1
   %size = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %u, i32 0, i32 6
-  %52 = load i64, ptr %size, align 8
-  %add = add i64 %52, 512
+  %53 = load i64, ptr %size, align 8
+  %add = add i64 %53, 512
   %sub = sub i64 %add, 1
   %and = and i64 %sub, -512
-  %53 = load ptr, ptr %create_options, align 8
-  %u63 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %53, i32 0, i32 1
+  %54 = load ptr, ptr %create_options, align 8
+  %u63 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %54, i32 0, i32 1
   %size64 = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %u63, i32 0, i32 6
   store i64 %and, ptr %size64, align 8
-  %54 = load ptr, ptr %create_options, align 8
-  %55 = load ptr, ptr %errp.addr, align 8
-  %call65 = call i32 @qcow2_co_create(ptr noundef %54, ptr noundef %55)
+  %55 = load ptr, ptr %create_options, align 8
+  %56 = load ptr, ptr %errp.addr, align 8
+  %call65 = call i32 @qcow2_co_create(ptr noundef %55, ptr noundef %56)
   store i32 %call65, ptr %ret, align 4
   br label %finish
 
 finish:                                           ; preds = %if.end62, %if.then61, %if.then57, %if.then50, %if.then46, %if.then39, %if.then35, %if.then32
-  %56 = load i32, ptr %ret, align 4
-  %cmp66 = icmp slt i32 %56, 0
+  %57 = load i32, ptr %ret, align 4
+  %cmp66 = icmp slt i32 %57, 0
   br i1 %cmp66, label %if.then67, label %if.else68
 
 if.then67:                                        ; preds = %finish
   call void @bdrv_graph_co_rdlock()
-  %57 = load ptr, ptr %bs, align 8
-  call void @bdrv_co_delete_file_noerr(ptr noundef %57)
-  %58 = load ptr, ptr %data_bs, align 8
+  %58 = load ptr, ptr %bs, align 8
   call void @bdrv_co_delete_file_noerr(ptr noundef %58)
+  %59 = load ptr, ptr %data_bs, align 8
+  call void @bdrv_co_delete_file_noerr(ptr noundef %59)
   call void @bdrv_graph_co_rdunlock()
   br label %if.end69
 
@@ -3749,38 +3744,38 @@ if.else68:                                        ; preds = %finish
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else68, %if.then67
-  %59 = load ptr, ptr %qdict, align 8
-  store ptr %59, ptr %_obj33, align 8
-  %60 = load ptr, ptr %_obj33, align 8
-  %tobool70 = icmp ne ptr %60, null
+  %60 = load ptr, ptr %qdict, align 8
+  store ptr %60, ptr %_obj33, align 8
+  %61 = load ptr, ptr %_obj33, align 8
+  %tobool70 = icmp ne ptr %61, null
   br i1 %tobool70, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end69
-  %61 = load ptr, ptr %_obj33, align 8
-  %base = getelementptr inbounds %struct.QDict, ptr %61, i32 0, i32 0
+  %62 = load ptr, ptr %_obj33, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %62, i32 0, i32 0
   store ptr %base, ptr %__mptr, align 8
-  %62 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %62, i64 0
+  %63 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %63, i64 0
   store ptr %add.ptr, ptr %tmp71, align 8
-  %63 = load ptr, ptr %tmp71, align 8
+  %64 = load ptr, ptr %tmp71, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end69
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %63, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %64, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %tmp, align 8
-  %64 = load ptr, ptr %tmp, align 8
-  call void @qobject_unref_impl(ptr noundef %64)
-  %65 = load ptr, ptr %bs, align 8
-  call void @bdrv_co_unref(ptr noundef %65)
-  %66 = load ptr, ptr %data_bs, align 8
+  %65 = load ptr, ptr %tmp, align 8
+  call void @qobject_unref_impl(ptr noundef %65)
+  %66 = load ptr, ptr %bs, align 8
   call void @bdrv_co_unref(ptr noundef %66)
-  %67 = load ptr, ptr %create_options, align 8
-  call void @qapi_free_BlockdevCreateOptions(ptr noundef %67)
-  %68 = load i32, ptr %ret, align 4
-  ret i32 %68
+  %67 = load ptr, ptr %data_bs, align 8
+  call void @bdrv_co_unref(ptr noundef %67)
+  %68 = load ptr, ptr %create_options, align 8
+  call void @qapi_free_BlockdevCreateOptions(ptr noundef %68)
+  %69 = load i32, ptr %ret, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9316,10 +9311,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #8
+declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #8
+declare i32 @llvm.bswap.i32(i32) #7
 
 declare zeroext i1 @qemu_in_main_thread() #2
 
@@ -9345,7 +9340,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #9
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcow2_update_options_prepare(ptr noundef %bs, ptr noundef %r, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
@@ -12870,7 +12865,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #10
+declare noalias ptr @g_malloc(i64 noundef) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %start_offset, i64 noundef %end_offset, ptr noundef %p_feature_table, i32 noundef %flags, ptr noundef %need_update_header, ptr noundef %errp) #0 {
@@ -14050,7 +14045,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare noalias ptr @g_strdup(ptr noundef) #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) #10
+declare noalias ptr @g_malloc0(i64 noundef) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcow2_crypto_hdr_read_func(ptr noundef %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef %opaque, ptr noundef %errp) #0 {
@@ -14192,7 +14187,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @g_string_free(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 declare i32 @qcow2_check_read_snapshot_table(ptr noundef, ptr noundef, i32 noundef) #2
 
@@ -14456,7 +14451,7 @@ declare void @bdrv_graph_wrunlock(ptr noundef) #2
 declare ptr @bdrv_co_open_blockdev_ref(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #11
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @validate_cluster_size(i64 noundef %cluster_size, i1 noundef zeroext %extended_l2, ptr noundef %errp) #0 {
@@ -16133,7 +16128,7 @@ declare void @bdrv_debug_event(ptr noundef, i32 noundef) #2
 declare i32 @bdrv_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) #9
+declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) #8
 
 declare i32 @bdrv_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #2
 
@@ -16326,7 +16321,7 @@ if.end:                                           ; preds = %if.then
 declare void @aio_task_pool_wait_all(ptr noundef) #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #9
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @trace_qcow2_add_task(ptr noundef %co, ptr noundef %bs, ptr noundef %pool, ptr noundef %action, i32 noundef %cluster_type, i64 noundef %host_offset, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #0 {
@@ -16946,7 +16941,7 @@ return:                                           ; preds = %fail, %if.then9
 declare void @qcow2_parse_compressed_l2_entry(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc(i64 noundef) #10
+declare noalias ptr @g_try_malloc(i64 noundef) #9
 
 declare i64 @qcow2_co_decompress(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
 
@@ -19629,11 +19624,17 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #12
+declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #11
 
 declare i32 @bdrv_check_qiov_request(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 declare void @bdrv_register(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -19642,12 +19643,12 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nounwind }

@@ -3817,7 +3817,7 @@ define internal noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfig
   %7 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %1, i32 0, i32 1
   %8 = load i8, ptr %7, align 8, !range !8, !noundef !4
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %38, label %10
+  br i1 %9, label %39, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr %5)
@@ -3835,41 +3835,42 @@ define internal noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfig
   %20 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %21 = load i64, ptr %20, align 8, !noundef !4
   %22 = load ptr, ptr @anon.f6e7e3060f35f4b953730db5c5554448.20, align 8, !nonnull !4, !align !6, !noundef !4
-  %23 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @anon.f6e7e3060f35f4b953730db5c5554448.20, i32 0, i32 1), align 8, !noundef !4
+  %23 = getelementptr inbounds { ptr, i64 }, ptr @anon.f6e7e3060f35f4b953730db5c5554448.20, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr %4)
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
-  store ptr %19, ptr %24, align 8
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
-  store i64 %21, ptr %25, align 8
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
+  store ptr %19, ptr %25, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
+  store i64 %21, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr %3)
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 0
-  store ptr %22, ptr %26, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
-  store i64 %23, ptr %27, align 8
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !6, !noundef !4
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
-  %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8, !nonnull !4, !align !6, !noundef !4
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8, !noundef !4
-  %36 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E"(ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %31, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %35)
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr %6, align 1
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 0
+  store ptr %22, ptr %27, align 8
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
+  store i64 %24, ptr %28, align 8
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !6, !noundef !4
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !nonnull !4, !align !6, !noundef !4
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8, !noundef !4
+  %37 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E"(ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %32, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %36)
+  %38 = zext i1 %37 to i8
+  store i8 %38, ptr %6, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr %5)
-  br label %39
+  br label %40
 
-38:                                               ; preds = %2
+39:                                               ; preds = %2
   store i8 0, ptr %6, align 1
-  br label %39
+  br label %40
 
-39:                                               ; preds = %38, %10
-  %40 = load i8, ptr %6, align 1, !range !8, !noundef !4
-  %41 = trunc i8 %40 to i1
-  ret i1 %41
+40:                                               ; preds = %39, %10
+  %41 = load i8, ptr %6, align 1, !range !8, !noundef !4
+  %42 = trunc i8 %41 to i1
+  ret i1 %42
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

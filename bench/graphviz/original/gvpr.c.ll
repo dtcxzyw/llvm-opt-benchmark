@@ -1328,7 +1328,7 @@ define internal void @gverrorf(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %20
@@ -1354,7 +1354,7 @@ define internal void @gverrorf(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   call void @_err_msgv(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26)
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %27)
+  call void @llvm.va_end.p0(ptr %27)
   %28 = load i32, ptr %7, align 4
   %29 = icmp sge i32 %28, 2
   br i1 %29, label %30, label %49
@@ -1563,20 +1563,20 @@ define internal zeroext i1 @traverse(ptr noundef %0, ptr noundef %1, ptr noundef
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds %struct.Gpr_t, ptr %79, i32 0, i32 11
   %81 = load i32, ptr %80, align 8
-  switch i32 %81, label %210 [
+  switch i32 %81, label %219 [
     i32 0, label %82
     i32 3, label %86
     i32 4, label %97
-    i32 5, label %108
-    i32 6, label %119
-    i32 7, label %130
-    i32 8, label %141
-    i32 9, label %152
-    i32 10, label %163
-    i32 11, label %174
-    i32 12, label %185
-    i32 1, label %196
-    i32 2, label %203
+    i32 5, label %109
+    i32 6, label %121
+    i32 7, label %133
+    i32 8, label %145
+    i32 9, label %157
+    i32 10, label %169
+    i32 11, label %181
+    i32 12, label %193
+    i32 1, label %205
+    i32 2, label %212
   ]
 
 82:                                               ; preds = %78
@@ -1584,7 +1584,7 @@ define internal zeroext i1 @traverse(ptr noundef %0, ptr noundef %1, ptr noundef
   %84 = load ptr, ptr %6, align 8
   %85 = load ptr, ptr %7, align 8
   call void @travFlat(ptr noundef %83, ptr noundef %84, ptr noundef %85)
-  br label %210
+  br label %219
 
 86:                                               ; preds = %78
   %87 = load i8, ptr %8, align 1
@@ -1604,7 +1604,7 @@ define internal zeroext i1 @traverse(ptr noundef %0, ptr noundef %1, ptr noundef
   %96 = load ptr, ptr %7, align 8
   call void @travBFS(ptr noundef %94, ptr noundef %95, ptr noundef %96)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
 97:                                               ; preds = %78
   %98 = load i8, ptr %8, align 1
@@ -1619,208 +1619,217 @@ define internal zeroext i1 @traverse(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %104
 
 104:                                              ; preds = %100, %97
-  store i8 1, ptr getelementptr inbounds (%struct.trav_fns, ptr @DFSfns, i32 0, i32 3), align 1
-  %105 = load ptr, ptr %5, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef @DFSfns)
+  %105 = getelementptr inbounds %struct.trav_fns, ptr @DFSfns, i32 0, i32 3
+  store i8 1, ptr %105, align 1
+  %106 = load ptr, ptr %5, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef @DFSfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-108:                                              ; preds = %78
-  %109 = load i8, ptr %8, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %115
+109:                                              ; preds = %78
+  %110 = load i8, ptr %8, align 1
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %116
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.Gpr_t, ptr %112, i32 0, i32 0
-  %114 = load ptr, ptr %113, align 8
-  call void @doCleanup(ptr noundef %114)
-  br label %115
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %5, align 8
+  %114 = getelementptr inbounds %struct.Gpr_t, ptr %113, i32 0, i32 0
+  %115 = load ptr, ptr %114, align 8
+  call void @doCleanup(ptr noundef %115)
+  br label %116
 
-115:                                              ; preds = %111, %108
-  store i8 1, ptr getelementptr inbounds (%struct.trav_fns, ptr @FWDfns, i32 0, i32 3), align 1
-  %116 = load ptr, ptr %5, align 8
-  %117 = load ptr, ptr %6, align 8
-  %118 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef @FWDfns)
+116:                                              ; preds = %112, %109
+  %117 = getelementptr inbounds %struct.trav_fns, ptr @FWDfns, i32 0, i32 3
+  store i8 1, ptr %117, align 1
+  %118 = load ptr, ptr %5, align 8
+  %119 = load ptr, ptr %6, align 8
+  %120 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef @FWDfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-119:                                              ; preds = %78
-  %120 = load i8, ptr %8, align 1
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %126
+121:                                              ; preds = %78
+  %122 = load i8, ptr %8, align 1
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %128
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds %struct.Gpr_t, ptr %123, i32 0, i32 0
-  %125 = load ptr, ptr %124, align 8
-  call void @doCleanup(ptr noundef %125)
-  br label %126
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %5, align 8
+  %126 = getelementptr inbounds %struct.Gpr_t, ptr %125, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8
+  call void @doCleanup(ptr noundef %127)
+  br label %128
 
-126:                                              ; preds = %122, %119
-  store i8 1, ptr getelementptr inbounds (%struct.trav_fns, ptr @REVfns, i32 0, i32 3), align 1
-  %127 = load ptr, ptr %5, align 8
-  %128 = load ptr, ptr %6, align 8
-  %129 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef @REVfns)
+128:                                              ; preds = %124, %121
+  %129 = getelementptr inbounds %struct.trav_fns, ptr @REVfns, i32 0, i32 3
+  store i8 1, ptr %129, align 1
+  %130 = load ptr, ptr %5, align 8
+  %131 = load ptr, ptr %6, align 8
+  %132 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef @REVfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-130:                                              ; preds = %78
-  %131 = load i8, ptr %8, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %137
+133:                                              ; preds = %78
+  %134 = load i8, ptr %8, align 1
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %140
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.Gpr_t, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  call void @doCleanup(ptr noundef %136)
-  br label %137
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %5, align 8
+  %138 = getelementptr inbounds %struct.Gpr_t, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8
+  call void @doCleanup(ptr noundef %139)
+  br label %140
 
-137:                                              ; preds = %133, %130
-  store i8 2, ptr getelementptr inbounds (%struct.trav_fns, ptr @DFSfns, i32 0, i32 3), align 1
-  %138 = load ptr, ptr %5, align 8
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef @DFSfns)
+140:                                              ; preds = %136, %133
+  %141 = getelementptr inbounds %struct.trav_fns, ptr @DFSfns, i32 0, i32 3
+  store i8 2, ptr %141, align 1
+  %142 = load ptr, ptr %5, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef @DFSfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-141:                                              ; preds = %78
-  %142 = load i8, ptr %8, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %144, label %148
+145:                                              ; preds = %78
+  %146 = load i8, ptr %8, align 1
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %152
 
-144:                                              ; preds = %141
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.Gpr_t, ptr %145, i32 0, i32 0
-  %147 = load ptr, ptr %146, align 8
-  call void @doCleanup(ptr noundef %147)
-  br label %148
-
-148:                                              ; preds = %144, %141
-  store i8 2, ptr getelementptr inbounds (%struct.trav_fns, ptr @FWDfns, i32 0, i32 3), align 1
+148:                                              ; preds = %145
   %149 = load ptr, ptr %5, align 8
-  %150 = load ptr, ptr %6, align 8
-  %151 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef @FWDfns)
+  %150 = getelementptr inbounds %struct.Gpr_t, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8
+  call void @doCleanup(ptr noundef %151)
+  br label %152
+
+152:                                              ; preds = %148, %145
+  %153 = getelementptr inbounds %struct.trav_fns, ptr @FWDfns, i32 0, i32 3
+  store i8 2, ptr %153, align 1
+  %154 = load ptr, ptr %5, align 8
+  %155 = load ptr, ptr %6, align 8
+  %156 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %154, ptr noundef %155, ptr noundef %156, ptr noundef @FWDfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-152:                                              ; preds = %78
-  %153 = load i8, ptr %8, align 1
-  %154 = trunc i8 %153 to i1
-  br i1 %154, label %155, label %159
+157:                                              ; preds = %78
+  %158 = load i8, ptr %8, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %164
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds %struct.Gpr_t, ptr %156, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  call void @doCleanup(ptr noundef %158)
-  br label %159
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %5, align 8
+  %162 = getelementptr inbounds %struct.Gpr_t, ptr %161, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8
+  call void @doCleanup(ptr noundef %163)
+  br label %164
 
-159:                                              ; preds = %155, %152
-  store i8 2, ptr getelementptr inbounds (%struct.trav_fns, ptr @REVfns, i32 0, i32 3), align 1
-  %160 = load ptr, ptr %5, align 8
-  %161 = load ptr, ptr %6, align 8
-  %162 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %160, ptr noundef %161, ptr noundef %162, ptr noundef @REVfns)
+164:                                              ; preds = %160, %157
+  %165 = getelementptr inbounds %struct.trav_fns, ptr @REVfns, i32 0, i32 3
+  store i8 2, ptr %165, align 1
+  %166 = load ptr, ptr %5, align 8
+  %167 = load ptr, ptr %6, align 8
+  %168 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %166, ptr noundef %167, ptr noundef %168, ptr noundef @REVfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-163:                                              ; preds = %78
-  %164 = load i8, ptr %8, align 1
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %166, label %170
+169:                                              ; preds = %78
+  %170 = load i8, ptr %8, align 1
+  %171 = trunc i8 %170 to i1
+  br i1 %171, label %172, label %176
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.Gpr_t, ptr %167, i32 0, i32 0
-  %169 = load ptr, ptr %168, align 8
-  call void @doCleanup(ptr noundef %169)
-  br label %170
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %5, align 8
+  %174 = getelementptr inbounds %struct.Gpr_t, ptr %173, i32 0, i32 0
+  %175 = load ptr, ptr %174, align 8
+  call void @doCleanup(ptr noundef %175)
+  br label %176
 
-170:                                              ; preds = %166, %163
-  store i8 3, ptr getelementptr inbounds (%struct.trav_fns, ptr @DFSfns, i32 0, i32 3), align 1
-  %171 = load ptr, ptr %5, align 8
-  %172 = load ptr, ptr %6, align 8
-  %173 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef @DFSfns)
-  store i8 1, ptr %8, align 1
-  br label %210
-
-174:                                              ; preds = %78
-  %175 = load i8, ptr %8, align 1
-  %176 = trunc i8 %175 to i1
-  br i1 %176, label %177, label %181
-
-177:                                              ; preds = %174
+176:                                              ; preds = %172, %169
+  %177 = getelementptr inbounds %struct.trav_fns, ptr @DFSfns, i32 0, i32 3
+  store i8 3, ptr %177, align 1
   %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.Gpr_t, ptr %178, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  call void @doCleanup(ptr noundef %180)
-  br label %181
-
-181:                                              ; preds = %177, %174
-  store i8 3, ptr getelementptr inbounds (%struct.trav_fns, ptr @FWDfns, i32 0, i32 3), align 1
-  %182 = load ptr, ptr %5, align 8
-  %183 = load ptr, ptr %6, align 8
-  %184 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef @FWDfns)
+  %179 = load ptr, ptr %6, align 8
+  %180 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef @DFSfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-185:                                              ; preds = %78
-  %186 = load i8, ptr %8, align 1
-  %187 = trunc i8 %186 to i1
-  br i1 %187, label %188, label %192
+181:                                              ; preds = %78
+  %182 = load i8, ptr %8, align 1
+  %183 = trunc i8 %182 to i1
+  br i1 %183, label %184, label %188
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.Gpr_t, ptr %189, i32 0, i32 0
-  %191 = load ptr, ptr %190, align 8
-  call void @doCleanup(ptr noundef %191)
-  br label %192
+184:                                              ; preds = %181
+  %185 = load ptr, ptr %5, align 8
+  %186 = getelementptr inbounds %struct.Gpr_t, ptr %185, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  call void @doCleanup(ptr noundef %187)
+  br label %188
 
-192:                                              ; preds = %188, %185
-  store i8 3, ptr getelementptr inbounds (%struct.trav_fns, ptr @REVfns, i32 0, i32 3), align 1
-  %193 = load ptr, ptr %5, align 8
-  %194 = load ptr, ptr %6, align 8
-  %195 = load ptr, ptr %7, align 8
-  call void @travDFS(ptr noundef %193, ptr noundef %194, ptr noundef %195, ptr noundef @REVfns)
+188:                                              ; preds = %184, %181
+  %189 = getelementptr inbounds %struct.trav_fns, ptr @FWDfns, i32 0, i32 3
+  store i8 3, ptr %189, align 1
+  %190 = load ptr, ptr %5, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef @FWDfns)
   store i8 1, ptr %8, align 1
-  br label %210
+  br label %219
 
-196:                                              ; preds = %78
+193:                                              ; preds = %78
+  %194 = load i8, ptr %8, align 1
+  %195 = trunc i8 %194 to i1
+  br i1 %195, label %196, label %200
+
+196:                                              ; preds = %193
   %197 = load ptr, ptr %5, align 8
-  %198 = load ptr, ptr %6, align 8
-  %199 = load ptr, ptr %7, align 8
-  call void @travNodes(ptr noundef %197, ptr noundef %198, ptr noundef %199)
-  %200 = load ptr, ptr %5, align 8
-  %201 = load ptr, ptr %6, align 8
-  %202 = load ptr, ptr %7, align 8
-  call void @travEdges(ptr noundef %200, ptr noundef %201, ptr noundef %202)
-  br label %210
+  %198 = getelementptr inbounds %struct.Gpr_t, ptr %197, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8
+  call void @doCleanup(ptr noundef %199)
+  br label %200
 
-203:                                              ; preds = %78
-  %204 = load ptr, ptr %5, align 8
-  %205 = load ptr, ptr %6, align 8
-  %206 = load ptr, ptr %7, align 8
-  call void @travEdges(ptr noundef %204, ptr noundef %205, ptr noundef %206)
-  %207 = load ptr, ptr %5, align 8
-  %208 = load ptr, ptr %6, align 8
-  %209 = load ptr, ptr %7, align 8
-  call void @travNodes(ptr noundef %207, ptr noundef %208, ptr noundef %209)
-  br label %210
+200:                                              ; preds = %196, %193
+  %201 = getelementptr inbounds %struct.trav_fns, ptr @REVfns, i32 0, i32 3
+  store i8 3, ptr %201, align 1
+  %202 = load ptr, ptr %5, align 8
+  %203 = load ptr, ptr %6, align 8
+  %204 = load ptr, ptr %7, align 8
+  call void @travDFS(ptr noundef %202, ptr noundef %203, ptr noundef %204, ptr noundef @REVfns)
+  store i8 1, ptr %8, align 1
+  br label %219
 
-210:                                              ; preds = %203, %196, %192, %181, %170, %159, %148, %137, %126, %115, %104, %93, %82, %78
-  %211 = load i8, ptr %8, align 1
-  %212 = trunc i8 %211 to i1
-  ret i1 %212
+205:                                              ; preds = %78
+  %206 = load ptr, ptr %5, align 8
+  %207 = load ptr, ptr %6, align 8
+  %208 = load ptr, ptr %7, align 8
+  call void @travNodes(ptr noundef %206, ptr noundef %207, ptr noundef %208)
+  %209 = load ptr, ptr %5, align 8
+  %210 = load ptr, ptr %6, align 8
+  %211 = load ptr, ptr %7, align 8
+  call void @travEdges(ptr noundef %209, ptr noundef %210, ptr noundef %211)
+  br label %219
+
+212:                                              ; preds = %78
+  %213 = load ptr, ptr %5, align 8
+  %214 = load ptr, ptr %6, align 8
+  %215 = load ptr, ptr %7, align 8
+  call void @travEdges(ptr noundef %213, ptr noundef %214, ptr noundef %215)
+  %216 = load ptr, ptr %5, align 8
+  %217 = load ptr, ptr %6, align 8
+  %218 = load ptr, ptr %7, align 8
+  call void @travNodes(ptr noundef %216, ptr noundef %217, ptr noundef %218)
+  br label %219
+
+219:                                              ; preds = %212, %205, %200, %188, %176, %164, %152, %140, %128, %116, %104, %93, %82, %78
+  %220 = load i8, ptr %8, align 1
+  %221 = trunc i8 %220 to i1
+  ret i1 %221
 }
 
 declare i32 @agnnodes(ptr noundef) #2
@@ -2006,7 +2015,7 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   store ptr %4, ptr %11, align 8
   br label %13
 
-13:                                               ; preds = %116, %5
+13:                                               ; preds = %118, %5
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i32 1
   store ptr %15, ptr %7, align 8
@@ -2014,11 +2023,11 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %17 = sext i8 %16 to i32
   store i32 %17, ptr %12, align 4
   %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %117
+  br i1 %18, label %19, label %119
 
 19:                                               ; preds = %13
   %20 = load i32, ptr %12, align 4
-  switch i32 %20, label %114 [
+  switch i32 %20, label %116 [
     i32 99, label %21
     i32 67, label %26
     i32 102, label %31
@@ -2029,7 +2038,7 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
     i32 113, label %91
     i32 118, label %92
     i32 86, label %95
-    i32 63, label %101
+    i32 63, label %103
   ]
 
 21:                                               ; preds = %19
@@ -2038,7 +2047,7 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, 1
   store i32 %25, ptr %23, align 4
-  br label %116
+  br label %118
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %11, align 8
@@ -2046,7 +2055,7 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 5
   store i32 %30, ptr %28, align 4
-  br label %116
+  br label %118
 
 31:                                               ; preds = %19
   %32 = load i32, ptr %12, align 4
@@ -2077,10 +2086,10 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 49:                                               ; preds = %37, %31
   store i32 -1, ptr %6, align 4
-  br label %119
+  br label %121
 
 50:                                               ; preds = %46
-  br label %116
+  br label %118
 
 51:                                               ; preds = %19
   %52 = load ptr, ptr %11, align 8
@@ -2088,13 +2097,13 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 2
   store i32 %55, ptr %53, align 4
-  br label %116
+  br label %118
 
 56:                                               ; preds = %19
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds %struct.options, ptr %57, i32 0, i32 5
   store i32 0, ptr %58, align 8
-  br label %116
+  br label %118
 
 59:                                               ; preds = %19
   %60 = load i32, ptr %12, align 4
@@ -2120,10 +2129,10 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 75:                                               ; preds = %59
   store i32 -1, ptr %6, align 4
-  br label %119
+  br label %121
 
 76:                                               ; preds = %65
-  br label %116
+  br label %118
 
 77:                                               ; preds = %19
   %78 = load i32, ptr %12, align 4
@@ -2145,71 +2154,73 @@ define internal i32 @doFlags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 89:                                               ; preds = %83, %77
   store i32 -1, ptr %6, align 4
-  br label %119
+  br label %121
 
 90:                                               ; preds = %83
-  br label %116
+  br label %118
 
 91:                                               ; preds = %19
   call void @setTraceLevel(i32 noundef 2)
-  br label %116
+  br label %118
 
 92:                                               ; preds = %19
   %93 = load ptr, ptr %11, align 8
   %94 = getelementptr inbounds %struct.options, ptr %93, i32 0, i32 10
   store i32 1, ptr %94, align 4
-  br label %116
+  br label %118
 
 95:                                               ; preds = %19
   %96 = load ptr, ptr @stderr, align 8
   %97 = load ptr, ptr @Info, align 16
-  %98 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @Info, i64 0, i64 1), align 8
-  %99 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @Info, i64 0, i64 2), align 16
-  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.7, ptr noundef %97, ptr noundef %98, ptr noundef %99) #13
+  %98 = getelementptr inbounds [3 x ptr], ptr @Info, i64 0, i64 1
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds [3 x ptr], ptr @Info, i64 0, i64 2
+  %101 = load ptr, ptr %100, align 16
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.7, ptr noundef %97, ptr noundef %99, ptr noundef %101) #13
   store i32 0, ptr %6, align 4
-  br label %119
+  br label %121
 
-101:                                              ; preds = %19
-  %102 = load i32, ptr @optopt, align 4
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %107, label %104
+103:                                              ; preds = %19
+  %104 = load i32, ptr @optopt, align 4
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %109, label %106
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr @optopt, align 4
-  %106 = icmp eq i32 %105, 63
-  br i1 %106, label %107, label %111
+106:                                              ; preds = %103
+  %107 = load i32, ptr @optopt, align 4
+  %108 = icmp eq i32 %107, 63
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %104, %101
-  %108 = load ptr, ptr @stderr, align 8
-  %109 = load ptr, ptr @usage, align 8
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.8, ptr noundef %109) #13
-  br label %113
+109:                                              ; preds = %106, %103
+  %110 = load ptr, ptr @stderr, align 8
+  %111 = load ptr, ptr @usage, align 8
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.8, ptr noundef %111) #13
+  br label %115
 
-111:                                              ; preds = %104
-  %112 = load ptr, ptr @usage, align 8
-  call void (i32, ptr, ...) @_err_msg(i32 noundef 2049, ptr noundef @.str.4, ptr noundef %112)
-  br label %113
+113:                                              ; preds = %106
+  %114 = load ptr, ptr @usage, align 8
+  call void (i32, ptr, ...) @_err_msg(i32 noundef 2049, ptr noundef @.str.4, ptr noundef %114)
+  br label %115
 
-113:                                              ; preds = %111, %107
+115:                                              ; preds = %113, %109
   store i32 0, ptr %6, align 4
-  br label %119
+  br label %121
 
-114:                                              ; preds = %19
-  %115 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef @.str.9, i32 noundef %115)
-  br label %116
+116:                                              ; preds = %19
+  %117 = load i32, ptr %12, align 4
+  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef @.str.9, i32 noundef %117)
+  br label %118
 
-116:                                              ; preds = %114, %92, %91, %90, %76, %56, %51, %50, %26, %21
+118:                                              ; preds = %116, %92, %91, %90, %76, %56, %51, %50, %26, %21
   br label %13
 
-117:                                              ; preds = %13
-  %118 = load i32, ptr %8, align 4
-  store i32 %118, ptr %6, align 4
-  br label %119
+119:                                              ; preds = %13
+  %120 = load i32, ptr %8, align 4
+  store i32 %120, ptr %6, align 4
+  br label %121
 
-119:                                              ; preds = %117, %113, %95, %89, %75, %49
-  %120 = load i32, ptr %6, align 4
-  ret i32 %120
+121:                                              ; preds = %119, %115, %95, %89, %75, %49
+  %122 = load i32, ptr %6, align 4
+  ret i32 %122
 }
 
 declare void @_err_msg(i32 noundef, ptr noundef, ...) #2
@@ -2837,14 +2848,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -3298,9 +3309,6 @@ define internal ptr @gv_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 ; Function Attrs: nounwind allocsize(1)
 declare ptr @realloc(ptr noundef, i64 noundef) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -3319,20 +3327,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #13
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -3419,12 +3427,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %80 = load i32, ptr %4, align 4
   ret i32 %80
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #5
@@ -5254,6 +5256,15 @@ declare ptr @agroot(ptr noundef) #2
 declare i32 @agclose(ptr noundef) #2
 
 declare i32 @fclose(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

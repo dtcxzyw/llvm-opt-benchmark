@@ -926,48 +926,49 @@ define dso_local void @_ZN26cmCTestBuildAndTestHandlerC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %4)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26cmCTestBuildAndTestHandler, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV26cmCTestBuildAndTestHandler, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 4
+  %8 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 5
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 8
+  %9 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %10 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 5
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 9
+  %12 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 10
+  %13 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 11
+  %14 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  %15 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 12
+  %15 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 14
+  %16 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  %17 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 15
+  %17 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  %18 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 16
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 17
+  %18 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %19 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 16
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  %20 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 6
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 13
+  %20 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 17
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  %21 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 6
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 18
+  %22 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 13
   store i8 0, ptr %22, align 8
-  %23 = call double @_ZNSt6chrono8durationIdSt5ratioILl1ELl1EEE4zeroEv() #3
-  %24 = getelementptr inbounds %"class.std::chrono::duration", ptr %3, i32 0, i32 0
-  store double %23, ptr %24, align 8
-  %25 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %3, i64 8, i1 false)
+  %23 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 18
+  store i8 0, ptr %23, align 8
+  %24 = call double @_ZNSt6chrono8durationIdSt5ratioILl1ELl1EEE4zeroEv() #3
+  %25 = getelementptr inbounds %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  store double %24, ptr %25, align 8
+  %26 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %4, i32 0, i32 19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %3, i64 8, i1 false)
   ret void
 }
 
@@ -5344,37 +5345,38 @@ define linkonce_odr dso_local void @_ZN26cmCTestBuildAndTestHandlerD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26cmCTestBuildAndTestHandler, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 17
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 16
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV26cmCTestBuildAndTestHandler, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 17
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 14
+  %6 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 16
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 12
+  %8 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 11
+  %9 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 10
+  %10 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 9
+  %11 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 8
+  %12 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 7
+  %13 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %15 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 3
+  %14 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  %17 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 2
+  %17 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  %18 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 1
+  %18 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %19 = getelementptr inbounds %class.cmCTestBuildAndTestHandler, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
   call void @_ZN21cmCTestGenericHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %3) #3
   ret void
 }

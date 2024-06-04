@@ -45,66 +45,68 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @wakeup_source_sysfs_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 728) #5
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %24, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 728) #5
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %25, label %7
 
-6:                                                ; preds = %2
-  tail call void @device_initialize(ptr noundef nonnull %4) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 644
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr @wakeup_class, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 672
-  store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 680
-  store ptr @wakeup_source_groups, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 688
-  store ptr @device_create_release, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 120
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 220
-  %15 = load i16, ptr %14, align 4
-  %16 = or i16 %15, 128
-  store i16 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef %18) #6
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %24
+7:                                                ; preds = %2
+  tail call void @device_initialize(ptr noundef nonnull %5) #6
+  %8 = getelementptr inbounds i8, ptr %5, i64 644
+  store i32 0, ptr %8, align 4
+  %9 = load ptr, ptr @wakeup_class, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 672
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 680
+  store ptr @wakeup_source_groups, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 688
+  store ptr @device_create_release, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 120
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 220
+  %16 = load i16, ptr %15, align 4
+  %17 = or i16 %16, 128
+  store i16 %17, ptr %15, align 4
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef %19) #6
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %6
-  %22 = tail call i32 @device_add(ptr noundef nonnull %4) #6
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %28, label %24
+22:                                               ; preds = %7
+  %23 = tail call i32 @device_add(ptr noundef nonnull %5) #6
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %29, label %25
 
-24:                                               ; preds = %21, %6, %2
-  %25 = phi i32 [ %19, %6 ], [ %22, %21 ], [ -12, %2 ]
-  tail call void @put_device(ptr noundef %4) #6
-  %26 = sext i32 %25 to i64
-  %27 = inttoptr i64 %26 to ptr
-  br label %28
+25:                                               ; preds = %22, %7, %2
+  %26 = phi i32 [ %20, %7 ], [ %23, %22 ], [ -12, %2 ]
+  tail call void @put_device(ptr noundef %5) #6
+  %27 = sext i32 %26 to i64
+  %28 = inttoptr i64 %27 to ptr
+  br label %29
 
-28:                                               ; preds = %24, %21
-  %29 = phi ptr [ %27, %24 ], [ %4, %21 ]
-  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
-  br i1 %30, label %31, label %34
+29:                                               ; preds = %25, %22
+  %30 = phi ptr [ %28, %25 ], [ %5, %22 ]
+  %31 = inttoptr i64 -4096 to ptr
+  %32 = icmp ugt ptr %30, %31
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %28
-  %32 = ptrtoint ptr %29 to i64
-  %33 = trunc i64 %32 to i32
-  br label %36
+33:                                               ; preds = %29
+  %34 = ptrtoint ptr %30 to i64
+  %35 = trunc i64 %34 to i32
+  br label %38
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %1, i64 176
-  store ptr %29, ptr %35, align 8
-  br label %36
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds i8, ptr %1, i64 176
+  store ptr %30, ptr %37, align 8
+  br label %38
 
-36:                                               ; preds = %34, %31
-  %37 = phi i32 [ %33, %31 ], [ 0, %34 ]
-  ret i32 %37
+38:                                               ; preds = %36, %33
+  %39 = phi i32 [ %35, %33 ], [ 0, %36 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -144,11 +146,12 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #1
 define internal i32 @wakeup_sources_sysfs_init() #2 section ".init.text" align 16 {
   %1 = tail call ptr @class_create(ptr noundef nonnull @.str.16) #6
   store ptr %1, ptr @wakeup_class, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  %3 = ptrtoint ptr %1 to i64
-  %4 = trunc i64 %3 to i32
-  %5 = select i1 %2, i32 %4, i32 0
-  ret i32 %5
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  %4 = ptrtoint ptr %1 to i64
+  %5 = trunc i64 %4 to i32
+  %6 = select i1 %3, i32 %5, i32 0
+  ret i32 %6
 }
 
 ; Function Attrs: null_pointer_is_valid

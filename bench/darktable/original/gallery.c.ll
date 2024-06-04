@@ -230,53 +230,54 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !20
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = tail call ptr @dt_ui_main_window(ptr noundef %6) #16
-  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #16
-  %9 = tail call i64 @gtk_window_get_type() #18
-  %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %9) #16
-  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef 5) #16
-  %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #16
-  %13 = tail call ptr @gtk_file_chooser_native_new(ptr noundef %8, ptr noundef %10, i32 noundef 2, ptr noundef %11, ptr noundef %12) #16
-  %14 = load ptr, ptr %4, align 8, !tbaa !17
-  %15 = tail call ptr @gtk_entry_get_text(ptr noundef %14) #16
-  %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #16
-  %17 = tail call ptr @g_strstr_len(ptr noundef %16, i64 noundef -1, ptr noundef nonnull @.str.12) #16
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %20, label %19
+  %5 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = tail call ptr @dt_ui_main_window(ptr noundef %7) #16
+  %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #16
+  %10 = tail call i64 @gtk_window_get_type() #18
+  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %10) #16
+  %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.53, i32 noundef 5) #16
+  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #16
+  %14 = tail call ptr @gtk_file_chooser_native_new(ptr noundef %9, ptr noundef %11, i32 noundef 2, ptr noundef %12, ptr noundef %13) #16
+  %15 = load ptr, ptr %4, align 8, !tbaa !17
+  %16 = tail call ptr @gtk_entry_get_text(ptr noundef %15) #16
+  %17 = tail call noalias ptr @g_strdup(ptr noundef %16) #16
+  %18 = tail call ptr @g_strstr_len(ptr noundef %17, i64 noundef -1, ptr noundef nonnull @.str.12) #16
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %2
-  store i8 0, ptr %17, align 1, !tbaa !33
-  br label %20
+20:                                               ; preds = %2
+  store i8 0, ptr %18, align 1, !tbaa !33
+  br label %21
 
-20:                                               ; preds = %19, %2
-  %21 = tail call i64 @gtk_file_chooser_get_type() #18
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %21) #16
-  %23 = tail call i32 @gtk_file_chooser_set_current_folder(ptr noundef %22, ptr noundef %16) #16
-  tail call void @g_free(ptr noundef %16) #16
-  %24 = tail call i64 @gtk_native_dialog_get_type() #16
-  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %24) #16
-  %26 = tail call i32 @gtk_native_dialog_run(ptr noundef %25) #16
-  %27 = icmp eq i32 %26, -3
-  br i1 %27, label %28, label %36
+21:                                               ; preds = %20, %2
+  %22 = tail call i64 @gtk_file_chooser_get_type() #18
+  %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %22) #16
+  %24 = tail call i32 @gtk_file_chooser_set_current_folder(ptr noundef %23, ptr noundef %17) #16
+  tail call void @g_free(ptr noundef %17) #16
+  %25 = tail call i64 @gtk_native_dialog_get_type() #16
+  %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %25) #16
+  %27 = tail call i32 @gtk_native_dialog_run(ptr noundef %26) #16
+  %28 = icmp eq i32 %27, -3
+  br i1 %28, label %29, label %37
 
-28:                                               ; preds = %20
-  %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %21) #16
-  %30 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %29) #16
-  %31 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %30, ptr noundef nonnull @.str.55, ptr noundef null) #16
-  %32 = tail call ptr @dt_util_str_replace(ptr noundef %31, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #16
-  %33 = load ptr, ptr %4, align 8, !tbaa !17
-  %34 = tail call i64 @gtk_entry_get_type() #18
-  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #16
-  tail call void @gtk_entry_set_text(ptr noundef %35, ptr noundef %32) #16
-  tail call void @g_free(ptr noundef %30) #16
+29:                                               ; preds = %21
+  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %22) #16
+  %31 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %30) #16
+  %32 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %31, ptr noundef nonnull @.str.55, ptr noundef null) #16
+  %33 = tail call ptr @dt_util_str_replace(ptr noundef %32, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #16
+  %34 = load ptr, ptr %4, align 8, !tbaa !17
+  %35 = tail call i64 @gtk_entry_get_type() #18
+  %36 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #16
+  tail call void @gtk_entry_set_text(ptr noundef %36, ptr noundef %33) #16
   tail call void @g_free(ptr noundef %31) #16
   tail call void @g_free(ptr noundef %32) #16
-  br label %36
+  tail call void @g_free(ptr noundef %33) #16
+  br label %37
 
-36:                                               ; preds = %28, %20
-  tail call void @g_object_unref(ptr noundef %13) #16
+37:                                               ; preds = %29, %21
+  tail call void @g_object_unref(ptr noundef %14) #16
   ret void
 }
 

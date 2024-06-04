@@ -234,7 +234,7 @@ define internal i32 @_update() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %5, ptr align 16 @__const._update.dataset, i64 80, i1 false)
   %7 = load i32, ptr @_update.dataset_id, align 4
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %32
 
 9:                                                ; preds = %0
   %10 = getelementptr inbounds [5 x %struct.acct_gather_profile_dataset_t], ptr %5, i64 0, i64 0
@@ -243,115 +243,116 @@ define internal i32 @_update() #0 {
   br label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %14 = and i64 %13, 4194304
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %24
+  %13 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 4194304
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %25
 
-16:                                               ; preds = %12
-  br label %17
+17:                                               ; preds = %12
+  br label %18
 
-17:                                               ; preds = %16
-  %18 = call i32 @slurm_get_log_level()
-  %19 = icmp sge i32 %18, 4
-  br i1 %19, label %20, label %22
+18:                                               ; preds = %17
+  %19 = call i32 @slurm_get_log_level()
+  %20 = icmp sge i32 %19, 4
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @_update.dataset_id, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__._update, i32 noundef %21)
-  br label %22
-
-22:                                               ; preds = %20, %17
+21:                                               ; preds = %18
+  %22 = load i32, ptr @_update.dataset_id, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__._update, i32 noundef %22)
   br label %23
 
-23:                                               ; preds = %22
+23:                                               ; preds = %21, %18
   br label %24
 
-24:                                               ; preds = %23, %12
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr @_update.dataset_id, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %30
+25:                                               ; preds = %24, %12
+  br label %26
 
-28:                                               ; preds = %25
-  %29 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.19)
+26:                                               ; preds = %25
+  %27 = load i32, ptr @_update.dataset_id, align 4
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %26
+  %30 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.19)
   store i32 -1, ptr %1, align 4
-  br label %82
+  br label %83
 
-30:                                               ; preds = %25
-  br label %31
+31:                                               ; preds = %26
+  br label %32
 
-31:                                               ; preds = %30, %0
-  %32 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 218, ptr noundef @__func__._update)
-  store ptr %32, ptr %2, align 8
-  %33 = load ptr, ptr @interfaces, align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = call i32 @slurm_list_for_each(ptr noundef %33, ptr noundef @_get_data, ptr noundef %34)
-  %36 = load ptr, ptr %3, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %40, label %38
+32:                                               ; preds = %31, %0
+  %33 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 218, ptr noundef @__func__._update)
+  store ptr %33, ptr %2, align 8
+  %34 = load ptr, ptr @interfaces, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = call i32 @slurm_list_for_each(ptr noundef %34, ptr noundef @_get_data, ptr noundef %35)
+  %37 = load ptr, ptr %3, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %41, label %39
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %2, align 8
-  store ptr %39, ptr %3, align 8
-  br label %40
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8
+  store ptr %40, ptr %3, align 8
+  br label %41
 
-40:                                               ; preds = %38, %31
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.acct_gather_data, ptr %41, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.acct_gather_data, ptr %44, i32 0, i32 1
-  %46 = load i64, ptr %45, align 8
-  %47 = sub i64 %43, %46
-  %48 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 0
-  store i64 %47, ptr %48, align 16
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.acct_gather_data, ptr %49, i32 0, i32 2
-  %51 = load i64, ptr %50, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.acct_gather_data, ptr %52, i32 0, i32 2
-  %54 = load i64, ptr %53, align 8
-  %55 = sub i64 %51, %54
-  %56 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 1
-  store i64 %55, ptr %56, align 8
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.acct_gather_data, ptr %57, i32 0, i32 3
-  %59 = load i64, ptr %58, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.acct_gather_data, ptr %60, i32 0, i32 3
-  %62 = load i64, ptr %61, align 8
-  %63 = sub i64 %59, %62
-  %64 = uitofp i64 %63 to double
-  %65 = fdiv double %64, 6.553600e+04
-  %66 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 2
-  store double %65, ptr %66, align 16
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.acct_gather_data, ptr %67, i32 0, i32 4
-  %69 = load i64, ptr %68, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.acct_gather_data, ptr %70, i32 0, i32 4
-  %72 = load i64, ptr %71, align 8
-  %73 = sub i64 %69, %72
-  %74 = uitofp i64 %73 to double
-  %75 = fdiv double %74, 6.553600e+04
-  %76 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 3
-  store double %75, ptr %76, align 8
+41:                                               ; preds = %39, %32
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.acct_gather_data, ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds %struct.acct_gather_data, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8
+  %48 = sub i64 %44, %47
+  %49 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 0
+  store i64 %48, ptr %49, align 16
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds %struct.acct_gather_data, ptr %50, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds %struct.acct_gather_data, ptr %53, i32 0, i32 2
+  %55 = load i64, ptr %54, align 8
+  %56 = sub i64 %52, %55
+  %57 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 1
+  store i64 %56, ptr %57, align 8
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds %struct.acct_gather_data, ptr %58, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds %struct.acct_gather_data, ptr %61, i32 0, i32 3
+  %63 = load i64, ptr %62, align 8
+  %64 = sub i64 %60, %63
+  %65 = uitofp i64 %64 to double
+  %66 = fdiv double %65, 6.553600e+04
+  %67 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 2
+  store double %66, ptr %67, align 16
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.acct_gather_data, ptr %68, i32 0, i32 4
+  %70 = load i64, ptr %69, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct.acct_gather_data, ptr %71, i32 0, i32 4
+  %73 = load i64, ptr %72, align 8
+  %74 = sub i64 %70, %73
+  %75 = uitofp i64 %74 to double
+  %76 = fdiv double %75, 6.553600e+04
+  %77 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 3
+  store double %76, ptr %77, align 8
   call void @slurm_xfree(ptr noundef @last_update)
-  %77 = load ptr, ptr %2, align 8
-  store ptr %77, ptr @last_update, align 8
-  %78 = load i32, ptr @_update.dataset_id, align 4
-  %79 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 0
-  %80 = call i64 @time(ptr noundef null) #5
-  %81 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %78, ptr noundef %79, i64 noundef %80)
-  store i32 %81, ptr %1, align 4
-  br label %82
+  %78 = load ptr, ptr %2, align 8
+  store ptr %78, ptr @last_update, align 8
+  %79 = load i32, ptr @_update.dataset_id, align 4
+  %80 = getelementptr inbounds [4 x %union.anon], ptr %4, i64 0, i64 0
+  %81 = call i64 @time(ptr noundef null) #5
+  %82 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %79, ptr noundef %80, i64 noundef %81)
+  store i32 %82, ptr %1, align 4
+  br label %83
 
-82:                                               ; preds = %40, %28
-  %83 = load i32, ptr %1, align 4
-  ret i32 %83
+83:                                               ; preds = %41, %29
+  %84 = load i32, ptr %1, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable

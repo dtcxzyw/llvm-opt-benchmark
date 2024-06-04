@@ -4036,21 +4036,22 @@ for.body57:                                       ; preds = %for.cond54
 
 land.lhs.true:                                    ; preds = %for.body57
   %54 = load ptr, ptr %ctrl, align 8
-  %cmp61 = icmp ne ptr %54, inttoptr (i64 65535 to ptr)
+  %55 = inttoptr i64 65535 to ptr
+  %cmp61 = icmp ne ptr %54, %55
   br i1 %cmp61, label %if.then63, label %if.end64
 
 if.then63:                                        ; preds = %land.lhs.true
-  %55 = load ptr, ptr %ctrl, align 8
-  %56 = load ptr, ptr %ns, align 8
-  call void @nvme_attach_ns(ptr noundef %55, ptr noundef %56)
+  %56 = load ptr, ptr %ctrl, align 8
+  %57 = load ptr, ptr %ns, align 8
+  call void @nvme_attach_ns(ptr noundef %56, ptr noundef %57)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then63, %land.lhs.true, %for.body57
   br label %for.inc65
 
 for.inc65:                                        ; preds = %if.end64
-  %57 = load i32, ptr %i, align 4
-  %inc66 = add i32 %57, 1
+  %58 = load i32, ptr %i, align 4
+  %inc66 = add i32 %58, 1
   store i32 %inc66, ptr %i, align 4
   br label %for.cond54, !llvm.loop !21
 
@@ -4061,9 +4062,9 @@ if.end68:                                         ; preds = %if.end49
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end68, %if.end41
-  %58 = load ptr, ptr %n, align 8
-  %59 = load ptr, ptr %ns, align 8
-  call void @nvme_attach_ns(ptr noundef %58, ptr noundef %59)
+  %59 = load ptr, ptr %n, align 8
+  %60 = load ptr, ptr %ns, align 8
+  call void @nvme_attach_ns(ptr noundef %59, ptr noundef %60)
   br label %return
 
 return:                                           ; preds = %if.end69, %for.end67, %if.then48, %if.then39, %if.then31, %if.then18, %if.then11, %if.then9

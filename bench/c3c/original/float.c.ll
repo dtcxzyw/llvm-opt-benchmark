@@ -436,7 +436,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef %0, ptr noundef 
   store double 0.000000e+00, ptr %165, align 8
   %166 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %166, align 8
-  br label %234
+  br label %235
 
 167:                                              ; preds = %155
   %168 = load i32, ptr %9, align 4
@@ -490,7 +490,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef %0, ptr noundef 
   store double 0.000000e+00, ptr %187, align 8
   %188 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %188, align 8
-  br label %234
+  br label %235
 
 189:                                              ; preds = %179, %178, %177, %176
   br label %190
@@ -530,53 +530,54 @@ define dso_local { double, i32 } @float_from_string(ptr noundef %0, ptr noundef 
   store double 0.000000e+00, ptr %208, align 8
   %209 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %209, align 8
-  br label %234
+  br label %235
 
 210:                                              ; preds = %197, %190
-  %211 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %212
-  store ptr %213, ptr %13, align 8
-  %214 = load double, ptr %12, align 8
-  %215 = fcmp oeq double %214, 0.000000e+00
-  br i1 %215, label %216, label %229
+  %211 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %212 = load i32, ptr %211, align 4
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %213
+  store ptr %214, ptr %13, align 8
+  %215 = load double, ptr %12, align 8
+  %216 = fcmp oeq double %215, 0.000000e+00
+  br i1 %216, label %217, label %230
 
-216:                                              ; preds = %210
-  %217 = load ptr, ptr %11, align 8
-  %218 = load ptr, ptr %13, align 8
-  %219 = icmp ne ptr %217, %218
-  br i1 %219, label %220, label %229
+217:                                              ; preds = %210
+  %218 = load ptr, ptr %11, align 8
+  %219 = load ptr, ptr %13, align 8
+  %220 = icmp ne ptr %218, %219
+  br i1 %220, label %221, label %230
 
-220:                                              ; preds = %216
-  %221 = load ptr, ptr %5, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %226
+221:                                              ; preds = %217
+  %222 = load ptr, ptr %5, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %227
 
-223:                                              ; preds = %220
-  %224 = load ptr, ptr @err_float_format_invalid, align 8
-  %225 = load ptr, ptr %5, align 8
-  store ptr %224, ptr %225, align 8
-  br label %226
+224:                                              ; preds = %221
+  %225 = load ptr, ptr @err_float_format_invalid, align 8
+  %226 = load ptr, ptr %5, align 8
+  store ptr %225, ptr %226, align 8
+  br label %227
 
-226:                                              ; preds = %223, %220
-  %227 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
-  store double 0.000000e+00, ptr %227, align 8
-  %228 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
-  store i32 0, ptr %228, align 8
-  br label %234
+227:                                              ; preds = %224, %221
+  %228 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
+  store double 0.000000e+00, ptr %228, align 8
+  %229 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
+  store i32 0, ptr %229, align 8
+  br label %235
 
-229:                                              ; preds = %216, %210
-  %230 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
-  %231 = load double, ptr %12, align 8
-  store double %231, ptr %230, align 8
-  %232 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
-  %233 = load i32, ptr %8, align 4
-  store i32 %233, ptr %232, align 8
-  br label %234
+230:                                              ; preds = %217, %210
+  %231 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
+  %232 = load double, ptr %12, align 8
+  store double %232, ptr %231, align 8
+  %233 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
+  %234 = load i32, ptr %8, align 4
+  store i32 %234, ptr %233, align 8
+  br label %235
 
-234:                                              ; preds = %229, %226, %207, %186, %164
-  %235 = load { double, i32 }, ptr %3, align 8
-  ret { double, i32 } %235
+235:                                              ; preds = %230, %227, %207, %186, %164
+  %236 = load { double, i32 }, ptr %3, align 8
+  ret { double, i32 } %236
 }
 
 declare void @scratch_buffer_clear() #2
@@ -859,7 +860,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef %0, ptr noundef %1)
   store double 0.000000e+00, ptr %151, align 8
   %152 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %152, align 8
-  br label %219
+  br label %220
 
 153:                                              ; preds = %141
   %154 = load i32, ptr %9, align 4
@@ -913,7 +914,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef %0, ptr noundef %1)
   store double 0.000000e+00, ptr %173, align 8
   %174 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %174, align 8
-  br label %219
+  br label %220
 
 175:                                              ; preds = %165, %164, %163, %162
   br label %176
@@ -953,51 +954,52 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef %0, ptr noundef %1)
   store double 0.000000e+00, ptr %194, align 8
   %195 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
   store i32 0, ptr %195, align 8
-  br label %219
+  br label %220
 
 196:                                              ; preds = %183, %176
   %197 = load double, ptr %12, align 8
   %198 = fcmp oeq double %197, 0.000000e+00
-  br i1 %198, label %199, label %214
+  br i1 %198, label %199, label %215
 
 199:                                              ; preds = %196
   %200 = load ptr, ptr %11, align 8
-  %201 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %202
-  %204 = icmp ne ptr %200, %203
-  br i1 %204, label %205, label %214
+  %201 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %202 = load i32, ptr %201, align 4
+  %203 = zext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %203
+  %205 = icmp ne ptr %200, %204
+  br i1 %205, label %206, label %215
 
-205:                                              ; preds = %199
-  %206 = load ptr, ptr %5, align 8
-  %207 = icmp ne ptr %206, null
-  br i1 %207, label %208, label %211
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %5, align 8
+  %208 = icmp ne ptr %207, null
+  br i1 %208, label %209, label %212
 
-208:                                              ; preds = %205
-  %209 = load ptr, ptr @err_float_format_invalid, align 8
-  %210 = load ptr, ptr %5, align 8
-  store ptr %209, ptr %210, align 8
-  br label %211
+209:                                              ; preds = %206
+  %210 = load ptr, ptr @err_float_format_invalid, align 8
+  %211 = load ptr, ptr %5, align 8
+  store ptr %210, ptr %211, align 8
+  br label %212
 
-211:                                              ; preds = %208, %205
-  %212 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
-  store double 0.000000e+00, ptr %212, align 8
-  %213 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
-  store i32 0, ptr %213, align 8
-  br label %219
+212:                                              ; preds = %209, %206
+  %213 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
+  store double 0.000000e+00, ptr %213, align 8
+  %214 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
+  store i32 0, ptr %214, align 8
+  br label %220
 
-214:                                              ; preds = %199, %196
-  %215 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
-  %216 = load double, ptr %12, align 8
-  store double %216, ptr %215, align 8
-  %217 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
-  %218 = load i32, ptr %8, align 4
-  store i32 %218, ptr %217, align 8
-  br label %219
+215:                                              ; preds = %199, %196
+  %216 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 0
+  %217 = load double, ptr %12, align 8
+  store double %217, ptr %216, align 8
+  %218 = getelementptr inbounds %struct.Float, ptr %3, i32 0, i32 1
+  %219 = load i32, ptr %8, align 4
+  store i32 %219, ptr %218, align 8
+  br label %220
 
-219:                                              ; preds = %214, %211, %193, %172, %150
-  %220 = load { double, i32 }, ptr %3, align 8
-  ret { double, i32 } %220
+220:                                              ; preds = %215, %212, %193, %172, %150
+  %221 = load { double, i32 }, ptr %3, align 8
+  ret { double, i32 } %221
 }
 
 declare void @scratch_buffer_append(ptr noundef) #2

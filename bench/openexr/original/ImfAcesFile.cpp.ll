@@ -250,7 +250,8 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -258,12 +259,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
-  %0 = load ptr, ptr %header.addr, align 8
-  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %1 = load i32, ptr %call2, align 4
-  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %1)
-  %2 = load ptr, ptr %header.addr, align 8
-  call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 8 dereferenceable(49) %2)
+  %1 = load ptr, ptr %header.addr, align 8
+  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
+  %2 = load i32, ptr %call2, align 4
+  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %2)
+  %3 = load ptr, ptr %header.addr, align 8
+  call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 8 dereferenceable(49) %3)
   %call5 = invoke noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_218acesChromaticitiesEv()
           to label %invoke.cont4 unwind label %lpad3
 
@@ -285,23 +286,23 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %3 = load ptr, ptr %name.addr, align 8
-  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  %4 = load i32, ptr %rgbaChannels.addr, align 4
-  %5 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %4, i32 noundef %5)
+  %4 = load ptr, ptr %name.addr, align 8
+  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %5 = load i32, ptr %rgbaChannels.addr, align 4
+  %6 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %5, i32 noundef %6)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
   %_data15 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %_data15, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %6, i32 0, i32 0
+  %7 = load ptr, ptr %_data15, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %7, i32 0, i32 0
   store ptr %call11, ptr %rgbaFile, align 8
   %_data16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %_data16, align 8
-  %rgbaFile17 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %rgbaFile17, align 8
-  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 7, i32 noundef 6)
+  %8 = load ptr, ptr %_data16, align 8
+  %rgbaFile17 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %rgbaFile17, align 8
+  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 7, i32 noundef 6)
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -309,31 +310,31 @@ invoke.cont18:                                    ; preds = %invoke.cont14
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont14, %invoke.cont9, %invoke.cont7, %invoke.cont6, %invoke.cont4, %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont10
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call11) #12
   br label %ehcleanup
 
@@ -437,7 +438,8 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -445,12 +447,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
-  %0 = load ptr, ptr %header.addr, align 8
-  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %1 = load i32, ptr %call2, align 4
-  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %1)
-  %2 = load ptr, ptr %header.addr, align 8
-  call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 8 dereferenceable(49) %2)
+  %1 = load ptr, ptr %header.addr, align 8
+  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
+  %2 = load i32, ptr %call2, align 4
+  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %2)
+  %3 = load ptr, ptr %header.addr, align 8
+  call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 8 dereferenceable(49) %3)
   %call5 = invoke noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_218acesChromaticitiesEv()
           to label %invoke.cont4 unwind label %lpad3
 
@@ -472,23 +474,23 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %3 = load ptr, ptr %os.addr, align 8
-  %4 = load ptr, ptr %header.addr, align 8
-  %5 = load i32, ptr %rgbaChannels.addr, align 4
-  %6 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_214RgbaOutputFileC1ERNS_7OStreamERKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(49) %4, i32 noundef %5, i32 noundef %6)
+  %4 = load ptr, ptr %os.addr, align 8
+  %5 = load ptr, ptr %header.addr, align 8
+  %6 = load i32, ptr %rgbaChannels.addr, align 4
+  %7 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_214RgbaOutputFileC1ERNS_7OStreamERKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(49) %5, i32 noundef %6, i32 noundef %7)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %_data14 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %_data14, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %_data14, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %8, i32 0, i32 0
   store ptr %call11, ptr %rgbaFile, align 8
   %_data15 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %_data15, align 8
-  %rgbaFile16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %rgbaFile16, align 8
-  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 7, i32 noundef 6)
+  %9 = load ptr, ptr %_data15, align 8
+  %rgbaFile16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %rgbaFile16, align 8
+  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 7, i32 noundef 6)
           to label %invoke.cont17 unwind label %lpad3
 
 invoke.cont17:                                    ; preds = %invoke.cont13
@@ -496,31 +498,31 @@ invoke.cont17:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont13, %invoke.cont9, %invoke.cont7, %invoke.cont6, %invoke.cont4, %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont10
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call11) #12
   br label %ehcleanup
 
@@ -567,7 +569,8 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -575,28 +578,28 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
-  %0 = load i32, ptr %compression.addr, align 4
-  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %0)
-  %1 = load ptr, ptr %displayWindow.addr, align 8
-  %2 = load ptr, ptr %dataWindow.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZNK9Imath_3_23BoxINS_4Vec2IiEEE7isEmptyEv(ptr noundef nonnull align 4 dereferenceable(16) %2) #3
+  %1 = load i32, ptr %compression.addr, align 4
+  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %1)
+  %2 = load ptr, ptr %displayWindow.addr, align 8
+  %3 = load ptr, ptr %dataWindow.addr, align 8
+  %call2 = call noundef zeroext i1 @_ZNK9Imath_3_23BoxINS_4Vec2IiEEE7isEmptyEv(ptr noundef nonnull align 4 dereferenceable(16) %3) #3
   br i1 %call2, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
-  %3 = load ptr, ptr %displayWindow.addr, align 8
+  %4 = load ptr, ptr %displayWindow.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont
-  %4 = load ptr, ptr %dataWindow.addr, align 8
+  %5 = load ptr, ptr %dataWindow.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond-lvalue = phi ptr [ %3, %cond.true ], [ %4, %cond.false ]
-  %5 = load float, ptr %pixelAspectRatio.addr, align 4
-  %6 = load float, ptr %screenWindowWidth.addr, align 4
-  %7 = load i32, ptr %lineOrder.addr, align 4
-  %8 = load i32, ptr %compression.addr, align 4
-  call void @_ZN7Imf_3_26HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %cond-lvalue, float noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %6, i32 noundef %7, i32 noundef %8)
+  %cond-lvalue = phi ptr [ %4, %cond.true ], [ %5, %cond.false ]
+  %6 = load float, ptr %pixelAspectRatio.addr, align 4
+  %7 = load float, ptr %screenWindowWidth.addr, align 4
+  %8 = load i32, ptr %lineOrder.addr, align 4
+  %9 = load i32, ptr %compression.addr, align 4
+  call void @_ZN7Imf_3_26HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %cond-lvalue, float noundef %6, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %7, i32 noundef %8, i32 noundef %9)
   %call5 = invoke noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_218acesChromaticitiesEv()
           to label %invoke.cont4 unwind label %lpad3
 
@@ -618,23 +621,23 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %9 = load ptr, ptr %name.addr, align 8
-  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = load i32, ptr %rgbaChannels.addr, align 4
-  %11 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %10, i32 noundef %11)
+  %10 = load ptr, ptr %name.addr, align 8
+  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  %11 = load i32, ptr %rgbaChannels.addr, align 4
+  %12 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %11, i32 noundef %12)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
   %_data15 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %_data15, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %_data15, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %13, i32 0, i32 0
   store ptr %call11, ptr %rgbaFile, align 8
   %_data16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %_data16, align 8
-  %rgbaFile17 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %rgbaFile17, align 8
-  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 7, i32 noundef 6)
+  %14 = load ptr, ptr %_data16, align 8
+  %rgbaFile17 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %rgbaFile17, align 8
+  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 7, i32 noundef 6)
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -642,31 +645,31 @@ invoke.cont18:                                    ; preds = %invoke.cont14
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont14, %invoke.cont9, %invoke.cont7, %invoke.cont6, %invoke.cont4, %cond.end
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont10
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call11) #12
   br label %ehcleanup
 
@@ -752,7 +755,8 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -760,15 +764,15 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
-  %0 = load i32, ptr %compression.addr, align 4
-  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %0)
-  %1 = load i32, ptr %width.addr, align 4
-  %2 = load i32, ptr %height.addr, align 4
-  %3 = load float, ptr %pixelAspectRatio.addr, align 4
-  %4 = load float, ptr %screenWindowWidth.addr, align 4
-  %5 = load i32, ptr %lineOrder.addr, align 4
-  %6 = load i32, ptr %compression.addr, align 4
-  call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %4, i32 noundef %5, i32 noundef %6)
+  %1 = load i32, ptr %compression.addr, align 4
+  call void @_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE(i32 noundef %1)
+  %2 = load i32, ptr %width.addr, align 4
+  %3 = load i32, ptr %height.addr, align 4
+  %4 = load float, ptr %pixelAspectRatio.addr, align 4
+  %5 = load float, ptr %screenWindowWidth.addr, align 4
+  %6 = load i32, ptr %lineOrder.addr, align 4
+  %7 = load i32, ptr %compression.addr, align 4
+  call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %5, i32 noundef %6, i32 noundef %7)
   %call4 = invoke noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_218acesChromaticitiesEv()
           to label %invoke.cont3 unwind label %lpad2
 
@@ -790,23 +794,23 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %7 = load ptr, ptr %name.addr, align 8
-  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = load i32, ptr %rgbaChannels.addr, align 4
-  %9 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call10, ptr noundef %call11, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %8, i32 noundef %9)
+  %8 = load ptr, ptr %name.addr, align 8
+  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = load i32, ptr %rgbaChannels.addr, align 4
+  %10 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call10, ptr noundef %call11, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %9, i32 noundef %10)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %_data14 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %_data14, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %_data14, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %11, i32 0, i32 0
   store ptr %call10, ptr %rgbaFile, align 8
   %_data15 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %_data15, align 8
-  %rgbaFile16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %rgbaFile16, align 8
-  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 7, i32 noundef 6)
+  %12 = load ptr, ptr %_data15, align 8
+  %rgbaFile16 = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile::Data", ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %rgbaFile16, align 8
+  invoke void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 7, i32 noundef 6)
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont13
@@ -814,31 +818,31 @@ invoke.cont17:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont13, %invoke.cont8, %invoke.cont6, %invoke.cont5, %invoke.cont3, %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont9
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call10) #12
   br label %ehcleanup
 
@@ -862,15 +866,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN7Imf_3_214AcesOutputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  call void @_ZdlPv(ptr noundef %0) #12
+  call void @_ZN7Imf_3_214AcesOutputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  call void @_ZdlPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2080,7 +2085,8 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #11
   invoke void @_ZN7Imf_3_213AcesInputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(108) %call)
@@ -2089,39 +2095,39 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
   %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #11
-  %0 = load ptr, ptr %name.addr, align 8
-  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
-  %1 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef %call3, i32 noundef %1)
+  %1 = load ptr, ptr %name.addr, align 8
+  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %2 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef %call3, i32 noundef %2)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %_data6 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data6, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %_data6, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %3, i32 0, i32 0
   store ptr %call2, ptr %rgbaFile, align 8
   %_data7 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_data7, align 8
-  call void @_ZN7Imf_3_213AcesInputFile4Data19initColorConversionEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
+  %4 = load ptr, ptr %_data7, align 8
+  call void @_ZN7Imf_3_213AcesInputFile4Data19initColorConversionEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call2) #12
   br label %eh.resume
 
@@ -2147,7 +2153,8 @@ entry:
   store ptr %is, ptr %is.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #11
   invoke void @_ZN7Imf_3_213AcesInputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(108) %call)
@@ -2156,38 +2163,38 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_data, align 8
   %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #11
-  %0 = load ptr, ptr %is.addr, align 8
-  %1 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
+  %1 = load ptr, ptr %is.addr, align 8
+  %2 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %_data5 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data5, align 8
-  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %_data5, align 8
+  %rgbaFile = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %3, i32 0, i32 0
   store ptr %call2, ptr %rgbaFile, align 8
   %_data6 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_data6, align 8
-  call void @_ZN7Imf_3_213AcesInputFile4Data19initColorConversionEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
+  %4 = load ptr, ptr %_data6, align 8
+  call void @_ZN7Imf_3_213AcesInputFile4Data19initColorConversionEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call2) #12
   br label %eh.resume
 
@@ -2207,15 +2214,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN7Imf_3_213AcesInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #3
-  call void @_ZdlPv(ptr noundef %0) #12
+  call void @_ZN7Imf_3_213AcesInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %1) #3
+  call void @_ZdlPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

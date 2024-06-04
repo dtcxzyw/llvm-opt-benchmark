@@ -209,40 +209,41 @@ define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef %1, ptr no
   %45 = call ptr @rpc_create(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  %46 = icmp ugt ptr %45, inttoptr (i64 -4096 to ptr)
-  br i1 %46, label %47, label %50
+  %46 = inttoptr i64 -4096 to ptr
+  %47 = icmp ugt ptr %45, %46
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %4
-  %48 = ptrtoint ptr %45 to i64
-  %49 = trunc i64 %48 to i32
-  br label %62
+48:                                               ; preds = %4
+  %49 = ptrtoint ptr %45 to i64
+  %50 = trunc i64 %49 to i32
+  br label %63
 
-50:                                               ; preds = %4
-  %51 = getelementptr inbounds i8, ptr %45, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %53 = zext nneg i32 %1 to i64
-  %54 = getelementptr %struct.rpc_procinfo, ptr %52, i64 %53
-  store ptr %54, ptr %8, align 8
-  %55 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef 1024) #10
-  %56 = icmp eq i32 %55, -111
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %4
+  %52 = getelementptr inbounds i8, ptr %45, i64 56
+  %53 = load ptr, ptr %52, align 8
+  %54 = zext nneg i32 %1 to i64
+  %55 = getelementptr %struct.rpc_procinfo, ptr %53, i64 %54
+  store ptr %55, ptr %8, align 8
+  %56 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef 1024) #10
+  %57 = icmp eq i32 %56, -111
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %50
+58:                                               ; preds = %51
   call void @rpc_force_rebind(ptr noundef %45) #10
-  %58 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef 1024) #10
-  br label %59
+  %59 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef 1024) #10
+  br label %60
 
-59:                                               ; preds = %57, %50
-  %60 = phi i32 [ %58, %57 ], [ %55, %50 ]
-  %61 = call i32 @llvm.smin.i32(i32 %60, i32 0)
+60:                                               ; preds = %58, %51
+  %61 = phi i32 [ %59, %58 ], [ %56, %51 ]
+  %62 = call i32 @llvm.smin.i32(i32 %61, i32 0)
   call void @rpc_shutdown_client(ptr noundef %45) #10
-  br label %62
+  br label %63
 
-62:                                               ; preds = %59, %47
-  %63 = phi i32 [ %49, %47 ], [ %61, %59 ]
+63:                                               ; preds = %60, %48
+  %64 = phi i32 [ %50, %48 ], [ %62, %60 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #10
-  ret i32 %63
+  ret i32 %64
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -581,7 +582,7 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef re
 define dso_local void @nsm_release(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call zeroext i1 @refcount_dec_and_lock(ptr noundef %2, ptr noundef nonnull @nsm_lock) #10
-  br i1 %3, label %4, label %9
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -590,13 +591,15 @@ define dso_local void @nsm_release(ptr noundef %0) local_unnamed_addr #0 align 1
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
+  %9 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %9, ptr %0, align 8
+  %10 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %10, ptr %5, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nsm_lock) #10
   tail call void @kfree(ptr noundef %0) #10
-  br label %9
+  br label %11
 
-9:                                                ; preds = %4, %1
+11:                                               ; preds = %4, %1
   ret void
 }
 

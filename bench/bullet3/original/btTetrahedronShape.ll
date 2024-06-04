@@ -96,7 +96,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -120,12 +121,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #7
   br label %eh.resume
 
@@ -170,7 +171,8 @@ entry:
   store ptr %pt0, ptr %pt0.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -191,20 +193,20 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_shapeType, align 8
-  %0 = load ptr, ptr %pt0.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %1 = load ptr, ptr %pt0.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.cont, %arrayctor.loop
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #7
   br label %eh.resume
 
@@ -250,7 +252,8 @@ entry:
   store ptr %pt1, ptr %pt1.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -271,25 +274,25 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_shapeType, align 8
-  %0 = load ptr, ptr %pt0.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %1 = load ptr, ptr %pt0.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
-  %1 = load ptr, ptr %pt1.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  %2 = load ptr, ptr %pt1.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #7
   br label %eh.resume
 
@@ -316,7 +319,8 @@ entry:
   store ptr %pt2, ptr %pt2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -337,30 +341,30 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_shapeType, align 8
-  %0 = load ptr, ptr %pt0.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %1 = load ptr, ptr %pt0.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
-  %1 = load ptr, ptr %pt1.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  %2 = load ptr, ptr %pt1.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %2 = load ptr, ptr %pt2.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %2)
+  %3 = load ptr, ptr %pt2.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #7
   br label %eh.resume
 
@@ -389,7 +393,8 @@ entry:
   store ptr %pt3, ptr %pt3.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -410,35 +415,35 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_shapeType, align 8
-  %0 = load ptr, ptr %pt0.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %1 = load ptr, ptr %pt0.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
-  %1 = load ptr, ptr %pt1.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  %2 = load ptr, ptr %pt1.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %2 = load ptr, ptr %pt2.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %2)
+  %3 = load ptr, ptr %pt2.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %3 = load ptr, ptr %pt3.addr, align 8
-  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %4 = load ptr, ptr %pt3.addr, align 8
+  invoke void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef nonnull align 4 dereferenceable(16) %4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #7
   br label %eh.resume
 

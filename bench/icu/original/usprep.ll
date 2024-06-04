@@ -1652,7 +1652,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2259,13 +2260,14 @@ entry:
   store ptr %filterSet, ptr %filterSet.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511Normalizer2C2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %norm2 = getelementptr inbounds %"class.icu_75::FilteredNormalizer2", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %n2.addr, align 8
-  store ptr %0, ptr %norm2, align 8
+  %1 = load ptr, ptr %n2.addr, align 8
+  store ptr %1, ptr %norm2, align 8
   %set = getelementptr inbounds %"class.icu_75::FilteredNormalizer2", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %filterSet.addr, align 8
-  store ptr %1, ptr %set, align 8
+  %2 = load ptr, ptr %filterSet.addr, align 8
+  store ptr %2, ptr %set, align 8
   ret void
 }
 
@@ -3052,87 +3054,90 @@ if.end19:                                         ; preds = %if.else, %do.end16
   %35 = load i8, ptr @_ZL11dataVersion, align 1
   %conv35 = zext i8 %35 to i32
   %shl36 = shl i32 %conv35, 24
-  %36 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZL11dataVersion, i64 0, i64 1), align 1
-  %conv37 = zext i8 %36 to i32
+  %36 = getelementptr inbounds [4 x i8], ptr @_ZL11dataVersion, i64 0, i64 1
+  %37 = load i8, ptr %36, align 1
+  %conv37 = zext i8 %37 to i32
   %shl38 = shl i32 %conv37, 16
   %add39 = add nsw i32 %shl36, %shl38
-  %37 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZL11dataVersion, i64 0, i64 2), align 1
-  %conv40 = zext i8 %37 to i32
+  %38 = getelementptr inbounds [4 x i8], ptr @_ZL11dataVersion, i64 0, i64 2
+  %39 = load i8, ptr %38, align 1
+  %conv40 = zext i8 %39 to i32
   %shl41 = shl i32 %conv40, 8
   %add42 = add nsw i32 %add39, %shl41
-  %38 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZL11dataVersion, i64 0, i64 3), align 1
-  %conv43 = zext i8 %38 to i32
+  %40 = getelementptr inbounds [4 x i8], ptr @_ZL11dataVersion, i64 0, i64 3
+  %41 = load i8, ptr %40, align 1
+  %conv43 = zext i8 %41 to i32
   %add44 = add nsw i32 %add42, %conv43
   store i32 %add44, ptr %sprepUniVer, align 4
-  %39 = load ptr, ptr %profile.addr, align 8
-  %indexes45 = getelementptr inbounds %struct.UStringPrepProfile, ptr %39, i32 0, i32 0
+  %42 = load ptr, ptr %profile.addr, align 8
+  %indexes45 = getelementptr inbounds %struct.UStringPrepProfile, ptr %42, i32 0, i32 0
   %arrayidx46 = getelementptr inbounds [16 x i32], ptr %indexes45, i64 0, i64 2
-  %40 = load i32, ptr %arrayidx46, align 8
-  store i32 %40, ptr %normCorrVer, align 4
-  %41 = load ptr, ptr %errorCode.addr, align 8
-  %42 = load i32, ptr %41, align 4
-  %call47 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %42)
+  %43 = load i32, ptr %arrayidx46, align 8
+  store i32 %43, ptr %normCorrVer, align 4
+  %44 = load ptr, ptr %errorCode.addr, align 8
+  %45 = load i32, ptr %44, align 4
+  %call47 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %45)
   %tobool48 = icmp ne i8 %call47, 0
   br i1 %tobool48, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %if.end19
-  %43 = load ptr, ptr %dataMemory, align 8
-  call void @udata_close_75(ptr noundef %43)
+  %46 = load ptr, ptr %dataMemory, align 8
+  call void @udata_close_75(ptr noundef %46)
   store i8 0, ptr %retval, align 1
   br label %return
 
 if.end50:                                         ; preds = %if.end19
-  %44 = load i32, ptr %normUniVer, align 4
-  %45 = load i32, ptr %sprepUniVer, align 4
-  %cmp51 = icmp slt i32 %44, %45
+  %47 = load i32, ptr %normUniVer, align 4
+  %48 = load i32, ptr %sprepUniVer, align 4
+  %cmp51 = icmp slt i32 %47, %48
   br i1 %cmp51, label %land.lhs.true, label %if.end58
 
 land.lhs.true:                                    ; preds = %if.end50
-  %46 = load i32, ptr %normUniVer, align 4
-  %47 = load i32, ptr %normCorrVer, align 4
-  %cmp52 = icmp slt i32 %46, %47
+  %49 = load i32, ptr %normUniVer, align 4
+  %50 = load i32, ptr %normCorrVer, align 4
+  %cmp52 = icmp slt i32 %49, %50
   br i1 %cmp52, label %land.lhs.true53, label %if.end58
 
 land.lhs.true53:                                  ; preds = %land.lhs.true
-  %48 = load ptr, ptr %profile.addr, align 8
-  %indexes54 = getelementptr inbounds %struct.UStringPrepProfile, ptr %48, i32 0, i32 0
+  %51 = load ptr, ptr %profile.addr, align 8
+  %indexes54 = getelementptr inbounds %struct.UStringPrepProfile, ptr %51, i32 0, i32 0
   %arrayidx55 = getelementptr inbounds [16 x i32], ptr %indexes54, i64 0, i64 7
-  %49 = load i32, ptr %arrayidx55, align 4
-  %and = and i32 %49, 1
+  %52 = load i32, ptr %arrayidx55, align 4
+  %and = and i32 %52, 1
   %cmp56 = icmp sgt i32 %and, 0
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %land.lhs.true53
-  %50 = load ptr, ptr %errorCode.addr, align 8
-  store i32 3, ptr %50, align 4
-  %51 = load ptr, ptr %dataMemory, align 8
-  call void @udata_close_75(ptr noundef %51)
+  %53 = load ptr, ptr %errorCode.addr, align 8
+  store i32 3, ptr %53, align 4
+  %54 = load ptr, ptr %dataMemory, align 8
+  call void @udata_close_75(ptr noundef %54)
   store i8 0, ptr %retval, align 1
   br label %return
 
 if.end58:                                         ; preds = %land.lhs.true53, %land.lhs.true, %if.end50
-  %52 = load ptr, ptr %profile.addr, align 8
-  %isDataLoaded = getelementptr inbounds %struct.UStringPrepProfile, ptr %52, i32 0, i32 5
+  %55 = load ptr, ptr %profile.addr, align 8
+  %isDataLoaded = getelementptr inbounds %struct.UStringPrepProfile, ptr %55, i32 0, i32 5
   store i8 1, ptr %isDataLoaded, align 4
-  %53 = load ptr, ptr %dataMemory, align 8
-  %cmp59 = icmp ne ptr %53, null
+  %56 = load ptr, ptr %dataMemory, align 8
+  %cmp59 = icmp ne ptr %56, null
   br i1 %cmp59, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.end58
-  %54 = load ptr, ptr %dataMemory, align 8
-  call void @udata_close_75(ptr noundef %54)
+  %57 = load ptr, ptr %dataMemory, align 8
+  call void @udata_close_75(ptr noundef %57)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then60, %if.end58
-  %55 = load ptr, ptr %profile.addr, align 8
-  %isDataLoaded62 = getelementptr inbounds %struct.UStringPrepProfile, ptr %55, i32 0, i32 5
-  %56 = load i8, ptr %isDataLoaded62, align 4
-  store i8 %56, ptr %retval, align 1
+  %58 = load ptr, ptr %profile.addr, align 8
+  %isDataLoaded62 = getelementptr inbounds %struct.UStringPrepProfile, ptr %58, i32 0, i32 5
+  %59 = load i8, ptr %isDataLoaded62, align 4
+  store i8 %59, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then57, %if.then49, %if.then10, %if.then4, %if.then
-  %57 = load i8, ptr %retval, align 1
-  ret i8 %57
+  %60 = load i8, ptr %retval, align 1
+  ret i8 %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4189,7 +4194,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4199,7 +4205,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4212,7 +4219,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7511Normalizer2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN6icu_7511Normalizer2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

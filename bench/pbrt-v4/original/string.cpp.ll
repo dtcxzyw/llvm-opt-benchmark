@@ -8295,7 +8295,8 @@ entry:
   %0 = load i64, ptr %call, align 8
   %1 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt25__codecvt_utf8_utf16_baseIDsEC2EmSt12codecvt_modem(ptr noundef nonnull align 8 dereferenceable(28) %this1, i64 noundef %0, i32 noundef 1, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVSt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode1EE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -8366,13 +8367,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt7codecvtIDsc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(12) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt25__codecvt_utf8_utf16_baseIDsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVSt25__codecvt_utf8_utf16_baseIDsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_M_maxcode = getelementptr inbounds %"class.std::__codecvt_utf8_utf16_base", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %__maxcode.addr, align 8
-  store i64 %1, ptr %_M_maxcode, align 8
+  %2 = load i64, ptr %__maxcode.addr, align 8
+  store i64 %2, ptr %_M_maxcode, align 8
   %_M_mode = getelementptr inbounds %"class.std::__codecvt_utf8_utf16_base", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %__mode.addr, align 4
-  store i32 %2, ptr %_M_mode, align 8
+  %3 = load i32, ptr %__mode.addr, align 4
+  store i32 %3, ptr %_M_mode, align 8
   ret void
 }
 
@@ -8424,7 +8426,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt23__codecvt_abstract_baseIDsc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(12) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt7codecvtIDsc11__mbstate_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVSt7codecvtIDsc11__mbstate_tE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8438,7 +8441,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt6locale5facetC2Em(ptr noundef nonnull align 8 dereferenceable(12) %this1, i64 noundef %0) #14
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt23__codecvt_abstract_baseIDsc11__mbstate_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVSt23__codecvt_abstract_baseIDsc11__mbstate_tE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8450,10 +8454,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %__refs, ptr %__refs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVNSt6locale5facetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt6locale5facetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_refcount = getelementptr inbounds %"class.std::locale::facet", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %__refs.addr, align 8
-  %tobool = icmp ne i64 %0, 0
+  %1 = load i64, ptr %__refs.addr, align 8
+  %tobool = icmp ne i64 %1, 0
   %cond = select i1 %tobool, i32 1, i32 0
   store i32 %cond, ptr %_M_refcount, align 8
   ret void

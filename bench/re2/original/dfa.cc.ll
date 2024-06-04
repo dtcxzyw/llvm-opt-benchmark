@@ -2740,7 +2740,8 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %state.addr, align 8
-  %cmp1 = icmp eq ptr %4, inttoptr (i64 1 to ptr)
+  %5 = inttoptr i64 1 to ptr
+  %cmp1 = icmp eq ptr %4, %5
   br i1 %cmp1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
@@ -2753,18 +2754,19 @@ invoke.cont5:                                     ; preds = %if.then2
   br label %return
 
 lpad4:                                            ; preds = %if.then2
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
   br label %eh.resume
 
 if.end6:                                          ; preds = %if.end
-  %8 = load ptr, ptr %state.addr, align 8
-  %cmp7 = icmp eq ptr %8, inttoptr (i64 2 to ptr)
+  %9 = load ptr, ptr %state.addr, align 8
+  %10 = inttoptr i64 2 to ptr
+  %cmp7 = icmp eq ptr %9, %10
   br i1 %cmp7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
@@ -2777,12 +2779,12 @@ invoke.cont11:                                    ; preds = %if.then8
   br label %return
 
 lpad10:                                           ; preds = %if.then8
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #17
   br label %eh.resume
 
@@ -2807,22 +2809,22 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont19
-  %12 = load i32, ptr %i, align 4
-  %13 = load ptr, ptr %state.addr, align 8
-  %ninst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %ninst_, align 8
-  %cmp20 = icmp slt i32 %12, %14
+  %14 = load i32, ptr %i, align 4
+  %15 = load ptr, ptr %state.addr, align 8
+  %ninst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i32 0, i32 1
+  %16 = load i32, ptr %ninst_, align 8
+  %cmp20 = icmp slt i32 %14, %16
   br i1 %cmp20, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load ptr, ptr %state.addr, align 8
-  %inst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %inst_, align 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %17 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %16, i64 %idxprom
-  %18 = load i32, ptr %arrayidx, align 4
-  %cmp21 = icmp eq i32 %18, -1
+  %17 = load ptr, ptr %state.addr, align 8
+  %inst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %inst_, align 8
+  %19 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %19 to i64
+  %arrayidx = getelementptr inbounds i32, ptr %18, i64 %idxprom
+  %20 = load i32, ptr %arrayidx, align 4
+  %cmp21 = icmp eq i32 %20, -1
   br i1 %cmp21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body
@@ -2834,33 +2836,33 @@ invoke.cont23:                                    ; preds = %if.then22
   br label %if.end44
 
 lpad15:                                           ; preds = %invoke.cont47, %for.end, %invoke.cont35, %if.else32, %if.then29, %if.then22, %invoke.cont16, %if.end12
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont17
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  %25 = load ptr, ptr %state.addr, align 8
-  %inst_25 = getelementptr inbounds %"struct.re2::DFA::State", ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %inst_25, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom26 = sext i32 %27 to i64
-  %arrayidx27 = getelementptr inbounds i32, ptr %26, i64 %idxprom26
-  %28 = load i32, ptr %arrayidx27, align 4
-  %cmp28 = icmp eq i32 %28, -2
+  %27 = load ptr, ptr %state.addr, align 8
+  %inst_25 = getelementptr inbounds %"struct.re2::DFA::State", ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %inst_25, align 8
+  %29 = load i32, ptr %i, align 4
+  %idxprom26 = sext i32 %29 to i64
+  %arrayidx27 = getelementptr inbounds i32, ptr %28, i64 %idxprom26
+  %30 = load i32, ptr %arrayidx27, align 4
+  %cmp28 = icmp eq i32 %30, -2
   br i1 %cmp28, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %if.else
@@ -2876,12 +2878,12 @@ if.else32:                                        ; preds = %if.else
           to label %invoke.cont35 unwind label %lpad15
 
 invoke.cont35:                                    ; preds = %if.else32
-  %29 = load ptr, ptr %state.addr, align 8
-  %inst_36 = getelementptr inbounds %"struct.re2::DFA::State", ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %inst_36, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom37 = sext i32 %31 to i64
-  %arrayidx38 = getelementptr inbounds i32, ptr %30, i64 %idxprom37
+  %31 = load ptr, ptr %state.addr, align 8
+  %inst_36 = getelementptr inbounds %"struct.re2::DFA::State", ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %inst_36, align 8
+  %33 = load i32, ptr %i, align 4
+  %idxprom37 = sext i32 %33 to i64
+  %arrayidx38 = getelementptr inbounds i32, ptr %32, i64 %idxprom37
   invoke void @_ZN4absl7debian29StrFormatIJPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSC_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(8) %sep, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx38)
           to label %invoke.cont39 unwind label %lpad15
 
@@ -2895,12 +2897,12 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   br label %if.end43
 
 lpad40:                                           ; preds = %invoke.cont39
-  %32 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #17
   br label %ehcleanup
 
@@ -2911,8 +2913,8 @@ if.end44:                                         ; preds = %if.end43, %invoke.c
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end44
-  %35 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %35, 1
+  %37 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %37, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -2921,8 +2923,8 @@ for.end:                                          ; preds = %for.cond
           to label %invoke.cont47 unwind label %lpad15
 
 invoke.cont47:                                    ; preds = %for.end
-  %36 = load ptr, ptr %state.addr, align 8
-  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %state.addr, align 8
+  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %38, i32 0, i32 2
   invoke void @_ZN4absl7debian29StrFormatIJjEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp46, ptr noundef nonnull align 4 dereferenceable(4) %flag_)
           to label %invoke.cont48 unwind label %lpad15
 
@@ -2937,12 +2939,12 @@ invoke.cont50:                                    ; preds = %invoke.cont48
   br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
 
 lpad49:                                           ; preds = %invoke.cont48
-  %37 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #17
   br label %ehcleanup
 
@@ -3359,7 +3361,8 @@ land.lhs.true43:                                  ; preds = %lor.lhs.false41, %l
   br i1 %tobool44, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %land.lhs.true43
-  store ptr inttoptr (i64 2 to ptr), ptr %retval, align 8
+  %31 = inttoptr i64 2 to ptr
+  store ptr %31, ptr %retval, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
@@ -3368,10 +3371,10 @@ if.end46:                                         ; preds = %land.lhs.true43, %l
 
 sw.default:                                       ; preds = %if.end46, %invoke.cont23
   %prog_47 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %31 = load ptr, ptr %prog_47, align 8
-  %32 = load i32, ptr %id, align 4
-  %sub48 = sub nsw i32 %32, 1
-  %call50 = invoke noundef ptr @_ZN3re24Prog4instEi(ptr noundef nonnull align 8 dereferenceable(432) %31, i32 noundef %sub48)
+  %32 = load ptr, ptr %prog_47, align 8
+  %33 = load i32, ptr %id, align 4
+  %sub48 = sub nsw i32 %33, 1
+  %call50 = invoke noundef ptr @_ZN3re24Prog4instEi(ptr noundef nonnull align 8 dereferenceable(432) %32, i32 noundef %sub48)
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %sw.default
@@ -3383,21 +3386,21 @@ invoke.cont51:                                    ; preds = %invoke.cont49
   br i1 %tobool53, label %if.then54, label %if.end58
 
 if.then54:                                        ; preds = %invoke.cont51
-  %33 = load ptr, ptr %it, align 8
-  %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr %n, align 4
-  %inc55 = add nsw i32 %35, 1
+  %34 = load ptr, ptr %it, align 8
+  %35 = load i32, ptr %34, align 4
+  %36 = load i32, ptr %n, align 4
+  %inc55 = add nsw i32 %36, 1
   store i32 %inc55, ptr %n, align 4
-  %call57 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %35)
+  %call57 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %36)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %if.then54
-  store i32 %34, ptr %call57, align 4
+  store i32 %35, ptr %call57, align 4
   br label %if.end58
 
 if.end58:                                         ; preds = %invoke.cont56, %invoke.cont51
-  %36 = load ptr, ptr %ip, align 8
-  %call60 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %36)
+  %37 = load ptr, ptr %ip, align 8
+  %call60 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %37)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %if.end58
@@ -3405,19 +3408,19 @@ invoke.cont59:                                    ; preds = %if.end58
   br i1 %cmp61, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %invoke.cont59
-  %37 = load ptr, ptr %ip, align 8
-  %call64 = invoke noundef i32 @_ZN3re24Prog4Inst5emptyEv(ptr noundef nonnull align 4 dereferenceable(8) %37)
+  %38 = load ptr, ptr %ip, align 8
+  %call64 = invoke noundef i32 @_ZN3re24Prog4Inst5emptyEv(ptr noundef nonnull align 4 dereferenceable(8) %38)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %if.then62
-  %38 = load i32, ptr %needflags, align 4
-  %or = or i32 %38, %call64
+  %39 = load i32, ptr %needflags, align 4
+  %or = or i32 %39, %call64
   store i32 %or, ptr %needflags, align 4
   br label %if.end65
 
 if.end65:                                         ; preds = %invoke.cont63, %invoke.cont59
-  %39 = load ptr, ptr %ip, align 8
-  %call67 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %39)
+  %40 = load ptr, ptr %ip, align 8
+  %call67 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %40)
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %if.end65
@@ -3426,8 +3429,8 @@ invoke.cont66:                                    ; preds = %if.end65
 
 land.lhs.true69:                                  ; preds = %invoke.cont66
   %prog_70 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %40 = load ptr, ptr %prog_70, align 8
-  %call72 = invoke noundef zeroext i1 @_ZN3re24Prog10anchor_endEv(ptr noundef nonnull align 8 dereferenceable(432) %40)
+  %41 = load ptr, ptr %prog_70, align 8
+  %call72 = invoke noundef zeroext i1 @_ZN3re24Prog10anchor_endEv(ptr noundef nonnull align 8 dereferenceable(432) %41)
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %land.lhs.true69
@@ -3444,63 +3447,64 @@ sw.epilog:                                        ; preds = %if.end74
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.epilog, %if.end19
-  %41 = load ptr, ptr %it, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %41, i32 1
+  %42 = load ptr, ptr %it, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %42, i32 1
   store ptr %incdec.ptr, ptr %it, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %if.then, %invoke.cont3
-  %42 = load i32, ptr %n, align 4
-  %cmp75 = icmp sgt i32 %42, 0
+  %43 = load i32, ptr %n, align 4
+  %cmp75 = icmp sgt i32 %43, 0
   br i1 %cmp75, label %land.lhs.true76, label %if.end82
 
 land.lhs.true76:                                  ; preds = %for.end
-  %43 = load i32, ptr %n, align 4
-  %sub77 = sub nsw i32 %43, 1
+  %44 = load i32, ptr %n, align 4
+  %sub77 = sub nsw i32 %44, 1
   %call79 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %sub77)
           to label %invoke.cont78 unwind label %lpad
 
 invoke.cont78:                                    ; preds = %land.lhs.true76
-  %44 = load i32, ptr %call79, align 4
-  %cmp80 = icmp eq i32 %44, -1
+  %45 = load i32, ptr %call79, align 4
+  %cmp80 = icmp eq i32 %45, -1
   br i1 %cmp80, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %invoke.cont78
-  %45 = load i32, ptr %n, align 4
-  %dec = add nsw i32 %45, -1
+  %46 = load i32, ptr %n, align 4
+  %dec = add nsw i32 %46, -1
   store i32 %dec, ptr %n, align 4
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then81, %invoke.cont78, %for.end
-  %46 = load i32, ptr %needflags, align 4
-  %cmp83 = icmp eq i32 %46, 0
+  %47 = load i32, ptr %needflags, align 4
+  %cmp83 = icmp eq i32 %47, 0
   br i1 %cmp83, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %if.end82
-  %47 = load i32, ptr %flag.addr, align 4
-  %and85 = and i32 %47, 256
+  %48 = load i32, ptr %flag.addr, align 4
+  %and85 = and i32 %48, 256
   store i32 %and85, ptr %flag.addr, align 4
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then84, %if.end82
-  %48 = load i32, ptr %n, align 4
-  %cmp87 = icmp eq i32 %48, 0
+  %49 = load i32, ptr %n, align 4
+  %cmp87 = icmp eq i32 %49, 0
   br i1 %cmp87, label %land.lhs.true88, label %if.end91
 
 land.lhs.true88:                                  ; preds = %if.end86
-  %49 = load i32, ptr %flag.addr, align 4
-  %cmp89 = icmp eq i32 %49, 0
+  %50 = load i32, ptr %flag.addr, align 4
+  %cmp89 = icmp eq i32 %50, 0
   br i1 %cmp89, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %land.lhs.true88
-  store ptr inttoptr (i64 1 to ptr), ptr %retval, align 8
+  %51 = inttoptr i64 1 to ptr
+  store ptr %51, ptr %retval, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end91:                                         ; preds = %land.lhs.true88, %if.end86
   %kind_92 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 1
-  %50 = load i32, ptr %kind_92, align 8
-  %cmp93 = icmp eq i32 %50, 1
+  %52 = load i32, ptr %kind_92, align 8
+  %cmp93 = icmp eq i32 %52, 1
   br i1 %cmp93, label %if.then94, label %if.end110
 
 if.then94:                                        ; preds = %if.end91
@@ -3509,67 +3513,67 @@ if.then94:                                        ; preds = %if.end91
 
 invoke.cont96:                                    ; preds = %if.then94
   store ptr %call97, ptr %ip95, align 8
-  %51 = load ptr, ptr %ip95, align 8
-  %52 = load i32, ptr %n, align 4
-  %idx.ext = sext i32 %52 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %51, i64 %idx.ext
+  %53 = load ptr, ptr %ip95, align 8
+  %54 = load i32, ptr %n, align 4
+  %idx.ext = sext i32 %54 to i64
+  %add.ptr = getelementptr inbounds i32, ptr %53, i64 %idx.ext
   store ptr %add.ptr, ptr %ep, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end108, %invoke.cont96
-  %53 = load ptr, ptr %ip95, align 8
-  %54 = load ptr, ptr %ep, align 8
-  %cmp98 = icmp ult ptr %53, %54
+  %55 = load ptr, ptr %ip95, align 8
+  %56 = load ptr, ptr %ep, align 8
+  %cmp98 = icmp ult ptr %55, %56
   br i1 %cmp98, label %while.body, label %while.end109
 
 while.body:                                       ; preds = %while.cond
-  %55 = load ptr, ptr %ip95, align 8
-  store ptr %55, ptr %markp, align 8
+  %57 = load ptr, ptr %ip95, align 8
+  store ptr %57, ptr %markp, align 8
   br label %while.cond99
 
 while.cond99:                                     ; preds = %while.body102, %while.body
-  %56 = load ptr, ptr %markp, align 8
-  %57 = load ptr, ptr %ep, align 8
-  %cmp100 = icmp ult ptr %56, %57
+  %58 = load ptr, ptr %markp, align 8
+  %59 = load ptr, ptr %ep, align 8
+  %cmp100 = icmp ult ptr %58, %59
   br i1 %cmp100, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond99
-  %58 = load ptr, ptr %markp, align 8
-  %59 = load i32, ptr %58, align 4
-  %cmp101 = icmp ne i32 %59, -1
+  %60 = load ptr, ptr %markp, align 8
+  %61 = load i32, ptr %60, align 4
+  %cmp101 = icmp ne i32 %61, -1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond99
-  %60 = phi i1 [ false, %while.cond99 ], [ %cmp101, %land.rhs ]
-  br i1 %60, label %while.body102, label %while.end
+  %62 = phi i1 [ false, %while.cond99 ], [ %cmp101, %land.rhs ]
+  br i1 %62, label %while.body102, label %while.end
 
 while.body102:                                    ; preds = %land.end
-  %61 = load ptr, ptr %markp, align 8
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %61, i32 1
+  %63 = load ptr, ptr %markp, align 8
+  %incdec.ptr103 = getelementptr inbounds i32, ptr %63, i32 1
   store ptr %incdec.ptr103, ptr %markp, align 8
   br label %while.cond99, !llvm.loop !9
 
 while.end:                                        ; preds = %land.end
-  %62 = load ptr, ptr %ip95, align 8
-  %63 = load ptr, ptr %markp, align 8
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %62, ptr noundef %63)
+  %64 = load ptr, ptr %ip95, align 8
+  %65 = load ptr, ptr %markp, align 8
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %64, ptr noundef %65)
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %while.end
-  %64 = load ptr, ptr %markp, align 8
-  %65 = load ptr, ptr %ep, align 8
-  %cmp105 = icmp ult ptr %64, %65
+  %66 = load ptr, ptr %markp, align 8
+  %67 = load ptr, ptr %ep, align 8
+  %cmp105 = icmp ult ptr %66, %67
   br i1 %cmp105, label %if.then106, label %if.end108
 
 if.then106:                                       ; preds = %invoke.cont104
-  %66 = load ptr, ptr %markp, align 8
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %66, i32 1
+  %68 = load ptr, ptr %markp, align 8
+  %incdec.ptr107 = getelementptr inbounds i32, ptr %68, i32 1
   store ptr %incdec.ptr107, ptr %markp, align 8
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then106, %invoke.cont104
-  %67 = load ptr, ptr %markp, align 8
-  store ptr %67, ptr %ip95, align 8
+  %69 = load ptr, ptr %markp, align 8
+  store ptr %69, ptr %ip95, align 8
   br label %while.cond, !llvm.loop !10
 
 while.end109:                                     ; preds = %while.cond
@@ -3577,8 +3581,8 @@ while.end109:                                     ; preds = %while.cond
 
 if.end110:                                        ; preds = %while.end109, %if.end91
   %kind_111 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 1
-  %68 = load i32, ptr %kind_111, align 8
-  %cmp112 = icmp eq i32 %68, 3
+  %70 = load i32, ptr %kind_111, align 8
+  %cmp112 = icmp eq i32 %70, 3
   br i1 %cmp112, label %if.then113, label %if.end121
 
 if.then113:                                       ; preds = %if.end110
@@ -3587,35 +3591,35 @@ if.then113:                                       ; preds = %if.end110
 
 invoke.cont115:                                   ; preds = %if.then113
   store ptr %call116, ptr %ip114, align 8
-  %69 = load ptr, ptr %ip114, align 8
-  %70 = load i32, ptr %n, align 4
-  %idx.ext118 = sext i32 %70 to i64
-  %add.ptr119 = getelementptr inbounds i32, ptr %69, i64 %idx.ext118
-  store ptr %add.ptr119, ptr %ep117, align 8
   %71 = load ptr, ptr %ip114, align 8
-  %72 = load ptr, ptr %ep117, align 8
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %71, ptr noundef %72)
+  %72 = load i32, ptr %n, align 4
+  %idx.ext118 = sext i32 %72 to i64
+  %add.ptr119 = getelementptr inbounds i32, ptr %71, i64 %idx.ext118
+  store ptr %add.ptr119, ptr %ep117, align 8
+  %73 = load ptr, ptr %ip114, align 8
+  %74 = load ptr, ptr %ep117, align 8
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %73, ptr noundef %74)
           to label %invoke.cont120 unwind label %lpad
 
 invoke.cont120:                                   ; preds = %invoke.cont115
   br label %if.end121
 
 if.end121:                                        ; preds = %invoke.cont120, %if.end110
-  %73 = load ptr, ptr %mq.addr, align 8
-  %cmp122 = icmp ne ptr %73, null
+  %75 = load ptr, ptr %mq.addr, align 8
+  %cmp122 = icmp ne ptr %75, null
   br i1 %cmp122, label %if.then123, label %if.end152
 
 if.then123:                                       ; preds = %if.end121
-  %74 = load i32, ptr %n, align 4
-  %inc124 = add nsw i32 %74, 1
+  %76 = load i32, ptr %n, align 4
+  %inc124 = add nsw i32 %76, 1
   store i32 %inc124, ptr %n, align 4
-  %call126 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %74)
+  %call126 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %76)
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %if.then123
   store i32 -2, ptr %call126, align 4
-  %75 = load ptr, ptr %mq.addr, align 8
-  %call128 = invoke noundef ptr @_ZN3re210SparseSetTIvE5beginEv(ptr noundef nonnull align 8 dereferenceable(40) %75)
+  %77 = load ptr, ptr %mq.addr, align 8
+  %call128 = invoke noundef ptr @_ZN3re210SparseSetTIvE5beginEv(ptr noundef nonnull align 8 dereferenceable(40) %77)
           to label %invoke.cont127 unwind label %lpad
 
 invoke.cont127:                                   ; preds = %invoke.cont125
@@ -3623,29 +3627,29 @@ invoke.cont127:                                   ; preds = %invoke.cont125
   br label %for.cond129
 
 for.cond129:                                      ; preds = %for.inc149, %invoke.cont127
-  %76 = load ptr, ptr %i, align 8
-  %77 = load ptr, ptr %mq.addr, align 8
-  %call131 = invoke noundef ptr @_ZN3re210SparseSetTIvE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %77)
+  %78 = load ptr, ptr %i, align 8
+  %79 = load ptr, ptr %mq.addr, align 8
+  %call131 = invoke noundef ptr @_ZN3re210SparseSetTIvE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %79)
           to label %invoke.cont130 unwind label %lpad
 
 invoke.cont130:                                   ; preds = %for.cond129
-  %cmp132 = icmp ne ptr %76, %call131
+  %cmp132 = icmp ne ptr %78, %call131
   br i1 %cmp132, label %for.body133, label %for.end151
 
 for.body133:                                      ; preds = %invoke.cont130
-  %78 = load ptr, ptr %i, align 8
-  %79 = load i32, ptr %78, align 4
-  store i32 %79, ptr %id134, align 4
+  %80 = load ptr, ptr %i, align 8
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %id134, align 4
   %prog_136 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %80 = load ptr, ptr %prog_136, align 8
-  %81 = load i32, ptr %id134, align 4
-  %call138 = invoke noundef ptr @_ZN3re24Prog4instEi(ptr noundef nonnull align 8 dereferenceable(432) %80, i32 noundef %81)
+  %82 = load ptr, ptr %prog_136, align 8
+  %83 = load i32, ptr %id134, align 4
+  %call138 = invoke noundef ptr @_ZN3re24Prog4instEi(ptr noundef nonnull align 8 dereferenceable(432) %82, i32 noundef %83)
           to label %invoke.cont137 unwind label %lpad
 
 invoke.cont137:                                   ; preds = %for.body133
   store ptr %call138, ptr %ip135, align 8
-  %82 = load ptr, ptr %ip135, align 8
-  %call140 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %82)
+  %84 = load ptr, ptr %ip135, align 8
+  %call140 = invoke noundef i32 @_ZN3re24Prog4Inst6opcodeEv(ptr noundef nonnull align 4 dereferenceable(8) %84)
           to label %invoke.cont139 unwind label %lpad
 
 invoke.cont139:                                   ; preds = %invoke.cont137
@@ -3653,15 +3657,15 @@ invoke.cont139:                                   ; preds = %invoke.cont137
   br i1 %cmp141, label %if.then142, label %if.end148
 
 if.then142:                                       ; preds = %invoke.cont139
-  %83 = load ptr, ptr %ip135, align 8
-  %call144 = invoke noundef i32 @_ZN3re24Prog4Inst8match_idEv(ptr noundef nonnull align 4 dereferenceable(8) %83)
+  %85 = load ptr, ptr %ip135, align 8
+  %call144 = invoke noundef i32 @_ZN3re24Prog4Inst8match_idEv(ptr noundef nonnull align 4 dereferenceable(8) %85)
           to label %invoke.cont143 unwind label %lpad
 
 invoke.cont143:                                   ; preds = %if.then142
-  %84 = load i32, ptr %n, align 4
-  %inc145 = add nsw i32 %84, 1
+  %86 = load i32, ptr %n, align 4
+  %inc145 = add nsw i32 %86, 1
   store i32 %inc145, ptr %n, align 4
-  %call147 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %84)
+  %call147 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3re28PODArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst, i32 noundef %86)
           to label %invoke.cont146 unwind label %lpad
 
 invoke.cont146:                                   ; preds = %invoke.cont143
@@ -3672,8 +3676,8 @@ if.end148:                                        ; preds = %invoke.cont146, %in
   br label %for.inc149
 
 for.inc149:                                       ; preds = %if.end148
-  %85 = load ptr, ptr %i, align 8
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %85, i32 1
+  %87 = load ptr, ptr %i, align 8
+  %incdec.ptr150 = getelementptr inbounds i32, ptr %87, i32 1
   store ptr %incdec.ptr150, ptr %i, align 8
   br label %for.cond129, !llvm.loop !11
 
@@ -3681,31 +3685,31 @@ for.end151:                                       ; preds = %invoke.cont130
   br label %if.end152
 
 if.end152:                                        ; preds = %for.end151, %if.end121
-  %86 = load i32, ptr %needflags, align 4
-  %shl = shl i32 %86, 16
-  %87 = load i32, ptr %flag.addr, align 4
-  %or153 = or i32 %87, %shl
+  %88 = load i32, ptr %needflags, align 4
+  %shl = shl i32 %88, 16
+  %89 = load i32, ptr %flag.addr, align 4
+  %or153 = or i32 %89, %shl
   store i32 %or153, ptr %flag.addr, align 4
   %call155 = invoke noundef ptr @_ZNK3re28PODArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %inst)
           to label %invoke.cont154 unwind label %lpad
 
 invoke.cont154:                                   ; preds = %if.end152
-  %88 = load i32, ptr %n, align 4
-  %89 = load i32, ptr %flag.addr, align 4
-  %call157 = invoke noundef ptr @_ZN3re23DFA11CachedStateEPiij(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %call155, i32 noundef %88, i32 noundef %89)
+  %90 = load i32, ptr %n, align 4
+  %91 = load i32, ptr %flag.addr, align 4
+  %call157 = invoke noundef ptr @_ZN3re23DFA11CachedStateEPiij(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %call155, i32 noundef %90, i32 noundef %91)
           to label %invoke.cont156 unwind label %lpad
 
 invoke.cont156:                                   ; preds = %invoke.cont154
   store ptr %call157, ptr %state, align 8
-  %90 = load ptr, ptr %state, align 8
-  store ptr %90, ptr %retval, align 8
+  %92 = load ptr, ptr %state, align 8
+  store ptr %92, ptr %retval, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont156, %if.then90, %if.then45
   call void @_ZN3re28PODArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inst) #17
-  %91 = load ptr, ptr %retval, align 8
-  ret ptr %91
+  %93 = load ptr, ptr %retval, align 8
+  ret ptr %93
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5474,21 +5478,25 @@ entry:
   store i32 %c, ptr %c.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %state.addr, align 8
-  %cmp = icmp ule ptr %0, inttoptr (i64 2 to ptr)
+  %1 = inttoptr i64 2 to ptr
+  %cmp = icmp ule ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %state.addr, align 8
-  %cmp2 = icmp eq ptr %1, inttoptr (i64 2 to ptr)
+  %2 = load ptr, ptr %state.addr, align 8
+  %3 = inttoptr i64 2 to ptr
+  %cmp2 = icmp eq ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  store ptr inttoptr (i64 2 to ptr), ptr %retval, align 8
+  %4 = inttoptr i64 2 to ptr
+  store ptr %4, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %2 = load ptr, ptr %state.addr, align 8
-  %cmp4 = icmp eq ptr %2, inttoptr (i64 1 to ptr)
+  %5 = load ptr, ptr %state.addr, align 8
+  %6 = inttoptr i64 1 to ptr
+  %cmp4 = icmp eq ptr %5, %6
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
@@ -5506,18 +5514,18 @@ invoke.cont6:                                     ; preds = %invoke.cont
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %if.then5
-  %3 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #17
   br label %eh.resume
 
 if.end8:                                          ; preds = %if.end
-  %6 = load ptr, ptr %state.addr, align 8
-  %cmp9 = icmp eq ptr %6, null
+  %10 = load ptr, ptr %state.addr, align 8
+  %cmp9 = icmp eq ptr %10, null
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.end8
@@ -5535,12 +5543,12 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   br label %return
 
 lpad12:                                           ; preds = %invoke.cont13, %if.then10
-  %7 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp11) #17
   br label %eh.resume
 
@@ -5559,135 +5567,135 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %return
 
 lpad19:                                           ; preds = %invoke.cont20, %if.end17
-  %10 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp18) #17
   br label %eh.resume
 
 if.end24:                                         ; preds = %entry
-  %13 = load ptr, ptr %state.addr, align 8
-  %next_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %c.addr, align 4
-  %call25 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %14)
+  %17 = load ptr, ptr %state.addr, align 8
+  %next_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %17, i32 0, i32 3
+  %18 = load i32, ptr %c.addr, align 4
+  %call25 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %18)
   %idxprom = sext i32 %call25 to i64
   %arrayidx = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom
   %call26 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx, i32 noundef 0) #17
   store ptr %call26, ptr %ns, align 8
-  %15 = load ptr, ptr %ns, align 8
-  %cmp27 = icmp ne ptr %15, null
+  %19 = load ptr, ptr %ns, align 8
+  %cmp27 = icmp ne ptr %19, null
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end24
-  %16 = load ptr, ptr %ns, align 8
-  store ptr %16, ptr %retval, align 8
+  %20 = load ptr, ptr %ns, align 8
+  store ptr %20, ptr %retval, align 8
   br label %return
 
 if.end29:                                         ; preds = %if.end24
-  %17 = load ptr, ptr %state.addr, align 8
-  %q0_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
-  %18 = load ptr, ptr %q0_, align 8
-  call void @_ZN3re23DFA12StateToWorkqEPNS0_5StateEPNS0_5WorkqE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %state.addr, align 8
-  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %19, i32 0, i32 2
-  %20 = load i32, ptr %flag_, align 4
-  %shr = lshr i32 %20, 16
-  store i32 %shr, ptr %needflag, align 4
   %21 = load ptr, ptr %state.addr, align 8
-  %flag_30 = getelementptr inbounds %"struct.re2::DFA::State", ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %flag_30, align 4
-  %and = and i32 %22, 255
+  %q0_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
+  %22 = load ptr, ptr %q0_, align 8
+  call void @_ZN3re23DFA12StateToWorkqEPNS0_5StateEPNS0_5WorkqE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %21, ptr noundef %22)
+  %23 = load ptr, ptr %state.addr, align 8
+  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %23, i32 0, i32 2
+  %24 = load i32, ptr %flag_, align 4
+  %shr = lshr i32 %24, 16
+  store i32 %shr, ptr %needflag, align 4
+  %25 = load ptr, ptr %state.addr, align 8
+  %flag_30 = getelementptr inbounds %"struct.re2::DFA::State", ptr %25, i32 0, i32 2
+  %26 = load i32, ptr %flag_30, align 4
+  %and = and i32 %26, 255
   store i32 %and, ptr %beforeflag, align 4
-  %23 = load i32, ptr %beforeflag, align 4
-  store i32 %23, ptr %oldbeforeflag, align 4
+  %27 = load i32, ptr %beforeflag, align 4
+  store i32 %27, ptr %oldbeforeflag, align 4
   store i32 0, ptr %afterflag, align 4
-  %24 = load i32, ptr %c.addr, align 4
-  %cmp31 = icmp eq i32 %24, 10
+  %28 = load i32, ptr %c.addr, align 4
+  %cmp31 = icmp eq i32 %28, 10
   br i1 %cmp31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end29
-  %25 = load i32, ptr %beforeflag, align 4
-  %or = or i32 %25, 2
+  %29 = load i32, ptr %beforeflag, align 4
+  %or = or i32 %29, 2
   store i32 %or, ptr %beforeflag, align 4
-  %26 = load i32, ptr %afterflag, align 4
-  %or33 = or i32 %26, 1
+  %30 = load i32, ptr %afterflag, align 4
+  %or33 = or i32 %30, 1
   store i32 %or33, ptr %afterflag, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end29
-  %27 = load i32, ptr %c.addr, align 4
-  %cmp35 = icmp eq i32 %27, 256
+  %31 = load i32, ptr %c.addr, align 4
+  %cmp35 = icmp eq i32 %31, 256
   br i1 %cmp35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
-  %28 = load i32, ptr %beforeflag, align 4
-  %or37 = or i32 %28, 10
+  %32 = load i32, ptr %beforeflag, align 4
+  %or37 = or i32 %32, 10
   store i32 %or37, ptr %beforeflag, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end34
-  %29 = load ptr, ptr %state.addr, align 8
-  %flag_39 = getelementptr inbounds %"struct.re2::DFA::State", ptr %29, i32 0, i32 2
-  %30 = load i32, ptr %flag_39, align 4
-  %and40 = and i32 %30, 512
+  %33 = load ptr, ptr %state.addr, align 8
+  %flag_39 = getelementptr inbounds %"struct.re2::DFA::State", ptr %33, i32 0, i32 2
+  %34 = load i32, ptr %flag_39, align 4
+  %and40 = and i32 %34, 512
   %cmp41 = icmp ne i32 %and40, 0
   %frombool = zext i1 %cmp41 to i8
   store i8 %frombool, ptr %islastword, align 1
-  %31 = load i32, ptr %c.addr, align 4
-  %cmp42 = icmp ne i32 %31, 256
+  %35 = load i32, ptr %c.addr, align 4
+  %cmp42 = icmp ne i32 %35, 256
   br i1 %cmp42, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end38
-  %32 = load i32, ptr %c.addr, align 4
-  %conv = trunc i32 %32 to i8
+  %36 = load i32, ptr %c.addr, align 4
+  %conv = trunc i32 %36 to i8
   %call43 = call noundef zeroext i1 @_ZN3re24Prog10IsWordCharEh(i8 noundef zeroext %conv)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end38
-  %33 = phi i1 [ false, %if.end38 ], [ %call43, %land.rhs ]
-  %frombool44 = zext i1 %33 to i8
+  %37 = phi i1 [ false, %if.end38 ], [ %call43, %land.rhs ]
+  %frombool44 = zext i1 %37 to i8
   store i8 %frombool44, ptr %isword, align 1
-  %34 = load i8, ptr %isword, align 1
-  %tobool = trunc i8 %34 to i1
+  %38 = load i8, ptr %isword, align 1
+  %tobool = trunc i8 %38 to i1
   %conv45 = zext i1 %tobool to i32
-  %35 = load i8, ptr %islastword, align 1
-  %tobool46 = trunc i8 %35 to i1
+  %39 = load i8, ptr %islastword, align 1
+  %tobool46 = trunc i8 %39 to i1
   %conv47 = zext i1 %tobool46 to i32
   %cmp48 = icmp eq i32 %conv45, %conv47
   br i1 %cmp48, label %if.then49, label %if.else
 
 if.then49:                                        ; preds = %land.end
-  %36 = load i32, ptr %beforeflag, align 4
-  %or50 = or i32 %36, 32
+  %40 = load i32, ptr %beforeflag, align 4
+  %or50 = or i32 %40, 32
   store i32 %or50, ptr %beforeflag, align 4
   br label %if.end52
 
 if.else:                                          ; preds = %land.end
-  %37 = load i32, ptr %beforeflag, align 4
-  %or51 = or i32 %37, 16
+  %41 = load i32, ptr %beforeflag, align 4
+  %or51 = or i32 %41, 16
   store i32 %or51, ptr %beforeflag, align 4
   br label %if.end52
 
 if.end52:                                         ; preds = %if.else, %if.then49
-  %38 = load i32, ptr %beforeflag, align 4
-  %39 = load i32, ptr %oldbeforeflag, align 4
-  %not = xor i32 %39, -1
-  %and53 = and i32 %38, %not
-  %40 = load i32, ptr %needflag, align 4
-  %and54 = and i32 %and53, %40
+  %42 = load i32, ptr %beforeflag, align 4
+  %43 = load i32, ptr %oldbeforeflag, align 4
+  %not = xor i32 %43, -1
+  %and53 = and i32 %42, %not
+  %44 = load i32, ptr %needflag, align 4
+  %and54 = and i32 %and53, %44
   %tobool55 = icmp ne i32 %and54, 0
   br i1 %tobool55, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end52
   %q0_57 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
-  %41 = load ptr, ptr %q0_57, align 8
+  %45 = load ptr, ptr %q0_57, align 8
   %q1_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 5
-  %42 = load ptr, ptr %q1_, align 8
-  %43 = load i32, ptr %beforeflag, align 4
-  call void @_ZN3re23DFA21RunWorkqOnEmptyStringEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %41, ptr noundef %42, i32 noundef %43)
+  %46 = load ptr, ptr %q1_, align 8
+  %47 = load i32, ptr %beforeflag, align 4
+  call void @_ZN3re23DFA21RunWorkqOnEmptyStringEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %45, ptr noundef %46, i32 noundef %47)
   %q0_58 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
   %q1_59 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 5
   call void @_ZSt4swapIPN3re23DFA5WorkqEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %q0_58, ptr noundef nonnull align 8 dereferenceable(8) %q1_59) #17
@@ -5696,83 +5704,83 @@ if.then56:                                        ; preds = %if.end52
 if.end60:                                         ; preds = %if.then56, %if.end52
   store i8 0, ptr %ismatch, align 1
   %q0_61 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
-  %44 = load ptr, ptr %q0_61, align 8
+  %48 = load ptr, ptr %q0_61, align 8
   %q1_62 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 5
-  %45 = load ptr, ptr %q1_62, align 8
-  %46 = load i32, ptr %c.addr, align 4
-  %47 = load i32, ptr %afterflag, align 4
-  call void @_ZN3re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, ptr noundef %ismatch)
+  %49 = load ptr, ptr %q1_62, align 8
+  %50 = load i32, ptr %c.addr, align 4
+  %51 = load i32, ptr %afterflag, align 4
+  call void @_ZN3re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef %ismatch)
   %q0_63 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
   %q1_64 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 5
   call void @_ZSt4swapIPN3re23DFA5WorkqEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %q0_63, ptr noundef nonnull align 8 dereferenceable(8) %q1_64) #17
-  %48 = load i32, ptr %afterflag, align 4
-  store i32 %48, ptr %flag, align 4
-  %49 = load i8, ptr %ismatch, align 1
-  %tobool65 = trunc i8 %49 to i1
+  %52 = load i32, ptr %afterflag, align 4
+  store i32 %52, ptr %flag, align 4
+  %53 = load i8, ptr %ismatch, align 1
+  %tobool65 = trunc i8 %53 to i1
   br i1 %tobool65, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %if.end60
-  %50 = load i32, ptr %flag, align 4
-  %or67 = or i32 %50, 256
+  %54 = load i32, ptr %flag, align 4
+  %or67 = or i32 %54, 256
   store i32 %or67, ptr %flag, align 4
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then66, %if.end60
-  %51 = load i8, ptr %isword, align 1
-  %tobool69 = trunc i8 %51 to i1
+  %55 = load i8, ptr %isword, align 1
+  %tobool69 = trunc i8 %55 to i1
   br i1 %tobool69, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.end68
-  %52 = load i32, ptr %flag, align 4
-  %or71 = or i32 %52, 512
+  %56 = load i32, ptr %flag, align 4
+  %or71 = or i32 %56, 512
   store i32 %or71, ptr %flag, align 4
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %if.end68
-  %53 = load i8, ptr %ismatch, align 1
-  %tobool73 = trunc i8 %53 to i1
+  %57 = load i8, ptr %ismatch, align 1
+  %tobool73 = trunc i8 %57 to i1
   br i1 %tobool73, label %land.lhs.true, label %if.else79
 
 land.lhs.true:                                    ; preds = %if.end72
   %kind_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 1
-  %54 = load i32, ptr %kind_, align 8
-  %cmp74 = icmp eq i32 %54, 3
+  %58 = load i32, ptr %kind_, align 8
+  %cmp74 = icmp eq i32 %58, 3
   br i1 %cmp74, label %if.then75, label %if.else79
 
 if.then75:                                        ; preds = %land.lhs.true
   %q0_76 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
-  %55 = load ptr, ptr %q0_76, align 8
+  %59 = load ptr, ptr %q0_76, align 8
   %q1_77 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 5
-  %56 = load ptr, ptr %q1_77, align 8
-  %57 = load i32, ptr %flag, align 4
-  %call78 = call noundef ptr @_ZN3re23DFA18WorkqToCachedStateEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %55, ptr noundef %56, i32 noundef %57)
+  %60 = load ptr, ptr %q1_77, align 8
+  %61 = load i32, ptr %flag, align 4
+  %call78 = call noundef ptr @_ZN3re23DFA18WorkqToCachedStateEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %59, ptr noundef %60, i32 noundef %61)
   store ptr %call78, ptr %ns, align 8
   br label %if.end82
 
 if.else79:                                        ; preds = %land.lhs.true, %if.end72
   %q0_80 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 4
-  %58 = load ptr, ptr %q0_80, align 8
-  %59 = load i32, ptr %flag, align 4
-  %call81 = call noundef ptr @_ZN3re23DFA18WorkqToCachedStateEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %58, ptr noundef null, i32 noundef %59)
+  %62 = load ptr, ptr %q0_80, align 8
+  %63 = load i32, ptr %flag, align 4
+  %call81 = call noundef ptr @_ZN3re23DFA18WorkqToCachedStateEPNS0_5WorkqES2_j(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %62, ptr noundef null, i32 noundef %63)
   store ptr %call81, ptr %ns, align 8
   br label %if.end82
 
 if.end82:                                         ; preds = %if.else79, %if.then75
-  %60 = load ptr, ptr %state.addr, align 8
-  %next_83 = getelementptr inbounds %"struct.re2::DFA::State", ptr %60, i32 0, i32 3
-  %61 = load i32, ptr %c.addr, align 4
-  %call84 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %61)
+  %64 = load ptr, ptr %state.addr, align 8
+  %next_83 = getelementptr inbounds %"struct.re2::DFA::State", ptr %64, i32 0, i32 3
+  %65 = load i32, ptr %c.addr, align 4
+  %call84 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %65)
   %idxprom85 = sext i32 %call84 to i64
   %arrayidx86 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_83, i64 0, i64 %idxprom85
-  %62 = load ptr, ptr %ns, align 8
-  call void @_ZNSt6atomicIPN3re23DFA5StateEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx86, ptr noundef %62, i32 noundef 3) #17
-  %63 = load ptr, ptr %ns, align 8
-  store ptr %63, ptr %retval, align 8
+  %66 = load ptr, ptr %ns, align 8
+  call void @_ZNSt6atomicIPN3re23DFA5StateEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx86, ptr noundef %66, i32 noundef 3) #17
+  %67 = load ptr, ptr %ns, align 8
+  store ptr %67, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end82, %if.then28, %invoke.cont22, %invoke.cont15, %invoke.cont6, %if.then3
-  %64 = load ptr, ptr %retval, align 8
-  ret ptr %64
+  %68 = load ptr, ptr %retval, align 8
+  ret ptr %68
 
 eh.resume:                                        ; preds = %lpad19, %lpad12, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -6212,7 +6220,8 @@ entry:
   %dfa_ = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 0
   store ptr %0, ptr %dfa_, align 8
   %1 = load ptr, ptr %state.addr, align 8
-  %cmp = icmp ule ptr %1, inttoptr (i64 2 to ptr)
+  %2 = inttoptr i64 2 to ptr
+  %cmp = icmp ule ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6224,9 +6233,9 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %flag_, align 4
   %is_special_ = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 4
   store i8 1, ptr %is_special_, align 8
-  %2 = load ptr, ptr %state.addr, align 8
+  %3 = load ptr, ptr %state.addr, align 8
   %special_ = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 5
-  store ptr %2, ptr %special_, align 8
+  store ptr %3, ptr %special_, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6234,36 +6243,36 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %is_special_2, align 8
   %special_3 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 5
   store ptr null, ptr %special_3, align 8
-  %3 = load ptr, ptr %state.addr, align 8
-  %flag_4 = getelementptr inbounds %"struct.re2::DFA::State", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %flag_4, align 4
+  %4 = load ptr, ptr %state.addr, align 8
+  %flag_4 = getelementptr inbounds %"struct.re2::DFA::State", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %flag_4, align 4
   %flag_5 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %flag_5, align 4
-  %5 = load ptr, ptr %state.addr, align 8
-  %ninst_6 = getelementptr inbounds %"struct.re2::DFA::State", ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %ninst_6, align 8
+  store i32 %5, ptr %flag_5, align 4
+  %6 = load ptr, ptr %state.addr, align 8
+  %ninst_6 = getelementptr inbounds %"struct.re2::DFA::State", ptr %6, i32 0, i32 1
+  %7 = load i32, ptr %ninst_6, align 8
   %ninst_7 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 2
-  store i32 %6, ptr %ninst_7, align 8
+  store i32 %7, ptr %ninst_7, align 8
   %ninst_8 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 2
-  %7 = load i32, ptr %ninst_8, align 8
-  %conv = sext i32 %7 to i64
-  %8 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv, i64 4)
-  %9 = extractvalue { i64, i1 } %8, 1
-  %10 = extractvalue { i64, i1 } %8, 0
-  %11 = select i1 %9, i64 -1, i64 %10
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #16
+  %8 = load i32, ptr %ninst_8, align 8
+  %conv = sext i32 %8 to i64
+  %9 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv, i64 4)
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  %12 = select i1 %10, i64 -1, i64 %11
+  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #16
   %inst_9 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %inst_9, align 8
   %inst_10 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %inst_10, align 8
-  %13 = load ptr, ptr %state.addr, align 8
-  %inst_11 = getelementptr inbounds %"struct.re2::DFA::State", ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %inst_11, align 8
+  %13 = load ptr, ptr %inst_10, align 8
+  %14 = load ptr, ptr %state.addr, align 8
+  %inst_11 = getelementptr inbounds %"struct.re2::DFA::State", ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %inst_11, align 8
   %ninst_12 = getelementptr inbounds %"class.re2::DFA::StateSaver", ptr %this1, i32 0, i32 2
-  %15 = load i32, ptr %ninst_12, align 8
-  %conv13 = sext i32 %15 to i64
+  %16 = load i32, ptr %ninst_12, align 8
+  %conv13 = sext i32 %16 to i64
   %mul = mul i64 %conv13, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %14, i64 %mul, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %15, i64 %mul, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -6755,90 +6764,92 @@ if.end62:                                         ; preds = %cleanup.cont, %if.t
 
 if.end63:                                         ; preds = %if.end62, %while.body
   %61 = load ptr, ptr %ns, align 8
-  %cmp64 = icmp ule ptr %61, inttoptr (i64 2 to ptr)
+  %62 = inttoptr i64 2 to ptr
+  %cmp64 = icmp ule ptr %61, %62
   br i1 %cmp64, label %if.then65, label %if.end72
 
 if.then65:                                        ; preds = %if.end63
-  %62 = load ptr, ptr %ns, align 8
-  %cmp66 = icmp eq ptr %62, inttoptr (i64 1 to ptr)
+  %63 = load ptr, ptr %ns, align 8
+  %64 = inttoptr i64 1 to ptr
+  %cmp66 = icmp eq ptr %63, %64
   br i1 %cmp66, label %if.then67, label %if.end70
 
 if.then67:                                        ; preds = %if.then65
-  %63 = load ptr, ptr %lastmatch, align 8
-  %64 = load ptr, ptr %params.addr, align 8
-  %ep68 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %64, i32 0, i32 9
-  store ptr %63, ptr %ep68, align 8
-  %65 = load i8, ptr %matched, align 1
-  %tobool69 = trunc i8 %65 to i1
+  %65 = load ptr, ptr %lastmatch, align 8
+  %66 = load ptr, ptr %params.addr, align 8
+  %ep68 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %66, i32 0, i32 9
+  store ptr %65, ptr %ep68, align 8
+  %67 = load i8, ptr %matched, align 1
+  %tobool69 = trunc i8 %67 to i1
   store i1 %tobool69, ptr %retval, align 1
   br label %return
 
 if.end70:                                         ; preds = %if.then65
-  %66 = load ptr, ptr %ep, align 8
-  %67 = load ptr, ptr %params.addr, align 8
-  %ep71 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %67, i32 0, i32 9
-  store ptr %66, ptr %ep71, align 8
+  %68 = load ptr, ptr %ep, align 8
+  %69 = load ptr, ptr %params.addr, align 8
+  %ep71 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %69, i32 0, i32 9
+  store ptr %68, ptr %ep71, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end72:                                         ; preds = %if.end63
-  %68 = load ptr, ptr %ns, align 8
-  store ptr %68, ptr %s, align 8
-  %69 = load ptr, ptr %s, align 8
-  %call73 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %69)
+  %70 = load ptr, ptr %ns, align 8
+  store ptr %70, ptr %s, align 8
+  %71 = load ptr, ptr %s, align 8
+  %call73 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %71)
   br i1 %call73, label %if.then74, label %if.end98
 
 if.then74:                                        ; preds = %if.end72
   store i8 1, ptr %matched, align 1
-  %70 = load ptr, ptr %p, align 8
-  %add.ptr75 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = load ptr, ptr %p, align 8
+  %add.ptr75 = getelementptr inbounds i8, ptr %72, i64 1
   store ptr %add.ptr75, ptr %lastmatch, align 8
-  %71 = load ptr, ptr %params.addr, align 8
-  %matches76 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %71, i32 0, i32 10
-  %72 = load ptr, ptr %matches76, align 8
-  %cmp77 = icmp ne ptr %72, null
+  %73 = load ptr, ptr %params.addr, align 8
+  %matches76 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %73, i32 0, i32 10
+  %74 = load ptr, ptr %matches76, align 8
+  %cmp77 = icmp ne ptr %74, null
   br i1 %cmp77, label %if.then78, label %if.end97
 
 if.then78:                                        ; preds = %if.then74
-  %73 = load ptr, ptr %s, align 8
-  %ninst_80 = getelementptr inbounds %"struct.re2::DFA::State", ptr %73, i32 0, i32 1
-  %74 = load i32, ptr %ninst_80, align 8
-  %sub81 = sub nsw i32 %74, 1
+  %75 = load ptr, ptr %s, align 8
+  %ninst_80 = getelementptr inbounds %"struct.re2::DFA::State", ptr %75, i32 0, i32 1
+  %76 = load i32, ptr %ninst_80, align 8
+  %sub81 = sub nsw i32 %76, 1
   store i32 %sub81, ptr %i79, align 4
   br label %for.cond82
 
 for.cond82:                                       ; preds = %for.inc94, %if.then78
-  %75 = load i32, ptr %i79, align 4
-  %cmp83 = icmp sge i32 %75, 0
+  %77 = load i32, ptr %i79, align 4
+  %cmp83 = icmp sge i32 %77, 0
   br i1 %cmp83, label %for.body84, label %for.end96
 
 for.body84:                                       ; preds = %for.cond82
-  %76 = load ptr, ptr %s, align 8
-  %inst_86 = getelementptr inbounds %"struct.re2::DFA::State", ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %inst_86, align 8
-  %78 = load i32, ptr %i79, align 4
-  %idxprom87 = sext i32 %78 to i64
-  %arrayidx88 = getelementptr inbounds i32, ptr %77, i64 %idxprom87
-  %79 = load i32, ptr %arrayidx88, align 4
-  store i32 %79, ptr %id85, align 4
-  %80 = load i32, ptr %id85, align 4
-  %cmp89 = icmp eq i32 %80, -2
+  %78 = load ptr, ptr %s, align 8
+  %inst_86 = getelementptr inbounds %"struct.re2::DFA::State", ptr %78, i32 0, i32 0
+  %79 = load ptr, ptr %inst_86, align 8
+  %80 = load i32, ptr %i79, align 4
+  %idxprom87 = sext i32 %80 to i64
+  %arrayidx88 = getelementptr inbounds i32, ptr %79, i64 %idxprom87
+  %81 = load i32, ptr %arrayidx88, align 4
+  store i32 %81, ptr %id85, align 4
+  %82 = load i32, ptr %id85, align 4
+  %cmp89 = icmp eq i32 %82, -2
   br i1 %cmp89, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %for.body84
   br label %for.end96
 
 if.end91:                                         ; preds = %for.body84
-  %81 = load ptr, ptr %params.addr, align 8
-  %matches92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
-  %82 = load ptr, ptr %matches92, align 8
-  %83 = load i32, ptr %id85, align 4
-  %call93 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 noundef %83)
+  %83 = load ptr, ptr %params.addr, align 8
+  %matches92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
+  %84 = load ptr, ptr %matches92, align 8
+  %85 = load i32, ptr %id85, align 4
+  %call93 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef %85)
   br label %for.inc94
 
 for.inc94:                                        ; preds = %if.end91
-  %84 = load i32, ptr %i79, align 4
-  %dec95 = add nsw i32 %84, -1
+  %86 = load i32, ptr %i79, align 4
+  %dec95 = add nsw i32 %86, -1
   store i32 %dec95, ptr %i79, align 4
   br label %for.cond82, !llvm.loop !21
 
@@ -6852,22 +6863,22 @@ if.end98:                                         ; preds = %if.end97, %if.end72
   br label %while.cond, !llvm.loop !22
 
 while.end:                                        ; preds = %while.cond
-  %85 = load ptr, ptr %params.addr, align 8
-  %text99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %params.addr, align 8
+  %text99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %87, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text99, i64 16, i1 false)
-  %86 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %89 = load i64, ptr %88, align 8
-  %call100 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %87, i64 %89)
-  %90 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %90, i32 0, i32 1
+  %88 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %91 = load i64, ptr %90, align 8
+  %call100 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %89, i64 %91)
+  %92 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %92, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp101, ptr align 8 %context, i64 16, i1 false)
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
-  %94 = load i64, ptr %93, align 8
-  %call102 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %92, i64 %94)
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  %call102 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %94, i64 %96)
   %cmp103 = icmp eq ptr %call100, %call102
   br i1 %cmp103, label %if.then104, label %if.else
 
@@ -6876,50 +6887,50 @@ if.then104:                                       ; preds = %while.end
   br label %if.end110
 
 if.else:                                          ; preds = %while.end
-  %95 = load ptr, ptr %params.addr, align 8
-  %text106 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %params.addr, align 8
+  %text106 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %97, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp105, ptr align 8 %text106, i64 16, i1 false)
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  %call107 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %97, i64 %99)
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
+  %101 = load i64, ptr %100, align 8
+  %call107 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %99, i64 %101)
   %arrayidx108 = getelementptr inbounds i8, ptr %call107, i64 -1
-  %100 = load i8, ptr %arrayidx108, align 1
-  %conv109 = sext i8 %100 to i32
+  %102 = load i8, ptr %arrayidx108, align 1
+  %conv109 = sext i8 %102 to i32
   %and = and i32 %conv109, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else, %if.then104
-  %101 = load ptr, ptr %s, align 8
-  %next_112 = getelementptr inbounds %"struct.re2::DFA::State", ptr %101, i32 0, i32 3
-  %102 = load i32, ptr %lastbyte, align 4
-  %call113 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %102)
+  %103 = load ptr, ptr %s, align 8
+  %next_112 = getelementptr inbounds %"struct.re2::DFA::State", ptr %103, i32 0, i32 3
+  %104 = load i32, ptr %lastbyte, align 4
+  %call113 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %104)
   %idxprom114 = sext i32 %call113 to i64
   %arrayidx115 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_112, i64 0, i64 %idxprom114
   %call116 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx115, i32 noundef 2) #17
   store ptr %call116, ptr %ns111, align 8
-  %103 = load ptr, ptr %ns111, align 8
-  %cmp117 = icmp eq ptr %103, null
+  %105 = load ptr, ptr %ns111, align 8
+  %cmp117 = icmp eq ptr %105, null
   br i1 %cmp117, label %if.then118, label %if.end150
 
 if.then118:                                       ; preds = %if.end110
-  %104 = load ptr, ptr %s, align 8
-  %105 = load i32, ptr %lastbyte, align 4
-  %call119 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %104, i32 noundef %105)
+  %106 = load ptr, ptr %s, align 8
+  %107 = load i32, ptr %lastbyte, align 4
+  %call119 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %106, i32 noundef %107)
   store ptr %call119, ptr %ns111, align 8
-  %106 = load ptr, ptr %ns111, align 8
-  %cmp120 = icmp eq ptr %106, null
+  %108 = load ptr, ptr %ns111, align 8
+  %cmp120 = icmp eq ptr %108, null
   br i1 %cmp120, label %if.then121, label %if.end149
 
 if.then121:                                       ; preds = %if.then118
-  %107 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef %this1, ptr noundef %107)
-  %108 = load ptr, ptr %params.addr, align 8
-  %cache_lock123 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %108, i32 0, i32 7
-  %109 = load ptr, ptr %cache_lock123, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %109)
+  %109 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef %this1, ptr noundef %109)
+  %110 = load ptr, ptr %params.addr, align 8
+  %cache_lock123 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %110, i32 0, i32 7
+  %111 = load ptr, ptr %cache_lock123, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %111)
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %if.then121
@@ -6932,32 +6943,32 @@ invoke.cont126:                                   ; preds = %invoke.cont125
   br i1 %cmp128, label %if.then129, label %if.end131
 
 if.then129:                                       ; preds = %invoke.cont126
-  %110 = load ptr, ptr %params.addr, align 8
-  %failed130 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %110, i32 0, i32 8
+  %112 = load ptr, ptr %params.addr, align 8
+  %failed130 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %112, i32 0, i32 8
   store i8 1, ptr %failed130, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup145
 
 lpad124:                                          ; preds = %if.then135, %if.end131, %invoke.cont125, %if.then121
-  %111 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %exn.slot, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 if.end131:                                        ; preds = %invoke.cont126
-  %114 = load ptr, ptr %s, align 8
-  %115 = load i32, ptr %lastbyte, align 4
-  %call133 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %114, i32 noundef %115)
+  %116 = load ptr, ptr %s, align 8
+  %117 = load i32, ptr %lastbyte, align 4
+  %call133 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %116, i32 noundef %117)
           to label %invoke.cont132 unwind label %lpad124
 
 invoke.cont132:                                   ; preds = %if.end131
   store ptr %call133, ptr %ns111, align 8
-  %116 = load ptr, ptr %ns111, align 8
-  %cmp134 = icmp eq ptr %116, null
+  %118 = load ptr, ptr %ns111, align 8
+  %cmp134 = icmp eq ptr %118, null
   br i1 %cmp134, label %if.then135, label %if.end144
 
 if.then135:                                       ; preds = %invoke.cont132
@@ -6971,20 +6982,20 @@ invoke.cont137:                                   ; preds = %if.then135
 
 invoke.cont140:                                   ; preds = %invoke.cont137
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp136) #17
-  %117 = load ptr, ptr %params.addr, align 8
-  %failed143 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %117, i32 0, i32 8
+  %119 = load ptr, ptr %params.addr, align 8
+  %failed143 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %119, i32 0, i32 8
   store i8 1, ptr %failed143, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup145
 
 lpad139:                                          ; preds = %invoke.cont137
-  %118 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %exn.slot, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %ehselector.slot, align 4
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %exn.slot, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp136) #17
   br label %ehcleanup148
 
@@ -7011,90 +7022,92 @@ if.end149:                                        ; preds = %cleanup.cont147, %i
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end149, %if.end110
-  %121 = load ptr, ptr %ns111, align 8
-  %cmp151 = icmp ule ptr %121, inttoptr (i64 2 to ptr)
+  %123 = load ptr, ptr %ns111, align 8
+  %124 = inttoptr i64 2 to ptr
+  %cmp151 = icmp ule ptr %123, %124
   br i1 %cmp151, label %if.then152, label %if.end159
 
 if.then152:                                       ; preds = %if.end150
-  %122 = load ptr, ptr %ns111, align 8
-  %cmp153 = icmp eq ptr %122, inttoptr (i64 1 to ptr)
+  %125 = load ptr, ptr %ns111, align 8
+  %126 = inttoptr i64 1 to ptr
+  %cmp153 = icmp eq ptr %125, %126
   br i1 %cmp153, label %if.then154, label %if.end157
 
 if.then154:                                       ; preds = %if.then152
-  %123 = load ptr, ptr %lastmatch, align 8
-  %124 = load ptr, ptr %params.addr, align 8
-  %ep155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %124, i32 0, i32 9
-  store ptr %123, ptr %ep155, align 8
-  %125 = load i8, ptr %matched, align 1
-  %tobool156 = trunc i8 %125 to i1
+  %127 = load ptr, ptr %lastmatch, align 8
+  %128 = load ptr, ptr %params.addr, align 8
+  %ep155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %128, i32 0, i32 9
+  store ptr %127, ptr %ep155, align 8
+  %129 = load i8, ptr %matched, align 1
+  %tobool156 = trunc i8 %129 to i1
   store i1 %tobool156, ptr %retval, align 1
   br label %return
 
 if.end157:                                        ; preds = %if.then152
-  %126 = load ptr, ptr %ep, align 8
-  %127 = load ptr, ptr %params.addr, align 8
-  %ep158 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %127, i32 0, i32 9
-  store ptr %126, ptr %ep158, align 8
+  %130 = load ptr, ptr %ep, align 8
+  %131 = load ptr, ptr %params.addr, align 8
+  %ep158 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 9
+  store ptr %130, ptr %ep158, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end159:                                        ; preds = %if.end150
-  %128 = load ptr, ptr %ns111, align 8
-  store ptr %128, ptr %s, align 8
-  %129 = load ptr, ptr %s, align 8
-  %call160 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %129)
+  %132 = load ptr, ptr %ns111, align 8
+  store ptr %132, ptr %s, align 8
+  %133 = load ptr, ptr %s, align 8
+  %call160 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %133)
   br i1 %call160, label %if.then161, label %if.end184
 
 if.then161:                                       ; preds = %if.end159
   store i8 1, ptr %matched, align 1
-  %130 = load ptr, ptr %p, align 8
-  store ptr %130, ptr %lastmatch, align 8
-  %131 = load ptr, ptr %params.addr, align 8
-  %matches162 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 10
-  %132 = load ptr, ptr %matches162, align 8
-  %cmp163 = icmp ne ptr %132, null
+  %134 = load ptr, ptr %p, align 8
+  store ptr %134, ptr %lastmatch, align 8
+  %135 = load ptr, ptr %params.addr, align 8
+  %matches162 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 10
+  %136 = load ptr, ptr %matches162, align 8
+  %cmp163 = icmp ne ptr %136, null
   br i1 %cmp163, label %if.then164, label %if.end183
 
 if.then164:                                       ; preds = %if.then161
-  %133 = load ptr, ptr %s, align 8
-  %ninst_166 = getelementptr inbounds %"struct.re2::DFA::State", ptr %133, i32 0, i32 1
-  %134 = load i32, ptr %ninst_166, align 8
-  %sub167 = sub nsw i32 %134, 1
+  %137 = load ptr, ptr %s, align 8
+  %ninst_166 = getelementptr inbounds %"struct.re2::DFA::State", ptr %137, i32 0, i32 1
+  %138 = load i32, ptr %ninst_166, align 8
+  %sub167 = sub nsw i32 %138, 1
   store i32 %sub167, ptr %i165, align 4
   br label %for.cond168
 
 for.cond168:                                      ; preds = %for.inc180, %if.then164
-  %135 = load i32, ptr %i165, align 4
-  %cmp169 = icmp sge i32 %135, 0
+  %139 = load i32, ptr %i165, align 4
+  %cmp169 = icmp sge i32 %139, 0
   br i1 %cmp169, label %for.body170, label %for.end182
 
 for.body170:                                      ; preds = %for.cond168
-  %136 = load ptr, ptr %s, align 8
-  %inst_172 = getelementptr inbounds %"struct.re2::DFA::State", ptr %136, i32 0, i32 0
-  %137 = load ptr, ptr %inst_172, align 8
-  %138 = load i32, ptr %i165, align 4
-  %idxprom173 = sext i32 %138 to i64
-  %arrayidx174 = getelementptr inbounds i32, ptr %137, i64 %idxprom173
-  %139 = load i32, ptr %arrayidx174, align 4
-  store i32 %139, ptr %id171, align 4
-  %140 = load i32, ptr %id171, align 4
-  %cmp175 = icmp eq i32 %140, -2
+  %140 = load ptr, ptr %s, align 8
+  %inst_172 = getelementptr inbounds %"struct.re2::DFA::State", ptr %140, i32 0, i32 0
+  %141 = load ptr, ptr %inst_172, align 8
+  %142 = load i32, ptr %i165, align 4
+  %idxprom173 = sext i32 %142 to i64
+  %arrayidx174 = getelementptr inbounds i32, ptr %141, i64 %idxprom173
+  %143 = load i32, ptr %arrayidx174, align 4
+  store i32 %143, ptr %id171, align 4
+  %144 = load i32, ptr %id171, align 4
+  %cmp175 = icmp eq i32 %144, -2
   br i1 %cmp175, label %if.then176, label %if.end177
 
 if.then176:                                       ; preds = %for.body170
   br label %for.end182
 
 if.end177:                                        ; preds = %for.body170
-  %141 = load ptr, ptr %params.addr, align 8
-  %matches178 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %141, i32 0, i32 10
-  %142 = load ptr, ptr %matches178, align 8
-  %143 = load i32, ptr %id171, align 4
-  %call179 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %142, i32 noundef %143)
+  %145 = load ptr, ptr %params.addr, align 8
+  %matches178 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %145, i32 0, i32 10
+  %146 = load ptr, ptr %matches178, align 8
+  %147 = load i32, ptr %id171, align 4
+  %call179 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 noundef %147)
   br label %for.inc180
 
 for.inc180:                                       ; preds = %if.end177
-  %144 = load i32, ptr %i165, align 4
-  %dec181 = add nsw i32 %144, -1
+  %148 = load i32, ptr %i165, align 4
+  %dec181 = add nsw i32 %148, -1
   store i32 %dec181, ptr %i165, align 4
   br label %for.cond168, !llvm.loop !23
 
@@ -7105,18 +7118,18 @@ if.end183:                                        ; preds = %for.end182, %if.the
   br label %if.end184
 
 if.end184:                                        ; preds = %if.end183, %if.end159
-  %145 = load ptr, ptr %lastmatch, align 8
-  %146 = load ptr, ptr %params.addr, align 8
-  %ep185 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %146, i32 0, i32 9
-  store ptr %145, ptr %ep185, align 8
-  %147 = load i8, ptr %matched, align 1
-  %tobool186 = trunc i8 %147 to i1
+  %149 = load ptr, ptr %lastmatch, align 8
+  %150 = load ptr, ptr %params.addr, align 8
+  %ep185 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %150, i32 0, i32 9
+  store ptr %149, ptr %ep185, align 8
+  %151 = load i8, ptr %matched, align 1
+  %tobool186 = trunc i8 %151 to i1
   store i1 %tobool186, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end184, %if.end157, %if.then154, %cleanup145, %if.end70, %if.then67, %cleanup, %if.then36
-  %148 = load i1, ptr %retval, align 1
-  ret i1 %148
+  %152 = load i1, ptr %retval, align 1
+  ret i1 %152
 
 eh.resume:                                        ; preds = %ehcleanup148, %ehcleanup61
   %exn = load ptr, ptr %exn.slot, align 8
@@ -7477,90 +7490,92 @@ if.end62:                                         ; preds = %cleanup.cont, %if.t
 
 if.end63:                                         ; preds = %if.end62, %while.body
   %61 = load ptr, ptr %ns, align 8
-  %cmp64 = icmp ule ptr %61, inttoptr (i64 2 to ptr)
+  %62 = inttoptr i64 2 to ptr
+  %cmp64 = icmp ule ptr %61, %62
   br i1 %cmp64, label %if.then65, label %if.end72
 
 if.then65:                                        ; preds = %if.end63
-  %62 = load ptr, ptr %ns, align 8
-  %cmp66 = icmp eq ptr %62, inttoptr (i64 1 to ptr)
+  %63 = load ptr, ptr %ns, align 8
+  %64 = inttoptr i64 1 to ptr
+  %cmp66 = icmp eq ptr %63, %64
   br i1 %cmp66, label %if.then67, label %if.end70
 
 if.then67:                                        ; preds = %if.then65
-  %63 = load ptr, ptr %lastmatch, align 8
-  %64 = load ptr, ptr %params.addr, align 8
-  %ep68 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %64, i32 0, i32 9
-  store ptr %63, ptr %ep68, align 8
-  %65 = load i8, ptr %matched, align 1
-  %tobool69 = trunc i8 %65 to i1
+  %65 = load ptr, ptr %lastmatch, align 8
+  %66 = load ptr, ptr %params.addr, align 8
+  %ep68 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %66, i32 0, i32 9
+  store ptr %65, ptr %ep68, align 8
+  %67 = load i8, ptr %matched, align 1
+  %tobool69 = trunc i8 %67 to i1
   store i1 %tobool69, ptr %retval, align 1
   br label %return
 
 if.end70:                                         ; preds = %if.then65
-  %66 = load ptr, ptr %ep, align 8
-  %67 = load ptr, ptr %params.addr, align 8
-  %ep71 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %67, i32 0, i32 9
-  store ptr %66, ptr %ep71, align 8
+  %68 = load ptr, ptr %ep, align 8
+  %69 = load ptr, ptr %params.addr, align 8
+  %ep71 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %69, i32 0, i32 9
+  store ptr %68, ptr %ep71, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end72:                                         ; preds = %if.end63
-  %68 = load ptr, ptr %ns, align 8
-  store ptr %68, ptr %s, align 8
-  %69 = load ptr, ptr %s, align 8
-  %call73 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %69)
+  %70 = load ptr, ptr %ns, align 8
+  store ptr %70, ptr %s, align 8
+  %71 = load ptr, ptr %s, align 8
+  %call73 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %71)
   br i1 %call73, label %if.then74, label %if.end98
 
 if.then74:                                        ; preds = %if.end72
   store i8 1, ptr %matched, align 1
-  %70 = load ptr, ptr %p, align 8
-  %add.ptr75 = getelementptr inbounds i8, ptr %70, i64 -1
+  %72 = load ptr, ptr %p, align 8
+  %add.ptr75 = getelementptr inbounds i8, ptr %72, i64 -1
   store ptr %add.ptr75, ptr %lastmatch, align 8
-  %71 = load ptr, ptr %params.addr, align 8
-  %matches76 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %71, i32 0, i32 10
-  %72 = load ptr, ptr %matches76, align 8
-  %cmp77 = icmp ne ptr %72, null
+  %73 = load ptr, ptr %params.addr, align 8
+  %matches76 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %73, i32 0, i32 10
+  %74 = load ptr, ptr %matches76, align 8
+  %cmp77 = icmp ne ptr %74, null
   br i1 %cmp77, label %if.then78, label %if.end97
 
 if.then78:                                        ; preds = %if.then74
-  %73 = load ptr, ptr %s, align 8
-  %ninst_80 = getelementptr inbounds %"struct.re2::DFA::State", ptr %73, i32 0, i32 1
-  %74 = load i32, ptr %ninst_80, align 8
-  %sub81 = sub nsw i32 %74, 1
+  %75 = load ptr, ptr %s, align 8
+  %ninst_80 = getelementptr inbounds %"struct.re2::DFA::State", ptr %75, i32 0, i32 1
+  %76 = load i32, ptr %ninst_80, align 8
+  %sub81 = sub nsw i32 %76, 1
   store i32 %sub81, ptr %i79, align 4
   br label %for.cond82
 
 for.cond82:                                       ; preds = %for.inc94, %if.then78
-  %75 = load i32, ptr %i79, align 4
-  %cmp83 = icmp sge i32 %75, 0
+  %77 = load i32, ptr %i79, align 4
+  %cmp83 = icmp sge i32 %77, 0
   br i1 %cmp83, label %for.body84, label %for.end96
 
 for.body84:                                       ; preds = %for.cond82
-  %76 = load ptr, ptr %s, align 8
-  %inst_86 = getelementptr inbounds %"struct.re2::DFA::State", ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %inst_86, align 8
-  %78 = load i32, ptr %i79, align 4
-  %idxprom87 = sext i32 %78 to i64
-  %arrayidx88 = getelementptr inbounds i32, ptr %77, i64 %idxprom87
-  %79 = load i32, ptr %arrayidx88, align 4
-  store i32 %79, ptr %id85, align 4
-  %80 = load i32, ptr %id85, align 4
-  %cmp89 = icmp eq i32 %80, -2
+  %78 = load ptr, ptr %s, align 8
+  %inst_86 = getelementptr inbounds %"struct.re2::DFA::State", ptr %78, i32 0, i32 0
+  %79 = load ptr, ptr %inst_86, align 8
+  %80 = load i32, ptr %i79, align 4
+  %idxprom87 = sext i32 %80 to i64
+  %arrayidx88 = getelementptr inbounds i32, ptr %79, i64 %idxprom87
+  %81 = load i32, ptr %arrayidx88, align 4
+  store i32 %81, ptr %id85, align 4
+  %82 = load i32, ptr %id85, align 4
+  %cmp89 = icmp eq i32 %82, -2
   br i1 %cmp89, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %for.body84
   br label %for.end96
 
 if.end91:                                         ; preds = %for.body84
-  %81 = load ptr, ptr %params.addr, align 8
-  %matches92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
-  %82 = load ptr, ptr %matches92, align 8
-  %83 = load i32, ptr %id85, align 4
-  %call93 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 noundef %83)
+  %83 = load ptr, ptr %params.addr, align 8
+  %matches92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
+  %84 = load ptr, ptr %matches92, align 8
+  %85 = load i32, ptr %id85, align 4
+  %call93 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef %85)
   br label %for.inc94
 
 for.inc94:                                        ; preds = %if.end91
-  %84 = load i32, ptr %i79, align 4
-  %dec95 = add nsw i32 %84, -1
+  %86 = load i32, ptr %i79, align 4
+  %dec95 = add nsw i32 %86, -1
   store i32 %dec95, ptr %i79, align 4
   br label %for.cond82, !llvm.loop !25
 
@@ -7574,22 +7589,22 @@ if.end98:                                         ; preds = %if.end97, %if.end72
   br label %while.cond, !llvm.loop !26
 
 while.end:                                        ; preds = %while.cond
-  %85 = load ptr, ptr %params.addr, align 8
-  %text99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %params.addr, align 8
+  %text99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %87, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text99, i64 16, i1 false)
-  %86 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %89 = load i64, ptr %88, align 8
-  %call100 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %87, i64 %89)
-  %90 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %90, i32 0, i32 1
+  %88 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %91 = load i64, ptr %90, align 8
+  %call100 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %89, i64 %91)
+  %92 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %92, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp101, ptr align 8 %context, i64 16, i1 false)
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
-  %94 = load i64, ptr %93, align 8
-  %call102 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %92, i64 %94)
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  %call102 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %94, i64 %96)
   %cmp103 = icmp eq ptr %call100, %call102
   br i1 %cmp103, label %if.then104, label %if.else
 
@@ -7598,50 +7613,50 @@ if.then104:                                       ; preds = %while.end
   br label %if.end110
 
 if.else:                                          ; preds = %while.end
-  %95 = load ptr, ptr %params.addr, align 8
-  %text106 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %params.addr, align 8
+  %text106 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %97, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp105, ptr align 8 %text106, i64 16, i1 false)
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  %call107 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %97, i64 %99)
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
+  %101 = load i64, ptr %100, align 8
+  %call107 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %99, i64 %101)
   %arrayidx108 = getelementptr inbounds i8, ptr %call107, i64 0
-  %100 = load i8, ptr %arrayidx108, align 1
-  %conv109 = sext i8 %100 to i32
+  %102 = load i8, ptr %arrayidx108, align 1
+  %conv109 = sext i8 %102 to i32
   %and = and i32 %conv109, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else, %if.then104
-  %101 = load ptr, ptr %s, align 8
-  %next_112 = getelementptr inbounds %"struct.re2::DFA::State", ptr %101, i32 0, i32 3
-  %102 = load i32, ptr %lastbyte, align 4
-  %call113 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %102)
+  %103 = load ptr, ptr %s, align 8
+  %next_112 = getelementptr inbounds %"struct.re2::DFA::State", ptr %103, i32 0, i32 3
+  %104 = load i32, ptr %lastbyte, align 4
+  %call113 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %104)
   %idxprom114 = sext i32 %call113 to i64
   %arrayidx115 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_112, i64 0, i64 %idxprom114
   %call116 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx115, i32 noundef 2) #17
   store ptr %call116, ptr %ns111, align 8
-  %103 = load ptr, ptr %ns111, align 8
-  %cmp117 = icmp eq ptr %103, null
+  %105 = load ptr, ptr %ns111, align 8
+  %cmp117 = icmp eq ptr %105, null
   br i1 %cmp117, label %if.then118, label %if.end150
 
 if.then118:                                       ; preds = %if.end110
-  %104 = load ptr, ptr %s, align 8
-  %105 = load i32, ptr %lastbyte, align 4
-  %call119 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %104, i32 noundef %105)
+  %106 = load ptr, ptr %s, align 8
+  %107 = load i32, ptr %lastbyte, align 4
+  %call119 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %106, i32 noundef %107)
   store ptr %call119, ptr %ns111, align 8
-  %106 = load ptr, ptr %ns111, align 8
-  %cmp120 = icmp eq ptr %106, null
+  %108 = load ptr, ptr %ns111, align 8
+  %cmp120 = icmp eq ptr %108, null
   br i1 %cmp120, label %if.then121, label %if.end149
 
 if.then121:                                       ; preds = %if.then118
-  %107 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef %this1, ptr noundef %107)
-  %108 = load ptr, ptr %params.addr, align 8
-  %cache_lock123 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %108, i32 0, i32 7
-  %109 = load ptr, ptr %cache_lock123, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %109)
+  %109 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef %this1, ptr noundef %109)
+  %110 = load ptr, ptr %params.addr, align 8
+  %cache_lock123 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %110, i32 0, i32 7
+  %111 = load ptr, ptr %cache_lock123, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %111)
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %if.then121
@@ -7654,32 +7669,32 @@ invoke.cont126:                                   ; preds = %invoke.cont125
   br i1 %cmp128, label %if.then129, label %if.end131
 
 if.then129:                                       ; preds = %invoke.cont126
-  %110 = load ptr, ptr %params.addr, align 8
-  %failed130 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %110, i32 0, i32 8
+  %112 = load ptr, ptr %params.addr, align 8
+  %failed130 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %112, i32 0, i32 8
   store i8 1, ptr %failed130, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup145
 
 lpad124:                                          ; preds = %if.then135, %if.end131, %invoke.cont125, %if.then121
-  %111 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %exn.slot, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 if.end131:                                        ; preds = %invoke.cont126
-  %114 = load ptr, ptr %s, align 8
-  %115 = load i32, ptr %lastbyte, align 4
-  %call133 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %114, i32 noundef %115)
+  %116 = load ptr, ptr %s, align 8
+  %117 = load i32, ptr %lastbyte, align 4
+  %call133 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %116, i32 noundef %117)
           to label %invoke.cont132 unwind label %lpad124
 
 invoke.cont132:                                   ; preds = %if.end131
   store ptr %call133, ptr %ns111, align 8
-  %116 = load ptr, ptr %ns111, align 8
-  %cmp134 = icmp eq ptr %116, null
+  %118 = load ptr, ptr %ns111, align 8
+  %cmp134 = icmp eq ptr %118, null
   br i1 %cmp134, label %if.then135, label %if.end144
 
 if.then135:                                       ; preds = %invoke.cont132
@@ -7693,20 +7708,20 @@ invoke.cont137:                                   ; preds = %if.then135
 
 invoke.cont140:                                   ; preds = %invoke.cont137
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp136) #17
-  %117 = load ptr, ptr %params.addr, align 8
-  %failed143 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %117, i32 0, i32 8
+  %119 = load ptr, ptr %params.addr, align 8
+  %failed143 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %119, i32 0, i32 8
   store i8 1, ptr %failed143, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup145
 
 lpad139:                                          ; preds = %invoke.cont137
-  %118 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %exn.slot, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %ehselector.slot, align 4
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %exn.slot, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp136) #17
   br label %ehcleanup148
 
@@ -7733,90 +7748,92 @@ if.end149:                                        ; preds = %cleanup.cont147, %i
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end149, %if.end110
-  %121 = load ptr, ptr %ns111, align 8
-  %cmp151 = icmp ule ptr %121, inttoptr (i64 2 to ptr)
+  %123 = load ptr, ptr %ns111, align 8
+  %124 = inttoptr i64 2 to ptr
+  %cmp151 = icmp ule ptr %123, %124
   br i1 %cmp151, label %if.then152, label %if.end159
 
 if.then152:                                       ; preds = %if.end150
-  %122 = load ptr, ptr %ns111, align 8
-  %cmp153 = icmp eq ptr %122, inttoptr (i64 1 to ptr)
+  %125 = load ptr, ptr %ns111, align 8
+  %126 = inttoptr i64 1 to ptr
+  %cmp153 = icmp eq ptr %125, %126
   br i1 %cmp153, label %if.then154, label %if.end157
 
 if.then154:                                       ; preds = %if.then152
-  %123 = load ptr, ptr %lastmatch, align 8
-  %124 = load ptr, ptr %params.addr, align 8
-  %ep155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %124, i32 0, i32 9
-  store ptr %123, ptr %ep155, align 8
-  %125 = load i8, ptr %matched, align 1
-  %tobool156 = trunc i8 %125 to i1
+  %127 = load ptr, ptr %lastmatch, align 8
+  %128 = load ptr, ptr %params.addr, align 8
+  %ep155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %128, i32 0, i32 9
+  store ptr %127, ptr %ep155, align 8
+  %129 = load i8, ptr %matched, align 1
+  %tobool156 = trunc i8 %129 to i1
   store i1 %tobool156, ptr %retval, align 1
   br label %return
 
 if.end157:                                        ; preds = %if.then152
-  %126 = load ptr, ptr %ep, align 8
-  %127 = load ptr, ptr %params.addr, align 8
-  %ep158 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %127, i32 0, i32 9
-  store ptr %126, ptr %ep158, align 8
+  %130 = load ptr, ptr %ep, align 8
+  %131 = load ptr, ptr %params.addr, align 8
+  %ep158 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 9
+  store ptr %130, ptr %ep158, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end159:                                        ; preds = %if.end150
-  %128 = load ptr, ptr %ns111, align 8
-  store ptr %128, ptr %s, align 8
-  %129 = load ptr, ptr %s, align 8
-  %call160 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %129)
+  %132 = load ptr, ptr %ns111, align 8
+  store ptr %132, ptr %s, align 8
+  %133 = load ptr, ptr %s, align 8
+  %call160 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %133)
   br i1 %call160, label %if.then161, label %if.end184
 
 if.then161:                                       ; preds = %if.end159
   store i8 1, ptr %matched, align 1
-  %130 = load ptr, ptr %p, align 8
-  store ptr %130, ptr %lastmatch, align 8
-  %131 = load ptr, ptr %params.addr, align 8
-  %matches162 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 10
-  %132 = load ptr, ptr %matches162, align 8
-  %cmp163 = icmp ne ptr %132, null
+  %134 = load ptr, ptr %p, align 8
+  store ptr %134, ptr %lastmatch, align 8
+  %135 = load ptr, ptr %params.addr, align 8
+  %matches162 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 10
+  %136 = load ptr, ptr %matches162, align 8
+  %cmp163 = icmp ne ptr %136, null
   br i1 %cmp163, label %if.then164, label %if.end183
 
 if.then164:                                       ; preds = %if.then161
-  %133 = load ptr, ptr %s, align 8
-  %ninst_166 = getelementptr inbounds %"struct.re2::DFA::State", ptr %133, i32 0, i32 1
-  %134 = load i32, ptr %ninst_166, align 8
-  %sub167 = sub nsw i32 %134, 1
+  %137 = load ptr, ptr %s, align 8
+  %ninst_166 = getelementptr inbounds %"struct.re2::DFA::State", ptr %137, i32 0, i32 1
+  %138 = load i32, ptr %ninst_166, align 8
+  %sub167 = sub nsw i32 %138, 1
   store i32 %sub167, ptr %i165, align 4
   br label %for.cond168
 
 for.cond168:                                      ; preds = %for.inc180, %if.then164
-  %135 = load i32, ptr %i165, align 4
-  %cmp169 = icmp sge i32 %135, 0
+  %139 = load i32, ptr %i165, align 4
+  %cmp169 = icmp sge i32 %139, 0
   br i1 %cmp169, label %for.body170, label %for.end182
 
 for.body170:                                      ; preds = %for.cond168
-  %136 = load ptr, ptr %s, align 8
-  %inst_172 = getelementptr inbounds %"struct.re2::DFA::State", ptr %136, i32 0, i32 0
-  %137 = load ptr, ptr %inst_172, align 8
-  %138 = load i32, ptr %i165, align 4
-  %idxprom173 = sext i32 %138 to i64
-  %arrayidx174 = getelementptr inbounds i32, ptr %137, i64 %idxprom173
-  %139 = load i32, ptr %arrayidx174, align 4
-  store i32 %139, ptr %id171, align 4
-  %140 = load i32, ptr %id171, align 4
-  %cmp175 = icmp eq i32 %140, -2
+  %140 = load ptr, ptr %s, align 8
+  %inst_172 = getelementptr inbounds %"struct.re2::DFA::State", ptr %140, i32 0, i32 0
+  %141 = load ptr, ptr %inst_172, align 8
+  %142 = load i32, ptr %i165, align 4
+  %idxprom173 = sext i32 %142 to i64
+  %arrayidx174 = getelementptr inbounds i32, ptr %141, i64 %idxprom173
+  %143 = load i32, ptr %arrayidx174, align 4
+  store i32 %143, ptr %id171, align 4
+  %144 = load i32, ptr %id171, align 4
+  %cmp175 = icmp eq i32 %144, -2
   br i1 %cmp175, label %if.then176, label %if.end177
 
 if.then176:                                       ; preds = %for.body170
   br label %for.end182
 
 if.end177:                                        ; preds = %for.body170
-  %141 = load ptr, ptr %params.addr, align 8
-  %matches178 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %141, i32 0, i32 10
-  %142 = load ptr, ptr %matches178, align 8
-  %143 = load i32, ptr %id171, align 4
-  %call179 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %142, i32 noundef %143)
+  %145 = load ptr, ptr %params.addr, align 8
+  %matches178 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %145, i32 0, i32 10
+  %146 = load ptr, ptr %matches178, align 8
+  %147 = load i32, ptr %id171, align 4
+  %call179 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 noundef %147)
   br label %for.inc180
 
 for.inc180:                                       ; preds = %if.end177
-  %144 = load i32, ptr %i165, align 4
-  %dec181 = add nsw i32 %144, -1
+  %148 = load i32, ptr %i165, align 4
+  %dec181 = add nsw i32 %148, -1
   store i32 %dec181, ptr %i165, align 4
   br label %for.cond168, !llvm.loop !27
 
@@ -7827,18 +7844,18 @@ if.end183:                                        ; preds = %for.end182, %if.the
   br label %if.end184
 
 if.end184:                                        ; preds = %if.end183, %if.end159
-  %145 = load ptr, ptr %lastmatch, align 8
-  %146 = load ptr, ptr %params.addr, align 8
-  %ep185 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %146, i32 0, i32 9
-  store ptr %145, ptr %ep185, align 8
-  %147 = load i8, ptr %matched, align 1
-  %tobool186 = trunc i8 %147 to i1
+  %149 = load ptr, ptr %lastmatch, align 8
+  %150 = load ptr, ptr %params.addr, align 8
+  %ep185 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %150, i32 0, i32 9
+  store ptr %149, ptr %ep185, align 8
+  %151 = load i8, ptr %matched, align 1
+  %tobool186 = trunc i8 %151 to i1
   store i1 %tobool186, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end184, %if.end157, %if.then154, %cleanup145, %if.end70, %if.then67, %cleanup, %if.then36
-  %148 = load i1, ptr %retval, align 1
-  ret i1 %148
+  %152 = load i1, ptr %retval, align 1
+  ret i1 %152
 
 eh.resume:                                        ; preds = %ehcleanup148, %ehcleanup61
   %exn = load ptr, ptr %exn.slot, align 8
@@ -8205,90 +8222,92 @@ if.end63:                                         ; preds = %cleanup.cont, %if.t
 
 if.end64:                                         ; preds = %if.end63, %while.body
   %63 = load ptr, ptr %ns, align 8
-  %cmp65 = icmp ule ptr %63, inttoptr (i64 2 to ptr)
+  %64 = inttoptr i64 2 to ptr
+  %cmp65 = icmp ule ptr %63, %64
   br i1 %cmp65, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %if.end64
-  %64 = load ptr, ptr %ns, align 8
-  %cmp67 = icmp eq ptr %64, inttoptr (i64 1 to ptr)
+  %65 = load ptr, ptr %ns, align 8
+  %66 = inttoptr i64 1 to ptr
+  %cmp67 = icmp eq ptr %65, %66
   br i1 %cmp67, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %if.then66
-  %65 = load ptr, ptr %lastmatch, align 8
-  %66 = load ptr, ptr %params.addr, align 8
-  %ep69 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %66, i32 0, i32 9
-  store ptr %65, ptr %ep69, align 8
-  %67 = load i8, ptr %matched, align 1
-  %tobool70 = trunc i8 %67 to i1
+  %67 = load ptr, ptr %lastmatch, align 8
+  %68 = load ptr, ptr %params.addr, align 8
+  %ep69 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %68, i32 0, i32 9
+  store ptr %67, ptr %ep69, align 8
+  %69 = load i8, ptr %matched, align 1
+  %tobool70 = trunc i8 %69 to i1
   store i1 %tobool70, ptr %retval, align 1
   br label %return
 
 if.end71:                                         ; preds = %if.then66
-  %68 = load ptr, ptr %ep, align 8
-  %69 = load ptr, ptr %params.addr, align 8
-  %ep72 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %69, i32 0, i32 9
-  store ptr %68, ptr %ep72, align 8
+  %70 = load ptr, ptr %ep, align 8
+  %71 = load ptr, ptr %params.addr, align 8
+  %ep72 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %71, i32 0, i32 9
+  store ptr %70, ptr %ep72, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end73:                                         ; preds = %if.end64
-  %70 = load ptr, ptr %ns, align 8
-  store ptr %70, ptr %s, align 8
-  %71 = load ptr, ptr %s, align 8
-  %call74 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %71)
+  %72 = load ptr, ptr %ns, align 8
+  store ptr %72, ptr %s, align 8
+  %73 = load ptr, ptr %s, align 8
+  %call74 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
   br i1 %call74, label %if.then75, label %if.end100
 
 if.then75:                                        ; preds = %if.end73
   store i8 1, ptr %matched, align 1
-  %72 = load ptr, ptr %p, align 8
-  %add.ptr76 = getelementptr inbounds i8, ptr %72, i64 1
+  %74 = load ptr, ptr %p, align 8
+  %add.ptr76 = getelementptr inbounds i8, ptr %74, i64 1
   store ptr %add.ptr76, ptr %lastmatch, align 8
-  %73 = load ptr, ptr %params.addr, align 8
-  %matches77 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %73, i32 0, i32 10
-  %74 = load ptr, ptr %matches77, align 8
-  %cmp78 = icmp ne ptr %74, null
+  %75 = load ptr, ptr %params.addr, align 8
+  %matches77 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %75, i32 0, i32 10
+  %76 = load ptr, ptr %matches77, align 8
+  %cmp78 = icmp ne ptr %76, null
   br i1 %cmp78, label %if.then79, label %if.end98
 
 if.then79:                                        ; preds = %if.then75
-  %75 = load ptr, ptr %s, align 8
-  %ninst_81 = getelementptr inbounds %"struct.re2::DFA::State", ptr %75, i32 0, i32 1
-  %76 = load i32, ptr %ninst_81, align 8
-  %sub82 = sub nsw i32 %76, 1
+  %77 = load ptr, ptr %s, align 8
+  %ninst_81 = getelementptr inbounds %"struct.re2::DFA::State", ptr %77, i32 0, i32 1
+  %78 = load i32, ptr %ninst_81, align 8
+  %sub82 = sub nsw i32 %78, 1
   store i32 %sub82, ptr %i80, align 4
   br label %for.cond83
 
 for.cond83:                                       ; preds = %for.inc95, %if.then79
-  %77 = load i32, ptr %i80, align 4
-  %cmp84 = icmp sge i32 %77, 0
+  %79 = load i32, ptr %i80, align 4
+  %cmp84 = icmp sge i32 %79, 0
   br i1 %cmp84, label %for.body85, label %for.end97
 
 for.body85:                                       ; preds = %for.cond83
-  %78 = load ptr, ptr %s, align 8
-  %inst_87 = getelementptr inbounds %"struct.re2::DFA::State", ptr %78, i32 0, i32 0
-  %79 = load ptr, ptr %inst_87, align 8
-  %80 = load i32, ptr %i80, align 4
-  %idxprom88 = sext i32 %80 to i64
-  %arrayidx89 = getelementptr inbounds i32, ptr %79, i64 %idxprom88
-  %81 = load i32, ptr %arrayidx89, align 4
-  store i32 %81, ptr %id86, align 4
-  %82 = load i32, ptr %id86, align 4
-  %cmp90 = icmp eq i32 %82, -2
+  %80 = load ptr, ptr %s, align 8
+  %inst_87 = getelementptr inbounds %"struct.re2::DFA::State", ptr %80, i32 0, i32 0
+  %81 = load ptr, ptr %inst_87, align 8
+  %82 = load i32, ptr %i80, align 4
+  %idxprom88 = sext i32 %82 to i64
+  %arrayidx89 = getelementptr inbounds i32, ptr %81, i64 %idxprom88
+  %83 = load i32, ptr %arrayidx89, align 4
+  store i32 %83, ptr %id86, align 4
+  %84 = load i32, ptr %id86, align 4
+  %cmp90 = icmp eq i32 %84, -2
   br i1 %cmp90, label %if.then91, label %if.end92
 
 if.then91:                                        ; preds = %for.body85
   br label %for.end97
 
 if.end92:                                         ; preds = %for.body85
-  %83 = load ptr, ptr %params.addr, align 8
-  %matches93 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
-  %84 = load ptr, ptr %matches93, align 8
-  %85 = load i32, ptr %id86, align 4
-  %call94 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef %85)
+  %85 = load ptr, ptr %params.addr, align 8
+  %matches93 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %85, i32 0, i32 10
+  %86 = load ptr, ptr %matches93, align 8
+  %87 = load i32, ptr %id86, align 4
+  %call94 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %86, i32 noundef %87)
   br label %for.inc95
 
 for.inc95:                                        ; preds = %if.end92
-  %86 = load i32, ptr %i80, align 4
-  %dec96 = add nsw i32 %86, -1
+  %88 = load i32, ptr %i80, align 4
+  %dec96 = add nsw i32 %88, -1
   store i32 %dec96, ptr %i80, align 4
   br label %for.cond83, !llvm.loop !29
 
@@ -8296,10 +8315,10 @@ for.end97:                                        ; preds = %if.then91, %for.con
   br label %if.end98
 
 if.end98:                                         ; preds = %for.end97, %if.then75
-  %87 = load ptr, ptr %lastmatch, align 8
-  %88 = load ptr, ptr %params.addr, align 8
-  %ep99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %88, i32 0, i32 9
-  store ptr %87, ptr %ep99, align 8
+  %89 = load ptr, ptr %lastmatch, align 8
+  %90 = load ptr, ptr %params.addr, align 8
+  %ep99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %90, i32 0, i32 9
+  store ptr %89, ptr %ep99, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -8307,22 +8326,22 @@ if.end100:                                        ; preds = %if.end73
   br label %while.cond, !llvm.loop !30
 
 while.end:                                        ; preds = %while.cond
-  %89 = load ptr, ptr %params.addr, align 8
-  %text101 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %params.addr, align 8
+  %text101 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text101, i64 16, i1 false)
-  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  %call102 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %91, i64 %93)
-  %94 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %94, i32 0, i32 1
+  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
+  %call102 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %93, i64 %95)
+  %96 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %96, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp103, ptr align 8 %context, i64 16, i1 false)
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  %call104 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %96, i64 %98)
+  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
+  %100 = load i64, ptr %99, align 8
+  %call104 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %98, i64 %100)
   %cmp105 = icmp eq ptr %call102, %call104
   br i1 %cmp105, label %if.then106, label %if.else
 
@@ -8331,50 +8350,50 @@ if.then106:                                       ; preds = %while.end
   br label %if.end112
 
 if.else:                                          ; preds = %while.end
-  %99 = load ptr, ptr %params.addr, align 8
-  %text108 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %params.addr, align 8
+  %text108 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %101, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp107, ptr align 8 %text108, i64 16, i1 false)
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %call109 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %101, i64 %103)
+  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
+  %105 = load i64, ptr %104, align 8
+  %call109 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %103, i64 %105)
   %arrayidx110 = getelementptr inbounds i8, ptr %call109, i64 -1
-  %104 = load i8, ptr %arrayidx110, align 1
-  %conv111 = sext i8 %104 to i32
+  %106 = load i8, ptr %arrayidx110, align 1
+  %conv111 = sext i8 %106 to i32
   %and = and i32 %conv111, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end112
 
 if.end112:                                        ; preds = %if.else, %if.then106
-  %105 = load ptr, ptr %s, align 8
-  %next_114 = getelementptr inbounds %"struct.re2::DFA::State", ptr %105, i32 0, i32 3
-  %106 = load i32, ptr %lastbyte, align 4
-  %call115 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %106)
+  %107 = load ptr, ptr %s, align 8
+  %next_114 = getelementptr inbounds %"struct.re2::DFA::State", ptr %107, i32 0, i32 3
+  %108 = load i32, ptr %lastbyte, align 4
+  %call115 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %108)
   %idxprom116 = sext i32 %call115 to i64
   %arrayidx117 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_114, i64 0, i64 %idxprom116
   %call118 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx117, i32 noundef 2) #17
   store ptr %call118, ptr %ns113, align 8
-  %107 = load ptr, ptr %ns113, align 8
-  %cmp119 = icmp eq ptr %107, null
+  %109 = load ptr, ptr %ns113, align 8
+  %cmp119 = icmp eq ptr %109, null
   br i1 %cmp119, label %if.then120, label %if.end152
 
 if.then120:                                       ; preds = %if.end112
-  %108 = load ptr, ptr %s, align 8
-  %109 = load i32, ptr %lastbyte, align 4
-  %call121 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %108, i32 noundef %109)
+  %110 = load ptr, ptr %s, align 8
+  %111 = load i32, ptr %lastbyte, align 4
+  %call121 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %110, i32 noundef %111)
   store ptr %call121, ptr %ns113, align 8
-  %110 = load ptr, ptr %ns113, align 8
-  %cmp122 = icmp eq ptr %110, null
+  %112 = load ptr, ptr %ns113, align 8
+  %cmp122 = icmp eq ptr %112, null
   br i1 %cmp122, label %if.then123, label %if.end151
 
 if.then123:                                       ; preds = %if.then120
-  %111 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef %this1, ptr noundef %111)
-  %112 = load ptr, ptr %params.addr, align 8
-  %cache_lock125 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %112, i32 0, i32 7
-  %113 = load ptr, ptr %cache_lock125, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %113)
+  %113 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef %this1, ptr noundef %113)
+  %114 = load ptr, ptr %params.addr, align 8
+  %cache_lock125 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %114, i32 0, i32 7
+  %115 = load ptr, ptr %cache_lock125, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %115)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %if.then123
@@ -8387,32 +8406,32 @@ invoke.cont128:                                   ; preds = %invoke.cont127
   br i1 %cmp130, label %if.then131, label %if.end133
 
 if.then131:                                       ; preds = %invoke.cont128
-  %114 = load ptr, ptr %params.addr, align 8
-  %failed132 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %114, i32 0, i32 8
+  %116 = load ptr, ptr %params.addr, align 8
+  %failed132 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %116, i32 0, i32 8
   store i8 1, ptr %failed132, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup147
 
 lpad126:                                          ; preds = %if.then137, %if.end133, %invoke.cont127, %if.then123
-  %115 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %exn.slot, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %ehselector.slot, align 4
   br label %ehcleanup150
 
 if.end133:                                        ; preds = %invoke.cont128
-  %118 = load ptr, ptr %s, align 8
-  %119 = load i32, ptr %lastbyte, align 4
-  %call135 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %118, i32 noundef %119)
+  %120 = load ptr, ptr %s, align 8
+  %121 = load i32, ptr %lastbyte, align 4
+  %call135 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %120, i32 noundef %121)
           to label %invoke.cont134 unwind label %lpad126
 
 invoke.cont134:                                   ; preds = %if.end133
   store ptr %call135, ptr %ns113, align 8
-  %120 = load ptr, ptr %ns113, align 8
-  %cmp136 = icmp eq ptr %120, null
+  %122 = load ptr, ptr %ns113, align 8
+  %cmp136 = icmp eq ptr %122, null
   br i1 %cmp136, label %if.then137, label %if.end146
 
 if.then137:                                       ; preds = %invoke.cont134
@@ -8426,20 +8445,20 @@ invoke.cont139:                                   ; preds = %if.then137
 
 invoke.cont142:                                   ; preds = %invoke.cont139
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp138) #17
-  %121 = load ptr, ptr %params.addr, align 8
-  %failed145 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %121, i32 0, i32 8
+  %123 = load ptr, ptr %params.addr, align 8
+  %failed145 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %123, i32 0, i32 8
   store i8 1, ptr %failed145, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup147
 
 lpad141:                                          ; preds = %invoke.cont139
-  %122 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %exn.slot, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %ehselector.slot, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %exn.slot, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp138) #17
   br label %ehcleanup150
 
@@ -8466,90 +8485,92 @@ if.end151:                                        ; preds = %cleanup.cont149, %i
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end151, %if.end112
-  %125 = load ptr, ptr %ns113, align 8
-  %cmp153 = icmp ule ptr %125, inttoptr (i64 2 to ptr)
+  %127 = load ptr, ptr %ns113, align 8
+  %128 = inttoptr i64 2 to ptr
+  %cmp153 = icmp ule ptr %127, %128
   br i1 %cmp153, label %if.then154, label %if.end161
 
 if.then154:                                       ; preds = %if.end152
-  %126 = load ptr, ptr %ns113, align 8
-  %cmp155 = icmp eq ptr %126, inttoptr (i64 1 to ptr)
+  %129 = load ptr, ptr %ns113, align 8
+  %130 = inttoptr i64 1 to ptr
+  %cmp155 = icmp eq ptr %129, %130
   br i1 %cmp155, label %if.then156, label %if.end159
 
 if.then156:                                       ; preds = %if.then154
-  %127 = load ptr, ptr %lastmatch, align 8
-  %128 = load ptr, ptr %params.addr, align 8
-  %ep157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %128, i32 0, i32 9
-  store ptr %127, ptr %ep157, align 8
-  %129 = load i8, ptr %matched, align 1
-  %tobool158 = trunc i8 %129 to i1
+  %131 = load ptr, ptr %lastmatch, align 8
+  %132 = load ptr, ptr %params.addr, align 8
+  %ep157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %132, i32 0, i32 9
+  store ptr %131, ptr %ep157, align 8
+  %133 = load i8, ptr %matched, align 1
+  %tobool158 = trunc i8 %133 to i1
   store i1 %tobool158, ptr %retval, align 1
   br label %return
 
 if.end159:                                        ; preds = %if.then154
-  %130 = load ptr, ptr %ep, align 8
-  %131 = load ptr, ptr %params.addr, align 8
-  %ep160 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 9
-  store ptr %130, ptr %ep160, align 8
+  %134 = load ptr, ptr %ep, align 8
+  %135 = load ptr, ptr %params.addr, align 8
+  %ep160 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 9
+  store ptr %134, ptr %ep160, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end161:                                        ; preds = %if.end152
-  %132 = load ptr, ptr %ns113, align 8
-  store ptr %132, ptr %s, align 8
-  %133 = load ptr, ptr %s, align 8
-  %call162 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %133)
+  %136 = load ptr, ptr %ns113, align 8
+  store ptr %136, ptr %s, align 8
+  %137 = load ptr, ptr %s, align 8
+  %call162 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %137)
   br i1 %call162, label %if.then163, label %if.end186
 
 if.then163:                                       ; preds = %if.end161
   store i8 1, ptr %matched, align 1
-  %134 = load ptr, ptr %p, align 8
-  store ptr %134, ptr %lastmatch, align 8
-  %135 = load ptr, ptr %params.addr, align 8
-  %matches164 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 10
-  %136 = load ptr, ptr %matches164, align 8
-  %cmp165 = icmp ne ptr %136, null
+  %138 = load ptr, ptr %p, align 8
+  store ptr %138, ptr %lastmatch, align 8
+  %139 = load ptr, ptr %params.addr, align 8
+  %matches164 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 10
+  %140 = load ptr, ptr %matches164, align 8
+  %cmp165 = icmp ne ptr %140, null
   br i1 %cmp165, label %if.then166, label %if.end185
 
 if.then166:                                       ; preds = %if.then163
-  %137 = load ptr, ptr %s, align 8
-  %ninst_168 = getelementptr inbounds %"struct.re2::DFA::State", ptr %137, i32 0, i32 1
-  %138 = load i32, ptr %ninst_168, align 8
-  %sub169 = sub nsw i32 %138, 1
+  %141 = load ptr, ptr %s, align 8
+  %ninst_168 = getelementptr inbounds %"struct.re2::DFA::State", ptr %141, i32 0, i32 1
+  %142 = load i32, ptr %ninst_168, align 8
+  %sub169 = sub nsw i32 %142, 1
   store i32 %sub169, ptr %i167, align 4
   br label %for.cond170
 
 for.cond170:                                      ; preds = %for.inc182, %if.then166
-  %139 = load i32, ptr %i167, align 4
-  %cmp171 = icmp sge i32 %139, 0
+  %143 = load i32, ptr %i167, align 4
+  %cmp171 = icmp sge i32 %143, 0
   br i1 %cmp171, label %for.body172, label %for.end184
 
 for.body172:                                      ; preds = %for.cond170
-  %140 = load ptr, ptr %s, align 8
-  %inst_174 = getelementptr inbounds %"struct.re2::DFA::State", ptr %140, i32 0, i32 0
-  %141 = load ptr, ptr %inst_174, align 8
-  %142 = load i32, ptr %i167, align 4
-  %idxprom175 = sext i32 %142 to i64
-  %arrayidx176 = getelementptr inbounds i32, ptr %141, i64 %idxprom175
-  %143 = load i32, ptr %arrayidx176, align 4
-  store i32 %143, ptr %id173, align 4
-  %144 = load i32, ptr %id173, align 4
-  %cmp177 = icmp eq i32 %144, -2
+  %144 = load ptr, ptr %s, align 8
+  %inst_174 = getelementptr inbounds %"struct.re2::DFA::State", ptr %144, i32 0, i32 0
+  %145 = load ptr, ptr %inst_174, align 8
+  %146 = load i32, ptr %i167, align 4
+  %idxprom175 = sext i32 %146 to i64
+  %arrayidx176 = getelementptr inbounds i32, ptr %145, i64 %idxprom175
+  %147 = load i32, ptr %arrayidx176, align 4
+  store i32 %147, ptr %id173, align 4
+  %148 = load i32, ptr %id173, align 4
+  %cmp177 = icmp eq i32 %148, -2
   br i1 %cmp177, label %if.then178, label %if.end179
 
 if.then178:                                       ; preds = %for.body172
   br label %for.end184
 
 if.end179:                                        ; preds = %for.body172
-  %145 = load ptr, ptr %params.addr, align 8
-  %matches180 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %145, i32 0, i32 10
-  %146 = load ptr, ptr %matches180, align 8
-  %147 = load i32, ptr %id173, align 4
-  %call181 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 noundef %147)
+  %149 = load ptr, ptr %params.addr, align 8
+  %matches180 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %149, i32 0, i32 10
+  %150 = load ptr, ptr %matches180, align 8
+  %151 = load i32, ptr %id173, align 4
+  %call181 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %150, i32 noundef %151)
   br label %for.inc182
 
 for.inc182:                                       ; preds = %if.end179
-  %148 = load i32, ptr %i167, align 4
-  %dec183 = add nsw i32 %148, -1
+  %152 = load i32, ptr %i167, align 4
+  %dec183 = add nsw i32 %152, -1
   store i32 %dec183, ptr %i167, align 4
   br label %for.cond170, !llvm.loop !31
 
@@ -8560,18 +8581,18 @@ if.end185:                                        ; preds = %for.end184, %if.the
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end185, %if.end161
-  %149 = load ptr, ptr %lastmatch, align 8
-  %150 = load ptr, ptr %params.addr, align 8
-  %ep187 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %150, i32 0, i32 9
-  store ptr %149, ptr %ep187, align 8
-  %151 = load i8, ptr %matched, align 1
-  %tobool188 = trunc i8 %151 to i1
+  %153 = load ptr, ptr %lastmatch, align 8
+  %154 = load ptr, ptr %params.addr, align 8
+  %ep187 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %154, i32 0, i32 9
+  store ptr %153, ptr %ep187, align 8
+  %155 = load i8, ptr %matched, align 1
+  %tobool188 = trunc i8 %155 to i1
   store i1 %tobool188, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end186, %if.end159, %if.then156, %cleanup147, %if.end98, %if.end71, %if.then68, %cleanup, %if.then37, %if.end17
-  %152 = load i1, ptr %retval, align 1
-  ret i1 %152
+  %156 = load i1, ptr %retval, align 1
+  ret i1 %156
 
 eh.resume:                                        ; preds = %ehcleanup150, %ehcleanup62
   %exn = load ptr, ptr %exn.slot, align 8
@@ -8937,90 +8958,92 @@ if.end63:                                         ; preds = %cleanup.cont, %if.t
 
 if.end64:                                         ; preds = %if.end63, %while.body
   %63 = load ptr, ptr %ns, align 8
-  %cmp65 = icmp ule ptr %63, inttoptr (i64 2 to ptr)
+  %64 = inttoptr i64 2 to ptr
+  %cmp65 = icmp ule ptr %63, %64
   br i1 %cmp65, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %if.end64
-  %64 = load ptr, ptr %ns, align 8
-  %cmp67 = icmp eq ptr %64, inttoptr (i64 1 to ptr)
+  %65 = load ptr, ptr %ns, align 8
+  %66 = inttoptr i64 1 to ptr
+  %cmp67 = icmp eq ptr %65, %66
   br i1 %cmp67, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %if.then66
-  %65 = load ptr, ptr %lastmatch, align 8
-  %66 = load ptr, ptr %params.addr, align 8
-  %ep69 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %66, i32 0, i32 9
-  store ptr %65, ptr %ep69, align 8
-  %67 = load i8, ptr %matched, align 1
-  %tobool70 = trunc i8 %67 to i1
+  %67 = load ptr, ptr %lastmatch, align 8
+  %68 = load ptr, ptr %params.addr, align 8
+  %ep69 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %68, i32 0, i32 9
+  store ptr %67, ptr %ep69, align 8
+  %69 = load i8, ptr %matched, align 1
+  %tobool70 = trunc i8 %69 to i1
   store i1 %tobool70, ptr %retval, align 1
   br label %return
 
 if.end71:                                         ; preds = %if.then66
-  %68 = load ptr, ptr %ep, align 8
-  %69 = load ptr, ptr %params.addr, align 8
-  %ep72 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %69, i32 0, i32 9
-  store ptr %68, ptr %ep72, align 8
+  %70 = load ptr, ptr %ep, align 8
+  %71 = load ptr, ptr %params.addr, align 8
+  %ep72 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %71, i32 0, i32 9
+  store ptr %70, ptr %ep72, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end73:                                         ; preds = %if.end64
-  %70 = load ptr, ptr %ns, align 8
-  store ptr %70, ptr %s, align 8
-  %71 = load ptr, ptr %s, align 8
-  %call74 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %71)
+  %72 = load ptr, ptr %ns, align 8
+  store ptr %72, ptr %s, align 8
+  %73 = load ptr, ptr %s, align 8
+  %call74 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
   br i1 %call74, label %if.then75, label %if.end100
 
 if.then75:                                        ; preds = %if.end73
   store i8 1, ptr %matched, align 1
-  %72 = load ptr, ptr %p, align 8
-  %add.ptr76 = getelementptr inbounds i8, ptr %72, i64 -1
+  %74 = load ptr, ptr %p, align 8
+  %add.ptr76 = getelementptr inbounds i8, ptr %74, i64 -1
   store ptr %add.ptr76, ptr %lastmatch, align 8
-  %73 = load ptr, ptr %params.addr, align 8
-  %matches77 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %73, i32 0, i32 10
-  %74 = load ptr, ptr %matches77, align 8
-  %cmp78 = icmp ne ptr %74, null
+  %75 = load ptr, ptr %params.addr, align 8
+  %matches77 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %75, i32 0, i32 10
+  %76 = load ptr, ptr %matches77, align 8
+  %cmp78 = icmp ne ptr %76, null
   br i1 %cmp78, label %if.then79, label %if.end98
 
 if.then79:                                        ; preds = %if.then75
-  %75 = load ptr, ptr %s, align 8
-  %ninst_81 = getelementptr inbounds %"struct.re2::DFA::State", ptr %75, i32 0, i32 1
-  %76 = load i32, ptr %ninst_81, align 8
-  %sub82 = sub nsw i32 %76, 1
+  %77 = load ptr, ptr %s, align 8
+  %ninst_81 = getelementptr inbounds %"struct.re2::DFA::State", ptr %77, i32 0, i32 1
+  %78 = load i32, ptr %ninst_81, align 8
+  %sub82 = sub nsw i32 %78, 1
   store i32 %sub82, ptr %i80, align 4
   br label %for.cond83
 
 for.cond83:                                       ; preds = %for.inc95, %if.then79
-  %77 = load i32, ptr %i80, align 4
-  %cmp84 = icmp sge i32 %77, 0
+  %79 = load i32, ptr %i80, align 4
+  %cmp84 = icmp sge i32 %79, 0
   br i1 %cmp84, label %for.body85, label %for.end97
 
 for.body85:                                       ; preds = %for.cond83
-  %78 = load ptr, ptr %s, align 8
-  %inst_87 = getelementptr inbounds %"struct.re2::DFA::State", ptr %78, i32 0, i32 0
-  %79 = load ptr, ptr %inst_87, align 8
-  %80 = load i32, ptr %i80, align 4
-  %idxprom88 = sext i32 %80 to i64
-  %arrayidx89 = getelementptr inbounds i32, ptr %79, i64 %idxprom88
-  %81 = load i32, ptr %arrayidx89, align 4
-  store i32 %81, ptr %id86, align 4
-  %82 = load i32, ptr %id86, align 4
-  %cmp90 = icmp eq i32 %82, -2
+  %80 = load ptr, ptr %s, align 8
+  %inst_87 = getelementptr inbounds %"struct.re2::DFA::State", ptr %80, i32 0, i32 0
+  %81 = load ptr, ptr %inst_87, align 8
+  %82 = load i32, ptr %i80, align 4
+  %idxprom88 = sext i32 %82 to i64
+  %arrayidx89 = getelementptr inbounds i32, ptr %81, i64 %idxprom88
+  %83 = load i32, ptr %arrayidx89, align 4
+  store i32 %83, ptr %id86, align 4
+  %84 = load i32, ptr %id86, align 4
+  %cmp90 = icmp eq i32 %84, -2
   br i1 %cmp90, label %if.then91, label %if.end92
 
 if.then91:                                        ; preds = %for.body85
   br label %for.end97
 
 if.end92:                                         ; preds = %for.body85
-  %83 = load ptr, ptr %params.addr, align 8
-  %matches93 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
-  %84 = load ptr, ptr %matches93, align 8
-  %85 = load i32, ptr %id86, align 4
-  %call94 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef %85)
+  %85 = load ptr, ptr %params.addr, align 8
+  %matches93 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %85, i32 0, i32 10
+  %86 = load ptr, ptr %matches93, align 8
+  %87 = load i32, ptr %id86, align 4
+  %call94 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %86, i32 noundef %87)
   br label %for.inc95
 
 for.inc95:                                        ; preds = %if.end92
-  %86 = load i32, ptr %i80, align 4
-  %dec96 = add nsw i32 %86, -1
+  %88 = load i32, ptr %i80, align 4
+  %dec96 = add nsw i32 %88, -1
   store i32 %dec96, ptr %i80, align 4
   br label %for.cond83, !llvm.loop !33
 
@@ -9028,10 +9051,10 @@ for.end97:                                        ; preds = %if.then91, %for.con
   br label %if.end98
 
 if.end98:                                         ; preds = %for.end97, %if.then75
-  %87 = load ptr, ptr %lastmatch, align 8
-  %88 = load ptr, ptr %params.addr, align 8
-  %ep99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %88, i32 0, i32 9
-  store ptr %87, ptr %ep99, align 8
+  %89 = load ptr, ptr %lastmatch, align 8
+  %90 = load ptr, ptr %params.addr, align 8
+  %ep99 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %90, i32 0, i32 9
+  store ptr %89, ptr %ep99, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -9039,22 +9062,22 @@ if.end100:                                        ; preds = %if.end73
   br label %while.cond, !llvm.loop !34
 
 while.end:                                        ; preds = %while.cond
-  %89 = load ptr, ptr %params.addr, align 8
-  %text101 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %params.addr, align 8
+  %text101 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text101, i64 16, i1 false)
-  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  %call102 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %91, i64 %93)
-  %94 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %94, i32 0, i32 1
+  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
+  %call102 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %93, i64 %95)
+  %96 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %96, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp103, ptr align 8 %context, i64 16, i1 false)
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  %call104 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %96, i64 %98)
+  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
+  %100 = load i64, ptr %99, align 8
+  %call104 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %98, i64 %100)
   %cmp105 = icmp eq ptr %call102, %call104
   br i1 %cmp105, label %if.then106, label %if.else
 
@@ -9063,50 +9086,50 @@ if.then106:                                       ; preds = %while.end
   br label %if.end112
 
 if.else:                                          ; preds = %while.end
-  %99 = load ptr, ptr %params.addr, align 8
-  %text108 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %params.addr, align 8
+  %text108 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %101, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp107, ptr align 8 %text108, i64 16, i1 false)
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %call109 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %101, i64 %103)
+  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
+  %105 = load i64, ptr %104, align 8
+  %call109 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %103, i64 %105)
   %arrayidx110 = getelementptr inbounds i8, ptr %call109, i64 0
-  %104 = load i8, ptr %arrayidx110, align 1
-  %conv111 = sext i8 %104 to i32
+  %106 = load i8, ptr %arrayidx110, align 1
+  %conv111 = sext i8 %106 to i32
   %and = and i32 %conv111, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end112
 
 if.end112:                                        ; preds = %if.else, %if.then106
-  %105 = load ptr, ptr %s, align 8
-  %next_114 = getelementptr inbounds %"struct.re2::DFA::State", ptr %105, i32 0, i32 3
-  %106 = load i32, ptr %lastbyte, align 4
-  %call115 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %106)
+  %107 = load ptr, ptr %s, align 8
+  %next_114 = getelementptr inbounds %"struct.re2::DFA::State", ptr %107, i32 0, i32 3
+  %108 = load i32, ptr %lastbyte, align 4
+  %call115 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %108)
   %idxprom116 = sext i32 %call115 to i64
   %arrayidx117 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_114, i64 0, i64 %idxprom116
   %call118 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx117, i32 noundef 2) #17
   store ptr %call118, ptr %ns113, align 8
-  %107 = load ptr, ptr %ns113, align 8
-  %cmp119 = icmp eq ptr %107, null
+  %109 = load ptr, ptr %ns113, align 8
+  %cmp119 = icmp eq ptr %109, null
   br i1 %cmp119, label %if.then120, label %if.end152
 
 if.then120:                                       ; preds = %if.end112
-  %108 = load ptr, ptr %s, align 8
-  %109 = load i32, ptr %lastbyte, align 4
-  %call121 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %108, i32 noundef %109)
+  %110 = load ptr, ptr %s, align 8
+  %111 = load i32, ptr %lastbyte, align 4
+  %call121 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %110, i32 noundef %111)
   store ptr %call121, ptr %ns113, align 8
-  %110 = load ptr, ptr %ns113, align 8
-  %cmp122 = icmp eq ptr %110, null
+  %112 = load ptr, ptr %ns113, align 8
+  %cmp122 = icmp eq ptr %112, null
   br i1 %cmp122, label %if.then123, label %if.end151
 
 if.then123:                                       ; preds = %if.then120
-  %111 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef %this1, ptr noundef %111)
-  %112 = load ptr, ptr %params.addr, align 8
-  %cache_lock125 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %112, i32 0, i32 7
-  %113 = load ptr, ptr %cache_lock125, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %113)
+  %113 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef %this1, ptr noundef %113)
+  %114 = load ptr, ptr %params.addr, align 8
+  %cache_lock125 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %114, i32 0, i32 7
+  %115 = load ptr, ptr %cache_lock125, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %115)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %if.then123
@@ -9119,32 +9142,32 @@ invoke.cont128:                                   ; preds = %invoke.cont127
   br i1 %cmp130, label %if.then131, label %if.end133
 
 if.then131:                                       ; preds = %invoke.cont128
-  %114 = load ptr, ptr %params.addr, align 8
-  %failed132 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %114, i32 0, i32 8
+  %116 = load ptr, ptr %params.addr, align 8
+  %failed132 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %116, i32 0, i32 8
   store i8 1, ptr %failed132, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup147
 
 lpad126:                                          ; preds = %if.then137, %if.end133, %invoke.cont127, %if.then123
-  %115 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %exn.slot, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %ehselector.slot, align 4
   br label %ehcleanup150
 
 if.end133:                                        ; preds = %invoke.cont128
-  %118 = load ptr, ptr %s, align 8
-  %119 = load i32, ptr %lastbyte, align 4
-  %call135 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %118, i32 noundef %119)
+  %120 = load ptr, ptr %s, align 8
+  %121 = load i32, ptr %lastbyte, align 4
+  %call135 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %120, i32 noundef %121)
           to label %invoke.cont134 unwind label %lpad126
 
 invoke.cont134:                                   ; preds = %if.end133
   store ptr %call135, ptr %ns113, align 8
-  %120 = load ptr, ptr %ns113, align 8
-  %cmp136 = icmp eq ptr %120, null
+  %122 = load ptr, ptr %ns113, align 8
+  %cmp136 = icmp eq ptr %122, null
   br i1 %cmp136, label %if.then137, label %if.end146
 
 if.then137:                                       ; preds = %invoke.cont134
@@ -9158,20 +9181,20 @@ invoke.cont139:                                   ; preds = %if.then137
 
 invoke.cont142:                                   ; preds = %invoke.cont139
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp138) #17
-  %121 = load ptr, ptr %params.addr, align 8
-  %failed145 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %121, i32 0, i32 8
+  %123 = load ptr, ptr %params.addr, align 8
+  %failed145 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %123, i32 0, i32 8
   store i8 1, ptr %failed145, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup147
 
 lpad141:                                          ; preds = %invoke.cont139
-  %122 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %exn.slot, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %ehselector.slot, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %exn.slot, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp138) #17
   br label %ehcleanup150
 
@@ -9198,90 +9221,92 @@ if.end151:                                        ; preds = %cleanup.cont149, %i
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end151, %if.end112
-  %125 = load ptr, ptr %ns113, align 8
-  %cmp153 = icmp ule ptr %125, inttoptr (i64 2 to ptr)
+  %127 = load ptr, ptr %ns113, align 8
+  %128 = inttoptr i64 2 to ptr
+  %cmp153 = icmp ule ptr %127, %128
   br i1 %cmp153, label %if.then154, label %if.end161
 
 if.then154:                                       ; preds = %if.end152
-  %126 = load ptr, ptr %ns113, align 8
-  %cmp155 = icmp eq ptr %126, inttoptr (i64 1 to ptr)
+  %129 = load ptr, ptr %ns113, align 8
+  %130 = inttoptr i64 1 to ptr
+  %cmp155 = icmp eq ptr %129, %130
   br i1 %cmp155, label %if.then156, label %if.end159
 
 if.then156:                                       ; preds = %if.then154
-  %127 = load ptr, ptr %lastmatch, align 8
-  %128 = load ptr, ptr %params.addr, align 8
-  %ep157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %128, i32 0, i32 9
-  store ptr %127, ptr %ep157, align 8
-  %129 = load i8, ptr %matched, align 1
-  %tobool158 = trunc i8 %129 to i1
+  %131 = load ptr, ptr %lastmatch, align 8
+  %132 = load ptr, ptr %params.addr, align 8
+  %ep157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %132, i32 0, i32 9
+  store ptr %131, ptr %ep157, align 8
+  %133 = load i8, ptr %matched, align 1
+  %tobool158 = trunc i8 %133 to i1
   store i1 %tobool158, ptr %retval, align 1
   br label %return
 
 if.end159:                                        ; preds = %if.then154
-  %130 = load ptr, ptr %ep, align 8
-  %131 = load ptr, ptr %params.addr, align 8
-  %ep160 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 9
-  store ptr %130, ptr %ep160, align 8
+  %134 = load ptr, ptr %ep, align 8
+  %135 = load ptr, ptr %params.addr, align 8
+  %ep160 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 9
+  store ptr %134, ptr %ep160, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end161:                                        ; preds = %if.end152
-  %132 = load ptr, ptr %ns113, align 8
-  store ptr %132, ptr %s, align 8
-  %133 = load ptr, ptr %s, align 8
-  %call162 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %133)
+  %136 = load ptr, ptr %ns113, align 8
+  store ptr %136, ptr %s, align 8
+  %137 = load ptr, ptr %s, align 8
+  %call162 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %137)
   br i1 %call162, label %if.then163, label %if.end186
 
 if.then163:                                       ; preds = %if.end161
   store i8 1, ptr %matched, align 1
-  %134 = load ptr, ptr %p, align 8
-  store ptr %134, ptr %lastmatch, align 8
-  %135 = load ptr, ptr %params.addr, align 8
-  %matches164 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 10
-  %136 = load ptr, ptr %matches164, align 8
-  %cmp165 = icmp ne ptr %136, null
+  %138 = load ptr, ptr %p, align 8
+  store ptr %138, ptr %lastmatch, align 8
+  %139 = load ptr, ptr %params.addr, align 8
+  %matches164 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 10
+  %140 = load ptr, ptr %matches164, align 8
+  %cmp165 = icmp ne ptr %140, null
   br i1 %cmp165, label %if.then166, label %if.end185
 
 if.then166:                                       ; preds = %if.then163
-  %137 = load ptr, ptr %s, align 8
-  %ninst_168 = getelementptr inbounds %"struct.re2::DFA::State", ptr %137, i32 0, i32 1
-  %138 = load i32, ptr %ninst_168, align 8
-  %sub169 = sub nsw i32 %138, 1
+  %141 = load ptr, ptr %s, align 8
+  %ninst_168 = getelementptr inbounds %"struct.re2::DFA::State", ptr %141, i32 0, i32 1
+  %142 = load i32, ptr %ninst_168, align 8
+  %sub169 = sub nsw i32 %142, 1
   store i32 %sub169, ptr %i167, align 4
   br label %for.cond170
 
 for.cond170:                                      ; preds = %for.inc182, %if.then166
-  %139 = load i32, ptr %i167, align 4
-  %cmp171 = icmp sge i32 %139, 0
+  %143 = load i32, ptr %i167, align 4
+  %cmp171 = icmp sge i32 %143, 0
   br i1 %cmp171, label %for.body172, label %for.end184
 
 for.body172:                                      ; preds = %for.cond170
-  %140 = load ptr, ptr %s, align 8
-  %inst_174 = getelementptr inbounds %"struct.re2::DFA::State", ptr %140, i32 0, i32 0
-  %141 = load ptr, ptr %inst_174, align 8
-  %142 = load i32, ptr %i167, align 4
-  %idxprom175 = sext i32 %142 to i64
-  %arrayidx176 = getelementptr inbounds i32, ptr %141, i64 %idxprom175
-  %143 = load i32, ptr %arrayidx176, align 4
-  store i32 %143, ptr %id173, align 4
-  %144 = load i32, ptr %id173, align 4
-  %cmp177 = icmp eq i32 %144, -2
+  %144 = load ptr, ptr %s, align 8
+  %inst_174 = getelementptr inbounds %"struct.re2::DFA::State", ptr %144, i32 0, i32 0
+  %145 = load ptr, ptr %inst_174, align 8
+  %146 = load i32, ptr %i167, align 4
+  %idxprom175 = sext i32 %146 to i64
+  %arrayidx176 = getelementptr inbounds i32, ptr %145, i64 %idxprom175
+  %147 = load i32, ptr %arrayidx176, align 4
+  store i32 %147, ptr %id173, align 4
+  %148 = load i32, ptr %id173, align 4
+  %cmp177 = icmp eq i32 %148, -2
   br i1 %cmp177, label %if.then178, label %if.end179
 
 if.then178:                                       ; preds = %for.body172
   br label %for.end184
 
 if.end179:                                        ; preds = %for.body172
-  %145 = load ptr, ptr %params.addr, align 8
-  %matches180 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %145, i32 0, i32 10
-  %146 = load ptr, ptr %matches180, align 8
-  %147 = load i32, ptr %id173, align 4
-  %call181 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 noundef %147)
+  %149 = load ptr, ptr %params.addr, align 8
+  %matches180 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %149, i32 0, i32 10
+  %150 = load ptr, ptr %matches180, align 8
+  %151 = load i32, ptr %id173, align 4
+  %call181 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %150, i32 noundef %151)
   br label %for.inc182
 
 for.inc182:                                       ; preds = %if.end179
-  %148 = load i32, ptr %i167, align 4
-  %dec183 = add nsw i32 %148, -1
+  %152 = load i32, ptr %i167, align 4
+  %dec183 = add nsw i32 %152, -1
   store i32 %dec183, ptr %i167, align 4
   br label %for.cond170, !llvm.loop !35
 
@@ -9292,18 +9317,18 @@ if.end185:                                        ; preds = %for.end184, %if.the
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end185, %if.end161
-  %149 = load ptr, ptr %lastmatch, align 8
-  %150 = load ptr, ptr %params.addr, align 8
-  %ep187 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %150, i32 0, i32 9
-  store ptr %149, ptr %ep187, align 8
-  %151 = load i8, ptr %matched, align 1
-  %tobool188 = trunc i8 %151 to i1
+  %153 = load ptr, ptr %lastmatch, align 8
+  %154 = load ptr, ptr %params.addr, align 8
+  %ep187 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %154, i32 0, i32 9
+  store ptr %153, ptr %ep187, align 8
+  %155 = load i8, ptr %matched, align 1
+  %tobool188 = trunc i8 %155 to i1
   store i1 %tobool188, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end186, %if.end159, %if.then156, %cleanup147, %if.end98, %if.end71, %if.then68, %cleanup, %if.then37, %if.end17
-  %152 = load i1, ptr %retval, align 1
-  ret i1 %152
+  %156 = load i1, ptr %retval, align 1
+  ret i1 %156
 
 eh.resume:                                        ; preds = %ehcleanup150, %ehcleanup62
   %exn = load ptr, ptr %exn.slot, align 8
@@ -9695,90 +9720,92 @@ if.end74:                                         ; preds = %cleanup.cont, %if.t
 
 if.end75:                                         ; preds = %if.end74, %if.end28
   %69 = load ptr, ptr %ns, align 8
-  %cmp76 = icmp ule ptr %69, inttoptr (i64 2 to ptr)
+  %70 = inttoptr i64 2 to ptr
+  %cmp76 = icmp ule ptr %69, %70
   br i1 %cmp76, label %if.then77, label %if.end84
 
 if.then77:                                        ; preds = %if.end75
-  %70 = load ptr, ptr %ns, align 8
-  %cmp78 = icmp eq ptr %70, inttoptr (i64 1 to ptr)
+  %71 = load ptr, ptr %ns, align 8
+  %72 = inttoptr i64 1 to ptr
+  %cmp78 = icmp eq ptr %71, %72
   br i1 %cmp78, label %if.then79, label %if.end82
 
 if.then79:                                        ; preds = %if.then77
-  %71 = load ptr, ptr %lastmatch, align 8
-  %72 = load ptr, ptr %params.addr, align 8
-  %ep80 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %72, i32 0, i32 9
-  store ptr %71, ptr %ep80, align 8
-  %73 = load i8, ptr %matched, align 1
-  %tobool81 = trunc i8 %73 to i1
+  %73 = load ptr, ptr %lastmatch, align 8
+  %74 = load ptr, ptr %params.addr, align 8
+  %ep80 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %74, i32 0, i32 9
+  store ptr %73, ptr %ep80, align 8
+  %75 = load i8, ptr %matched, align 1
+  %tobool81 = trunc i8 %75 to i1
   store i1 %tobool81, ptr %retval, align 1
   br label %return
 
 if.end82:                                         ; preds = %if.then77
-  %74 = load ptr, ptr %ep, align 8
-  %75 = load ptr, ptr %params.addr, align 8
-  %ep83 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %75, i32 0, i32 9
-  store ptr %74, ptr %ep83, align 8
+  %76 = load ptr, ptr %ep, align 8
+  %77 = load ptr, ptr %params.addr, align 8
+  %ep83 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %77, i32 0, i32 9
+  store ptr %76, ptr %ep83, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end84:                                         ; preds = %if.end75
-  %76 = load ptr, ptr %ns, align 8
-  store ptr %76, ptr %s, align 8
-  %77 = load ptr, ptr %s, align 8
-  %call85 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %78 = load ptr, ptr %ns, align 8
+  store ptr %78, ptr %s, align 8
+  %79 = load ptr, ptr %s, align 8
+  %call85 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %79)
   br i1 %call85, label %if.then86, label %if.end110
 
 if.then86:                                        ; preds = %if.end84
   store i8 1, ptr %matched, align 1
-  %78 = load ptr, ptr %p, align 8
-  %add.ptr87 = getelementptr inbounds i8, ptr %78, i64 1
+  %80 = load ptr, ptr %p, align 8
+  %add.ptr87 = getelementptr inbounds i8, ptr %80, i64 1
   store ptr %add.ptr87, ptr %lastmatch, align 8
-  %79 = load ptr, ptr %params.addr, align 8
-  %matches88 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %79, i32 0, i32 10
-  %80 = load ptr, ptr %matches88, align 8
-  %cmp89 = icmp ne ptr %80, null
+  %81 = load ptr, ptr %params.addr, align 8
+  %matches88 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
+  %82 = load ptr, ptr %matches88, align 8
+  %cmp89 = icmp ne ptr %82, null
   br i1 %cmp89, label %if.then90, label %if.end109
 
 if.then90:                                        ; preds = %if.then86
-  %81 = load ptr, ptr %s, align 8
-  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %81, i32 0, i32 1
-  %82 = load i32, ptr %ninst_92, align 8
-  %sub93 = sub nsw i32 %82, 1
+  %83 = load ptr, ptr %s, align 8
+  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %83, i32 0, i32 1
+  %84 = load i32, ptr %ninst_92, align 8
+  %sub93 = sub nsw i32 %84, 1
   store i32 %sub93, ptr %i91, align 4
   br label %for.cond94
 
 for.cond94:                                       ; preds = %for.inc106, %if.then90
-  %83 = load i32, ptr %i91, align 4
-  %cmp95 = icmp sge i32 %83, 0
+  %85 = load i32, ptr %i91, align 4
+  %cmp95 = icmp sge i32 %85, 0
   br i1 %cmp95, label %for.body96, label %for.end108
 
 for.body96:                                       ; preds = %for.cond94
-  %84 = load ptr, ptr %s, align 8
-  %inst_98 = getelementptr inbounds %"struct.re2::DFA::State", ptr %84, i32 0, i32 0
-  %85 = load ptr, ptr %inst_98, align 8
-  %86 = load i32, ptr %i91, align 4
-  %idxprom99 = sext i32 %86 to i64
-  %arrayidx100 = getelementptr inbounds i32, ptr %85, i64 %idxprom99
-  %87 = load i32, ptr %arrayidx100, align 4
-  store i32 %87, ptr %id97, align 4
-  %88 = load i32, ptr %id97, align 4
-  %cmp101 = icmp eq i32 %88, -2
+  %86 = load ptr, ptr %s, align 8
+  %inst_98 = getelementptr inbounds %"struct.re2::DFA::State", ptr %86, i32 0, i32 0
+  %87 = load ptr, ptr %inst_98, align 8
+  %88 = load i32, ptr %i91, align 4
+  %idxprom99 = sext i32 %88 to i64
+  %arrayidx100 = getelementptr inbounds i32, ptr %87, i64 %idxprom99
+  %89 = load i32, ptr %arrayidx100, align 4
+  store i32 %89, ptr %id97, align 4
+  %90 = load i32, ptr %id97, align 4
+  %cmp101 = icmp eq i32 %90, -2
   br i1 %cmp101, label %if.then102, label %if.end103
 
 if.then102:                                       ; preds = %for.body96
   br label %for.end108
 
 if.end103:                                        ; preds = %for.body96
-  %89 = load ptr, ptr %params.addr, align 8
-  %matches104 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %89, i32 0, i32 10
-  %90 = load ptr, ptr %matches104, align 8
-  %91 = load i32, ptr %id97, align 4
-  %call105 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %90, i32 noundef %91)
+  %91 = load ptr, ptr %params.addr, align 8
+  %matches104 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 10
+  %92 = load ptr, ptr %matches104, align 8
+  %93 = load i32, ptr %id97, align 4
+  %call105 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 noundef %93)
   br label %for.inc106
 
 for.inc106:                                       ; preds = %if.end103
-  %92 = load i32, ptr %i91, align 4
-  %dec107 = add nsw i32 %92, -1
+  %94 = load i32, ptr %i91, align 4
+  %dec107 = add nsw i32 %94, -1
   store i32 %dec107, ptr %i91, align 4
   br label %for.cond94, !llvm.loop !37
 
@@ -9792,22 +9819,22 @@ if.end110:                                        ; preds = %if.end109, %if.end8
   br label %while.cond, !llvm.loop !38
 
 while.end:                                        ; preds = %if.then26, %while.cond
-  %93 = load ptr, ptr %params.addr, align 8
-  %text111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %params.addr, align 8
+  %text111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %95, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text111, i64 16, i1 false)
-  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  %call112 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %95, i64 %97)
-  %98 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %98, i32 0, i32 1
+  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %call112 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %97, i64 %99)
+  %100 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %100, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp113, ptr align 8 %context, i64 16, i1 false)
-  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
-  %102 = load i64, ptr %101, align 8
-  %call114 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %100, i64 %102)
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
+  %104 = load i64, ptr %103, align 8
+  %call114 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %102, i64 %104)
   %cmp115 = icmp eq ptr %call112, %call114
   br i1 %cmp115, label %if.then116, label %if.else
 
@@ -9816,50 +9843,50 @@ if.then116:                                       ; preds = %while.end
   br label %if.end122
 
 if.else:                                          ; preds = %while.end
-  %103 = load ptr, ptr %params.addr, align 8
-  %text118 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %params.addr, align 8
+  %text118 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %105, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp117, ptr align 8 %text118, i64 16, i1 false)
-  %104 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 1
-  %107 = load i64, ptr %106, align 8
-  %call119 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %105, i64 %107)
+  %106 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  %call119 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %107, i64 %109)
   %arrayidx120 = getelementptr inbounds i8, ptr %call119, i64 -1
-  %108 = load i8, ptr %arrayidx120, align 1
-  %conv121 = sext i8 %108 to i32
+  %110 = load i8, ptr %arrayidx120, align 1
+  %conv121 = sext i8 %110 to i32
   %and = and i32 %conv121, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end122
 
 if.end122:                                        ; preds = %if.else, %if.then116
-  %109 = load ptr, ptr %s, align 8
-  %next_124 = getelementptr inbounds %"struct.re2::DFA::State", ptr %109, i32 0, i32 3
-  %110 = load i32, ptr %lastbyte, align 4
-  %call125 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %110)
+  %111 = load ptr, ptr %s, align 8
+  %next_124 = getelementptr inbounds %"struct.re2::DFA::State", ptr %111, i32 0, i32 3
+  %112 = load i32, ptr %lastbyte, align 4
+  %call125 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %112)
   %idxprom126 = sext i32 %call125 to i64
   %arrayidx127 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_124, i64 0, i64 %idxprom126
   %call128 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx127, i32 noundef 2) #17
   store ptr %call128, ptr %ns123, align 8
-  %111 = load ptr, ptr %ns123, align 8
-  %cmp129 = icmp eq ptr %111, null
+  %113 = load ptr, ptr %ns123, align 8
+  %cmp129 = icmp eq ptr %113, null
   br i1 %cmp129, label %if.then130, label %if.end162
 
 if.then130:                                       ; preds = %if.end122
-  %112 = load ptr, ptr %s, align 8
-  %113 = load i32, ptr %lastbyte, align 4
-  %call131 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %112, i32 noundef %113)
+  %114 = load ptr, ptr %s, align 8
+  %115 = load i32, ptr %lastbyte, align 4
+  %call131 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %114, i32 noundef %115)
   store ptr %call131, ptr %ns123, align 8
-  %114 = load ptr, ptr %ns123, align 8
-  %cmp132 = icmp eq ptr %114, null
+  %116 = load ptr, ptr %ns123, align 8
+  %cmp132 = icmp eq ptr %116, null
   br i1 %cmp132, label %if.then133, label %if.end161
 
 if.then133:                                       ; preds = %if.then130
-  %115 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef %this1, ptr noundef %115)
-  %116 = load ptr, ptr %params.addr, align 8
-  %cache_lock135 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %116, i32 0, i32 7
-  %117 = load ptr, ptr %cache_lock135, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %117)
+  %117 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef %this1, ptr noundef %117)
+  %118 = load ptr, ptr %params.addr, align 8
+  %cache_lock135 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %118, i32 0, i32 7
+  %119 = load ptr, ptr %cache_lock135, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %119)
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %if.then133
@@ -9872,32 +9899,32 @@ invoke.cont138:                                   ; preds = %invoke.cont137
   br i1 %cmp140, label %if.then141, label %if.end143
 
 if.then141:                                       ; preds = %invoke.cont138
-  %118 = load ptr, ptr %params.addr, align 8
-  %failed142 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %118, i32 0, i32 8
+  %120 = load ptr, ptr %params.addr, align 8
+  %failed142 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %120, i32 0, i32 8
   store i8 1, ptr %failed142, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup157
 
 lpad136:                                          ; preds = %if.then147, %if.end143, %invoke.cont137, %if.then133
-  %119 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %exn.slot, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %ehselector.slot, align 4
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %exn.slot, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %ehselector.slot, align 4
   br label %ehcleanup160
 
 if.end143:                                        ; preds = %invoke.cont138
-  %122 = load ptr, ptr %s, align 8
-  %123 = load i32, ptr %lastbyte, align 4
-  %call145 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %122, i32 noundef %123)
+  %124 = load ptr, ptr %s, align 8
+  %125 = load i32, ptr %lastbyte, align 4
+  %call145 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %124, i32 noundef %125)
           to label %invoke.cont144 unwind label %lpad136
 
 invoke.cont144:                                   ; preds = %if.end143
   store ptr %call145, ptr %ns123, align 8
-  %124 = load ptr, ptr %ns123, align 8
-  %cmp146 = icmp eq ptr %124, null
+  %126 = load ptr, ptr %ns123, align 8
+  %cmp146 = icmp eq ptr %126, null
   br i1 %cmp146, label %if.then147, label %if.end156
 
 if.then147:                                       ; preds = %invoke.cont144
@@ -9911,20 +9938,20 @@ invoke.cont149:                                   ; preds = %if.then147
 
 invoke.cont152:                                   ; preds = %invoke.cont149
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp148) #17
-  %125 = load ptr, ptr %params.addr, align 8
-  %failed155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %125, i32 0, i32 8
+  %127 = load ptr, ptr %params.addr, align 8
+  %failed155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %127, i32 0, i32 8
   store i8 1, ptr %failed155, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup157
 
 lpad151:                                          ; preds = %invoke.cont149
-  %126 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %exn.slot, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %ehselector.slot, align 4
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %exn.slot, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp148) #17
   br label %ehcleanup160
 
@@ -9951,90 +9978,92 @@ if.end161:                                        ; preds = %cleanup.cont159, %i
   br label %if.end162
 
 if.end162:                                        ; preds = %if.end161, %if.end122
-  %129 = load ptr, ptr %ns123, align 8
-  %cmp163 = icmp ule ptr %129, inttoptr (i64 2 to ptr)
+  %131 = load ptr, ptr %ns123, align 8
+  %132 = inttoptr i64 2 to ptr
+  %cmp163 = icmp ule ptr %131, %132
   br i1 %cmp163, label %if.then164, label %if.end171
 
 if.then164:                                       ; preds = %if.end162
-  %130 = load ptr, ptr %ns123, align 8
-  %cmp165 = icmp eq ptr %130, inttoptr (i64 1 to ptr)
+  %133 = load ptr, ptr %ns123, align 8
+  %134 = inttoptr i64 1 to ptr
+  %cmp165 = icmp eq ptr %133, %134
   br i1 %cmp165, label %if.then166, label %if.end169
 
 if.then166:                                       ; preds = %if.then164
-  %131 = load ptr, ptr %lastmatch, align 8
-  %132 = load ptr, ptr %params.addr, align 8
-  %ep167 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %132, i32 0, i32 9
-  store ptr %131, ptr %ep167, align 8
-  %133 = load i8, ptr %matched, align 1
-  %tobool168 = trunc i8 %133 to i1
+  %135 = load ptr, ptr %lastmatch, align 8
+  %136 = load ptr, ptr %params.addr, align 8
+  %ep167 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %136, i32 0, i32 9
+  store ptr %135, ptr %ep167, align 8
+  %137 = load i8, ptr %matched, align 1
+  %tobool168 = trunc i8 %137 to i1
   store i1 %tobool168, ptr %retval, align 1
   br label %return
 
 if.end169:                                        ; preds = %if.then164
-  %134 = load ptr, ptr %ep, align 8
-  %135 = load ptr, ptr %params.addr, align 8
-  %ep170 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 9
-  store ptr %134, ptr %ep170, align 8
+  %138 = load ptr, ptr %ep, align 8
+  %139 = load ptr, ptr %params.addr, align 8
+  %ep170 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 9
+  store ptr %138, ptr %ep170, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end171:                                        ; preds = %if.end162
-  %136 = load ptr, ptr %ns123, align 8
-  store ptr %136, ptr %s, align 8
-  %137 = load ptr, ptr %s, align 8
-  %call172 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %137)
+  %140 = load ptr, ptr %ns123, align 8
+  store ptr %140, ptr %s, align 8
+  %141 = load ptr, ptr %s, align 8
+  %call172 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %141)
   br i1 %call172, label %if.then173, label %if.end196
 
 if.then173:                                       ; preds = %if.end171
   store i8 1, ptr %matched, align 1
-  %138 = load ptr, ptr %p, align 8
-  store ptr %138, ptr %lastmatch, align 8
-  %139 = load ptr, ptr %params.addr, align 8
-  %matches174 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 10
-  %140 = load ptr, ptr %matches174, align 8
-  %cmp175 = icmp ne ptr %140, null
+  %142 = load ptr, ptr %p, align 8
+  store ptr %142, ptr %lastmatch, align 8
+  %143 = load ptr, ptr %params.addr, align 8
+  %matches174 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 10
+  %144 = load ptr, ptr %matches174, align 8
+  %cmp175 = icmp ne ptr %144, null
   br i1 %cmp175, label %if.then176, label %if.end195
 
 if.then176:                                       ; preds = %if.then173
-  %141 = load ptr, ptr %s, align 8
-  %ninst_178 = getelementptr inbounds %"struct.re2::DFA::State", ptr %141, i32 0, i32 1
-  %142 = load i32, ptr %ninst_178, align 8
-  %sub179 = sub nsw i32 %142, 1
+  %145 = load ptr, ptr %s, align 8
+  %ninst_178 = getelementptr inbounds %"struct.re2::DFA::State", ptr %145, i32 0, i32 1
+  %146 = load i32, ptr %ninst_178, align 8
+  %sub179 = sub nsw i32 %146, 1
   store i32 %sub179, ptr %i177, align 4
   br label %for.cond180
 
 for.cond180:                                      ; preds = %for.inc192, %if.then176
-  %143 = load i32, ptr %i177, align 4
-  %cmp181 = icmp sge i32 %143, 0
+  %147 = load i32, ptr %i177, align 4
+  %cmp181 = icmp sge i32 %147, 0
   br i1 %cmp181, label %for.body182, label %for.end194
 
 for.body182:                                      ; preds = %for.cond180
-  %144 = load ptr, ptr %s, align 8
-  %inst_184 = getelementptr inbounds %"struct.re2::DFA::State", ptr %144, i32 0, i32 0
-  %145 = load ptr, ptr %inst_184, align 8
-  %146 = load i32, ptr %i177, align 4
-  %idxprom185 = sext i32 %146 to i64
-  %arrayidx186 = getelementptr inbounds i32, ptr %145, i64 %idxprom185
-  %147 = load i32, ptr %arrayidx186, align 4
-  store i32 %147, ptr %id183, align 4
-  %148 = load i32, ptr %id183, align 4
-  %cmp187 = icmp eq i32 %148, -2
+  %148 = load ptr, ptr %s, align 8
+  %inst_184 = getelementptr inbounds %"struct.re2::DFA::State", ptr %148, i32 0, i32 0
+  %149 = load ptr, ptr %inst_184, align 8
+  %150 = load i32, ptr %i177, align 4
+  %idxprom185 = sext i32 %150 to i64
+  %arrayidx186 = getelementptr inbounds i32, ptr %149, i64 %idxprom185
+  %151 = load i32, ptr %arrayidx186, align 4
+  store i32 %151, ptr %id183, align 4
+  %152 = load i32, ptr %id183, align 4
+  %cmp187 = icmp eq i32 %152, -2
   br i1 %cmp187, label %if.then188, label %if.end189
 
 if.then188:                                       ; preds = %for.body182
   br label %for.end194
 
 if.end189:                                        ; preds = %for.body182
-  %149 = load ptr, ptr %params.addr, align 8
-  %matches190 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %149, i32 0, i32 10
-  %150 = load ptr, ptr %matches190, align 8
-  %151 = load i32, ptr %id183, align 4
-  %call191 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %150, i32 noundef %151)
+  %153 = load ptr, ptr %params.addr, align 8
+  %matches190 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %153, i32 0, i32 10
+  %154 = load ptr, ptr %matches190, align 8
+  %155 = load i32, ptr %id183, align 4
+  %call191 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef %155)
   br label %for.inc192
 
 for.inc192:                                       ; preds = %if.end189
-  %152 = load i32, ptr %i177, align 4
-  %dec193 = add nsw i32 %152, -1
+  %156 = load i32, ptr %i177, align 4
+  %dec193 = add nsw i32 %156, -1
   store i32 %dec193, ptr %i177, align 4
   br label %for.cond180, !llvm.loop !39
 
@@ -10045,18 +10074,18 @@ if.end195:                                        ; preds = %for.end194, %if.the
   br label %if.end196
 
 if.end196:                                        ; preds = %if.end195, %if.end171
-  %153 = load ptr, ptr %lastmatch, align 8
-  %154 = load ptr, ptr %params.addr, align 8
-  %ep197 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %154, i32 0, i32 9
-  store ptr %153, ptr %ep197, align 8
-  %155 = load i8, ptr %matched, align 1
-  %tobool198 = trunc i8 %155 to i1
+  %157 = load ptr, ptr %lastmatch, align 8
+  %158 = load ptr, ptr %params.addr, align 8
+  %ep197 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %158, i32 0, i32 9
+  store ptr %157, ptr %ep197, align 8
+  %159 = load i8, ptr %matched, align 1
+  %tobool198 = trunc i8 %159 to i1
   store i1 %tobool198, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end196, %if.end169, %if.then166, %cleanup157, %if.end82, %if.then79, %cleanup, %if.then48
-  %156 = load i1, ptr %retval, align 1
-  ret i1 %156
+  %160 = load i1, ptr %retval, align 1
+  ret i1 %160
 
 eh.resume:                                        ; preds = %ehcleanup160, %ehcleanup73
   %exn = load ptr, ptr %exn.slot, align 8
@@ -10447,90 +10476,92 @@ if.end74:                                         ; preds = %cleanup.cont, %if.t
 
 if.end75:                                         ; preds = %if.end74, %if.end28
   %69 = load ptr, ptr %ns, align 8
-  %cmp76 = icmp ule ptr %69, inttoptr (i64 2 to ptr)
+  %70 = inttoptr i64 2 to ptr
+  %cmp76 = icmp ule ptr %69, %70
   br i1 %cmp76, label %if.then77, label %if.end84
 
 if.then77:                                        ; preds = %if.end75
-  %70 = load ptr, ptr %ns, align 8
-  %cmp78 = icmp eq ptr %70, inttoptr (i64 1 to ptr)
+  %71 = load ptr, ptr %ns, align 8
+  %72 = inttoptr i64 1 to ptr
+  %cmp78 = icmp eq ptr %71, %72
   br i1 %cmp78, label %if.then79, label %if.end82
 
 if.then79:                                        ; preds = %if.then77
-  %71 = load ptr, ptr %lastmatch, align 8
-  %72 = load ptr, ptr %params.addr, align 8
-  %ep80 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %72, i32 0, i32 9
-  store ptr %71, ptr %ep80, align 8
-  %73 = load i8, ptr %matched, align 1
-  %tobool81 = trunc i8 %73 to i1
+  %73 = load ptr, ptr %lastmatch, align 8
+  %74 = load ptr, ptr %params.addr, align 8
+  %ep80 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %74, i32 0, i32 9
+  store ptr %73, ptr %ep80, align 8
+  %75 = load i8, ptr %matched, align 1
+  %tobool81 = trunc i8 %75 to i1
   store i1 %tobool81, ptr %retval, align 1
   br label %return
 
 if.end82:                                         ; preds = %if.then77
-  %74 = load ptr, ptr %ep, align 8
-  %75 = load ptr, ptr %params.addr, align 8
-  %ep83 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %75, i32 0, i32 9
-  store ptr %74, ptr %ep83, align 8
+  %76 = load ptr, ptr %ep, align 8
+  %77 = load ptr, ptr %params.addr, align 8
+  %ep83 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %77, i32 0, i32 9
+  store ptr %76, ptr %ep83, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end84:                                         ; preds = %if.end75
-  %76 = load ptr, ptr %ns, align 8
-  store ptr %76, ptr %s, align 8
-  %77 = load ptr, ptr %s, align 8
-  %call85 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %78 = load ptr, ptr %ns, align 8
+  store ptr %78, ptr %s, align 8
+  %79 = load ptr, ptr %s, align 8
+  %call85 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %79)
   br i1 %call85, label %if.then86, label %if.end110
 
 if.then86:                                        ; preds = %if.end84
   store i8 1, ptr %matched, align 1
-  %78 = load ptr, ptr %p, align 8
-  %add.ptr87 = getelementptr inbounds i8, ptr %78, i64 -1
+  %80 = load ptr, ptr %p, align 8
+  %add.ptr87 = getelementptr inbounds i8, ptr %80, i64 -1
   store ptr %add.ptr87, ptr %lastmatch, align 8
-  %79 = load ptr, ptr %params.addr, align 8
-  %matches88 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %79, i32 0, i32 10
-  %80 = load ptr, ptr %matches88, align 8
-  %cmp89 = icmp ne ptr %80, null
+  %81 = load ptr, ptr %params.addr, align 8
+  %matches88 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
+  %82 = load ptr, ptr %matches88, align 8
+  %cmp89 = icmp ne ptr %82, null
   br i1 %cmp89, label %if.then90, label %if.end109
 
 if.then90:                                        ; preds = %if.then86
-  %81 = load ptr, ptr %s, align 8
-  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %81, i32 0, i32 1
-  %82 = load i32, ptr %ninst_92, align 8
-  %sub93 = sub nsw i32 %82, 1
+  %83 = load ptr, ptr %s, align 8
+  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %83, i32 0, i32 1
+  %84 = load i32, ptr %ninst_92, align 8
+  %sub93 = sub nsw i32 %84, 1
   store i32 %sub93, ptr %i91, align 4
   br label %for.cond94
 
 for.cond94:                                       ; preds = %for.inc106, %if.then90
-  %83 = load i32, ptr %i91, align 4
-  %cmp95 = icmp sge i32 %83, 0
+  %85 = load i32, ptr %i91, align 4
+  %cmp95 = icmp sge i32 %85, 0
   br i1 %cmp95, label %for.body96, label %for.end108
 
 for.body96:                                       ; preds = %for.cond94
-  %84 = load ptr, ptr %s, align 8
-  %inst_98 = getelementptr inbounds %"struct.re2::DFA::State", ptr %84, i32 0, i32 0
-  %85 = load ptr, ptr %inst_98, align 8
-  %86 = load i32, ptr %i91, align 4
-  %idxprom99 = sext i32 %86 to i64
-  %arrayidx100 = getelementptr inbounds i32, ptr %85, i64 %idxprom99
-  %87 = load i32, ptr %arrayidx100, align 4
-  store i32 %87, ptr %id97, align 4
-  %88 = load i32, ptr %id97, align 4
-  %cmp101 = icmp eq i32 %88, -2
+  %86 = load ptr, ptr %s, align 8
+  %inst_98 = getelementptr inbounds %"struct.re2::DFA::State", ptr %86, i32 0, i32 0
+  %87 = load ptr, ptr %inst_98, align 8
+  %88 = load i32, ptr %i91, align 4
+  %idxprom99 = sext i32 %88 to i64
+  %arrayidx100 = getelementptr inbounds i32, ptr %87, i64 %idxprom99
+  %89 = load i32, ptr %arrayidx100, align 4
+  store i32 %89, ptr %id97, align 4
+  %90 = load i32, ptr %id97, align 4
+  %cmp101 = icmp eq i32 %90, -2
   br i1 %cmp101, label %if.then102, label %if.end103
 
 if.then102:                                       ; preds = %for.body96
   br label %for.end108
 
 if.end103:                                        ; preds = %for.body96
-  %89 = load ptr, ptr %params.addr, align 8
-  %matches104 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %89, i32 0, i32 10
-  %90 = load ptr, ptr %matches104, align 8
-  %91 = load i32, ptr %id97, align 4
-  %call105 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %90, i32 noundef %91)
+  %91 = load ptr, ptr %params.addr, align 8
+  %matches104 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 10
+  %92 = load ptr, ptr %matches104, align 8
+  %93 = load i32, ptr %id97, align 4
+  %call105 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 noundef %93)
   br label %for.inc106
 
 for.inc106:                                       ; preds = %if.end103
-  %92 = load i32, ptr %i91, align 4
-  %dec107 = add nsw i32 %92, -1
+  %94 = load i32, ptr %i91, align 4
+  %dec107 = add nsw i32 %94, -1
   store i32 %dec107, ptr %i91, align 4
   br label %for.cond94, !llvm.loop !41
 
@@ -10544,22 +10575,22 @@ if.end110:                                        ; preds = %if.end109, %if.end8
   br label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %if.then26, %while.cond
-  %93 = load ptr, ptr %params.addr, align 8
-  %text111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %params.addr, align 8
+  %text111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %95, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text111, i64 16, i1 false)
-  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  %call112 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %95, i64 %97)
-  %98 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %98, i32 0, i32 1
+  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %call112 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %97, i64 %99)
+  %100 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %100, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp113, ptr align 8 %context, i64 16, i1 false)
-  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
-  %102 = load i64, ptr %101, align 8
-  %call114 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %100, i64 %102)
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
+  %104 = load i64, ptr %103, align 8
+  %call114 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %102, i64 %104)
   %cmp115 = icmp eq ptr %call112, %call114
   br i1 %cmp115, label %if.then116, label %if.else
 
@@ -10568,50 +10599,50 @@ if.then116:                                       ; preds = %while.end
   br label %if.end122
 
 if.else:                                          ; preds = %while.end
-  %103 = load ptr, ptr %params.addr, align 8
-  %text118 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %params.addr, align 8
+  %text118 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %105, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp117, ptr align 8 %text118, i64 16, i1 false)
-  %104 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 1
-  %107 = load i64, ptr %106, align 8
-  %call119 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %105, i64 %107)
+  %106 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp117, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  %call119 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %107, i64 %109)
   %arrayidx120 = getelementptr inbounds i8, ptr %call119, i64 0
-  %108 = load i8, ptr %arrayidx120, align 1
-  %conv121 = sext i8 %108 to i32
+  %110 = load i8, ptr %arrayidx120, align 1
+  %conv121 = sext i8 %110 to i32
   %and = and i32 %conv121, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end122
 
 if.end122:                                        ; preds = %if.else, %if.then116
-  %109 = load ptr, ptr %s, align 8
-  %next_124 = getelementptr inbounds %"struct.re2::DFA::State", ptr %109, i32 0, i32 3
-  %110 = load i32, ptr %lastbyte, align 4
-  %call125 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %110)
+  %111 = load ptr, ptr %s, align 8
+  %next_124 = getelementptr inbounds %"struct.re2::DFA::State", ptr %111, i32 0, i32 3
+  %112 = load i32, ptr %lastbyte, align 4
+  %call125 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %112)
   %idxprom126 = sext i32 %call125 to i64
   %arrayidx127 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_124, i64 0, i64 %idxprom126
   %call128 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx127, i32 noundef 2) #17
   store ptr %call128, ptr %ns123, align 8
-  %111 = load ptr, ptr %ns123, align 8
-  %cmp129 = icmp eq ptr %111, null
+  %113 = load ptr, ptr %ns123, align 8
+  %cmp129 = icmp eq ptr %113, null
   br i1 %cmp129, label %if.then130, label %if.end162
 
 if.then130:                                       ; preds = %if.end122
-  %112 = load ptr, ptr %s, align 8
-  %113 = load i32, ptr %lastbyte, align 4
-  %call131 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %112, i32 noundef %113)
+  %114 = load ptr, ptr %s, align 8
+  %115 = load i32, ptr %lastbyte, align 4
+  %call131 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %114, i32 noundef %115)
   store ptr %call131, ptr %ns123, align 8
-  %114 = load ptr, ptr %ns123, align 8
-  %cmp132 = icmp eq ptr %114, null
+  %116 = load ptr, ptr %ns123, align 8
+  %cmp132 = icmp eq ptr %116, null
   br i1 %cmp132, label %if.then133, label %if.end161
 
 if.then133:                                       ; preds = %if.then130
-  %115 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef %this1, ptr noundef %115)
-  %116 = load ptr, ptr %params.addr, align 8
-  %cache_lock135 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %116, i32 0, i32 7
-  %117 = load ptr, ptr %cache_lock135, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %117)
+  %117 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef %this1, ptr noundef %117)
+  %118 = load ptr, ptr %params.addr, align 8
+  %cache_lock135 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %118, i32 0, i32 7
+  %119 = load ptr, ptr %cache_lock135, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %119)
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %if.then133
@@ -10624,32 +10655,32 @@ invoke.cont138:                                   ; preds = %invoke.cont137
   br i1 %cmp140, label %if.then141, label %if.end143
 
 if.then141:                                       ; preds = %invoke.cont138
-  %118 = load ptr, ptr %params.addr, align 8
-  %failed142 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %118, i32 0, i32 8
+  %120 = load ptr, ptr %params.addr, align 8
+  %failed142 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %120, i32 0, i32 8
   store i8 1, ptr %failed142, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup157
 
 lpad136:                                          ; preds = %if.then147, %if.end143, %invoke.cont137, %if.then133
-  %119 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %exn.slot, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %ehselector.slot, align 4
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %exn.slot, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %ehselector.slot, align 4
   br label %ehcleanup160
 
 if.end143:                                        ; preds = %invoke.cont138
-  %122 = load ptr, ptr %s, align 8
-  %123 = load i32, ptr %lastbyte, align 4
-  %call145 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %122, i32 noundef %123)
+  %124 = load ptr, ptr %s, align 8
+  %125 = load i32, ptr %lastbyte, align 4
+  %call145 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %124, i32 noundef %125)
           to label %invoke.cont144 unwind label %lpad136
 
 invoke.cont144:                                   ; preds = %if.end143
   store ptr %call145, ptr %ns123, align 8
-  %124 = load ptr, ptr %ns123, align 8
-  %cmp146 = icmp eq ptr %124, null
+  %126 = load ptr, ptr %ns123, align 8
+  %cmp146 = icmp eq ptr %126, null
   br i1 %cmp146, label %if.then147, label %if.end156
 
 if.then147:                                       ; preds = %invoke.cont144
@@ -10663,20 +10694,20 @@ invoke.cont149:                                   ; preds = %if.then147
 
 invoke.cont152:                                   ; preds = %invoke.cont149
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp148) #17
-  %125 = load ptr, ptr %params.addr, align 8
-  %failed155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %125, i32 0, i32 8
+  %127 = load ptr, ptr %params.addr, align 8
+  %failed155 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %127, i32 0, i32 8
   store i8 1, ptr %failed155, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup157
 
 lpad151:                                          ; preds = %invoke.cont149
-  %126 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %exn.slot, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %ehselector.slot, align 4
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %exn.slot, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp148) #17
   br label %ehcleanup160
 
@@ -10703,90 +10734,92 @@ if.end161:                                        ; preds = %cleanup.cont159, %i
   br label %if.end162
 
 if.end162:                                        ; preds = %if.end161, %if.end122
-  %129 = load ptr, ptr %ns123, align 8
-  %cmp163 = icmp ule ptr %129, inttoptr (i64 2 to ptr)
+  %131 = load ptr, ptr %ns123, align 8
+  %132 = inttoptr i64 2 to ptr
+  %cmp163 = icmp ule ptr %131, %132
   br i1 %cmp163, label %if.then164, label %if.end171
 
 if.then164:                                       ; preds = %if.end162
-  %130 = load ptr, ptr %ns123, align 8
-  %cmp165 = icmp eq ptr %130, inttoptr (i64 1 to ptr)
+  %133 = load ptr, ptr %ns123, align 8
+  %134 = inttoptr i64 1 to ptr
+  %cmp165 = icmp eq ptr %133, %134
   br i1 %cmp165, label %if.then166, label %if.end169
 
 if.then166:                                       ; preds = %if.then164
-  %131 = load ptr, ptr %lastmatch, align 8
-  %132 = load ptr, ptr %params.addr, align 8
-  %ep167 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %132, i32 0, i32 9
-  store ptr %131, ptr %ep167, align 8
-  %133 = load i8, ptr %matched, align 1
-  %tobool168 = trunc i8 %133 to i1
+  %135 = load ptr, ptr %lastmatch, align 8
+  %136 = load ptr, ptr %params.addr, align 8
+  %ep167 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %136, i32 0, i32 9
+  store ptr %135, ptr %ep167, align 8
+  %137 = load i8, ptr %matched, align 1
+  %tobool168 = trunc i8 %137 to i1
   store i1 %tobool168, ptr %retval, align 1
   br label %return
 
 if.end169:                                        ; preds = %if.then164
-  %134 = load ptr, ptr %ep, align 8
-  %135 = load ptr, ptr %params.addr, align 8
-  %ep170 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %135, i32 0, i32 9
-  store ptr %134, ptr %ep170, align 8
+  %138 = load ptr, ptr %ep, align 8
+  %139 = load ptr, ptr %params.addr, align 8
+  %ep170 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 9
+  store ptr %138, ptr %ep170, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end171:                                        ; preds = %if.end162
-  %136 = load ptr, ptr %ns123, align 8
-  store ptr %136, ptr %s, align 8
-  %137 = load ptr, ptr %s, align 8
-  %call172 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %137)
+  %140 = load ptr, ptr %ns123, align 8
+  store ptr %140, ptr %s, align 8
+  %141 = load ptr, ptr %s, align 8
+  %call172 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %141)
   br i1 %call172, label %if.then173, label %if.end196
 
 if.then173:                                       ; preds = %if.end171
   store i8 1, ptr %matched, align 1
-  %138 = load ptr, ptr %p, align 8
-  store ptr %138, ptr %lastmatch, align 8
-  %139 = load ptr, ptr %params.addr, align 8
-  %matches174 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 10
-  %140 = load ptr, ptr %matches174, align 8
-  %cmp175 = icmp ne ptr %140, null
+  %142 = load ptr, ptr %p, align 8
+  store ptr %142, ptr %lastmatch, align 8
+  %143 = load ptr, ptr %params.addr, align 8
+  %matches174 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 10
+  %144 = load ptr, ptr %matches174, align 8
+  %cmp175 = icmp ne ptr %144, null
   br i1 %cmp175, label %if.then176, label %if.end195
 
 if.then176:                                       ; preds = %if.then173
-  %141 = load ptr, ptr %s, align 8
-  %ninst_178 = getelementptr inbounds %"struct.re2::DFA::State", ptr %141, i32 0, i32 1
-  %142 = load i32, ptr %ninst_178, align 8
-  %sub179 = sub nsw i32 %142, 1
+  %145 = load ptr, ptr %s, align 8
+  %ninst_178 = getelementptr inbounds %"struct.re2::DFA::State", ptr %145, i32 0, i32 1
+  %146 = load i32, ptr %ninst_178, align 8
+  %sub179 = sub nsw i32 %146, 1
   store i32 %sub179, ptr %i177, align 4
   br label %for.cond180
 
 for.cond180:                                      ; preds = %for.inc192, %if.then176
-  %143 = load i32, ptr %i177, align 4
-  %cmp181 = icmp sge i32 %143, 0
+  %147 = load i32, ptr %i177, align 4
+  %cmp181 = icmp sge i32 %147, 0
   br i1 %cmp181, label %for.body182, label %for.end194
 
 for.body182:                                      ; preds = %for.cond180
-  %144 = load ptr, ptr %s, align 8
-  %inst_184 = getelementptr inbounds %"struct.re2::DFA::State", ptr %144, i32 0, i32 0
-  %145 = load ptr, ptr %inst_184, align 8
-  %146 = load i32, ptr %i177, align 4
-  %idxprom185 = sext i32 %146 to i64
-  %arrayidx186 = getelementptr inbounds i32, ptr %145, i64 %idxprom185
-  %147 = load i32, ptr %arrayidx186, align 4
-  store i32 %147, ptr %id183, align 4
-  %148 = load i32, ptr %id183, align 4
-  %cmp187 = icmp eq i32 %148, -2
+  %148 = load ptr, ptr %s, align 8
+  %inst_184 = getelementptr inbounds %"struct.re2::DFA::State", ptr %148, i32 0, i32 0
+  %149 = load ptr, ptr %inst_184, align 8
+  %150 = load i32, ptr %i177, align 4
+  %idxprom185 = sext i32 %150 to i64
+  %arrayidx186 = getelementptr inbounds i32, ptr %149, i64 %idxprom185
+  %151 = load i32, ptr %arrayidx186, align 4
+  store i32 %151, ptr %id183, align 4
+  %152 = load i32, ptr %id183, align 4
+  %cmp187 = icmp eq i32 %152, -2
   br i1 %cmp187, label %if.then188, label %if.end189
 
 if.then188:                                       ; preds = %for.body182
   br label %for.end194
 
 if.end189:                                        ; preds = %for.body182
-  %149 = load ptr, ptr %params.addr, align 8
-  %matches190 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %149, i32 0, i32 10
-  %150 = load ptr, ptr %matches190, align 8
-  %151 = load i32, ptr %id183, align 4
-  %call191 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %150, i32 noundef %151)
+  %153 = load ptr, ptr %params.addr, align 8
+  %matches190 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %153, i32 0, i32 10
+  %154 = load ptr, ptr %matches190, align 8
+  %155 = load i32, ptr %id183, align 4
+  %call191 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef %155)
   br label %for.inc192
 
 for.inc192:                                       ; preds = %if.end189
-  %152 = load i32, ptr %i177, align 4
-  %dec193 = add nsw i32 %152, -1
+  %156 = load i32, ptr %i177, align 4
+  %dec193 = add nsw i32 %156, -1
   store i32 %dec193, ptr %i177, align 4
   br label %for.cond180, !llvm.loop !43
 
@@ -10797,18 +10830,18 @@ if.end195:                                        ; preds = %for.end194, %if.the
   br label %if.end196
 
 if.end196:                                        ; preds = %if.end195, %if.end171
-  %153 = load ptr, ptr %lastmatch, align 8
-  %154 = load ptr, ptr %params.addr, align 8
-  %ep197 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %154, i32 0, i32 9
-  store ptr %153, ptr %ep197, align 8
-  %155 = load i8, ptr %matched, align 1
-  %tobool198 = trunc i8 %155 to i1
+  %157 = load ptr, ptr %lastmatch, align 8
+  %158 = load ptr, ptr %params.addr, align 8
+  %ep197 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %158, i32 0, i32 9
+  store ptr %157, ptr %ep197, align 8
+  %159 = load i8, ptr %matched, align 1
+  %tobool198 = trunc i8 %159 to i1
   store i1 %tobool198, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end196, %if.end169, %if.then166, %cleanup157, %if.end82, %if.then79, %cleanup, %if.then48
-  %156 = load i1, ptr %retval, align 1
-  ret i1 %156
+  %160 = load i1, ptr %retval, align 1
+  ret i1 %160
 
 eh.resume:                                        ; preds = %ehcleanup160, %ehcleanup73
   %exn = load ptr, ptr %exn.slot, align 8
@@ -11205,90 +11238,92 @@ if.end75:                                         ; preds = %cleanup.cont, %if.t
 
 if.end76:                                         ; preds = %if.end75, %if.end29
   %71 = load ptr, ptr %ns, align 8
-  %cmp77 = icmp ule ptr %71, inttoptr (i64 2 to ptr)
+  %72 = inttoptr i64 2 to ptr
+  %cmp77 = icmp ule ptr %71, %72
   br i1 %cmp77, label %if.then78, label %if.end85
 
 if.then78:                                        ; preds = %if.end76
-  %72 = load ptr, ptr %ns, align 8
-  %cmp79 = icmp eq ptr %72, inttoptr (i64 1 to ptr)
+  %73 = load ptr, ptr %ns, align 8
+  %74 = inttoptr i64 1 to ptr
+  %cmp79 = icmp eq ptr %73, %74
   br i1 %cmp79, label %if.then80, label %if.end83
 
 if.then80:                                        ; preds = %if.then78
-  %73 = load ptr, ptr %lastmatch, align 8
-  %74 = load ptr, ptr %params.addr, align 8
-  %ep81 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %74, i32 0, i32 9
-  store ptr %73, ptr %ep81, align 8
-  %75 = load i8, ptr %matched, align 1
-  %tobool82 = trunc i8 %75 to i1
+  %75 = load ptr, ptr %lastmatch, align 8
+  %76 = load ptr, ptr %params.addr, align 8
+  %ep81 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %76, i32 0, i32 9
+  store ptr %75, ptr %ep81, align 8
+  %77 = load i8, ptr %matched, align 1
+  %tobool82 = trunc i8 %77 to i1
   store i1 %tobool82, ptr %retval, align 1
   br label %return
 
 if.end83:                                         ; preds = %if.then78
-  %76 = load ptr, ptr %ep, align 8
-  %77 = load ptr, ptr %params.addr, align 8
-  %ep84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %77, i32 0, i32 9
-  store ptr %76, ptr %ep84, align 8
+  %78 = load ptr, ptr %ep, align 8
+  %79 = load ptr, ptr %params.addr, align 8
+  %ep84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %79, i32 0, i32 9
+  store ptr %78, ptr %ep84, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end85:                                         ; preds = %if.end76
-  %78 = load ptr, ptr %ns, align 8
-  store ptr %78, ptr %s, align 8
-  %79 = load ptr, ptr %s, align 8
-  %call86 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %79)
+  %80 = load ptr, ptr %ns, align 8
+  store ptr %80, ptr %s, align 8
+  %81 = load ptr, ptr %s, align 8
+  %call86 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %81)
   br i1 %call86, label %if.then87, label %if.end112
 
 if.then87:                                        ; preds = %if.end85
   store i8 1, ptr %matched, align 1
-  %80 = load ptr, ptr %p, align 8
-  %add.ptr88 = getelementptr inbounds i8, ptr %80, i64 1
+  %82 = load ptr, ptr %p, align 8
+  %add.ptr88 = getelementptr inbounds i8, ptr %82, i64 1
   store ptr %add.ptr88, ptr %lastmatch, align 8
-  %81 = load ptr, ptr %params.addr, align 8
-  %matches89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
-  %82 = load ptr, ptr %matches89, align 8
-  %cmp90 = icmp ne ptr %82, null
+  %83 = load ptr, ptr %params.addr, align 8
+  %matches89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
+  %84 = load ptr, ptr %matches89, align 8
+  %cmp90 = icmp ne ptr %84, null
   br i1 %cmp90, label %if.then91, label %if.end110
 
 if.then91:                                        ; preds = %if.then87
-  %83 = load ptr, ptr %s, align 8
-  %ninst_93 = getelementptr inbounds %"struct.re2::DFA::State", ptr %83, i32 0, i32 1
-  %84 = load i32, ptr %ninst_93, align 8
-  %sub94 = sub nsw i32 %84, 1
+  %85 = load ptr, ptr %s, align 8
+  %ninst_93 = getelementptr inbounds %"struct.re2::DFA::State", ptr %85, i32 0, i32 1
+  %86 = load i32, ptr %ninst_93, align 8
+  %sub94 = sub nsw i32 %86, 1
   store i32 %sub94, ptr %i92, align 4
   br label %for.cond95
 
 for.cond95:                                       ; preds = %for.inc107, %if.then91
-  %85 = load i32, ptr %i92, align 4
-  %cmp96 = icmp sge i32 %85, 0
+  %87 = load i32, ptr %i92, align 4
+  %cmp96 = icmp sge i32 %87, 0
   br i1 %cmp96, label %for.body97, label %for.end109
 
 for.body97:                                       ; preds = %for.cond95
-  %86 = load ptr, ptr %s, align 8
-  %inst_99 = getelementptr inbounds %"struct.re2::DFA::State", ptr %86, i32 0, i32 0
-  %87 = load ptr, ptr %inst_99, align 8
-  %88 = load i32, ptr %i92, align 4
-  %idxprom100 = sext i32 %88 to i64
-  %arrayidx101 = getelementptr inbounds i32, ptr %87, i64 %idxprom100
-  %89 = load i32, ptr %arrayidx101, align 4
-  store i32 %89, ptr %id98, align 4
-  %90 = load i32, ptr %id98, align 4
-  %cmp102 = icmp eq i32 %90, -2
+  %88 = load ptr, ptr %s, align 8
+  %inst_99 = getelementptr inbounds %"struct.re2::DFA::State", ptr %88, i32 0, i32 0
+  %89 = load ptr, ptr %inst_99, align 8
+  %90 = load i32, ptr %i92, align 4
+  %idxprom100 = sext i32 %90 to i64
+  %arrayidx101 = getelementptr inbounds i32, ptr %89, i64 %idxprom100
+  %91 = load i32, ptr %arrayidx101, align 4
+  store i32 %91, ptr %id98, align 4
+  %92 = load i32, ptr %id98, align 4
+  %cmp102 = icmp eq i32 %92, -2
   br i1 %cmp102, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %for.body97
   br label %for.end109
 
 if.end104:                                        ; preds = %for.body97
-  %91 = load ptr, ptr %params.addr, align 8
-  %matches105 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 10
-  %92 = load ptr, ptr %matches105, align 8
-  %93 = load i32, ptr %id98, align 4
-  %call106 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 noundef %93)
+  %93 = load ptr, ptr %params.addr, align 8
+  %matches105 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %93, i32 0, i32 10
+  %94 = load ptr, ptr %matches105, align 8
+  %95 = load i32, ptr %id98, align 4
+  %call106 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %94, i32 noundef %95)
   br label %for.inc107
 
 for.inc107:                                       ; preds = %if.end104
-  %94 = load i32, ptr %i92, align 4
-  %dec108 = add nsw i32 %94, -1
+  %96 = load i32, ptr %i92, align 4
+  %dec108 = add nsw i32 %96, -1
   store i32 %dec108, ptr %i92, align 4
   br label %for.cond95, !llvm.loop !45
 
@@ -11296,10 +11331,10 @@ for.end109:                                       ; preds = %if.then103, %for.co
   br label %if.end110
 
 if.end110:                                        ; preds = %for.end109, %if.then87
-  %95 = load ptr, ptr %lastmatch, align 8
-  %96 = load ptr, ptr %params.addr, align 8
-  %ep111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %96, i32 0, i32 9
-  store ptr %95, ptr %ep111, align 8
+  %97 = load ptr, ptr %lastmatch, align 8
+  %98 = load ptr, ptr %params.addr, align 8
+  %ep111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %98, i32 0, i32 9
+  store ptr %97, ptr %ep111, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -11307,22 +11342,22 @@ if.end112:                                        ; preds = %if.end85
   br label %while.cond, !llvm.loop !46
 
 while.end:                                        ; preds = %if.then27, %while.cond
-  %97 = load ptr, ptr %params.addr, align 8
-  %text113 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %params.addr, align 8
+  %text113 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %99, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text113, i64 16, i1 false)
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  %call114 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %99, i64 %101)
-  %102 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %102, i32 0, i32 1
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %103 = load i64, ptr %102, align 8
+  %call114 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %101, i64 %103)
+  %104 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %104, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp115, ptr align 8 %context, i64 16, i1 false)
-  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8
-  %call116 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %104, i64 %106)
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8
+  %call116 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %106, i64 %108)
   %cmp117 = icmp eq ptr %call114, %call116
   br i1 %cmp117, label %if.then118, label %if.else
 
@@ -11331,50 +11366,50 @@ if.then118:                                       ; preds = %while.end
   br label %if.end124
 
 if.else:                                          ; preds = %while.end
-  %107 = load ptr, ptr %params.addr, align 8
-  %text120 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %params.addr, align 8
+  %text120 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %109, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp119, ptr align 8 %text120, i64 16, i1 false)
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  %call121 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %109, i64 %111)
+  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8
+  %call121 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %111, i64 %113)
   %arrayidx122 = getelementptr inbounds i8, ptr %call121, i64 -1
-  %112 = load i8, ptr %arrayidx122, align 1
-  %conv123 = sext i8 %112 to i32
+  %114 = load i8, ptr %arrayidx122, align 1
+  %conv123 = sext i8 %114 to i32
   %and = and i32 %conv123, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else, %if.then118
-  %113 = load ptr, ptr %s, align 8
-  %next_126 = getelementptr inbounds %"struct.re2::DFA::State", ptr %113, i32 0, i32 3
-  %114 = load i32, ptr %lastbyte, align 4
-  %call127 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %114)
+  %115 = load ptr, ptr %s, align 8
+  %next_126 = getelementptr inbounds %"struct.re2::DFA::State", ptr %115, i32 0, i32 3
+  %116 = load i32, ptr %lastbyte, align 4
+  %call127 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %116)
   %idxprom128 = sext i32 %call127 to i64
   %arrayidx129 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_126, i64 0, i64 %idxprom128
   %call130 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx129, i32 noundef 2) #17
   store ptr %call130, ptr %ns125, align 8
-  %115 = load ptr, ptr %ns125, align 8
-  %cmp131 = icmp eq ptr %115, null
+  %117 = load ptr, ptr %ns125, align 8
+  %cmp131 = icmp eq ptr %117, null
   br i1 %cmp131, label %if.then132, label %if.end164
 
 if.then132:                                       ; preds = %if.end124
-  %116 = load ptr, ptr %s, align 8
-  %117 = load i32, ptr %lastbyte, align 4
-  %call133 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %116, i32 noundef %117)
+  %118 = load ptr, ptr %s, align 8
+  %119 = load i32, ptr %lastbyte, align 4
+  %call133 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %118, i32 noundef %119)
   store ptr %call133, ptr %ns125, align 8
-  %118 = load ptr, ptr %ns125, align 8
-  %cmp134 = icmp eq ptr %118, null
+  %120 = load ptr, ptr %ns125, align 8
+  %cmp134 = icmp eq ptr %120, null
   br i1 %cmp134, label %if.then135, label %if.end163
 
 if.then135:                                       ; preds = %if.then132
-  %119 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef %this1, ptr noundef %119)
-  %120 = load ptr, ptr %params.addr, align 8
-  %cache_lock137 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %120, i32 0, i32 7
-  %121 = load ptr, ptr %cache_lock137, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %121)
+  %121 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef %this1, ptr noundef %121)
+  %122 = load ptr, ptr %params.addr, align 8
+  %cache_lock137 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %122, i32 0, i32 7
+  %123 = load ptr, ptr %cache_lock137, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %123)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %if.then135
@@ -11387,32 +11422,32 @@ invoke.cont140:                                   ; preds = %invoke.cont139
   br i1 %cmp142, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %invoke.cont140
-  %122 = load ptr, ptr %params.addr, align 8
-  %failed144 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %122, i32 0, i32 8
+  %124 = load ptr, ptr %params.addr, align 8
+  %failed144 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %124, i32 0, i32 8
   store i8 1, ptr %failed144, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup159
 
 lpad138:                                          ; preds = %if.then149, %if.end145, %invoke.cont139, %if.then135
-  %123 = landingpad { ptr, i32 }
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %exn.slot, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %ehselector.slot, align 4
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %exn.slot, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %ehselector.slot, align 4
   br label %ehcleanup162
 
 if.end145:                                        ; preds = %invoke.cont140
-  %126 = load ptr, ptr %s, align 8
-  %127 = load i32, ptr %lastbyte, align 4
-  %call147 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %126, i32 noundef %127)
+  %128 = load ptr, ptr %s, align 8
+  %129 = load i32, ptr %lastbyte, align 4
+  %call147 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %128, i32 noundef %129)
           to label %invoke.cont146 unwind label %lpad138
 
 invoke.cont146:                                   ; preds = %if.end145
   store ptr %call147, ptr %ns125, align 8
-  %128 = load ptr, ptr %ns125, align 8
-  %cmp148 = icmp eq ptr %128, null
+  %130 = load ptr, ptr %ns125, align 8
+  %cmp148 = icmp eq ptr %130, null
   br i1 %cmp148, label %if.then149, label %if.end158
 
 if.then149:                                       ; preds = %invoke.cont146
@@ -11426,20 +11461,20 @@ invoke.cont151:                                   ; preds = %if.then149
 
 invoke.cont154:                                   ; preds = %invoke.cont151
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp150) #17
-  %129 = load ptr, ptr %params.addr, align 8
-  %failed157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %129, i32 0, i32 8
+  %131 = load ptr, ptr %params.addr, align 8
+  %failed157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 8
   store i8 1, ptr %failed157, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup159
 
 lpad153:                                          ; preds = %invoke.cont151
-  %130 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %exn.slot, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %ehselector.slot, align 4
+  %133 = extractvalue { ptr, i32 } %132, 0
+  store ptr %133, ptr %exn.slot, align 8
+  %134 = extractvalue { ptr, i32 } %132, 1
+  store i32 %134, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp150) #17
   br label %ehcleanup162
 
@@ -11466,90 +11501,92 @@ if.end163:                                        ; preds = %cleanup.cont161, %i
   br label %if.end164
 
 if.end164:                                        ; preds = %if.end163, %if.end124
-  %133 = load ptr, ptr %ns125, align 8
-  %cmp165 = icmp ule ptr %133, inttoptr (i64 2 to ptr)
+  %135 = load ptr, ptr %ns125, align 8
+  %136 = inttoptr i64 2 to ptr
+  %cmp165 = icmp ule ptr %135, %136
   br i1 %cmp165, label %if.then166, label %if.end173
 
 if.then166:                                       ; preds = %if.end164
-  %134 = load ptr, ptr %ns125, align 8
-  %cmp167 = icmp eq ptr %134, inttoptr (i64 1 to ptr)
+  %137 = load ptr, ptr %ns125, align 8
+  %138 = inttoptr i64 1 to ptr
+  %cmp167 = icmp eq ptr %137, %138
   br i1 %cmp167, label %if.then168, label %if.end171
 
 if.then168:                                       ; preds = %if.then166
-  %135 = load ptr, ptr %lastmatch, align 8
-  %136 = load ptr, ptr %params.addr, align 8
-  %ep169 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %136, i32 0, i32 9
-  store ptr %135, ptr %ep169, align 8
-  %137 = load i8, ptr %matched, align 1
-  %tobool170 = trunc i8 %137 to i1
+  %139 = load ptr, ptr %lastmatch, align 8
+  %140 = load ptr, ptr %params.addr, align 8
+  %ep169 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %140, i32 0, i32 9
+  store ptr %139, ptr %ep169, align 8
+  %141 = load i8, ptr %matched, align 1
+  %tobool170 = trunc i8 %141 to i1
   store i1 %tobool170, ptr %retval, align 1
   br label %return
 
 if.end171:                                        ; preds = %if.then166
-  %138 = load ptr, ptr %ep, align 8
-  %139 = load ptr, ptr %params.addr, align 8
-  %ep172 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 9
-  store ptr %138, ptr %ep172, align 8
+  %142 = load ptr, ptr %ep, align 8
+  %143 = load ptr, ptr %params.addr, align 8
+  %ep172 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 9
+  store ptr %142, ptr %ep172, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end173:                                        ; preds = %if.end164
-  %140 = load ptr, ptr %ns125, align 8
-  store ptr %140, ptr %s, align 8
-  %141 = load ptr, ptr %s, align 8
-  %call174 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %141)
+  %144 = load ptr, ptr %ns125, align 8
+  store ptr %144, ptr %s, align 8
+  %145 = load ptr, ptr %s, align 8
+  %call174 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %145)
   br i1 %call174, label %if.then175, label %if.end198
 
 if.then175:                                       ; preds = %if.end173
   store i8 1, ptr %matched, align 1
-  %142 = load ptr, ptr %p, align 8
-  store ptr %142, ptr %lastmatch, align 8
-  %143 = load ptr, ptr %params.addr, align 8
-  %matches176 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 10
-  %144 = load ptr, ptr %matches176, align 8
-  %cmp177 = icmp ne ptr %144, null
+  %146 = load ptr, ptr %p, align 8
+  store ptr %146, ptr %lastmatch, align 8
+  %147 = load ptr, ptr %params.addr, align 8
+  %matches176 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %147, i32 0, i32 10
+  %148 = load ptr, ptr %matches176, align 8
+  %cmp177 = icmp ne ptr %148, null
   br i1 %cmp177, label %if.then178, label %if.end197
 
 if.then178:                                       ; preds = %if.then175
-  %145 = load ptr, ptr %s, align 8
-  %ninst_180 = getelementptr inbounds %"struct.re2::DFA::State", ptr %145, i32 0, i32 1
-  %146 = load i32, ptr %ninst_180, align 8
-  %sub181 = sub nsw i32 %146, 1
+  %149 = load ptr, ptr %s, align 8
+  %ninst_180 = getelementptr inbounds %"struct.re2::DFA::State", ptr %149, i32 0, i32 1
+  %150 = load i32, ptr %ninst_180, align 8
+  %sub181 = sub nsw i32 %150, 1
   store i32 %sub181, ptr %i179, align 4
   br label %for.cond182
 
 for.cond182:                                      ; preds = %for.inc194, %if.then178
-  %147 = load i32, ptr %i179, align 4
-  %cmp183 = icmp sge i32 %147, 0
+  %151 = load i32, ptr %i179, align 4
+  %cmp183 = icmp sge i32 %151, 0
   br i1 %cmp183, label %for.body184, label %for.end196
 
 for.body184:                                      ; preds = %for.cond182
-  %148 = load ptr, ptr %s, align 8
-  %inst_186 = getelementptr inbounds %"struct.re2::DFA::State", ptr %148, i32 0, i32 0
-  %149 = load ptr, ptr %inst_186, align 8
-  %150 = load i32, ptr %i179, align 4
-  %idxprom187 = sext i32 %150 to i64
-  %arrayidx188 = getelementptr inbounds i32, ptr %149, i64 %idxprom187
-  %151 = load i32, ptr %arrayidx188, align 4
-  store i32 %151, ptr %id185, align 4
-  %152 = load i32, ptr %id185, align 4
-  %cmp189 = icmp eq i32 %152, -2
+  %152 = load ptr, ptr %s, align 8
+  %inst_186 = getelementptr inbounds %"struct.re2::DFA::State", ptr %152, i32 0, i32 0
+  %153 = load ptr, ptr %inst_186, align 8
+  %154 = load i32, ptr %i179, align 4
+  %idxprom187 = sext i32 %154 to i64
+  %arrayidx188 = getelementptr inbounds i32, ptr %153, i64 %idxprom187
+  %155 = load i32, ptr %arrayidx188, align 4
+  store i32 %155, ptr %id185, align 4
+  %156 = load i32, ptr %id185, align 4
+  %cmp189 = icmp eq i32 %156, -2
   br i1 %cmp189, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %for.body184
   br label %for.end196
 
 if.end191:                                        ; preds = %for.body184
-  %153 = load ptr, ptr %params.addr, align 8
-  %matches192 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %153, i32 0, i32 10
-  %154 = load ptr, ptr %matches192, align 8
-  %155 = load i32, ptr %id185, align 4
-  %call193 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef %155)
+  %157 = load ptr, ptr %params.addr, align 8
+  %matches192 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %157, i32 0, i32 10
+  %158 = load ptr, ptr %matches192, align 8
+  %159 = load i32, ptr %id185, align 4
+  %call193 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %158, i32 noundef %159)
   br label %for.inc194
 
 for.inc194:                                       ; preds = %if.end191
-  %156 = load i32, ptr %i179, align 4
-  %dec195 = add nsw i32 %156, -1
+  %160 = load i32, ptr %i179, align 4
+  %dec195 = add nsw i32 %160, -1
   store i32 %dec195, ptr %i179, align 4
   br label %for.cond182, !llvm.loop !47
 
@@ -11560,18 +11597,18 @@ if.end197:                                        ; preds = %for.end196, %if.the
   br label %if.end198
 
 if.end198:                                        ; preds = %if.end197, %if.end173
-  %157 = load ptr, ptr %lastmatch, align 8
-  %158 = load ptr, ptr %params.addr, align 8
-  %ep199 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %158, i32 0, i32 9
-  store ptr %157, ptr %ep199, align 8
-  %159 = load i8, ptr %matched, align 1
-  %tobool200 = trunc i8 %159 to i1
+  %161 = load ptr, ptr %lastmatch, align 8
+  %162 = load ptr, ptr %params.addr, align 8
+  %ep199 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %162, i32 0, i32 9
+  store ptr %161, ptr %ep199, align 8
+  %163 = load i8, ptr %matched, align 1
+  %tobool200 = trunc i8 %163 to i1
   store i1 %tobool200, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end198, %if.end171, %if.then168, %cleanup159, %if.end110, %if.end83, %if.then80, %cleanup, %if.then49, %if.end17
-  %160 = load i1, ptr %retval, align 1
-  ret i1 %160
+  %164 = load i1, ptr %retval, align 1
+  ret i1 %164
 
 eh.resume:                                        ; preds = %ehcleanup162, %ehcleanup74
   %exn = load ptr, ptr %exn.slot, align 8
@@ -11967,90 +12004,92 @@ if.end75:                                         ; preds = %cleanup.cont, %if.t
 
 if.end76:                                         ; preds = %if.end75, %if.end29
   %71 = load ptr, ptr %ns, align 8
-  %cmp77 = icmp ule ptr %71, inttoptr (i64 2 to ptr)
+  %72 = inttoptr i64 2 to ptr
+  %cmp77 = icmp ule ptr %71, %72
   br i1 %cmp77, label %if.then78, label %if.end85
 
 if.then78:                                        ; preds = %if.end76
-  %72 = load ptr, ptr %ns, align 8
-  %cmp79 = icmp eq ptr %72, inttoptr (i64 1 to ptr)
+  %73 = load ptr, ptr %ns, align 8
+  %74 = inttoptr i64 1 to ptr
+  %cmp79 = icmp eq ptr %73, %74
   br i1 %cmp79, label %if.then80, label %if.end83
 
 if.then80:                                        ; preds = %if.then78
-  %73 = load ptr, ptr %lastmatch, align 8
-  %74 = load ptr, ptr %params.addr, align 8
-  %ep81 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %74, i32 0, i32 9
-  store ptr %73, ptr %ep81, align 8
-  %75 = load i8, ptr %matched, align 1
-  %tobool82 = trunc i8 %75 to i1
+  %75 = load ptr, ptr %lastmatch, align 8
+  %76 = load ptr, ptr %params.addr, align 8
+  %ep81 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %76, i32 0, i32 9
+  store ptr %75, ptr %ep81, align 8
+  %77 = load i8, ptr %matched, align 1
+  %tobool82 = trunc i8 %77 to i1
   store i1 %tobool82, ptr %retval, align 1
   br label %return
 
 if.end83:                                         ; preds = %if.then78
-  %76 = load ptr, ptr %ep, align 8
-  %77 = load ptr, ptr %params.addr, align 8
-  %ep84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %77, i32 0, i32 9
-  store ptr %76, ptr %ep84, align 8
+  %78 = load ptr, ptr %ep, align 8
+  %79 = load ptr, ptr %params.addr, align 8
+  %ep84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %79, i32 0, i32 9
+  store ptr %78, ptr %ep84, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end85:                                         ; preds = %if.end76
-  %78 = load ptr, ptr %ns, align 8
-  store ptr %78, ptr %s, align 8
-  %79 = load ptr, ptr %s, align 8
-  %call86 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %79)
+  %80 = load ptr, ptr %ns, align 8
+  store ptr %80, ptr %s, align 8
+  %81 = load ptr, ptr %s, align 8
+  %call86 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %81)
   br i1 %call86, label %if.then87, label %if.end112
 
 if.then87:                                        ; preds = %if.end85
   store i8 1, ptr %matched, align 1
-  %80 = load ptr, ptr %p, align 8
-  %add.ptr88 = getelementptr inbounds i8, ptr %80, i64 -1
+  %82 = load ptr, ptr %p, align 8
+  %add.ptr88 = getelementptr inbounds i8, ptr %82, i64 -1
   store ptr %add.ptr88, ptr %lastmatch, align 8
-  %81 = load ptr, ptr %params.addr, align 8
-  %matches89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 10
-  %82 = load ptr, ptr %matches89, align 8
-  %cmp90 = icmp ne ptr %82, null
+  %83 = load ptr, ptr %params.addr, align 8
+  %matches89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 10
+  %84 = load ptr, ptr %matches89, align 8
+  %cmp90 = icmp ne ptr %84, null
   br i1 %cmp90, label %if.then91, label %if.end110
 
 if.then91:                                        ; preds = %if.then87
-  %83 = load ptr, ptr %s, align 8
-  %ninst_93 = getelementptr inbounds %"struct.re2::DFA::State", ptr %83, i32 0, i32 1
-  %84 = load i32, ptr %ninst_93, align 8
-  %sub94 = sub nsw i32 %84, 1
+  %85 = load ptr, ptr %s, align 8
+  %ninst_93 = getelementptr inbounds %"struct.re2::DFA::State", ptr %85, i32 0, i32 1
+  %86 = load i32, ptr %ninst_93, align 8
+  %sub94 = sub nsw i32 %86, 1
   store i32 %sub94, ptr %i92, align 4
   br label %for.cond95
 
 for.cond95:                                       ; preds = %for.inc107, %if.then91
-  %85 = load i32, ptr %i92, align 4
-  %cmp96 = icmp sge i32 %85, 0
+  %87 = load i32, ptr %i92, align 4
+  %cmp96 = icmp sge i32 %87, 0
   br i1 %cmp96, label %for.body97, label %for.end109
 
 for.body97:                                       ; preds = %for.cond95
-  %86 = load ptr, ptr %s, align 8
-  %inst_99 = getelementptr inbounds %"struct.re2::DFA::State", ptr %86, i32 0, i32 0
-  %87 = load ptr, ptr %inst_99, align 8
-  %88 = load i32, ptr %i92, align 4
-  %idxprom100 = sext i32 %88 to i64
-  %arrayidx101 = getelementptr inbounds i32, ptr %87, i64 %idxprom100
-  %89 = load i32, ptr %arrayidx101, align 4
-  store i32 %89, ptr %id98, align 4
-  %90 = load i32, ptr %id98, align 4
-  %cmp102 = icmp eq i32 %90, -2
+  %88 = load ptr, ptr %s, align 8
+  %inst_99 = getelementptr inbounds %"struct.re2::DFA::State", ptr %88, i32 0, i32 0
+  %89 = load ptr, ptr %inst_99, align 8
+  %90 = load i32, ptr %i92, align 4
+  %idxprom100 = sext i32 %90 to i64
+  %arrayidx101 = getelementptr inbounds i32, ptr %89, i64 %idxprom100
+  %91 = load i32, ptr %arrayidx101, align 4
+  store i32 %91, ptr %id98, align 4
+  %92 = load i32, ptr %id98, align 4
+  %cmp102 = icmp eq i32 %92, -2
   br i1 %cmp102, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %for.body97
   br label %for.end109
 
 if.end104:                                        ; preds = %for.body97
-  %91 = load ptr, ptr %params.addr, align 8
-  %matches105 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %91, i32 0, i32 10
-  %92 = load ptr, ptr %matches105, align 8
-  %93 = load i32, ptr %id98, align 4
-  %call106 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 noundef %93)
+  %93 = load ptr, ptr %params.addr, align 8
+  %matches105 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %93, i32 0, i32 10
+  %94 = load ptr, ptr %matches105, align 8
+  %95 = load i32, ptr %id98, align 4
+  %call106 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %94, i32 noundef %95)
   br label %for.inc107
 
 for.inc107:                                       ; preds = %if.end104
-  %94 = load i32, ptr %i92, align 4
-  %dec108 = add nsw i32 %94, -1
+  %96 = load i32, ptr %i92, align 4
+  %dec108 = add nsw i32 %96, -1
   store i32 %dec108, ptr %i92, align 4
   br label %for.cond95, !llvm.loop !49
 
@@ -12058,10 +12097,10 @@ for.end109:                                       ; preds = %if.then103, %for.co
   br label %if.end110
 
 if.end110:                                        ; preds = %for.end109, %if.then87
-  %95 = load ptr, ptr %lastmatch, align 8
-  %96 = load ptr, ptr %params.addr, align 8
-  %ep111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %96, i32 0, i32 9
-  store ptr %95, ptr %ep111, align 8
+  %97 = load ptr, ptr %lastmatch, align 8
+  %98 = load ptr, ptr %params.addr, align 8
+  %ep111 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %98, i32 0, i32 9
+  store ptr %97, ptr %ep111, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -12069,22 +12108,22 @@ if.end112:                                        ; preds = %if.end85
   br label %while.cond, !llvm.loop !50
 
 while.end:                                        ; preds = %if.then27, %while.cond
-  %97 = load ptr, ptr %params.addr, align 8
-  %text113 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %params.addr, align 8
+  %text113 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %99, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %text113, i64 16, i1 false)
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  %call114 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %99, i64 %101)
-  %102 = load ptr, ptr %params.addr, align 8
-  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %102, i32 0, i32 1
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %103 = load i64, ptr %102, align 8
+  %call114 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %101, i64 %103)
+  %104 = load ptr, ptr %params.addr, align 8
+  %context = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %104, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp115, ptr align 8 %context, i64 16, i1 false)
-  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8
-  %call116 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %104, i64 %106)
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp115, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8
+  %call116 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %106, i64 %108)
   %cmp117 = icmp eq ptr %call114, %call116
   br i1 %cmp117, label %if.then118, label %if.else
 
@@ -12093,50 +12132,50 @@ if.then118:                                       ; preds = %while.end
   br label %if.end124
 
 if.else:                                          ; preds = %while.end
-  %107 = load ptr, ptr %params.addr, align 8
-  %text120 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %params.addr, align 8
+  %text120 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %109, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp119, ptr align 8 %text120, i64 16, i1 false)
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  %call121 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %109, i64 %111)
+  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8
+  %call121 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %111, i64 %113)
   %arrayidx122 = getelementptr inbounds i8, ptr %call121, i64 0
-  %112 = load i8, ptr %arrayidx122, align 1
-  %conv123 = sext i8 %112 to i32
+  %114 = load i8, ptr %arrayidx122, align 1
+  %conv123 = sext i8 %114 to i32
   %and = and i32 %conv123, 255
   store i32 %and, ptr %lastbyte, align 4
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else, %if.then118
-  %113 = load ptr, ptr %s, align 8
-  %next_126 = getelementptr inbounds %"struct.re2::DFA::State", ptr %113, i32 0, i32 3
-  %114 = load i32, ptr %lastbyte, align 4
-  %call127 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %114)
+  %115 = load ptr, ptr %s, align 8
+  %next_126 = getelementptr inbounds %"struct.re2::DFA::State", ptr %115, i32 0, i32 3
+  %116 = load i32, ptr %lastbyte, align 4
+  %call127 = call noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %116)
   %idxprom128 = sext i32 %call127 to i64
   %arrayidx129 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_126, i64 0, i64 %idxprom128
   %call130 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx129, i32 noundef 2) #17
   store ptr %call130, ptr %ns125, align 8
-  %115 = load ptr, ptr %ns125, align 8
-  %cmp131 = icmp eq ptr %115, null
+  %117 = load ptr, ptr %ns125, align 8
+  %cmp131 = icmp eq ptr %117, null
   br i1 %cmp131, label %if.then132, label %if.end164
 
 if.then132:                                       ; preds = %if.end124
-  %116 = load ptr, ptr %s, align 8
-  %117 = load i32, ptr %lastbyte, align 4
-  %call133 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %116, i32 noundef %117)
+  %118 = load ptr, ptr %s, align 8
+  %119 = load i32, ptr %lastbyte, align 4
+  %call133 = call noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %118, i32 noundef %119)
   store ptr %call133, ptr %ns125, align 8
-  %118 = load ptr, ptr %ns125, align 8
-  %cmp134 = icmp eq ptr %118, null
+  %120 = load ptr, ptr %ns125, align 8
+  %cmp134 = icmp eq ptr %120, null
   br i1 %cmp134, label %if.then135, label %if.end163
 
 if.then135:                                       ; preds = %if.then132
-  %119 = load ptr, ptr %s, align 8
-  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef %this1, ptr noundef %119)
-  %120 = load ptr, ptr %params.addr, align 8
-  %cache_lock137 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %120, i32 0, i32 7
-  %121 = load ptr, ptr %cache_lock137, align 8
-  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %121)
+  %121 = load ptr, ptr %s, align 8
+  call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef %this1, ptr noundef %121)
+  %122 = load ptr, ptr %params.addr, align 8
+  %cache_lock137 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %122, i32 0, i32 7
+  %123 = load ptr, ptr %cache_lock137, align 8
+  invoke void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %123)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %if.then135
@@ -12149,32 +12188,32 @@ invoke.cont140:                                   ; preds = %invoke.cont139
   br i1 %cmp142, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %invoke.cont140
-  %122 = load ptr, ptr %params.addr, align 8
-  %failed144 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %122, i32 0, i32 8
+  %124 = load ptr, ptr %params.addr, align 8
+  %failed144 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %124, i32 0, i32 8
   store i8 1, ptr %failed144, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup159
 
 lpad138:                                          ; preds = %if.then149, %if.end145, %invoke.cont139, %if.then135
-  %123 = landingpad { ptr, i32 }
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %exn.slot, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %ehselector.slot, align 4
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %exn.slot, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %ehselector.slot, align 4
   br label %ehcleanup162
 
 if.end145:                                        ; preds = %invoke.cont140
-  %126 = load ptr, ptr %s, align 8
-  %127 = load i32, ptr %lastbyte, align 4
-  %call147 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %126, i32 noundef %127)
+  %128 = load ptr, ptr %s, align 8
+  %129 = load i32, ptr %lastbyte, align 4
+  %call147 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %128, i32 noundef %129)
           to label %invoke.cont146 unwind label %lpad138
 
 invoke.cont146:                                   ; preds = %if.end145
   store ptr %call147, ptr %ns125, align 8
-  %128 = load ptr, ptr %ns125, align 8
-  %cmp148 = icmp eq ptr %128, null
+  %130 = load ptr, ptr %ns125, align 8
+  %cmp148 = icmp eq ptr %130, null
   br i1 %cmp148, label %if.then149, label %if.end158
 
 if.then149:                                       ; preds = %invoke.cont146
@@ -12188,20 +12227,20 @@ invoke.cont151:                                   ; preds = %if.then149
 
 invoke.cont154:                                   ; preds = %invoke.cont151
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp150) #17
-  %129 = load ptr, ptr %params.addr, align 8
-  %failed157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %129, i32 0, i32 8
+  %131 = load ptr, ptr %params.addr, align 8
+  %failed157 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %131, i32 0, i32 8
   store i8 1, ptr %failed157, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup159
 
 lpad153:                                          ; preds = %invoke.cont151
-  %130 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %exn.slot, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %ehselector.slot, align 4
+  %133 = extractvalue { ptr, i32 } %132, 0
+  store ptr %133, ptr %exn.slot, align 8
+  %134 = extractvalue { ptr, i32 } %132, 1
+  store i32 %134, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp150) #17
   br label %ehcleanup162
 
@@ -12228,90 +12267,92 @@ if.end163:                                        ; preds = %cleanup.cont161, %i
   br label %if.end164
 
 if.end164:                                        ; preds = %if.end163, %if.end124
-  %133 = load ptr, ptr %ns125, align 8
-  %cmp165 = icmp ule ptr %133, inttoptr (i64 2 to ptr)
+  %135 = load ptr, ptr %ns125, align 8
+  %136 = inttoptr i64 2 to ptr
+  %cmp165 = icmp ule ptr %135, %136
   br i1 %cmp165, label %if.then166, label %if.end173
 
 if.then166:                                       ; preds = %if.end164
-  %134 = load ptr, ptr %ns125, align 8
-  %cmp167 = icmp eq ptr %134, inttoptr (i64 1 to ptr)
+  %137 = load ptr, ptr %ns125, align 8
+  %138 = inttoptr i64 1 to ptr
+  %cmp167 = icmp eq ptr %137, %138
   br i1 %cmp167, label %if.then168, label %if.end171
 
 if.then168:                                       ; preds = %if.then166
-  %135 = load ptr, ptr %lastmatch, align 8
-  %136 = load ptr, ptr %params.addr, align 8
-  %ep169 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %136, i32 0, i32 9
-  store ptr %135, ptr %ep169, align 8
-  %137 = load i8, ptr %matched, align 1
-  %tobool170 = trunc i8 %137 to i1
+  %139 = load ptr, ptr %lastmatch, align 8
+  %140 = load ptr, ptr %params.addr, align 8
+  %ep169 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %140, i32 0, i32 9
+  store ptr %139, ptr %ep169, align 8
+  %141 = load i8, ptr %matched, align 1
+  %tobool170 = trunc i8 %141 to i1
   store i1 %tobool170, ptr %retval, align 1
   br label %return
 
 if.end171:                                        ; preds = %if.then166
-  %138 = load ptr, ptr %ep, align 8
-  %139 = load ptr, ptr %params.addr, align 8
-  %ep172 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %139, i32 0, i32 9
-  store ptr %138, ptr %ep172, align 8
+  %142 = load ptr, ptr %ep, align 8
+  %143 = load ptr, ptr %params.addr, align 8
+  %ep172 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 9
+  store ptr %142, ptr %ep172, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end173:                                        ; preds = %if.end164
-  %140 = load ptr, ptr %ns125, align 8
-  store ptr %140, ptr %s, align 8
-  %141 = load ptr, ptr %s, align 8
-  %call174 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %141)
+  %144 = load ptr, ptr %ns125, align 8
+  store ptr %144, ptr %s, align 8
+  %145 = load ptr, ptr %s, align 8
+  %call174 = call noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %145)
   br i1 %call174, label %if.then175, label %if.end198
 
 if.then175:                                       ; preds = %if.end173
   store i8 1, ptr %matched, align 1
-  %142 = load ptr, ptr %p, align 8
-  store ptr %142, ptr %lastmatch, align 8
-  %143 = load ptr, ptr %params.addr, align 8
-  %matches176 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %143, i32 0, i32 10
-  %144 = load ptr, ptr %matches176, align 8
-  %cmp177 = icmp ne ptr %144, null
+  %146 = load ptr, ptr %p, align 8
+  store ptr %146, ptr %lastmatch, align 8
+  %147 = load ptr, ptr %params.addr, align 8
+  %matches176 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %147, i32 0, i32 10
+  %148 = load ptr, ptr %matches176, align 8
+  %cmp177 = icmp ne ptr %148, null
   br i1 %cmp177, label %if.then178, label %if.end197
 
 if.then178:                                       ; preds = %if.then175
-  %145 = load ptr, ptr %s, align 8
-  %ninst_180 = getelementptr inbounds %"struct.re2::DFA::State", ptr %145, i32 0, i32 1
-  %146 = load i32, ptr %ninst_180, align 8
-  %sub181 = sub nsw i32 %146, 1
+  %149 = load ptr, ptr %s, align 8
+  %ninst_180 = getelementptr inbounds %"struct.re2::DFA::State", ptr %149, i32 0, i32 1
+  %150 = load i32, ptr %ninst_180, align 8
+  %sub181 = sub nsw i32 %150, 1
   store i32 %sub181, ptr %i179, align 4
   br label %for.cond182
 
 for.cond182:                                      ; preds = %for.inc194, %if.then178
-  %147 = load i32, ptr %i179, align 4
-  %cmp183 = icmp sge i32 %147, 0
+  %151 = load i32, ptr %i179, align 4
+  %cmp183 = icmp sge i32 %151, 0
   br i1 %cmp183, label %for.body184, label %for.end196
 
 for.body184:                                      ; preds = %for.cond182
-  %148 = load ptr, ptr %s, align 8
-  %inst_186 = getelementptr inbounds %"struct.re2::DFA::State", ptr %148, i32 0, i32 0
-  %149 = load ptr, ptr %inst_186, align 8
-  %150 = load i32, ptr %i179, align 4
-  %idxprom187 = sext i32 %150 to i64
-  %arrayidx188 = getelementptr inbounds i32, ptr %149, i64 %idxprom187
-  %151 = load i32, ptr %arrayidx188, align 4
-  store i32 %151, ptr %id185, align 4
-  %152 = load i32, ptr %id185, align 4
-  %cmp189 = icmp eq i32 %152, -2
+  %152 = load ptr, ptr %s, align 8
+  %inst_186 = getelementptr inbounds %"struct.re2::DFA::State", ptr %152, i32 0, i32 0
+  %153 = load ptr, ptr %inst_186, align 8
+  %154 = load i32, ptr %i179, align 4
+  %idxprom187 = sext i32 %154 to i64
+  %arrayidx188 = getelementptr inbounds i32, ptr %153, i64 %idxprom187
+  %155 = load i32, ptr %arrayidx188, align 4
+  store i32 %155, ptr %id185, align 4
+  %156 = load i32, ptr %id185, align 4
+  %cmp189 = icmp eq i32 %156, -2
   br i1 %cmp189, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %for.body184
   br label %for.end196
 
 if.end191:                                        ; preds = %for.body184
-  %153 = load ptr, ptr %params.addr, align 8
-  %matches192 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %153, i32 0, i32 10
-  %154 = load ptr, ptr %matches192, align 8
-  %155 = load i32, ptr %id185, align 4
-  %call193 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef %155)
+  %157 = load ptr, ptr %params.addr, align 8
+  %matches192 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %157, i32 0, i32 10
+  %158 = load ptr, ptr %matches192, align 8
+  %159 = load i32, ptr %id185, align 4
+  %call193 = call noundef ptr @_ZN3re210SparseSetTIvE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %158, i32 noundef %159)
   br label %for.inc194
 
 for.inc194:                                       ; preds = %if.end191
-  %156 = load i32, ptr %i179, align 4
-  %dec195 = add nsw i32 %156, -1
+  %160 = load i32, ptr %i179, align 4
+  %dec195 = add nsw i32 %160, -1
   store i32 %dec195, ptr %i179, align 4
   br label %for.cond182, !llvm.loop !51
 
@@ -12322,18 +12363,18 @@ if.end197:                                        ; preds = %for.end196, %if.the
   br label %if.end198
 
 if.end198:                                        ; preds = %if.end197, %if.end173
-  %157 = load ptr, ptr %lastmatch, align 8
-  %158 = load ptr, ptr %params.addr, align 8
-  %ep199 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %158, i32 0, i32 9
-  store ptr %157, ptr %ep199, align 8
-  %159 = load i8, ptr %matched, align 1
-  %tobool200 = trunc i8 %159 to i1
+  %161 = load ptr, ptr %lastmatch, align 8
+  %162 = load ptr, ptr %params.addr, align 8
+  %ep199 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %162, i32 0, i32 9
+  store ptr %161, ptr %ep199, align 8
+  %163 = load i8, ptr %matched, align 1
+  %tobool200 = trunc i8 %163 to i1
   store i1 %tobool200, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end198, %if.end171, %if.then168, %cleanup159, %if.end110, %if.end83, %if.then80, %cleanup, %if.then49, %if.end17
-  %160 = load i1, ptr %retval, align 1
-  ret i1 %160
+  %164 = load i1, ptr %retval, align 1
+  ret i1 %164
 
 eh.resume:                                        ; preds = %ehcleanup162, %ehcleanup74
   %exn = load ptr, ptr %exn.slot, align 8
@@ -12485,40 +12526,41 @@ invoke.cont12:                                    ; preds = %invoke.cont
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #17
   %18 = load ptr, ptr %params.addr, align 8
   %start = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %18, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %start, align 8
+  %19 = inttoptr i64 1 to ptr
+  store ptr %19, ptr %start, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %if.then
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
-  %22 = load ptr, ptr %params.addr, align 8
-  %run_forward = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %22, i32 0, i32 5
-  %23 = load i8, ptr %run_forward, align 1
-  %tobool = trunc i8 %23 to i1
+  %23 = load ptr, ptr %params.addr, align 8
+  %run_forward = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %23, i32 0, i32 5
+  %24 = load i8, ptr %run_forward, align 1
+  %tobool = trunc i8 %24 to i1
   br i1 %tobool, label %if.then15, label %if.else38
 
 if.then15:                                        ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp16, ptr align 8 %text, i64 16, i1 false)
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %call17 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %25, i64 %27)
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %call17 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %26, i64 %28)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp18, ptr align 8 %context, i64 16, i1 false)
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 1
-  %31 = load i64, ptr %30, align 8
-  %call19 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %29, i64 %31)
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %call19 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %30, i64 %32)
   %cmp20 = icmp eq ptr %call17, %call19
   br i1 %cmp20, label %if.then21, label %if.else
 
@@ -12529,14 +12571,14 @@ if.then21:                                        ; preds = %if.then15
 
 if.else:                                          ; preds = %if.then15
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp22, ptr align 8 %text, i64 16, i1 false)
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp22, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp22, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %call23 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %33, i64 %35)
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp22, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp22, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8
+  %call23 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %34, i64 %36)
   %arrayidx = getelementptr inbounds i8, ptr %call23, i64 -1
-  %36 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %36 to i32
+  %37 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %37 to i32
   %cmp24 = icmp eq i32 %conv, 10
   br i1 %cmp24, label %if.then25, label %if.else26
 
@@ -12547,14 +12589,14 @@ if.then25:                                        ; preds = %if.else
 
 if.else26:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %text, i64 16, i1 false)
-  %37 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp27, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp27, i32 0, i32 1
-  %40 = load i64, ptr %39, align 8
-  %call28 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %38, i64 %40)
+  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp27, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp27, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8
+  %call28 = call noundef ptr @_ZN3re2L8BeginPtrEN4absl7debian211string_viewE(ptr %39, i64 %41)
   %arrayidx29 = getelementptr inbounds i8, ptr %call28, i64 -1
-  %41 = load i8, ptr %arrayidx29, align 1
-  %conv30 = sext i8 %41 to i32
+  %42 = load i8, ptr %arrayidx29, align 1
+  %conv30 = sext i8 %42 to i32
   %and = and i32 %conv30, 255
   %conv31 = trunc i32 %and to i8
   %call32 = call noundef zeroext i1 @_ZN3re24Prog10IsWordCharEh(i8 noundef zeroext %conv31)
@@ -12581,17 +12623,17 @@ if.end37:                                         ; preds = %if.end36, %if.then2
 
 if.else38:                                        ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp39, ptr align 8 %text, i64 16, i1 false)
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp39, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp39, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %call40 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %43, i64 %45)
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp39, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp39, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %call40 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %44, i64 %46)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp41, ptr align 8 %context, i64 16, i1 false)
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  %call42 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %47, i64 %49)
+  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  %call42 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %48, i64 %50)
   %cmp43 = icmp eq ptr %call40, %call42
   br i1 %cmp43, label %if.then44, label %if.else45
 
@@ -12602,14 +12644,14 @@ if.then44:                                        ; preds = %if.else38
 
 if.else45:                                        ; preds = %if.else38
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp46, ptr align 8 %text, i64 16, i1 false)
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp46, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp46, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  %call47 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %51, i64 %53)
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp46, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp46, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  %call47 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %52, i64 %54)
   %arrayidx48 = getelementptr inbounds i8, ptr %call47, i64 0
-  %54 = load i8, ptr %arrayidx48, align 1
-  %conv49 = sext i8 %54 to i32
+  %55 = load i8, ptr %arrayidx48, align 1
+  %conv49 = sext i8 %55 to i32
   %cmp50 = icmp eq i32 %conv49, 10
   br i1 %cmp50, label %if.then51, label %if.else52
 
@@ -12620,14 +12662,14 @@ if.then51:                                        ; preds = %if.else45
 
 if.else52:                                        ; preds = %if.else45
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp53, ptr align 8 %text, i64 16, i1 false)
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %call54 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %56, i64 %58)
+  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %call54 = call noundef ptr @_ZN3re2L6EndPtrEN4absl7debian211string_viewE(ptr %57, i64 %59)
   %arrayidx55 = getelementptr inbounds i8, ptr %call54, i64 0
-  %59 = load i8, ptr %arrayidx55, align 1
-  %conv56 = sext i8 %59 to i32
+  %60 = load i8, ptr %arrayidx55, align 1
+  %conv56 = sext i8 %60 to i32
   %and57 = and i32 %conv56, 255
   %conv58 = trunc i32 %and57 to i8
   %call59 = call noundef zeroext i1 @_ZN3re24Prog10IsWordCharEh(i8 noundef zeroext %conv58)
@@ -12653,44 +12695,44 @@ if.end64:                                         ; preds = %if.end63, %if.then4
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end64, %if.end37
-  %60 = load ptr, ptr %params.addr, align 8
-  %anchored = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %60, i32 0, i32 2
-  %61 = load i8, ptr %anchored, align 8
-  %tobool66 = trunc i8 %61 to i1
+  %61 = load ptr, ptr %params.addr, align 8
+  %anchored = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %61, i32 0, i32 2
+  %62 = load i8, ptr %anchored, align 8
+  %tobool66 = trunc i8 %62 to i1
   br i1 %tobool66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %if.end65
-  %62 = load i32, ptr %start14, align 4
-  %or = or i32 %62, 1
+  %63 = load i32, ptr %start14, align 4
+  %or = or i32 %63, 1
   store i32 %or, ptr %start14, align 4
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then67, %if.end65
   %start_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 11
-  %63 = load i32, ptr %start14, align 4
-  %idxprom = sext i32 %63 to i64
+  %64 = load i32, ptr %start14, align 4
+  %idxprom = sext i32 %64 to i64
   %arrayidx69 = getelementptr inbounds [8 x %"struct.re2::DFA::StartInfo"], ptr %start_, i64 0, i64 %idxprom
   store ptr %arrayidx69, ptr %info, align 8
-  %64 = load ptr, ptr %params.addr, align 8
-  %65 = load ptr, ptr %info, align 8
-  %66 = load i32, ptr %flags, align 4
-  %call70 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %64, ptr noundef %65, i32 noundef %66)
+  %65 = load ptr, ptr %params.addr, align 8
+  %66 = load ptr, ptr %info, align 8
+  %67 = load i32, ptr %flags, align 4
+  %call70 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %65, ptr noundef %66, i32 noundef %67)
   br i1 %call70, label %if.end81, label %if.then71
 
 if.then71:                                        ; preds = %if.end68
-  %67 = load ptr, ptr %params.addr, align 8
-  %cache_lock = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %67, i32 0, i32 7
-  %68 = load ptr, ptr %cache_lock, align 8
-  call void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %68)
-  %69 = load ptr, ptr %params.addr, align 8
-  %70 = load ptr, ptr %info, align 8
-  %71 = load i32, ptr %flags, align 4
-  %call72 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %69, ptr noundef %70, i32 noundef %71)
+  %68 = load ptr, ptr %params.addr, align 8
+  %cache_lock = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %68, i32 0, i32 7
+  %69 = load ptr, ptr %cache_lock, align 8
+  call void @_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %69)
+  %70 = load ptr, ptr %params.addr, align 8
+  %71 = load ptr, ptr %info, align 8
+  %72 = load i32, ptr %flags, align 4
+  %call72 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %70, ptr noundef %71, i32 noundef %72)
   br i1 %call72, label %if.end80, label %if.then73
 
 if.then73:                                        ; preds = %if.then71
-  %72 = load ptr, ptr %params.addr, align 8
-  %failed = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %72, i32 0, i32 8
+  %73 = load ptr, ptr %params.addr, align 8
+  %failed = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %73, i32 0, i32 8
   store i8 1, ptr %failed, align 8
   call void @_ZN10LogMessageC2EPKci(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp74, ptr noundef @.str.10, i32 noundef 1697)
   %call77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp74)
@@ -12706,12 +12748,12 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   br label %return
 
 lpad75:                                           ; preds = %invoke.cont76, %if.then73
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp74) #17
   br label %eh.resume
 
@@ -12719,44 +12761,45 @@ if.end80:                                         ; preds = %if.then71
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end80, %if.end68
-  %76 = load ptr, ptr %info, align 8
-  %start82 = getelementptr inbounds %"struct.re2::DFA::StartInfo", ptr %76, i32 0, i32 0
+  %77 = load ptr, ptr %info, align 8
+  %start82 = getelementptr inbounds %"struct.re2::DFA::StartInfo", ptr %77, i32 0, i32 0
   %call83 = call noundef ptr @_ZNKSt6atomicIPN3re23DFA5StateEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %start82, i32 noundef 2) #17
-  %77 = load ptr, ptr %params.addr, align 8
-  %start84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %77, i32 0, i32 6
+  %78 = load ptr, ptr %params.addr, align 8
+  %start84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %78, i32 0, i32 6
   store ptr %call83, ptr %start84, align 8
   %prog_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %78 = load ptr, ptr %prog_, align 8
-  %call85 = call noundef zeroext i1 @_ZN3re24Prog16can_prefix_accelEv(ptr noundef nonnull align 8 dereferenceable(432) %78)
+  %79 = load ptr, ptr %prog_, align 8
+  %call85 = call noundef zeroext i1 @_ZN3re24Prog16can_prefix_accelEv(ptr noundef nonnull align 8 dereferenceable(432) %79)
   br i1 %call85, label %land.lhs.true, label %if.end95
 
 land.lhs.true:                                    ; preds = %if.end81
-  %79 = load ptr, ptr %params.addr, align 8
-  %anchored86 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %79, i32 0, i32 2
-  %80 = load i8, ptr %anchored86, align 8
-  %tobool87 = trunc i8 %80 to i1
+  %80 = load ptr, ptr %params.addr, align 8
+  %anchored86 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %80, i32 0, i32 2
+  %81 = load i8, ptr %anchored86, align 8
+  %tobool87 = trunc i8 %81 to i1
   br i1 %tobool87, label %if.end95, label %land.lhs.true88
 
 land.lhs.true88:                                  ; preds = %land.lhs.true
-  %81 = load ptr, ptr %params.addr, align 8
-  %start89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %81, i32 0, i32 6
-  %82 = load ptr, ptr %start89, align 8
-  %cmp90 = icmp ugt ptr %82, inttoptr (i64 2 to ptr)
+  %82 = load ptr, ptr %params.addr, align 8
+  %start89 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %82, i32 0, i32 6
+  %83 = load ptr, ptr %start89, align 8
+  %84 = inttoptr i64 2 to ptr
+  %cmp90 = icmp ugt ptr %83, %84
   br i1 %cmp90, label %land.lhs.true91, label %if.end95
 
 land.lhs.true91:                                  ; preds = %land.lhs.true88
-  %83 = load ptr, ptr %params.addr, align 8
-  %start92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %83, i32 0, i32 6
-  %84 = load ptr, ptr %start92, align 8
-  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %84, i32 0, i32 2
-  %85 = load i32, ptr %flag_, align 4
-  %shr = lshr i32 %85, 16
+  %85 = load ptr, ptr %params.addr, align 8
+  %start92 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %85, i32 0, i32 6
+  %86 = load ptr, ptr %start92, align 8
+  %flag_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %86, i32 0, i32 2
+  %87 = load i32, ptr %flag_, align 4
+  %shr = lshr i32 %87, 16
   %cmp93 = icmp eq i32 %shr, 0
   br i1 %cmp93, label %if.then94, label %if.end95
 
 if.then94:                                        ; preds = %land.lhs.true91
-  %86 = load ptr, ptr %params.addr, align 8
-  %can_prefix_accel = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %86, i32 0, i32 3
+  %88 = load ptr, ptr %params.addr, align 8
+  %can_prefix_accel = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %88, i32 0, i32 3
   store i8 1, ptr %can_prefix_accel, align 1
   br label %if.end95
 
@@ -12765,8 +12808,8 @@ if.end95:                                         ; preds = %if.then94, %land.lh
   br label %return
 
 return:                                           ; preds = %if.end95, %invoke.cont78, %invoke.cont12
-  %87 = load i1, ptr %retval, align 1
-  ret i1 %87
+  %89 = load i1, ptr %retval, align 1
+  ret i1 %89
 
 eh.resume:                                        ; preds = %lpad75, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -13066,7 +13109,8 @@ lpad:                                             ; preds = %if.end32, %invoke.c
 if.end17:                                         ; preds = %invoke.cont14
   %start = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
   %23 = load ptr, ptr %start, align 8
-  %cmp = icmp eq ptr %23, inttoptr (i64 1 to ptr)
+  %24 = inttoptr i64 1 to ptr
+  %cmp = icmp eq ptr %23, %24
   br i1 %cmp, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end17
@@ -13076,32 +13120,33 @@ if.then18:                                        ; preds = %if.end17
 
 if.end19:                                         ; preds = %if.end17
   %start20 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
-  %24 = load ptr, ptr %start20, align 8
-  %cmp21 = icmp eq ptr %24, inttoptr (i64 2 to ptr)
+  %25 = load ptr, ptr %start20, align 8
+  %26 = inttoptr i64 2 to ptr
+  %cmp21 = icmp eq ptr %25, %26
   br i1 %cmp21, label %if.then22, label %if.end32
 
 if.then22:                                        ; preds = %if.end19
-  %25 = load i8, ptr %run_forward.addr, align 1
-  %tobool23 = trunc i8 %25 to i1
+  %27 = load i8, ptr %run_forward.addr, align 1
+  %tobool23 = trunc i8 %27 to i1
   %conv = zext i1 %tobool23 to i32
-  %26 = load i8, ptr %want_earliest_match.addr, align 1
-  %tobool24 = trunc i8 %26 to i1
+  %28 = load i8, ptr %want_earliest_match.addr, align 1
+  %tobool24 = trunc i8 %28 to i1
   %conv25 = zext i1 %tobool24 to i32
   %cmp26 = icmp eq i32 %conv, %conv25
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.then22
   %call28 = call noundef ptr @_ZNK4absl7debian211string_view4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %text) #17
-  %27 = load ptr, ptr %epp.addr, align 8
-  store ptr %call28, ptr %27, align 8
+  %29 = load ptr, ptr %epp.addr, align 8
+  store ptr %call28, ptr %29, align 8
   br label %if.end31
 
 if.else:                                          ; preds = %if.then22
   %call29 = call noundef ptr @_ZNK4absl7debian211string_view4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %text) #17
   %call30 = call noundef i64 @_ZNK4absl7debian211string_view4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %text) #17
   %add.ptr = getelementptr inbounds i8, ptr %call29, i64 %call30
-  %28 = load ptr, ptr %epp.addr, align 8
-  store ptr %add.ptr, ptr %28, align 8
+  %30 = load ptr, ptr %epp.addr, align 8
+  store ptr %add.ptr, ptr %30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then27
@@ -13117,24 +13162,24 @@ invoke.cont33:                                    ; preds = %if.end32
   %frombool35 = zext i1 %call34 to i8
   store i8 %frombool35, ptr %ret, align 1
   %failed36 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 8
-  %29 = load i8, ptr %failed36, align 8
-  %tobool37 = trunc i8 %29 to i1
+  %31 = load i8, ptr %failed36, align 8
+  %tobool37 = trunc i8 %31 to i1
   br i1 %tobool37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %invoke.cont33
-  %30 = load ptr, ptr %failed.addr, align 8
-  store i8 1, ptr %30, align 1
+  %32 = load ptr, ptr %failed.addr, align 8
+  store i8 1, ptr %32, align 1
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end39:                                         ; preds = %invoke.cont33
   %ep = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 9
-  %31 = load ptr, ptr %ep, align 8
-  %32 = load ptr, ptr %epp.addr, align 8
-  store ptr %31, ptr %32, align 8
-  %33 = load i8, ptr %ret, align 1
-  %tobool40 = trunc i8 %33 to i1
+  %33 = load ptr, ptr %ep, align 8
+  %34 = load ptr, ptr %epp.addr, align 8
+  store ptr %33, ptr %34, align 8
+  %35 = load i8, ptr %ret, align 1
+  %tobool40 = trunc i8 %35 to i1
   store i1 %tobool40, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -13144,8 +13189,8 @@ cleanup:                                          ; preds = %if.end39, %if.then3
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %34 = load i1, ptr %retval, align 1
-  ret i1 %34
+  %36 = load i1, ptr %retval, align 1
+  ret i1 %36
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -13972,7 +14017,8 @@ lor.lhs.false:                                    ; preds = %invoke.cont3
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %start6 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
   %9 = load ptr, ptr %start6, align 8
-  %cmp7 = icmp eq ptr %9, inttoptr (i64 1 to ptr)
+  %10 = inttoptr i64 1 to ptr
+  %cmp7 = icmp eq ptr %9, %10
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %invoke.cont3
@@ -13981,12 +14027,12 @@ if.then8:                                         ; preds = %lor.lhs.false5, %lo
   br label %cleanup
 
 lpad:                                             ; preds = %if.end9, %invoke.cont, %if.end
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup121
 
 if.end9:                                          ; preds = %lor.lhs.false5
@@ -14015,15 +14061,15 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %prog_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %13 = load ptr, ptr %prog_, align 8
-  %call21 = invoke noundef i32 @_ZN3re24Prog13bytemap_rangeEv(ptr noundef nonnull align 8 dereferenceable(432) %13)
+  %14 = load ptr, ptr %prog_, align 8
+  %call21 = invoke noundef i32 @_ZN3re24Prog13bytemap_rangeEv(ptr noundef nonnull align 8 dereferenceable(432) %14)
           to label %invoke.cont20 unwind label %lpad14
 
 invoke.cont20:                                    ; preds = %invoke.cont19
   %add = add nsw i32 %call21, 1
   store i32 %add, ptr %nnext, align 4
-  %14 = load i32, ptr %nnext, align 4
-  %conv22 = sext i32 %14 to i64
+  %15 = load i32, ptr %nnext, align 4
+  %conv22 = sext i32 %15 to i64
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #17
   invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %input, i64 noundef %conv22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
           to label %invoke.cont25 unwind label %lpad24
@@ -14034,120 +14080,120 @@ invoke.cont25:                                    ; preds = %invoke.cont20
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont25
-  %15 = load i32, ptr %c, align 4
-  %cmp26 = icmp slt i32 %15, 256
+  %16 = load i32, ptr %c, align 4
+  %cmp26 = icmp slt i32 %16, 256
   br i1 %cmp26, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %prog_27 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %16 = load ptr, ptr %prog_27, align 8
-  %call30 = invoke noundef ptr @_ZN3re24Prog7bytemapEv(ptr noundef nonnull align 8 dereferenceable(432) %16)
+  %17 = load ptr, ptr %prog_27, align 8
+  %call30 = invoke noundef ptr @_ZN3re24Prog7bytemapEv(ptr noundef nonnull align 8 dereferenceable(432) %17)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %for.body
-  %17 = load i32, ptr %c, align 4
-  %idxprom = sext i32 %17 to i64
+  %18 = load i32, ptr %c, align 4
+  %idxprom = sext i32 %18 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call30, i64 %idxprom
-  %18 = load i8, ptr %arrayidx, align 1
-  %conv31 = zext i8 %18 to i32
+  %19 = load i8, ptr %arrayidx, align 1
+  %conv31 = zext i8 %19 to i32
   store i32 %conv31, ptr %b, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %invoke.cont29
-  %19 = load i32, ptr %c, align 4
-  %cmp32 = icmp slt i32 %19, 255
+  %20 = load i32, ptr %c, align 4
+  %cmp32 = icmp slt i32 %20, 255
   br i1 %cmp32, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
   %prog_33 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %20 = load ptr, ptr %prog_33, align 8
-  %call35 = invoke noundef ptr @_ZN3re24Prog7bytemapEv(ptr noundef nonnull align 8 dereferenceable(432) %20)
+  %21 = load ptr, ptr %prog_33, align 8
+  %call35 = invoke noundef ptr @_ZN3re24Prog7bytemapEv(ptr noundef nonnull align 8 dereferenceable(432) %21)
           to label %invoke.cont34 unwind label %lpad28
 
 invoke.cont34:                                    ; preds = %land.rhs
-  %21 = load i32, ptr %c, align 4
-  %add36 = add nsw i32 %21, 1
+  %22 = load i32, ptr %c, align 4
+  %add36 = add nsw i32 %22, 1
   %idxprom37 = sext i32 %add36 to i64
   %arrayidx38 = getelementptr inbounds i8, ptr %call35, i64 %idxprom37
-  %22 = load i8, ptr %arrayidx38, align 1
-  %conv39 = zext i8 %22 to i32
-  %23 = load i32, ptr %b, align 4
-  %cmp40 = icmp eq i32 %conv39, %23
+  %23 = load i8, ptr %arrayidx38, align 1
+  %conv39 = zext i8 %23 to i32
+  %24 = load i32, ptr %b, align 4
+  %cmp40 = icmp eq i32 %conv39, %24
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont34, %while.cond
-  %24 = phi i1 [ false, %while.cond ], [ %cmp40, %invoke.cont34 ]
-  br i1 %24, label %while.body, label %while.end
+  %25 = phi i1 [ false, %while.cond ], [ %cmp40, %invoke.cont34 ]
+  br i1 %25, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %25 = load i32, ptr %c, align 4
-  %inc = add nsw i32 %25, 1
+  %26 = load i32, ptr %c, align 4
+  %inc = add nsw i32 %26, 1
   store i32 %inc, ptr %c, align 4
   br label %while.cond, !llvm.loop !53
 
 lpad11:                                           ; preds = %invoke.cont10
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup120
 
 lpad14:                                           ; preds = %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont12
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup119
 
 lpad24:                                           ; preds = %invoke.cont20
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #17
   br label %ehcleanup119
 
 lpad28:                                           ; preds = %for.end, %land.rhs, %for.body
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 while.end:                                        ; preds = %land.end
-  %38 = load i32, ptr %c, align 4
-  %39 = load i32, ptr %b, align 4
-  %conv41 = sext i32 %39 to i64
+  %39 = load i32, ptr %c, align 4
+  %40 = load i32, ptr %b, align 4
+  %conv41 = sext i32 %40 to i64
   %call42 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %input, i64 noundef %conv41) #17
-  store i32 %38, ptr %call42, align 4
+  store i32 %39, ptr %call42, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end
-  %40 = load i32, ptr %c, align 4
-  %inc43 = add nsw i32 %40, 1
+  %41 = load i32, ptr %c, align 4
+  %inc43 = add nsw i32 %41, 1
   store i32 %inc43, ptr %c, align 4
   br label %for.cond, !llvm.loop !54
 
 for.end:                                          ; preds = %for.cond
   %prog_44 = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 0
-  %41 = load ptr, ptr %prog_44, align 8
-  %call46 = invoke noundef i32 @_ZN3re24Prog13bytemap_rangeEv(ptr noundef nonnull align 8 dereferenceable(432) %41)
+  %42 = load ptr, ptr %prog_44, align 8
+  %call46 = invoke noundef i32 @_ZN3re24Prog13bytemap_rangeEv(ptr noundef nonnull align 8 dereferenceable(432) %42)
           to label %invoke.cont45 unwind label %lpad28
 
 invoke.cont45:                                    ; preds = %for.end
   %conv47 = sext i32 %call46 to i64
   %call48 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %input, i64 noundef %conv47) #17
   store i32 256, ptr %call48, align 4
-  %42 = load i32, ptr %nnext, align 4
-  %conv49 = sext i32 %42 to i64
+  %43 = load i32, ptr %nnext, align 4
+  %conv49 = sext i32 %43 to i64
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #17
   invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %output, i64 noundef %conv49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
           to label %invoke.cont52 unwind label %lpad51
@@ -14164,16 +14210,16 @@ while.cond53:                                     ; preds = %if.end114, %invoke.
 
 while.body55:                                     ; preds = %while.cond53
   %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(80) %q) #17
-  %43 = load ptr, ptr %call56, align 8
-  store ptr %43, ptr %s, align 8
+  %44 = load ptr, ptr %call56, align 8
+  store ptr %44, ptr %s, align 8
   call void @_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %q) #17
   store ptr %input, ptr %__range2, align 8
-  %44 = load ptr, ptr %__range2, align 8
-  %call57 = call ptr @_ZNSt6vectorIiSaIiEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = load ptr, ptr %__range2, align 8
+  %call57 = call ptr @_ZNSt6vectorIiSaIiEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #17
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call57, ptr %coerce.dive, align 8
-  %45 = load ptr, ptr %__range2, align 8
-  %call58 = call ptr @_ZNSt6vectorIiSaIiEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #17
+  %46 = load ptr, ptr %__range2, align 8
+  %call58 = call ptr @_ZNSt6vectorIiSaIiEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #17
   %coerce.dive59 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call58, ptr %coerce.dive59, align 8
   br label %for.cond60
@@ -14184,17 +14230,17 @@ for.cond60:                                       ; preds = %for.inc101, %while.
 
 for.body62:                                       ; preds = %for.cond60
   %call64 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #17
-  %46 = load i32, ptr %call64, align 4
-  store i32 %46, ptr %c63, align 4
-  %47 = load ptr, ptr %s, align 8
-  %48 = load i32, ptr %c63, align 4
-  %call67 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %47, i32 noundef %48)
+  %47 = load i32, ptr %call64, align 4
+  store i32 %47, ptr %c63, align 4
+  %48 = load ptr, ptr %s, align 8
+  %49 = load i32, ptr %c63, align 4
+  %call67 = invoke noundef ptr @_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %48, i32 noundef %49)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %for.body62
   store ptr %call67, ptr %ns, align 8
-  %49 = load ptr, ptr %ns, align 8
-  %cmp68 = icmp eq ptr %49, null
+  %50 = load ptr, ptr %ns, align 8
+  %cmp68 = icmp eq ptr %50, null
   br i1 %cmp68, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %invoke.cont66
@@ -14202,33 +14248,34 @@ if.then69:                                        ; preds = %invoke.cont66
   br label %for.end103
 
 lpad51:                                           ; preds = %invoke.cont45
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #17
   br label %ehcleanup
 
 lpad65:                                           ; preds = %while.end115, %lor.end, %lor.rhs, %invoke.cont95, %if.end94, %invoke.cont92, %invoke.cont88, %if.then86, %invoke.cont82, %invoke.cont79, %if.end77, %if.then72, %for.body62
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %output) #17
   br label %ehcleanup
 
 if.end70:                                         ; preds = %invoke.cont66
-  %56 = load ptr, ptr %ns, align 8
-  %cmp71 = icmp eq ptr %56, inttoptr (i64 1 to ptr)
+  %57 = load ptr, ptr %ns, align 8
+  %58 = inttoptr i64 1 to ptr
+  %cmp71 = icmp eq ptr %57, %58
   br i1 %cmp71, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %if.end70
-  %57 = load i32, ptr %c63, align 4
-  %call74 = invoke noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %57)
+  %59 = load i32, ptr %c63, align 4
+  %call74 = invoke noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %59)
           to label %invoke.cont73 unwind label %lpad65
 
 invoke.cont73:                                    ; preds = %if.then72
@@ -14242,22 +14289,22 @@ if.end77:                                         ; preds = %if.end70
           to label %invoke.cont79 unwind label %lpad65
 
 invoke.cont79:                                    ; preds = %if.end77
-  %58 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp78, i32 0, i32 0
-  %59 = extractvalue { ptr, ptr } %call80, 0
-  store ptr %59, ptr %58, align 8
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp78, i32 0, i32 1
-  %61 = extractvalue { ptr, ptr } %call80, 1
+  %60 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp78, i32 0, i32 0
+  %61 = extractvalue { ptr, ptr } %call80, 0
   store ptr %61, ptr %60, align 8
+  %62 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp78, i32 0, i32 1
+  %63 = extractvalue { ptr, ptr } %call80, 1
+  store ptr %63, ptr %62, align 8
   %call83 = invoke { ptr, ptr } @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %m)
           to label %invoke.cont82 unwind label %lpad65
 
 invoke.cont82:                                    ; preds = %invoke.cont79
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp81, i32 0, i32 0
-  %63 = extractvalue { ptr, ptr } %call83, 0
-  store ptr %63, ptr %62, align 8
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp81, i32 0, i32 1
-  %65 = extractvalue { ptr, ptr } %call83, 1
+  %64 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp81, i32 0, i32 0
+  %65 = extractvalue { ptr, ptr } %call83, 0
   store ptr %65, ptr %64, align 8
+  %66 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp81, i32 0, i32 1
+  %67 = extractvalue { ptr, ptr } %call83, 1
+  store ptr %67, ptr %66, align 8
   %call85 = invoke noundef zeroext i1 @_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE8iteratorESK_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp81)
           to label %invoke.cont84 unwind label %lpad65
 
@@ -14286,15 +14333,15 @@ if.end94:                                         ; preds = %invoke.cont93, %inv
           to label %invoke.cont95 unwind label %lpad65
 
 invoke.cont95:                                    ; preds = %if.end94
-  %66 = load i32, ptr %call96, align 4
-  %67 = load i32, ptr %c63, align 4
-  %call98 = invoke noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %67)
+  %68 = load i32, ptr %call96, align 4
+  %69 = load i32, ptr %c63, align 4
+  %call98 = invoke noundef i32 @_ZN3re23DFA7ByteMapEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, i32 noundef %69)
           to label %invoke.cont97 unwind label %lpad65
 
 invoke.cont97:                                    ; preds = %invoke.cont95
   %conv99 = sext i32 %call98 to i64
   %call100 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %output, i64 noundef %conv99) #17
-  store i32 %66, ptr %call100, align 4
+  store i32 %68, ptr %call100, align 4
   br label %for.inc101
 
 for.inc101:                                       ; preds = %invoke.cont97, %invoke.cont73
@@ -14302,14 +14349,14 @@ for.inc101:                                       ; preds = %invoke.cont97, %inv
   br label %for.cond60
 
 for.end103:                                       ; preds = %if.then69, %for.cond60
-  %68 = load ptr, ptr %cb.addr, align 8
-  %call104 = call noundef zeroext i1 @_ZNKSt8functionIFvPKibEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #17
+  %70 = load ptr, ptr %cb.addr, align 8
+  %call104 = call noundef zeroext i1 @_ZNKSt8functionIFvPKibEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #17
   br i1 %call104, label %if.then105, label %if.end111
 
 if.then105:                                       ; preds = %for.end103
-  %69 = load ptr, ptr %cb.addr, align 8
-  %70 = load i8, ptr %oom, align 1
-  %tobool = trunc i8 %70 to i1
+  %71 = load ptr, ptr %cb.addr, align 8
+  %72 = load i8, ptr %oom, align 1
+  %tobool = trunc i8 %72 to i1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then105
@@ -14321,29 +14368,30 @@ cond.false:                                       ; preds = %if.then105
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ null, %cond.true ], [ %call106, %cond.false ]
-  %71 = load ptr, ptr %s, align 8
-  %cmp107 = icmp eq ptr %71, inttoptr (i64 2 to ptr)
+  %73 = load ptr, ptr %s, align 8
+  %74 = inttoptr i64 2 to ptr
+  %cmp107 = icmp eq ptr %73, %74
   br i1 %cmp107, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %cond.end
-  %72 = load ptr, ptr %s, align 8
-  %call109 = invoke noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %72)
+  %75 = load ptr, ptr %s, align 8
+  %call109 = invoke noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %75)
           to label %invoke.cont108 unwind label %lpad65
 
 invoke.cont108:                                   ; preds = %lor.rhs
   br label %lor.end
 
 lor.end:                                          ; preds = %invoke.cont108, %cond.end
-  %73 = phi i1 [ true, %cond.end ], [ %call109, %invoke.cont108 ]
-  invoke void @_ZNKSt8functionIFvPKibEEclES1_b(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %cond, i1 noundef zeroext %73)
+  %76 = phi i1 [ true, %cond.end ], [ %call109, %invoke.cont108 ]
+  invoke void @_ZNKSt8functionIFvPKibEEclES1_b(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef %cond, i1 noundef zeroext %76)
           to label %invoke.cont110 unwind label %lpad65
 
 invoke.cont110:                                   ; preds = %lor.end
   br label %if.end111
 
 if.end111:                                        ; preds = %invoke.cont110, %for.end103
-  %74 = load i8, ptr %oom, align 1
-  %tobool112 = trunc i8 %74 to i1
+  %77 = load i8, ptr %oom, align 1
+  %tobool112 = trunc i8 %77 to i1
   br i1 %tobool112, label %if.then113, label %if.end114
 
 if.then113:                                       ; preds = %if.end111
@@ -14387,8 +14435,8 @@ ehcleanup121:                                     ; preds = %ehcleanup120, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %if.then
-  %75 = load i32, ptr %retval, align 4
-  ret i32 %75
+  %78 = load i32, ptr %retval, align 4
+  ret i32 %78
 
 eh.resume:                                        ; preds = %ehcleanup121
   %exn = load ptr, ptr %exn.slot, align 8
@@ -15047,17 +15095,18 @@ lpad3:                                            ; preds = %if.end18, %invoke.c
 if.end8:                                          ; preds = %invoke.cont5
   %start = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
   %14 = load ptr, ptr %start, align 8
-  %cmp = icmp eq ptr %14, inttoptr (i64 1 to ptr)
+  %15 = inttoptr i64 1 to ptr
+  %cmp = icmp eq ptr %14, %15
   br i1 %cmp, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end8
-  %15 = load ptr, ptr %min.addr, align 8
-  %call11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str)
+  %16 = load ptr, ptr %min.addr, align 8
+  %call11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str)
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then9
-  %16 = load ptr, ptr %max.addr, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str)
+  %17 = load ptr, ptr %max.addr, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str)
           to label %invoke.cont12 unwind label %lpad3
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -15067,8 +15116,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 
 if.end14:                                         ; preds = %if.end8
   %start15 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
-  %17 = load ptr, ptr %start15, align 8
-  %cmp16 = icmp eq ptr %17, inttoptr (i64 2 to ptr)
+  %18 = load ptr, ptr %start15, align 8
+  %19 = inttoptr i64 2 to ptr
+  %cmp16 = icmp eq ptr %18, %19
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
@@ -15078,10 +15128,10 @@ if.then17:                                        ; preds = %if.end14
 
 if.end18:                                         ; preds = %if.end14
   %start19 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
-  %18 = load ptr, ptr %start19, align 8
-  store ptr %18, ptr %s, align 8
-  %19 = load ptr, ptr %min.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
+  %20 = load ptr, ptr %start19, align 8
+  store ptr %20, ptr %s, align 8
+  %21 = load ptr, ptr %min.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
   %mutex_ = getelementptr inbounds %"class.re2::DFA", ptr %this1, i32 0, i32 3
   invoke void @_ZN4absl7debian29MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %mutex_)
           to label %invoke.cont20 unwind label %lpad3
@@ -15091,9 +15141,9 @@ invoke.cont20:                                    ; preds = %if.end18
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc61, %invoke.cont20
-  %20 = load i32, ptr %i, align 4
-  %21 = load i32, ptr %maxlen.addr, align 4
-  %cmp21 = icmp slt i32 %20, %21
+  %22 = load i32, ptr %i, align 4
+  %23 = load i32, ptr %maxlen.addr, align 4
+  %cmp21 = icmp slt i32 %22, %23
   br i1 %cmp21, label %for.body, label %for.end63
 
 for.body:                                         ; preds = %for.cond
@@ -15101,21 +15151,21 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %for.body
-  %22 = load i32, ptr %call24, align 4
-  %23 = load i32, ptr @_ZZN3re23DFA18PossibleMatchRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iE18kMaxEltRepetitions, align 4
-  %cmp25 = icmp sgt i32 %22, %23
+  %24 = load i32, ptr %call24, align 4
+  %25 = load i32, ptr @_ZZN3re23DFA18PossibleMatchRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iE18kMaxEltRepetitions, align 4
+  %cmp25 = icmp sgt i32 %24, %25
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %invoke.cont23
   br label %for.end63
 
 lpad22:                                           ; preds = %for.end106, %if.then94, %for.body81, %if.end74, %for.body69, %for.end63, %if.then54, %for.body43, %lor.lhs.false, %invoke.cont28, %if.end27, %for.body
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN4absl7debian29MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #17
   br label %ehcleanup
 
@@ -15124,17 +15174,17 @@ if.end27:                                         ; preds = %invoke.cont23
           to label %invoke.cont28 unwind label %lpad22
 
 invoke.cont28:                                    ; preds = %if.end27
-  %27 = load i32, ptr %call29, align 4
-  %inc = add nsw i32 %27, 1
+  %29 = load i32, ptr %call29, align 4
+  %inc = add nsw i32 %29, 1
   store i32 %inc, ptr %call29, align 4
-  %28 = load ptr, ptr %s, align 8
-  %call31 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %28, i32 noundef 256)
+  %30 = load ptr, ptr %s, align 8
+  %call31 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %30, i32 noundef 256)
           to label %invoke.cont30 unwind label %lpad22
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   store ptr %call31, ptr %ns, align 8
-  %29 = load ptr, ptr %ns, align 8
-  %cmp32 = icmp eq ptr %29, null
+  %31 = load ptr, ptr %ns, align 8
+  %cmp32 = icmp eq ptr %31, null
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %invoke.cont30
@@ -15143,18 +15193,20 @@ if.then33:                                        ; preds = %invoke.cont30
   br label %cleanup
 
 if.end34:                                         ; preds = %invoke.cont30
-  %30 = load ptr, ptr %ns, align 8
-  %cmp35 = icmp ne ptr %30, inttoptr (i64 1 to ptr)
+  %32 = load ptr, ptr %ns, align 8
+  %33 = inttoptr i64 1 to ptr
+  %cmp35 = icmp ne ptr %32, %33
   br i1 %cmp35, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %if.end34
-  %31 = load ptr, ptr %ns, align 8
-  %cmp36 = icmp eq ptr %31, inttoptr (i64 2 to ptr)
+  %34 = load ptr, ptr %ns, align 8
+  %35 = inttoptr i64 2 to ptr
+  %cmp36 = icmp eq ptr %34, %35
   br i1 %cmp36, label %if.then39, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %32 = load ptr, ptr %ns, align 8
-  %call38 = invoke noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %32)
+  %36 = load ptr, ptr %ns, align 8
+  %call38 = invoke noundef zeroext i1 @_ZNK3re23DFA5State7IsMatchEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
           to label %invoke.cont37 unwind label %lpad22
 
 invoke.cont37:                                    ; preds = %lor.lhs.false
@@ -15169,20 +15221,20 @@ if.end40:                                         ; preds = %invoke.cont37, %if.
   br label %for.cond41
 
 for.cond41:                                       ; preds = %for.inc, %if.end40
-  %33 = load i32, ptr %j, align 4
-  %cmp42 = icmp slt i32 %33, 256
+  %37 = load i32, ptr %j, align 4
+  %cmp42 = icmp slt i32 %37, 256
   br i1 %cmp42, label %for.body43, label %for.end
 
 for.body43:                                       ; preds = %for.cond41
-  %34 = load ptr, ptr %s, align 8
-  %35 = load i32, ptr %j, align 4
-  %call45 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %34, i32 noundef %35)
+  %38 = load ptr, ptr %s, align 8
+  %39 = load i32, ptr %j, align 4
+  %call45 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %38, i32 noundef %39)
           to label %invoke.cont44 unwind label %lpad22
 
 invoke.cont44:                                    ; preds = %for.body43
   store ptr %call45, ptr %ns, align 8
-  %36 = load ptr, ptr %ns, align 8
-  %cmp46 = icmp eq ptr %36, null
+  %40 = load ptr, ptr %ns, align 8
+  %cmp46 = icmp eq ptr %40, null
   br i1 %cmp46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %invoke.cont44
@@ -15191,47 +15243,49 @@ if.then47:                                        ; preds = %invoke.cont44
   br label %cleanup
 
 if.end48:                                         ; preds = %invoke.cont44
-  %37 = load ptr, ptr %ns, align 8
-  %cmp49 = icmp eq ptr %37, inttoptr (i64 2 to ptr)
+  %41 = load ptr, ptr %ns, align 8
+  %42 = inttoptr i64 2 to ptr
+  %cmp49 = icmp eq ptr %41, %42
   br i1 %cmp49, label %if.then54, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end48
-  %38 = load ptr, ptr %ns, align 8
-  %cmp51 = icmp ugt ptr %38, inttoptr (i64 2 to ptr)
+  %43 = load ptr, ptr %ns, align 8
+  %44 = inttoptr i64 2 to ptr
+  %cmp51 = icmp ugt ptr %43, %44
   br i1 %cmp51, label %land.lhs.true52, label %if.end57
 
 land.lhs.true52:                                  ; preds = %lor.lhs.false50
-  %39 = load ptr, ptr %ns, align 8
-  %ninst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %39, i32 0, i32 1
-  %40 = load i32, ptr %ninst_, align 8
-  %cmp53 = icmp sgt i32 %40, 0
+  %45 = load ptr, ptr %ns, align 8
+  %ninst_ = getelementptr inbounds %"struct.re2::DFA::State", ptr %45, i32 0, i32 1
+  %46 = load i32, ptr %ninst_, align 8
+  %cmp53 = icmp sgt i32 %46, 0
   br i1 %cmp53, label %if.then54, label %if.end57
 
 if.then54:                                        ; preds = %land.lhs.true52, %if.end48
   store i8 1, ptr %extended, align 1
-  %41 = load ptr, ptr %min.addr, align 8
-  %42 = load i32, ptr %j, align 4
-  %conv = trunc i32 %42 to i8
-  %call56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef 1, i8 noundef signext %conv)
+  %47 = load ptr, ptr %min.addr, align 8
+  %48 = load i32, ptr %j, align 4
+  %conv = trunc i32 %48 to i8
+  %call56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef 1, i8 noundef signext %conv)
           to label %invoke.cont55 unwind label %lpad22
 
 invoke.cont55:                                    ; preds = %if.then54
-  %43 = load ptr, ptr %ns, align 8
-  store ptr %43, ptr %s, align 8
+  %49 = load ptr, ptr %ns, align 8
+  store ptr %49, ptr %s, align 8
   br label %for.end
 
 if.end57:                                         ; preds = %land.lhs.true52, %lor.lhs.false50
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end57
-  %44 = load i32, ptr %j, align 4
-  %inc58 = add nsw i32 %44, 1
+  %50 = load i32, ptr %j, align 4
+  %inc58 = add nsw i32 %50, 1
   store i32 %inc58, ptr %j, align 4
   br label %for.cond41, !llvm.loop !56
 
 for.end:                                          ; preds = %invoke.cont55, %for.cond41
-  %45 = load i8, ptr %extended, align 1
-  %tobool = trunc i8 %45 to i1
+  %51 = load i8, ptr %extended, align 1
+  %tobool = trunc i8 %51 to i1
   br i1 %tobool, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %for.end
@@ -15241,8 +15295,8 @@ if.end60:                                         ; preds = %for.end
   br label %for.inc61
 
 for.inc61:                                        ; preds = %if.end60
-  %46 = load i32, ptr %i, align 4
-  %inc62 = add nsw i32 %46, 1
+  %52 = load i32, ptr %i, align 4
+  %inc62 = add nsw i32 %52, 1
   store i32 %inc62, ptr %i, align 4
   br label %for.cond, !llvm.loop !57
 
@@ -15252,17 +15306,17 @@ for.end63:                                        ; preds = %if.then59, %if.then
 
 invoke.cont64:                                    ; preds = %for.end63
   %start65 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i32 0, i32 6
-  %47 = load ptr, ptr %start65, align 8
-  store ptr %47, ptr %s, align 8
-  %48 = load ptr, ptr %max.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
+  %53 = load ptr, ptr %start65, align 8
+  store ptr %53, ptr %s, align 8
+  %54 = load ptr, ptr %max.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
   store i32 0, ptr %i66, align 4
   br label %for.cond67
 
 for.cond67:                                       ; preds = %for.inc104, %invoke.cont64
-  %49 = load i32, ptr %i66, align 4
-  %50 = load i32, ptr %maxlen.addr, align 4
-  %cmp68 = icmp slt i32 %49, %50
+  %55 = load i32, ptr %i66, align 4
+  %56 = load i32, ptr %maxlen.addr, align 4
+  %cmp68 = icmp slt i32 %55, %56
   br i1 %cmp68, label %for.body69, label %for.end106
 
 for.body69:                                       ; preds = %for.cond67
@@ -15270,9 +15324,9 @@ for.body69:                                       ; preds = %for.cond67
           to label %invoke.cont70 unwind label %lpad22
 
 invoke.cont70:                                    ; preds = %for.body69
-  %51 = load i32, ptr %call71, align 4
-  %52 = load i32, ptr @_ZZN3re23DFA18PossibleMatchRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iE18kMaxEltRepetitions, align 4
-  %cmp72 = icmp sgt i32 %51, %52
+  %57 = load i32, ptr %call71, align 4
+  %58 = load i32, ptr @_ZZN3re23DFA18PossibleMatchRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iE18kMaxEltRepetitions, align 4
+  %cmp72 = icmp sgt i32 %57, %58
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %invoke.cont70
@@ -15283,28 +15337,28 @@ if.end74:                                         ; preds = %invoke.cont70
           to label %invoke.cont75 unwind label %lpad22
 
 invoke.cont75:                                    ; preds = %if.end74
-  %53 = load i32, ptr %call76, align 4
-  %add = add nsw i32 %53, 1
+  %59 = load i32, ptr %call76, align 4
+  %add = add nsw i32 %59, 1
   store i32 %add, ptr %call76, align 4
   store i8 0, ptr %extended77, align 1
   store i32 255, ptr %j78, align 4
   br label %for.cond79
 
 for.cond79:                                       ; preds = %for.inc99, %invoke.cont75
-  %54 = load i32, ptr %j78, align 4
-  %cmp80 = icmp sge i32 %54, 0
+  %60 = load i32, ptr %j78, align 4
+  %cmp80 = icmp sge i32 %60, 0
   br i1 %cmp80, label %for.body81, label %for.end100
 
 for.body81:                                       ; preds = %for.cond79
-  %55 = load ptr, ptr %s, align 8
-  %56 = load i32, ptr %j78, align 4
-  %call84 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %55, i32 noundef %56)
+  %61 = load ptr, ptr %s, align 8
+  %62 = load i32, ptr %j78, align 4
+  %call84 = invoke noundef ptr @_ZN3re23DFA14RunStateOnByteEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(184) %this1, ptr noundef %61, i32 noundef %62)
           to label %invoke.cont83 unwind label %lpad22
 
 invoke.cont83:                                    ; preds = %for.body81
   store ptr %call84, ptr %ns82, align 8
-  %57 = load ptr, ptr %ns82, align 8
-  %cmp85 = icmp eq ptr %57, null
+  %63 = load ptr, ptr %ns82, align 8
+  %cmp85 = icmp eq ptr %63, null
   br i1 %cmp85, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %invoke.cont83
@@ -15313,47 +15367,49 @@ if.then86:                                        ; preds = %invoke.cont83
   br label %cleanup
 
 if.end87:                                         ; preds = %invoke.cont83
-  %58 = load ptr, ptr %ns82, align 8
-  %cmp88 = icmp eq ptr %58, inttoptr (i64 2 to ptr)
+  %64 = load ptr, ptr %ns82, align 8
+  %65 = inttoptr i64 2 to ptr
+  %cmp88 = icmp eq ptr %64, %65
   br i1 %cmp88, label %if.then94, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %if.end87
-  %59 = load ptr, ptr %ns82, align 8
-  %cmp90 = icmp ugt ptr %59, inttoptr (i64 2 to ptr)
+  %66 = load ptr, ptr %ns82, align 8
+  %67 = inttoptr i64 2 to ptr
+  %cmp90 = icmp ugt ptr %66, %67
   br i1 %cmp90, label %land.lhs.true91, label %if.end98
 
 land.lhs.true91:                                  ; preds = %lor.lhs.false89
-  %60 = load ptr, ptr %ns82, align 8
-  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %60, i32 0, i32 1
-  %61 = load i32, ptr %ninst_92, align 8
-  %cmp93 = icmp sgt i32 %61, 0
+  %68 = load ptr, ptr %ns82, align 8
+  %ninst_92 = getelementptr inbounds %"struct.re2::DFA::State", ptr %68, i32 0, i32 1
+  %69 = load i32, ptr %ninst_92, align 8
+  %cmp93 = icmp sgt i32 %69, 0
   br i1 %cmp93, label %if.then94, label %if.end98
 
 if.then94:                                        ; preds = %land.lhs.true91, %if.end87
   store i8 1, ptr %extended77, align 1
-  %62 = load ptr, ptr %max.addr, align 8
-  %63 = load i32, ptr %j78, align 4
-  %conv95 = trunc i32 %63 to i8
-  %call97 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef 1, i8 noundef signext %conv95)
+  %70 = load ptr, ptr %max.addr, align 8
+  %71 = load i32, ptr %j78, align 4
+  %conv95 = trunc i32 %71 to i8
+  %call97 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %70, i64 noundef 1, i8 noundef signext %conv95)
           to label %invoke.cont96 unwind label %lpad22
 
 invoke.cont96:                                    ; preds = %if.then94
-  %64 = load ptr, ptr %ns82, align 8
-  store ptr %64, ptr %s, align 8
+  %72 = load ptr, ptr %ns82, align 8
+  store ptr %72, ptr %s, align 8
   br label %for.end100
 
 if.end98:                                         ; preds = %land.lhs.true91, %lor.lhs.false89
   br label %for.inc99
 
 for.inc99:                                        ; preds = %if.end98
-  %65 = load i32, ptr %j78, align 4
-  %dec = add nsw i32 %65, -1
+  %73 = load i32, ptr %j78, align 4
+  %dec = add nsw i32 %73, -1
   store i32 %dec, ptr %j78, align 4
   br label %for.cond79, !llvm.loop !58
 
 for.end100:                                       ; preds = %invoke.cont96, %for.cond79
-  %66 = load i8, ptr %extended77, align 1
-  %tobool101 = trunc i8 %66 to i1
+  %74 = load i8, ptr %extended77, align 1
+  %tobool101 = trunc i8 %74 to i1
   br i1 %tobool101, label %if.end103, label %if.then102
 
 if.then102:                                       ; preds = %for.end100
@@ -15365,19 +15421,19 @@ if.end103:                                        ; preds = %for.end100
   br label %for.inc104
 
 for.inc104:                                       ; preds = %if.end103
-  %67 = load i32, ptr %i66, align 4
-  %inc105 = add nsw i32 %67, 1
+  %75 = load i32, ptr %i66, align 4
+  %inc105 = add nsw i32 %75, 1
   store i32 %inc105, ptr %i66, align 4
   br label %for.cond67, !llvm.loop !59
 
 for.end106:                                       ; preds = %if.then73, %for.cond67
-  %68 = load ptr, ptr %max.addr, align 8
-  invoke void @_ZN3re215PrefixSuccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %68)
+  %76 = load ptr, ptr %max.addr, align 8
+  invoke void @_ZN3re215PrefixSuccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %76)
           to label %invoke.cont107 unwind label %lpad22
 
 invoke.cont107:                                   ; preds = %for.end106
-  %69 = load ptr, ptr %max.addr, align 8
-  %call108 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #17
+  %77 = load ptr, ptr %max.addr, align 8
+  %call108 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %77) #17
   br i1 %call108, label %if.then109, label %if.end110
 
 if.then109:                                       ; preds = %invoke.cont107
@@ -15408,8 +15464,8 @@ ehcleanup113:                                     ; preds = %ehcleanup, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup111, %if.then
-  %70 = load i1, ptr %retval, align 1
-  ret i1 %70
+  %78 = load i1, ptr %retval, align 1
+  ret i1 %78
 
 eh.resume:                                        ; preds = %ehcleanup113
   %exn = load ptr, ptr %exn.slot, align 8
@@ -21705,7 +21761,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::debian2::hash_internal::HashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

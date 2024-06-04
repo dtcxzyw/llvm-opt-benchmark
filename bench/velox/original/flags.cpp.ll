@@ -245,8 +245,10 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL55FLAGS_novelox_save_input_on_expression_any_failure_pathB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL55FLAGS_novelox_save_input_on_expression_any_failure_pathB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL49o_velox_save_input_on_expression_any_failure_pathE, ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @.str.2, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL49o_velox_save_input_on_expression_any_failure_pathE, ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @.str.2, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -257,8 +259,9 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.32() #0 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, ptr noundef @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, ptr @__dso_handle) #4
+  %0 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, ptr noundef @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, ptr @__dso_handle) #4
   ret void
 }
 
@@ -320,16 +323,19 @@ define internal void @__cxx_global_var_init.35() #0 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL58FLAGS_novelox_save_input_on_expression_system_failure_pathB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL58FLAGS_novelox_save_input_on_expression_system_failure_pathB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL52o_velox_save_input_on_expression_system_failure_pathE, ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef @.str.2, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL52o_velox_save_input_on_expression_system_failure_pathE, ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef @.str.2, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.38() #0 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, ptr noundef @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, ptr @__dso_handle) #4
+  %0 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, ptr noundef @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, ptr @__dso_handle) #4
   ret void
 }
 

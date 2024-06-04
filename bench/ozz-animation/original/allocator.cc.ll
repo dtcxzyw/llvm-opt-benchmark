@@ -74,49 +74,50 @@ define linkonce_odr dso_local void @_ZN3ozz6memory13HeapAllocatorC2Ev(ptr nounde
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN3ozz6memory9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #2
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ozz::memory::HeapAllocator", ptr %8, i32 0, i32 1
-  store ptr %9, ptr %2, align 8
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.ozz::memory::HeapAllocator", ptr %8, i32 0, i32 1
+  store ptr %10, ptr %2, align 8
   store i32 0, ptr %3, align 4
   store i32 5, ptr %4, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %11, i32 noundef 65535)
-          to label %13 unwind label %22
+  %11 = load ptr, ptr %2, align 8
+  %12 = load i32, ptr %4, align 4
+  %13 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %12, i32 noundef 65535)
+          to label %14 unwind label %23
 
-13:                                               ; preds = %1
-  store i32 %12, ptr %5, align 4
-  %14 = load i32, ptr %4, align 4
-  %15 = load i32, ptr %3, align 4
-  store i32 %15, ptr %6, align 4
-  switch i32 %14, label %16 [
-    i32 3, label %18
-    i32 5, label %20
+14:                                               ; preds = %1
+  store i32 %13, ptr %5, align 4
+  %15 = load i32, ptr %4, align 4
+  %16 = load i32, ptr %3, align 4
+  store i32 %16, ptr %6, align 4
+  switch i32 %15, label %17 [
+    i32 3, label %19
+    i32 5, label %21
   ]
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %6, align 4
-  store atomic i32 %17, ptr %10 monotonic, align 4
-  br label %25
+17:                                               ; preds = %14
+  %18 = load i32, ptr %6, align 4
+  store atomic i32 %18, ptr %11 monotonic, align 4
+  br label %26
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %6, align 4
-  store atomic i32 %19, ptr %10 release, align 4
-  br label %25
+19:                                               ; preds = %14
+  %20 = load i32, ptr %6, align 4
+  store atomic i32 %20, ptr %11 release, align 4
+  br label %26
 
-20:                                               ; preds = %13
-  %21 = load i32, ptr %6, align 4
-  store atomic i32 %21, ptr %10 seq_cst, align 4
-  br label %25
+21:                                               ; preds = %14
+  %22 = load i32, ptr %6, align 4
+  store atomic i32 %22, ptr %11 seq_cst, align 4
+  br label %26
 
-22:                                               ; preds = %1
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %1
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #9
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #9
   unreachable
 
-25:                                               ; preds = %20, %18, %16
+26:                                               ; preds = %21, %19, %17
   ret void
 }
 
@@ -125,7 +126,8 @@ define linkonce_odr dso_local void @_ZN3ozz6memory13HeapAllocatorD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   call void @_ZN3ozz6memory9AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
   ret void
 }
@@ -157,7 +159,8 @@ define linkonce_odr dso_local void @_ZN3ozz6memory9AllocatorC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3ozz6memory9AllocatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ozz6memory9AllocatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

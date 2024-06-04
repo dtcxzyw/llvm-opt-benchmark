@@ -3634,7 +3634,9 @@ if.end16:                                         ; preds = %if.end12
   %15 = load ptr, ptr %nulltuple, align 8
   store ptr %15, ptr %localsplusnames, align 8
   %localspluskinds = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i32 0, i32 10
-  store ptr getelementptr inbounds (%struct.anon.45, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 1), ptr %localspluskinds, align 8
+  %16 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %17 = getelementptr inbounds %struct.anon.45, ptr %16, i32 0, i32 1
+  store ptr %17, ptr %localspluskinds, align 8
   %argcount = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i32 0, i32 11
   store i32 0, ptr %argcount, align 8
   %posonlyargcount = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i32 0, i32 12
@@ -3644,24 +3646,26 @@ if.end16:                                         ; preds = %if.end12
   %stacksize = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i32 0, i32 14
   store i32 1, ptr %stacksize, align 4
   %exceptiontable = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i32 0, i32 15
-  store ptr getelementptr inbounds (%struct.anon.45, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 1), ptr %exceptiontable, align 8
+  %18 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %19 = getelementptr inbounds %struct.anon.45, ptr %18, i32 0, i32 1
+  store ptr %19, ptr %exceptiontable, align 8
   %call19 = call ptr @_PyCode_New(ptr noundef %con)
   store ptr %call19, ptr %result, align 8
   br label %failed
 
 failed:                                           ; preds = %if.end16, %if.then15, %if.then11, %if.then7, %if.then3, %if.then
-  %16 = load ptr, ptr %nulltuple, align 8
-  call void @Py_XDECREF(ptr noundef %16)
-  %17 = load ptr, ptr %funcname_ob, align 8
-  call void @Py_XDECREF(ptr noundef %17)
-  %18 = load ptr, ptr %filename_ob, align 8
-  call void @Py_XDECREF(ptr noundef %18)
-  %19 = load ptr, ptr %code_ob, align 8
-  call void @Py_XDECREF(ptr noundef %19)
-  %20 = load ptr, ptr %linetable_ob, align 8
+  %20 = load ptr, ptr %nulltuple, align 8
   call void @Py_XDECREF(ptr noundef %20)
-  %21 = load ptr, ptr %result, align 8
-  ret ptr %21
+  %21 = load ptr, ptr %funcname_ob, align 8
+  call void @Py_XDECREF(ptr noundef %21)
+  %22 = load ptr, ptr %filename_ob, align 8
+  call void @Py_XDECREF(ptr noundef %22)
+  %23 = load ptr, ptr %code_ob, align 8
+  call void @Py_XDECREF(ptr noundef %23)
+  %24 = load ptr, ptr %linetable_ob, align 8
+  call void @Py_XDECREF(ptr noundef %24)
+  %25 = load ptr, ptr %result, align 8
+  ret ptr %25
 }
 
 declare ptr @PyUnicode_FromString(ptr noundef) #1

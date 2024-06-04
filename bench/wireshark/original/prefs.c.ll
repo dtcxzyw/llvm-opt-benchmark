@@ -1204,10 +1204,11 @@ define hidden void @prefs_cleanup() #0 {
   %2 = call i32 @prefs_module_list_foreach(ptr noundef %1, ptr noundef @free_module_prefs, ptr noundef null, i32 noundef 0)
   call void @uat_cleanup()
   call void @maxmind_db_pref_cleanup()
-  %3 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 87), align 8
-  call void @g_free(ptr noundef %3)
-  %4 = load ptr, ptr @gpf_path, align 8
+  %3 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 87
+  %4 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %4)
+  %5 = load ptr, ptr @gpf_path, align 8
+  call void @g_free(ptr noundef %5)
   store ptr null, ptr @gpf_path, align 8
   ret void
 }
@@ -1512,276 +1513,420 @@ define internal void @pre_init_prefs() #0 {
   br label %7
 
 7:                                                ; preds = %6, %0
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 10), align 4
-  %8 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 11), align 8
-  call void @g_free(ptr noundef %8)
-  %9 = call noalias ptr @g_strdup(ptr noundef @.str.9)
-  store ptr %9, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 11), align 8
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 12), align 8
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 12, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 12, i32 2), align 4
-  store i16 -13313, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 13), align 2
-  store i16 -5889, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 13, i32 1), align 2
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 13, i32 2), align 2
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 14), align 4
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 15), align 8
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 15, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 15, i32 2), align 4
-  store i16 -4097, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 16), align 2
-  store i16 -4097, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 16, i32 1), align 2
-  store i16 -4097, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 16, i32 2), align 2
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 17), align 4
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18), align 8
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18, i32 1), align 2
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18, i32 2), align 4
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19), align 2
-  store i16 8224, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19, i32 1), align 2
-  store i16 10794, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19, i32 2), align 2
-  store i16 32767, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 20), align 4
-  store i16 32767, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 20, i32 1), align 2
-  store i16 32767, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 20, i32 2), align 4
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 21), align 2
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 21, i32 1), align 2
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 21, i32 2), align 2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 22), align 8
-  call void @g_free(ptr noundef %10)
-  %11 = call noalias ptr @g_strdup(ptr noundef @.str.539)
-  store ptr %11, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 22), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 23), align 8
-  call void @g_free(ptr noundef %12)
-  %13 = call noalias ptr @g_strdup(ptr noundef @.str.540)
-  store ptr %13, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 23), align 8
-  store i16 32767, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2), align 4
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2, i32 2), align 4
-  store i16 -1029, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3), align 2
-  store i16 -4627, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3, i32 1), align 2
-  store i16 -4627, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3, i32 2), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4), align 8
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4, i32 1), align 2
-  store i16 32767, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4, i32 2), align 4
-  store i16 -4627, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5), align 2
-  store i16 -4627, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5, i32 1), align 2
-  store i16 -1029, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5, i32 2), align 2
-  %14 = load i32, ptr @gui_theme_is_dark, align 4
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %17
+  %8 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 9
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 10
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 11
+  %11 = load ptr, ptr %10, align 8
+  call void @g_free(ptr noundef %11)
+  %12 = call noalias ptr @g_strdup(ptr noundef @.str.9)
+  %13 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 11
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 12
+  store i16 0, ptr %14, align 8
+  %15 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 12, i32 1
+  store i16 0, ptr %15, align 2
+  %16 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 12, i32 2
+  store i16 0, ptr %16, align 4
+  %17 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 13
+  store i16 -13313, ptr %17, align 2
+  %18 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 13, i32 1
+  store i16 -5889, ptr %18, align 2
+  %19 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 13, i32 2
+  store i16 -1, ptr %19, align 2
+  %20 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 14
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 15
+  store i16 0, ptr %21, align 8
+  %22 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 15, i32 1
+  store i16 0, ptr %22, align 2
+  %23 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 15, i32 2
+  store i16 0, ptr %23, align 4
+  %24 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 16
+  store i16 -4097, ptr %24, align 2
+  %25 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 16, i32 1
+  store i16 -4097, ptr %25, align 2
+  %26 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 16, i32 2
+  store i16 -4097, ptr %26, align 2
+  %27 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 17
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18
+  store i16 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18, i32 1
+  store i16 -1, ptr %29, align 2
+  %30 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18, i32 2
+  store i16 -1, ptr %30, align 4
+  %31 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  store i16 0, ptr %31, align 2
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19, i32 1
+  store i16 8224, ptr %32, align 2
+  %33 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19, i32 2
+  store i16 10794, ptr %33, align 2
+  %34 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 20
+  store i16 32767, ptr %34, align 4
+  %35 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 20, i32 1
+  store i16 32767, ptr %35, align 2
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 20, i32 2
+  store i16 32767, ptr %36, align 4
+  %37 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 21
+  store i16 -1, ptr %37, align 2
+  %38 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 21, i32 1
+  store i16 -1, ptr %38, align 2
+  %39 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 21, i32 2
+  store i16 -1, ptr %39, align 2
+  %40 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 22
+  %41 = load ptr, ptr %40, align 8
+  call void @g_free(ptr noundef %41)
+  %42 = call noalias ptr @g_strdup(ptr noundef @.str.539)
+  %43 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 22
+  store ptr %42, ptr %43, align 8
+  %44 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 23
+  %45 = load ptr, ptr %44, align 8
+  call void @g_free(ptr noundef %45)
+  %46 = call noalias ptr @g_strdup(ptr noundef @.str.540)
+  %47 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 23
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2
+  store i16 32767, ptr %48, align 4
+  %49 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2, i32 1
+  store i16 0, ptr %49, align 2
+  %50 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2, i32 2
+  store i16 0, ptr %50, align 4
+  %51 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3
+  store i16 -1029, ptr %51, align 2
+  %52 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3, i32 1
+  store i16 -4627, ptr %52, align 2
+  %53 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3, i32 2
+  store i16 -4627, ptr %53, align 2
+  %54 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4
+  store i16 0, ptr %54, align 8
+  %55 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4, i32 1
+  store i16 0, ptr %55, align 2
+  %56 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4, i32 2
+  store i16 32767, ptr %56, align 4
+  %57 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5
+  store i16 -4627, ptr %57, align 2
+  %58 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5, i32 1
+  store i16 -4627, ptr %58, align 2
+  %59 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5, i32 2
+  store i16 -1029, ptr %59, align 2
+  %60 = load i32, ptr @gui_theme_is_dark, align 4
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %72
 
-16:                                               ; preds = %7
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6), align 4
-  store i16 26367, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 2), align 4
-  store i16 26367, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 2), align 2
-  store i16 26367, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8), align 8
-  store i16 26367, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 1), align 2
-  store i16 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 2), align 4
-  br label %18
+62:                                               ; preds = %7
+  %63 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6
+  store i16 0, ptr %63, align 4
+  %64 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 1
+  store i16 26367, ptr %64, align 2
+  %65 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 2
+  store i16 0, ptr %65, align 4
+  %66 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7
+  store i16 26367, ptr %66, align 2
+  %67 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 1
+  store i16 0, ptr %67, align 2
+  %68 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 2
+  store i16 0, ptr %68, align 2
+  %69 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8
+  store i16 26367, ptr %69, align 8
+  %70 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 1
+  store i16 26367, ptr %70, align 2
+  %71 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 2
+  store i16 0, ptr %71, align 4
+  br label %82
 
-17:                                               ; preds = %7
-  store i16 -20481, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6), align 4
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 1), align 2
-  store i16 -20481, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 2), align 4
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7), align 2
-  store i16 -20481, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 1), align 2
-  store i16 -20481, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 2), align 2
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8), align 8
-  store i16 -1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 1), align 2
-  store i16 -20481, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 2), align 4
-  br label %18
+72:                                               ; preds = %7
+  %73 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6
+  store i16 -20481, ptr %73, align 4
+  %74 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 1
+  store i16 -1, ptr %74, align 2
+  %75 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6, i32 2
+  store i16 -20481, ptr %75, align 4
+  %76 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7
+  store i16 -1, ptr %76, align 2
+  %77 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 1
+  store i16 -20481, ptr %77, align 2
+  %78 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7, i32 2
+  store i16 -20481, ptr %78, align 2
+  %79 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8
+  store i16 -1, ptr %79, align 8
+  %80 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 1
+  store i16 -1, ptr %80, align 2
+  %81 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8, i32 2
+  store i16 -20481, ptr %81, align 4
+  br label %82
 
-18:                                               ; preds = %17, %16
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 24), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 25), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 26), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 29), align 4
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 27), align 4
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 28), align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), align 8
-  call void @g_free(ptr noundef %19)
-  %20 = call ptr @get_persdatafile_dir()
-  %21 = call noalias ptr @g_strdup(ptr noundef %20)
-  store ptr %21, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), align 8
-  store i32 3, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 31), align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 32), align 8
-  call void @g_free(ptr noundef %22)
-  %23 = call noalias ptr @g_strdup(ptr noundef @.str.9)
-  store ptr %23, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 32), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 33), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 34), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 35), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 83), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 84), align 4
-  store i32 86400, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 85), align 8
-  store i32 400, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 86), align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 36), align 8
-  call void @g_free(ptr noundef %24)
-  %25 = call noalias ptr @g_strdup(ptr noundef @.str.9)
-  store ptr %25, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 36), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 37), align 8
-  call void @g_free(ptr noundef %26)
-  %27 = call noalias ptr @g_strdup(ptr noundef @.str.9)
-  store ptr %27, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 37), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 38), align 8
-  call void @g_free(ptr noundef %28)
-  %29 = call noalias ptr @g_strdup(ptr noundef @.str.541)
-  store ptr %29, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 38), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 39), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 43), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 45), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 46), align 4
-  store i32 3, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 47), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 94), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 95), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 96), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 97), align 4
-  store i32 10000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 98), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 49), align 8
-  call void @g_free(ptr noundef %30)
-  %31 = call noalias ptr @g_strdup(ptr noundef @.str.9)
-  store ptr %31, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 49), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 50), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 51), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 89), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 90), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 91), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 92), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 93), align 4
-  store i32 1000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 40), align 4
-  store i32 1000000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 41), align 8
-  store i32 500, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 42), align 4
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  store i32 4, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100), align 8
-  store i32 6, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101), align 4
-  %32 = load ptr, ptr @prefs, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %36
+82:                                               ; preds = %72, %62
+  %83 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 24
+  store i32 1, ptr %83, align 8
+  %84 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 25
+  store i32 1, ptr %84, align 4
+  %85 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 26
+  store i32 1, ptr %85, align 8
+  %86 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 29
+  store i32 0, ptr %86, align 4
+  %87 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 27
+  store i32 10, ptr %87, align 4
+  %88 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 28
+  store i32 10, ptr %88, align 8
+  %89 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  %90 = load ptr, ptr %89, align 8
+  call void @g_free(ptr noundef %90)
+  %91 = call ptr @get_persdatafile_dir()
+  %92 = call noalias ptr @g_strdup(ptr noundef %91)
+  %93 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  store ptr %92, ptr %93, align 8
+  %94 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 31
+  store i32 3, ptr %94, align 8
+  %95 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 32
+  %96 = load ptr, ptr %95, align 8
+  call void @g_free(ptr noundef %96)
+  %97 = call noalias ptr @g_strdup(ptr noundef @.str.9)
+  %98 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 32
+  store ptr %97, ptr %98, align 8
+  %99 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 33
+  store i32 1, ptr %99, align 8
+  %100 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 34
+  store i32 1, ptr %100, align 4
+  %101 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 35
+  store i32 1, ptr %101, align 8
+  %102 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 83
+  store i32 1, ptr %102, align 8
+  %103 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 84
+  store i32 1, ptr %103, align 4
+  %104 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 85
+  store i32 86400, ptr %104, align 8
+  %105 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 86
+  store i32 400, ptr %105, align 4
+  %106 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 36
+  %107 = load ptr, ptr %106, align 8
+  call void @g_free(ptr noundef %107)
+  %108 = call noalias ptr @g_strdup(ptr noundef @.str.9)
+  %109 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 36
+  store ptr %108, ptr %109, align 8
+  %110 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 37
+  %111 = load ptr, ptr %110, align 8
+  call void @g_free(ptr noundef %111)
+  %112 = call noalias ptr @g_strdup(ptr noundef @.str.9)
+  %113 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 37
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 38
+  %115 = load ptr, ptr %114, align 8
+  call void @g_free(ptr noundef %115)
+  %116 = call noalias ptr @g_strdup(ptr noundef @.str.541)
+  %117 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 38
+  store ptr %116, ptr %117, align 8
+  %118 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 39
+  store i32 2, ptr %118, align 8
+  %119 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 43
+  store i32 1, ptr %119, align 8
+  %120 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  store i32 2, ptr %120, align 4
+  %121 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 45
+  store i32 1, ptr %121, align 8
+  %122 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 46
+  store i32 2, ptr %122, align 4
+  %123 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 47
+  store i32 3, ptr %123, align 8
+  %124 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 94
+  store i32 1, ptr %124, align 8
+  %125 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 95
+  store i32 1, ptr %125, align 4
+  %126 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 96
+  store i32 1, ptr %126, align 8
+  %127 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 97
+  store i32 1, ptr %127, align 4
+  %128 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 98
+  store i32 10000, ptr %128, align 8
+  %129 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 49
+  %130 = load ptr, ptr %129, align 8
+  call void @g_free(ptr noundef %130)
+  %131 = call noalias ptr @g_strdup(ptr noundef @.str.9)
+  %132 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 49
+  store ptr %131, ptr %132, align 8
+  %133 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 50
+  store i32 0, ptr %133, align 8
+  %134 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 51
+  store i32 1, ptr %134, align 4
+  %135 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 89
+  store i32 0, ptr %135, align 4
+  %136 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 90
+  store i32 1, ptr %136, align 8
+  %137 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 91
+  store i32 1, ptr %137, align 4
+  %138 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 92
+  store i32 0, ptr %138, align 8
+  %139 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 93
+  store i32 0, ptr %139, align 4
+  %140 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 40
+  store i32 1000, ptr %140, align 4
+  %141 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 41
+  store i32 1000000, ptr %141, align 8
+  %142 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 42
+  store i32 500, ptr %142, align 4
+  %143 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  store i32 2, ptr %143, align 4
+  %144 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  store i32 4, ptr %144, align 8
+  %145 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  store i32 6, ptr %145, align 4
+  %146 = load ptr, ptr @prefs, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %150
 
-34:                                               ; preds = %18
-  %35 = load ptr, ptr @prefs, align 8
-  call void @free_col_info(ptr noundef %35)
+148:                                              ; preds = %82
+  %149 = load ptr, ptr @prefs, align 8
+  call void @free_col_info(ptr noundef %149)
   store ptr null, ptr @prefs, align 8
-  br label %36
+  br label %150
 
-36:                                               ; preds = %34, %18
+150:                                              ; preds = %148, %82
   store i32 0, ptr %1, align 4
-  br label %37
+  br label %151
 
-37:                                               ; preds = %68, %36
-  %38 = load i32, ptr %1, align 4
-  %39 = load i32, ptr %4, align 4
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %41, label %71
+151:                                              ; preds = %182, %150
+  %152 = load i32, ptr %1, align 4
+  %153 = load i32, ptr %4, align 4
+  %154 = icmp slt i32 %152, %153
+  br i1 %154, label %155, label %185
 
-41:                                               ; preds = %37
-  %42 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #10
-  store ptr %42, ptr %3, align 8
-  %43 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
-  %44 = load i32, ptr %1, align 4
-  %45 = mul i32 %44, 2
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %43, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noalias ptr @g_strdup(ptr noundef %48)
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct._fmt_data, ptr %50, i32 0, i32 0
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct._fmt_data, ptr %52, i32 0, i32 4
-  store i8 1, ptr %53, align 4
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct._fmt_data, ptr %54, i32 0, i32 5
-  store i8 1, ptr %55, align 1
-  %56 = load ptr, ptr %3, align 8
-  %57 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
-  %58 = load i32, ptr %1, align 4
-  %59 = mul i32 %58, 2
-  %60 = add i32 %59, 1
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr ptr, ptr %57, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @parse_column_format(ptr noundef %56, ptr noundef %63)
-  %65 = load ptr, ptr @prefs, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = call ptr @g_list_append(ptr noundef %65, ptr noundef %66)
-  store ptr %67, ptr @prefs, align 8
-  br label %68
+155:                                              ; preds = %151
+  %156 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #10
+  store ptr %156, ptr %3, align 8
+  %157 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
+  %158 = load i32, ptr %1, align 4
+  %159 = mul i32 %158, 2
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr ptr, ptr %157, i64 %160
+  %162 = load ptr, ptr %161, align 8
+  %163 = call noalias ptr @g_strdup(ptr noundef %162)
+  %164 = load ptr, ptr %3, align 8
+  %165 = getelementptr inbounds %struct._fmt_data, ptr %164, i32 0, i32 0
+  store ptr %163, ptr %165, align 8
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds %struct._fmt_data, ptr %166, i32 0, i32 4
+  store i8 1, ptr %167, align 4
+  %168 = load ptr, ptr %3, align 8
+  %169 = getelementptr inbounds %struct._fmt_data, ptr %168, i32 0, i32 5
+  store i8 1, ptr %169, align 1
+  %170 = load ptr, ptr %3, align 8
+  %171 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
+  %172 = load i32, ptr %1, align 4
+  %173 = mul i32 %172, 2
+  %174 = add i32 %173, 1
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr ptr, ptr %171, i64 %175
+  %177 = load ptr, ptr %176, align 8
+  %178 = call i32 @parse_column_format(ptr noundef %170, ptr noundef %177)
+  %179 = load ptr, ptr @prefs, align 8
+  %180 = load ptr, ptr %3, align 8
+  %181 = call ptr @g_list_append(ptr noundef %179, ptr noundef %180)
+  store ptr %181, ptr @prefs, align 8
+  br label %182
 
-68:                                               ; preds = %41
-  %69 = load i32, ptr %1, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %1, align 4
-  br label %37, !llvm.loop !6
+182:                                              ; preds = %155
+  %183 = load i32, ptr %1, align 4
+  %184 = add i32 %183, 1
+  store i32 %184, ptr %1, align 4
+  br label %151, !llvm.loop !6
 
-71:                                               ; preds = %37
-  %72 = load i32, ptr %4, align 4
-  store i32 %72, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 64), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 65), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 66), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 67), align 4
-  store i32 100, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 68), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 70), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 71), align 4
-  %73 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %93, label %75
+185:                                              ; preds = %151
+  %186 = load i32, ptr %4, align 4
+  %187 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 1
+  store i32 %186, ptr %187, align 8
+  %188 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 64
+  store i32 1, ptr %188, align 8
+  %189 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 65
+  store i32 0, ptr %189, align 4
+  %190 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 66
+  store i32 1, ptr %190, align 8
+  %191 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 67
+  store i32 1, ptr %191, align 4
+  %192 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 68
+  store i32 100, ptr %192, align 8
+  %193 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 70
+  store i32 0, ptr %193, align 8
+  %194 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 71
+  store i32 0, ptr %194, align 4
+  %195 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %196 = load ptr, ptr %195, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %218, label %198
 
-75:                                               ; preds = %71
+198:                                              ; preds = %185
   store i32 0, ptr %1, align 4
-  br label %76
+  br label %199
 
-76:                                               ; preds = %89, %75
-  %77 = load i32, ptr %1, align 4
-  %78 = load i32, ptr @num_capture_cols, align 4
-  %79 = icmp slt i32 %77, %78
-  br i1 %79, label %80, label %92
+199:                                              ; preds = %214, %198
+  %200 = load i32, ptr %1, align 4
+  %201 = load i32, ptr @num_capture_cols, align 4
+  %202 = icmp slt i32 %200, %201
+  br i1 %202, label %203, label %217
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr %1, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  %85 = call noalias ptr @g_strdup(ptr noundef %84)
-  store ptr %85, ptr %2, align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %87 = load ptr, ptr %2, align 8
-  %88 = call ptr @g_list_append(ptr noundef %86, ptr noundef %87)
-  store ptr %88, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  br label %89
+203:                                              ; preds = %199
+  %204 = load i32, ptr %1, align 4
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %205
+  %207 = load ptr, ptr %206, align 8
+  %208 = call noalias ptr @g_strdup(ptr noundef %207)
+  store ptr %208, ptr %2, align 8
+  %209 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %210 = load ptr, ptr %209, align 8
+  %211 = load ptr, ptr %2, align 8
+  %212 = call ptr @g_list_append(ptr noundef %210, ptr noundef %211)
+  %213 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %212, ptr %213, align 8
+  br label %214
 
-89:                                               ; preds = %80
-  %90 = load i32, ptr %1, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %1, align 4
-  br label %76, !llvm.loop !7
+214:                                              ; preds = %203
+  %215 = load i32, ptr %1, align 4
+  %216 = add i32 %215, 1
+  store i32 %216, ptr %1, align 4
+  br label %199, !llvm.loop !7
 
-92:                                               ; preds = %76
-  br label %93
+217:                                              ; preds = %199
+  br label %218
 
-93:                                               ; preds = %92, %71
-  store i32 3000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 73), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 104), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 105), align 4
-  store i32 5, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  store i32 100, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 108), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 109), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 110), align 8
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 111), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 112), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 113), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 74), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 75), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 79), align 8
-  store i32 10000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 80), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 52), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 53), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 48), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 54), align 8
+218:                                              ; preds = %217, %185
+  %219 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 73
+  store i32 3000, ptr %219, align 8
+  %220 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 104
+  store i32 1, ptr %220, align 8
+  %221 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 105
+  store i32 0, ptr %221, align 4
+  %222 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  store i32 5, ptr %222, align 8
+  %223 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  store i32 100, ptr %223, align 4
+  %224 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 108
+  store i32 1, ptr %224, align 8
+  %225 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 109
+  store i32 1, ptr %225, align 4
+  %226 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 110
+  store i32 1, ptr %226, align 8
+  %227 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 111
+  store i32 2, ptr %227, align 4
+  %228 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 112
+  store i32 1, ptr %228, align 8
+  %229 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 113
+  store i32 0, ptr %229, align 4
+  %230 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 74
+  store i32 0, ptr %230, align 4
+  %231 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 75
+  store i32 0, ptr %231, align 8
+  %232 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 79
+  store i32 0, ptr %232, align 8
+  %233 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 80
+  store i32 10000, ptr %233, align 4
+  %234 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 52
+  store i32 1, ptr %234, align 8
+  %235 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 53
+  store i32 1, ptr %235, align 4
+  %236 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 48
+  store i32 0, ptr %236, align 4
+  %237 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 54
+  store i32 1, ptr %237, align 8
   ret void
 }
 
@@ -1802,488 +1947,599 @@ define internal void @prefs_register_modules() #0 {
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %0
-  br label %264
+  br label %375
 
 14:                                               ; preds = %0
   %15 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.84, ptr noundef @.str.100, ptr noundef @.str.100, ptr noundef null, i32 noundef 0)
   store ptr %15, ptr %6, align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 114), align 8
-  %16 = load ptr, ptr %6, align 8
-  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.101, ptr noundef @.str.102, ptr noundef @.str.102, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 114))
-  %17 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.103, ptr noundef @.str.104, ptr noundef @.str.104, ptr noundef @gui_callback, i32 noundef 0)
-  store ptr %17, ptr @gui_module, align 8
-  %18 = load ptr, ptr @gui_module, align 8
-  %19 = call i32 @prefs_get_module_effect_flags(ptr noundef %18)
-  store i32 %19, ptr %9, align 4
-  %20 = load i32, ptr %9, align 4
-  %21 = or i32 %20, 16
+  %16 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 114
+  store i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 114
+  call void @prefs_register_bool_preference(ptr noundef %17, ptr noundef @.str.101, ptr noundef @.str.102, ptr noundef @.str.102, ptr noundef %18)
+  %19 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.103, ptr noundef @.str.104, ptr noundef @.str.104, ptr noundef @gui_callback, i32 noundef 0)
+  store ptr %19, ptr @gui_module, align 8
+  %20 = load ptr, ptr @gui_module, align 8
+  %21 = call i32 @prefs_get_module_effect_flags(ptr noundef %20)
   store i32 %21, ptr %9, align 4
   %22 = load i32, ptr %9, align 4
-  %23 = and i32 %22, -2
+  %23 = or i32 %22, 16
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr @gui_module, align 8
-  %25 = load i32, ptr %9, align 4
-  call void @prefs_set_module_effect_flags(ptr noundef %24, i32 noundef %25)
+  %24 = load i32, ptr %9, align 4
+  %25 = and i32 %24, -2
+  store i32 %25, ptr %9, align 4
   %26 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %26, ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef @.str.107, ptr noundef @ws_log_console_open, ptr noundef @gui_console_open_type, i32 noundef 0)
-  %27 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %27, ptr noundef @.str.108)
+  %27 = load i32, ptr %9, align 4
+  call void @prefs_set_module_effect_flags(ptr noundef %26, i32 noundef %27)
   %28 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %28, ptr noundef @.str.109)
+  call void @prefs_register_enum_preference(ptr noundef %28, ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef @.str.107, ptr noundef @ws_log_console_open, ptr noundef @gui_console_open_type, i32 noundef 0)
   %29 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %29, ptr noundef @.str.110)
+  call void @prefs_register_obsolete_preference(ptr noundef %29, ptr noundef @.str.108)
   %30 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %30, ptr noundef @.str.111)
+  call void @prefs_register_obsolete_preference(ptr noundef %30, ptr noundef @.str.109)
   %31 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %31, ptr noundef @.str.112)
+  call void @prefs_register_obsolete_preference(ptr noundef %31, ptr noundef @.str.110)
   %32 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %32, ptr noundef @.str.113)
+  call void @prefs_register_obsolete_preference(ptr noundef %32, ptr noundef @.str.111)
   %33 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %33, ptr noundef @.str.114, ptr noundef @.str.115, ptr noundef @.str.116, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 9))
+  call void @prefs_register_obsolete_preference(ptr noundef %33, ptr noundef @.str.112)
   %34 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %34, ptr noundef @.str.117)
+  call void @prefs_register_obsolete_preference(ptr noundef %34, ptr noundef @.str.113)
   %35 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %35, ptr noundef @.str.118)
-  %36 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %36, ptr noundef @.str.119)
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 9
+  call void @prefs_register_bool_preference(ptr noundef %35, ptr noundef @.str.114, ptr noundef @.str.115, ptr noundef @.str.116, ptr noundef %36)
   %37 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %37, ptr noundef @.str.120)
+  call void @prefs_register_obsolete_preference(ptr noundef %37, ptr noundef @.str.117)
   %38 = load ptr, ptr @gui_module, align 8
-  %39 = call ptr @prefs_register_subtree(ptr noundef %38, ptr noundef @.str.121, ptr noundef @.str.121, ptr noundef null)
-  store ptr %39, ptr @gui_column_module, align 8
-  %40 = load ptr, ptr @gui_column_module, align 8
-  %41 = load i32, ptr %9, align 4
-  call void @prefs_set_module_effect_flags(ptr noundef %40, i32 noundef %41)
-  %42 = load ptr, ptr @gui_column_module, align 8
-  call void @prefs_register_module_alias(ptr noundef @.str.122, ptr noundef %42)
-  %43 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @free_string_like_preference, ptr %43, align 8
-  %44 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @reset_string_like_preference, ptr %44, align 8
-  %45 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @column_hidden_set_cb, ptr %45, align 8
-  %46 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @column_hidden_type_name_cb, ptr %46, align 8
-  %47 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @column_hidden_type_description_cb, ptr %47, align 8
-  %48 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @column_hidden_is_default_cb, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @column_hidden_to_str_cb, ptr %49, align 8
-  %50 = load ptr, ptr @gui_column_module, align 8
-  call void @register_string_like_preference(ptr noundef %50, ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef @.str.125, ptr noundef @cols_hidden_list, i32 noundef 512, ptr noundef %8, i32 noundef 0)
-  %51 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @column_hidden_fmt_set_cb, ptr %51, align 8
-  %52 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @column_hidden_fmt_type_name_cb, ptr %52, align 8
-  %53 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @column_hidden_fmt_type_description_cb, ptr %53, align 8
-  %54 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @column_hidden_fmt_is_default_cb, ptr %54, align 8
-  %55 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @column_hidden_fmt_to_str_cb, ptr %55, align 8
-  %56 = load ptr, ptr @gui_column_module, align 8
-  call void @register_string_like_preference(ptr noundef %56, ptr noundef @.str.126, ptr noundef @.str.127, ptr noundef @.str.128, ptr noundef @cols_hidden_fmt_list, i32 noundef 512, ptr noundef %8, i32 noundef 0)
-  %57 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @column_format_free_cb, ptr %57, align 8
-  %58 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @column_format_reset_cb, ptr %58, align 8
-  %59 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @column_format_set_cb, ptr %59, align 8
-  %60 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @column_format_type_name_cb, ptr %60, align 8
-  %61 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @column_format_type_description_cb, ptr %61, align 8
-  %62 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @column_format_is_default_cb, ptr %62, align 8
-  %63 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @column_format_to_str_cb, ptr %63, align 8
-  %64 = load ptr, ptr @gui_column_module, align 8
-  call void @prefs_register_list_custom_preference(ptr noundef %64, ptr noundef @.str.129, ptr noundef @.str.130, ptr noundef @.str.131, ptr noundef %8, ptr noundef @column_format_init_cb, ptr noundef @prefs)
-  %65 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @custom_pref_no_cb, ptr %65, align 8
-  %66 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @column_num_reset_cb, ptr %66, align 8
-  %67 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @column_num_set_cb, ptr %67, align 8
-  %68 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @column_num_type_name_cb, ptr %68, align 8
-  %69 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @column_num_type_description_cb, ptr %69, align 8
-  %70 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @column_num_is_default_cb, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @column_num_to_str_cb, ptr %71, align 8
-  %72 = load ptr, ptr @gui_column_module, align 8
-  call void @prefs_register_uint_custom_preference(ptr noundef %72, ptr noundef @.str.132, ptr noundef @.str.133, ptr noundef @.str.134, ptr noundef %8, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 1))
-  %73 = load ptr, ptr @gui_module, align 8
-  %74 = call ptr @prefs_register_subtree(ptr noundef %73, ptr noundef @.str.135, ptr noundef @.str.135, ptr noundef null)
-  store ptr %74, ptr %5, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = load i32, ptr %9, align 4
-  call void @prefs_set_module_effect_flags(ptr noundef %75, i32 noundef %76)
-  %77 = load ptr, ptr %5, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %77, ptr noundef @.str.136)
-  %78 = load ptr, ptr %5, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %78, ptr noundef @.str.137)
+  call void @prefs_register_obsolete_preference(ptr noundef %38, ptr noundef @.str.118)
+  %39 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %39, ptr noundef @.str.119)
+  %40 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %40, ptr noundef @.str.120)
+  %41 = load ptr, ptr @gui_module, align 8
+  %42 = call ptr @prefs_register_subtree(ptr noundef %41, ptr noundef @.str.121, ptr noundef @.str.121, ptr noundef null)
+  store ptr %42, ptr @gui_column_module, align 8
+  %43 = load ptr, ptr @gui_column_module, align 8
+  %44 = load i32, ptr %9, align 4
+  call void @prefs_set_module_effect_flags(ptr noundef %43, i32 noundef %44)
+  %45 = load ptr, ptr @gui_column_module, align 8
+  call void @prefs_register_module_alias(ptr noundef @.str.122, ptr noundef %45)
+  %46 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @free_string_like_preference, ptr %46, align 8
+  %47 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @reset_string_like_preference, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @column_hidden_set_cb, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @column_hidden_type_name_cb, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @column_hidden_type_description_cb, ptr %50, align 8
+  %51 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @column_hidden_is_default_cb, ptr %51, align 8
+  %52 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @column_hidden_to_str_cb, ptr %52, align 8
+  %53 = load ptr, ptr @gui_column_module, align 8
+  call void @register_string_like_preference(ptr noundef %53, ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef @.str.125, ptr noundef @cols_hidden_list, i32 noundef 512, ptr noundef %8, i32 noundef 0)
+  %54 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @column_hidden_fmt_set_cb, ptr %54, align 8
+  %55 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @column_hidden_fmt_type_name_cb, ptr %55, align 8
+  %56 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @column_hidden_fmt_type_description_cb, ptr %56, align 8
+  %57 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @column_hidden_fmt_is_default_cb, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @column_hidden_fmt_to_str_cb, ptr %58, align 8
+  %59 = load ptr, ptr @gui_column_module, align 8
+  call void @register_string_like_preference(ptr noundef %59, ptr noundef @.str.126, ptr noundef @.str.127, ptr noundef @.str.128, ptr noundef @cols_hidden_fmt_list, i32 noundef 512, ptr noundef %8, i32 noundef 0)
+  %60 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @column_format_free_cb, ptr %60, align 8
+  %61 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @column_format_reset_cb, ptr %61, align 8
+  %62 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @column_format_set_cb, ptr %62, align 8
+  %63 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @column_format_type_name_cb, ptr %63, align 8
+  %64 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @column_format_type_description_cb, ptr %64, align 8
+  %65 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @column_format_is_default_cb, ptr %65, align 8
+  %66 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @column_format_to_str_cb, ptr %66, align 8
+  %67 = load ptr, ptr @gui_column_module, align 8
+  call void @prefs_register_list_custom_preference(ptr noundef %67, ptr noundef @.str.129, ptr noundef @.str.130, ptr noundef @.str.131, ptr noundef %8, ptr noundef @column_format_init_cb, ptr noundef @prefs)
+  %68 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @custom_pref_no_cb, ptr %68, align 8
+  %69 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @column_num_reset_cb, ptr %69, align 8
+  %70 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @column_num_set_cb, ptr %70, align 8
+  %71 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @column_num_type_name_cb, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @column_num_type_description_cb, ptr %72, align 8
+  %73 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @column_num_is_default_cb, ptr %73, align 8
+  %74 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @column_num_to_str_cb, ptr %74, align 8
+  %75 = load ptr, ptr @gui_column_module, align 8
+  %76 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 1
+  call void @prefs_register_uint_custom_preference(ptr noundef %75, ptr noundef @.str.132, ptr noundef @.str.133, ptr noundef @.str.134, ptr noundef %8, ptr noundef %76)
+  %77 = load ptr, ptr @gui_module, align 8
+  %78 = call ptr @prefs_register_subtree(ptr noundef %77, ptr noundef @.str.135, ptr noundef @.str.135, ptr noundef null)
+  store ptr %78, ptr %5, align 8
   %79 = load ptr, ptr %5, align 8
-  call void @register_string_like_preference(ptr noundef %79, ptr noundef @.str.138, ptr noundef @.str.139, ptr noundef @.str.140, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 11), i32 noundef 8, ptr noundef null, i32 noundef 1)
-  %80 = load ptr, ptr @gui_module, align 8
-  %81 = call ptr @prefs_register_subtree(ptr noundef %80, ptr noundef @.str.141, ptr noundef @.str.141, ptr noundef null)
-  store ptr %81, ptr @gui_color_module, align 8
-  %82 = load i32, ptr %9, align 4
-  %83 = or i32 %82, 32
-  store i32 %83, ptr %10, align 4
-  %84 = load ptr, ptr @gui_color_module, align 8
-  %85 = load i32, ptr %10, align 4
-  call void @prefs_set_module_effect_flags(ptr noundef %84, i32 noundef %85)
-  %86 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %86, ptr noundef @.str.142, ptr noundef @.str.143, ptr noundef @.str.143, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 12))
-  %87 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %87, ptr noundef @.str.144, ptr noundef @.str.145, ptr noundef @.str.145, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 13))
-  %88 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %88, ptr noundef @.str.146, ptr noundef @.str.147, ptr noundef @.str.147, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 14), ptr noundef @gui_selection_style, i32 noundef 0)
+  %80 = load i32, ptr %9, align 4
+  call void @prefs_set_module_effect_flags(ptr noundef %79, i32 noundef %80)
+  %81 = load ptr, ptr %5, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %81, ptr noundef @.str.136)
+  %82 = load ptr, ptr %5, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %82, ptr noundef @.str.137)
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 11
+  call void @register_string_like_preference(ptr noundef %83, ptr noundef @.str.138, ptr noundef @.str.139, ptr noundef @.str.140, ptr noundef %84, i32 noundef 8, ptr noundef null, i32 noundef 1)
+  %85 = load ptr, ptr @gui_module, align 8
+  %86 = call ptr @prefs_register_subtree(ptr noundef %85, ptr noundef @.str.141, ptr noundef @.str.141, ptr noundef null)
+  store ptr %86, ptr @gui_color_module, align 8
+  %87 = load i32, ptr %9, align 4
+  %88 = or i32 %87, 32
+  store i32 %88, ptr %10, align 4
   %89 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %89, ptr noundef @.str.148, ptr noundef @.str.149, ptr noundef @.str.149, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 15))
-  %90 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %90, ptr noundef @.str.150, ptr noundef @.str.151, ptr noundef @.str.151, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 16))
+  %90 = load i32, ptr %10, align 4
+  call void @prefs_set_module_effect_flags(ptr noundef %89, i32 noundef %90)
   %91 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %91, ptr noundef @.str.152, ptr noundef @.str.153, ptr noundef @.str.153, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 17), ptr noundef @gui_selection_style, i32 noundef 0)
-  %92 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %92, ptr noundef @.str.154, ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18))
+  %92 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 12
+  call void @prefs_register_color_preference(ptr noundef %91, ptr noundef @.str.142, ptr noundef @.str.143, ptr noundef @.str.143, ptr noundef %92)
   %93 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %93, ptr noundef @.str.156, ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-  %94 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %94, ptr noundef @.str.157, ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 20))
+  %94 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 13
+  call void @prefs_register_color_preference(ptr noundef %93, ptr noundef @.str.144, ptr noundef @.str.145, ptr noundef @.str.145, ptr noundef %94)
   %95 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %95, ptr noundef @.str.159, ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 21))
-  %96 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %96, ptr noundef @.str.160, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2))
+  %96 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 14
+  call void @prefs_register_enum_preference(ptr noundef %95, ptr noundef @.str.146, ptr noundef @.str.147, ptr noundef @.str.147, ptr noundef %96, ptr noundef @gui_selection_style, i32 noundef 0)
   %97 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %97, ptr noundef @.str.162, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3))
-  %98 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %98, ptr noundef @.str.163, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4))
+  %98 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 15
+  call void @prefs_register_color_preference(ptr noundef %97, ptr noundef @.str.148, ptr noundef @.str.149, ptr noundef @.str.149, ptr noundef %98)
   %99 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %99, ptr noundef @.str.164, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5))
-  %100 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @free_string_like_preference, ptr %100, align 8
-  %101 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @reset_string_like_preference, ptr %101, align 8
-  %102 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @colorized_frame_set_cb, ptr %102, align 8
-  %103 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @colorized_frame_type_name_cb, ptr %103, align 8
-  %104 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @colorized_frame_type_description_cb, ptr %104, align 8
-  %105 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @colorized_frame_is_default_cb, ptr %105, align 8
-  %106 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @colorized_frame_to_str_cb, ptr %106, align 8
-  %107 = load ptr, ptr @gui_column_module, align 8
-  call void @register_string_like_preference(ptr noundef %107, ptr noundef @.str.165, ptr noundef @.str.166, ptr noundef @.str.167, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 22), i32 noundef 512, ptr noundef %8, i32 noundef 1)
-  %108 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @free_string_like_preference, ptr %108, align 8
-  %109 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @reset_string_like_preference, ptr %109, align 8
-  %110 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @colorized_frame_set_cb, ptr %110, align 8
-  %111 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @colorized_frame_type_name_cb, ptr %111, align 8
-  %112 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @colorized_frame_type_description_cb, ptr %112, align 8
-  %113 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @colorized_frame_is_default_cb, ptr %113, align 8
-  %114 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @colorized_frame_to_str_cb, ptr %114, align 8
-  %115 = load ptr, ptr @gui_column_module, align 8
-  call void @register_string_like_preference(ptr noundef %115, ptr noundef @.str.168, ptr noundef @.str.169, ptr noundef @.str.170, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 23), i32 noundef 512, ptr noundef %8, i32 noundef 1)
-  %116 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %116, ptr noundef @.str.171, ptr noundef @.str.172, ptr noundef @.str.172, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6))
+  %100 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 16
+  call void @prefs_register_color_preference(ptr noundef %99, ptr noundef @.str.150, ptr noundef @.str.151, ptr noundef @.str.151, ptr noundef %100)
+  %101 = load ptr, ptr @gui_color_module, align 8
+  %102 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 17
+  call void @prefs_register_enum_preference(ptr noundef %101, ptr noundef @.str.152, ptr noundef @.str.153, ptr noundef @.str.153, ptr noundef %102, ptr noundef @gui_selection_style, i32 noundef 0)
+  %103 = load ptr, ptr @gui_color_module, align 8
+  %104 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18
+  call void @prefs_register_color_preference(ptr noundef %103, ptr noundef @.str.154, ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef %104)
+  %105 = load ptr, ptr @gui_color_module, align 8
+  %106 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  call void @prefs_register_color_preference(ptr noundef %105, ptr noundef @.str.156, ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef %106)
+  %107 = load ptr, ptr @gui_color_module, align 8
+  %108 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 20
+  call void @prefs_register_color_preference(ptr noundef %107, ptr noundef @.str.157, ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef %108)
+  %109 = load ptr, ptr @gui_color_module, align 8
+  %110 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 21
+  call void @prefs_register_color_preference(ptr noundef %109, ptr noundef @.str.159, ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef %110)
+  %111 = load ptr, ptr @gui_color_module, align 8
+  %112 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2
+  call void @prefs_register_color_preference(ptr noundef %111, ptr noundef @.str.160, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %112)
+  %113 = load ptr, ptr @gui_color_module, align 8
+  %114 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3
+  call void @prefs_register_color_preference(ptr noundef %113, ptr noundef @.str.162, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %114)
+  %115 = load ptr, ptr @gui_color_module, align 8
+  %116 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4
+  call void @prefs_register_color_preference(ptr noundef %115, ptr noundef @.str.163, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %116)
   %117 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %117, ptr noundef @.str.173, ptr noundef @.str.174, ptr noundef @.str.174, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7))
-  %118 = load ptr, ptr @gui_color_module, align 8
-  call void @prefs_register_color_preference(ptr noundef %118, ptr noundef @.str.175, ptr noundef @.str.176, ptr noundef @.str.176, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8))
-  %119 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %119, ptr noundef @.str.177, ptr noundef @.str.178, ptr noundef @.str.178, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 29), ptr noundef @gui_fileopen_style, i32 noundef 0)
-  %120 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %120, ptr noundef @.str.179, ptr noundef @.str.180, ptr noundef @.str.180, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 28))
-  %121 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %121, ptr noundef @.str.181, ptr noundef @.str.182, ptr noundef @.str.182, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 27))
-  %122 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %122, ptr noundef @.str.183, ptr noundef @.str.184, ptr noundef @.str.185, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), i32 noundef 2048, ptr noundef null, i32 noundef 1)
-  %123 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %123, ptr noundef @.str.186)
-  %124 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %124, ptr noundef @.str.187, ptr noundef @.str.188, ptr noundef @.str.188, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 31))
-  %125 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %125, ptr noundef @.str.189, ptr noundef @.str.190, ptr noundef @.str.191, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 32), i32 noundef 8, ptr noundef null, i32 noundef 1)
-  %126 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %126, ptr noundef @.str.192, ptr noundef @.str.193, ptr noundef @.str.194, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 33))
-  %127 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %127, ptr noundef @.str.195, ptr noundef @.str.196, ptr noundef @.str.197, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 34))
-  %128 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %128, ptr noundef @.str.198, ptr noundef @.str.199, ptr noundef @.str.200, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 35))
-  %129 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %129, ptr noundef @.str.201)
-  %130 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %130, ptr noundef @.str.202, ptr noundef @.str.203, ptr noundef @.str.204, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 24))
-  %131 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %131, ptr noundef @.str.205, ptr noundef @.str.206, ptr noundef @.str.207, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 25))
-  %132 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %132, ptr noundef @.str.208, ptr noundef @.str.209, ptr noundef @.str.210, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 26))
-  %133 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %133, ptr noundef @.str.211)
-  %134 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %134, ptr noundef @.str.212)
-  %135 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %135, ptr noundef @.str.213)
-  %136 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %136, ptr noundef @.str.214)
-  %137 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %137, ptr noundef @.str.215)
-  %138 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %138, ptr noundef @.str.216)
-  %139 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %139, ptr noundef @.str.217, ptr noundef @.str.218, ptr noundef @.str.218, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 10), ptr noundef @gui_toolbar_style, i32 noundef 0)
-  %140 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %140, ptr noundef @.str.219)
-  %141 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %141, ptr noundef @.str.220)
-  %142 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %142, ptr noundef @.str.221, ptr noundef @.str.222, ptr noundef @.str.223, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 83))
+  %118 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5
+  call void @prefs_register_color_preference(ptr noundef %117, ptr noundef @.str.164, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %118)
+  %119 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @free_string_like_preference, ptr %119, align 8
+  %120 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @reset_string_like_preference, ptr %120, align 8
+  %121 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @colorized_frame_set_cb, ptr %121, align 8
+  %122 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @colorized_frame_type_name_cb, ptr %122, align 8
+  %123 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @colorized_frame_type_description_cb, ptr %123, align 8
+  %124 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @colorized_frame_is_default_cb, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @colorized_frame_to_str_cb, ptr %125, align 8
+  %126 = load ptr, ptr @gui_column_module, align 8
+  %127 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 22
+  call void @register_string_like_preference(ptr noundef %126, ptr noundef @.str.165, ptr noundef @.str.166, ptr noundef @.str.167, ptr noundef %127, i32 noundef 512, ptr noundef %8, i32 noundef 1)
+  %128 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @free_string_like_preference, ptr %128, align 8
+  %129 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @reset_string_like_preference, ptr %129, align 8
+  %130 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @colorized_frame_set_cb, ptr %130, align 8
+  %131 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @colorized_frame_type_name_cb, ptr %131, align 8
+  %132 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @colorized_frame_type_description_cb, ptr %132, align 8
+  %133 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @colorized_frame_is_default_cb, ptr %133, align 8
+  %134 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @colorized_frame_to_str_cb, ptr %134, align 8
+  %135 = load ptr, ptr @gui_column_module, align 8
+  %136 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 23
+  call void @register_string_like_preference(ptr noundef %135, ptr noundef @.str.168, ptr noundef @.str.169, ptr noundef @.str.170, ptr noundef %136, i32 noundef 512, ptr noundef %8, i32 noundef 1)
+  %137 = load ptr, ptr @gui_color_module, align 8
+  %138 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6
+  call void @prefs_register_color_preference(ptr noundef %137, ptr noundef @.str.171, ptr noundef @.str.172, ptr noundef @.str.172, ptr noundef %138)
+  %139 = load ptr, ptr @gui_color_module, align 8
+  %140 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7
+  call void @prefs_register_color_preference(ptr noundef %139, ptr noundef @.str.173, ptr noundef @.str.174, ptr noundef @.str.174, ptr noundef %140)
+  %141 = load ptr, ptr @gui_color_module, align 8
+  %142 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8
+  call void @prefs_register_color_preference(ptr noundef %141, ptr noundef @.str.175, ptr noundef @.str.176, ptr noundef @.str.176, ptr noundef %142)
   %143 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %143, ptr noundef @.str.224, ptr noundef @.str.225, ptr noundef @.str.226, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 84), ptr noundef @gui_update_channel, i32 noundef 0)
-  %144 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %144, ptr noundef @.str.227, ptr noundef @.str.228, ptr noundef @.str.229, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 85))
+  %144 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 29
+  call void @prefs_register_enum_preference(ptr noundef %143, ptr noundef @.str.177, ptr noundef @.str.178, ptr noundef @.str.178, ptr noundef %144, ptr noundef @gui_fileopen_style, i32 noundef 0)
   %145 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %145, ptr noundef @.str.230, ptr noundef @.str.231, ptr noundef @.str.232, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 86))
-  %146 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %146, ptr noundef @.str.233, ptr noundef @.str.234, ptr noundef @.str.235, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 36), i32 noundef 8, ptr noundef null, i32 noundef 1)
+  %146 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 28
+  call void @prefs_register_uint_preference(ptr noundef %145, ptr noundef @.str.179, ptr noundef @.str.180, ptr noundef @.str.180, i32 noundef 10, ptr noundef %146)
   %147 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %147, ptr noundef @.str.236, ptr noundef @.str.237, ptr noundef @.str.238, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 37), i32 noundef 8, ptr noundef null, i32 noundef 1)
-  %148 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %148, ptr noundef @.str.239, ptr noundef @.str.240, ptr noundef @.str.240, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 38), i32 noundef 8, ptr noundef null, i32 noundef 1)
+  %148 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 27
+  call void @prefs_register_uint_preference(ptr noundef %147, ptr noundef @.str.181, ptr noundef @.str.182, ptr noundef @.str.182, i32 noundef 10, ptr noundef %148)
   %149 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %149, ptr noundef @.str.241, ptr noundef @.str.242, ptr noundef @.str.242, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 39), ptr noundef @gui_version_placement_type, i32 noundef 0)
-  %150 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %150, ptr noundef @.str.243)
+  %150 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  call void @register_string_like_preference(ptr noundef %149, ptr noundef @.str.183, ptr noundef @.str.184, ptr noundef @.str.185, ptr noundef %150, i32 noundef 2048, ptr noundef null, i32 noundef 1)
   %151 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %151, ptr noundef @.str.244)
+  call void @prefs_register_obsolete_preference(ptr noundef %151, ptr noundef @.str.186)
   %152 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %152, ptr noundef @.str.245, ptr noundef @.str.246, ptr noundef @.str.247, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 40))
-  %153 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %153, ptr noundef @.str.248, ptr noundef @.str.249, ptr noundef @.str.250, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 41))
+  %153 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 31
+  call void @prefs_register_uint_preference(ptr noundef %152, ptr noundef @.str.187, ptr noundef @.str.188, ptr noundef @.str.188, i32 noundef 10, ptr noundef %153)
   %154 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %154, ptr noundef @.str.251, ptr noundef @.str.252, ptr noundef @.str.253, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 42))
-  %155 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %155, ptr noundef @.str.254, ptr noundef @.str.255, ptr noundef @.str.256, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 43))
+  %155 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 32
+  call void @register_string_like_preference(ptr noundef %154, ptr noundef @.str.189, ptr noundef @.str.190, ptr noundef @.str.191, ptr noundef %155, i32 noundef 8, ptr noundef null, i32 noundef 1)
   %156 = load ptr, ptr @gui_module, align 8
-  %157 = call ptr @prefs_register_subtree(ptr noundef %156, ptr noundef @.str.257, ptr noundef @.str.257, ptr noundef @gui_layout_callback)
-  store ptr %157, ptr %4, align 8
-  %158 = load ptr, ptr %4, align 8
-  %159 = call i32 @prefs_get_module_effect_flags(ptr noundef %158)
-  store i32 %159, ptr %7, align 4
-  %160 = load i32, ptr %7, align 4
-  %161 = or i32 %160, 4
-  store i32 %161, ptr %7, align 4
-  %162 = load i32, ptr %7, align 4
-  %163 = and i32 %162, -2
-  store i32 %163, ptr %7, align 4
-  %164 = load ptr, ptr %4, align 8
-  call void @prefs_register_uint_preference(ptr noundef %164, ptr noundef @.str.258, ptr noundef @.str.259, ptr noundef @.str.260, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44))
-  %165 = load ptr, ptr %4, align 8
-  %166 = load i32, ptr %7, align 4
-  call void @prefs_set_effect_flags_by_name(ptr noundef %165, ptr noundef @.str.258, i32 noundef %166)
-  %167 = load ptr, ptr %4, align 8
-  call void @prefs_register_enum_preference(ptr noundef %167, ptr noundef @.str.261, ptr noundef @.str.262, ptr noundef @.str.262, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 45), ptr noundef @gui_layout_content, i32 noundef 0)
-  %168 = load ptr, ptr %4, align 8
-  %169 = load i32, ptr %7, align 4
-  call void @prefs_set_effect_flags_by_name(ptr noundef %168, ptr noundef @.str.261, i32 noundef %169)
-  %170 = load ptr, ptr %4, align 8
-  call void @prefs_register_enum_preference(ptr noundef %170, ptr noundef @.str.263, ptr noundef @.str.264, ptr noundef @.str.264, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 46), ptr noundef @gui_layout_content, i32 noundef 0)
-  %171 = load ptr, ptr %4, align 8
-  %172 = load i32, ptr %7, align 4
-  call void @prefs_set_effect_flags_by_name(ptr noundef %171, ptr noundef @.str.263, i32 noundef %172)
-  %173 = load ptr, ptr %4, align 8
-  call void @prefs_register_enum_preference(ptr noundef %173, ptr noundef @.str.265, ptr noundef @.str.266, ptr noundef @.str.266, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 47), ptr noundef @gui_layout_content, i32 noundef 0)
-  %174 = load ptr, ptr %4, align 8
-  %175 = load i32, ptr %7, align 4
-  call void @prefs_set_effect_flags_by_name(ptr noundef %174, ptr noundef @.str.265, i32 noundef %175)
-  %176 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %176, ptr noundef @.str.267, ptr noundef @.str.268, ptr noundef @.str.268, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 89))
-  %177 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %177, ptr noundef @.str.269, ptr noundef @.str.270, ptr noundef @.str.270, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 90))
-  %178 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %178, ptr noundef @.str.271, ptr noundef @.str.272, ptr noundef @.str.272, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 91))
-  %179 = load ptr, ptr %4, align 8
-  %180 = load i32, ptr %10, align 4
-  call void @prefs_set_effect_flags_by_name(ptr noundef %179, ptr noundef @.str.271, i32 noundef %180)
-  %181 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %181, ptr noundef @.str.273, ptr noundef @.str.274, ptr noundef @.str.274, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 92))
-  %182 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %182, ptr noundef @.str.275, ptr noundef @.str.276, ptr noundef @.str.276, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 93))
-  %183 = load ptr, ptr %4, align 8
-  call void @prefs_register_enum_preference(ptr noundef %183, ptr noundef @.str.277, ptr noundef @.str.278, ptr noundef @.str.278, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 48), ptr noundef @gui_packet_dialog_layout, i32 noundef 0)
-  %184 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %184, ptr noundef @.str.279, ptr noundef @.str.280, ptr noundef @.str.281, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 94), ptr noundef @gui_packet_list_elide_mode, i32 noundef 0)
+  %157 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 33
+  call void @prefs_register_bool_preference(ptr noundef %156, ptr noundef @.str.192, ptr noundef @.str.193, ptr noundef @.str.194, ptr noundef %157)
+  %158 = load ptr, ptr @gui_module, align 8
+  %159 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 34
+  call void @prefs_register_bool_preference(ptr noundef %158, ptr noundef @.str.195, ptr noundef @.str.196, ptr noundef @.str.197, ptr noundef %159)
+  %160 = load ptr, ptr @gui_module, align 8
+  %161 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 35
+  call void @prefs_register_bool_preference(ptr noundef %160, ptr noundef @.str.198, ptr noundef @.str.199, ptr noundef @.str.200, ptr noundef %161)
+  %162 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %162, ptr noundef @.str.201)
+  %163 = load ptr, ptr @gui_module, align 8
+  %164 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 24
+  call void @prefs_register_bool_preference(ptr noundef %163, ptr noundef @.str.202, ptr noundef @.str.203, ptr noundef @.str.204, ptr noundef %164)
+  %165 = load ptr, ptr @gui_module, align 8
+  %166 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 25
+  call void @prefs_register_bool_preference(ptr noundef %165, ptr noundef @.str.205, ptr noundef @.str.206, ptr noundef @.str.207, ptr noundef %166)
+  %167 = load ptr, ptr @gui_module, align 8
+  %168 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 26
+  call void @prefs_register_bool_preference(ptr noundef %167, ptr noundef @.str.208, ptr noundef @.str.209, ptr noundef @.str.210, ptr noundef %168)
+  %169 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %169, ptr noundef @.str.211)
+  %170 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %170, ptr noundef @.str.212)
+  %171 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %171, ptr noundef @.str.213)
+  %172 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %172, ptr noundef @.str.214)
+  %173 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %173, ptr noundef @.str.215)
+  %174 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %174, ptr noundef @.str.216)
+  %175 = load ptr, ptr @gui_module, align 8
+  %176 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 10
+  call void @prefs_register_enum_preference(ptr noundef %175, ptr noundef @.str.217, ptr noundef @.str.218, ptr noundef @.str.218, ptr noundef %176, ptr noundef @gui_toolbar_style, i32 noundef 0)
+  %177 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %177, ptr noundef @.str.219)
+  %178 = load ptr, ptr @gui_module, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %178, ptr noundef @.str.220)
+  %179 = load ptr, ptr @gui_module, align 8
+  %180 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 83
+  call void @prefs_register_bool_preference(ptr noundef %179, ptr noundef @.str.221, ptr noundef @.str.222, ptr noundef @.str.223, ptr noundef %180)
+  %181 = load ptr, ptr @gui_module, align 8
+  %182 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 84
+  call void @prefs_register_enum_preference(ptr noundef %181, ptr noundef @.str.224, ptr noundef @.str.225, ptr noundef @.str.226, ptr noundef %182, ptr noundef @gui_update_channel, i32 noundef 0)
+  %183 = load ptr, ptr @gui_module, align 8
+  %184 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 85
+  call void @prefs_register_uint_preference(ptr noundef %183, ptr noundef @.str.227, ptr noundef @.str.228, ptr noundef @.str.229, i32 noundef 10, ptr noundef %184)
   %185 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %185, ptr noundef @.str.282, ptr noundef @.str.283, ptr noundef @.str.284, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99))
-  %186 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %186, ptr noundef @.str.285, ptr noundef @.str.286, ptr noundef @.str.287, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100))
+  %186 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 86
+  call void @prefs_register_uint_preference(ptr noundef %185, ptr noundef @.str.230, ptr noundef @.str.231, ptr noundef @.str.232, i32 noundef 10, ptr noundef %186)
   %187 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %187, ptr noundef @.str.288, ptr noundef @.str.289, ptr noundef @.str.290, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101))
-  %188 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %188, ptr noundef @.str.291, ptr noundef @.str.292, ptr noundef @.str.293, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 102))
+  %188 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 36
+  call void @register_string_like_preference(ptr noundef %187, ptr noundef @.str.233, ptr noundef @.str.234, ptr noundef @.str.235, ptr noundef %188, i32 noundef 8, ptr noundef null, i32 noundef 1)
   %189 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %189, ptr noundef @.str.294, ptr noundef @.str.295, ptr noundef @.str.296, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 103))
-  %190 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %190, ptr noundef @.str.297, ptr noundef @.str.298, ptr noundef @.str.299, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 95))
-  %191 = load ptr, ptr %4, align 8
-  call void @prefs_register_bool_preference(ptr noundef %191, ptr noundef @.str.300, ptr noundef @.str.301, ptr noundef @.str.302, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 96))
-  %192 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %192, ptr noundef @.str.303, ptr noundef @.str.304, ptr noundef @.str.305, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 97))
+  %190 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 37
+  call void @register_string_like_preference(ptr noundef %189, ptr noundef @.str.236, ptr noundef @.str.237, ptr noundef @.str.238, ptr noundef %190, i32 noundef 8, ptr noundef null, i32 noundef 1)
+  %191 = load ptr, ptr @gui_module, align 8
+  %192 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 38
+  call void @register_string_like_preference(ptr noundef %191, ptr noundef @.str.239, ptr noundef @.str.240, ptr noundef @.str.240, ptr noundef %192, i32 noundef 8, ptr noundef null, i32 noundef 1)
   %193 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %193, ptr noundef @.str.306, ptr noundef @.str.307, ptr noundef @.str.308, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 98))
-  %194 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %194, ptr noundef @.str.309, ptr noundef @.str.310, ptr noundef @.str.311, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 50))
+  %194 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 39
+  call void @prefs_register_enum_preference(ptr noundef %193, ptr noundef @.str.241, ptr noundef @.str.242, ptr noundef @.str.242, ptr noundef %194, ptr noundef @gui_version_placement_type, i32 noundef 0)
   %195 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %195, ptr noundef @.str.312, ptr noundef @.str.313, ptr noundef @.str.314, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 51))
+  call void @prefs_register_obsolete_preference(ptr noundef %195, ptr noundef @.str.243)
   %196 = load ptr, ptr @gui_module, align 8
-  call void @register_string_like_preference(ptr noundef %196, ptr noundef @.str.315, ptr noundef @.str.316, ptr noundef @.str.317, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 49), i32 noundef 8, ptr noundef null, i32 noundef 1)
+  call void @prefs_register_obsolete_preference(ptr noundef %196, ptr noundef @.str.244)
   %197 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %197, ptr noundef @.str.318, ptr noundef @.str.319, ptr noundef @.str.319, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 52))
-  %198 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %198, ptr noundef @.str.320, ptr noundef @.str.321, ptr noundef @.str.321, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 53))
+  %198 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 40
+  call void @prefs_register_uint_preference(ptr noundef %197, ptr noundef @.str.245, ptr noundef @.str.246, ptr noundef @.str.247, i32 noundef 10, ptr noundef %198)
   %199 = load ptr, ptr @gui_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %199, ptr noundef @.str.322, ptr noundef @.str.323, ptr noundef @.str.323, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 54))
-  %200 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.324, ptr noundef @.str.325, ptr noundef @.str.326, ptr noundef null, i32 noundef 0)
-  store ptr %200, ptr %3, align 8
-  %201 = load ptr, ptr %3, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %201, ptr noundef @.str.327)
-  %202 = load ptr, ptr %3, align 8
-  call void @prefs_register_bool_preference(ptr noundef %202, ptr noundef @.str.328, ptr noundef @.str.329, ptr noundef @.str.330, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 77))
+  %200 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 41
+  call void @prefs_register_uint_preference(ptr noundef %199, ptr noundef @.str.248, ptr noundef @.str.249, ptr noundef @.str.250, i32 noundef 10, ptr noundef %200)
+  %201 = load ptr, ptr @gui_module, align 8
+  %202 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 42
+  call void @prefs_register_uint_preference(ptr noundef %201, ptr noundef @.str.251, ptr noundef @.str.252, ptr noundef @.str.253, i32 noundef 10, ptr noundef %202)
   %203 = load ptr, ptr @gui_module, align 8
-  call void @filter_expression_register_uat(ptr noundef %203)
-  %204 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.331, ptr noundef @.str.332, ptr noundef @.str.333, ptr noundef null, i32 noundef 0)
-  store ptr %204, ptr %2, align 8
-  %205 = load ptr, ptr %2, align 8
-  call void @prefs_set_module_effect_flags(ptr noundef %205, i32 noundef 2)
-  %206 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %206, ptr noundef @.str.334, ptr noundef @.str.335, ptr noundef @.str.335, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 55), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %207 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %207, ptr noundef @.str.336, ptr noundef @.str.337, ptr noundef @.str.338, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 56), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %208 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %208, ptr noundef @.str.339, ptr noundef @.str.340, ptr noundef @.str.341, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 57), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %209 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %209, ptr noundef @.str.342, ptr noundef @.str.343, ptr noundef @.str.344, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 58), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %210 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %210, ptr noundef @.str.345, ptr noundef @.str.346, ptr noundef @.str.347, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 59), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %211 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %211, ptr noundef @.str.348, ptr noundef @.str.349, ptr noundef @.str.350, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 60), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %212 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %212, ptr noundef @.str.351, ptr noundef @.str.352, ptr noundef @.str.353, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 61), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %213 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %213, ptr noundef @.str.354, ptr noundef @.str.355, ptr noundef @.str.356, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 62), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %214 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %214, ptr noundef @.str.357, ptr noundef @.str.358, ptr noundef @.str.359, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 64))
-  %215 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %215, ptr noundef @.str.360, ptr noundef @.str.361, ptr noundef @.str.362, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 65))
-  %216 = load ptr, ptr %2, align 8
-  call void @register_string_like_preference(ptr noundef %216, ptr noundef @.str.363, ptr noundef @.str.364, ptr noundef @.str.365, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 63), i32 noundef 8, ptr noundef null, i32 noundef 0)
-  %217 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %217, ptr noundef @.str.366, ptr noundef @.str.367, ptr noundef @.str.368, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 66))
-  %218 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %218, ptr noundef @.str.369, ptr noundef @.str.370, ptr noundef @.str.371, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 67))
-  %219 = load ptr, ptr %2, align 8
-  call void @prefs_register_uint_preference(ptr noundef %219, ptr noundef @.str.372, ptr noundef @.str.373, ptr noundef @.str.374, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 68))
-  %220 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %220, ptr noundef @.str.375, ptr noundef @.str.376, ptr noundef @.str.377, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 69))
-  %221 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %221, ptr noundef @.str.378, ptr noundef @.str.379, ptr noundef @.str.380, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 70))
-  %222 = load ptr, ptr %2, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %222, ptr noundef @.str.381)
-  %223 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %223, ptr noundef @.str.382, ptr noundef @.str.383, ptr noundef @.str.384, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 71))
-  %224 = load ptr, ptr %2, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %224, ptr noundef @.str.385)
-  %225 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
-  store ptr @capture_column_free_cb, ptr %225, align 8
-  %226 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
-  store ptr @capture_column_reset_cb, ptr %226, align 8
-  %227 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
-  store ptr @capture_column_set_cb, ptr %227, align 8
-  %228 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
-  store ptr @capture_column_type_name_cb, ptr %228, align 8
-  %229 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
-  store ptr @capture_column_type_description_cb, ptr %229, align 8
-  %230 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
-  store ptr @capture_column_is_default_cb, ptr %230, align 8
-  %231 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
-  store ptr @capture_column_to_str_cb, ptr %231, align 8
-  %232 = load ptr, ptr %2, align 8
-  call void @prefs_register_list_custom_preference(ptr noundef %232, ptr noundef @.str.89, ptr noundef @.str.386, ptr noundef @.str.387, ptr noundef %8, ptr noundef @capture_column_init_cb, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72))
-  %233 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.388, ptr noundef @.str.389, ptr noundef @.str.389, ptr noundef @addr_resolve_pref_apply, i32 noundef 1)
-  store ptr %233, ptr @nameres_module, align 8
-  %234 = load ptr, ptr @nameres_module, align 8
-  call void @addr_resolve_pref_init(ptr noundef %234)
-  %235 = load ptr, ptr @nameres_module, align 8
-  call void @oid_pref_init(ptr noundef %235)
-  %236 = load ptr, ptr @nameres_module, align 8
-  call void @maxmind_db_pref_init(ptr noundef %236)
-  %237 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.390, ptr noundef @.str.391, ptr noundef @.str.391, ptr noundef null, i32 noundef 0)
-  store ptr %237, ptr %1, align 8
-  %238 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %238, ptr noundef @.str.392)
-  %239 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %239, ptr noundef @.str.393)
-  %240 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %240, ptr noundef @.str.394)
-  %241 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.395, ptr noundef @.str.396, ptr noundef @.str.396, ptr noundef null, i32 noundef 1)
-  store ptr %241, ptr @codecs_module, align 8
-  %242 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.397, ptr noundef @.str.398, ptr noundef @.str.398, ptr noundef @stats_callback, i32 noundef 1)
-  store ptr %242, ptr @stats_module, align 8
-  %243 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %243, ptr noundef @.str.372, ptr noundef @.str.399, ptr noundef @.str.400, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 73))
-  %244 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %244, ptr noundef @.str.401, ptr noundef @.str.402, ptr noundef @.str.403, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 104))
-  %245 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %245, ptr noundef @.str.404, ptr noundef @.str.405, ptr noundef @.str.406, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 105))
-  %246 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %246, ptr noundef @.str.407, ptr noundef @.str.408, ptr noundef @.str.409, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106))
-  %247 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %247, ptr noundef @.str.410, ptr noundef @.str.411, ptr noundef @.str.412, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107))
-  %248 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_enum_preference(ptr noundef %248, ptr noundef @.str.413, ptr noundef @.str.414, ptr noundef @.str.415, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 111), ptr noundef @st_sort_col_vals, i32 noundef 0)
-  %249 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %249, ptr noundef @.str.416, ptr noundef @.str.417, ptr noundef @.str.418, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 112))
-  %250 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %250, ptr noundef @.str.419, ptr noundef @.str.420, ptr noundef @.str.421, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 108))
-  %251 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %251, ptr noundef @.str.422, ptr noundef @.str.423, ptr noundef @.str.424, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 110))
-  %252 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %252, ptr noundef @.str.425, ptr noundef @.str.426, ptr noundef @.str.427, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 109))
-  %253 = load ptr, ptr @stats_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %253, ptr noundef @.str.428, ptr noundef @.str.429, ptr noundef @.str.430, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 113))
-  %254 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.431, ptr noundef @.str.432, ptr noundef @.str.432, ptr noundef null, i32 noundef 1)
-  store ptr %254, ptr @protocols_module, align 8
-  %255 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %255, ptr noundef @.str.433, ptr noundef @.str.434, ptr noundef @.str.435, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 74))
-  %256 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %256, ptr noundef @.str.436, ptr noundef @.str.437, ptr noundef @.str.438, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 75))
-  %257 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %257, ptr noundef @.str.439, ptr noundef @.str.440, ptr noundef @.str.441, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 76))
-  %258 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %258, ptr noundef @.str.442, ptr noundef @.str.443, ptr noundef @.str.444, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 78))
-  %259 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_bool_preference(ptr noundef %259, ptr noundef @.str.445, ptr noundef @.str.446, ptr noundef @.str.447, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 79))
-  %260 = load ptr, ptr @protocols_module, align 8
-  call void @prefs_register_uint_preference(ptr noundef %260, ptr noundef @.str.448, ptr noundef @.str.449, ptr noundef @.str.450, i32 noundef 10, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 80))
-  %261 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.451, ptr noundef @.str.452, ptr noundef @.str.452, ptr noundef null, i32 noundef 0)
-  %262 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.453, ptr noundef @.str.454, ptr noundef @.str.454, ptr noundef null, i32 noundef 0)
-  %263 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.455, ptr noundef @.str.456, ptr noundef @.str.456, ptr noundef null, i32 noundef 0)
-  br label %264
+  %204 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 43
+  call void @prefs_register_bool_preference(ptr noundef %203, ptr noundef @.str.254, ptr noundef @.str.255, ptr noundef @.str.256, ptr noundef %204)
+  %205 = load ptr, ptr @gui_module, align 8
+  %206 = call ptr @prefs_register_subtree(ptr noundef %205, ptr noundef @.str.257, ptr noundef @.str.257, ptr noundef @gui_layout_callback)
+  store ptr %206, ptr %4, align 8
+  %207 = load ptr, ptr %4, align 8
+  %208 = call i32 @prefs_get_module_effect_flags(ptr noundef %207)
+  store i32 %208, ptr %7, align 4
+  %209 = load i32, ptr %7, align 4
+  %210 = or i32 %209, 4
+  store i32 %210, ptr %7, align 4
+  %211 = load i32, ptr %7, align 4
+  %212 = and i32 %211, -2
+  store i32 %212, ptr %7, align 4
+  %213 = load ptr, ptr %4, align 8
+  %214 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  call void @prefs_register_uint_preference(ptr noundef %213, ptr noundef @.str.258, ptr noundef @.str.259, ptr noundef @.str.260, i32 noundef 10, ptr noundef %214)
+  %215 = load ptr, ptr %4, align 8
+  %216 = load i32, ptr %7, align 4
+  call void @prefs_set_effect_flags_by_name(ptr noundef %215, ptr noundef @.str.258, i32 noundef %216)
+  %217 = load ptr, ptr %4, align 8
+  %218 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 45
+  call void @prefs_register_enum_preference(ptr noundef %217, ptr noundef @.str.261, ptr noundef @.str.262, ptr noundef @.str.262, ptr noundef %218, ptr noundef @gui_layout_content, i32 noundef 0)
+  %219 = load ptr, ptr %4, align 8
+  %220 = load i32, ptr %7, align 4
+  call void @prefs_set_effect_flags_by_name(ptr noundef %219, ptr noundef @.str.261, i32 noundef %220)
+  %221 = load ptr, ptr %4, align 8
+  %222 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 46
+  call void @prefs_register_enum_preference(ptr noundef %221, ptr noundef @.str.263, ptr noundef @.str.264, ptr noundef @.str.264, ptr noundef %222, ptr noundef @gui_layout_content, i32 noundef 0)
+  %223 = load ptr, ptr %4, align 8
+  %224 = load i32, ptr %7, align 4
+  call void @prefs_set_effect_flags_by_name(ptr noundef %223, ptr noundef @.str.263, i32 noundef %224)
+  %225 = load ptr, ptr %4, align 8
+  %226 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 47
+  call void @prefs_register_enum_preference(ptr noundef %225, ptr noundef @.str.265, ptr noundef @.str.266, ptr noundef @.str.266, ptr noundef %226, ptr noundef @gui_layout_content, i32 noundef 0)
+  %227 = load ptr, ptr %4, align 8
+  %228 = load i32, ptr %7, align 4
+  call void @prefs_set_effect_flags_by_name(ptr noundef %227, ptr noundef @.str.265, i32 noundef %228)
+  %229 = load ptr, ptr %4, align 8
+  %230 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 89
+  call void @prefs_register_bool_preference(ptr noundef %229, ptr noundef @.str.267, ptr noundef @.str.268, ptr noundef @.str.268, ptr noundef %230)
+  %231 = load ptr, ptr %4, align 8
+  %232 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 90
+  call void @prefs_register_bool_preference(ptr noundef %231, ptr noundef @.str.269, ptr noundef @.str.270, ptr noundef @.str.270, ptr noundef %232)
+  %233 = load ptr, ptr %4, align 8
+  %234 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 91
+  call void @prefs_register_bool_preference(ptr noundef %233, ptr noundef @.str.271, ptr noundef @.str.272, ptr noundef @.str.272, ptr noundef %234)
+  %235 = load ptr, ptr %4, align 8
+  %236 = load i32, ptr %10, align 4
+  call void @prefs_set_effect_flags_by_name(ptr noundef %235, ptr noundef @.str.271, i32 noundef %236)
+  %237 = load ptr, ptr %4, align 8
+  %238 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 92
+  call void @prefs_register_bool_preference(ptr noundef %237, ptr noundef @.str.273, ptr noundef @.str.274, ptr noundef @.str.274, ptr noundef %238)
+  %239 = load ptr, ptr %4, align 8
+  %240 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 93
+  call void @prefs_register_bool_preference(ptr noundef %239, ptr noundef @.str.275, ptr noundef @.str.276, ptr noundef @.str.276, ptr noundef %240)
+  %241 = load ptr, ptr %4, align 8
+  %242 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 48
+  call void @prefs_register_enum_preference(ptr noundef %241, ptr noundef @.str.277, ptr noundef @.str.278, ptr noundef @.str.278, ptr noundef %242, ptr noundef @gui_packet_dialog_layout, i32 noundef 0)
+  %243 = load ptr, ptr @gui_module, align 8
+  %244 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 94
+  call void @prefs_register_enum_preference(ptr noundef %243, ptr noundef @.str.279, ptr noundef @.str.280, ptr noundef @.str.281, ptr noundef %244, ptr noundef @gui_packet_list_elide_mode, i32 noundef 0)
+  %245 = load ptr, ptr @gui_module, align 8
+  %246 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  call void @prefs_register_uint_preference(ptr noundef %245, ptr noundef @.str.282, ptr noundef @.str.283, ptr noundef @.str.284, i32 noundef 10, ptr noundef %246)
+  %247 = load ptr, ptr @gui_module, align 8
+  %248 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  call void @prefs_register_uint_preference(ptr noundef %247, ptr noundef @.str.285, ptr noundef @.str.286, ptr noundef @.str.287, i32 noundef 10, ptr noundef %248)
+  %249 = load ptr, ptr @gui_module, align 8
+  %250 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  call void @prefs_register_uint_preference(ptr noundef %249, ptr noundef @.str.288, ptr noundef @.str.289, ptr noundef @.str.290, i32 noundef 10, ptr noundef %250)
+  %251 = load ptr, ptr @gui_module, align 8
+  %252 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 102
+  call void @prefs_register_bool_preference(ptr noundef %251, ptr noundef @.str.291, ptr noundef @.str.292, ptr noundef @.str.293, ptr noundef %252)
+  %253 = load ptr, ptr @gui_module, align 8
+  %254 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 103
+  call void @prefs_register_bool_preference(ptr noundef %253, ptr noundef @.str.294, ptr noundef @.str.295, ptr noundef @.str.296, ptr noundef %254)
+  %255 = load ptr, ptr %4, align 8
+  %256 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 95
+  call void @prefs_register_bool_preference(ptr noundef %255, ptr noundef @.str.297, ptr noundef @.str.298, ptr noundef @.str.299, ptr noundef %256)
+  %257 = load ptr, ptr %4, align 8
+  %258 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 96
+  call void @prefs_register_bool_preference(ptr noundef %257, ptr noundef @.str.300, ptr noundef @.str.301, ptr noundef @.str.302, ptr noundef %258)
+  %259 = load ptr, ptr @gui_module, align 8
+  %260 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 97
+  call void @prefs_register_bool_preference(ptr noundef %259, ptr noundef @.str.303, ptr noundef @.str.304, ptr noundef @.str.305, ptr noundef %260)
+  %261 = load ptr, ptr @gui_module, align 8
+  %262 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 98
+  call void @prefs_register_uint_preference(ptr noundef %261, ptr noundef @.str.306, ptr noundef @.str.307, ptr noundef @.str.308, i32 noundef 10, ptr noundef %262)
+  %263 = load ptr, ptr @gui_module, align 8
+  %264 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 50
+  call void @prefs_register_bool_preference(ptr noundef %263, ptr noundef @.str.309, ptr noundef @.str.310, ptr noundef @.str.311, ptr noundef %264)
+  %265 = load ptr, ptr @gui_module, align 8
+  %266 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 51
+  call void @prefs_register_bool_preference(ptr noundef %265, ptr noundef @.str.312, ptr noundef @.str.313, ptr noundef @.str.314, ptr noundef %266)
+  %267 = load ptr, ptr @gui_module, align 8
+  %268 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 49
+  call void @register_string_like_preference(ptr noundef %267, ptr noundef @.str.315, ptr noundef @.str.316, ptr noundef @.str.317, ptr noundef %268, i32 noundef 8, ptr noundef null, i32 noundef 1)
+  %269 = load ptr, ptr @gui_module, align 8
+  %270 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 52
+  call void @prefs_register_bool_preference(ptr noundef %269, ptr noundef @.str.318, ptr noundef @.str.319, ptr noundef @.str.319, ptr noundef %270)
+  %271 = load ptr, ptr @gui_module, align 8
+  %272 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 53
+  call void @prefs_register_bool_preference(ptr noundef %271, ptr noundef @.str.320, ptr noundef @.str.321, ptr noundef @.str.321, ptr noundef %272)
+  %273 = load ptr, ptr @gui_module, align 8
+  %274 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 54
+  call void @prefs_register_bool_preference(ptr noundef %273, ptr noundef @.str.322, ptr noundef @.str.323, ptr noundef @.str.323, ptr noundef %274)
+  %275 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.324, ptr noundef @.str.325, ptr noundef @.str.326, ptr noundef null, i32 noundef 0)
+  store ptr %275, ptr %3, align 8
+  %276 = load ptr, ptr %3, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %276, ptr noundef @.str.327)
+  %277 = load ptr, ptr %3, align 8
+  %278 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 77
+  call void @prefs_register_bool_preference(ptr noundef %277, ptr noundef @.str.328, ptr noundef @.str.329, ptr noundef @.str.330, ptr noundef %278)
+  %279 = load ptr, ptr @gui_module, align 8
+  call void @filter_expression_register_uat(ptr noundef %279)
+  %280 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.331, ptr noundef @.str.332, ptr noundef @.str.333, ptr noundef null, i32 noundef 0)
+  store ptr %280, ptr %2, align 8
+  %281 = load ptr, ptr %2, align 8
+  call void @prefs_set_module_effect_flags(ptr noundef %281, i32 noundef 2)
+  %282 = load ptr, ptr %2, align 8
+  %283 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 55
+  call void @register_string_like_preference(ptr noundef %282, ptr noundef @.str.334, ptr noundef @.str.335, ptr noundef @.str.335, ptr noundef %283, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %284 = load ptr, ptr %2, align 8
+  %285 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 56
+  call void @register_string_like_preference(ptr noundef %284, ptr noundef @.str.336, ptr noundef @.str.337, ptr noundef @.str.338, ptr noundef %285, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %286 = load ptr, ptr %2, align 8
+  %287 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 57
+  call void @register_string_like_preference(ptr noundef %286, ptr noundef @.str.339, ptr noundef @.str.340, ptr noundef @.str.341, ptr noundef %287, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %288 = load ptr, ptr %2, align 8
+  %289 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 58
+  call void @register_string_like_preference(ptr noundef %288, ptr noundef @.str.342, ptr noundef @.str.343, ptr noundef @.str.344, ptr noundef %289, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %290 = load ptr, ptr %2, align 8
+  %291 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 59
+  call void @register_string_like_preference(ptr noundef %290, ptr noundef @.str.345, ptr noundef @.str.346, ptr noundef @.str.347, ptr noundef %291, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %292 = load ptr, ptr %2, align 8
+  %293 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 60
+  call void @register_string_like_preference(ptr noundef %292, ptr noundef @.str.348, ptr noundef @.str.349, ptr noundef @.str.350, ptr noundef %293, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %294 = load ptr, ptr %2, align 8
+  %295 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 61
+  call void @register_string_like_preference(ptr noundef %294, ptr noundef @.str.351, ptr noundef @.str.352, ptr noundef @.str.353, ptr noundef %295, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %296 = load ptr, ptr %2, align 8
+  %297 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 62
+  call void @register_string_like_preference(ptr noundef %296, ptr noundef @.str.354, ptr noundef @.str.355, ptr noundef @.str.356, ptr noundef %297, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %298 = load ptr, ptr %2, align 8
+  %299 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 64
+  call void @prefs_register_bool_preference(ptr noundef %298, ptr noundef @.str.357, ptr noundef @.str.358, ptr noundef @.str.359, ptr noundef %299)
+  %300 = load ptr, ptr %2, align 8
+  %301 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 65
+  call void @prefs_register_bool_preference(ptr noundef %300, ptr noundef @.str.360, ptr noundef @.str.361, ptr noundef @.str.362, ptr noundef %301)
+  %302 = load ptr, ptr %2, align 8
+  %303 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 63
+  call void @register_string_like_preference(ptr noundef %302, ptr noundef @.str.363, ptr noundef @.str.364, ptr noundef @.str.365, ptr noundef %303, i32 noundef 8, ptr noundef null, i32 noundef 0)
+  %304 = load ptr, ptr %2, align 8
+  %305 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 66
+  call void @prefs_register_bool_preference(ptr noundef %304, ptr noundef @.str.366, ptr noundef @.str.367, ptr noundef @.str.368, ptr noundef %305)
+  %306 = load ptr, ptr %2, align 8
+  %307 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 67
+  call void @prefs_register_bool_preference(ptr noundef %306, ptr noundef @.str.369, ptr noundef @.str.370, ptr noundef @.str.371, ptr noundef %307)
+  %308 = load ptr, ptr %2, align 8
+  %309 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 68
+  call void @prefs_register_uint_preference(ptr noundef %308, ptr noundef @.str.372, ptr noundef @.str.373, ptr noundef @.str.374, i32 noundef 10, ptr noundef %309)
+  %310 = load ptr, ptr %2, align 8
+  %311 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 69
+  call void @prefs_register_bool_preference(ptr noundef %310, ptr noundef @.str.375, ptr noundef @.str.376, ptr noundef @.str.377, ptr noundef %311)
+  %312 = load ptr, ptr %2, align 8
+  %313 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 70
+  call void @prefs_register_bool_preference(ptr noundef %312, ptr noundef @.str.378, ptr noundef @.str.379, ptr noundef @.str.380, ptr noundef %313)
+  %314 = load ptr, ptr %2, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %314, ptr noundef @.str.381)
+  %315 = load ptr, ptr %2, align 8
+  %316 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 71
+  call void @prefs_register_bool_preference(ptr noundef %315, ptr noundef @.str.382, ptr noundef @.str.383, ptr noundef @.str.384, ptr noundef %316)
+  %317 = load ptr, ptr %2, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %317, ptr noundef @.str.385)
+  %318 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 0
+  store ptr @capture_column_free_cb, ptr %318, align 8
+  %319 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 1
+  store ptr @capture_column_reset_cb, ptr %319, align 8
+  %320 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 2
+  store ptr @capture_column_set_cb, ptr %320, align 8
+  %321 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 3
+  store ptr @capture_column_type_name_cb, ptr %321, align 8
+  %322 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 4
+  store ptr @capture_column_type_description_cb, ptr %322, align 8
+  %323 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 5
+  store ptr @capture_column_is_default_cb, ptr %323, align 8
+  %324 = getelementptr inbounds %struct.pref_custom_cbs, ptr %8, i32 0, i32 6
+  store ptr @capture_column_to_str_cb, ptr %324, align 8
+  %325 = load ptr, ptr %2, align 8
+  %326 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  call void @prefs_register_list_custom_preference(ptr noundef %325, ptr noundef @.str.89, ptr noundef @.str.386, ptr noundef @.str.387, ptr noundef %8, ptr noundef @capture_column_init_cb, ptr noundef %326)
+  %327 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.388, ptr noundef @.str.389, ptr noundef @.str.389, ptr noundef @addr_resolve_pref_apply, i32 noundef 1)
+  store ptr %327, ptr @nameres_module, align 8
+  %328 = load ptr, ptr @nameres_module, align 8
+  call void @addr_resolve_pref_init(ptr noundef %328)
+  %329 = load ptr, ptr @nameres_module, align 8
+  call void @oid_pref_init(ptr noundef %329)
+  %330 = load ptr, ptr @nameres_module, align 8
+  call void @maxmind_db_pref_init(ptr noundef %330)
+  %331 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.390, ptr noundef @.str.391, ptr noundef @.str.391, ptr noundef null, i32 noundef 0)
+  store ptr %331, ptr %1, align 8
+  %332 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %332, ptr noundef @.str.392)
+  %333 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %333, ptr noundef @.str.393)
+  %334 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %334, ptr noundef @.str.394)
+  %335 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.395, ptr noundef @.str.396, ptr noundef @.str.396, ptr noundef null, i32 noundef 1)
+  store ptr %335, ptr @codecs_module, align 8
+  %336 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.397, ptr noundef @.str.398, ptr noundef @.str.398, ptr noundef @stats_callback, i32 noundef 1)
+  store ptr %336, ptr @stats_module, align 8
+  %337 = load ptr, ptr @stats_module, align 8
+  %338 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 73
+  call void @prefs_register_uint_preference(ptr noundef %337, ptr noundef @.str.372, ptr noundef @.str.399, ptr noundef @.str.400, i32 noundef 10, ptr noundef %338)
+  %339 = load ptr, ptr @stats_module, align 8
+  %340 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 104
+  call void @prefs_register_bool_preference(ptr noundef %339, ptr noundef @.str.401, ptr noundef @.str.402, ptr noundef @.str.403, ptr noundef %340)
+  %341 = load ptr, ptr @stats_module, align 8
+  %342 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 105
+  call void @prefs_register_bool_preference(ptr noundef %341, ptr noundef @.str.404, ptr noundef @.str.405, ptr noundef @.str.406, ptr noundef %342)
+  %343 = load ptr, ptr @stats_module, align 8
+  %344 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  call void @prefs_register_uint_preference(ptr noundef %343, ptr noundef @.str.407, ptr noundef @.str.408, ptr noundef @.str.409, i32 noundef 10, ptr noundef %344)
+  %345 = load ptr, ptr @stats_module, align 8
+  %346 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  call void @prefs_register_uint_preference(ptr noundef %345, ptr noundef @.str.410, ptr noundef @.str.411, ptr noundef @.str.412, i32 noundef 10, ptr noundef %346)
+  %347 = load ptr, ptr @stats_module, align 8
+  %348 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 111
+  call void @prefs_register_enum_preference(ptr noundef %347, ptr noundef @.str.413, ptr noundef @.str.414, ptr noundef @.str.415, ptr noundef %348, ptr noundef @st_sort_col_vals, i32 noundef 0)
+  %349 = load ptr, ptr @stats_module, align 8
+  %350 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 112
+  call void @prefs_register_bool_preference(ptr noundef %349, ptr noundef @.str.416, ptr noundef @.str.417, ptr noundef @.str.418, ptr noundef %350)
+  %351 = load ptr, ptr @stats_module, align 8
+  %352 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 108
+  call void @prefs_register_bool_preference(ptr noundef %351, ptr noundef @.str.419, ptr noundef @.str.420, ptr noundef @.str.421, ptr noundef %352)
+  %353 = load ptr, ptr @stats_module, align 8
+  %354 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 110
+  call void @prefs_register_bool_preference(ptr noundef %353, ptr noundef @.str.422, ptr noundef @.str.423, ptr noundef @.str.424, ptr noundef %354)
+  %355 = load ptr, ptr @stats_module, align 8
+  %356 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 109
+  call void @prefs_register_bool_preference(ptr noundef %355, ptr noundef @.str.425, ptr noundef @.str.426, ptr noundef @.str.427, ptr noundef %356)
+  %357 = load ptr, ptr @stats_module, align 8
+  %358 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 113
+  call void @prefs_register_bool_preference(ptr noundef %357, ptr noundef @.str.428, ptr noundef @.str.429, ptr noundef @.str.430, ptr noundef %358)
+  %359 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.431, ptr noundef @.str.432, ptr noundef @.str.432, ptr noundef null, i32 noundef 1)
+  store ptr %359, ptr @protocols_module, align 8
+  %360 = load ptr, ptr @protocols_module, align 8
+  %361 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 74
+  call void @prefs_register_bool_preference(ptr noundef %360, ptr noundef @.str.433, ptr noundef @.str.434, ptr noundef @.str.435, ptr noundef %361)
+  %362 = load ptr, ptr @protocols_module, align 8
+  %363 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 75
+  call void @prefs_register_bool_preference(ptr noundef %362, ptr noundef @.str.436, ptr noundef @.str.437, ptr noundef @.str.438, ptr noundef %363)
+  %364 = load ptr, ptr @protocols_module, align 8
+  %365 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 76
+  call void @prefs_register_bool_preference(ptr noundef %364, ptr noundef @.str.439, ptr noundef @.str.440, ptr noundef @.str.441, ptr noundef %365)
+  %366 = load ptr, ptr @protocols_module, align 8
+  %367 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 78
+  call void @prefs_register_bool_preference(ptr noundef %366, ptr noundef @.str.442, ptr noundef @.str.443, ptr noundef @.str.444, ptr noundef %367)
+  %368 = load ptr, ptr @protocols_module, align 8
+  %369 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 79
+  call void @prefs_register_bool_preference(ptr noundef %368, ptr noundef @.str.445, ptr noundef @.str.446, ptr noundef @.str.447, ptr noundef %369)
+  %370 = load ptr, ptr @protocols_module, align 8
+  %371 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 80
+  call void @prefs_register_uint_preference(ptr noundef %370, ptr noundef @.str.448, ptr noundef @.str.449, ptr noundef @.str.450, i32 noundef 10, ptr noundef %371)
+  %372 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.451, ptr noundef @.str.452, ptr noundef @.str.452, ptr noundef null, i32 noundef 0)
+  %373 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.453, ptr noundef @.str.454, ptr noundef @.str.454, ptr noundef null, i32 noundef 0)
+  %374 = call ptr @prefs_register_module(ptr noundef null, ptr noundef @.str.455, ptr noundef @.str.456, ptr noundef @.str.456, ptr noundef null, i32 noundef 0)
+  br label %375
 
-264:                                              ; preds = %14, %13
+375:                                              ; preds = %14, %13
   ret void
 }
 
@@ -7461,14 +7717,16 @@ define internal void @reset_string_like_preference(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define void @prefs_reset() #0 {
   store i32 0, ptr @prefs_initialized, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 87), align 8
-  call void @g_free(ptr noundef %1)
-  store ptr null, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 87), align 8
+  %1 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 87
+  %2 = load ptr, ptr %1, align 8
+  call void @g_free(ptr noundef %2)
+  %3 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 87
+  store ptr null, ptr %3, align 8
   call void @uat_unload_all()
   call void @oids_cleanup()
   call void @init_prefs()
-  %2 = load ptr, ptr @prefs_modules, align 8
-  %3 = call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef @reset_module_prefs, ptr noundef null)
+  %4 = load ptr, ptr @prefs_modules, align 8
+  %5 = call zeroext i1 @wmem_tree_foreach(ptr noundef %4, ptr noundef @reset_module_prefs, ptr noundef null)
   ret void
 }
 
@@ -7666,481 +7924,487 @@ define i32 @read_prefs_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %22 = getelementptr inbounds [128 x i8], ptr %18, i64 0, i64 0
   %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %21, ptr noundef @.str.19, ptr noundef %22)
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %32
+  br i1 %24, label %25, label %34
 
 25:                                               ; preds = %4
-  %26 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 87), align 8
-  call void @g_free(ptr noundef %26)
-  %27 = getelementptr inbounds [128 x i8], ptr %18, i64 0, i64 0
+  %26 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 87
+  %27 = load ptr, ptr %26, align 8
+  call void @g_free(ptr noundef %27)
   %28 = getelementptr inbounds [128 x i8], ptr %18, i64 0, i64 0
-  %29 = call i64 @strlen(ptr noundef %28) #11
-  %30 = sub i64 %29, 1
-  %31 = call noalias ptr @g_strndup(ptr noundef %27, i64 noundef %30)
-  store ptr %31, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 87), align 8
-  br label %32
-
-32:                                               ; preds = %25, %4
-  %33 = load ptr, ptr %7, align 8
-  call void @rewind(ptr noundef %33)
+  %29 = getelementptr inbounds [128 x i8], ptr %18, i64 0, i64 0
+  %30 = call i64 @strlen(ptr noundef %29) #11
+  %31 = sub i64 %30, 1
+  %32 = call noalias ptr @g_strndup(ptr noundef %28, i64 noundef %31)
+  %33 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 87
+  store ptr %32, ptr %33, align 8
   br label %34
 
-34:                                               ; preds = %234, %58, %32
+34:                                               ; preds = %25, %4
   %35 = load ptr, ptr %7, align 8
-  %36 = call i32 @getc_unlocked(ptr noundef %35)
-  store i32 %36, ptr %11, align 4
-  %37 = icmp ne i32 %36, -1
-  br i1 %37, label %38, label %235
+  call void @rewind(ptr noundef %35)
+  br label %36
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %11, align 4
-  %40 = icmp eq i32 %39, 13
-  br i1 %40, label %41, label %55
+36:                                               ; preds = %238, %60, %34
+  %37 = load ptr, ptr %7, align 8
+  %38 = call i32 @getc_unlocked(ptr noundef %37)
+  store i32 %38, ptr %11, align 4
+  %39 = icmp ne i32 %38, -1
+  br i1 %39, label %40, label %239
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %7, align 8
-  %43 = call i32 @getc_unlocked(ptr noundef %42)
-  store i32 %43, ptr %11, align 4
-  %44 = load i32, ptr %11, align 4
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %46, label %47
+40:                                               ; preds = %36
+  %41 = load i32, ptr %11, align 4
+  %42 = icmp eq i32 %41, 13
+  br i1 %42, label %43, label %57
 
-46:                                               ; preds = %41
-  br label %235
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %7, align 8
+  %45 = call i32 @getc_unlocked(ptr noundef %44)
+  store i32 %45, ptr %11, align 4
+  %46 = load i32, ptr %11, align 4
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  %48 = load i32, ptr %11, align 4
-  %49 = icmp ne i32 %48, 10
-  br i1 %49, label %50, label %54
+48:                                               ; preds = %43
+  br label %239
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %11, align 4
-  %52 = load ptr, ptr %7, align 8
-  %53 = call i32 @ungetc(i32 noundef %51, ptr noundef %52)
+49:                                               ; preds = %43
+  %50 = load i32, ptr %11, align 4
+  %51 = icmp ne i32 %50, 10
+  br i1 %51, label %52, label %56
+
+52:                                               ; preds = %49
+  %53 = load i32, ptr %11, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = call i32 @ungetc(i32 noundef %53, ptr noundef %54)
   store i32 13, ptr %11, align 4
-  br label %54
+  br label %56
 
-54:                                               ; preds = %50, %47
-  br label %55
+56:                                               ; preds = %52, %49
+  br label %57
 
-55:                                               ; preds = %54, %38
-  %56 = load i32, ptr %11, align 4
-  %57 = icmp eq i32 %56, 10
-  br i1 %57, label %58, label %61
+57:                                               ; preds = %56, %40
+  %58 = load i32, ptr %11, align 4
+  %59 = icmp eq i32 %58, 10
+  br i1 %59, label %60, label %63
 
-58:                                               ; preds = %55
+60:                                               ; preds = %57
   store i32 0, ptr %10, align 4
-  %59 = load i32, ptr %15, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %15, align 4
-  br label %34, !llvm.loop !21
+  %61 = load i32, ptr %15, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %15, align 4
+  br label %36, !llvm.loop !21
 
-61:                                               ; preds = %55
-  %62 = load i32, ptr %10, align 4
-  switch i32 %62, label %234 [
-    i32 0, label %63
-    i32 1, label %200
-    i32 2, label %212
-    i32 3, label %228
-    i32 4, label %233
+63:                                               ; preds = %57
+  %64 = load i32, ptr %10, align 4
+  switch i32 %64, label %238 [
+    i32 0, label %65
+    i32 1, label %204
+    i32 2, label %216
+    i32 3, label %232
+    i32 4, label %237
   ]
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr @g_ascii_table, align 8
-  %65 = load i32, ptr %11, align 4
-  %66 = trunc i32 %65 to i8
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr i16, ptr %64, i64 %67
-  %69 = load i16, ptr %68, align 2
-  %70 = zext i16 %69 to i32
-  %71 = and i32 %70, 1
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %168
+65:                                               ; preds = %63
+  %66 = load ptr, ptr @g_ascii_table, align 8
+  %67 = load i32, ptr %11, align 4
+  %68 = trunc i32 %67 to i8
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr i16, ptr %66, i64 %69
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i32
+  %73 = and i32 %72, 1
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %172
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %13, align 8
-  %75 = getelementptr inbounds %struct._GString, ptr %74, i32 0, i32 1
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp ugt i64 %76, 0
-  br i1 %77, label %78, label %160
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %13, align 8
+  %77 = getelementptr inbounds %struct._GString, ptr %76, i32 0, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ugt i64 %78, 0
+  br i1 %79, label %80, label %164
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr %14, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %153
+80:                                               ; preds = %75
+  %81 = load i32, ptr %14, align 4
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %157
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds %struct._GString, ptr %82, i32 0, i32 1
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp ugt i64 %84, 0
-  br i1 %85, label %86, label %116
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds %struct._GString, ptr %84, i32 0, i32 1
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ugt i64 %86, 0
+  br i1 %87, label %88, label %118
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds %struct._GString, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct._GString, ptr %90, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  %93 = sub i64 %92, 1
-  %94 = getelementptr i8, ptr %89, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = sext i8 %95 to i32
-  %97 = icmp eq i32 %96, 44
-  br i1 %97, label %98, label %115
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds %struct._GString, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds %struct._GString, ptr %92, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = sub i64 %94, 1
+  %96 = getelementptr i8, ptr %91, i64 %95
+  %97 = load i8, ptr %96, align 1
+  %98 = sext i8 %97 to i32
+  %99 = icmp eq i32 %98, 44
+  br i1 %99, label %100, label %117
 
-98:                                               ; preds = %86
-  %99 = load ptr, ptr %12, align 8
-  %100 = getelementptr inbounds %struct._GString, ptr %99, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = getelementptr inbounds %struct._GString, ptr %102, i32 0, i32 1
-  %104 = load i64, ptr %103, align 8
-  %105 = sub i64 %104, 1
-  %106 = getelementptr i8, ptr %101, i64 %105
-  store i8 0, ptr %106, align 1
-  br label %107
+100:                                              ; preds = %88
+  %101 = load ptr, ptr %12, align 8
+  %102 = getelementptr inbounds %struct._GString, ptr %101, i32 0, i32 0
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds %struct._GString, ptr %104, i32 0, i32 1
+  %106 = load i64, ptr %105, align 8
+  %107 = sub i64 %106, 1
+  %108 = getelementptr i8, ptr %103, i64 %107
+  store i8 0, ptr %108, align 1
+  br label %109
 
-107:                                              ; preds = %98
-  %108 = load ptr, ptr %6, align 8
-  %109 = load i32, ptr %16, align 4
-  %110 = load ptr, ptr %13, align 8
-  %111 = getelementptr inbounds %struct._GString, ptr %110, i32 0, i32 0
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4822, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.20, ptr noundef %108, i32 noundef %109, ptr noundef %112, ptr noundef %113)
-  br label %114
-
-114:                                              ; preds = %107
-  br label %115
-
-115:                                              ; preds = %114, %86
+109:                                              ; preds = %100
+  %110 = load ptr, ptr %6, align 8
+  %111 = load i32, ptr %16, align 4
+  %112 = load ptr, ptr %13, align 8
+  %113 = getelementptr inbounds %struct._GString, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4822, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.20, ptr noundef %110, i32 noundef %111, ptr noundef %114, ptr noundef %115)
   br label %116
 
-116:                                              ; preds = %115, %81
-  %117 = load ptr, ptr %8, align 8
-  %118 = load ptr, ptr %13, align 8
-  %119 = getelementptr inbounds %struct._GString, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %12, align 8
-  %122 = getelementptr inbounds %struct._GString, ptr %121, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %9, align 8
-  %125 = call i32 %117(ptr noundef %120, ptr noundef %123, ptr noundef %124, i32 noundef 0)
-  switch i32 %125, label %152 [
-    i32 0, label %126
-    i32 1, label %127
-    i32 2, label %134
-    i32 3, label %143
+116:                                              ; preds = %109
+  br label %117
+
+117:                                              ; preds = %116, %88
+  br label %118
+
+118:                                              ; preds = %117, %83
+  %119 = load ptr, ptr %8, align 8
+  %120 = load ptr, ptr %13, align 8
+  %121 = getelementptr inbounds %struct._GString, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %12, align 8
+  %124 = getelementptr inbounds %struct._GString, ptr %123, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %9, align 8
+  %127 = call i32 %119(ptr noundef %122, ptr noundef %125, ptr noundef %126, i32 noundef 0)
+  switch i32 %127, label %156 [
+    i32 0, label %128
+    i32 1, label %129
+    i32 2, label %136
+    i32 3, label %146
   ]
 
-126:                                              ; preds = %116
-  br label %152
+128:                                              ; preds = %118
+  br label %156
 
-127:                                              ; preds = %116
-  %128 = load ptr, ptr %13, align 8
-  %129 = getelementptr inbounds %struct._GString, ptr %128, i32 0, i32 0
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i32, ptr %16, align 4
-  %132 = load ptr, ptr %6, align 8
-  %133 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, ...) @report_warning(ptr noundef @.str.21, ptr noundef %130, i32 noundef %131, ptr noundef %132, ptr noundef %133)
-  br label %152
+129:                                              ; preds = %118
+  %130 = load ptr, ptr %13, align 8
+  %131 = getelementptr inbounds %struct._GString, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i32, ptr %16, align 4
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, ...) @report_warning(ptr noundef @.str.21, ptr noundef %132, i32 noundef %133, ptr noundef %134, ptr noundef %135)
+  br label %156
 
-134:                                              ; preds = %116
-  br label %135
+136:                                              ; preds = %118
+  br label %137
 
-135:                                              ; preds = %134
-  %136 = load ptr, ptr %13, align 8
-  %137 = getelementptr inbounds %struct._GString, ptr %136, i32 0, i32 0
-  %138 = load ptr, ptr %137, align 8
-  %139 = load i32, ptr %16, align 4
-  %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4844, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.22, ptr noundef %138, i32 noundef %139, ptr noundef %140, ptr noundef %141)
-  br label %142
-
-142:                                              ; preds = %135
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
-  br label %152
-
-143:                                              ; preds = %116
+137:                                              ; preds = %136
+  %138 = load ptr, ptr %13, align 8
+  %139 = getelementptr inbounds %struct._GString, ptr %138, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i32, ptr %16, align 4
+  %142 = load ptr, ptr %6, align 8
+  %143 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4844, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.22, ptr noundef %140, i32 noundef %141, ptr noundef %142, ptr noundef %143)
   br label %144
 
-144:                                              ; preds = %143
-  %145 = load ptr, ptr %13, align 8
-  %146 = getelementptr inbounds %struct._GString, ptr %145, i32 0, i32 0
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i32, ptr %16, align 4
-  %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4861, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.23, ptr noundef %147, i32 noundef %148, ptr noundef %149, ptr noundef %150)
-  br label %151
+144:                                              ; preds = %137
+  %145 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %145, align 8
+  br label %156
 
-151:                                              ; preds = %144
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
-  br label %152
+146:                                              ; preds = %118
+  br label %147
 
-152:                                              ; preds = %151, %142, %127, %126, %116
-  br label %159
-
-153:                                              ; preds = %78
+147:                                              ; preds = %146
+  %148 = load ptr, ptr %13, align 8
+  %149 = getelementptr inbounds %struct._GString, ptr %148, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8
+  %151 = load i32, ptr %16, align 4
+  %152 = load ptr, ptr %6, align 8
+  %153 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4861, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.23, ptr noundef %150, i32 noundef %151, ptr noundef %152, ptr noundef %153)
   br label %154
 
-154:                                              ; preds = %153
-  %155 = load i32, ptr %16, align 4
-  %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4866, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.24, i32 noundef %155, ptr noundef %156, ptr noundef %157)
+154:                                              ; preds = %147
+  %155 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %155, align 8
+  br label %156
+
+156:                                              ; preds = %154, %144, %129, %128, %118
+  br label %163
+
+157:                                              ; preds = %80
   br label %158
 
-158:                                              ; preds = %154
-  br label %159
+158:                                              ; preds = %157
+  %159 = load i32, ptr %16, align 4
+  %160 = load ptr, ptr %6, align 8
+  %161 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4866, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.24, i32 noundef %159, ptr noundef %160, ptr noundef %161)
+  br label %162
 
-159:                                              ; preds = %158, %152
-  br label %160
+162:                                              ; preds = %158
+  br label %163
 
-160:                                              ; preds = %159, %73
+163:                                              ; preds = %162, %156
+  br label %164
+
+164:                                              ; preds = %163, %75
   store i32 1, ptr %10, align 4
   store i32 0, ptr %14, align 4
-  %161 = load ptr, ptr %13, align 8
-  %162 = call ptr @g_string_truncate(ptr noundef %161, i64 noundef 0)
-  %163 = load ptr, ptr %13, align 8
-  %164 = load i32, ptr %11, align 4
-  %165 = trunc i32 %164 to i8
-  %166 = call ptr @g_string_append_c_inline(ptr noundef %163, i8 noundef signext %165)
-  %167 = load i32, ptr %15, align 4
-  store i32 %167, ptr %16, align 4
-  br label %199
+  %165 = load ptr, ptr %13, align 8
+  %166 = call ptr @g_string_truncate(ptr noundef %165, i64 noundef 0)
+  %167 = load ptr, ptr %13, align 8
+  %168 = load i32, ptr %11, align 4
+  %169 = trunc i32 %168 to i8
+  %170 = call ptr @g_string_append_c_inline(ptr noundef %167, i8 noundef signext %169)
+  %171 = load i32, ptr %15, align 4
+  store i32 %171, ptr %16, align 4
+  br label %203
 
-168:                                              ; preds = %63
-  %169 = load ptr, ptr @g_ascii_table, align 8
-  %170 = load i32, ptr %11, align 4
-  %171 = trunc i32 %170 to i8
-  %172 = zext i8 %171 to i64
-  %173 = getelementptr i16, ptr %169, i64 %172
-  %174 = load i16, ptr %173, align 2
-  %175 = zext i16 %174 to i32
-  %176 = and i32 %175, 256
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %178, label %187
+172:                                              ; preds = %65
+  %173 = load ptr, ptr @g_ascii_table, align 8
+  %174 = load i32, ptr %11, align 4
+  %175 = trunc i32 %174 to i8
+  %176 = zext i8 %175 to i64
+  %177 = getelementptr i16, ptr %173, i64 %176
+  %178 = load i16, ptr %177, align 2
+  %179 = zext i16 %178 to i32
+  %180 = and i32 %179, 256
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %191
 
-178:                                              ; preds = %168
-  %179 = load ptr, ptr %13, align 8
-  %180 = getelementptr inbounds %struct._GString, ptr %179, i32 0, i32 1
-  %181 = load i64, ptr %180, align 8
-  %182 = icmp ugt i64 %181, 0
-  br i1 %182, label %183, label %187
+182:                                              ; preds = %172
+  %183 = load ptr, ptr %13, align 8
+  %184 = getelementptr inbounds %struct._GString, ptr %183, i32 0, i32 1
+  %185 = load i64, ptr %184, align 8
+  %186 = icmp ugt i64 %185, 0
+  br i1 %186, label %187, label %191
 
-183:                                              ; preds = %178
-  %184 = load i32, ptr %14, align 4
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %187
-
-186:                                              ; preds = %183
-  store i32 2, ptr %10, align 4
-  br label %198
-
-187:                                              ; preds = %183, %178, %168
-  %188 = load i32, ptr %11, align 4
-  %189 = icmp eq i32 %188, 35
+187:                                              ; preds = %182
+  %188 = load i32, ptr %14, align 4
+  %189 = icmp ne i32 %188, 0
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %187
+  store i32 2, ptr %10, align 4
+  br label %202
+
+191:                                              ; preds = %187, %182, %172
+  %192 = load i32, ptr %11, align 4
+  %193 = icmp eq i32 %192, 35
+  br i1 %193, label %194, label %195
+
+194:                                              ; preds = %191
   store i32 4, ptr %10, align 4
-  br label %197
+  br label %201
 
-191:                                              ; preds = %187
-  br label %192
-
-192:                                              ; preds = %191
-  %193 = load i32, ptr %15, align 4
-  %194 = load ptr, ptr %6, align 8
-  %195 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4879, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.25, i32 noundef %193, ptr noundef %194, ptr noundef %195)
+195:                                              ; preds = %191
   br label %196
 
-196:                                              ; preds = %192
-  br label %197
+196:                                              ; preds = %195
+  %197 = load i32, ptr %15, align 4
+  %198 = load ptr, ptr %6, align 8
+  %199 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4879, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.25, i32 noundef %197, ptr noundef %198, ptr noundef %199)
+  br label %200
 
-197:                                              ; preds = %196, %190
-  br label %198
+200:                                              ; preds = %196
+  br label %201
 
-198:                                              ; preds = %197, %186
-  br label %199
+201:                                              ; preds = %200, %194
+  br label %202
 
-199:                                              ; preds = %198, %160
-  br label %234
+202:                                              ; preds = %201, %190
+  br label %203
 
-200:                                              ; preds = %61
-  %201 = load i32, ptr %11, align 4
-  %202 = icmp ne i32 %201, 58
-  br i1 %202, label %203, label %208
+203:                                              ; preds = %202, %164
+  br label %238
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %13, align 8
+204:                                              ; preds = %63
   %205 = load i32, ptr %11, align 4
-  %206 = trunc i32 %205 to i8
-  %207 = call ptr @g_string_append_c_inline(ptr noundef %204, i8 noundef signext %206)
-  br label %211
+  %206 = icmp ne i32 %205, 58
+  br i1 %206, label %207, label %212
 
-208:                                              ; preds = %200
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %13, align 8
+  %209 = load i32, ptr %11, align 4
+  %210 = trunc i32 %209 to i8
+  %211 = call ptr @g_string_append_c_inline(ptr noundef %208, i8 noundef signext %210)
+  br label %215
+
+212:                                              ; preds = %204
   store i32 2, ptr %10, align 4
-  %209 = load ptr, ptr %12, align 8
-  %210 = call ptr @g_string_truncate(ptr noundef %209, i64 noundef 0)
+  %213 = load ptr, ptr %12, align 8
+  %214 = call ptr @g_string_truncate(ptr noundef %213, i64 noundef 0)
   store i32 1, ptr %14, align 4
-  br label %211
+  br label %215
 
-211:                                              ; preds = %208, %203
-  br label %234
+215:                                              ; preds = %212, %207
+  br label %238
 
-212:                                              ; preds = %61
-  %213 = load ptr, ptr @g_ascii_table, align 8
-  %214 = load i32, ptr %11, align 4
-  %215 = trunc i32 %214 to i8
-  %216 = zext i8 %215 to i64
-  %217 = getelementptr i16, ptr %213, i64 %216
-  %218 = load i16, ptr %217, align 2
-  %219 = zext i16 %218 to i32
-  %220 = and i32 %219, 256
-  %221 = icmp ne i32 %220, 0
-  br i1 %221, label %227, label %222
+216:                                              ; preds = %63
+  %217 = load ptr, ptr @g_ascii_table, align 8
+  %218 = load i32, ptr %11, align 4
+  %219 = trunc i32 %218 to i8
+  %220 = zext i8 %219 to i64
+  %221 = getelementptr i16, ptr %217, i64 %220
+  %222 = load i16, ptr %221, align 2
+  %223 = zext i16 %222 to i32
+  %224 = and i32 %223, 256
+  %225 = icmp ne i32 %224, 0
+  br i1 %225, label %231, label %226
 
-222:                                              ; preds = %212
+226:                                              ; preds = %216
   store i32 3, ptr %10, align 4
-  %223 = load ptr, ptr %12, align 8
-  %224 = load i32, ptr %11, align 4
-  %225 = trunc i32 %224 to i8
-  %226 = call ptr @g_string_append_c_inline(ptr noundef %223, i8 noundef signext %225)
-  br label %227
+  %227 = load ptr, ptr %12, align 8
+  %228 = load i32, ptr %11, align 4
+  %229 = trunc i32 %228 to i8
+  %230 = call ptr @g_string_append_c_inline(ptr noundef %227, i8 noundef signext %229)
+  br label %231
 
-227:                                              ; preds = %222, %212
-  br label %234
+231:                                              ; preds = %226, %216
+  br label %238
 
-228:                                              ; preds = %61
-  %229 = load ptr, ptr %12, align 8
-  %230 = load i32, ptr %11, align 4
-  %231 = trunc i32 %230 to i8
-  %232 = call ptr @g_string_append_c_inline(ptr noundef %229, i8 noundef signext %231)
-  br label %234
+232:                                              ; preds = %63
+  %233 = load ptr, ptr %12, align 8
+  %234 = load i32, ptr %11, align 4
+  %235 = trunc i32 %234 to i8
+  %236 = call ptr @g_string_append_c_inline(ptr noundef %233, i8 noundef signext %235)
+  br label %238
 
-233:                                              ; preds = %61
-  br label %234
+237:                                              ; preds = %63
+  br label %238
 
-234:                                              ; preds = %233, %228, %227, %211, %199, %61
-  br label %34, !llvm.loop !21
+238:                                              ; preds = %237, %232, %231, %215, %203, %63
+  br label %36, !llvm.loop !21
 
-235:                                              ; preds = %46, %34
-  %236 = load ptr, ptr %13, align 8
-  %237 = getelementptr inbounds %struct._GString, ptr %236, i32 0, i32 1
-  %238 = load i64, ptr %237, align 8
-  %239 = icmp ugt i64 %238, 0
-  br i1 %239, label %240, label %281
+239:                                              ; preds = %48, %36
+  %240 = load ptr, ptr %13, align 8
+  %241 = getelementptr inbounds %struct._GString, ptr %240, i32 0, i32 1
+  %242 = load i64, ptr %241, align 8
+  %243 = icmp ugt i64 %242, 0
+  br i1 %243, label %244, label %287
 
-240:                                              ; preds = %235
-  %241 = load i32, ptr %14, align 4
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %274
+244:                                              ; preds = %239
+  %245 = load i32, ptr %14, align 4
+  %246 = icmp ne i32 %245, 0
+  br i1 %246, label %247, label %280
 
-243:                                              ; preds = %240
-  %244 = load ptr, ptr %8, align 8
-  %245 = load ptr, ptr %13, align 8
-  %246 = getelementptr inbounds %struct._GString, ptr %245, i32 0, i32 0
-  %247 = load ptr, ptr %246, align 8
-  %248 = load ptr, ptr %12, align 8
-  %249 = getelementptr inbounds %struct._GString, ptr %248, i32 0, i32 0
-  %250 = load ptr, ptr %249, align 8
-  %251 = load ptr, ptr %9, align 8
-  %252 = call i32 %244(ptr noundef %247, ptr noundef %250, ptr noundef %251, i32 noundef 0)
-  switch i32 %252, label %273 [
-    i32 0, label %253
-    i32 1, label %254
-    i32 2, label %263
-    i32 3, label %272
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %8, align 8
+  %249 = load ptr, ptr %13, align 8
+  %250 = getelementptr inbounds %struct._GString, ptr %249, i32 0, i32 0
+  %251 = load ptr, ptr %250, align 8
+  %252 = load ptr, ptr %12, align 8
+  %253 = getelementptr inbounds %struct._GString, ptr %252, i32 0, i32 0
+  %254 = load ptr, ptr %253, align 8
+  %255 = load ptr, ptr %9, align 8
+  %256 = call i32 %248(ptr noundef %251, ptr noundef %254, ptr noundef %255, i32 noundef 0)
+  switch i32 %256, label %279 [
+    i32 0, label %257
+    i32 1, label %258
+    i32 2, label %267
+    i32 3, label %277
   ]
 
-253:                                              ; preds = %243
-  br label %273
-
-254:                                              ; preds = %243
-  br label %255
-
-255:                                              ; preds = %254
-  %256 = load ptr, ptr %13, align 8
-  %257 = getelementptr inbounds %struct._GString, ptr %256, i32 0, i32 0
-  %258 = load ptr, ptr %257, align 8
-  %259 = load i32, ptr %16, align 4
-  %260 = load ptr, ptr %6, align 8
-  %261 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4925, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.26, ptr noundef %258, i32 noundef %259, ptr noundef %260, ptr noundef %261)
-  br label %262
-
-262:                                              ; preds = %255
-  br label %273
-
-263:                                              ; preds = %243
-  br label %264
-
-264:                                              ; preds = %263
-  %265 = load ptr, ptr %13, align 8
-  %266 = getelementptr inbounds %struct._GString, ptr %265, i32 0, i32 0
-  %267 = load ptr, ptr %266, align 8
-  %268 = load i32, ptr %16, align 4
-  %269 = load ptr, ptr %6, align 8
-  %270 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4930, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.22, ptr noundef %267, i32 noundef %268, ptr noundef %269, ptr noundef %270)
-  br label %271
-
-271:                                              ; preds = %264
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
-  br label %273
-
-272:                                              ; preds = %243
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
-  br label %273
-
-273:                                              ; preds = %272, %271, %262, %253, %243
-  br label %280
-
-274:                                              ; preds = %240
-  br label %275
-
-275:                                              ; preds = %274
-  %276 = load i32, ptr %16, align 4
-  %277 = load ptr, ptr %6, align 8
-  %278 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4940, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.27, i32 noundef %276, ptr noundef %277, ptr noundef %278)
+257:                                              ; preds = %247
   br label %279
 
-279:                                              ; preds = %275
-  br label %280
+258:                                              ; preds = %247
+  br label %259
 
-280:                                              ; preds = %279, %273
+259:                                              ; preds = %258
+  %260 = load ptr, ptr %13, align 8
+  %261 = getelementptr inbounds %struct._GString, ptr %260, i32 0, i32 0
+  %262 = load ptr, ptr %261, align 8
+  %263 = load i32, ptr %16, align 4
+  %264 = load ptr, ptr %6, align 8
+  %265 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4925, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.26, ptr noundef %262, i32 noundef %263, ptr noundef %264, ptr noundef %265)
+  br label %266
+
+266:                                              ; preds = %259
+  br label %279
+
+267:                                              ; preds = %247
+  br label %268
+
+268:                                              ; preds = %267
+  %269 = load ptr, ptr %13, align 8
+  %270 = getelementptr inbounds %struct._GString, ptr %269, i32 0, i32 0
+  %271 = load ptr, ptr %270, align 8
+  %272 = load i32, ptr %16, align 4
+  %273 = load ptr, ptr %6, align 8
+  %274 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4930, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.22, ptr noundef %271, i32 noundef %272, ptr noundef %273, ptr noundef %274)
+  br label %275
+
+275:                                              ; preds = %268
+  %276 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %276, align 8
+  br label %279
+
+277:                                              ; preds = %247
+  %278 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %278, align 8
+  br label %279
+
+279:                                              ; preds = %277, %275, %266, %257, %247
+  br label %286
+
+280:                                              ; preds = %244
   br label %281
 
-281:                                              ; preds = %280, %235
-  %282 = load ptr, ptr %12, align 8
-  %283 = call ptr @g_string_free(ptr noundef %282, i32 noundef 1)
-  %284 = load ptr, ptr %13, align 8
-  %285 = call ptr @g_string_free(ptr noundef %284, i32 noundef 1)
-  %286 = load ptr, ptr %7, align 8
-  %287 = call i32 @ferror(ptr noundef %286) #13
-  %288 = icmp ne i32 %287, 0
-  br i1 %288, label %289, label %292
+281:                                              ; preds = %280
+  %282 = load i32, ptr %16, align 4
+  %283 = load ptr, ptr %6, align 8
+  %284 = getelementptr inbounds [42 x i8], ptr %17, i64 0, i64 0
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 4940, ptr noundef @__func__.read_prefs_file, ptr noundef @.str.27, i32 noundef %282, ptr noundef %283, ptr noundef %284)
+  br label %285
 
-289:                                              ; preds = %281
-  %290 = call ptr @__errno_location() #12
-  %291 = load i32, ptr %290, align 4
-  store i32 %291, ptr %5, align 4
-  br label %293
+285:                                              ; preds = %281
+  br label %286
 
-292:                                              ; preds = %281
+286:                                              ; preds = %285, %279
+  br label %287
+
+287:                                              ; preds = %286, %239
+  %288 = load ptr, ptr %12, align 8
+  %289 = call ptr @g_string_free(ptr noundef %288, i32 noundef 1)
+  %290 = load ptr, ptr %13, align 8
+  %291 = call ptr @g_string_free(ptr noundef %290, i32 noundef 1)
+  %292 = load ptr, ptr %7, align 8
+  %293 = call i32 @ferror(ptr noundef %292) #13
+  %294 = icmp ne i32 %293, 0
+  br i1 %294, label %295, label %298
+
+295:                                              ; preds = %287
+  %296 = call ptr @__errno_location() #12
+  %297 = load i32, ptr %296, align 4
+  store i32 %297, ptr %5, align 4
+  br label %299
+
+298:                                              ; preds = %287
   store i32 0, ptr %5, align 4
-  br label %293
+  br label %299
 
-293:                                              ; preds = %292, %289
-  %294 = load i32, ptr %5, align 4
-  ret i32 %294
+299:                                              ; preds = %298, %295
+  %300 = load i32, ptr %5, align 4
+  ret i32 %300
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8188,7 +8452,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %36 = load ptr, ptr %7, align 8
   %37 = call noalias ptr @g_strdup(ptr noundef %36)
   store ptr %37, ptr @set_pref.filter_label, align 8
-  br label %1530
+  br label %1537
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %6, align 8
@@ -8202,13 +8466,13 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %45 = icmp eq i32 %44, 0
   %46 = select i1 %45, i32 1, i32 0
   store i32 %46, ptr @set_pref.filter_enabled, align 4
-  br label %1529
+  br label %1536
 
 47:                                               ; preds = %38
   %48 = load ptr, ptr %6, align 8
   %49 = call i32 @strcmp(ptr noundef %48, ptr noundef @.str.545) #11
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %57
+  br i1 %50, label %51, label %58
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr @set_pref.filter_label, align 8
@@ -8218,2516 +8482,2523 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %56 = load ptr, ptr @set_pref.filter_label, align 8
   call void @g_free(ptr noundef %56)
   store ptr null, ptr @set_pref.filter_label, align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 81), align 8
-  br label %1528
+  %57 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 81
+  store i32 1, ptr %57, align 8
+  br label %1535
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %6, align 8
-  %59 = call i32 @strcmp(ptr noundef %58, ptr noundef @.str.546) #11
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %68
+58:                                               ; preds = %47
+  %59 = load ptr, ptr %6, align 8
+  %60 = call i32 @strcmp(ptr noundef %59, ptr noundef @.str.546) #11
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %71
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %7, align 8
-  %63 = call i32 @g_ascii_strcasecmp(ptr noundef %62, ptr noundef @.str.547)
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %66
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %7, align 8
+  %64 = call i32 @g_ascii_strcasecmp(ptr noundef %63, ptr noundef @.str.547)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %61
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 39), align 8
-  br label %67
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 39
+  store i32 2, ptr %67, align 8
+  br label %70
 
-66:                                               ; preds = %61
-  store i32 3, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 39), align 8
-  br label %67
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 39
+  store i32 3, ptr %69, align 8
+  br label %70
 
-67:                                               ; preds = %66, %65
-  br label %1527
+70:                                               ; preds = %68, %66
+  br label %1534
 
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %6, align 8
-  %70 = call i32 @strcmp(ptr noundef %69, ptr noundef @.str.548) #11
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %76, label %72
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %6, align 8
+  %73 = call i32 @strcmp(ptr noundef %72, ptr noundef @.str.548) #11
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %79, label %75
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %6, align 8
-  %74 = call i32 @strcmp(ptr noundef %73, ptr noundef @.str.549) #11
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %95
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %6, align 8
+  %77 = call i32 @strcmp(ptr noundef %76, ptr noundef @.str.549) #11
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %100
 
-76:                                               ; preds = %72, %68
-  %77 = load ptr, ptr %7, align 8
-  %78 = call i32 @g_ascii_strcasecmp(ptr noundef %77, ptr noundef @.str.547)
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %81
+79:                                               ; preds = %75, %71
+  %80 = load ptr, ptr %7, align 8
+  %81 = call i32 @g_ascii_strcasecmp(ptr noundef %80, ptr noundef @.str.547)
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %86
 
-80:                                               ; preds = %76
+83:                                               ; preds = %79
   store i32 1, ptr @gbl_resolv_flags, align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  br label %94
+  %84 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  store i32 1, ptr %84, align 4
+  %85 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  store i32 1, ptr %85, align 4
+  br label %99
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %7, align 8
-  %83 = call i32 @g_ascii_strcasecmp(ptr noundef %82, ptr noundef @.str.550)
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %81
-  call void @disable_name_resolution()
-  br label %93
-
-86:                                               ; preds = %81
-  call void @disable_name_resolution()
+86:                                               ; preds = %79
   %87 = load ptr, ptr %7, align 8
-  %88 = call signext i8 @string_to_name_resolve(ptr noundef %87, ptr noundef @gbl_resolv_flags)
-  %89 = sext i8 %88 to i32
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %92
+  %88 = call i32 @g_ascii_strcasecmp(ptr noundef %87, ptr noundef @.str.550)
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %86
+  call void @disable_name_resolution()
+  br label %98
 
 91:                                               ; preds = %86
+  call void @disable_name_resolution()
+  %92 = load ptr, ptr %7, align 8
+  %93 = call signext i8 @string_to_name_resolve(ptr noundef %92, ptr noundef @gbl_resolv_flags)
+  %94 = sext i8 %93 to i32
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %91
   store i32 1, ptr %5, align 4
+  br label %1538
+
+97:                                               ; preds = %91
+  br label %98
+
+98:                                               ; preds = %97, %90
+  br label %99
+
+99:                                               ; preds = %98, %83
+  br label %1533
+
+100:                                              ; preds = %75
+  %101 = load ptr, ptr %6, align 8
+  %102 = load ptr, ptr %7, align 8
+  %103 = call i32 @deprecated_heur_dissector_pref(ptr noundef %101, ptr noundef %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %100
+  br label %1532
+
+106:                                              ; preds = %100
+  %107 = load ptr, ptr %6, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = call i32 @deprecated_enable_dissector_pref(ptr noundef %107, ptr noundef %108)
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %112
+
+111:                                              ; preds = %106
   br label %1531
 
-92:                                               ; preds = %86
-  br label %93
-
-93:                                               ; preds = %92, %85
-  br label %94
-
-94:                                               ; preds = %93, %80
-  br label %1526
-
-95:                                               ; preds = %72
-  %96 = load ptr, ptr %6, align 8
-  %97 = load ptr, ptr %7, align 8
-  %98 = call i32 @deprecated_heur_dissector_pref(ptr noundef %96, ptr noundef %97)
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %101
-
-100:                                              ; preds = %95
-  br label %1525
-
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %6, align 8
-  %103 = load ptr, ptr %7, align 8
-  %104 = call i32 @deprecated_enable_dissector_pref(ptr noundef %102, ptr noundef %103)
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %101
-  br label %1524
-
-107:                                              ; preds = %101
-  %108 = load ptr, ptr %6, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = call i32 @deprecated_port_pref(ptr noundef %108, ptr noundef %109)
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %113
-
-112:                                              ; preds = %107
-  br label %1523
-
-113:                                              ; preds = %107
-  %114 = load ptr, ptr %6, align 8
-  %115 = call i32 @strcmp(ptr noundef %114, ptr noundef @.str.551) #11
-  %116 = icmp eq i32 %115, 0
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %6, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = call i32 @deprecated_port_pref(ptr noundef %113, ptr noundef %114)
+  %116 = icmp ne i32 %115, 0
   br i1 %116, label %117, label %118
 
-117:                                              ; preds = %113
-  store i32 0, ptr %5, align 4
-  br label %1531
+117:                                              ; preds = %112
+  br label %1530
 
-118:                                              ; preds = %113
+118:                                              ; preds = %112
   %119 = load ptr, ptr %6, align 8
-  %120 = call i32 @strcmp(ptr noundef %119, ptr noundef @.str.552) #11
+  %120 = call i32 @strcmp(ptr noundef %119, ptr noundef @.str.551) #11
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %130, label %122
+  br i1 %121, label %122, label %123
 
 122:                                              ; preds = %118
-  %123 = load ptr, ptr %6, align 8
-  %124 = call i32 @strcmp(ptr noundef %123, ptr noundef @.str.553) #11
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %130, label %126
+  store i32 0, ptr %5, align 4
+  br label %1538
 
-126:                                              ; preds = %122
-  %127 = load ptr, ptr %6, align 8
-  %128 = call i32 @strcmp(ptr noundef %127, ptr noundef @.str.554) #11
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %133
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %6, align 8
+  %125 = call i32 @strcmp(ptr noundef %124, ptr noundef @.str.552) #11
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %135, label %127
 
-130:                                              ; preds = %126, %122, %118
-  %131 = load ptr, ptr @nameres_module, align 8
-  store ptr %131, ptr %16, align 8
+127:                                              ; preds = %123
+  %128 = load ptr, ptr %6, align 8
+  %129 = call i32 @strcmp(ptr noundef %128, ptr noundef @.str.553) #11
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %135, label %131
+
+131:                                              ; preds = %127
   %132 = load ptr, ptr %6, align 8
-  store ptr %132, ptr %14, align 8
-  br label %192
+  %133 = call i32 @strcmp(ptr noundef %132, ptr noundef @.str.554) #11
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %138
 
-133:                                              ; preds = %126
+135:                                              ; preds = %131, %127, %123
+  %136 = load ptr, ptr @nameres_module, align 8
+  store ptr %136, ptr %16, align 8
+  %137 = load ptr, ptr %6, align 8
+  store ptr %137, ptr %14, align 8
+  br label %198
+
+138:                                              ; preds = %131
   store ptr null, ptr %16, align 8
-  %134 = load ptr, ptr %6, align 8
-  store ptr %134, ptr %15, align 8
-  br label %135
+  %139 = load ptr, ptr %6, align 8
+  store ptr %139, ptr %15, align 8
+  br label %140
 
-135:                                              ; preds = %186, %133
-  %136 = load ptr, ptr %16, align 8
-  %137 = icmp ne ptr %136, null
-  %138 = xor i1 %137, true
-  br i1 %138, label %139, label %191
+140:                                              ; preds = %192, %138
+  %141 = load ptr, ptr %16, align 8
+  %142 = icmp ne ptr %141, null
+  %143 = xor i1 %142, true
+  br i1 %143, label %144, label %197
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %15, align 8
-  %141 = call ptr @strchr(ptr noundef %140, i32 noundef 46) #11
-  store ptr %141, ptr %14, align 8
-  %142 = load ptr, ptr %14, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %144, label %145
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %15, align 8
+  %146 = call ptr @strchr(ptr noundef %145, i32 noundef 46) #11
+  store ptr %146, ptr %14, align 8
+  %147 = load ptr, ptr %14, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %150
 
-144:                                              ; preds = %139
+149:                                              ; preds = %144
   store i32 2, ptr %5, align 4
-  br label %1531
+  br label %1538
 
-145:                                              ; preds = %139
-  %146 = load ptr, ptr %14, align 8
-  store i8 0, ptr %146, align 1
-  %147 = load ptr, ptr %6, align 8
-  %148 = call ptr @prefs_find_module(ptr noundef %147)
-  store ptr %148, ptr %16, align 8
-  %149 = load ptr, ptr %16, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %151, label %186
-
-151:                                              ; preds = %145
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %14, align 8
+  store i8 0, ptr %151, align 1
   %152 = load ptr, ptr %6, align 8
-  %153 = call ptr @prefs_find_module_alias(ptr noundef %152)
+  %153 = call ptr @prefs_find_module(ptr noundef %152)
   store ptr %153, ptr %16, align 8
   %154 = load ptr, ptr %16, align 8
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %168
+  br i1 %155, label %156, label %192
 
-156:                                              ; preds = %151
+156:                                              ; preds = %150
   %157 = load ptr, ptr %6, align 8
-  %158 = call ptr @proto_registrar_get_byalias(ptr noundef %157)
-  store ptr %158, ptr %22, align 8
-  %159 = load ptr, ptr %22, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %161, label %167
+  %158 = call ptr @prefs_find_module_alias(ptr noundef %157)
+  store ptr %158, ptr %16, align 8
+  %159 = load ptr, ptr %16, align 8
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %173
 
 161:                                              ; preds = %156
-  %162 = load ptr, ptr @prefs_modules, align 8
-  %163 = load ptr, ptr %22, align 8
-  %164 = getelementptr inbounds %struct._header_field_info, ptr %163, i32 0, i32 1
-  %165 = load ptr, ptr %164, align 8
-  %166 = call ptr @wmem_tree_lookup_string(ptr noundef %162, ptr noundef %165, i32 noundef 1)
-  store ptr %166, ptr %16, align 8
-  br label %167
+  %162 = load ptr, ptr %6, align 8
+  %163 = call ptr @proto_registrar_get_byalias(ptr noundef %162)
+  store ptr %163, ptr %22, align 8
+  %164 = load ptr, ptr %22, align 8
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %172
 
-167:                                              ; preds = %161, %156
-  br label %168
+166:                                              ; preds = %161
+  %167 = load ptr, ptr @prefs_modules, align 8
+  %168 = load ptr, ptr %22, align 8
+  %169 = getelementptr inbounds %struct._header_field_info, ptr %168, i32 0, i32 1
+  %170 = load ptr, ptr %169, align 8
+  %171 = call ptr @wmem_tree_lookup_string(ptr noundef %167, ptr noundef %170, i32 noundef 1)
+  store ptr %171, ptr %16, align 8
+  br label %172
 
-168:                                              ; preds = %167, %151
-  %169 = load ptr, ptr %16, align 8
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %171, label %181
+172:                                              ; preds = %166, %161
+  br label %173
 
-171:                                              ; preds = %168
-  %172 = load ptr, ptr %6, align 8
-  %173 = call i32 @strcmp(ptr noundef %172, ptr noundef @.str.555) #11
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %179, label %175
+173:                                              ; preds = %172, %156
+  %174 = load ptr, ptr %16, align 8
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %186
 
-175:                                              ; preds = %171
-  %176 = load ptr, ptr %6, align 8
-  %177 = call i32 @strcmp(ptr noundef %176, ptr noundef @.str.556) #11
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %180
+176:                                              ; preds = %173
+  %177 = load ptr, ptr %6, align 8
+  %178 = call i32 @strcmp(ptr noundef %177, ptr noundef @.str.555) #11
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %184, label %180
 
-179:                                              ; preds = %175, %171
-  store i32 3, ptr %5, align 4
-  br label %1531
-
-180:                                              ; preds = %175
-  br label %181
-
-181:                                              ; preds = %180, %168
-  %182 = load ptr, ptr %16, align 8
-  %183 = icmp ne ptr %182, null
+180:                                              ; preds = %176
+  %181 = load ptr, ptr %6, align 8
+  %182 = call i32 @strcmp(ptr noundef %181, ptr noundef @.str.556) #11
+  %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %185
 
-184:                                              ; preds = %181
-  store i32 1, ptr %21, align 4
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
-  br label %185
+184:                                              ; preds = %180, %176
+  store i32 3, ptr %5, align 4
+  br label %1538
 
-185:                                              ; preds = %184, %181
+185:                                              ; preds = %180
   br label %186
 
-186:                                              ; preds = %185, %145
-  %187 = load ptr, ptr %14, align 8
-  store i8 46, ptr %187, align 1
-  %188 = load ptr, ptr %14, align 8
-  %189 = getelementptr i8, ptr %188, i32 1
-  store ptr %189, ptr %14, align 8
-  %190 = load ptr, ptr %14, align 8
-  store ptr %190, ptr %15, align 8
-  br label %135, !llvm.loop !22
+186:                                              ; preds = %185, %173
+  %187 = load ptr, ptr %16, align 8
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %191
 
-191:                                              ; preds = %135
+189:                                              ; preds = %186
+  store i32 1, ptr %21, align 4
+  %190 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %190, align 8
+  br label %191
+
+191:                                              ; preds = %189, %186
   br label %192
 
-192:                                              ; preds = %191, %130
-  %193 = load ptr, ptr %16, align 8
-  store ptr %193, ptr %17, align 8
-  %194 = load ptr, ptr %16, align 8
-  %195 = load ptr, ptr %14, align 8
-  %196 = call ptr @prefs_find_preference_with_submodule(ptr noundef %194, ptr noundef %195, ptr noundef %17)
-  store ptr %196, ptr %19, align 8
-  %197 = load ptr, ptr %19, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %1045
+192:                                              ; preds = %191, %150
+  %193 = load ptr, ptr %14, align 8
+  store i8 46, ptr %193, align 1
+  %194 = load ptr, ptr %14, align 8
+  %195 = getelementptr i8, ptr %194, i32 1
+  store ptr %195, ptr %14, align 8
+  %196 = load ptr, ptr %14, align 8
+  store ptr %196, ptr %15, align 8
+  br label %140, !llvm.loop !22
 
-199:                                              ; preds = %192
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 88), align 8
+197:                                              ; preds = %140
+  br label %198
+
+198:                                              ; preds = %197, %135
+  %199 = load ptr, ptr %16, align 8
+  store ptr %199, ptr %17, align 8
   %200 = load ptr, ptr %16, align 8
-  %201 = load ptr, ptr @gui_column_module, align 8
-  %202 = icmp eq ptr %200, %201
-  br i1 %202, label %203, label %207
+  %201 = load ptr, ptr %14, align 8
+  %202 = call ptr @prefs_find_preference_with_submodule(ptr noundef %200, ptr noundef %201, ptr noundef %17)
+  store ptr %202, ptr %19, align 8
+  %203 = load ptr, ptr %19, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %1052
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %16, align 8
-  %205 = load ptr, ptr %6, align 8
-  %206 = call ptr @prefs_find_preference(ptr noundef %204, ptr noundef %205)
-  store ptr %206, ptr %19, align 8
-  br label %1040
+205:                                              ; preds = %198
+  %206 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 88
+  store i32 1, ptr %206, align 8
+  %207 = load ptr, ptr %16, align 8
+  %208 = load ptr, ptr @gui_column_module, align 8
+  %209 = icmp eq ptr %207, %208
+  br i1 %209, label %210, label %214
 
-207:                                              ; preds = %199
-  %208 = load ptr, ptr %16, align 8
-  %209 = getelementptr inbounds %struct.pref_module, ptr %208, i32 0, i32 0
-  %210 = load ptr, ptr %209, align 8
-  %211 = call i32 @strcmp(ptr noundef %210, ptr noundef @.str.557) #11
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %213, label %271
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %16, align 8
+  %212 = load ptr, ptr %6, align 8
+  %213 = call ptr @prefs_find_preference(ptr noundef %211, ptr noundef %212)
+  store ptr %213, ptr %19, align 8
+  br label %1047
 
-213:                                              ; preds = %207
-  %214 = load ptr, ptr %14, align 8
-  %215 = call i32 @strcmp(ptr noundef %214, ptr noundef @.str.558) #11
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %217, label %220
+214:                                              ; preds = %205
+  %215 = load ptr, ptr %16, align 8
+  %216 = getelementptr inbounds %struct.pref_module, ptr %215, i32 0, i32 0
+  %217 = load ptr, ptr %216, align 8
+  %218 = call i32 @strcmp(ptr noundef %217, ptr noundef @.str.557) #11
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %220, label %278
 
-217:                                              ; preds = %213
-  %218 = load ptr, ptr %16, align 8
-  %219 = call ptr @prefs_find_preference(ptr noundef %218, ptr noundef @.str.559)
-  store ptr %219, ptr %19, align 8
-  br label %270
-
-220:                                              ; preds = %213
+220:                                              ; preds = %214
   %221 = load ptr, ptr %14, align 8
-  %222 = call i32 @strcmp(ptr noundef %221, ptr noundef @.str.560) #11
+  %222 = call i32 @strcmp(ptr noundef %221, ptr noundef @.str.558) #11
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %220
   %225 = load ptr, ptr %16, align 8
-  %226 = call ptr @prefs_find_preference(ptr noundef %225, ptr noundef @.str.561)
+  %226 = call ptr @prefs_find_preference(ptr noundef %225, ptr noundef @.str.559)
   store ptr %226, ptr %19, align 8
-  br label %269
+  br label %277
 
 227:                                              ; preds = %220
   %228 = load ptr, ptr %14, align 8
-  %229 = call i32 @strcmp(ptr noundef %228, ptr noundef @.str.562) #11
+  %229 = call i32 @strcmp(ptr noundef %228, ptr noundef @.str.560) #11
   %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %247
+  br i1 %230, label %231, label %234
 
 231:                                              ; preds = %227
-  %232 = load i32, ptr @mgcp_tcp_port_count, align 4
-  %233 = add i32 %232, 1
-  store i32 %233, ptr @mgcp_tcp_port_count, align 4
-  %234 = load i32, ptr @mgcp_tcp_port_count, align 4
-  %235 = icmp eq i32 %234, 1
-  br i1 %235, label %236, label %239
+  %232 = load ptr, ptr %16, align 8
+  %233 = call ptr @prefs_find_preference(ptr noundef %232, ptr noundef @.str.561)
+  store ptr %233, ptr %19, align 8
+  br label %276
 
-236:                                              ; preds = %231
-  %237 = load ptr, ptr %16, align 8
-  %238 = call ptr @prefs_find_preference(ptr noundef %237, ptr noundef @.str.563)
-  store ptr %238, ptr %19, align 8
-  br label %246
+234:                                              ; preds = %227
+  %235 = load ptr, ptr %14, align 8
+  %236 = call i32 @strcmp(ptr noundef %235, ptr noundef @.str.562) #11
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %238, label %254
 
-239:                                              ; preds = %231
-  %240 = load i32, ptr @mgcp_tcp_port_count, align 4
-  %241 = icmp eq i32 %240, 2
-  br i1 %241, label %242, label %245
+238:                                              ; preds = %234
+  %239 = load i32, ptr @mgcp_tcp_port_count, align 4
+  %240 = add i32 %239, 1
+  store i32 %240, ptr @mgcp_tcp_port_count, align 4
+  %241 = load i32, ptr @mgcp_tcp_port_count, align 4
+  %242 = icmp eq i32 %241, 1
+  br i1 %242, label %243, label %246
 
-242:                                              ; preds = %239
-  %243 = load ptr, ptr %16, align 8
-  %244 = call ptr @prefs_find_preference(ptr noundef %243, ptr noundef @.str.564)
-  store ptr %244, ptr %19, align 8
-  br label %245
+243:                                              ; preds = %238
+  %244 = load ptr, ptr %16, align 8
+  %245 = call ptr @prefs_find_preference(ptr noundef %244, ptr noundef @.str.563)
+  store ptr %245, ptr %19, align 8
+  br label %253
 
-245:                                              ; preds = %242, %239
-  br label %246
+246:                                              ; preds = %238
+  %247 = load i32, ptr @mgcp_tcp_port_count, align 4
+  %248 = icmp eq i32 %247, 2
+  br i1 %248, label %249, label %252
 
-246:                                              ; preds = %245, %236
-  br label %268
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %16, align 8
+  %251 = call ptr @prefs_find_preference(ptr noundef %250, ptr noundef @.str.564)
+  store ptr %251, ptr %19, align 8
+  br label %252
 
-247:                                              ; preds = %227
-  %248 = load ptr, ptr %14, align 8
-  %249 = call i32 @strcmp(ptr noundef %248, ptr noundef @.str.565) #11
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %267
+252:                                              ; preds = %249, %246
+  br label %253
 
-251:                                              ; preds = %247
-  %252 = load i32, ptr @mgcp_udp_port_count, align 4
-  %253 = add i32 %252, 1
-  store i32 %253, ptr @mgcp_udp_port_count, align 4
-  %254 = load i32, ptr @mgcp_udp_port_count, align 4
-  %255 = icmp eq i32 %254, 1
-  br i1 %255, label %256, label %259
+253:                                              ; preds = %252, %243
+  br label %275
 
-256:                                              ; preds = %251
-  %257 = load ptr, ptr %16, align 8
-  %258 = call ptr @prefs_find_preference(ptr noundef %257, ptr noundef @.str.566)
-  store ptr %258, ptr %19, align 8
-  br label %266
+254:                                              ; preds = %234
+  %255 = load ptr, ptr %14, align 8
+  %256 = call i32 @strcmp(ptr noundef %255, ptr noundef @.str.565) #11
+  %257 = icmp eq i32 %256, 0
+  br i1 %257, label %258, label %274
 
-259:                                              ; preds = %251
-  %260 = load i32, ptr @mgcp_udp_port_count, align 4
-  %261 = icmp eq i32 %260, 2
-  br i1 %261, label %262, label %265
+258:                                              ; preds = %254
+  %259 = load i32, ptr @mgcp_udp_port_count, align 4
+  %260 = add i32 %259, 1
+  store i32 %260, ptr @mgcp_udp_port_count, align 4
+  %261 = load i32, ptr @mgcp_udp_port_count, align 4
+  %262 = icmp eq i32 %261, 1
+  br i1 %262, label %263, label %266
 
-262:                                              ; preds = %259
-  %263 = load ptr, ptr %16, align 8
-  %264 = call ptr @prefs_find_preference(ptr noundef %263, ptr noundef @.str.567)
-  store ptr %264, ptr %19, align 8
-  br label %265
+263:                                              ; preds = %258
+  %264 = load ptr, ptr %16, align 8
+  %265 = call ptr @prefs_find_preference(ptr noundef %264, ptr noundef @.str.566)
+  store ptr %265, ptr %19, align 8
+  br label %273
 
-265:                                              ; preds = %262, %259
-  br label %266
+266:                                              ; preds = %258
+  %267 = load i32, ptr @mgcp_udp_port_count, align 4
+  %268 = icmp eq i32 %267, 2
+  br i1 %268, label %269, label %272
 
-266:                                              ; preds = %265, %256
-  br label %267
+269:                                              ; preds = %266
+  %270 = load ptr, ptr %16, align 8
+  %271 = call ptr @prefs_find_preference(ptr noundef %270, ptr noundef @.str.567)
+  store ptr %271, ptr %19, align 8
+  br label %272
 
-267:                                              ; preds = %266, %247
-  br label %268
+272:                                              ; preds = %269, %266
+  br label %273
 
-268:                                              ; preds = %267, %246
-  br label %269
+273:                                              ; preds = %272, %263
+  br label %274
 
-269:                                              ; preds = %268, %224
-  br label %270
+274:                                              ; preds = %273, %254
+  br label %275
 
-270:                                              ; preds = %269, %217
-  br label %1039
+275:                                              ; preds = %274, %253
+  br label %276
 
-271:                                              ; preds = %207
-  %272 = load ptr, ptr %16, align 8
-  %273 = getelementptr inbounds %struct.pref_module, ptr %272, i32 0, i32 0
-  %274 = load ptr, ptr %273, align 8
-  %275 = call i32 @strcmp(ptr noundef %274, ptr noundef @.str.568) #11
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %277, label %293
+276:                                              ; preds = %275, %231
+  br label %277
 
-277:                                              ; preds = %271
-  %278 = load ptr, ptr %14, align 8
-  %279 = call i32 @strcmp(ptr noundef %278, ptr noundef @.str.569) #11
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %284
+277:                                              ; preds = %276, %224
+  br label %1046
 
-281:                                              ; preds = %277
-  %282 = load ptr, ptr %16, align 8
-  %283 = call ptr @prefs_find_preference(ptr noundef %282, ptr noundef @.str.570)
-  store ptr %283, ptr %19, align 8
-  br label %292
+278:                                              ; preds = %214
+  %279 = load ptr, ptr %16, align 8
+  %280 = getelementptr inbounds %struct.pref_module, ptr %279, i32 0, i32 0
+  %281 = load ptr, ptr %280, align 8
+  %282 = call i32 @strcmp(ptr noundef %281, ptr noundef @.str.568) #11
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %284, label %300
 
-284:                                              ; preds = %277
+284:                                              ; preds = %278
   %285 = load ptr, ptr %14, align 8
-  %286 = call i32 @strcmp(ptr noundef %285, ptr noundef @.str.571) #11
+  %286 = call i32 @strcmp(ptr noundef %285, ptr noundef @.str.569) #11
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %284
   %289 = load ptr, ptr %16, align 8
-  %290 = call ptr @prefs_find_preference(ptr noundef %289, ptr noundef @.str.572)
+  %290 = call ptr @prefs_find_preference(ptr noundef %289, ptr noundef @.str.570)
   store ptr %290, ptr %19, align 8
-  br label %291
+  br label %299
 
-291:                                              ; preds = %288, %284
-  br label %292
+291:                                              ; preds = %284
+  %292 = load ptr, ptr %14, align 8
+  %293 = call i32 @strcmp(ptr noundef %292, ptr noundef @.str.571) #11
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %295, label %298
 
-292:                                              ; preds = %291, %281
-  br label %1038
+295:                                              ; preds = %291
+  %296 = load ptr, ptr %16, align 8
+  %297 = call ptr @prefs_find_preference(ptr noundef %296, ptr noundef @.str.572)
+  store ptr %297, ptr %19, align 8
+  br label %298
 
-293:                                              ; preds = %271
-  %294 = load ptr, ptr %16, align 8
-  %295 = getelementptr inbounds %struct.pref_module, ptr %294, i32 0, i32 0
-  %296 = load ptr, ptr %295, align 8
-  %297 = call i32 @strcmp(ptr noundef %296, ptr noundef @.str.573) #11
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %299, label %307
+298:                                              ; preds = %295, %291
+  br label %299
 
-299:                                              ; preds = %293
-  %300 = load ptr, ptr %14, align 8
-  %301 = call i32 @strcmp(ptr noundef %300, ptr noundef @.str.574) #11
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %303, label %306
+299:                                              ; preds = %298, %288
+  br label %1045
 
-303:                                              ; preds = %299
-  %304 = load ptr, ptr %16, align 8
-  %305 = call ptr @prefs_find_preference(ptr noundef %304, ptr noundef @.str.575)
-  store ptr %305, ptr %19, align 8
-  br label %306
+300:                                              ; preds = %278
+  %301 = load ptr, ptr %16, align 8
+  %302 = getelementptr inbounds %struct.pref_module, ptr %301, i32 0, i32 0
+  %303 = load ptr, ptr %302, align 8
+  %304 = call i32 @strcmp(ptr noundef %303, ptr noundef @.str.573) #11
+  %305 = icmp eq i32 %304, 0
+  br i1 %305, label %306, label %314
 
-306:                                              ; preds = %303, %299
-  br label %1037
+306:                                              ; preds = %300
+  %307 = load ptr, ptr %14, align 8
+  %308 = call i32 @strcmp(ptr noundef %307, ptr noundef @.str.574) #11
+  %309 = icmp eq i32 %308, 0
+  br i1 %309, label %310, label %313
 
-307:                                              ; preds = %293
-  %308 = load ptr, ptr %16, align 8
-  %309 = getelementptr inbounds %struct.pref_module, ptr %308, i32 0, i32 0
-  %310 = load ptr, ptr %309, align 8
-  %311 = call i32 @strcmp(ptr noundef %310, ptr noundef @.str.576) #11
-  %312 = icmp eq i32 %311, 0
-  br i1 %312, label %313, label %321
+310:                                              ; preds = %306
+  %311 = load ptr, ptr %16, align 8
+  %312 = call ptr @prefs_find_preference(ptr noundef %311, ptr noundef @.str.575)
+  store ptr %312, ptr %19, align 8
+  br label %313
 
-313:                                              ; preds = %307
-  %314 = load ptr, ptr %14, align 8
-  %315 = call i32 @strcmp(ptr noundef %314, ptr noundef @.str.577) #11
-  %316 = icmp eq i32 %315, 0
-  br i1 %316, label %317, label %320
+313:                                              ; preds = %310, %306
+  br label %1044
 
-317:                                              ; preds = %313
-  %318 = load ptr, ptr %16, align 8
-  %319 = call ptr @prefs_find_preference(ptr noundef %318, ptr noundef @.str.575)
-  store ptr %319, ptr %19, align 8
-  br label %320
+314:                                              ; preds = %300
+  %315 = load ptr, ptr %16, align 8
+  %316 = getelementptr inbounds %struct.pref_module, ptr %315, i32 0, i32 0
+  %317 = load ptr, ptr %316, align 8
+  %318 = call i32 @strcmp(ptr noundef %317, ptr noundef @.str.576) #11
+  %319 = icmp eq i32 %318, 0
+  br i1 %319, label %320, label %328
 
-320:                                              ; preds = %317, %313
-  br label %1036
+320:                                              ; preds = %314
+  %321 = load ptr, ptr %14, align 8
+  %322 = call i32 @strcmp(ptr noundef %321, ptr noundef @.str.577) #11
+  %323 = icmp eq i32 %322, 0
+  br i1 %323, label %324, label %327
 
-321:                                              ; preds = %307
-  %322 = load ptr, ptr %16, align 8
-  %323 = getelementptr inbounds %struct.pref_module, ptr %322, i32 0, i32 0
-  %324 = load ptr, ptr %323, align 8
-  %325 = call i32 @strcmp(ptr noundef %324, ptr noundef @.str.578) #11
-  %326 = icmp eq i32 %325, 0
-  br i1 %326, label %327, label %335
+324:                                              ; preds = %320
+  %325 = load ptr, ptr %16, align 8
+  %326 = call ptr @prefs_find_preference(ptr noundef %325, ptr noundef @.str.575)
+  store ptr %326, ptr %19, align 8
+  br label %327
 
-327:                                              ; preds = %321
-  %328 = load ptr, ptr %14, align 8
-  %329 = call i32 @strcmp(ptr noundef %328, ptr noundef @.str.579) #11
-  %330 = icmp eq i32 %329, 0
-  br i1 %330, label %331, label %334
+327:                                              ; preds = %324, %320
+  br label %1043
 
-331:                                              ; preds = %327
-  %332 = load ptr, ptr %16, align 8
-  %333 = call ptr @prefs_find_preference(ptr noundef %332, ptr noundef @.str.580)
-  store ptr %333, ptr %19, align 8
-  br label %334
+328:                                              ; preds = %314
+  %329 = load ptr, ptr %16, align 8
+  %330 = getelementptr inbounds %struct.pref_module, ptr %329, i32 0, i32 0
+  %331 = load ptr, ptr %330, align 8
+  %332 = call i32 @strcmp(ptr noundef %331, ptr noundef @.str.578) #11
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %342
 
-334:                                              ; preds = %331, %327
-  br label %1035
+334:                                              ; preds = %328
+  %335 = load ptr, ptr %14, align 8
+  %336 = call i32 @strcmp(ptr noundef %335, ptr noundef @.str.579) #11
+  %337 = icmp eq i32 %336, 0
+  br i1 %337, label %338, label %341
 
-335:                                              ; preds = %321
-  %336 = load ptr, ptr %16, align 8
-  %337 = getelementptr inbounds %struct.pref_module, ptr %336, i32 0, i32 0
-  %338 = load ptr, ptr %337, align 8
-  %339 = call i32 @strcmp(ptr noundef %338, ptr noundef @.str.581) #11
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %341, label %349
+338:                                              ; preds = %334
+  %339 = load ptr, ptr %16, align 8
+  %340 = call ptr @prefs_find_preference(ptr noundef %339, ptr noundef @.str.580)
+  store ptr %340, ptr %19, align 8
+  br label %341
 
-341:                                              ; preds = %335
-  %342 = load ptr, ptr %14, align 8
-  %343 = call i32 @strcmp(ptr noundef %342, ptr noundef @.str.582) #11
-  %344 = icmp eq i32 %343, 0
-  br i1 %344, label %345, label %348
+341:                                              ; preds = %338, %334
+  br label %1042
 
-345:                                              ; preds = %341
-  %346 = load ptr, ptr %16, align 8
-  %347 = call ptr @prefs_find_preference(ptr noundef %346, ptr noundef @.str.580)
-  store ptr %347, ptr %19, align 8
-  br label %348
+342:                                              ; preds = %328
+  %343 = load ptr, ptr %16, align 8
+  %344 = getelementptr inbounds %struct.pref_module, ptr %343, i32 0, i32 0
+  %345 = load ptr, ptr %344, align 8
+  %346 = call i32 @strcmp(ptr noundef %345, ptr noundef @.str.581) #11
+  %347 = icmp eq i32 %346, 0
+  br i1 %347, label %348, label %356
 
-348:                                              ; preds = %345, %341
-  br label %1034
+348:                                              ; preds = %342
+  %349 = load ptr, ptr %14, align 8
+  %350 = call i32 @strcmp(ptr noundef %349, ptr noundef @.str.582) #11
+  %351 = icmp eq i32 %350, 0
+  br i1 %351, label %352, label %355
 
-349:                                              ; preds = %335
-  %350 = load ptr, ptr %16, align 8
-  %351 = getelementptr inbounds %struct.pref_module, ptr %350, i32 0, i32 0
-  %352 = load ptr, ptr %351, align 8
-  %353 = call i32 @strcmp(ptr noundef %352, ptr noundef @.str.583) #11
-  %354 = icmp eq i32 %353, 0
-  br i1 %354, label %355, label %363
+352:                                              ; preds = %348
+  %353 = load ptr, ptr %16, align 8
+  %354 = call ptr @prefs_find_preference(ptr noundef %353, ptr noundef @.str.580)
+  store ptr %354, ptr %19, align 8
+  br label %355
 
-355:                                              ; preds = %349
-  %356 = load ptr, ptr %14, align 8
-  %357 = call i32 @strcmp(ptr noundef %356, ptr noundef @.str.584) #11
-  %358 = icmp eq i32 %357, 0
-  br i1 %358, label %359, label %362
+355:                                              ; preds = %352, %348
+  br label %1041
 
-359:                                              ; preds = %355
-  %360 = load ptr, ptr %16, align 8
-  %361 = call ptr @prefs_find_preference(ptr noundef %360, ptr noundef @.str.585)
-  store ptr %361, ptr %19, align 8
-  br label %362
+356:                                              ; preds = %342
+  %357 = load ptr, ptr %16, align 8
+  %358 = getelementptr inbounds %struct.pref_module, ptr %357, i32 0, i32 0
+  %359 = load ptr, ptr %358, align 8
+  %360 = call i32 @strcmp(ptr noundef %359, ptr noundef @.str.583) #11
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %362, label %370
 
-362:                                              ; preds = %359, %355
-  br label %1033
+362:                                              ; preds = %356
+  %363 = load ptr, ptr %14, align 8
+  %364 = call i32 @strcmp(ptr noundef %363, ptr noundef @.str.584) #11
+  %365 = icmp eq i32 %364, 0
+  br i1 %365, label %366, label %369
 
-363:                                              ; preds = %349
-  %364 = load ptr, ptr %16, align 8
-  %365 = getelementptr inbounds %struct.pref_module, ptr %364, i32 0, i32 0
-  %366 = load ptr, ptr %365, align 8
-  %367 = call i32 @strcmp(ptr noundef %366, ptr noundef @.str.586) #11
-  %368 = icmp eq i32 %367, 0
-  br i1 %368, label %369, label %385
+366:                                              ; preds = %362
+  %367 = load ptr, ptr %16, align 8
+  %368 = call ptr @prefs_find_preference(ptr noundef %367, ptr noundef @.str.585)
+  store ptr %368, ptr %19, align 8
+  br label %369
 
-369:                                              ; preds = %363
-  %370 = load ptr, ptr %14, align 8
-  %371 = call i32 @strcmp(ptr noundef %370, ptr noundef @.str.587) #11
-  %372 = icmp eq i32 %371, 0
-  br i1 %372, label %373, label %376
+369:                                              ; preds = %366, %362
+  br label %1040
 
-373:                                              ; preds = %369
-  %374 = load ptr, ptr %16, align 8
-  %375 = call ptr @prefs_find_preference(ptr noundef %374, ptr noundef @.str.588)
-  store ptr %375, ptr %19, align 8
-  br label %384
+370:                                              ; preds = %356
+  %371 = load ptr, ptr %16, align 8
+  %372 = getelementptr inbounds %struct.pref_module, ptr %371, i32 0, i32 0
+  %373 = load ptr, ptr %372, align 8
+  %374 = call i32 @strcmp(ptr noundef %373, ptr noundef @.str.586) #11
+  %375 = icmp eq i32 %374, 0
+  br i1 %375, label %376, label %392
 
-376:                                              ; preds = %369
+376:                                              ; preds = %370
   %377 = load ptr, ptr %14, align 8
-  %378 = call i32 @strcmp(ptr noundef %377, ptr noundef @.str.589) #11
+  %378 = call i32 @strcmp(ptr noundef %377, ptr noundef @.str.587) #11
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %380, label %383
 
 380:                                              ; preds = %376
   %381 = load ptr, ptr %16, align 8
-  %382 = call ptr @prefs_find_preference(ptr noundef %381, ptr noundef @.str.590)
+  %382 = call ptr @prefs_find_preference(ptr noundef %381, ptr noundef @.str.588)
   store ptr %382, ptr %19, align 8
-  br label %383
+  br label %391
 
-383:                                              ; preds = %380, %376
-  br label %384
+383:                                              ; preds = %376
+  %384 = load ptr, ptr %14, align 8
+  %385 = call i32 @strcmp(ptr noundef %384, ptr noundef @.str.589) #11
+  %386 = icmp eq i32 %385, 0
+  br i1 %386, label %387, label %390
 
-384:                                              ; preds = %383, %373
-  br label %1032
+387:                                              ; preds = %383
+  %388 = load ptr, ptr %16, align 8
+  %389 = call ptr @prefs_find_preference(ptr noundef %388, ptr noundef @.str.590)
+  store ptr %389, ptr %19, align 8
+  br label %390
 
-385:                                              ; preds = %363
-  %386 = load ptr, ptr %16, align 8
-  %387 = getelementptr inbounds %struct.pref_module, ptr %386, i32 0, i32 0
-  %388 = load ptr, ptr %387, align 8
-  %389 = call i32 @strcmp(ptr noundef %388, ptr noundef @.str.591) #11
-  %390 = icmp eq i32 %389, 0
-  br i1 %390, label %391, label %407
+390:                                              ; preds = %387, %383
+  br label %391
 
-391:                                              ; preds = %385
-  %392 = load ptr, ptr %14, align 8
-  %393 = call i32 @strcmp(ptr noundef %392, ptr noundef @.str.592) #11
-  %394 = icmp eq i32 %393, 0
-  br i1 %394, label %395, label %398
+391:                                              ; preds = %390, %380
+  br label %1039
 
-395:                                              ; preds = %391
-  %396 = load ptr, ptr %16, align 8
-  %397 = call ptr @prefs_find_preference(ptr noundef %396, ptr noundef @.str.575)
-  store ptr %397, ptr %19, align 8
-  br label %406
+392:                                              ; preds = %370
+  %393 = load ptr, ptr %16, align 8
+  %394 = getelementptr inbounds %struct.pref_module, ptr %393, i32 0, i32 0
+  %395 = load ptr, ptr %394, align 8
+  %396 = call i32 @strcmp(ptr noundef %395, ptr noundef @.str.591) #11
+  %397 = icmp eq i32 %396, 0
+  br i1 %397, label %398, label %414
 
-398:                                              ; preds = %391
+398:                                              ; preds = %392
   %399 = load ptr, ptr %14, align 8
-  %400 = call i32 @strcmp(ptr noundef %399, ptr noundef @.str.593) #11
+  %400 = call i32 @strcmp(ptr noundef %399, ptr noundef @.str.592) #11
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %402, label %405
 
 402:                                              ; preds = %398
   %403 = load ptr, ptr %16, align 8
-  %404 = call ptr @prefs_find_preference(ptr noundef %403, ptr noundef @.str.594)
+  %404 = call ptr @prefs_find_preference(ptr noundef %403, ptr noundef @.str.575)
   store ptr %404, ptr %19, align 8
-  br label %405
+  br label %413
 
-405:                                              ; preds = %402, %398
-  br label %406
+405:                                              ; preds = %398
+  %406 = load ptr, ptr %14, align 8
+  %407 = call i32 @strcmp(ptr noundef %406, ptr noundef @.str.593) #11
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %412
 
-406:                                              ; preds = %405, %395
-  br label %1031
+409:                                              ; preds = %405
+  %410 = load ptr, ptr %16, align 8
+  %411 = call ptr @prefs_find_preference(ptr noundef %410, ptr noundef @.str.594)
+  store ptr %411, ptr %19, align 8
+  br label %412
 
-407:                                              ; preds = %385
-  %408 = load ptr, ptr %16, align 8
-  %409 = getelementptr inbounds %struct.pref_module, ptr %408, i32 0, i32 0
-  %410 = load ptr, ptr %409, align 8
-  %411 = call i32 @strcmp(ptr noundef %410, ptr noundef @.str.595) #11
-  %412 = icmp eq i32 %411, 0
-  br i1 %412, label %413, label %469
+412:                                              ; preds = %409, %405
+  br label %413
 
-413:                                              ; preds = %407
-  %414 = load ptr, ptr %14, align 8
-  %415 = call i32 @strcmp(ptr noundef %414, ptr noundef @.str.596) #11
-  %416 = icmp eq i32 %415, 0
-  br i1 %416, label %417, label %420
+413:                                              ; preds = %412, %402
+  br label %1038
 
-417:                                              ; preds = %413
-  %418 = load ptr, ptr %16, align 8
-  %419 = call ptr @prefs_find_preference(ptr noundef %418, ptr noundef @.str.597)
-  store ptr %419, ptr %19, align 8
-  br label %468
+414:                                              ; preds = %392
+  %415 = load ptr, ptr %16, align 8
+  %416 = getelementptr inbounds %struct.pref_module, ptr %415, i32 0, i32 0
+  %417 = load ptr, ptr %416, align 8
+  %418 = call i32 @strcmp(ptr noundef %417, ptr noundef @.str.595) #11
+  %419 = icmp eq i32 %418, 0
+  br i1 %419, label %420, label %476
 
-420:                                              ; preds = %413
+420:                                              ; preds = %414
   %421 = load ptr, ptr %14, align 8
-  %422 = call i32 @strcmp(ptr noundef %421, ptr noundef @.str.598) #11
+  %422 = call i32 @strcmp(ptr noundef %421, ptr noundef @.str.596) #11
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %424, label %427
 
 424:                                              ; preds = %420
   %425 = load ptr, ptr %16, align 8
-  %426 = call ptr @prefs_find_preference(ptr noundef %425, ptr noundef @.str.599)
+  %426 = call ptr @prefs_find_preference(ptr noundef %425, ptr noundef @.str.597)
   store ptr %426, ptr %19, align 8
-  br label %467
+  br label %475
 
 427:                                              ; preds = %420
   %428 = load ptr, ptr %14, align 8
-  %429 = call i32 @strcmp(ptr noundef %428, ptr noundef @.str.600) #11
+  %429 = call i32 @strcmp(ptr noundef %428, ptr noundef @.str.598) #11
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %431, label %434
 
 431:                                              ; preds = %427
   %432 = load ptr, ptr %16, align 8
-  %433 = call ptr @prefs_find_preference(ptr noundef %432, ptr noundef @.str.601)
+  %433 = call ptr @prefs_find_preference(ptr noundef %432, ptr noundef @.str.599)
   store ptr %433, ptr %19, align 8
-  br label %466
+  br label %474
 
 434:                                              ; preds = %427
   %435 = load ptr, ptr %14, align 8
-  %436 = call i32 @strcmp(ptr noundef %435, ptr noundef @.str.602) #11
+  %436 = call i32 @strcmp(ptr noundef %435, ptr noundef @.str.600) #11
   %437 = icmp eq i32 %436, 0
   br i1 %437, label %438, label %441
 
 438:                                              ; preds = %434
   %439 = load ptr, ptr %16, align 8
-  %440 = call ptr @prefs_find_preference(ptr noundef %439, ptr noundef @.str.603)
+  %440 = call ptr @prefs_find_preference(ptr noundef %439, ptr noundef @.str.601)
   store ptr %440, ptr %19, align 8
-  br label %465
+  br label %473
 
 441:                                              ; preds = %434
   %442 = load ptr, ptr %14, align 8
-  %443 = call i32 @strcmp(ptr noundef %442, ptr noundef @.str.604) #11
+  %443 = call i32 @strcmp(ptr noundef %442, ptr noundef @.str.602) #11
   %444 = icmp eq i32 %443, 0
   br i1 %444, label %445, label %448
 
 445:                                              ; preds = %441
   %446 = load ptr, ptr %16, align 8
-  %447 = call ptr @prefs_find_preference(ptr noundef %446, ptr noundef @.str.605)
+  %447 = call ptr @prefs_find_preference(ptr noundef %446, ptr noundef @.str.603)
   store ptr %447, ptr %19, align 8
-  br label %464
+  br label %472
 
 448:                                              ; preds = %441
   %449 = load ptr, ptr %14, align 8
-  %450 = call i32 @strcmp(ptr noundef %449, ptr noundef @.str.606) #11
+  %450 = call i32 @strcmp(ptr noundef %449, ptr noundef @.str.604) #11
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %452, label %455
 
 452:                                              ; preds = %448
   %453 = load ptr, ptr %16, align 8
-  %454 = call ptr @prefs_find_preference(ptr noundef %453, ptr noundef @.str.607)
+  %454 = call ptr @prefs_find_preference(ptr noundef %453, ptr noundef @.str.605)
   store ptr %454, ptr %19, align 8
-  br label %463
+  br label %471
 
 455:                                              ; preds = %448
   %456 = load ptr, ptr %14, align 8
-  %457 = call i32 @strcmp(ptr noundef %456, ptr noundef @.str.608) #11
+  %457 = call i32 @strcmp(ptr noundef %456, ptr noundef @.str.606) #11
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %459, label %462
 
 459:                                              ; preds = %455
   %460 = load ptr, ptr %16, align 8
-  %461 = call ptr @prefs_find_preference(ptr noundef %460, ptr noundef @.str.609)
+  %461 = call ptr @prefs_find_preference(ptr noundef %460, ptr noundef @.str.607)
   store ptr %461, ptr %19, align 8
-  br label %462
+  br label %470
 
-462:                                              ; preds = %459, %455
-  br label %463
+462:                                              ; preds = %455
+  %463 = load ptr, ptr %14, align 8
+  %464 = call i32 @strcmp(ptr noundef %463, ptr noundef @.str.608) #11
+  %465 = icmp eq i32 %464, 0
+  br i1 %465, label %466, label %469
 
-463:                                              ; preds = %462, %452
-  br label %464
+466:                                              ; preds = %462
+  %467 = load ptr, ptr %16, align 8
+  %468 = call ptr @prefs_find_preference(ptr noundef %467, ptr noundef @.str.609)
+  store ptr %468, ptr %19, align 8
+  br label %469
 
-464:                                              ; preds = %463, %445
-  br label %465
+469:                                              ; preds = %466, %462
+  br label %470
 
-465:                                              ; preds = %464, %438
-  br label %466
+470:                                              ; preds = %469, %459
+  br label %471
 
-466:                                              ; preds = %465, %431
-  br label %467
+471:                                              ; preds = %470, %452
+  br label %472
 
-467:                                              ; preds = %466, %424
-  br label %468
+472:                                              ; preds = %471, %445
+  br label %473
 
-468:                                              ; preds = %467, %417
-  br label %1030
+473:                                              ; preds = %472, %438
+  br label %474
 
-469:                                              ; preds = %407
-  %470 = load ptr, ptr %16, align 8
-  %471 = getelementptr inbounds %struct.pref_module, ptr %470, i32 0, i32 0
-  %472 = load ptr, ptr %471, align 8
-  %473 = call i32 @strcmp(ptr noundef %472, ptr noundef @.str.610) #11
-  %474 = icmp eq i32 %473, 0
-  br i1 %474, label %475, label %483
+474:                                              ; preds = %473, %431
+  br label %475
 
-475:                                              ; preds = %469
-  %476 = load ptr, ptr %14, align 8
-  %477 = call i32 @strcmp(ptr noundef %476, ptr noundef @.str.611) #11
-  %478 = icmp eq i32 %477, 0
-  br i1 %478, label %479, label %482
+475:                                              ; preds = %474, %424
+  br label %1037
 
-479:                                              ; preds = %475
-  %480 = load ptr, ptr %16, align 8
-  %481 = call ptr @prefs_find_preference(ptr noundef %480, ptr noundef @.str.612)
-  store ptr %481, ptr %19, align 8
-  br label %482
+476:                                              ; preds = %414
+  %477 = load ptr, ptr %16, align 8
+  %478 = getelementptr inbounds %struct.pref_module, ptr %477, i32 0, i32 0
+  %479 = load ptr, ptr %478, align 8
+  %480 = call i32 @strcmp(ptr noundef %479, ptr noundef @.str.610) #11
+  %481 = icmp eq i32 %480, 0
+  br i1 %481, label %482, label %490
 
-482:                                              ; preds = %479, %475
-  br label %1029
+482:                                              ; preds = %476
+  %483 = load ptr, ptr %14, align 8
+  %484 = call i32 @strcmp(ptr noundef %483, ptr noundef @.str.611) #11
+  %485 = icmp eq i32 %484, 0
+  br i1 %485, label %486, label %489
 
-483:                                              ; preds = %469
-  %484 = load ptr, ptr %16, align 8
-  %485 = getelementptr inbounds %struct.pref_module, ptr %484, i32 0, i32 0
-  %486 = load ptr, ptr %485, align 8
-  %487 = call i32 @strcmp(ptr noundef %486, ptr noundef @.str.613) #11
-  %488 = icmp eq i32 %487, 0
-  br i1 %488, label %489, label %497
+486:                                              ; preds = %482
+  %487 = load ptr, ptr %16, align 8
+  %488 = call ptr @prefs_find_preference(ptr noundef %487, ptr noundef @.str.612)
+  store ptr %488, ptr %19, align 8
+  br label %489
 
-489:                                              ; preds = %483
-  %490 = load ptr, ptr %14, align 8
-  %491 = call i32 @strcmp(ptr noundef %490, ptr noundef @.str.614) #11
-  %492 = icmp eq i32 %491, 0
-  br i1 %492, label %493, label %496
+489:                                              ; preds = %486, %482
+  br label %1036
 
-493:                                              ; preds = %489
-  %494 = load ptr, ptr %16, align 8
-  %495 = call ptr @prefs_find_preference(ptr noundef %494, ptr noundef @.str.594)
-  store ptr %495, ptr %19, align 8
-  br label %496
+490:                                              ; preds = %476
+  %491 = load ptr, ptr %16, align 8
+  %492 = getelementptr inbounds %struct.pref_module, ptr %491, i32 0, i32 0
+  %493 = load ptr, ptr %492, align 8
+  %494 = call i32 @strcmp(ptr noundef %493, ptr noundef @.str.613) #11
+  %495 = icmp eq i32 %494, 0
+  br i1 %495, label %496, label %504
 
-496:                                              ; preds = %493, %489
-  br label %1028
+496:                                              ; preds = %490
+  %497 = load ptr, ptr %14, align 8
+  %498 = call i32 @strcmp(ptr noundef %497, ptr noundef @.str.614) #11
+  %499 = icmp eq i32 %498, 0
+  br i1 %499, label %500, label %503
 
-497:                                              ; preds = %483
-  %498 = load ptr, ptr %16, align 8
-  %499 = getelementptr inbounds %struct.pref_module, ptr %498, i32 0, i32 0
-  %500 = load ptr, ptr %499, align 8
-  %501 = call i32 @strcmp(ptr noundef %500, ptr noundef @.str.615) #11
-  %502 = icmp eq i32 %501, 0
-  br i1 %502, label %503, label %511
+500:                                              ; preds = %496
+  %501 = load ptr, ptr %16, align 8
+  %502 = call ptr @prefs_find_preference(ptr noundef %501, ptr noundef @.str.594)
+  store ptr %502, ptr %19, align 8
+  br label %503
 
-503:                                              ; preds = %497
-  %504 = load ptr, ptr %14, align 8
-  %505 = call i32 @strcmp(ptr noundef %504, ptr noundef @.str.616) #11
-  %506 = icmp eq i32 %505, 0
-  br i1 %506, label %507, label %510
+503:                                              ; preds = %500, %496
+  br label %1035
 
-507:                                              ; preds = %503
-  %508 = load ptr, ptr %16, align 8
-  %509 = call ptr @prefs_find_preference(ptr noundef %508, ptr noundef @.str.617)
-  store ptr %509, ptr %19, align 8
-  br label %510
+504:                                              ; preds = %490
+  %505 = load ptr, ptr %16, align 8
+  %506 = getelementptr inbounds %struct.pref_module, ptr %505, i32 0, i32 0
+  %507 = load ptr, ptr %506, align 8
+  %508 = call i32 @strcmp(ptr noundef %507, ptr noundef @.str.615) #11
+  %509 = icmp eq i32 %508, 0
+  br i1 %509, label %510, label %518
 
-510:                                              ; preds = %507, %503
-  br label %1027
+510:                                              ; preds = %504
+  %511 = load ptr, ptr %14, align 8
+  %512 = call i32 @strcmp(ptr noundef %511, ptr noundef @.str.616) #11
+  %513 = icmp eq i32 %512, 0
+  br i1 %513, label %514, label %517
 
-511:                                              ; preds = %497
-  %512 = load ptr, ptr %16, align 8
-  %513 = getelementptr inbounds %struct.pref_module, ptr %512, i32 0, i32 0
-  %514 = load ptr, ptr %513, align 8
-  %515 = call i32 @strcmp(ptr noundef %514, ptr noundef @.str.618) #11
-  %516 = icmp eq i32 %515, 0
-  br i1 %516, label %517, label %533
+514:                                              ; preds = %510
+  %515 = load ptr, ptr %16, align 8
+  %516 = call ptr @prefs_find_preference(ptr noundef %515, ptr noundef @.str.617)
+  store ptr %516, ptr %19, align 8
+  br label %517
 
-517:                                              ; preds = %511
-  %518 = load ptr, ptr %14, align 8
-  %519 = call i32 @strcmp(ptr noundef %518, ptr noundef @.str.619) #11
-  %520 = icmp eq i32 %519, 0
-  br i1 %520, label %521, label %524
+517:                                              ; preds = %514, %510
+  br label %1034
 
-521:                                              ; preds = %517
-  %522 = load ptr, ptr %16, align 8
-  %523 = call ptr @prefs_find_preference(ptr noundef %522, ptr noundef @.str.620)
-  store ptr %523, ptr %19, align 8
-  br label %532
+518:                                              ; preds = %504
+  %519 = load ptr, ptr %16, align 8
+  %520 = getelementptr inbounds %struct.pref_module, ptr %519, i32 0, i32 0
+  %521 = load ptr, ptr %520, align 8
+  %522 = call i32 @strcmp(ptr noundef %521, ptr noundef @.str.618) #11
+  %523 = icmp eq i32 %522, 0
+  br i1 %523, label %524, label %540
 
-524:                                              ; preds = %517
+524:                                              ; preds = %518
   %525 = load ptr, ptr %14, align 8
-  %526 = call i32 @strcmp(ptr noundef %525, ptr noundef @.str.621) #11
+  %526 = call i32 @strcmp(ptr noundef %525, ptr noundef @.str.619) #11
   %527 = icmp eq i32 %526, 0
   br i1 %527, label %528, label %531
 
 528:                                              ; preds = %524
   %529 = load ptr, ptr %16, align 8
-  %530 = call ptr @prefs_find_preference(ptr noundef %529, ptr noundef @.str.622)
+  %530 = call ptr @prefs_find_preference(ptr noundef %529, ptr noundef @.str.620)
   store ptr %530, ptr %19, align 8
-  br label %531
+  br label %539
 
-531:                                              ; preds = %528, %524
-  br label %532
+531:                                              ; preds = %524
+  %532 = load ptr, ptr %14, align 8
+  %533 = call i32 @strcmp(ptr noundef %532, ptr noundef @.str.621) #11
+  %534 = icmp eq i32 %533, 0
+  br i1 %534, label %535, label %538
 
-532:                                              ; preds = %531, %521
-  br label %1026
+535:                                              ; preds = %531
+  %536 = load ptr, ptr %16, align 8
+  %537 = call ptr @prefs_find_preference(ptr noundef %536, ptr noundef @.str.622)
+  store ptr %537, ptr %19, align 8
+  br label %538
 
-533:                                              ; preds = %511
-  %534 = load ptr, ptr %16, align 8
-  %535 = getelementptr inbounds %struct.pref_module, ptr %534, i32 0, i32 0
-  %536 = load ptr, ptr %535, align 8
-  %537 = call i32 @strcmp(ptr noundef %536, ptr noundef @.str.623) #11
-  %538 = icmp eq i32 %537, 0
-  br i1 %538, label %539, label %547
+538:                                              ; preds = %535, %531
+  br label %539
 
-539:                                              ; preds = %533
-  %540 = load ptr, ptr %14, align 8
-  %541 = call i32 @strcmp(ptr noundef %540, ptr noundef @.str.624) #11
-  %542 = icmp eq i32 %541, 0
-  br i1 %542, label %543, label %546
+539:                                              ; preds = %538, %528
+  br label %1033
 
-543:                                              ; preds = %539
-  %544 = load ptr, ptr %16, align 8
-  %545 = call ptr @prefs_find_preference(ptr noundef %544, ptr noundef @.str.625)
-  store ptr %545, ptr %19, align 8
-  br label %546
+540:                                              ; preds = %518
+  %541 = load ptr, ptr %16, align 8
+  %542 = getelementptr inbounds %struct.pref_module, ptr %541, i32 0, i32 0
+  %543 = load ptr, ptr %542, align 8
+  %544 = call i32 @strcmp(ptr noundef %543, ptr noundef @.str.623) #11
+  %545 = icmp eq i32 %544, 0
+  br i1 %545, label %546, label %554
 
-546:                                              ; preds = %543, %539
-  br label %1025
+546:                                              ; preds = %540
+  %547 = load ptr, ptr %14, align 8
+  %548 = call i32 @strcmp(ptr noundef %547, ptr noundef @.str.624) #11
+  %549 = icmp eq i32 %548, 0
+  br i1 %549, label %550, label %553
 
-547:                                              ; preds = %533
-  %548 = load ptr, ptr %16, align 8
-  %549 = getelementptr inbounds %struct.pref_module, ptr %548, i32 0, i32 0
-  %550 = load ptr, ptr %549, align 8
-  %551 = call i32 @strcmp(ptr noundef %550, ptr noundef @.str.626) #11
-  %552 = icmp eq i32 %551, 0
-  br i1 %552, label %553, label %569
+550:                                              ; preds = %546
+  %551 = load ptr, ptr %16, align 8
+  %552 = call ptr @prefs_find_preference(ptr noundef %551, ptr noundef @.str.625)
+  store ptr %552, ptr %19, align 8
+  br label %553
 
-553:                                              ; preds = %547
-  %554 = load ptr, ptr %14, align 8
-  %555 = call i32 @strcmp(ptr noundef %554, ptr noundef @.str.627) #11
-  %556 = icmp eq i32 %555, 0
-  br i1 %556, label %557, label %560
+553:                                              ; preds = %550, %546
+  br label %1032
 
-557:                                              ; preds = %553
-  %558 = load ptr, ptr %16, align 8
-  %559 = call ptr @prefs_find_preference(ptr noundef %558, ptr noundef @.str.628)
-  store ptr %559, ptr %19, align 8
-  br label %568
+554:                                              ; preds = %540
+  %555 = load ptr, ptr %16, align 8
+  %556 = getelementptr inbounds %struct.pref_module, ptr %555, i32 0, i32 0
+  %557 = load ptr, ptr %556, align 8
+  %558 = call i32 @strcmp(ptr noundef %557, ptr noundef @.str.626) #11
+  %559 = icmp eq i32 %558, 0
+  br i1 %559, label %560, label %576
 
-560:                                              ; preds = %553
+560:                                              ; preds = %554
   %561 = load ptr, ptr %14, align 8
-  %562 = call i32 @strcmp(ptr noundef %561, ptr noundef @.str.629) #11
+  %562 = call i32 @strcmp(ptr noundef %561, ptr noundef @.str.627) #11
   %563 = icmp eq i32 %562, 0
   br i1 %563, label %564, label %567
 
 564:                                              ; preds = %560
   %565 = load ptr, ptr %16, align 8
-  %566 = call ptr @prefs_find_preference(ptr noundef %565, ptr noundef @.str.630)
+  %566 = call ptr @prefs_find_preference(ptr noundef %565, ptr noundef @.str.628)
   store ptr %566, ptr %19, align 8
-  br label %567
+  br label %575
 
-567:                                              ; preds = %564, %560
-  br label %568
+567:                                              ; preds = %560
+  %568 = load ptr, ptr %14, align 8
+  %569 = call i32 @strcmp(ptr noundef %568, ptr noundef @.str.629) #11
+  %570 = icmp eq i32 %569, 0
+  br i1 %570, label %571, label %574
 
-568:                                              ; preds = %567, %557
-  br label %1024
+571:                                              ; preds = %567
+  %572 = load ptr, ptr %16, align 8
+  %573 = call ptr @prefs_find_preference(ptr noundef %572, ptr noundef @.str.630)
+  store ptr %573, ptr %19, align 8
+  br label %574
 
-569:                                              ; preds = %547
-  %570 = load ptr, ptr %16, align 8
-  %571 = getelementptr inbounds %struct.pref_module, ptr %570, i32 0, i32 0
-  %572 = load ptr, ptr %571, align 8
-  %573 = call i32 @strcmp(ptr noundef %572, ptr noundef @.str.631) #11
-  %574 = icmp eq i32 %573, 0
-  br i1 %574, label %575, label %583
+574:                                              ; preds = %571, %567
+  br label %575
 
-575:                                              ; preds = %569
-  %576 = load ptr, ptr %14, align 8
-  %577 = call i32 @strcmp(ptr noundef %576, ptr noundef @.str.632) #11
-  %578 = icmp eq i32 %577, 0
-  br i1 %578, label %579, label %582
+575:                                              ; preds = %574, %564
+  br label %1031
 
-579:                                              ; preds = %575
-  %580 = load ptr, ptr %16, align 8
-  %581 = call ptr @prefs_find_preference(ptr noundef %580, ptr noundef @.str.633)
-  store ptr %581, ptr %19, align 8
-  br label %582
+576:                                              ; preds = %554
+  %577 = load ptr, ptr %16, align 8
+  %578 = getelementptr inbounds %struct.pref_module, ptr %577, i32 0, i32 0
+  %579 = load ptr, ptr %578, align 8
+  %580 = call i32 @strcmp(ptr noundef %579, ptr noundef @.str.631) #11
+  %581 = icmp eq i32 %580, 0
+  br i1 %581, label %582, label %590
 
-582:                                              ; preds = %579, %575
-  br label %1023
+582:                                              ; preds = %576
+  %583 = load ptr, ptr %14, align 8
+  %584 = call i32 @strcmp(ptr noundef %583, ptr noundef @.str.632) #11
+  %585 = icmp eq i32 %584, 0
+  br i1 %585, label %586, label %589
 
-583:                                              ; preds = %569
-  %584 = load ptr, ptr %16, align 8
-  %585 = getelementptr inbounds %struct.pref_module, ptr %584, i32 0, i32 0
-  %586 = load ptr, ptr %585, align 8
-  %587 = call i32 @strcmp(ptr noundef %586, ptr noundef @.str.634) #11
-  %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %621
+586:                                              ; preds = %582
+  %587 = load ptr, ptr %16, align 8
+  %588 = call ptr @prefs_find_preference(ptr noundef %587, ptr noundef @.str.633)
+  store ptr %588, ptr %19, align 8
+  br label %589
 
-589:                                              ; preds = %583
-  %590 = load ptr, ptr %14, align 8
-  %591 = call i32 @strcmp(ptr noundef %590, ptr noundef @.str.635) #11
-  %592 = icmp eq i32 %591, 0
-  br i1 %592, label %593, label %596
+589:                                              ; preds = %586, %582
+  br label %1030
 
-593:                                              ; preds = %589
-  %594 = load ptr, ptr %16, align 8
-  %595 = call ptr @prefs_find_preference(ptr noundef %594, ptr noundef @.str.612)
-  store ptr %595, ptr %19, align 8
-  br label %620
+590:                                              ; preds = %576
+  %591 = load ptr, ptr %16, align 8
+  %592 = getelementptr inbounds %struct.pref_module, ptr %591, i32 0, i32 0
+  %593 = load ptr, ptr %592, align 8
+  %594 = call i32 @strcmp(ptr noundef %593, ptr noundef @.str.634) #11
+  %595 = icmp eq i32 %594, 0
+  br i1 %595, label %596, label %628
 
-596:                                              ; preds = %589
+596:                                              ; preds = %590
   %597 = load ptr, ptr %14, align 8
-  %598 = call i32 @strcmp(ptr noundef %597, ptr noundef @.str.636) #11
+  %598 = call i32 @strcmp(ptr noundef %597, ptr noundef @.str.635) #11
   %599 = icmp eq i32 %598, 0
   br i1 %599, label %600, label %603
 
 600:                                              ; preds = %596
   %601 = load ptr, ptr %16, align 8
-  %602 = call ptr @prefs_find_preference(ptr noundef %601, ptr noundef @.str.637)
+  %602 = call ptr @prefs_find_preference(ptr noundef %601, ptr noundef @.str.612)
   store ptr %602, ptr %19, align 8
-  br label %619
+  br label %627
 
 603:                                              ; preds = %596
   %604 = load ptr, ptr %14, align 8
-  %605 = call i32 @strcmp(ptr noundef %604, ptr noundef @.str.638) #11
+  %605 = call i32 @strcmp(ptr noundef %604, ptr noundef @.str.636) #11
   %606 = icmp eq i32 %605, 0
   br i1 %606, label %607, label %610
 
 607:                                              ; preds = %603
   %608 = load ptr, ptr %16, align 8
-  %609 = call ptr @prefs_find_preference(ptr noundef %608, ptr noundef @.str.639)
+  %609 = call ptr @prefs_find_preference(ptr noundef %608, ptr noundef @.str.637)
   store ptr %609, ptr %19, align 8
-  br label %618
+  br label %626
 
 610:                                              ; preds = %603
   %611 = load ptr, ptr %14, align 8
-  %612 = call i32 @strcmp(ptr noundef %611, ptr noundef @.str.640) #11
+  %612 = call i32 @strcmp(ptr noundef %611, ptr noundef @.str.638) #11
   %613 = icmp eq i32 %612, 0
   br i1 %613, label %614, label %617
 
 614:                                              ; preds = %610
   %615 = load ptr, ptr %16, align 8
-  %616 = call ptr @prefs_find_preference(ptr noundef %615, ptr noundef @.str.641)
+  %616 = call ptr @prefs_find_preference(ptr noundef %615, ptr noundef @.str.639)
   store ptr %616, ptr %19, align 8
-  br label %617
+  br label %625
 
-617:                                              ; preds = %614, %610
-  br label %618
+617:                                              ; preds = %610
+  %618 = load ptr, ptr %14, align 8
+  %619 = call i32 @strcmp(ptr noundef %618, ptr noundef @.str.640) #11
+  %620 = icmp eq i32 %619, 0
+  br i1 %620, label %621, label %624
 
-618:                                              ; preds = %617, %607
-  br label %619
-
-619:                                              ; preds = %618, %600
-  br label %620
-
-620:                                              ; preds = %619, %593
-  br label %1022
-
-621:                                              ; preds = %583
+621:                                              ; preds = %617
   %622 = load ptr, ptr %16, align 8
-  %623 = getelementptr inbounds %struct.pref_module, ptr %622, i32 0, i32 0
-  %624 = load ptr, ptr %623, align 8
-  %625 = call i32 @strcmp(ptr noundef %624, ptr noundef @.str.642) #11
-  %626 = icmp eq i32 %625, 0
-  br i1 %626, label %627, label %635
+  %623 = call ptr @prefs_find_preference(ptr noundef %622, ptr noundef @.str.641)
+  store ptr %623, ptr %19, align 8
+  br label %624
 
-627:                                              ; preds = %621
-  %628 = load ptr, ptr %14, align 8
-  %629 = call i32 @strcmp(ptr noundef %628, ptr noundef @.str.643) #11
-  %630 = icmp eq i32 %629, 0
-  br i1 %630, label %631, label %634
+624:                                              ; preds = %621, %617
+  br label %625
 
-631:                                              ; preds = %627
-  %632 = load ptr, ptr %16, align 8
-  %633 = call ptr @prefs_find_preference(ptr noundef %632, ptr noundef @.str.612)
-  store ptr %633, ptr %19, align 8
-  br label %634
+625:                                              ; preds = %624, %614
+  br label %626
 
-634:                                              ; preds = %631, %627
-  br label %1021
+626:                                              ; preds = %625, %607
+  br label %627
 
-635:                                              ; preds = %621
-  %636 = load ptr, ptr %16, align 8
-  %637 = getelementptr inbounds %struct.pref_module, ptr %636, i32 0, i32 0
-  %638 = load ptr, ptr %637, align 8
-  %639 = call i32 @strcmp(ptr noundef %638, ptr noundef @.str.644) #11
-  %640 = icmp eq i32 %639, 0
-  br i1 %640, label %641, label %649
+627:                                              ; preds = %626, %600
+  br label %1029
 
-641:                                              ; preds = %635
-  %642 = load ptr, ptr %14, align 8
-  %643 = call i32 @strcmp(ptr noundef %642, ptr noundef @.str.645) #11
-  %644 = icmp eq i32 %643, 0
-  br i1 %644, label %645, label %648
+628:                                              ; preds = %590
+  %629 = load ptr, ptr %16, align 8
+  %630 = getelementptr inbounds %struct.pref_module, ptr %629, i32 0, i32 0
+  %631 = load ptr, ptr %630, align 8
+  %632 = call i32 @strcmp(ptr noundef %631, ptr noundef @.str.642) #11
+  %633 = icmp eq i32 %632, 0
+  br i1 %633, label %634, label %642
 
-645:                                              ; preds = %641
-  %646 = load ptr, ptr %16, align 8
-  %647 = call ptr @prefs_find_preference(ptr noundef %646, ptr noundef @.str.646)
-  store ptr %647, ptr %19, align 8
-  br label %648
+634:                                              ; preds = %628
+  %635 = load ptr, ptr %14, align 8
+  %636 = call i32 @strcmp(ptr noundef %635, ptr noundef @.str.643) #11
+  %637 = icmp eq i32 %636, 0
+  br i1 %637, label %638, label %641
 
-648:                                              ; preds = %645, %641
-  br label %1020
+638:                                              ; preds = %634
+  %639 = load ptr, ptr %16, align 8
+  %640 = call ptr @prefs_find_preference(ptr noundef %639, ptr noundef @.str.612)
+  store ptr %640, ptr %19, align 8
+  br label %641
 
-649:                                              ; preds = %635
-  %650 = load ptr, ptr %16, align 8
-  %651 = getelementptr inbounds %struct.pref_module, ptr %650, i32 0, i32 0
-  %652 = load ptr, ptr %651, align 8
-  %653 = call i32 @strcmp(ptr noundef %652, ptr noundef @.str.647) #11
-  %654 = icmp eq i32 %653, 0
-  br i1 %654, label %655, label %671
+641:                                              ; preds = %638, %634
+  br label %1028
 
-655:                                              ; preds = %649
-  %656 = load ptr, ptr %14, align 8
-  %657 = call i32 @strcmp(ptr noundef %656, ptr noundef @.str.648) #11
-  %658 = icmp eq i32 %657, 0
-  br i1 %658, label %659, label %662
+642:                                              ; preds = %628
+  %643 = load ptr, ptr %16, align 8
+  %644 = getelementptr inbounds %struct.pref_module, ptr %643, i32 0, i32 0
+  %645 = load ptr, ptr %644, align 8
+  %646 = call i32 @strcmp(ptr noundef %645, ptr noundef @.str.644) #11
+  %647 = icmp eq i32 %646, 0
+  br i1 %647, label %648, label %656
 
-659:                                              ; preds = %655
-  %660 = load ptr, ptr %16, align 8
-  %661 = call ptr @prefs_find_preference(ptr noundef %660, ptr noundef @.str.649)
-  store ptr %661, ptr %19, align 8
-  br label %670
+648:                                              ; preds = %642
+  %649 = load ptr, ptr %14, align 8
+  %650 = call i32 @strcmp(ptr noundef %649, ptr noundef @.str.645) #11
+  %651 = icmp eq i32 %650, 0
+  br i1 %651, label %652, label %655
 
-662:                                              ; preds = %655
+652:                                              ; preds = %648
+  %653 = load ptr, ptr %16, align 8
+  %654 = call ptr @prefs_find_preference(ptr noundef %653, ptr noundef @.str.646)
+  store ptr %654, ptr %19, align 8
+  br label %655
+
+655:                                              ; preds = %652, %648
+  br label %1027
+
+656:                                              ; preds = %642
+  %657 = load ptr, ptr %16, align 8
+  %658 = getelementptr inbounds %struct.pref_module, ptr %657, i32 0, i32 0
+  %659 = load ptr, ptr %658, align 8
+  %660 = call i32 @strcmp(ptr noundef %659, ptr noundef @.str.647) #11
+  %661 = icmp eq i32 %660, 0
+  br i1 %661, label %662, label %678
+
+662:                                              ; preds = %656
   %663 = load ptr, ptr %14, align 8
-  %664 = call i32 @strcmp(ptr noundef %663, ptr noundef @.str.650) #11
+  %664 = call i32 @strcmp(ptr noundef %663, ptr noundef @.str.648) #11
   %665 = icmp eq i32 %664, 0
   br i1 %665, label %666, label %669
 
 666:                                              ; preds = %662
   %667 = load ptr, ptr %16, align 8
-  %668 = call ptr @prefs_find_preference(ptr noundef %667, ptr noundef @.str.651)
+  %668 = call ptr @prefs_find_preference(ptr noundef %667, ptr noundef @.str.649)
   store ptr %668, ptr %19, align 8
-  br label %669
+  br label %677
 
-669:                                              ; preds = %666, %662
-  br label %670
+669:                                              ; preds = %662
+  %670 = load ptr, ptr %14, align 8
+  %671 = call i32 @strcmp(ptr noundef %670, ptr noundef @.str.650) #11
+  %672 = icmp eq i32 %671, 0
+  br i1 %672, label %673, label %676
 
-670:                                              ; preds = %669, %659
-  br label %1019
+673:                                              ; preds = %669
+  %674 = load ptr, ptr %16, align 8
+  %675 = call ptr @prefs_find_preference(ptr noundef %674, ptr noundef @.str.651)
+  store ptr %675, ptr %19, align 8
+  br label %676
 
-671:                                              ; preds = %649
-  %672 = load ptr, ptr %16, align 8
-  %673 = getelementptr inbounds %struct.pref_module, ptr %672, i32 0, i32 0
-  %674 = load ptr, ptr %673, align 8
-  %675 = call i32 @strcmp(ptr noundef %674, ptr noundef @.str.652) #11
-  %676 = icmp eq i32 %675, 0
-  br i1 %676, label %677, label %700
+676:                                              ; preds = %673, %669
+  br label %677
 
-677:                                              ; preds = %671
-  %678 = call ptr @prefs_find_module(ptr noundef @.str.653)
-  store ptr %678, ptr %23, align 8
-  %679 = load ptr, ptr %23, align 8
-  %680 = icmp ne ptr %679, null
-  br i1 %680, label %681, label %699
+677:                                              ; preds = %676, %666
+  br label %1026
 
-681:                                              ; preds = %677
-  %682 = load ptr, ptr %14, align 8
-  %683 = call i32 @strcmp(ptr noundef %682, ptr noundef @.str.654) #11
-  %684 = icmp eq i32 %683, 0
-  br i1 %684, label %685, label %689
+678:                                              ; preds = %656
+  %679 = load ptr, ptr %16, align 8
+  %680 = getelementptr inbounds %struct.pref_module, ptr %679, i32 0, i32 0
+  %681 = load ptr, ptr %680, align 8
+  %682 = call i32 @strcmp(ptr noundef %681, ptr noundef @.str.652) #11
+  %683 = icmp eq i32 %682, 0
+  br i1 %683, label %684, label %707
 
-685:                                              ; preds = %681
+684:                                              ; preds = %678
+  %685 = call ptr @prefs_find_module(ptr noundef @.str.653)
+  store ptr %685, ptr %23, align 8
   %686 = load ptr, ptr %23, align 8
-  %687 = call ptr @prefs_find_preference(ptr noundef %686, ptr noundef @.str.654)
-  store ptr %687, ptr %19, align 8
-  %688 = load ptr, ptr %23, align 8
-  store ptr %688, ptr %17, align 8
-  br label %698
+  %687 = icmp ne ptr %686, null
+  br i1 %687, label %688, label %706
 
-689:                                              ; preds = %681
-  %690 = load ptr, ptr %14, align 8
-  %691 = call i32 @strcmp(ptr noundef %690, ptr noundef @.str.655) #11
-  %692 = icmp eq i32 %691, 0
-  br i1 %692, label %693, label %697
+688:                                              ; preds = %684
+  %689 = load ptr, ptr %14, align 8
+  %690 = call i32 @strcmp(ptr noundef %689, ptr noundef @.str.654) #11
+  %691 = icmp eq i32 %690, 0
+  br i1 %691, label %692, label %696
 
-693:                                              ; preds = %689
-  %694 = load ptr, ptr %23, align 8
-  %695 = call ptr @prefs_find_preference(ptr noundef %694, ptr noundef @.str.655)
-  store ptr %695, ptr %19, align 8
-  %696 = load ptr, ptr %23, align 8
-  store ptr %696, ptr %17, align 8
-  br label %697
+692:                                              ; preds = %688
+  %693 = load ptr, ptr %23, align 8
+  %694 = call ptr @prefs_find_preference(ptr noundef %693, ptr noundef @.str.654)
+  store ptr %694, ptr %19, align 8
+  %695 = load ptr, ptr %23, align 8
+  store ptr %695, ptr %17, align 8
+  br label %705
 
-697:                                              ; preds = %693, %689
-  br label %698
+696:                                              ; preds = %688
+  %697 = load ptr, ptr %14, align 8
+  %698 = call i32 @strcmp(ptr noundef %697, ptr noundef @.str.655) #11
+  %699 = icmp eq i32 %698, 0
+  br i1 %699, label %700, label %704
 
-698:                                              ; preds = %697, %685
-  br label %699
+700:                                              ; preds = %696
+  %701 = load ptr, ptr %23, align 8
+  %702 = call ptr @prefs_find_preference(ptr noundef %701, ptr noundef @.str.655)
+  store ptr %702, ptr %19, align 8
+  %703 = load ptr, ptr %23, align 8
+  store ptr %703, ptr %17, align 8
+  br label %704
 
-699:                                              ; preds = %698, %677
-  br label %1018
+704:                                              ; preds = %700, %696
+  br label %705
 
-700:                                              ; preds = %671
-  %701 = load ptr, ptr %16, align 8
-  %702 = getelementptr inbounds %struct.pref_module, ptr %701, i32 0, i32 0
-  %703 = load ptr, ptr %702, align 8
-  %704 = call i32 @strcmp(ptr noundef %703, ptr noundef @.str.656) #11
-  %705 = icmp eq i32 %704, 0
-  br i1 %705, label %706, label %730
+705:                                              ; preds = %704, %692
+  br label %706
 
-706:                                              ; preds = %700
-  %707 = load ptr, ptr %14, align 8
-  %708 = call i32 @strcmp(ptr noundef %707, ptr noundef @.str.657) #11
-  %709 = icmp eq i32 %708, 0
-  br i1 %709, label %710, label %713
+706:                                              ; preds = %705, %684
+  br label %1025
 
-710:                                              ; preds = %706
-  %711 = load ptr, ptr %16, align 8
-  %712 = call ptr @prefs_find_preference(ptr noundef %711, ptr noundef @.str.658)
-  store ptr %712, ptr %19, align 8
-  br label %729
+707:                                              ; preds = %678
+  %708 = load ptr, ptr %16, align 8
+  %709 = getelementptr inbounds %struct.pref_module, ptr %708, i32 0, i32 0
+  %710 = load ptr, ptr %709, align 8
+  %711 = call i32 @strcmp(ptr noundef %710, ptr noundef @.str.656) #11
+  %712 = icmp eq i32 %711, 0
+  br i1 %712, label %713, label %737
 
-713:                                              ; preds = %706
+713:                                              ; preds = %707
   %714 = load ptr, ptr %14, align 8
-  %715 = call i32 @strcmp(ptr noundef %714, ptr noundef @.str.580) #11
+  %715 = call i32 @strcmp(ptr noundef %714, ptr noundef @.str.657) #11
   %716 = icmp eq i32 %715, 0
   br i1 %716, label %717, label %720
 
 717:                                              ; preds = %713
   %718 = load ptr, ptr %16, align 8
-  %719 = call ptr @prefs_find_preference(ptr noundef %718, ptr noundef @.str.659)
+  %719 = call ptr @prefs_find_preference(ptr noundef %718, ptr noundef @.str.658)
   store ptr %719, ptr %19, align 8
-  br label %728
+  br label %736
 
 720:                                              ; preds = %713
   %721 = load ptr, ptr %14, align 8
-  %722 = call i32 @strcmp(ptr noundef %721, ptr noundef @.str.660) #11
+  %722 = call i32 @strcmp(ptr noundef %721, ptr noundef @.str.580) #11
   %723 = icmp eq i32 %722, 0
   br i1 %723, label %724, label %727
 
 724:                                              ; preds = %720
   %725 = load ptr, ptr %16, align 8
-  %726 = call ptr @prefs_find_preference(ptr noundef %725, ptr noundef @.str.661)
+  %726 = call ptr @prefs_find_preference(ptr noundef %725, ptr noundef @.str.659)
   store ptr %726, ptr %19, align 8
-  br label %727
+  br label %735
 
-727:                                              ; preds = %724, %720
-  br label %728
+727:                                              ; preds = %720
+  %728 = load ptr, ptr %14, align 8
+  %729 = call i32 @strcmp(ptr noundef %728, ptr noundef @.str.660) #11
+  %730 = icmp eq i32 %729, 0
+  br i1 %730, label %731, label %734
 
-728:                                              ; preds = %727, %717
-  br label %729
+731:                                              ; preds = %727
+  %732 = load ptr, ptr %16, align 8
+  %733 = call ptr @prefs_find_preference(ptr noundef %732, ptr noundef @.str.661)
+  store ptr %733, ptr %19, align 8
+  br label %734
 
-729:                                              ; preds = %728, %710
-  br label %1017
+734:                                              ; preds = %731, %727
+  br label %735
 
-730:                                              ; preds = %700
-  %731 = load ptr, ptr %16, align 8
-  %732 = getelementptr inbounds %struct.pref_module, ptr %731, i32 0, i32 0
-  %733 = load ptr, ptr %732, align 8
-  %734 = call i32 @strcmp(ptr noundef %733, ptr noundef @.str.662) #11
-  %735 = icmp eq i32 %734, 0
-  br i1 %735, label %736, label %744
+735:                                              ; preds = %734, %724
+  br label %736
 
-736:                                              ; preds = %730
-  %737 = load ptr, ptr %14, align 8
-  %738 = call i32 @strcmp(ptr noundef %737, ptr noundef @.str.663) #11
-  %739 = icmp eq i32 %738, 0
-  br i1 %739, label %740, label %743
+736:                                              ; preds = %735, %717
+  br label %1024
 
-740:                                              ; preds = %736
-  %741 = load ptr, ptr %16, align 8
-  %742 = call ptr @prefs_find_preference(ptr noundef %741, ptr noundef @.str.664)
-  store ptr %742, ptr %19, align 8
-  br label %743
+737:                                              ; preds = %707
+  %738 = load ptr, ptr %16, align 8
+  %739 = getelementptr inbounds %struct.pref_module, ptr %738, i32 0, i32 0
+  %740 = load ptr, ptr %739, align 8
+  %741 = call i32 @strcmp(ptr noundef %740, ptr noundef @.str.662) #11
+  %742 = icmp eq i32 %741, 0
+  br i1 %742, label %743, label %751
 
-743:                                              ; preds = %740, %736
-  br label %1016
+743:                                              ; preds = %737
+  %744 = load ptr, ptr %14, align 8
+  %745 = call i32 @strcmp(ptr noundef %744, ptr noundef @.str.663) #11
+  %746 = icmp eq i32 %745, 0
+  br i1 %746, label %747, label %750
 
-744:                                              ; preds = %730
-  %745 = load ptr, ptr %16, align 8
-  %746 = getelementptr inbounds %struct.pref_module, ptr %745, i32 0, i32 0
-  %747 = load ptr, ptr %746, align 8
-  %748 = call i32 @strcmp(ptr noundef %747, ptr noundef @.str.665) #11
-  %749 = icmp eq i32 %748, 0
-  br i1 %749, label %750, label %881
+747:                                              ; preds = %743
+  %748 = load ptr, ptr %16, align 8
+  %749 = call ptr @prefs_find_preference(ptr noundef %748, ptr noundef @.str.664)
+  store ptr %749, ptr %19, align 8
+  br label %750
 
-750:                                              ; preds = %744
-  %751 = load ptr, ptr %14, align 8
-  %752 = call i32 @strcmp(ptr noundef %751, ptr noundef @.str.666) #11
-  %753 = icmp eq i32 %752, 0
-  br i1 %753, label %754, label %786
+750:                                              ; preds = %747, %743
+  br label %1023
 
-754:                                              ; preds = %750
-  %755 = load ptr, ptr %16, align 8
-  %756 = call ptr @prefs_find_preference(ptr noundef %755, ptr noundef @.str.667)
-  store ptr %756, ptr %19, align 8
-  %757 = load ptr, ptr %7, align 8
-  %758 = call i32 @strcmp(ptr noundef %757, ptr noundef @.str.667) #11
-  %759 = icmp eq i32 %758, 0
-  br i1 %759, label %764, label %760
+751:                                              ; preds = %737
+  %752 = load ptr, ptr %16, align 8
+  %753 = getelementptr inbounds %struct.pref_module, ptr %752, i32 0, i32 0
+  %754 = load ptr, ptr %753, align 8
+  %755 = call i32 @strcmp(ptr noundef %754, ptr noundef @.str.665) #11
+  %756 = icmp eq i32 %755, 0
+  br i1 %756, label %757, label %888
 
-760:                                              ; preds = %754
-  %761 = load ptr, ptr %7, align 8
-  %762 = call i32 @strcmp(ptr noundef %761, ptr noundef @.str.668) #11
-  %763 = icmp eq i32 %762, 0
-  br i1 %763, label %764, label %765
+757:                                              ; preds = %751
+  %758 = load ptr, ptr %14, align 8
+  %759 = call i32 @strcmp(ptr noundef %758, ptr noundef @.str.666) #11
+  %760 = icmp eq i32 %759, 0
+  br i1 %760, label %761, label %793
 
-764:                                              ; preds = %760, %754
+761:                                              ; preds = %757
+  %762 = load ptr, ptr %16, align 8
+  %763 = call ptr @prefs_find_preference(ptr noundef %762, ptr noundef @.str.667)
+  store ptr %763, ptr %19, align 8
+  %764 = load ptr, ptr %7, align 8
+  %765 = call i32 @strcmp(ptr noundef %764, ptr noundef @.str.667) #11
+  %766 = icmp eq i32 %765, 0
+  br i1 %766, label %771, label %767
+
+767:                                              ; preds = %761
+  %768 = load ptr, ptr %7, align 8
+  %769 = call i32 @strcmp(ptr noundef %768, ptr noundef @.str.668) #11
+  %770 = icmp eq i32 %769, 0
+  br i1 %770, label %771, label %772
+
+771:                                              ; preds = %767, %761
   store ptr @.str.75, ptr %7, align 8
-  br label %785
+  br label %792
 
-765:                                              ; preds = %760
-  %766 = load ptr, ptr %7, align 8
-  %767 = call i32 @strcmp(ptr noundef %766, ptr noundef @.str.669) #11
-  %768 = icmp eq i32 %767, 0
-  br i1 %768, label %773, label %769
+772:                                              ; preds = %767
+  %773 = load ptr, ptr %7, align 8
+  %774 = call i32 @strcmp(ptr noundef %773, ptr noundef @.str.669) #11
+  %775 = icmp eq i32 %774, 0
+  br i1 %775, label %780, label %776
 
-769:                                              ; preds = %765
-  %770 = load ptr, ptr %7, align 8
-  %771 = call i32 @strcmp(ptr noundef %770, ptr noundef @.str.670) #11
-  %772 = icmp eq i32 %771, 0
-  br i1 %772, label %773, label %774
+776:                                              ; preds = %772
+  %777 = load ptr, ptr %7, align 8
+  %778 = call i32 @strcmp(ptr noundef %777, ptr noundef @.str.670) #11
+  %779 = icmp eq i32 %778, 0
+  br i1 %779, label %780, label %781
 
-773:                                              ; preds = %769, %765
+780:                                              ; preds = %776, %772
   store ptr @.str.76, ptr %7, align 8
-  br label %784
+  br label %791
 
-774:                                              ; preds = %769
-  %775 = load ptr, ptr %7, align 8
-  %776 = call i32 @strcmp(ptr noundef %775, ptr noundef @.str.671) #11
-  %777 = icmp eq i32 %776, 0
-  br i1 %777, label %782, label %778
+781:                                              ; preds = %776
+  %782 = load ptr, ptr %7, align 8
+  %783 = call i32 @strcmp(ptr noundef %782, ptr noundef @.str.671) #11
+  %784 = icmp eq i32 %783, 0
+  br i1 %784, label %789, label %785
 
-778:                                              ; preds = %774
-  %779 = load ptr, ptr %7, align 8
-  %780 = call i32 @strcmp(ptr noundef %779, ptr noundef @.str.672) #11
-  %781 = icmp eq i32 %780, 0
-  br i1 %781, label %782, label %783
+785:                                              ; preds = %781
+  %786 = load ptr, ptr %7, align 8
+  %787 = call i32 @strcmp(ptr noundef %786, ptr noundef @.str.672) #11
+  %788 = icmp eq i32 %787, 0
+  br i1 %788, label %789, label %790
 
-782:                                              ; preds = %778, %774
+789:                                              ; preds = %785, %781
   store ptr @.str.75, ptr %7, align 8
-  br label %783
+  br label %790
 
-783:                                              ; preds = %782, %778
-  br label %784
+790:                                              ; preds = %789, %785
+  br label %791
 
-784:                                              ; preds = %783, %773
-  br label %785
+791:                                              ; preds = %790, %780
+  br label %792
 
-785:                                              ; preds = %784, %764
-  br label %880
+792:                                              ; preds = %791, %771
+  br label %887
 
-786:                                              ; preds = %750
-  %787 = load ptr, ptr %14, align 8
-  %788 = call i32 @strcmp(ptr noundef %787, ptr noundef @.str.673) #11
-  %789 = icmp eq i32 %788, 0
-  br i1 %789, label %790, label %822
+793:                                              ; preds = %757
+  %794 = load ptr, ptr %14, align 8
+  %795 = call i32 @strcmp(ptr noundef %794, ptr noundef @.str.673) #11
+  %796 = icmp eq i32 %795, 0
+  br i1 %796, label %797, label %829
 
-790:                                              ; preds = %786
-  %791 = load ptr, ptr %16, align 8
-  %792 = call ptr @prefs_find_preference(ptr noundef %791, ptr noundef @.str.674)
-  store ptr %792, ptr %19, align 8
-  %793 = load ptr, ptr %7, align 8
-  %794 = call i32 @strcmp(ptr noundef %793, ptr noundef @.str.675) #11
-  %795 = icmp eq i32 %794, 0
-  br i1 %795, label %800, label %796
+797:                                              ; preds = %793
+  %798 = load ptr, ptr %16, align 8
+  %799 = call ptr @prefs_find_preference(ptr noundef %798, ptr noundef @.str.674)
+  store ptr %799, ptr %19, align 8
+  %800 = load ptr, ptr %7, align 8
+  %801 = call i32 @strcmp(ptr noundef %800, ptr noundef @.str.675) #11
+  %802 = icmp eq i32 %801, 0
+  br i1 %802, label %807, label %803
 
-796:                                              ; preds = %790
-  %797 = load ptr, ptr %7, align 8
-  %798 = call i32 @strcmp(ptr noundef %797, ptr noundef @.str.676) #11
-  %799 = icmp eq i32 %798, 0
-  br i1 %799, label %800, label %801
+803:                                              ; preds = %797
+  %804 = load ptr, ptr %7, align 8
+  %805 = call i32 @strcmp(ptr noundef %804, ptr noundef @.str.676) #11
+  %806 = icmp eq i32 %805, 0
+  br i1 %806, label %807, label %808
 
-800:                                              ; preds = %796, %790
+807:                                              ; preds = %803, %797
   store ptr @.str.677, ptr %7, align 8
-  br label %821
+  br label %828
 
-801:                                              ; preds = %796
-  %802 = load ptr, ptr %7, align 8
-  %803 = call i32 @strcmp(ptr noundef %802, ptr noundef @.str.678) #11
-  %804 = icmp eq i32 %803, 0
-  br i1 %804, label %809, label %805
+808:                                              ; preds = %803
+  %809 = load ptr, ptr %7, align 8
+  %810 = call i32 @strcmp(ptr noundef %809, ptr noundef @.str.678) #11
+  %811 = icmp eq i32 %810, 0
+  br i1 %811, label %816, label %812
 
-805:                                              ; preds = %801
-  %806 = load ptr, ptr %7, align 8
-  %807 = call i32 @strcmp(ptr noundef %806, ptr noundef @.str.679) #11
-  %808 = icmp eq i32 %807, 0
-  br i1 %808, label %809, label %810
+812:                                              ; preds = %808
+  %813 = load ptr, ptr %7, align 8
+  %814 = call i32 @strcmp(ptr noundef %813, ptr noundef @.str.679) #11
+  %815 = icmp eq i32 %814, 0
+  br i1 %815, label %816, label %817
 
-809:                                              ; preds = %805, %801
+816:                                              ; preds = %812, %808
   store ptr @.str.678, ptr %7, align 8
-  br label %820
+  br label %827
 
-810:                                              ; preds = %805
-  %811 = load ptr, ptr %7, align 8
-  %812 = call i32 @strcmp(ptr noundef %811, ptr noundef @.str.671) #11
-  %813 = icmp eq i32 %812, 0
-  br i1 %813, label %818, label %814
+817:                                              ; preds = %812
+  %818 = load ptr, ptr %7, align 8
+  %819 = call i32 @strcmp(ptr noundef %818, ptr noundef @.str.671) #11
+  %820 = icmp eq i32 %819, 0
+  br i1 %820, label %825, label %821
 
-814:                                              ; preds = %810
-  %815 = load ptr, ptr %7, align 8
-  %816 = call i32 @strcmp(ptr noundef %815, ptr noundef @.str.672) #11
-  %817 = icmp eq i32 %816, 0
-  br i1 %817, label %818, label %819
+821:                                              ; preds = %817
+  %822 = load ptr, ptr %7, align 8
+  %823 = call i32 @strcmp(ptr noundef %822, ptr noundef @.str.672) #11
+  %824 = icmp eq i32 %823, 0
+  br i1 %824, label %825, label %826
 
-818:                                              ; preds = %814, %810
+825:                                              ; preds = %821, %817
   store ptr @.str.677, ptr %7, align 8
-  br label %819
+  br label %826
 
-819:                                              ; preds = %818, %814
-  br label %820
+826:                                              ; preds = %825, %821
+  br label %827
 
-820:                                              ; preds = %819, %809
-  br label %821
+827:                                              ; preds = %826, %816
+  br label %828
 
-821:                                              ; preds = %820, %800
-  br label %879
+828:                                              ; preds = %827, %807
+  br label %886
 
-822:                                              ; preds = %786
-  %823 = load ptr, ptr %14, align 8
-  %824 = call i32 @strcmp(ptr noundef %823, ptr noundef @.str.680) #11
-  %825 = icmp eq i32 %824, 0
-  br i1 %825, label %826, label %878
+829:                                              ; preds = %793
+  %830 = load ptr, ptr %14, align 8
+  %831 = call i32 @strcmp(ptr noundef %830, ptr noundef @.str.680) #11
+  %832 = icmp eq i32 %831, 0
+  br i1 %832, label %833, label %885
 
-826:                                              ; preds = %822
-  %827 = load ptr, ptr %16, align 8
-  %828 = call ptr @prefs_find_preference(ptr noundef %827, ptr noundef @.str.681)
-  store ptr %828, ptr %19, align 8
-  %829 = load ptr, ptr %7, align 8
-  %830 = call i32 @strcmp(ptr noundef %829, ptr noundef @.str.682) #11
-  %831 = icmp eq i32 %830, 0
-  br i1 %831, label %836, label %832
+833:                                              ; preds = %829
+  %834 = load ptr, ptr %16, align 8
+  %835 = call ptr @prefs_find_preference(ptr noundef %834, ptr noundef @.str.681)
+  store ptr %835, ptr %19, align 8
+  %836 = load ptr, ptr %7, align 8
+  %837 = call i32 @strcmp(ptr noundef %836, ptr noundef @.str.682) #11
+  %838 = icmp eq i32 %837, 0
+  br i1 %838, label %843, label %839
 
-832:                                              ; preds = %826
-  %833 = load ptr, ptr %7, align 8
-  %834 = call i32 @strcmp(ptr noundef %833, ptr noundef @.str.683) #11
-  %835 = icmp eq i32 %834, 0
-  br i1 %835, label %836, label %837
+839:                                              ; preds = %833
+  %840 = load ptr, ptr %7, align 8
+  %841 = call i32 @strcmp(ptr noundef %840, ptr noundef @.str.683) #11
+  %842 = icmp eq i32 %841, 0
+  br i1 %842, label %843, label %844
 
-836:                                              ; preds = %832, %826
+843:                                              ; preds = %839, %833
   store ptr @.str.682, ptr %7, align 8
-  br label %877
+  br label %884
 
-837:                                              ; preds = %832
-  %838 = load ptr, ptr %7, align 8
-  %839 = call i32 @strcmp(ptr noundef %838, ptr noundef @.str.626) #11
-  %840 = icmp eq i32 %839, 0
-  br i1 %840, label %845, label %841
+844:                                              ; preds = %839
+  %845 = load ptr, ptr %7, align 8
+  %846 = call i32 @strcmp(ptr noundef %845, ptr noundef @.str.626) #11
+  %847 = icmp eq i32 %846, 0
+  br i1 %847, label %852, label %848
 
-841:                                              ; preds = %837
-  %842 = load ptr, ptr %7, align 8
-  %843 = call i32 @strcmp(ptr noundef %842, ptr noundef @.str.684) #11
-  %844 = icmp eq i32 %843, 0
-  br i1 %844, label %845, label %846
+848:                                              ; preds = %844
+  %849 = load ptr, ptr %7, align 8
+  %850 = call i32 @strcmp(ptr noundef %849, ptr noundef @.str.684) #11
+  %851 = icmp eq i32 %850, 0
+  br i1 %851, label %852, label %853
 
-845:                                              ; preds = %841, %837
+852:                                              ; preds = %848, %844
   store ptr @.str.626, ptr %7, align 8
-  br label %876
+  br label %883
 
-846:                                              ; preds = %841
-  %847 = load ptr, ptr %7, align 8
-  %848 = call i32 @strcmp(ptr noundef %847, ptr noundef @.str.685) #11
-  %849 = icmp eq i32 %848, 0
-  br i1 %849, label %854, label %850
+853:                                              ; preds = %848
+  %854 = load ptr, ptr %7, align 8
+  %855 = call i32 @strcmp(ptr noundef %854, ptr noundef @.str.685) #11
+  %856 = icmp eq i32 %855, 0
+  br i1 %856, label %861, label %857
 
-850:                                              ; preds = %846
-  %851 = load ptr, ptr %7, align 8
-  %852 = call i32 @strcmp(ptr noundef %851, ptr noundef @.str.686) #11
-  %853 = icmp eq i32 %852, 0
-  br i1 %853, label %854, label %855
+857:                                              ; preds = %853
+  %858 = load ptr, ptr %7, align 8
+  %859 = call i32 @strcmp(ptr noundef %858, ptr noundef @.str.686) #11
+  %860 = icmp eq i32 %859, 0
+  br i1 %860, label %861, label %862
 
-854:                                              ; preds = %850, %846
+861:                                              ; preds = %857, %853
   store ptr @.str.687, ptr %7, align 8
-  br label %875
+  br label %882
 
-855:                                              ; preds = %850
-  %856 = load ptr, ptr %7, align 8
-  %857 = call i32 @strcmp(ptr noundef %856, ptr noundef @.str.688) #11
-  %858 = icmp eq i32 %857, 0
-  br i1 %858, label %863, label %859
+862:                                              ; preds = %857
+  %863 = load ptr, ptr %7, align 8
+  %864 = call i32 @strcmp(ptr noundef %863, ptr noundef @.str.688) #11
+  %865 = icmp eq i32 %864, 0
+  br i1 %865, label %870, label %866
 
-859:                                              ; preds = %855
-  %860 = load ptr, ptr %7, align 8
-  %861 = call i32 @strcmp(ptr noundef %860, ptr noundef @.str.689) #11
-  %862 = icmp eq i32 %861, 0
-  br i1 %862, label %863, label %864
+866:                                              ; preds = %862
+  %867 = load ptr, ptr %7, align 8
+  %868 = call i32 @strcmp(ptr noundef %867, ptr noundef @.str.689) #11
+  %869 = icmp eq i32 %868, 0
+  br i1 %869, label %870, label %871
 
-863:                                              ; preds = %859, %855
+870:                                              ; preds = %866, %862
   store ptr @.str.688, ptr %7, align 8
-  br label %874
+  br label %881
 
-864:                                              ; preds = %859
-  %865 = load ptr, ptr %7, align 8
-  %866 = call i32 @strcmp(ptr noundef %865, ptr noundef @.str.671) #11
-  %867 = icmp eq i32 %866, 0
-  br i1 %867, label %872, label %868
+871:                                              ; preds = %866
+  %872 = load ptr, ptr %7, align 8
+  %873 = call i32 @strcmp(ptr noundef %872, ptr noundef @.str.671) #11
+  %874 = icmp eq i32 %873, 0
+  br i1 %874, label %879, label %875
 
-868:                                              ; preds = %864
-  %869 = load ptr, ptr %7, align 8
-  %870 = call i32 @strcmp(ptr noundef %869, ptr noundef @.str.672) #11
-  %871 = icmp eq i32 %870, 0
-  br i1 %871, label %872, label %873
+875:                                              ; preds = %871
+  %876 = load ptr, ptr %7, align 8
+  %877 = call i32 @strcmp(ptr noundef %876, ptr noundef @.str.672) #11
+  %878 = icmp eq i32 %877, 0
+  br i1 %878, label %879, label %880
 
-872:                                              ; preds = %868, %864
+879:                                              ; preds = %875, %871
   store ptr @.str.677, ptr %7, align 8
-  br label %873
-
-873:                                              ; preds = %872, %868
-  br label %874
-
-874:                                              ; preds = %873, %863
-  br label %875
-
-875:                                              ; preds = %874, %854
-  br label %876
-
-876:                                              ; preds = %875, %845
-  br label %877
-
-877:                                              ; preds = %876, %836
-  br label %878
-
-878:                                              ; preds = %877, %822
-  br label %879
-
-879:                                              ; preds = %878, %821
   br label %880
 
-880:                                              ; preds = %879, %785
-  br label %1015
+880:                                              ; preds = %879, %875
+  br label %881
 
-881:                                              ; preds = %744
-  %882 = load ptr, ptr %16, align 8
-  %883 = getelementptr inbounds %struct.pref_module, ptr %882, i32 0, i32 0
-  %884 = load ptr, ptr %883, align 8
-  %885 = call i32 @strcmp(ptr noundef %884, ptr noundef @.str.669) #11
-  %886 = icmp eq i32 %885, 0
-  br i1 %886, label %887, label %901
+881:                                              ; preds = %880, %870
+  br label %882
 
-887:                                              ; preds = %881
-  %888 = load ptr, ptr %14, align 8
-  %889 = call i32 @strcmp(ptr noundef %888, ptr noundef @.str.690) #11
-  %890 = icmp eq i32 %889, 0
-  br i1 %890, label %891, label %900
+882:                                              ; preds = %881, %861
+  br label %883
 
-891:                                              ; preds = %887
-  %892 = call ptr @prefs_find_module(ptr noundef @.str.691)
-  store ptr %892, ptr %24, align 8
-  %893 = load ptr, ptr %24, align 8
-  %894 = icmp ne ptr %893, null
-  br i1 %894, label %895, label %899
+883:                                              ; preds = %882, %852
+  br label %884
 
-895:                                              ; preds = %891
-  %896 = load ptr, ptr %24, align 8
-  %897 = call ptr @prefs_find_preference(ptr noundef %896, ptr noundef @.str.690)
-  store ptr %897, ptr %19, align 8
-  %898 = load ptr, ptr %24, align 8
-  store ptr %898, ptr %17, align 8
-  br label %899
+884:                                              ; preds = %883, %843
+  br label %885
 
-899:                                              ; preds = %895, %891
-  br label %900
+885:                                              ; preds = %884, %829
+  br label %886
 
-900:                                              ; preds = %899, %887
-  br label %1014
+886:                                              ; preds = %885, %828
+  br label %887
 
-901:                                              ; preds = %881
-  %902 = load ptr, ptr %16, align 8
-  %903 = getelementptr inbounds %struct.pref_module, ptr %902, i32 0, i32 0
-  %904 = load ptr, ptr %903, align 8
-  %905 = call i32 @strcmp(ptr noundef %904, ptr noundef @.str.451) #11
-  %906 = icmp eq i32 %905, 0
-  br i1 %906, label %907, label %916
+887:                                              ; preds = %886, %792
+  br label %1022
 
-907:                                              ; preds = %901
-  %908 = load ptr, ptr %14, align 8
-  %909 = call i32 @strcmp(ptr noundef %908, ptr noundef @.str.372) #11
-  %910 = icmp eq i32 %909, 0
-  br i1 %910, label %911, label %915
+888:                                              ; preds = %751
+  %889 = load ptr, ptr %16, align 8
+  %890 = getelementptr inbounds %struct.pref_module, ptr %889, i32 0, i32 0
+  %891 = load ptr, ptr %890, align 8
+  %892 = call i32 @strcmp(ptr noundef %891, ptr noundef @.str.669) #11
+  %893 = icmp eq i32 %892, 0
+  br i1 %893, label %894, label %908
 
-911:                                              ; preds = %907
-  %912 = load ptr, ptr @stats_module, align 8
-  %913 = load ptr, ptr %14, align 8
-  %914 = call ptr @prefs_find_preference(ptr noundef %912, ptr noundef %913)
-  store ptr %914, ptr %19, align 8
-  br label %915
+894:                                              ; preds = %888
+  %895 = load ptr, ptr %14, align 8
+  %896 = call i32 @strcmp(ptr noundef %895, ptr noundef @.str.690) #11
+  %897 = icmp eq i32 %896, 0
+  br i1 %897, label %898, label %907
 
-915:                                              ; preds = %911, %907
-  br label %1013
+898:                                              ; preds = %894
+  %899 = call ptr @prefs_find_module(ptr noundef @.str.691)
+  store ptr %899, ptr %24, align 8
+  %900 = load ptr, ptr %24, align 8
+  %901 = icmp ne ptr %900, null
+  br i1 %901, label %902, label %906
 
-916:                                              ; preds = %901
-  %917 = load ptr, ptr %16, align 8
-  %918 = getelementptr inbounds %struct.pref_module, ptr %917, i32 0, i32 0
-  %919 = load ptr, ptr %918, align 8
-  %920 = call i32 @strcmp(ptr noundef %919, ptr noundef @.str.453) #11
-  %921 = icmp eq i32 %920, 0
-  br i1 %921, label %922, label %931
+902:                                              ; preds = %898
+  %903 = load ptr, ptr %24, align 8
+  %904 = call ptr @prefs_find_preference(ptr noundef %903, ptr noundef @.str.690)
+  store ptr %904, ptr %19, align 8
+  %905 = load ptr, ptr %24, align 8
+  store ptr %905, ptr %17, align 8
+  br label %906
 
-922:                                              ; preds = %916
-  %923 = load ptr, ptr %14, align 8
-  %924 = call i32 @strcmp(ptr noundef %923, ptr noundef @.str.433) #11
-  %925 = icmp eq i32 %924, 0
-  br i1 %925, label %926, label %930
+906:                                              ; preds = %902, %898
+  br label %907
 
-926:                                              ; preds = %922
-  %927 = load ptr, ptr @protocols_module, align 8
-  %928 = load ptr, ptr %14, align 8
-  %929 = call ptr @prefs_find_preference(ptr noundef %927, ptr noundef %928)
-  store ptr %929, ptr %19, align 8
-  br label %930
+907:                                              ; preds = %906, %894
+  br label %1021
 
-930:                                              ; preds = %926, %922
-  br label %1012
+908:                                              ; preds = %888
+  %909 = load ptr, ptr %16, align 8
+  %910 = getelementptr inbounds %struct.pref_module, ptr %909, i32 0, i32 0
+  %911 = load ptr, ptr %910, align 8
+  %912 = call i32 @strcmp(ptr noundef %911, ptr noundef @.str.451) #11
+  %913 = icmp eq i32 %912, 0
+  br i1 %913, label %914, label %923
 
-931:                                              ; preds = %916
-  %932 = load ptr, ptr %16, align 8
-  %933 = getelementptr inbounds %struct.pref_module, ptr %932, i32 0, i32 0
-  %934 = load ptr, ptr %933, align 8
-  %935 = call i32 @strcmp(ptr noundef %934, ptr noundef @.str.455) #11
-  %936 = icmp eq i32 %935, 0
-  br i1 %936, label %937, label %958
+914:                                              ; preds = %908
+  %915 = load ptr, ptr %14, align 8
+  %916 = call i32 @strcmp(ptr noundef %915, ptr noundef @.str.372) #11
+  %917 = icmp eq i32 %916, 0
+  br i1 %917, label %918, label %922
 
-937:                                              ; preds = %931
-  %938 = load ptr, ptr %14, align 8
-  %939 = call i32 @strcmp(ptr noundef %938, ptr noundef @.str.692) #11
-  %940 = icmp eq i32 %939, 0
-  br i1 %940, label %953, label %941
+918:                                              ; preds = %914
+  %919 = load ptr, ptr @stats_module, align 8
+  %920 = load ptr, ptr %14, align 8
+  %921 = call ptr @prefs_find_preference(ptr noundef %919, ptr noundef %920)
+  store ptr %921, ptr %19, align 8
+  br label %922
 
-941:                                              ; preds = %937
-  %942 = load ptr, ptr %14, align 8
-  %943 = call i32 @strcmp(ptr noundef %942, ptr noundef @.str.693) #11
-  %944 = icmp eq i32 %943, 0
-  br i1 %944, label %953, label %945
+922:                                              ; preds = %918, %914
+  br label %1020
 
-945:                                              ; preds = %941
-  %946 = load ptr, ptr %14, align 8
-  %947 = call i32 @strcmp(ptr noundef %946, ptr noundef @.str.694) #11
-  %948 = icmp eq i32 %947, 0
-  br i1 %948, label %953, label %949
+923:                                              ; preds = %908
+  %924 = load ptr, ptr %16, align 8
+  %925 = getelementptr inbounds %struct.pref_module, ptr %924, i32 0, i32 0
+  %926 = load ptr, ptr %925, align 8
+  %927 = call i32 @strcmp(ptr noundef %926, ptr noundef @.str.453) #11
+  %928 = icmp eq i32 %927, 0
+  br i1 %928, label %929, label %938
 
-949:                                              ; preds = %945
-  %950 = load ptr, ptr %14, align 8
-  %951 = call i32 @strcmp(ptr noundef %950, ptr noundef @.str.695) #11
-  %952 = icmp eq i32 %951, 0
-  br i1 %952, label %953, label %957
+929:                                              ; preds = %923
+  %930 = load ptr, ptr %14, align 8
+  %931 = call i32 @strcmp(ptr noundef %930, ptr noundef @.str.433) #11
+  %932 = icmp eq i32 %931, 0
+  br i1 %932, label %933, label %937
 
-953:                                              ; preds = %949, %945, %941, %937
-  %954 = load ptr, ptr @gui_color_module, align 8
-  %955 = load ptr, ptr %6, align 8
-  %956 = call ptr @prefs_find_preference(ptr noundef %954, ptr noundef %955)
-  store ptr %956, ptr %19, align 8
-  br label %957
+933:                                              ; preds = %929
+  %934 = load ptr, ptr @protocols_module, align 8
+  %935 = load ptr, ptr %14, align 8
+  %936 = call ptr @prefs_find_preference(ptr noundef %934, ptr noundef %935)
+  store ptr %936, ptr %19, align 8
+  br label %937
 
-957:                                              ; preds = %953, %949
-  br label %1011
+937:                                              ; preds = %933, %929
+  br label %1019
 
-958:                                              ; preds = %931
-  %959 = load ptr, ptr %16, align 8
-  %960 = getelementptr inbounds %struct.pref_module, ptr %959, i32 0, i32 0
-  %961 = load ptr, ptr %960, align 8
-  %962 = call i32 @strcmp(ptr noundef %961, ptr noundef @.str.388) #11
-  %963 = icmp eq i32 %962, 0
-  br i1 %963, label %964, label %989
+938:                                              ; preds = %923
+  %939 = load ptr, ptr %16, align 8
+  %940 = getelementptr inbounds %struct.pref_module, ptr %939, i32 0, i32 0
+  %941 = load ptr, ptr %940, align 8
+  %942 = call i32 @strcmp(ptr noundef %941, ptr noundef @.str.455) #11
+  %943 = icmp eq i32 %942, 0
+  br i1 %943, label %944, label %965
 
-964:                                              ; preds = %958
-  %965 = load ptr, ptr %6, align 8
-  %966 = call i32 @strcmp(ptr noundef %965, ptr noundef @.str.552) #11
-  %967 = icmp eq i32 %966, 0
-  br i1 %967, label %968, label %972
+944:                                              ; preds = %938
+  %945 = load ptr, ptr %14, align 8
+  %946 = call i32 @strcmp(ptr noundef %945, ptr noundef @.str.692) #11
+  %947 = icmp eq i32 %946, 0
+  br i1 %947, label %960, label %948
 
-968:                                              ; preds = %964
-  %969 = load ptr, ptr @nameres_module, align 8
-  %970 = load ptr, ptr %6, align 8
-  %971 = call ptr @prefs_find_preference(ptr noundef %969, ptr noundef %970)
-  store ptr %971, ptr %19, align 8
-  br label %988
+948:                                              ; preds = %944
+  %949 = load ptr, ptr %14, align 8
+  %950 = call i32 @strcmp(ptr noundef %949, ptr noundef @.str.693) #11
+  %951 = icmp eq i32 %950, 0
+  br i1 %951, label %960, label %952
 
-972:                                              ; preds = %964
-  %973 = load ptr, ptr %6, align 8
-  %974 = call i32 @strcmp(ptr noundef %973, ptr noundef @.str.553) #11
-  %975 = icmp eq i32 %974, 0
-  br i1 %975, label %976, label %979
+952:                                              ; preds = %948
+  %953 = load ptr, ptr %14, align 8
+  %954 = call i32 @strcmp(ptr noundef %953, ptr noundef @.str.694) #11
+  %955 = icmp eq i32 %954, 0
+  br i1 %955, label %960, label %956
 
-976:                                              ; preds = %972
-  %977 = load ptr, ptr @nameres_module, align 8
-  %978 = call ptr @prefs_find_preference(ptr noundef %977, ptr noundef @.str.696)
+956:                                              ; preds = %952
+  %957 = load ptr, ptr %14, align 8
+  %958 = call i32 @strcmp(ptr noundef %957, ptr noundef @.str.695) #11
+  %959 = icmp eq i32 %958, 0
+  br i1 %959, label %960, label %964
+
+960:                                              ; preds = %956, %952, %948, %944
+  %961 = load ptr, ptr @gui_color_module, align 8
+  %962 = load ptr, ptr %6, align 8
+  %963 = call ptr @prefs_find_preference(ptr noundef %961, ptr noundef %962)
+  store ptr %963, ptr %19, align 8
+  br label %964
+
+964:                                              ; preds = %960, %956
+  br label %1018
+
+965:                                              ; preds = %938
+  %966 = load ptr, ptr %16, align 8
+  %967 = getelementptr inbounds %struct.pref_module, ptr %966, i32 0, i32 0
+  %968 = load ptr, ptr %967, align 8
+  %969 = call i32 @strcmp(ptr noundef %968, ptr noundef @.str.388) #11
+  %970 = icmp eq i32 %969, 0
+  br i1 %970, label %971, label %996
+
+971:                                              ; preds = %965
+  %972 = load ptr, ptr %6, align 8
+  %973 = call i32 @strcmp(ptr noundef %972, ptr noundef @.str.552) #11
+  %974 = icmp eq i32 %973, 0
+  br i1 %974, label %975, label %979
+
+975:                                              ; preds = %971
+  %976 = load ptr, ptr @nameres_module, align 8
+  %977 = load ptr, ptr %6, align 8
+  %978 = call ptr @prefs_find_preference(ptr noundef %976, ptr noundef %977)
   store ptr %978, ptr %19, align 8
-  br label %987
+  br label %995
 
-979:                                              ; preds = %972
+979:                                              ; preds = %971
   %980 = load ptr, ptr %6, align 8
-  %981 = call i32 @strcmp(ptr noundef %980, ptr noundef @.str.554) #11
+  %981 = call i32 @strcmp(ptr noundef %980, ptr noundef @.str.553) #11
   %982 = icmp eq i32 %981, 0
   br i1 %982, label %983, label %986
 
 983:                                              ; preds = %979
   %984 = load ptr, ptr @nameres_module, align 8
-  %985 = call ptr @prefs_find_preference(ptr noundef %984, ptr noundef @.str.697)
+  %985 = call ptr @prefs_find_preference(ptr noundef %984, ptr noundef @.str.696)
   store ptr %985, ptr %19, align 8
-  br label %986
+  br label %994
 
-986:                                              ; preds = %983, %979
-  br label %987
+986:                                              ; preds = %979
+  %987 = load ptr, ptr %6, align 8
+  %988 = call i32 @strcmp(ptr noundef %987, ptr noundef @.str.554) #11
+  %989 = icmp eq i32 %988, 0
+  br i1 %989, label %990, label %993
 
-987:                                              ; preds = %986, %976
-  br label %988
+990:                                              ; preds = %986
+  %991 = load ptr, ptr @nameres_module, align 8
+  %992 = call ptr @prefs_find_preference(ptr noundef %991, ptr noundef @.str.697)
+  store ptr %992, ptr %19, align 8
+  br label %993
 
-988:                                              ; preds = %987, %968
-  br label %1010
+993:                                              ; preds = %990, %986
+  br label %994
 
-989:                                              ; preds = %958
-  %990 = load ptr, ptr %16, align 8
-  %991 = getelementptr inbounds %struct.pref_module, ptr %990, i32 0, i32 0
-  %992 = load ptr, ptr %991, align 8
-  %993 = call i32 @strcmp(ptr noundef %992, ptr noundef @.str.84) #11
-  %994 = icmp eq i32 %993, 0
-  br i1 %994, label %995, label %1009
+994:                                              ; preds = %993, %983
+  br label %995
 
-995:                                              ; preds = %989
-  %996 = load ptr, ptr %14, align 8
-  %997 = call i32 @strcmp(ptr noundef %996, ptr noundef @.str.698) #11
-  %998 = icmp eq i32 %997, 0
-  br i1 %998, label %999, label %1008
-
-999:                                              ; preds = %995
-  %1000 = load ptr, ptr %16, align 8
-  %1001 = call ptr @prefs_find_preference(ptr noundef %1000, ptr noundef @.str.699)
-  store ptr %1001, ptr %19, align 8
-  %1002 = load ptr, ptr %7, align 8
-  %1003 = call i32 @g_ascii_strcasecmp(ptr noundef %1002, ptr noundef @.str.547)
-  %1004 = icmp eq i32 %1003, 0
-  br i1 %1004, label %1005, label %1006
-
-1005:                                             ; preds = %999
-  store ptr @.str.700, ptr %7, align 8
-  br label %1007
-
-1006:                                             ; preds = %999
-  store ptr @.str.701, ptr %7, align 8
-  br label %1007
-
-1007:                                             ; preds = %1006, %1005
-  br label %1008
-
-1008:                                             ; preds = %1007, %995
-  br label %1009
-
-1009:                                             ; preds = %1008, %989
-  br label %1010
-
-1010:                                             ; preds = %1009, %988
-  br label %1011
-
-1011:                                             ; preds = %1010, %957
-  br label %1012
-
-1012:                                             ; preds = %1011, %930
-  br label %1013
-
-1013:                                             ; preds = %1012, %915
-  br label %1014
-
-1014:                                             ; preds = %1013, %900
-  br label %1015
-
-1015:                                             ; preds = %1014, %880
-  br label %1016
-
-1016:                                             ; preds = %1015, %743
+995:                                              ; preds = %994, %975
   br label %1017
 
-1017:                                             ; preds = %1016, %729
+996:                                              ; preds = %965
+  %997 = load ptr, ptr %16, align 8
+  %998 = getelementptr inbounds %struct.pref_module, ptr %997, i32 0, i32 0
+  %999 = load ptr, ptr %998, align 8
+  %1000 = call i32 @strcmp(ptr noundef %999, ptr noundef @.str.84) #11
+  %1001 = icmp eq i32 %1000, 0
+  br i1 %1001, label %1002, label %1016
+
+1002:                                             ; preds = %996
+  %1003 = load ptr, ptr %14, align 8
+  %1004 = call i32 @strcmp(ptr noundef %1003, ptr noundef @.str.698) #11
+  %1005 = icmp eq i32 %1004, 0
+  br i1 %1005, label %1006, label %1015
+
+1006:                                             ; preds = %1002
+  %1007 = load ptr, ptr %16, align 8
+  %1008 = call ptr @prefs_find_preference(ptr noundef %1007, ptr noundef @.str.699)
+  store ptr %1008, ptr %19, align 8
+  %1009 = load ptr, ptr %7, align 8
+  %1010 = call i32 @g_ascii_strcasecmp(ptr noundef %1009, ptr noundef @.str.547)
+  %1011 = icmp eq i32 %1010, 0
+  br i1 %1011, label %1012, label %1013
+
+1012:                                             ; preds = %1006
+  store ptr @.str.700, ptr %7, align 8
+  br label %1014
+
+1013:                                             ; preds = %1006
+  store ptr @.str.701, ptr %7, align 8
+  br label %1014
+
+1014:                                             ; preds = %1013, %1012
+  br label %1015
+
+1015:                                             ; preds = %1014, %1002
+  br label %1016
+
+1016:                                             ; preds = %1015, %996
+  br label %1017
+
+1017:                                             ; preds = %1016, %995
   br label %1018
 
-1018:                                             ; preds = %1017, %699
+1018:                                             ; preds = %1017, %964
   br label %1019
 
-1019:                                             ; preds = %1018, %670
+1019:                                             ; preds = %1018, %937
   br label %1020
 
-1020:                                             ; preds = %1019, %648
+1020:                                             ; preds = %1019, %922
   br label %1021
 
-1021:                                             ; preds = %1020, %634
+1021:                                             ; preds = %1020, %907
   br label %1022
 
-1022:                                             ; preds = %1021, %620
+1022:                                             ; preds = %1021, %887
   br label %1023
 
-1023:                                             ; preds = %1022, %582
+1023:                                             ; preds = %1022, %750
   br label %1024
 
-1024:                                             ; preds = %1023, %568
+1024:                                             ; preds = %1023, %736
   br label %1025
 
-1025:                                             ; preds = %1024, %546
+1025:                                             ; preds = %1024, %706
   br label %1026
 
-1026:                                             ; preds = %1025, %532
+1026:                                             ; preds = %1025, %677
   br label %1027
 
-1027:                                             ; preds = %1026, %510
+1027:                                             ; preds = %1026, %655
   br label %1028
 
-1028:                                             ; preds = %1027, %496
+1028:                                             ; preds = %1027, %641
   br label %1029
 
-1029:                                             ; preds = %1028, %482
+1029:                                             ; preds = %1028, %627
   br label %1030
 
-1030:                                             ; preds = %1029, %468
+1030:                                             ; preds = %1029, %589
   br label %1031
 
-1031:                                             ; preds = %1030, %406
+1031:                                             ; preds = %1030, %575
   br label %1032
 
-1032:                                             ; preds = %1031, %384
+1032:                                             ; preds = %1031, %553
   br label %1033
 
-1033:                                             ; preds = %1032, %362
+1033:                                             ; preds = %1032, %539
   br label %1034
 
-1034:                                             ; preds = %1033, %348
+1034:                                             ; preds = %1033, %517
   br label %1035
 
-1035:                                             ; preds = %1034, %334
+1035:                                             ; preds = %1034, %503
   br label %1036
 
-1036:                                             ; preds = %1035, %320
+1036:                                             ; preds = %1035, %489
   br label %1037
 
-1037:                                             ; preds = %1036, %306
+1037:                                             ; preds = %1036, %475
   br label %1038
 
-1038:                                             ; preds = %1037, %292
+1038:                                             ; preds = %1037, %413
   br label %1039
 
-1039:                                             ; preds = %1038, %270
+1039:                                             ; preds = %1038, %391
   br label %1040
 
-1040:                                             ; preds = %1039, %203
-  %1041 = load ptr, ptr %19, align 8
-  %1042 = icmp ne ptr %1041, null
-  br i1 %1042, label %1043, label %1044
+1040:                                             ; preds = %1039, %369
+  br label %1041
 
-1043:                                             ; preds = %1040
-  store i32 1, ptr %21, align 4
+1041:                                             ; preds = %1040, %355
+  br label %1042
+
+1042:                                             ; preds = %1041, %341
+  br label %1043
+
+1043:                                             ; preds = %1042, %327
   br label %1044
 
-1044:                                             ; preds = %1043, %1040
+1044:                                             ; preds = %1043, %313
   br label %1045
 
-1045:                                             ; preds = %1044, %192
-  %1046 = load ptr, ptr %19, align 8
-  %1047 = icmp eq ptr %1046, null
-  br i1 %1047, label %1048, label %1062
+1045:                                             ; preds = %1044, %299
+  br label %1046
 
-1048:                                             ; preds = %1045
-  %1049 = load ptr, ptr %16, align 8
-  %1050 = getelementptr inbounds %struct.pref_module, ptr %1049, i32 0, i32 0
-  %1051 = load ptr, ptr %1050, align 8
-  %1052 = call i32 @strcmp(ptr noundef %1051, ptr noundef @.str.84) #11
-  %1053 = icmp eq i32 %1052, 0
-  br i1 %1053, label %1054, label %1061
+1046:                                             ; preds = %1045, %277
+  br label %1047
 
-1054:                                             ; preds = %1048
-  %1055 = load ptr, ptr %16, align 8
-  %1056 = getelementptr inbounds %struct.pref_module, ptr %1055, i32 0, i32 4
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = call i32 @g_list_length(ptr noundef %1057)
-  %1059 = icmp ule i32 %1058, 1
-  br i1 %1059, label %1060, label %1061
+1047:                                             ; preds = %1046, %210
+  %1048 = load ptr, ptr %19, align 8
+  %1049 = icmp ne ptr %1048, null
+  br i1 %1049, label %1050, label %1051
 
-1060:                                             ; preds = %1054
+1050:                                             ; preds = %1047
+  store i32 1, ptr %21, align 4
+  br label %1051
+
+1051:                                             ; preds = %1050, %1047
+  br label %1052
+
+1052:                                             ; preds = %1051, %198
+  %1053 = load ptr, ptr %19, align 8
+  %1054 = icmp eq ptr %1053, null
+  br i1 %1054, label %1055, label %1069
+
+1055:                                             ; preds = %1052
+  %1056 = load ptr, ptr %16, align 8
+  %1057 = getelementptr inbounds %struct.pref_module, ptr %1056, i32 0, i32 0
+  %1058 = load ptr, ptr %1057, align 8
+  %1059 = call i32 @strcmp(ptr noundef %1058, ptr noundef @.str.84) #11
+  %1060 = icmp eq i32 %1059, 0
+  br i1 %1060, label %1061, label %1068
+
+1061:                                             ; preds = %1055
+  %1062 = load ptr, ptr %16, align 8
+  %1063 = getelementptr inbounds %struct.pref_module, ptr %1062, i32 0, i32 4
+  %1064 = load ptr, ptr %1063, align 8
+  %1065 = call i32 @g_list_length(ptr noundef %1064)
+  %1066 = icmp ule i32 %1065, 1
+  br i1 %1066, label %1067, label %1068
+
+1067:                                             ; preds = %1061
   store i32 0, ptr %5, align 4
-  br label %1531
+  br label %1538
 
-1061:                                             ; preds = %1054, %1048
+1068:                                             ; preds = %1061, %1055
   store i32 2, ptr %5, align 4
-  br label %1531
+  br label %1538
 
-1062:                                             ; preds = %1045
-  %1063 = load ptr, ptr %18, align 8
-  %1064 = icmp ne ptr %1063, null
-  br i1 %1064, label %1065, label %1070
+1069:                                             ; preds = %1052
+  %1070 = load ptr, ptr %18, align 8
+  %1071 = icmp ne ptr %1070, null
+  br i1 %1071, label %1072, label %1077
 
-1065:                                             ; preds = %1062
-  %1066 = load ptr, ptr %18, align 8
-  %1067 = load ptr, ptr %17, align 8
-  %1068 = icmp ne ptr %1066, %1067
-  br i1 %1068, label %1069, label %1070
+1072:                                             ; preds = %1069
+  %1073 = load ptr, ptr %18, align 8
+  %1074 = load ptr, ptr %17, align 8
+  %1075 = icmp ne ptr %1073, %1074
+  br i1 %1075, label %1076, label %1077
 
-1069:                                             ; preds = %1065
+1076:                                             ; preds = %1072
   store i32 0, ptr %5, align 4
-  br label %1531
+  br label %1538
 
-1070:                                             ; preds = %1065, %1062
-  %1071 = load ptr, ptr %19, align 8
-  %1072 = getelementptr inbounds %struct.preference, ptr %1071, i32 0, i32 4
-  %1073 = load i32, ptr %1072, align 4
-  store i32 %1073, ptr %20, align 4
-  %1074 = load i32, ptr %20, align 4
-  %1075 = and i32 %1074, 1024
-  %1076 = icmp ne i32 %1075, 0
-  br i1 %1076, label %1077, label %1078
-
-1077:                                             ; preds = %1070
-  store i32 3, ptr %5, align 4
-  br label %1531
-
-1078:                                             ; preds = %1070
-  %1079 = load i32, ptr %20, align 4
-  %1080 = and i32 %1079, -1025
+1077:                                             ; preds = %1072, %1069
+  %1078 = load ptr, ptr %19, align 8
+  %1079 = getelementptr inbounds %struct.preference, ptr %1078, i32 0, i32 4
+  %1080 = load i32, ptr %1079, align 4
   store i32 %1080, ptr %20, align 4
-  br label %1081
-
-1081:                                             ; preds = %1078
-  %1082 = load i32, ptr %21, align 4
+  %1081 = load i32, ptr %20, align 4
+  %1082 = and i32 %1081, 1024
   %1083 = icmp ne i32 %1082, 0
-  br i1 %1083, label %1084, label %1106
+  br i1 %1083, label %1084, label %1085
 
-1084:                                             ; preds = %1081
-  br label %1085
+1084:                                             ; preds = %1077
+  store i32 3, ptr %5, align 4
+  br label %1538
 
-1085:                                             ; preds = %1084
-  %1086 = load ptr, ptr %6, align 8
-  %1087 = load ptr, ptr %16, align 8
-  %1088 = getelementptr inbounds %struct.pref_module, ptr %1087, i32 0, i32 0
-  %1089 = load ptr, ptr %1088, align 8
-  %1090 = icmp ne ptr %1089, null
-  br i1 %1090, label %1091, label %1095
+1085:                                             ; preds = %1077
+  %1086 = load i32, ptr %20, align 4
+  %1087 = and i32 %1086, -1025
+  store i32 %1087, ptr %20, align 4
+  br label %1088
 
-1091:                                             ; preds = %1085
-  %1092 = load ptr, ptr %16, align 8
-  %1093 = getelementptr inbounds %struct.pref_module, ptr %1092, i32 0, i32 0
-  %1094 = load ptr, ptr %1093, align 8
-  br label %1101
+1088:                                             ; preds = %1085
+  %1089 = load i32, ptr %21, align 4
+  %1090 = icmp ne i32 %1089, 0
+  br i1 %1090, label %1091, label %1113
 
-1095:                                             ; preds = %1085
-  %1096 = load ptr, ptr %16, align 8
-  %1097 = getelementptr inbounds %struct.pref_module, ptr %1096, i32 0, i32 5
-  %1098 = load ptr, ptr %1097, align 8
-  %1099 = getelementptr inbounds %struct.pref_module, ptr %1098, i32 0, i32 0
-  %1100 = load ptr, ptr %1099, align 8
-  br label %1101
+1091:                                             ; preds = %1088
+  br label %1092
 
-1101:                                             ; preds = %1095, %1091
-  %1102 = phi ptr [ %1094, %1091 ], [ %1100, %1095 ]
-  %1103 = load ptr, ptr %19, align 8
-  %1104 = call ptr @prefs_get_name(ptr noundef %1103)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 6287, ptr noundef @__func__.set_pref, ptr noundef @.str.702, ptr noundef %1086, ptr noundef %1102, ptr noundef %1104)
-  br label %1105
+1092:                                             ; preds = %1091
+  %1093 = load ptr, ptr %6, align 8
+  %1094 = load ptr, ptr %16, align 8
+  %1095 = getelementptr inbounds %struct.pref_module, ptr %1094, i32 0, i32 0
+  %1096 = load ptr, ptr %1095, align 8
+  %1097 = icmp ne ptr %1096, null
+  br i1 %1097, label %1098, label %1102
 
-1105:                                             ; preds = %1101
-  br label %1106
+1098:                                             ; preds = %1092
+  %1099 = load ptr, ptr %16, align 8
+  %1100 = getelementptr inbounds %struct.pref_module, ptr %1099, i32 0, i32 0
+  %1101 = load ptr, ptr %1100, align 8
+  br label %1108
 
-1106:                                             ; preds = %1105, %1081
-  %1107 = load i32, ptr %20, align 4
-  switch i32 %1107, label %1521 [
-    i32 1, label %1108
-    i32 2, label %1134
-    i32 4, label %1159
-    i32 8, label %1188
-    i32 128, label %1188
-    i32 16384, label %1188
-    i32 2048, label %1188
-    i32 131072, label %1188
-    i32 32768, label %1196
-    i32 16, label %1203
-    i32 8192, label %1213
-    i32 256, label %1425
-    i32 512, label %1510
-    i32 32, label %1520
-    i32 64, label %1520
-    i32 65536, label %1520
+1102:                                             ; preds = %1092
+  %1103 = load ptr, ptr %16, align 8
+  %1104 = getelementptr inbounds %struct.pref_module, ptr %1103, i32 0, i32 5
+  %1105 = load ptr, ptr %1104, align 8
+  %1106 = getelementptr inbounds %struct.pref_module, ptr %1105, i32 0, i32 0
+  %1107 = load ptr, ptr %1106, align 8
+  br label %1108
+
+1108:                                             ; preds = %1102, %1098
+  %1109 = phi ptr [ %1101, %1098 ], [ %1107, %1102 ]
+  %1110 = load ptr, ptr %19, align 8
+  %1111 = call ptr @prefs_get_name(ptr noundef %1110)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 6287, ptr noundef @__func__.set_pref, ptr noundef @.str.702, ptr noundef %1093, ptr noundef %1109, ptr noundef %1111)
+  br label %1112
+
+1112:                                             ; preds = %1108
+  br label %1113
+
+1113:                                             ; preds = %1112, %1088
+  %1114 = load i32, ptr %20, align 4
+  switch i32 %1114, label %1528 [
+    i32 1, label %1115
+    i32 2, label %1141
+    i32 4, label %1166
+    i32 8, label %1195
+    i32 128, label %1195
+    i32 16384, label %1195
+    i32 2048, label %1195
+    i32 131072, label %1195
+    i32 32768, label %1203
+    i32 16, label %1210
+    i32 8192, label %1220
+    i32 256, label %1432
+    i32 512, label %1517
+    i32 32, label %1527
+    i32 64, label %1527
+    i32 65536, label %1527
   ]
 
-1108:                                             ; preds = %1106
-  %1109 = load ptr, ptr %7, align 8
-  %1110 = load ptr, ptr %19, align 8
-  %1111 = getelementptr inbounds %struct.preference, ptr %1110, i32 0, i32 9
-  %1112 = load i32, ptr %1111, align 8
-  %1113 = call zeroext i1 @ws_basestrtou32(ptr noundef %1109, ptr noundef null, ptr noundef %11, i32 noundef %1112)
-  br i1 %1113, label %1115, label %1114
+1115:                                             ; preds = %1113
+  %1116 = load ptr, ptr %7, align 8
+  %1117 = load ptr, ptr %19, align 8
+  %1118 = getelementptr inbounds %struct.preference, ptr %1117, i32 0, i32 9
+  %1119 = load i32, ptr %1118, align 8
+  %1120 = call zeroext i1 @ws_basestrtou32(ptr noundef %1116, ptr noundef null, ptr noundef %11, i32 noundef %1119)
+  br i1 %1120, label %1122, label %1121
 
-1114:                                             ; preds = %1108
+1121:                                             ; preds = %1115
   store i32 1, ptr %5, align 4
-  br label %1531
-
-1115:                                             ; preds = %1108
-  %1116 = load ptr, ptr %19, align 8
-  %1117 = getelementptr inbounds %struct.preference, ptr %1116, i32 0, i32 6
-  %1118 = load ptr, ptr %1117, align 8
-  %1119 = load i32, ptr %1118, align 4
-  %1120 = load i32, ptr %11, align 4
-  %1121 = icmp ne i32 %1119, %1120
-  br i1 %1121, label %1122, label %1133
+  br label %1538
 
 1122:                                             ; preds = %1115
   %1123 = load ptr, ptr %19, align 8
-  %1124 = call i32 @prefs_get_effect_flags(ptr noundef %1123)
-  %1125 = load ptr, ptr %17, align 8
-  %1126 = getelementptr inbounds %struct.pref_module, ptr %1125, i32 0, i32 8
-  %1127 = load i32, ptr %1126, align 4
-  %1128 = or i32 %1127, %1124
-  store i32 %1128, ptr %1126, align 4
-  %1129 = load i32, ptr %11, align 4
+  %1124 = getelementptr inbounds %struct.preference, ptr %1123, i32 0, i32 6
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = load i32, ptr %1125, align 4
+  %1127 = load i32, ptr %11, align 4
+  %1128 = icmp ne i32 %1126, %1127
+  br i1 %1128, label %1129, label %1140
+
+1129:                                             ; preds = %1122
   %1130 = load ptr, ptr %19, align 8
-  %1131 = getelementptr inbounds %struct.preference, ptr %1130, i32 0, i32 6
-  %1132 = load ptr, ptr %1131, align 8
-  store i32 %1129, ptr %1132, align 4
-  br label %1133
+  %1131 = call i32 @prefs_get_effect_flags(ptr noundef %1130)
+  %1132 = load ptr, ptr %17, align 8
+  %1133 = getelementptr inbounds %struct.pref_module, ptr %1132, i32 0, i32 8
+  %1134 = load i32, ptr %1133, align 4
+  %1135 = or i32 %1134, %1131
+  store i32 %1135, ptr %1133, align 4
+  %1136 = load i32, ptr %11, align 4
+  %1137 = load ptr, ptr %19, align 8
+  %1138 = getelementptr inbounds %struct.preference, ptr %1137, i32 0, i32 6
+  %1139 = load ptr, ptr %1138, align 8
+  store i32 %1136, ptr %1139, align 4
+  br label %1140
 
-1133:                                             ; preds = %1122, %1115
-  br label %1521
+1140:                                             ; preds = %1129, %1122
+  br label %1528
 
-1134:                                             ; preds = %1106
-  %1135 = load ptr, ptr %7, align 8
-  %1136 = call i32 @g_ascii_strcasecmp(ptr noundef %1135, ptr noundef @.str.547)
-  %1137 = icmp eq i32 %1136, 0
-  br i1 %1137, label %1138, label %1139
+1141:                                             ; preds = %1113
+  %1142 = load ptr, ptr %7, align 8
+  %1143 = call i32 @g_ascii_strcasecmp(ptr noundef %1142, ptr noundef @.str.547)
+  %1144 = icmp eq i32 %1143, 0
+  br i1 %1144, label %1145, label %1146
 
-1138:                                             ; preds = %1134
+1145:                                             ; preds = %1141
   store i32 1, ptr %12, align 4
-  br label %1140
+  br label %1147
 
-1139:                                             ; preds = %1134
+1146:                                             ; preds = %1141
   store i32 0, ptr %12, align 4
-  br label %1140
+  br label %1147
 
-1140:                                             ; preds = %1139, %1138
-  %1141 = load ptr, ptr %19, align 8
-  %1142 = getelementptr inbounds %struct.preference, ptr %1141, i32 0, i32 6
-  %1143 = load ptr, ptr %1142, align 8
-  %1144 = load i32, ptr %1143, align 4
-  %1145 = load i32, ptr %12, align 4
-  %1146 = icmp ne i32 %1144, %1145
-  br i1 %1146, label %1147, label %1158
-
-1147:                                             ; preds = %1140
+1147:                                             ; preds = %1146, %1145
   %1148 = load ptr, ptr %19, align 8
-  %1149 = call i32 @prefs_get_effect_flags(ptr noundef %1148)
-  %1150 = load ptr, ptr %17, align 8
-  %1151 = getelementptr inbounds %struct.pref_module, ptr %1150, i32 0, i32 8
-  %1152 = load i32, ptr %1151, align 4
-  %1153 = or i32 %1152, %1149
-  store i32 %1153, ptr %1151, align 4
-  %1154 = load i32, ptr %12, align 4
+  %1149 = getelementptr inbounds %struct.preference, ptr %1148, i32 0, i32 6
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = load i32, ptr %1150, align 4
+  %1152 = load i32, ptr %12, align 4
+  %1153 = icmp ne i32 %1151, %1152
+  br i1 %1153, label %1154, label %1165
+
+1154:                                             ; preds = %1147
   %1155 = load ptr, ptr %19, align 8
-  %1156 = getelementptr inbounds %struct.preference, ptr %1155, i32 0, i32 6
-  %1157 = load ptr, ptr %1156, align 8
-  store i32 %1154, ptr %1157, align 4
-  br label %1158
-
-1158:                                             ; preds = %1147, %1140
-  br label %1521
-
-1159:                                             ; preds = %1106
-  %1160 = load ptr, ptr %7, align 8
-  %1161 = load ptr, ptr %19, align 8
-  %1162 = getelementptr inbounds %struct.preference, ptr %1161, i32 0, i32 9
-  %1163 = getelementptr inbounds %struct.anon, ptr %1162, i32 0, i32 0
+  %1156 = call i32 @prefs_get_effect_flags(ptr noundef %1155)
+  %1157 = load ptr, ptr %17, align 8
+  %1158 = getelementptr inbounds %struct.pref_module, ptr %1157, i32 0, i32 8
+  %1159 = load i32, ptr %1158, align 4
+  %1160 = or i32 %1159, %1156
+  store i32 %1160, ptr %1158, align 4
+  %1161 = load i32, ptr %12, align 4
+  %1162 = load ptr, ptr %19, align 8
+  %1163 = getelementptr inbounds %struct.preference, ptr %1162, i32 0, i32 6
   %1164 = load ptr, ptr %1163, align 8
-  %1165 = load ptr, ptr %19, align 8
-  %1166 = getelementptr inbounds %struct.preference, ptr %1165, i32 0, i32 6
-  %1167 = load ptr, ptr %1166, align 8
-  %1168 = load i32, ptr %1167, align 4
-  %1169 = call i32 @find_val_for_string(ptr noundef %1160, ptr noundef %1164, i32 noundef %1168)
-  store i32 %1169, ptr %13, align 4
-  %1170 = load ptr, ptr %19, align 8
-  %1171 = getelementptr inbounds %struct.preference, ptr %1170, i32 0, i32 6
-  %1172 = load ptr, ptr %1171, align 8
-  %1173 = load i32, ptr %1172, align 4
-  %1174 = load i32, ptr %13, align 4
-  %1175 = icmp ne i32 %1173, %1174
-  br i1 %1175, label %1176, label %1187
+  store i32 %1161, ptr %1164, align 4
+  br label %1165
 
-1176:                                             ; preds = %1159
+1165:                                             ; preds = %1154, %1147
+  br label %1528
+
+1166:                                             ; preds = %1113
+  %1167 = load ptr, ptr %7, align 8
+  %1168 = load ptr, ptr %19, align 8
+  %1169 = getelementptr inbounds %struct.preference, ptr %1168, i32 0, i32 9
+  %1170 = getelementptr inbounds %struct.anon, ptr %1169, i32 0, i32 0
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = load ptr, ptr %19, align 8
+  %1173 = getelementptr inbounds %struct.preference, ptr %1172, i32 0, i32 6
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = load i32, ptr %1174, align 4
+  %1176 = call i32 @find_val_for_string(ptr noundef %1167, ptr noundef %1171, i32 noundef %1175)
+  store i32 %1176, ptr %13, align 4
   %1177 = load ptr, ptr %19, align 8
-  %1178 = call i32 @prefs_get_effect_flags(ptr noundef %1177)
-  %1179 = load ptr, ptr %17, align 8
-  %1180 = getelementptr inbounds %struct.pref_module, ptr %1179, i32 0, i32 8
-  %1181 = load i32, ptr %1180, align 4
-  %1182 = or i32 %1181, %1178
-  store i32 %1182, ptr %1180, align 4
-  %1183 = load i32, ptr %13, align 4
+  %1178 = getelementptr inbounds %struct.preference, ptr %1177, i32 0, i32 6
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = load i32, ptr %1179, align 4
+  %1181 = load i32, ptr %13, align 4
+  %1182 = icmp ne i32 %1180, %1181
+  br i1 %1182, label %1183, label %1194
+
+1183:                                             ; preds = %1166
   %1184 = load ptr, ptr %19, align 8
-  %1185 = getelementptr inbounds %struct.preference, ptr %1184, i32 0, i32 6
-  %1186 = load ptr, ptr %1185, align 8
-  store i32 %1183, ptr %1186, align 4
-  br label %1187
+  %1185 = call i32 @prefs_get_effect_flags(ptr noundef %1184)
+  %1186 = load ptr, ptr %17, align 8
+  %1187 = getelementptr inbounds %struct.pref_module, ptr %1186, i32 0, i32 8
+  %1188 = load i32, ptr %1187, align 4
+  %1189 = or i32 %1188, %1185
+  store i32 %1189, ptr %1187, align 4
+  %1190 = load i32, ptr %13, align 4
+  %1191 = load ptr, ptr %19, align 8
+  %1192 = getelementptr inbounds %struct.preference, ptr %1191, i32 0, i32 6
+  %1193 = load ptr, ptr %1192, align 8
+  store i32 %1190, ptr %1193, align 4
+  br label %1194
 
-1187:                                             ; preds = %1176, %1159
-  br label %1521
+1194:                                             ; preds = %1183, %1166
+  br label %1528
 
-1188:                                             ; preds = %1106, %1106, %1106, %1106, %1106
-  %1189 = load ptr, ptr %19, align 8
-  %1190 = load ptr, ptr %7, align 8
-  %1191 = call i32 @prefs_set_string_value(ptr noundef %1189, ptr noundef %1190, i32 noundef 2)
-  %1192 = load ptr, ptr %17, align 8
-  %1193 = getelementptr inbounds %struct.pref_module, ptr %1192, i32 0, i32 8
-  %1194 = load i32, ptr %1193, align 4
-  %1195 = or i32 %1194, %1191
-  store i32 %1195, ptr %1193, align 4
-  br label %1521
-
-1196:                                             ; preds = %1106
-  %1197 = load ptr, ptr %19, align 8
-  %1198 = call i32 @prefs_set_string_value(ptr noundef %1197, ptr noundef @.str.9, i32 noundef 2)
+1195:                                             ; preds = %1113, %1113, %1113, %1113, %1113
+  %1196 = load ptr, ptr %19, align 8
+  %1197 = load ptr, ptr %7, align 8
+  %1198 = call i32 @prefs_set_string_value(ptr noundef %1196, ptr noundef %1197, i32 noundef 2)
   %1199 = load ptr, ptr %17, align 8
   %1200 = getelementptr inbounds %struct.pref_module, ptr %1199, i32 0, i32 8
   %1201 = load i32, ptr %1200, align 4
   %1202 = or i32 %1201, %1198
   store i32 %1202, ptr %1200, align 4
-  br label %1521
-
-1203:                                             ; preds = %1106
-  %1204 = load ptr, ptr %19, align 8
-  %1205 = load ptr, ptr %7, align 8
-  %1206 = load i32, ptr %9, align 4
-  %1207 = load ptr, ptr %17, align 8
-  %1208 = getelementptr inbounds %struct.pref_module, ptr %1207, i32 0, i32 8
-  %1209 = call i32 @prefs_set_range_value_work(ptr noundef %1204, ptr noundef %1205, i32 noundef %1206, ptr noundef %1208)
-  %1210 = icmp ne i32 %1209, 0
-  br i1 %1210, label %1212, label %1211
-
-1211:                                             ; preds = %1203
-  store i32 1, ptr %5, align 4
-  br label %1531
-
-1212:                                             ; preds = %1203
-  br label %1521
-
-1213:                                             ; preds = %1106
-  %1214 = call ptr @wmem_epan_scope()
-  %1215 = load ptr, ptr %7, align 8
-  %1216 = load ptr, ptr %19, align 8
-  %1217 = getelementptr inbounds %struct.preference, ptr %1216, i32 0, i32 9
-  %1218 = load i32, ptr %1217, align 8
-  %1219 = load i32, ptr %9, align 4
-  %1220 = call i32 @range_convert_str_work(ptr noundef %1214, ptr noundef %25, ptr noundef %1215, i32 noundef %1218, i32 noundef %1219)
-  %1221 = icmp ne i32 %1220, 0
-  br i1 %1221, label %1222, label %1223
-
-1222:                                             ; preds = %1213
-  store i32 1, ptr %5, align 4
-  br label %1531
-
-1223:                                             ; preds = %1213
-  %1224 = load ptr, ptr %19, align 8
-  %1225 = getelementptr inbounds %struct.preference, ptr %1224, i32 0, i32 6
-  %1226 = load ptr, ptr %1225, align 8
-  %1227 = load ptr, ptr %1226, align 8
-  %1228 = load ptr, ptr %25, align 8
-  %1229 = call i32 @ranges_are_equal(ptr noundef %1227, ptr noundef %1228)
-  %1230 = icmp ne i32 %1229, 0
-  br i1 %1230, label %1421, label %1231
-
-1231:                                             ; preds = %1223
-  %1232 = call ptr @wmem_epan_scope()
-  %1233 = load ptr, ptr %19, align 8
-  %1234 = getelementptr inbounds %struct.preference, ptr %1233, i32 0, i32 6
-  %1235 = load ptr, ptr %1234, align 8
-  %1236 = load ptr, ptr %1235, align 8
-  call void @wmem_free(ptr noundef %1232, ptr noundef %1236)
-  %1237 = load ptr, ptr %25, align 8
-  %1238 = load ptr, ptr %19, align 8
-  %1239 = getelementptr inbounds %struct.preference, ptr %1238, i32 0, i32 6
-  %1240 = load ptr, ptr %1239, align 8
-  store ptr %1237, ptr %1240, align 8
-  %1241 = load ptr, ptr %19, align 8
-  %1242 = call i32 @prefs_get_effect_flags(ptr noundef %1241)
-  %1243 = load ptr, ptr %17, align 8
-  %1244 = getelementptr inbounds %struct.pref_module, ptr %1243, i32 0, i32 8
-  %1245 = load i32, ptr %1244, align 4
-  %1246 = or i32 %1245, %1242
-  store i32 %1246, ptr %1244, align 4
-  %1247 = load ptr, ptr %19, align 8
-  %1248 = getelementptr inbounds %struct.preference, ptr %1247, i32 0, i32 0
-  %1249 = load ptr, ptr %1248, align 8
-  %1250 = call ptr @find_dissector_table(ptr noundef %1249)
-  store ptr %1250, ptr %26, align 8
-  %1251 = load ptr, ptr %26, align 8
-  %1252 = icmp ne ptr %1251, null
-  br i1 %1252, label %1253, label %1420
-
-1253:                                             ; preds = %1231
-  %1254 = load ptr, ptr %26, align 8
-  %1255 = load ptr, ptr %16, align 8
-  %1256 = getelementptr inbounds %struct.pref_module, ptr %1255, i32 0, i32 1
-  %1257 = load ptr, ptr %1256, align 8
-  %1258 = call ptr @dissector_table_get_dissector_handle(ptr noundef %1254, ptr noundef %1257)
-  store ptr %1258, ptr %27, align 8
-  %1259 = load ptr, ptr %27, align 8
-  %1260 = icmp ne ptr %1259, null
-  br i1 %1260, label %1261, label %1419
-
-1261:                                             ; preds = %1253
-  store i32 0, ptr %28, align 4
-  br label %1262
-
-1262:                                             ; preds = %1344, %1261
-  %1263 = load i32, ptr %28, align 4
-  %1264 = load ptr, ptr %19, align 8
-  %1265 = getelementptr inbounds %struct.preference, ptr %1264, i32 0, i32 6
-  %1266 = load ptr, ptr %1265, align 8
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = getelementptr inbounds %struct.epan_range, ptr %1267, i32 0, i32 0
-  %1269 = load i32, ptr %1268, align 4
-  %1270 = icmp ult i32 %1263, %1269
-  br i1 %1270, label %1271, label %1347
-
-1271:                                             ; preds = %1262
-  %1272 = load ptr, ptr %19, align 8
-  %1273 = getelementptr inbounds %struct.preference, ptr %1272, i32 0, i32 6
-  %1274 = load ptr, ptr %1273, align 8
-  %1275 = load ptr, ptr %1274, align 8
-  %1276 = getelementptr inbounds %struct.epan_range, ptr %1275, i32 0, i32 1
-  %1277 = load i32, ptr %28, align 4
-  %1278 = zext i32 %1277 to i64
-  %1279 = getelementptr [1 x %struct.range_admin_tag], ptr %1276, i64 0, i64 %1278
-  %1280 = getelementptr inbounds %struct.range_admin_tag, ptr %1279, i32 0, i32 0
-  %1281 = load i32, ptr %1280, align 4
-  store i32 %1281, ptr %29, align 4
-  br label %1282
-
-1282:                                             ; preds = %1309, %1271
-  %1283 = load i32, ptr %29, align 4
-  %1284 = load ptr, ptr %19, align 8
-  %1285 = getelementptr inbounds %struct.preference, ptr %1284, i32 0, i32 6
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = load ptr, ptr %1286, align 8
-  %1288 = getelementptr inbounds %struct.epan_range, ptr %1287, i32 0, i32 1
-  %1289 = load i32, ptr %28, align 4
-  %1290 = zext i32 %1289 to i64
-  %1291 = getelementptr [1 x %struct.range_admin_tag], ptr %1288, i64 0, i64 %1290
-  %1292 = getelementptr inbounds %struct.range_admin_tag, ptr %1291, i32 0, i32 1
-  %1293 = load i32, ptr %1292, align 4
-  %1294 = icmp ult i32 %1283, %1293
-  br i1 %1294, label %1295, label %1312
-
-1295:                                             ; preds = %1282
-  %1296 = load ptr, ptr %19, align 8
-  %1297 = getelementptr inbounds %struct.preference, ptr %1296, i32 0, i32 0
-  %1298 = load ptr, ptr %1297, align 8
-  %1299 = load i32, ptr %29, align 4
-  %1300 = load ptr, ptr %27, align 8
-  call void @dissector_delete_uint(ptr noundef %1298, i32 noundef %1299, ptr noundef %1300)
-  %1301 = load ptr, ptr %19, align 8
-  %1302 = getelementptr inbounds %struct.preference, ptr %1301, i32 0, i32 0
-  %1303 = load ptr, ptr %1302, align 8
-  %1304 = load ptr, ptr %26, align 8
-  %1305 = call i32 @dissector_table_get_type(ptr noundef %1304)
-  %1306 = load i32, ptr %29, align 4
-  %1307 = zext i32 %1306 to i64
-  %1308 = inttoptr i64 %1307 to ptr
-  call void @decode_build_reset_list(ptr noundef %1303, i32 noundef %1305, ptr noundef %1308, ptr noundef null, ptr noundef null)
-  br label %1309
-
-1309:                                             ; preds = %1295
-  %1310 = load i32, ptr %29, align 4
-  %1311 = add i32 %1310, 1
-  store i32 %1311, ptr %29, align 4
-  br label %1282, !llvm.loop !23
-
-1312:                                             ; preds = %1282
-  %1313 = load ptr, ptr %19, align 8
-  %1314 = getelementptr inbounds %struct.preference, ptr %1313, i32 0, i32 0
-  %1315 = load ptr, ptr %1314, align 8
-  %1316 = load ptr, ptr %19, align 8
-  %1317 = getelementptr inbounds %struct.preference, ptr %1316, i32 0, i32 6
-  %1318 = load ptr, ptr %1317, align 8
-  %1319 = load ptr, ptr %1318, align 8
-  %1320 = getelementptr inbounds %struct.epan_range, ptr %1319, i32 0, i32 1
-  %1321 = load i32, ptr %28, align 4
-  %1322 = zext i32 %1321 to i64
-  %1323 = getelementptr [1 x %struct.range_admin_tag], ptr %1320, i64 0, i64 %1322
-  %1324 = getelementptr inbounds %struct.range_admin_tag, ptr %1323, i32 0, i32 1
-  %1325 = load i32, ptr %1324, align 4
-  %1326 = load ptr, ptr %27, align 8
-  call void @dissector_delete_uint(ptr noundef %1315, i32 noundef %1325, ptr noundef %1326)
-  %1327 = load ptr, ptr %19, align 8
-  %1328 = getelementptr inbounds %struct.preference, ptr %1327, i32 0, i32 0
-  %1329 = load ptr, ptr %1328, align 8
-  %1330 = load ptr, ptr %26, align 8
-  %1331 = call i32 @dissector_table_get_type(ptr noundef %1330)
-  %1332 = load ptr, ptr %19, align 8
-  %1333 = getelementptr inbounds %struct.preference, ptr %1332, i32 0, i32 6
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = load ptr, ptr %1334, align 8
-  %1336 = getelementptr inbounds %struct.epan_range, ptr %1335, i32 0, i32 1
-  %1337 = load i32, ptr %28, align 4
-  %1338 = zext i32 %1337 to i64
-  %1339 = getelementptr [1 x %struct.range_admin_tag], ptr %1336, i64 0, i64 %1338
-  %1340 = getelementptr inbounds %struct.range_admin_tag, ptr %1339, i32 0, i32 1
-  %1341 = load i32, ptr %1340, align 4
-  %1342 = zext i32 %1341 to i64
-  %1343 = inttoptr i64 %1342 to ptr
-  call void @decode_build_reset_list(ptr noundef %1329, i32 noundef %1331, ptr noundef %1343, ptr noundef null, ptr noundef null)
-  br label %1344
-
-1344:                                             ; preds = %1312
-  %1345 = load i32, ptr %28, align 4
-  %1346 = add i32 %1345, 1
-  store i32 %1346, ptr %28, align 4
-  br label %1262, !llvm.loop !24
-
-1347:                                             ; preds = %1262
-  store i32 0, ptr %28, align 4
-  br label %1348
-
-1348:                                             ; preds = %1415, %1347
-  %1349 = load i32, ptr %28, align 4
-  %1350 = load ptr, ptr %25, align 8
-  %1351 = getelementptr inbounds %struct.epan_range, ptr %1350, i32 0, i32 0
-  %1352 = load i32, ptr %1351, align 4
-  %1353 = icmp ult i32 %1349, %1352
-  br i1 %1353, label %1354, label %1418
-
-1354:                                             ; preds = %1348
-  %1355 = load ptr, ptr %25, align 8
-  %1356 = getelementptr inbounds %struct.epan_range, ptr %1355, i32 0, i32 1
-  %1357 = load i32, ptr %28, align 4
-  %1358 = zext i32 %1357 to i64
-  %1359 = getelementptr [1 x %struct.range_admin_tag], ptr %1356, i64 0, i64 %1358
-  %1360 = getelementptr inbounds %struct.range_admin_tag, ptr %1359, i32 0, i32 0
-  %1361 = load i32, ptr %1360, align 4
-  store i32 %1361, ptr %29, align 4
-  br label %1362
-
-1362:                                             ; preds = %1386, %1354
-  %1363 = load i32, ptr %29, align 4
-  %1364 = load ptr, ptr %25, align 8
-  %1365 = getelementptr inbounds %struct.epan_range, ptr %1364, i32 0, i32 1
-  %1366 = load i32, ptr %28, align 4
-  %1367 = zext i32 %1366 to i64
-  %1368 = getelementptr [1 x %struct.range_admin_tag], ptr %1365, i64 0, i64 %1367
-  %1369 = getelementptr inbounds %struct.range_admin_tag, ptr %1368, i32 0, i32 1
-  %1370 = load i32, ptr %1369, align 4
-  %1371 = icmp ult i32 %1363, %1370
-  br i1 %1371, label %1372, label %1389
-
-1372:                                             ; preds = %1362
-  %1373 = load ptr, ptr %19, align 8
-  %1374 = getelementptr inbounds %struct.preference, ptr %1373, i32 0, i32 0
-  %1375 = load ptr, ptr %1374, align 8
-  %1376 = load i32, ptr %29, align 4
-  %1377 = load ptr, ptr %27, align 8
-  call void @dissector_change_uint(ptr noundef %1375, i32 noundef %1376, ptr noundef %1377)
-  %1378 = load ptr, ptr %19, align 8
-  %1379 = getelementptr inbounds %struct.preference, ptr %1378, i32 0, i32 0
-  %1380 = load ptr, ptr %1379, align 8
-  %1381 = load ptr, ptr %26, align 8
-  %1382 = call i32 @dissector_table_get_type(ptr noundef %1381)
-  %1383 = load i32, ptr %29, align 4
-  %1384 = zext i32 %1383 to i64
-  %1385 = inttoptr i64 %1384 to ptr
-  call void @decode_build_reset_list(ptr noundef %1380, i32 noundef %1382, ptr noundef %1385, ptr noundef null, ptr noundef null)
-  br label %1386
-
-1386:                                             ; preds = %1372
-  %1387 = load i32, ptr %29, align 4
-  %1388 = add i32 %1387, 1
-  store i32 %1388, ptr %29, align 4
-  br label %1362, !llvm.loop !25
-
-1389:                                             ; preds = %1362
-  %1390 = load ptr, ptr %19, align 8
-  %1391 = getelementptr inbounds %struct.preference, ptr %1390, i32 0, i32 0
-  %1392 = load ptr, ptr %1391, align 8
-  %1393 = load ptr, ptr %25, align 8
-  %1394 = getelementptr inbounds %struct.epan_range, ptr %1393, i32 0, i32 1
-  %1395 = load i32, ptr %28, align 4
-  %1396 = zext i32 %1395 to i64
-  %1397 = getelementptr [1 x %struct.range_admin_tag], ptr %1394, i64 0, i64 %1396
-  %1398 = getelementptr inbounds %struct.range_admin_tag, ptr %1397, i32 0, i32 1
-  %1399 = load i32, ptr %1398, align 4
-  %1400 = load ptr, ptr %27, align 8
-  call void @dissector_change_uint(ptr noundef %1392, i32 noundef %1399, ptr noundef %1400)
-  %1401 = load ptr, ptr %19, align 8
-  %1402 = getelementptr inbounds %struct.preference, ptr %1401, i32 0, i32 0
-  %1403 = load ptr, ptr %1402, align 8
-  %1404 = load ptr, ptr %26, align 8
-  %1405 = call i32 @dissector_table_get_type(ptr noundef %1404)
-  %1406 = load ptr, ptr %25, align 8
-  %1407 = getelementptr inbounds %struct.epan_range, ptr %1406, i32 0, i32 1
-  %1408 = load i32, ptr %28, align 4
-  %1409 = zext i32 %1408 to i64
-  %1410 = getelementptr [1 x %struct.range_admin_tag], ptr %1407, i64 0, i64 %1409
-  %1411 = getelementptr inbounds %struct.range_admin_tag, ptr %1410, i32 0, i32 1
-  %1412 = load i32, ptr %1411, align 4
-  %1413 = zext i32 %1412 to i64
-  %1414 = inttoptr i64 %1413 to ptr
-  call void @decode_build_reset_list(ptr noundef %1403, i32 noundef %1405, ptr noundef %1414, ptr noundef null, ptr noundef null)
-  br label %1415
-
-1415:                                             ; preds = %1389
-  %1416 = load i32, ptr %28, align 4
-  %1417 = add i32 %1416, 1
-  store i32 %1417, ptr %28, align 4
-  br label %1348, !llvm.loop !26
-
-1418:                                             ; preds = %1348
-  br label %1419
-
-1419:                                             ; preds = %1418, %1253
-  br label %1420
-
-1420:                                             ; preds = %1419, %1231
-  br label %1424
-
-1421:                                             ; preds = %1223
-  %1422 = call ptr @wmem_epan_scope()
-  %1423 = load ptr, ptr %25, align 8
-  call void @wmem_free(ptr noundef %1422, ptr noundef %1423)
-  br label %1424
-
-1424:                                             ; preds = %1421, %1420
-  br label %1521
-
-1425:                                             ; preds = %1106
-  %1426 = load ptr, ptr %7, align 8
-  %1427 = call zeroext i1 @ws_hexstrtou32(ptr noundef %1426, ptr noundef null, ptr noundef %10)
-  br i1 %1427, label %1429, label %1428
-
-1428:                                             ; preds = %1425
-  store i32 1, ptr %5, align 4
-  br label %1531
-
-1429:                                             ; preds = %1425
-  %1430 = load ptr, ptr %19, align 8
-  %1431 = getelementptr inbounds %struct.preference, ptr %1430, i32 0, i32 6
-  %1432 = load ptr, ptr %1431, align 8
-  %1433 = getelementptr inbounds %struct.color_t, ptr %1432, i32 0, i32 0
-  %1434 = load i16, ptr %1433, align 2
-  %1435 = zext i16 %1434 to i32
-  %1436 = load i32, ptr %10, align 4
-  %1437 = lshr i32 %1436, 16
-  %1438 = and i32 %1437, 255
-  %1439 = mul i32 %1438, 65535
-  %1440 = udiv i32 %1439, 255
-  %1441 = trunc i32 %1440 to i16
-  %1442 = zext i16 %1441 to i32
-  %1443 = icmp ne i32 %1435, %1442
-  br i1 %1443, label %1473, label %1444
-
-1444:                                             ; preds = %1429
-  %1445 = load ptr, ptr %19, align 8
-  %1446 = getelementptr inbounds %struct.preference, ptr %1445, i32 0, i32 6
-  %1447 = load ptr, ptr %1446, align 8
-  %1448 = getelementptr inbounds %struct.color_t, ptr %1447, i32 0, i32 1
-  %1449 = load i16, ptr %1448, align 2
-  %1450 = zext i16 %1449 to i32
-  %1451 = load i32, ptr %10, align 4
-  %1452 = lshr i32 %1451, 8
-  %1453 = and i32 %1452, 255
-  %1454 = mul i32 %1453, 65535
-  %1455 = udiv i32 %1454, 255
-  %1456 = trunc i32 %1455 to i16
-  %1457 = zext i16 %1456 to i32
-  %1458 = icmp ne i32 %1450, %1457
-  br i1 %1458, label %1473, label %1459
-
-1459:                                             ; preds = %1444
-  %1460 = load ptr, ptr %19, align 8
-  %1461 = getelementptr inbounds %struct.preference, ptr %1460, i32 0, i32 6
-  %1462 = load ptr, ptr %1461, align 8
-  %1463 = getelementptr inbounds %struct.color_t, ptr %1462, i32 0, i32 2
-  %1464 = load i16, ptr %1463, align 2
-  %1465 = zext i16 %1464 to i32
-  %1466 = load i32, ptr %10, align 4
-  %1467 = and i32 %1466, 255
-  %1468 = mul i32 %1467, 65535
-  %1469 = udiv i32 %1468, 255
-  %1470 = trunc i32 %1469 to i16
-  %1471 = zext i16 %1470 to i32
-  %1472 = icmp ne i32 %1465, %1471
-  br i1 %1472, label %1473, label %1509
-
-1473:                                             ; preds = %1459, %1444, %1429
-  %1474 = load ptr, ptr %19, align 8
-  %1475 = call i32 @prefs_get_effect_flags(ptr noundef %1474)
-  %1476 = load ptr, ptr %17, align 8
-  %1477 = getelementptr inbounds %struct.pref_module, ptr %1476, i32 0, i32 8
-  %1478 = load i32, ptr %1477, align 4
-  %1479 = or i32 %1478, %1475
-  store i32 %1479, ptr %1477, align 4
-  %1480 = load i32, ptr %10, align 4
-  %1481 = lshr i32 %1480, 16
-  %1482 = and i32 %1481, 255
-  %1483 = mul i32 %1482, 65535
-  %1484 = udiv i32 %1483, 255
-  %1485 = trunc i32 %1484 to i16
-  %1486 = load ptr, ptr %19, align 8
-  %1487 = getelementptr inbounds %struct.preference, ptr %1486, i32 0, i32 6
-  %1488 = load ptr, ptr %1487, align 8
-  %1489 = getelementptr inbounds %struct.color_t, ptr %1488, i32 0, i32 0
-  store i16 %1485, ptr %1489, align 2
-  %1490 = load i32, ptr %10, align 4
-  %1491 = lshr i32 %1490, 8
-  %1492 = and i32 %1491, 255
-  %1493 = mul i32 %1492, 65535
-  %1494 = udiv i32 %1493, 255
-  %1495 = trunc i32 %1494 to i16
-  %1496 = load ptr, ptr %19, align 8
-  %1497 = getelementptr inbounds %struct.preference, ptr %1496, i32 0, i32 6
-  %1498 = load ptr, ptr %1497, align 8
-  %1499 = getelementptr inbounds %struct.color_t, ptr %1498, i32 0, i32 1
-  store i16 %1495, ptr %1499, align 2
-  %1500 = load i32, ptr %10, align 4
-  %1501 = and i32 %1500, 255
-  %1502 = mul i32 %1501, 65535
-  %1503 = udiv i32 %1502, 255
-  %1504 = trunc i32 %1503 to i16
-  %1505 = load ptr, ptr %19, align 8
-  %1506 = getelementptr inbounds %struct.preference, ptr %1505, i32 0, i32 6
-  %1507 = load ptr, ptr %1506, align 8
-  %1508 = getelementptr inbounds %struct.color_t, ptr %1507, i32 0, i32 2
-  store i16 %1504, ptr %1508, align 2
-  br label %1509
-
-1509:                                             ; preds = %1473, %1459
-  br label %1521
-
-1510:                                             ; preds = %1106
-  %1511 = load ptr, ptr %19, align 8
-  %1512 = getelementptr inbounds %struct.preference, ptr %1511, i32 0, i32 10
-  %1513 = getelementptr inbounds %struct.pref_custom_cbs, ptr %1512, i32 0, i32 2
-  %1514 = load ptr, ptr %1513, align 8
-  %1515 = load ptr, ptr %19, align 8
-  %1516 = load ptr, ptr %7, align 8
-  %1517 = load ptr, ptr %17, align 8
-  %1518 = getelementptr inbounds %struct.pref_module, ptr %1517, i32 0, i32 8
-  %1519 = call i32 %1514(ptr noundef %1515, ptr noundef %1516, ptr noundef %1518)
-  store i32 %1519, ptr %5, align 4
-  br label %1531
-
-1520:                                             ; preds = %1106, %1106, %1106
-  br label %1521
-
-1521:                                             ; preds = %1520, %1509, %1424, %1212, %1196, %1188, %1187, %1158, %1133, %1106
-  br label %1522
-
-1522:                                             ; preds = %1521
-  br label %1523
-
-1523:                                             ; preds = %1522, %112
-  br label %1524
-
-1524:                                             ; preds = %1523, %106
-  br label %1525
-
-1525:                                             ; preds = %1524, %100
-  br label %1526
-
-1526:                                             ; preds = %1525, %94
-  br label %1527
-
-1527:                                             ; preds = %1526, %67
   br label %1528
 
-1528:                                             ; preds = %1527, %51
+1203:                                             ; preds = %1113
+  %1204 = load ptr, ptr %19, align 8
+  %1205 = call i32 @prefs_set_string_value(ptr noundef %1204, ptr noundef @.str.9, i32 noundef 2)
+  %1206 = load ptr, ptr %17, align 8
+  %1207 = getelementptr inbounds %struct.pref_module, ptr %1206, i32 0, i32 8
+  %1208 = load i32, ptr %1207, align 4
+  %1209 = or i32 %1208, %1205
+  store i32 %1209, ptr %1207, align 4
+  br label %1528
+
+1210:                                             ; preds = %1113
+  %1211 = load ptr, ptr %19, align 8
+  %1212 = load ptr, ptr %7, align 8
+  %1213 = load i32, ptr %9, align 4
+  %1214 = load ptr, ptr %17, align 8
+  %1215 = getelementptr inbounds %struct.pref_module, ptr %1214, i32 0, i32 8
+  %1216 = call i32 @prefs_set_range_value_work(ptr noundef %1211, ptr noundef %1212, i32 noundef %1213, ptr noundef %1215)
+  %1217 = icmp ne i32 %1216, 0
+  br i1 %1217, label %1219, label %1218
+
+1218:                                             ; preds = %1210
+  store i32 1, ptr %5, align 4
+  br label %1538
+
+1219:                                             ; preds = %1210
+  br label %1528
+
+1220:                                             ; preds = %1113
+  %1221 = call ptr @wmem_epan_scope()
+  %1222 = load ptr, ptr %7, align 8
+  %1223 = load ptr, ptr %19, align 8
+  %1224 = getelementptr inbounds %struct.preference, ptr %1223, i32 0, i32 9
+  %1225 = load i32, ptr %1224, align 8
+  %1226 = load i32, ptr %9, align 4
+  %1227 = call i32 @range_convert_str_work(ptr noundef %1221, ptr noundef %25, ptr noundef %1222, i32 noundef %1225, i32 noundef %1226)
+  %1228 = icmp ne i32 %1227, 0
+  br i1 %1228, label %1229, label %1230
+
+1229:                                             ; preds = %1220
+  store i32 1, ptr %5, align 4
+  br label %1538
+
+1230:                                             ; preds = %1220
+  %1231 = load ptr, ptr %19, align 8
+  %1232 = getelementptr inbounds %struct.preference, ptr %1231, i32 0, i32 6
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = load ptr, ptr %1233, align 8
+  %1235 = load ptr, ptr %25, align 8
+  %1236 = call i32 @ranges_are_equal(ptr noundef %1234, ptr noundef %1235)
+  %1237 = icmp ne i32 %1236, 0
+  br i1 %1237, label %1428, label %1238
+
+1238:                                             ; preds = %1230
+  %1239 = call ptr @wmem_epan_scope()
+  %1240 = load ptr, ptr %19, align 8
+  %1241 = getelementptr inbounds %struct.preference, ptr %1240, i32 0, i32 6
+  %1242 = load ptr, ptr %1241, align 8
+  %1243 = load ptr, ptr %1242, align 8
+  call void @wmem_free(ptr noundef %1239, ptr noundef %1243)
+  %1244 = load ptr, ptr %25, align 8
+  %1245 = load ptr, ptr %19, align 8
+  %1246 = getelementptr inbounds %struct.preference, ptr %1245, i32 0, i32 6
+  %1247 = load ptr, ptr %1246, align 8
+  store ptr %1244, ptr %1247, align 8
+  %1248 = load ptr, ptr %19, align 8
+  %1249 = call i32 @prefs_get_effect_flags(ptr noundef %1248)
+  %1250 = load ptr, ptr %17, align 8
+  %1251 = getelementptr inbounds %struct.pref_module, ptr %1250, i32 0, i32 8
+  %1252 = load i32, ptr %1251, align 4
+  %1253 = or i32 %1252, %1249
+  store i32 %1253, ptr %1251, align 4
+  %1254 = load ptr, ptr %19, align 8
+  %1255 = getelementptr inbounds %struct.preference, ptr %1254, i32 0, i32 0
+  %1256 = load ptr, ptr %1255, align 8
+  %1257 = call ptr @find_dissector_table(ptr noundef %1256)
+  store ptr %1257, ptr %26, align 8
+  %1258 = load ptr, ptr %26, align 8
+  %1259 = icmp ne ptr %1258, null
+  br i1 %1259, label %1260, label %1427
+
+1260:                                             ; preds = %1238
+  %1261 = load ptr, ptr %26, align 8
+  %1262 = load ptr, ptr %16, align 8
+  %1263 = getelementptr inbounds %struct.pref_module, ptr %1262, i32 0, i32 1
+  %1264 = load ptr, ptr %1263, align 8
+  %1265 = call ptr @dissector_table_get_dissector_handle(ptr noundef %1261, ptr noundef %1264)
+  store ptr %1265, ptr %27, align 8
+  %1266 = load ptr, ptr %27, align 8
+  %1267 = icmp ne ptr %1266, null
+  br i1 %1267, label %1268, label %1426
+
+1268:                                             ; preds = %1260
+  store i32 0, ptr %28, align 4
+  br label %1269
+
+1269:                                             ; preds = %1351, %1268
+  %1270 = load i32, ptr %28, align 4
+  %1271 = load ptr, ptr %19, align 8
+  %1272 = getelementptr inbounds %struct.preference, ptr %1271, i32 0, i32 6
+  %1273 = load ptr, ptr %1272, align 8
+  %1274 = load ptr, ptr %1273, align 8
+  %1275 = getelementptr inbounds %struct.epan_range, ptr %1274, i32 0, i32 0
+  %1276 = load i32, ptr %1275, align 4
+  %1277 = icmp ult i32 %1270, %1276
+  br i1 %1277, label %1278, label %1354
+
+1278:                                             ; preds = %1269
+  %1279 = load ptr, ptr %19, align 8
+  %1280 = getelementptr inbounds %struct.preference, ptr %1279, i32 0, i32 6
+  %1281 = load ptr, ptr %1280, align 8
+  %1282 = load ptr, ptr %1281, align 8
+  %1283 = getelementptr inbounds %struct.epan_range, ptr %1282, i32 0, i32 1
+  %1284 = load i32, ptr %28, align 4
+  %1285 = zext i32 %1284 to i64
+  %1286 = getelementptr [1 x %struct.range_admin_tag], ptr %1283, i64 0, i64 %1285
+  %1287 = getelementptr inbounds %struct.range_admin_tag, ptr %1286, i32 0, i32 0
+  %1288 = load i32, ptr %1287, align 4
+  store i32 %1288, ptr %29, align 4
+  br label %1289
+
+1289:                                             ; preds = %1316, %1278
+  %1290 = load i32, ptr %29, align 4
+  %1291 = load ptr, ptr %19, align 8
+  %1292 = getelementptr inbounds %struct.preference, ptr %1291, i32 0, i32 6
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = load ptr, ptr %1293, align 8
+  %1295 = getelementptr inbounds %struct.epan_range, ptr %1294, i32 0, i32 1
+  %1296 = load i32, ptr %28, align 4
+  %1297 = zext i32 %1296 to i64
+  %1298 = getelementptr [1 x %struct.range_admin_tag], ptr %1295, i64 0, i64 %1297
+  %1299 = getelementptr inbounds %struct.range_admin_tag, ptr %1298, i32 0, i32 1
+  %1300 = load i32, ptr %1299, align 4
+  %1301 = icmp ult i32 %1290, %1300
+  br i1 %1301, label %1302, label %1319
+
+1302:                                             ; preds = %1289
+  %1303 = load ptr, ptr %19, align 8
+  %1304 = getelementptr inbounds %struct.preference, ptr %1303, i32 0, i32 0
+  %1305 = load ptr, ptr %1304, align 8
+  %1306 = load i32, ptr %29, align 4
+  %1307 = load ptr, ptr %27, align 8
+  call void @dissector_delete_uint(ptr noundef %1305, i32 noundef %1306, ptr noundef %1307)
+  %1308 = load ptr, ptr %19, align 8
+  %1309 = getelementptr inbounds %struct.preference, ptr %1308, i32 0, i32 0
+  %1310 = load ptr, ptr %1309, align 8
+  %1311 = load ptr, ptr %26, align 8
+  %1312 = call i32 @dissector_table_get_type(ptr noundef %1311)
+  %1313 = load i32, ptr %29, align 4
+  %1314 = zext i32 %1313 to i64
+  %1315 = inttoptr i64 %1314 to ptr
+  call void @decode_build_reset_list(ptr noundef %1310, i32 noundef %1312, ptr noundef %1315, ptr noundef null, ptr noundef null)
+  br label %1316
+
+1316:                                             ; preds = %1302
+  %1317 = load i32, ptr %29, align 4
+  %1318 = add i32 %1317, 1
+  store i32 %1318, ptr %29, align 4
+  br label %1289, !llvm.loop !23
+
+1319:                                             ; preds = %1289
+  %1320 = load ptr, ptr %19, align 8
+  %1321 = getelementptr inbounds %struct.preference, ptr %1320, i32 0, i32 0
+  %1322 = load ptr, ptr %1321, align 8
+  %1323 = load ptr, ptr %19, align 8
+  %1324 = getelementptr inbounds %struct.preference, ptr %1323, i32 0, i32 6
+  %1325 = load ptr, ptr %1324, align 8
+  %1326 = load ptr, ptr %1325, align 8
+  %1327 = getelementptr inbounds %struct.epan_range, ptr %1326, i32 0, i32 1
+  %1328 = load i32, ptr %28, align 4
+  %1329 = zext i32 %1328 to i64
+  %1330 = getelementptr [1 x %struct.range_admin_tag], ptr %1327, i64 0, i64 %1329
+  %1331 = getelementptr inbounds %struct.range_admin_tag, ptr %1330, i32 0, i32 1
+  %1332 = load i32, ptr %1331, align 4
+  %1333 = load ptr, ptr %27, align 8
+  call void @dissector_delete_uint(ptr noundef %1322, i32 noundef %1332, ptr noundef %1333)
+  %1334 = load ptr, ptr %19, align 8
+  %1335 = getelementptr inbounds %struct.preference, ptr %1334, i32 0, i32 0
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = load ptr, ptr %26, align 8
+  %1338 = call i32 @dissector_table_get_type(ptr noundef %1337)
+  %1339 = load ptr, ptr %19, align 8
+  %1340 = getelementptr inbounds %struct.preference, ptr %1339, i32 0, i32 6
+  %1341 = load ptr, ptr %1340, align 8
+  %1342 = load ptr, ptr %1341, align 8
+  %1343 = getelementptr inbounds %struct.epan_range, ptr %1342, i32 0, i32 1
+  %1344 = load i32, ptr %28, align 4
+  %1345 = zext i32 %1344 to i64
+  %1346 = getelementptr [1 x %struct.range_admin_tag], ptr %1343, i64 0, i64 %1345
+  %1347 = getelementptr inbounds %struct.range_admin_tag, ptr %1346, i32 0, i32 1
+  %1348 = load i32, ptr %1347, align 4
+  %1349 = zext i32 %1348 to i64
+  %1350 = inttoptr i64 %1349 to ptr
+  call void @decode_build_reset_list(ptr noundef %1336, i32 noundef %1338, ptr noundef %1350, ptr noundef null, ptr noundef null)
+  br label %1351
+
+1351:                                             ; preds = %1319
+  %1352 = load i32, ptr %28, align 4
+  %1353 = add i32 %1352, 1
+  store i32 %1353, ptr %28, align 4
+  br label %1269, !llvm.loop !24
+
+1354:                                             ; preds = %1269
+  store i32 0, ptr %28, align 4
+  br label %1355
+
+1355:                                             ; preds = %1422, %1354
+  %1356 = load i32, ptr %28, align 4
+  %1357 = load ptr, ptr %25, align 8
+  %1358 = getelementptr inbounds %struct.epan_range, ptr %1357, i32 0, i32 0
+  %1359 = load i32, ptr %1358, align 4
+  %1360 = icmp ult i32 %1356, %1359
+  br i1 %1360, label %1361, label %1425
+
+1361:                                             ; preds = %1355
+  %1362 = load ptr, ptr %25, align 8
+  %1363 = getelementptr inbounds %struct.epan_range, ptr %1362, i32 0, i32 1
+  %1364 = load i32, ptr %28, align 4
+  %1365 = zext i32 %1364 to i64
+  %1366 = getelementptr [1 x %struct.range_admin_tag], ptr %1363, i64 0, i64 %1365
+  %1367 = getelementptr inbounds %struct.range_admin_tag, ptr %1366, i32 0, i32 0
+  %1368 = load i32, ptr %1367, align 4
+  store i32 %1368, ptr %29, align 4
+  br label %1369
+
+1369:                                             ; preds = %1393, %1361
+  %1370 = load i32, ptr %29, align 4
+  %1371 = load ptr, ptr %25, align 8
+  %1372 = getelementptr inbounds %struct.epan_range, ptr %1371, i32 0, i32 1
+  %1373 = load i32, ptr %28, align 4
+  %1374 = zext i32 %1373 to i64
+  %1375 = getelementptr [1 x %struct.range_admin_tag], ptr %1372, i64 0, i64 %1374
+  %1376 = getelementptr inbounds %struct.range_admin_tag, ptr %1375, i32 0, i32 1
+  %1377 = load i32, ptr %1376, align 4
+  %1378 = icmp ult i32 %1370, %1377
+  br i1 %1378, label %1379, label %1396
+
+1379:                                             ; preds = %1369
+  %1380 = load ptr, ptr %19, align 8
+  %1381 = getelementptr inbounds %struct.preference, ptr %1380, i32 0, i32 0
+  %1382 = load ptr, ptr %1381, align 8
+  %1383 = load i32, ptr %29, align 4
+  %1384 = load ptr, ptr %27, align 8
+  call void @dissector_change_uint(ptr noundef %1382, i32 noundef %1383, ptr noundef %1384)
+  %1385 = load ptr, ptr %19, align 8
+  %1386 = getelementptr inbounds %struct.preference, ptr %1385, i32 0, i32 0
+  %1387 = load ptr, ptr %1386, align 8
+  %1388 = load ptr, ptr %26, align 8
+  %1389 = call i32 @dissector_table_get_type(ptr noundef %1388)
+  %1390 = load i32, ptr %29, align 4
+  %1391 = zext i32 %1390 to i64
+  %1392 = inttoptr i64 %1391 to ptr
+  call void @decode_build_reset_list(ptr noundef %1387, i32 noundef %1389, ptr noundef %1392, ptr noundef null, ptr noundef null)
+  br label %1393
+
+1393:                                             ; preds = %1379
+  %1394 = load i32, ptr %29, align 4
+  %1395 = add i32 %1394, 1
+  store i32 %1395, ptr %29, align 4
+  br label %1369, !llvm.loop !25
+
+1396:                                             ; preds = %1369
+  %1397 = load ptr, ptr %19, align 8
+  %1398 = getelementptr inbounds %struct.preference, ptr %1397, i32 0, i32 0
+  %1399 = load ptr, ptr %1398, align 8
+  %1400 = load ptr, ptr %25, align 8
+  %1401 = getelementptr inbounds %struct.epan_range, ptr %1400, i32 0, i32 1
+  %1402 = load i32, ptr %28, align 4
+  %1403 = zext i32 %1402 to i64
+  %1404 = getelementptr [1 x %struct.range_admin_tag], ptr %1401, i64 0, i64 %1403
+  %1405 = getelementptr inbounds %struct.range_admin_tag, ptr %1404, i32 0, i32 1
+  %1406 = load i32, ptr %1405, align 4
+  %1407 = load ptr, ptr %27, align 8
+  call void @dissector_change_uint(ptr noundef %1399, i32 noundef %1406, ptr noundef %1407)
+  %1408 = load ptr, ptr %19, align 8
+  %1409 = getelementptr inbounds %struct.preference, ptr %1408, i32 0, i32 0
+  %1410 = load ptr, ptr %1409, align 8
+  %1411 = load ptr, ptr %26, align 8
+  %1412 = call i32 @dissector_table_get_type(ptr noundef %1411)
+  %1413 = load ptr, ptr %25, align 8
+  %1414 = getelementptr inbounds %struct.epan_range, ptr %1413, i32 0, i32 1
+  %1415 = load i32, ptr %28, align 4
+  %1416 = zext i32 %1415 to i64
+  %1417 = getelementptr [1 x %struct.range_admin_tag], ptr %1414, i64 0, i64 %1416
+  %1418 = getelementptr inbounds %struct.range_admin_tag, ptr %1417, i32 0, i32 1
+  %1419 = load i32, ptr %1418, align 4
+  %1420 = zext i32 %1419 to i64
+  %1421 = inttoptr i64 %1420 to ptr
+  call void @decode_build_reset_list(ptr noundef %1410, i32 noundef %1412, ptr noundef %1421, ptr noundef null, ptr noundef null)
+  br label %1422
+
+1422:                                             ; preds = %1396
+  %1423 = load i32, ptr %28, align 4
+  %1424 = add i32 %1423, 1
+  store i32 %1424, ptr %28, align 4
+  br label %1355, !llvm.loop !26
+
+1425:                                             ; preds = %1355
+  br label %1426
+
+1426:                                             ; preds = %1425, %1260
+  br label %1427
+
+1427:                                             ; preds = %1426, %1238
+  br label %1431
+
+1428:                                             ; preds = %1230
+  %1429 = call ptr @wmem_epan_scope()
+  %1430 = load ptr, ptr %25, align 8
+  call void @wmem_free(ptr noundef %1429, ptr noundef %1430)
+  br label %1431
+
+1431:                                             ; preds = %1428, %1427
+  br label %1528
+
+1432:                                             ; preds = %1113
+  %1433 = load ptr, ptr %7, align 8
+  %1434 = call zeroext i1 @ws_hexstrtou32(ptr noundef %1433, ptr noundef null, ptr noundef %10)
+  br i1 %1434, label %1436, label %1435
+
+1435:                                             ; preds = %1432
+  store i32 1, ptr %5, align 4
+  br label %1538
+
+1436:                                             ; preds = %1432
+  %1437 = load ptr, ptr %19, align 8
+  %1438 = getelementptr inbounds %struct.preference, ptr %1437, i32 0, i32 6
+  %1439 = load ptr, ptr %1438, align 8
+  %1440 = getelementptr inbounds %struct.color_t, ptr %1439, i32 0, i32 0
+  %1441 = load i16, ptr %1440, align 2
+  %1442 = zext i16 %1441 to i32
+  %1443 = load i32, ptr %10, align 4
+  %1444 = lshr i32 %1443, 16
+  %1445 = and i32 %1444, 255
+  %1446 = mul i32 %1445, 65535
+  %1447 = udiv i32 %1446, 255
+  %1448 = trunc i32 %1447 to i16
+  %1449 = zext i16 %1448 to i32
+  %1450 = icmp ne i32 %1442, %1449
+  br i1 %1450, label %1480, label %1451
+
+1451:                                             ; preds = %1436
+  %1452 = load ptr, ptr %19, align 8
+  %1453 = getelementptr inbounds %struct.preference, ptr %1452, i32 0, i32 6
+  %1454 = load ptr, ptr %1453, align 8
+  %1455 = getelementptr inbounds %struct.color_t, ptr %1454, i32 0, i32 1
+  %1456 = load i16, ptr %1455, align 2
+  %1457 = zext i16 %1456 to i32
+  %1458 = load i32, ptr %10, align 4
+  %1459 = lshr i32 %1458, 8
+  %1460 = and i32 %1459, 255
+  %1461 = mul i32 %1460, 65535
+  %1462 = udiv i32 %1461, 255
+  %1463 = trunc i32 %1462 to i16
+  %1464 = zext i16 %1463 to i32
+  %1465 = icmp ne i32 %1457, %1464
+  br i1 %1465, label %1480, label %1466
+
+1466:                                             ; preds = %1451
+  %1467 = load ptr, ptr %19, align 8
+  %1468 = getelementptr inbounds %struct.preference, ptr %1467, i32 0, i32 6
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = getelementptr inbounds %struct.color_t, ptr %1469, i32 0, i32 2
+  %1471 = load i16, ptr %1470, align 2
+  %1472 = zext i16 %1471 to i32
+  %1473 = load i32, ptr %10, align 4
+  %1474 = and i32 %1473, 255
+  %1475 = mul i32 %1474, 65535
+  %1476 = udiv i32 %1475, 255
+  %1477 = trunc i32 %1476 to i16
+  %1478 = zext i16 %1477 to i32
+  %1479 = icmp ne i32 %1472, %1478
+  br i1 %1479, label %1480, label %1516
+
+1480:                                             ; preds = %1466, %1451, %1436
+  %1481 = load ptr, ptr %19, align 8
+  %1482 = call i32 @prefs_get_effect_flags(ptr noundef %1481)
+  %1483 = load ptr, ptr %17, align 8
+  %1484 = getelementptr inbounds %struct.pref_module, ptr %1483, i32 0, i32 8
+  %1485 = load i32, ptr %1484, align 4
+  %1486 = or i32 %1485, %1482
+  store i32 %1486, ptr %1484, align 4
+  %1487 = load i32, ptr %10, align 4
+  %1488 = lshr i32 %1487, 16
+  %1489 = and i32 %1488, 255
+  %1490 = mul i32 %1489, 65535
+  %1491 = udiv i32 %1490, 255
+  %1492 = trunc i32 %1491 to i16
+  %1493 = load ptr, ptr %19, align 8
+  %1494 = getelementptr inbounds %struct.preference, ptr %1493, i32 0, i32 6
+  %1495 = load ptr, ptr %1494, align 8
+  %1496 = getelementptr inbounds %struct.color_t, ptr %1495, i32 0, i32 0
+  store i16 %1492, ptr %1496, align 2
+  %1497 = load i32, ptr %10, align 4
+  %1498 = lshr i32 %1497, 8
+  %1499 = and i32 %1498, 255
+  %1500 = mul i32 %1499, 65535
+  %1501 = udiv i32 %1500, 255
+  %1502 = trunc i32 %1501 to i16
+  %1503 = load ptr, ptr %19, align 8
+  %1504 = getelementptr inbounds %struct.preference, ptr %1503, i32 0, i32 6
+  %1505 = load ptr, ptr %1504, align 8
+  %1506 = getelementptr inbounds %struct.color_t, ptr %1505, i32 0, i32 1
+  store i16 %1502, ptr %1506, align 2
+  %1507 = load i32, ptr %10, align 4
+  %1508 = and i32 %1507, 255
+  %1509 = mul i32 %1508, 65535
+  %1510 = udiv i32 %1509, 255
+  %1511 = trunc i32 %1510 to i16
+  %1512 = load ptr, ptr %19, align 8
+  %1513 = getelementptr inbounds %struct.preference, ptr %1512, i32 0, i32 6
+  %1514 = load ptr, ptr %1513, align 8
+  %1515 = getelementptr inbounds %struct.color_t, ptr %1514, i32 0, i32 2
+  store i16 %1511, ptr %1515, align 2
+  br label %1516
+
+1516:                                             ; preds = %1480, %1466
+  br label %1528
+
+1517:                                             ; preds = %1113
+  %1518 = load ptr, ptr %19, align 8
+  %1519 = getelementptr inbounds %struct.preference, ptr %1518, i32 0, i32 10
+  %1520 = getelementptr inbounds %struct.pref_custom_cbs, ptr %1519, i32 0, i32 2
+  %1521 = load ptr, ptr %1520, align 8
+  %1522 = load ptr, ptr %19, align 8
+  %1523 = load ptr, ptr %7, align 8
+  %1524 = load ptr, ptr %17, align 8
+  %1525 = getelementptr inbounds %struct.pref_module, ptr %1524, i32 0, i32 8
+  %1526 = call i32 %1521(ptr noundef %1522, ptr noundef %1523, ptr noundef %1525)
+  store i32 %1526, ptr %5, align 4
+  br label %1538
+
+1527:                                             ; preds = %1113, %1113, %1113
+  br label %1528
+
+1528:                                             ; preds = %1527, %1516, %1431, %1219, %1203, %1195, %1194, %1165, %1140, %1113
   br label %1529
 
-1529:                                             ; preds = %1528, %42
+1529:                                             ; preds = %1528
   br label %1530
 
-1530:                                             ; preds = %1529, %34
-  store i32 0, ptr %5, align 4
+1530:                                             ; preds = %1529, %117
   br label %1531
 
-1531:                                             ; preds = %1530, %1510, %1428, %1222, %1211, %1114, %1077, %1069, %1061, %1060, %179, %144, %117, %91
-  %1532 = load i32, ptr %5, align 4
-  ret i32 %1532
+1531:                                             ; preds = %1530, %111
+  br label %1532
+
+1532:                                             ; preds = %1531, %105
+  br label %1533
+
+1533:                                             ; preds = %1532, %99
+  br label %1534
+
+1534:                                             ; preds = %1533, %70
+  br label %1535
+
+1535:                                             ; preds = %1534, %51
+  br label %1536
+
+1536:                                             ; preds = %1535, %42
+  br label %1537
+
+1537:                                             ; preds = %1536, %34
+  store i32 0, ptr %5, align 4
+  br label %1538
+
+1538:                                             ; preds = %1537, %1517, %1435, %1229, %1218, %1121, %1084, %1076, %1068, %1067, %184, %149, %122, %96
+  %1539 = load i32, ptr %5, align 4
+  ret i32 %1539
 }
 
 declare void @report_warning(ptr noundef, ...) #2
@@ -11321,72 +11592,74 @@ define i32 @prefs_is_capture_device_hidden(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 58), align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %39
+  %7 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 58
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %41
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %39
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %41
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 58), align 8
-  %14 = call noalias ptr @g_strdup(ptr noundef %13)
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = call i64 @strlen(ptr noundef %15) #11
-  store i64 %16, ptr %6, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @strtok(ptr noundef %17, ptr noundef @.str.29) #13
-  store ptr %18, ptr %4, align 8
-  br label %19
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 58
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noalias ptr @g_strdup(ptr noundef %15)
+  store ptr %16, ptr %5, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = call i64 @strlen(ptr noundef %17) #11
+  store i64 %18, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = call ptr @strtok(ptr noundef %19, ptr noundef @.str.29) #13
+  store ptr %20, ptr %4, align 8
+  br label %21
 
-19:                                               ; preds = %35, %12
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %37
+21:                                               ; preds = %37, %13
+  %22 = load ptr, ptr %4, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %39
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %4, align 8
-  %24 = call i64 @strlen(ptr noundef %23) #11
-  %25 = load i64, ptr %6, align 8
-  %26 = icmp eq i64 %24, %25
-  br i1 %26, label %27, label %34
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i64 @strlen(ptr noundef %25) #11
+  %27 = load i64, ptr %6, align 8
+  %28 = icmp eq i64 %26, %27
+  br i1 %28, label %29, label %36
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %3, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @strcmp(ptr noundef %28, ptr noundef %29) #11
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = call i32 @strcmp(ptr noundef %30, ptr noundef %31) #11
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %36
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %33)
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %35)
   store i32 1, ptr %2, align 4
-  br label %40
+  br label %42
 
-34:                                               ; preds = %27, %22
-  br label %35
+36:                                               ; preds = %29, %24
+  br label %37
 
-35:                                               ; preds = %34
-  %36 = call ptr @strtok(ptr noundef null, ptr noundef @.str.29) #13
-  store ptr %36, ptr %4, align 8
-  br label %19, !llvm.loop !29
+37:                                               ; preds = %36
+  %38 = call ptr @strtok(ptr noundef null, ptr noundef @.str.29) #13
+  store ptr %38, ptr %4, align 8
+  br label %21, !llvm.loop !29
 
-37:                                               ; preds = %19
-  %38 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %38)
-  br label %39
+39:                                               ; preds = %21
+  %40 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %40)
+  br label %41
 
-39:                                               ; preds = %37, %9, %1
+41:                                               ; preds = %39, %10, %1
   store i32 0, ptr %2, align 4
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %32
-  %41 = load i32, ptr %2, align 4
-  ret i32 %41
+42:                                               ; preds = %41, %34
+  %43 = load i32, ptr %2, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind
@@ -11400,72 +11673,74 @@ define i32 @prefs_capture_device_monitor_mode(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 59), align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %39
+  %7 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 59
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %41
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %39
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %41
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 59), align 8
-  %14 = call noalias ptr @g_strdup(ptr noundef %13)
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = call i64 @strlen(ptr noundef %15) #11
-  store i64 %16, ptr %6, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @strtok(ptr noundef %17, ptr noundef @.str.29) #13
-  store ptr %18, ptr %4, align 8
-  br label %19
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 59
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noalias ptr @g_strdup(ptr noundef %15)
+  store ptr %16, ptr %5, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = call i64 @strlen(ptr noundef %17) #11
+  store i64 %18, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = call ptr @strtok(ptr noundef %19, ptr noundef @.str.29) #13
+  store ptr %20, ptr %4, align 8
+  br label %21
 
-19:                                               ; preds = %35, %12
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %37
+21:                                               ; preds = %37, %13
+  %22 = load ptr, ptr %4, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %39
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %4, align 8
-  %24 = call i64 @strlen(ptr noundef %23) #11
-  %25 = load i64, ptr %6, align 8
-  %26 = icmp eq i64 %24, %25
-  br i1 %26, label %27, label %34
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i64 @strlen(ptr noundef %25) #11
+  %27 = load i64, ptr %6, align 8
+  %28 = icmp eq i64 %26, %27
+  br i1 %28, label %29, label %36
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %3, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @strcmp(ptr noundef %28, ptr noundef %29) #11
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = call i32 @strcmp(ptr noundef %30, ptr noundef %31) #11
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %36
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %33)
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %35)
   store i32 1, ptr %2, align 4
-  br label %40
+  br label %42
 
-34:                                               ; preds = %27, %22
-  br label %35
+36:                                               ; preds = %29, %24
+  br label %37
 
-35:                                               ; preds = %34
-  %36 = call ptr @strtok(ptr noundef null, ptr noundef @.str.29) #13
-  store ptr %36, ptr %4, align 8
-  br label %19, !llvm.loop !30
+37:                                               ; preds = %36
+  %38 = call ptr @strtok(ptr noundef null, ptr noundef @.str.29) #13
+  store ptr %38, ptr %4, align 8
+  br label %21, !llvm.loop !30
 
-37:                                               ; preds = %19
-  %38 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %38)
-  br label %39
+39:                                               ; preds = %21
+  %40 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %40)
+  br label %41
 
-39:                                               ; preds = %37, %9, %1
+41:                                               ; preds = %39, %10, %1
   store i32 0, ptr %2, align 4
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %32
-  %41 = load i32, ptr %2, align 4
-  ret i32 %41
+42:                                               ; preds = %41, %34
+  %43 = load i32, ptr %2, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11475,65 +11750,66 @@ define i32 @prefs_capture_options_dialog_column_is_visible(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %7 = call ptr @g_list_first(ptr noundef %6)
-  store ptr %7, ptr %4, align 8
-  br label %8
+  %6 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %7 = load ptr, ptr %6, align 8
+  %8 = call ptr @g_list_first(ptr noundef %7)
+  store ptr %8, ptr %4, align 8
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %34
+9:                                                ; preds = %33, %1
+  %10 = load ptr, ptr %4, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %35
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._GList, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %23
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct._GList, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = call i32 @g_ascii_strcasecmp(ptr noundef %18, ptr noundef %19)
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = call i32 @g_ascii_strcasecmp(ptr noundef %19, ptr noundef %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store i32 1, ptr %2, align 4
-  br label %35
+  br label %36
 
-23:                                               ; preds = %17, %11
-  br label %24
+24:                                               ; preds = %18, %12
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %31
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct._GList, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  br label %32
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %struct._GList, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  br label %33
 
-31:                                               ; preds = %24
-  br label %32
+32:                                               ; preds = %25
+  br label %33
 
-32:                                               ; preds = %31, %27
-  %33 = phi ptr [ %30, %27 ], [ null, %31 ]
-  store ptr %33, ptr %4, align 8
-  br label %8, !llvm.loop !31
+33:                                               ; preds = %32, %28
+  %34 = phi ptr [ %31, %28 ], [ null, %32 ]
+  store ptr %34, ptr %4, align 8
+  br label %9, !llvm.loop !31
 
-34:                                               ; preds = %8
+35:                                               ; preds = %9
   store i32 0, ptr %2, align 4
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %22
-  %36 = load i32, ptr %2, align 4
-  ret i32 %36
+36:                                               ; preds = %35, %23
+  %37 = load i32, ptr %2, align 4
+  ret i32 %37
 }
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) #2
@@ -11542,27 +11818,30 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) #2
 define i32 @prefs_has_layout_pane_content(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 45), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %14, label %6
+  %3 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 45
+  %4 = load i32, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = icmp eq i32 %4, %5
+  br i1 %6, label %17, label %7
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 46), align 4
-  %8 = load i32, ptr %2, align 4
-  %9 = icmp eq i32 %7, %8
-  br i1 %9, label %14, label %10
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 46
+  %9 = load i32, ptr %8, align 4
+  %10 = load i32, ptr %2, align 4
+  %11 = icmp eq i32 %9, %10
+  br i1 %11, label %17, label %12
 
-10:                                               ; preds = %6
-  %11 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 47), align 8
-  %12 = load i32, ptr %2, align 4
-  %13 = icmp eq i32 %11, %12
-  br label %14
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 47
+  %14 = load i32, ptr %13, align 8
+  %15 = load i32, ptr %2, align 4
+  %16 = icmp eq i32 %14, %15
+  br label %17
 
-14:                                               ; preds = %10, %6, %1
-  %15 = phi i1 [ true, %6 ], [ true, %1 ], [ %13, %10 ]
-  %16 = zext i1 %15 to i32
-  ret i32 %16
+17:                                               ; preds = %12, %7, %1
+  %18 = phi i1 [ true, %7 ], [ true, %1 ], [ %16, %12 ]
+  %19 = zext i1 %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12683,7 +12962,7 @@ define i32 @write_prefs(ptr noundef %0) #0 {
   %21 = call ptr @__errno_location() #12
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %2, align 4
-  br label %92
+  br label %95
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %4, align 8
@@ -12698,125 +12977,128 @@ define i32 @write_prefs(ptr noundef %0) #0 {
 27:                                               ; preds = %25, %23
   %28 = load ptr, ptr %3, align 8
   %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %80
+  br i1 %29, label %30, label %83
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 81), align 8
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %42
+  %31 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 81
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %44
 
-33:                                               ; preds = %30
+34:                                               ; preds = %30
   store ptr null, ptr %7, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 81), align 8
-  %34 = call ptr @uat_get_table_by_name(ptr noundef @.str.82)
-  %35 = call zeroext i1 @uat_save(ptr noundef %34, ptr noundef %7)
-  br i1 %35, label %41, label %36
+  %35 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 81
+  store i32 0, ptr %35, align 8
+  %36 = call ptr @uat_get_table_by_name(ptr noundef @.str.82)
+  %37 = call zeroext i1 @uat_save(ptr noundef %36, ptr noundef %7)
+  br i1 %37, label %43, label %38
 
-36:                                               ; preds = %33
-  br label %37
-
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %7, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 7134, ptr noundef @__func__.write_prefs, ptr noundef @.str.83, ptr noundef %38)
+38:                                               ; preds = %34
   br label %39
 
-39:                                               ; preds = %37
+39:                                               ; preds = %38
   %40 = load ptr, ptr %7, align 8
-  call void @g_free(ptr noundef %40)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 7134, ptr noundef @__func__.write_prefs, ptr noundef @.str.83, ptr noundef %40)
   br label %41
 
-41:                                               ; preds = %39, %33
-  br label %42
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %7, align 8
+  call void @g_free(ptr noundef %42)
+  br label %43
 
-42:                                               ; preds = %41, %30
-  %43 = call ptr @prefs_find_module(ptr noundef @.str.84)
-  store ptr %43, ptr %8, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %79
+43:                                               ; preds = %41, %34
+  br label %44
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 70), align 8
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %79, label %49
+44:                                               ; preds = %43, %30
+  %45 = call ptr @prefs_find_module(ptr noundef @.str.84)
+  store ptr %45, ptr %8, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %82
 
-49:                                               ; preds = %46
-  %50 = call ptr @get_persconffile_path(ptr noundef @.str.85, i1 noundef zeroext true)
-  store ptr %50, ptr %9, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef @.str.81)
-  store ptr %52, ptr %10, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %67
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 70
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %82, label %52
 
-54:                                               ; preds = %49
-  %55 = call ptr @__errno_location() #12
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp ne i32 %56, 21
-  br i1 %57, label %58, label %65
+52:                                               ; preds = %48
+  %53 = call ptr @get_persconffile_path(ptr noundef @.str.85, i1 noundef zeroext true)
+  store ptr %53, ptr %9, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = call noalias ptr @fopen(ptr noundef %54, ptr noundef @.str.81)
+  store ptr %55, ptr %10, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %70
 
-58:                                               ; preds = %54
-  br label %59
+57:                                               ; preds = %52
+  %58 = call ptr @__errno_location() #12
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp ne i32 %59, 21
+  br i1 %60, label %61, label %68
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %9, align 8
-  %61 = call ptr @__errno_location() #12
-  %62 = load i32, ptr %61, align 4
-  %63 = call ptr @g_strerror(i32 noundef %62) #12
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 7146, ptr noundef @__func__.write_prefs, ptr noundef @.str.86, ptr noundef %60, ptr noundef %63)
-  br label %64
+61:                                               ; preds = %57
+  br label %62
 
-64:                                               ; preds = %59
-  br label %65
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %9, align 8
+  %64 = call ptr @__errno_location() #12
+  %65 = load i32, ptr %64, align 4
+  %66 = call ptr @g_strerror(i32 noundef %65) #12
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 7146, ptr noundef @__func__.write_prefs, ptr noundef @.str.86, ptr noundef %63, ptr noundef %66)
+  br label %67
 
-65:                                               ; preds = %64, %54
-  %66 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %66)
-  br label %78
+67:                                               ; preds = %62
+  br label %68
 
-67:                                               ; preds = %49
-  %68 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %68)
-  %69 = load ptr, ptr %10, align 8
-  %70 = call i32 @fputs(ptr noundef @.str.87, ptr noundef %69)
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 0
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 1
-  store i32 0, ptr %73, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = call i32 @write_module_prefs(ptr noundef %74, ptr noundef %6)
-  %76 = load ptr, ptr %10, align 8
-  %77 = call i32 @fclose(ptr noundef %76)
-  br label %78
+68:                                               ; preds = %67, %57
+  %69 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %69)
+  br label %81
 
-78:                                               ; preds = %67, %65
-  br label %79
+70:                                               ; preds = %52
+  %71 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %71)
+  %72 = load ptr, ptr %10, align 8
+  %73 = call i32 @fputs(ptr noundef @.str.87, ptr noundef %72)
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 0
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 1
+  store i32 0, ptr %76, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = call i32 @write_module_prefs(ptr noundef %77, ptr noundef %6)
+  %79 = load ptr, ptr %10, align 8
+  %80 = call i32 @fclose(ptr noundef %79)
+  br label %81
 
-79:                                               ; preds = %78, %46, %42
-  br label %80
+81:                                               ; preds = %70, %68
+  br label %82
 
-80:                                               ; preds = %79, %27
-  %81 = load ptr, ptr %5, align 8
-  %82 = call i32 @fputs(ptr noundef @.str.88, ptr noundef %81)
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 0
-  store ptr %83, ptr %84, align 8
-  %85 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 1
-  store i32 1, ptr %85, align 8
-  %86 = load ptr, ptr @gui_module, align 8
-  %87 = call i32 @write_module_prefs(ptr noundef %86, ptr noundef %6)
+82:                                               ; preds = %81, %48, %44
+  br label %83
+
+83:                                               ; preds = %82, %27
+  %84 = load ptr, ptr %5, align 8
+  %85 = call i32 @fputs(ptr noundef @.str.88, ptr noundef %84)
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 0
+  store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 1
-  store i32 0, ptr %88, align 8
-  %89 = call i32 @prefs_modules_foreach_submodules(ptr noundef null, ptr noundef @write_module_prefs, ptr noundef %6)
-  %90 = load ptr, ptr %5, align 8
-  %91 = call i32 @fclose(ptr noundef %90)
+  store i32 1, ptr %88, align 8
+  %89 = load ptr, ptr @gui_module, align 8
+  %90 = call i32 @write_module_prefs(ptr noundef %89, ptr noundef %6)
+  %91 = getelementptr inbounds %struct.write_gui_pref_arg_t, ptr %6, i32 0, i32 1
+  store i32 0, ptr %91, align 8
+  %92 = call i32 @prefs_modules_foreach_submodules(ptr noundef null, ptr noundef @write_module_prefs, ptr noundef %6)
+  %93 = load ptr, ptr %5, align 8
+  %94 = call i32 @fclose(ptr noundef %93)
   store i32 0, ptr %2, align 4
-  br label %92
+  br label %95
 
-92:                                               ; preds = %80, %18
-  %93 = load i32, ptr %2, align 4
-  ret i32 %93
+95:                                               ; preds = %83, %18
+  %96 = load i32, ptr %2, align 4
+  ret i32 %96
 }
 
 declare zeroext i1 @uat_save(ptr noundef, ptr noundef) #2
@@ -13425,87 +13707,103 @@ declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @gui_callback() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 28), align 8
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 28
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 28), align 8
-  br label %4
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 28
+  store i32 10, ptr %5, align 8
+  br label %6
 
-4:                                                ; preds = %3, %0
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 27), align 4
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %8
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 27
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %12
 
-7:                                                ; preds = %4
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 27), align 4
-  br label %8
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 27
+  store i32 10, ptr %11, align 4
+  br label %12
 
-8:                                                ; preds = %7, %4
-  %9 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  %10 = icmp slt i32 %9, 2
-  br i1 %10, label %11, label %12
+12:                                               ; preds = %10, %6
+  %13 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp slt i32 %14, 2
+  br i1 %15, label %16, label %18
 
-11:                                               ; preds = %8
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  br label %17
-
-12:                                               ; preds = %8
-  %13 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  %14 = icmp sgt i32 %13, 10
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %12
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  br label %16
-
-16:                                               ; preds = %15, %12
-  br label %17
-
-17:                                               ; preds = %16, %11
-  %18 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100), align 8
-  %19 = icmp slt i32 %18, 2
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %17
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100), align 8
-  br label %26
-
-21:                                               ; preds = %17
-  %22 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100), align 8
-  %23 = icmp sgt i32 %22, 10
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %21
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 100), align 8
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  store i32 2, ptr %17, align 4
   br label %25
 
-25:                                               ; preds = %24, %21
-  br label %26
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sgt i32 %20, 10
+  br i1 %21, label %22, label %24
 
-26:                                               ; preds = %25, %20
-  %27 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101), align 4
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  store i32 10, ptr %23, align 4
+  br label %24
+
+24:                                               ; preds = %22, %18
+  br label %25
+
+25:                                               ; preds = %24, %16
+  %26 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  %27 = load i32, ptr %26, align 8
   %28 = icmp slt i32 %27, 2
-  br i1 %28, label %29, label %30
+  br i1 %28, label %29, label %31
 
-29:                                               ; preds = %26
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101), align 4
-  br label %35
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  store i32 2, ptr %30, align 8
+  br label %38
 
-30:                                               ; preds = %26
-  %31 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101), align 4
-  %32 = icmp sgt i32 %31, 10
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp sgt i32 %33, 10
+  br i1 %34, label %35, label %37
 
-33:                                               ; preds = %30
-  store i32 10, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 101), align 4
-  br label %34
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 100
+  store i32 10, ptr %36, align 8
+  br label %37
 
-34:                                               ; preds = %33, %30
-  br label %35
+37:                                               ; preds = %35, %31
+  br label %38
 
-35:                                               ; preds = %34, %29
+38:                                               ; preds = %37, %29
+  %39 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %40, 2
+  br i1 %41, label %42, label %44
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  store i32 2, ptr %43, align 4
+  br label %51
+
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 10
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 101
+  store i32 10, ptr %49, align 4
+  br label %50
+
+50:                                               ; preds = %48, %44
+  br label %51
+
+51:                                               ; preds = %50, %42
   ret void
 }
 
@@ -13521,59 +13819,60 @@ define internal i32 @column_hidden_set_cb(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 82), align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 @prefs_set_string_value(ptr noundef %11, ptr noundef %12, i32 noundef 2)
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %14, align 4
-  %16 = or i32 %15, %13
-  store i32 %16, ptr %14, align 4
-  %17 = load ptr, ptr @gui_column_module, align 8
-  %18 = call ptr @prefs_find_preference(ptr noundef %17, ptr noundef @.str.129)
-  store ptr %18, ptr %9, align 8
+  %11 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 82
+  store i32 1, ptr %11, align 4
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 @prefs_set_string_value(ptr noundef %12, ptr noundef %13, i32 noundef 2)
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = or i32 %16, %14
+  store i32 %17, ptr %15, align 4
+  %18 = load ptr, ptr @gui_column_module, align 8
+  %19 = call ptr @prefs_find_preference(ptr noundef %18, ptr noundef @.str.129)
+  store ptr %19, ptr %9, align 8
   store i32 1, ptr %10, align 4
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.preference, ptr %19, i32 0, i32 6
-  %21 = load ptr, ptr %20, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds %struct.preference, ptr %20, i32 0, i32 6
   %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %7, align 8
-  br label %23
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %7, align 8
+  br label %24
 
-23:                                               ; preds = %42, %3
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %46
+24:                                               ; preds = %43, %3
+  %25 = load ptr, ptr %7, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %47
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct._GList, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %8, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.preference, ptr %30, i32 0, i32 6
-  %32 = load ptr, ptr %31, align 8
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds %struct._GList, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %8, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %struct.preference, ptr %31, i32 0, i32 6
   %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %10, align 4
-  %35 = call i32 @prefs_is_column_visible(ptr noundef %33, i32 noundef %34)
-  %36 = icmp ne i32 %35, 0
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct._fmt_data, ptr %37, i32 0, i32 4
-  %39 = zext i1 %36 to i8
-  store i8 %39, ptr %38, align 4
-  %40 = load i32, ptr %10, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %10, align 4
-  br label %42
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = call i32 @prefs_is_column_visible(ptr noundef %34, i32 noundef %35)
+  %37 = icmp ne i32 %36, 0
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds %struct._fmt_data, ptr %38, i32 0, i32 4
+  %40 = zext i1 %37 to i8
+  store i8 %40, ptr %39, align 4
+  %41 = load i32, ptr %10, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %10, align 4
+  br label %43
 
-42:                                               ; preds = %26
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._GList, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %7, align 8
-  br label %23, !llvm.loop !35
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._GList, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %7, align 8
+  br label %24, !llvm.loop !35
 
-46:                                               ; preds = %23
+47:                                               ; preds = %24
   ret i32 0
 }
 
@@ -14142,7 +14441,7 @@ define internal i32 @column_format_set_cb(ptr noundef %0, ptr noundef %1, ptr no
 
 20:                                               ; preds = %3
   store i32 1, ptr %4, align 4
-  br label %151
+  br label %153
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %8, align 8
@@ -14155,7 +14454,7 @@ define internal i32 @column_format_set_cb(ptr noundef %0, ptr noundef %1, ptr no
   %27 = load ptr, ptr %8, align 8
   call void @prefs_clear_string_list(ptr noundef %27)
   store i32 1, ptr %4, align 4
-  br label %151
+  br label %153
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %8, align 8
@@ -14187,7 +14486,7 @@ define internal i32 @column_format_set_cb(ptr noundef %0, ptr noundef %1, ptr no
   %46 = load ptr, ptr %8, align 8
   call void @prefs_clear_string_list(ptr noundef %46)
   store i32 1, ptr %4, align 4
-  br label %151
+  br label %153
 
 47:                                               ; preds = %34
   %48 = getelementptr inbounds %struct._fmt_data, ptr %14, i32 0, i32 1
@@ -14218,141 +14517,143 @@ define internal i32 @column_format_set_cb(ptr noundef %0, ptr noundef %1, ptr no
   %64 = getelementptr inbounds %struct.preference, ptr %63, i32 0, i32 6
   %65 = load ptr, ptr %64, align 8
   store ptr null, ptr %65, align 8
-  %66 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 82), align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %71
+  %66 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 82
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %72
 
-68:                                               ; preds = %58
-  %69 = load ptr, ptr @gui_column_module, align 8
-  %70 = call ptr @prefs_find_preference(ptr noundef %69, ptr noundef @.str.123)
-  store ptr %70, ptr %12, align 8
-  br label %74
-
-71:                                               ; preds = %58
-  %72 = load ptr, ptr @gui_column_module, align 8
-  %73 = call ptr @prefs_find_preference(ptr noundef %72, ptr noundef @.str.126)
-  store ptr %73, ptr %12, align 8
-  br label %74
-
-74:                                               ; preds = %71, %68
+69:                                               ; preds = %58
+  %70 = load ptr, ptr @gui_column_module, align 8
+  %71 = call ptr @prefs_find_preference(ptr noundef %70, ptr noundef @.str.123)
+  store ptr %71, ptr %12, align 8
   br label %75
 
-75:                                               ; preds = %74
+72:                                               ; preds = %58
+  %73 = load ptr, ptr @gui_column_module, align 8
+  %74 = call ptr @prefs_find_preference(ptr noundef %73, ptr noundef @.str.126)
+  store ptr %74, ptr %12, align 8
+  br label %75
+
+75:                                               ; preds = %72, %69
   br label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr @gui_column_module, align 8
-  %78 = call ptr @prefs_find_preference(ptr noundef %77, ptr noundef @.str.132)
-  store ptr %78, ptr %13, align 8
-  br label %79
+  br label %77
 
-79:                                               ; preds = %76
+77:                                               ; preds = %76
+  %78 = load ptr, ptr @gui_column_module, align 8
+  %79 = call ptr @prefs_find_preference(ptr noundef %78, ptr noundef @.str.132)
+  store ptr %79, ptr %13, align 8
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %8, align 8
-  %82 = call i32 @g_list_length(ptr noundef %81)
-  store i32 %82, ptr %11, align 4
-  %83 = load i32, ptr %11, align 4
-  %84 = sdiv i32 %83, 2
-  %85 = load ptr, ptr %13, align 8
-  %86 = getelementptr inbounds %struct.preference, ptr %85, i32 0, i32 6
-  %87 = load ptr, ptr %86, align 8
-  store i32 %84, ptr %87, align 4
-  %88 = load ptr, ptr %8, align 8
-  %89 = call ptr @g_list_first(ptr noundef %88)
-  store ptr %89, ptr %9, align 8
+80:                                               ; preds = %77
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %8, align 8
+  %83 = call i32 @g_list_length(ptr noundef %82)
+  store i32 %83, ptr %11, align 4
+  %84 = load i32, ptr %11, align 4
+  %85 = sdiv i32 %84, 2
+  %86 = load ptr, ptr %13, align 8
+  %87 = getelementptr inbounds %struct.preference, ptr %86, i32 0, i32 6
+  %88 = load ptr, ptr %87, align 8
+  store i32 %85, ptr %88, align 4
+  %89 = load ptr, ptr %8, align 8
+  %90 = call ptr @g_list_first(ptr noundef %89)
+  store ptr %90, ptr %9, align 8
   store i32 1, ptr %15, align 4
-  br label %90
+  br label %91
 
-90:                                               ; preds = %133, %80
-  %91 = load ptr, ptr %9, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %148
+91:                                               ; preds = %135, %81
+  %92 = load ptr, ptr %9, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %150
 
-93:                                               ; preds = %90
-  %94 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #10
-  store ptr %94, ptr %10, align 8
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct._GList, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = call noalias ptr @g_strdup(ptr noundef %97)
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds %struct._fmt_data, ptr %99, i32 0, i32 0
-  store ptr %98, ptr %100, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct._GList, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %9, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct._GList, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = call i32 @parse_column_format(ptr noundef %104, ptr noundef %107)
-  %109 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 82), align 4
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %111, label %122
+94:                                               ; preds = %91
+  %95 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #10
+  store ptr %95, ptr %10, align 8
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds %struct._GList, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = call noalias ptr @g_strdup(ptr noundef %98)
+  %100 = load ptr, ptr %10, align 8
+  %101 = getelementptr inbounds %struct._fmt_data, ptr %100, i32 0, i32 0
+  store ptr %99, ptr %101, align 8
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds %struct._GList, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %9, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds %struct._GList, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = call i32 @parse_column_format(ptr noundef %105, ptr noundef %108)
+  %110 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 82
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %113, label %124
 
-111:                                              ; preds = %93
-  %112 = load ptr, ptr %12, align 8
-  %113 = getelementptr inbounds %struct.preference, ptr %112, i32 0, i32 6
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = load i32, ptr %15, align 4
-  %117 = call i32 @prefs_is_column_visible(ptr noundef %115, i32 noundef %116)
-  %118 = icmp ne i32 %117, 0
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct._fmt_data, ptr %119, i32 0, i32 4
-  %121 = zext i1 %118 to i8
-  store i8 %121, ptr %120, align 4
-  br label %133
+113:                                              ; preds = %94
+  %114 = load ptr, ptr %12, align 8
+  %115 = getelementptr inbounds %struct.preference, ptr %114, i32 0, i32 6
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = load i32, ptr %15, align 4
+  %119 = call i32 @prefs_is_column_visible(ptr noundef %117, i32 noundef %118)
+  %120 = icmp ne i32 %119, 0
+  %121 = load ptr, ptr %10, align 8
+  %122 = getelementptr inbounds %struct._fmt_data, ptr %121, i32 0, i32 4
+  %123 = zext i1 %120 to i8
+  store i8 %123, ptr %122, align 4
+  br label %135
 
-122:                                              ; preds = %93
-  %123 = load ptr, ptr %12, align 8
-  %124 = getelementptr inbounds %struct.preference, ptr %123, i32 0, i32 6
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = call i32 @prefs_is_column_fmt_visible(ptr noundef %126, ptr noundef %127)
-  %129 = icmp ne i32 %128, 0
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds %struct._fmt_data, ptr %130, i32 0, i32 4
-  %132 = zext i1 %129 to i8
-  store i8 %132, ptr %131, align 4
-  br label %133
+124:                                              ; preds = %94
+  %125 = load ptr, ptr %12, align 8
+  %126 = getelementptr inbounds %struct.preference, ptr %125, i32 0, i32 6
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %10, align 8
+  %130 = call i32 @prefs_is_column_fmt_visible(ptr noundef %128, ptr noundef %129)
+  %131 = icmp ne i32 %130, 0
+  %132 = load ptr, ptr %10, align 8
+  %133 = getelementptr inbounds %struct._fmt_data, ptr %132, i32 0, i32 4
+  %134 = zext i1 %131 to i8
+  store i8 %134, ptr %133, align 4
+  br label %135
 
-133:                                              ; preds = %122, %111
-  %134 = load ptr, ptr %9, align 8
-  %135 = getelementptr inbounds %struct._GList, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %9, align 8
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.preference, ptr %137, i32 0, i32 6
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %10, align 8
-  %142 = call ptr @g_list_append(ptr noundef %140, ptr noundef %141)
-  %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds %struct.preference, ptr %143, i32 0, i32 6
-  %145 = load ptr, ptr %144, align 8
-  store ptr %142, ptr %145, align 8
-  %146 = load i32, ptr %15, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %15, align 4
-  br label %90, !llvm.loop !41
+135:                                              ; preds = %124, %113
+  %136 = load ptr, ptr %9, align 8
+  %137 = getelementptr inbounds %struct._GList, ptr %136, i32 0, i32 1
+  %138 = load ptr, ptr %137, align 8
+  store ptr %138, ptr %9, align 8
+  %139 = load ptr, ptr %5, align 8
+  %140 = getelementptr inbounds %struct.preference, ptr %139, i32 0, i32 6
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %10, align 8
+  %144 = call ptr @g_list_append(ptr noundef %142, ptr noundef %143)
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds %struct.preference, ptr %145, i32 0, i32 6
+  %147 = load ptr, ptr %146, align 8
+  store ptr %144, ptr %147, align 8
+  %148 = load i32, ptr %15, align 4
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %15, align 4
+  br label %91, !llvm.loop !41
 
-148:                                              ; preds = %90
-  %149 = load ptr, ptr %8, align 8
-  call void @prefs_clear_string_list(ptr noundef %149)
-  %150 = load ptr, ptr %12, align 8
-  call void @free_string_like_preference(ptr noundef %150)
+150:                                              ; preds = %91
+  %151 = load ptr, ptr %8, align 8
+  call void @prefs_clear_string_list(ptr noundef %151)
+  %152 = load ptr, ptr %12, align 8
+  call void @free_string_like_preference(ptr noundef %152)
   call void @column_register_fields()
   store i32 0, ptr %4, align 4
-  br label %151
+  br label %153
 
-151:                                              ; preds = %148, %45, %26, %20
-  %152 = load i32, ptr %4, align 4
-  ret i32 %152
+153:                                              ; preds = %150, %45, %26, %20
+  %154 = load i32, ptr %4, align 4
+  ret i32 %154
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14948,20 +15249,23 @@ define internal ptr @colorized_frame_to_str_cb(ptr noundef %0, i32 noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal void @gui_layout_callback() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44), align 4
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %6, label %3
+  %1 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %8, label %4
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44), align 4
-  %5 = icmp uge i32 %4, 7
-  br i1 %5, label %6, label %7
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp uge i32 %6, 7
+  br i1 %7, label %8, label %10
 
-6:                                                ; preds = %3, %0
-  store i32 2, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44), align 4
-  br label %7
+8:                                                ; preds = %4, %0
+  %9 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  store i32 2, ptr %9, align 4
+  br label %10
 
-7:                                                ; preds = %6, %3
+10:                                               ; preds = %8, %4
   ret void
 }
 
@@ -14971,26 +15275,28 @@ declare void @filter_expression_register_uat(ptr noundef) #2
 define internal void @capture_column_free_cb(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  call void @prefs_clear_string_list(ptr noundef %3)
-  store ptr null, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.preference, ptr %4, i32 0, i32 7
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, 1
-  br i1 %7, label %8, label %14
+  %3 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %4 = load ptr, ptr %3, align 8
+  call void @prefs_clear_string_list(ptr noundef %4)
+  %5 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr null, ptr %5, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %struct.preference, ptr %6, i32 0, i32 7
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %16
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.preference, ptr %9, i32 0, i32 8
-  %11 = load ptr, ptr %10, align 8
-  call void @prefs_clear_string_list(ptr noundef %11)
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.preference, ptr %12, i32 0, i32 8
-  store ptr null, ptr %13, align 8
-  br label %14
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.preference, ptr %11, i32 0, i32 8
+  %13 = load ptr, ptr %12, align 8
+  call void @prefs_clear_string_list(ptr noundef %13)
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.preference, ptr %14, i32 0, i32 8
+  store ptr null, ptr %15, align 8
+  br label %16
 
-14:                                               ; preds = %8, %1
+16:                                               ; preds = %10, %1
   ret void
 }
 
@@ -15078,7 +15384,7 @@ define internal i32 @capture_column_set_cb(ptr noundef %0, ptr noundef %1, ptr n
 
 17:                                               ; preds = %3
   store i32 1, ptr %4, align 4
-  br label %118
+  br label %126
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %5, align 8
@@ -15091,17 +15397,17 @@ define internal i32 @capture_column_set_cb(ptr noundef %0, ptr noundef %1, ptr n
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
-  br i1 %26, label %45, label %27
+  br i1 %26, label %47, label %27
 
 27:                                               ; preds = %18
   store i32 0, ptr %11, align 4
   br label %28
 
-28:                                               ; preds = %41, %27
+28:                                               ; preds = %43, %27
   %29 = load i32, ptr %11, align 4
   %30 = load i32, ptr @num_capture_cols, align 4
   %31 = icmp slt i32 %29, %30
-  br i1 %31, label %32, label %44
+  br i1 %31, label %32, label %46
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4
@@ -15110,155 +15416,163 @@ define internal i32 @capture_column_set_cb(ptr noundef %0, ptr noundef %1, ptr n
   %36 = load ptr, ptr %35, align 8
   %37 = call noalias ptr @g_strdup(ptr noundef %36)
   store ptr %37, ptr %10, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = call ptr @g_list_append(ptr noundef %38, ptr noundef %39)
-  store ptr %40, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  br label %41
+  %38 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = call ptr @g_list_append(ptr noundef %39, ptr noundef %40)
+  %42 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %41, ptr %42, align 8
+  br label %43
 
-41:                                               ; preds = %32
-  %42 = load i32, ptr %11, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %11, align 4
+43:                                               ; preds = %32
+  %44 = load i32, ptr %11, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %11, align 4
   br label %28, !llvm.loop !46
 
-44:                                               ; preds = %28
-  br label %45
+46:                                               ; preds = %28
+  br label %47
 
-45:                                               ; preds = %44, %18
-  br label %46
+47:                                               ; preds = %46, %18
+  br label %48
 
-46:                                               ; preds = %94, %45
-  %47 = load ptr, ptr %9, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %98
+48:                                               ; preds = %99, %47
+  %49 = load ptr, ptr %9, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %103
 
-49:                                               ; preds = %46
+51:                                               ; preds = %48
   store i32 0, ptr %12, align 4
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct._GList, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %10, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._GList, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  br label %53
+  br label %55
 
-53:                                               ; preds = %67, %49
-  %54 = load i32, ptr %11, align 4
-  %55 = load i32, ptr @num_capture_cols, align 4
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %57, label %70
+55:                                               ; preds = %69, %51
+  %56 = load i32, ptr %11, align 4
+  %57 = load i32, ptr @num_capture_cols, align 4
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %59, label %72
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %10, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @strcmp(ptr noundef %58, ptr noundef %62) #11
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %66
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %10, align 8
+  %61 = load i32, ptr %11, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %62
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @strcmp(ptr noundef %60, ptr noundef %64) #11
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %68
 
-65:                                               ; preds = %57
+67:                                               ; preds = %59
   store i32 1, ptr %12, align 4
-  br label %70
+  br label %72
 
-66:                                               ; preds = %57
-  br label %67
+68:                                               ; preds = %59
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %11, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %11, align 4
-  br label %53, !llvm.loop !47
+69:                                               ; preds = %68
+  %70 = load i32, ptr %11, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %11, align 4
+  br label %55, !llvm.loop !47
 
-70:                                               ; preds = %65, %53
-  %71 = load i32, ptr %12, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %94, label %73
+72:                                               ; preds = %67, %55
+  %73 = load i32, ptr %12, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %99, label %75
 
-73:                                               ; preds = %70
+75:                                               ; preds = %72
   store i32 0, ptr %11, align 4
-  br label %74
+  br label %76
 
-74:                                               ; preds = %87, %73
-  %75 = load i32, ptr %11, align 4
-  %76 = load i32, ptr @num_capture_cols, align 4
-  %77 = icmp slt i32 %75, %76
-  br i1 %77, label %78, label %90
+76:                                               ; preds = %91, %75
+  %77 = load i32, ptr %11, align 4
+  %78 = load i32, ptr @num_capture_cols, align 4
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %80, label %94
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %11, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = call noalias ptr @g_strdup(ptr noundef %82)
-  store ptr %83, ptr %10, align 8
-  %84 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %85 = load ptr, ptr %10, align 8
-  %86 = call ptr @g_list_append(ptr noundef %84, ptr noundef %85)
-  store ptr %86, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  br label %87
+80:                                               ; preds = %76
+  %81 = load i32, ptr %11, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [5 x ptr], ptr @capture_cols, i64 0, i64 %82
+  %84 = load ptr, ptr %83, align 8
+  %85 = call noalias ptr @g_strdup(ptr noundef %84)
+  store ptr %85, ptr %10, align 8
+  %86 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = call ptr @g_list_append(ptr noundef %87, ptr noundef %88)
+  %90 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %89, ptr %90, align 8
+  br label %91
 
-87:                                               ; preds = %78
-  %88 = load i32, ptr %11, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %11, align 4
-  br label %74, !llvm.loop !48
+91:                                               ; preds = %80
+  %92 = load i32, ptr %11, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %11, align 4
+  br label %76, !llvm.loop !48
 
-90:                                               ; preds = %74
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.preference, ptr %91, i32 0, i32 6
-  store ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), ptr %92, align 8
-  %93 = load ptr, ptr %8, align 8
-  call void @prefs_clear_string_list(ptr noundef %93)
+94:                                               ; preds = %76
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds %struct.preference, ptr %95, i32 0, i32 6
+  %97 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %97, ptr %96, align 8
+  %98 = load ptr, ptr %8, align 8
+  call void @prefs_clear_string_list(ptr noundef %98)
   store i32 1, ptr %4, align 4
-  br label %118
+  br label %126
 
-94:                                               ; preds = %70
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct._GList, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %9, align 8
-  br label %46, !llvm.loop !49
+99:                                               ; preds = %72
+  %100 = load ptr, ptr %9, align 8
+  %101 = getelementptr inbounds %struct._GList, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %9, align 8
+  br label %48, !llvm.loop !49
 
-98:                                               ; preds = %46
-  %99 = load ptr, ptr %8, align 8
-  %100 = call ptr @g_list_first(ptr noundef %99)
-  store ptr %100, ptr %9, align 8
-  br label %101
+103:                                              ; preds = %48
+  %104 = load ptr, ptr %8, align 8
+  %105 = call ptr @g_list_first(ptr noundef %104)
+  store ptr %105, ptr %9, align 8
+  br label %106
 
-101:                                              ; preds = %104, %98
-  %102 = load ptr, ptr %9, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %114
+106:                                              ; preds = %109, %103
+  %107 = load ptr, ptr %9, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %121
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct._GList, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %10, align 8
-  %108 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %109 = load ptr, ptr %10, align 8
-  %110 = call ptr @g_list_append(ptr noundef %108, ptr noundef %109)
-  store ptr %110, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct._GList, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %9, align 8
-  br label %101, !llvm.loop !50
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr inbounds %struct._GList, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %10, align 8
+  %113 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %114 = load ptr, ptr %113, align 8
+  %115 = load ptr, ptr %10, align 8
+  %116 = call ptr @g_list_append(ptr noundef %114, ptr noundef %115)
+  %117 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %116, ptr %117, align 8
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds %struct._GList, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %9, align 8
+  br label %106, !llvm.loop !50
 
-114:                                              ; preds = %101
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.preference, ptr %115, i32 0, i32 6
-  store ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), ptr %116, align 8
-  %117 = load ptr, ptr %8, align 8
-  call void @g_list_free(ptr noundef %117)
+121:                                              ; preds = %106
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds %struct.preference, ptr %122, i32 0, i32 6
+  %124 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %124, ptr %123, align 8
+  %125 = load ptr, ptr %8, align 8
+  call void @g_list_free(ptr noundef %125)
   store i32 0, ptr %4, align 4
-  br label %118
+  br label %126
 
-118:                                              ; preds = %114, %90, %17
-  %119 = load i32, ptr %4, align 4
-  ret i32 %119
+126:                                              ; preds = %121, %94, %17
+  %127 = load i32, ptr %4, align 4
+  ret i32 %127
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15279,84 +15593,85 @@ define internal i32 @capture_column_is_default_cb(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  %7 = call ptr @g_list_first(ptr noundef %6)
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.preference, ptr %8, i32 0, i32 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = call ptr @g_list_first(ptr noundef %10)
-  store ptr %11, ptr %4, align 8
+  %6 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %7 = load ptr, ptr %6, align 8
+  %8 = call ptr @g_list_first(ptr noundef %7)
+  store ptr %8, ptr %3, align 8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %struct.preference, ptr %9, i32 0, i32 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @g_list_first(ptr noundef %11)
+  store ptr %12, ptr %4, align 8
   store i32 1, ptr %5, align 4
-  br label %12
+  br label %13
 
-12:                                               ; preds = %30, %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %18
+13:                                               ; preds = %31, %1
+  %14 = load ptr, ptr %3, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp ne ptr %16, null
-  br label %18
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8
+  %18 = icmp ne ptr %17, null
+  br label %19
 
-18:                                               ; preds = %15, %12
-  %19 = phi i1 [ false, %12 ], [ %17, %15 ]
-  br i1 %19, label %20, label %37
+19:                                               ; preds = %16, %13
+  %20 = phi i1 [ false, %13 ], [ %18, %16 ]
+  br i1 %20, label %21, label %38
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct._GList, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct._GList, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @strcmp(ptr noundef %23, ptr noundef %26) #11
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct._GList, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct._GList, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @strcmp(ptr noundef %24, ptr noundef %27) #11
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %20
+30:                                               ; preds = %21
   store i32 0, ptr %5, align 4
-  br label %37
+  br label %38
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct._GList, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %3, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._GList, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %4, align 8
-  br label %12, !llvm.loop !51
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds %struct._GList, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %3, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct._GList, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %4, align 8
+  br label %13, !llvm.loop !51
 
-37:                                               ; preds = %29, %18
-  %38 = load ptr, ptr %3, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %43
+38:                                               ; preds = %30, %19
+  %39 = load ptr, ptr %3, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %4, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %49, label %43
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %4, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %50, label %44
 
-43:                                               ; preds = %40, %37
-  %44 = load ptr, ptr %3, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %50
+44:                                               ; preds = %41, %38
+  %45 = load ptr, ptr %3, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %4, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %50
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %4, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %46, %40
+50:                                               ; preds = %47, %41
   store i32 0, ptr %5, align 4
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %46, %43
-  %51 = load i32, ptr %5, align 4
-  ret i32 %51
+51:                                               ; preds = %50, %47, %44
+  %52 = load i32, ptr %5, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15378,50 +15693,51 @@ define internal ptr @capture_column_to_str_cb(ptr noundef %0, i32 noundef %1) #0
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds %struct.preference, ptr %13, i32 0, i32 8
   %15 = load ptr, ptr %14, align 8
-  br label %18
+  br label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), align 8
-  br label %18
+  %17 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  %18 = load ptr, ptr %17, align 8
+  br label %19
 
-18:                                               ; preds = %16, %12
-  %19 = phi ptr [ %15, %12 ], [ %17, %16 ]
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = call ptr @g_list_first(ptr noundef %20)
-  store ptr %21, ptr %6, align 8
+19:                                               ; preds = %16, %12
+  %20 = phi ptr [ %15, %12 ], [ %18, %16 ]
+  store ptr %20, ptr %5, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = call ptr @g_list_first(ptr noundef %21)
+  store ptr %22, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %25, %18
-  %23 = load ptr, ptr %6, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %36
+23:                                               ; preds = %26, %19
+  %24 = load ptr, ptr %6, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %37
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._GList, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %8, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = call noalias ptr @g_strdup(ptr noundef %30)
-  %32 = call ptr @g_list_append(ptr noundef %29, ptr noundef %31)
-  store ptr %32, ptr %7, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct._GList, ptr %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %6, align 8
-  br label %22, !llvm.loop !52
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds %struct._GList, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = call noalias ptr @g_strdup(ptr noundef %31)
+  %33 = call ptr @g_list_append(ptr noundef %30, ptr noundef %32)
+  store ptr %33, ptr %7, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %struct._GList, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %6, align 8
+  br label %23, !llvm.loop !52
 
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %7, align 8
-  %38 = call ptr @join_string_list(ptr noundef %37)
-  store ptr %38, ptr %9, align 8
-  %39 = load ptr, ptr %7, align 8
-  call void @prefs_clear_string_list(ptr noundef %39)
-  %40 = load ptr, ptr %9, align 8
-  ret ptr %40
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %7, align 8
+  %39 = call ptr @join_string_list(ptr noundef %38)
+  store ptr %39, ptr %9, align 8
+  %40 = load ptr, ptr %7, align 8
+  call void @prefs_clear_string_list(ptr noundef %40)
+  %41 = load ptr, ptr %9, align 8
+  ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15464,10 +15780,11 @@ define internal void @capture_column_init_cb(ptr noundef %0, ptr noundef %1) #0 
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = getelementptr inbounds %struct.preference, ptr %26, i32 0, i32 6
-  store ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 72), ptr %27, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.preference, ptr %28, i32 0, i32 7
-  store i32 0, ptr %29, align 8
+  %28 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 72
+  store ptr %28, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.preference, ptr %29, i32 0, i32 7
+  store i32 0, ptr %30, align 8
   ret void
 }
 
@@ -15481,71 +15798,90 @@ declare hidden void @maxmind_db_pref_init(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @stats_callback() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 73), align 8
-  %2 = icmp ult i32 %1, 100
-  br i1 %2, label %6, label %3
+  %1 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 73
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp ult i32 %2, 100
+  br i1 %3, label %8, label %4
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 73), align 8
-  %5 = icmp ugt i32 %4, 10000
-  br i1 %5, label %6, label %7
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 73
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ugt i32 %6, 10000
+  br i1 %7, label %8, label %10
 
-6:                                                ; preds = %3, %0
-  store i32 3000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 73), align 8
-  br label %7
+8:                                                ; preds = %4, %0
+  %9 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 73
+  store i32 3000, ptr %9, align 8
+  br label %10
 
-7:                                                ; preds = %6, %3
-  %8 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %11
+10:                                               ; preds = %8, %4
+  %11 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp slt i32 %12, 1
+  br i1 %13, label %14, label %16
 
-10:                                               ; preds = %7
-  store i32 1, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  br label %16
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  store i32 1, ptr %15, align 8
+  br label %23
 
-11:                                               ; preds = %7
-  %12 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %13 = icmp sgt i32 %12, 600000
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %11
-  store i32 600000, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  br label %15
-
-15:                                               ; preds = %14, %11
-  br label %16
-
-16:                                               ; preds = %15, %10
-  %17 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %19 = icmp slt i32 %17, %18
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp sgt i32 %18, 600000
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  store i32 %21, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
+  %21 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  store i32 600000, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %20, %16
-  %23 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %25 = srem i32 %23, %24
-  %26 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  %27 = sub i32 %26, %25
-  store i32 %27, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %30 = sdiv i32 %28, %29
-  %31 = icmp sgt i32 %30, 100
-  br i1 %31, label %32, label %35
+  br label %23
 
-32:                                               ; preds = %22
-  %33 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 106), align 8
-  %34 = mul i32 %33, 100
-  store i32 %34, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 107), align 4
-  br label %35
+23:                                               ; preds = %22, %14
+  %24 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp slt i32 %25, %27
+  br i1 %28, label %29, label %33
 
-35:                                               ; preds = %32, %22
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  store i32 %31, ptr %32, align 4
+  br label %33
+
+33:                                               ; preds = %29, %23
+  %34 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %37 = load i32, ptr %36, align 8
+  %38 = srem i32 %35, %37
+  %39 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  %40 = load i32, ptr %39, align 4
+  %41 = sub i32 %40, %38
+  %42 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %46 = load i32, ptr %45, align 8
+  %47 = sdiv i32 %44, %46
+  %48 = icmp sgt i32 %47, 100
+  br i1 %48, label %49, label %54
+
+49:                                               ; preds = %33
+  %50 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 106
+  %51 = load i32, ptr %50, align 8
+  %52 = mul i32 %51, 100
+  %53 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 107
+  store i32 %52, ptr %53, align 4
+  br label %54
+
+54:                                               ; preds = %49, %33
   ret void
 }
 

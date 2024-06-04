@@ -349,113 +349,115 @@ define internal void @dot_end_graph(ptr noundef %0) #0 {
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr @dot_end_graph.io, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @AgIoDisc, align 8
   store ptr %13, ptr @dot_end_graph.io, align 8
-  store ptr @gvputs, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @dot_end_graph.io, i32 0, i32 1), align 8
-  store ptr @gvflush, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @dot_end_graph.io, i32 0, i32 2), align 8
-  br label %14
+  %14 = getelementptr inbounds %struct.Agiodisc_s, ptr @dot_end_graph.io, i32 0, i32 1
+  store ptr @gvputs, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.Agiodisc_s, ptr @dot_end_graph.io, i32 0, i32 2
+  store ptr @gvflush, ptr %15, align 8
+  br label %16
 
-14:                                               ; preds = %12, %1
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Agraph_s, ptr %15, i32 0, i32 12
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Agclos_s, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.Agdisc_s, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Agraph_s, ptr %21, i32 0, i32 12
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.Agclos_s, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.Agdisc_s, ptr %24, i32 0, i32 1
-  store ptr @dot_end_graph.io, ptr %25, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.GVJ_s, ptr %26, i32 0, i32 15
-  %28 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %61 [
-    i32 2, label %30
-    i32 3, label %34
-    i32 0, label %38
-    i32 1, label %38
-    i32 4, label %49
-    i32 5, label %49
-    i32 6, label %49
+16:                                               ; preds = %12, %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.Agraph_s, ptr %17, i32 0, i32 12
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.Agclos_s, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds %struct.Agdisc_s, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %4, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.Agraph_s, ptr %23, i32 0, i32 12
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.Agclos_s, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %struct.Agdisc_s, ptr %26, i32 0, i32 1
+  store ptr @dot_end_graph.io, ptr %27, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.GVJ_s, ptr %28, i32 0, i32 15
+  %30 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8
+  switch i32 %31, label %63 [
+    i32 2, label %32
+    i32 3, label %36
+    i32 0, label %40
+    i32 1, label %40
+    i32 4, label %51
+    i32 5, label %51
+    i32 6, label %51
   ]
 
-30:                                               ; preds = %14
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %3, align 8
+32:                                               ; preds = %16
   %33 = load ptr, ptr %2, align 8
-  call void @write_plain(ptr noundef %31, ptr noundef %32, ptr noundef %33, i1 noundef zeroext false)
-  br label %66
-
-34:                                               ; preds = %14
+  %34 = load ptr, ptr %3, align 8
   %35 = load ptr, ptr %2, align 8
-  %36 = load ptr, ptr %3, align 8
+  call void @write_plain(ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
+  br label %68
+
+36:                                               ; preds = %16
   %37 = load ptr, ptr %2, align 8
-  call void @write_plain(ptr noundef %35, ptr noundef %36, ptr noundef %37, i1 noundef zeroext true)
-  br label %66
-
-38:                                               ; preds = %14, %14
+  %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.GVJ_s, ptr %39, i32 0, i32 26
-  %41 = load i32, ptr %40, align 8
-  %42 = and i32 %41, 134217728
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %48, label %44
+  call void @write_plain(ptr noundef %37, ptr noundef %38, ptr noundef %39, i1 noundef zeroext true)
+  br label %68
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %3, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = call i32 @agwrite(ptr noundef %45, ptr noundef %46)
-  br label %48
+40:                                               ; preds = %16, %16
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.GVJ_s, ptr %41, i32 0, i32 26
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, 134217728
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %50, label %46
 
-48:                                               ; preds = %44, %38
-  br label %66
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %3, align 8
+  %48 = load ptr, ptr %2, align 8
+  %49 = call i32 @agwrite(ptr noundef %47, ptr noundef %48)
+  br label %50
 
-49:                                               ; preds = %14, %14, %14
-  %50 = load ptr, ptr %3, align 8
-  call void @xdot_end_graph(ptr noundef %50)
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.GVJ_s, ptr %51, i32 0, i32 26
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 134217728
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %60, label %56
+50:                                               ; preds = %46, %40
+  br label %68
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %3, align 8
-  %58 = load ptr, ptr %2, align 8
-  %59 = call i32 @agwrite(ptr noundef %57, ptr noundef %58)
-  br label %60
+51:                                               ; preds = %16, %16, %16
+  %52 = load ptr, ptr %3, align 8
+  call void @xdot_end_graph(ptr noundef %52)
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.GVJ_s, ptr %53, i32 0, i32 26
+  %55 = load i32, ptr %54, align 8
+  %56 = and i32 %55, 134217728
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %62, label %58
 
-60:                                               ; preds = %56, %49
-  br label %66
-
-61:                                               ; preds = %14
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %3, align 8
+  %60 = load ptr, ptr %2, align 8
+  %61 = call i32 @agwrite(ptr noundef %59, ptr noundef %60)
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr @stderr, align 8
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef 465) #13
+62:                                               ; preds = %58, %51
+  br label %68
+
+63:                                               ; preds = %16
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr @stderr, align 8
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef 465) #13
   call void @abort() #14
   unreachable
 
-65:                                               ; No predecessors!
-  br label %66
+67:                                               ; No predecessors!
+  br label %68
 
-66:                                               ; preds = %65, %60, %48, %34, %30
-  %67 = load ptr, ptr %4, align 8
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.Agraph_s, ptr %68, i32 0, i32 12
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.Agclos_s, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.Agdisc_s, ptr %71, i32 0, i32 1
-  store ptr %67, ptr %72, align 8
+68:                                               ; preds = %67, %62, %50, %36, %32
+  %69 = load ptr, ptr %4, align 8
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct.Agraph_s, ptr %70, i32 0, i32 12
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.Agclos_s, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds %struct.Agdisc_s, ptr %73, i32 0, i32 1
+  store ptr %69, ptr %74, align 8
   ret void
 }
 
@@ -474,32 +476,38 @@ define internal void @xdot_end_cluster(ptr noundef %0) #0 {
   %10 = load ptr, ptr @xd, align 8
   %11 = getelementptr inbounds %struct.xdot_state_t, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 1), align 8
-  %14 = call ptr @agxbuse(ptr noundef %13)
-  %15 = call i32 @agxset(ptr noundef %9, ptr noundef %12, ptr noundef %14)
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Agobj_s, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.Agraphinfo_t, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %30
+  %13 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr @agxbuse(ptr noundef %14)
+  %16 = call i32 @agxset(ptr noundef %9, ptr noundef %12, ptr noundef %15)
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.Agobj_s, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.Agraphinfo_t, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %1
-  %23 = load ptr, ptr %3, align 8
-  %24 = load ptr, ptr @xd, align 8
-  %25 = getelementptr inbounds %struct.xdot_state_t, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 5), align 8
-  %28 = call ptr @agxbuse(ptr noundef %27)
-  %29 = call i32 @agxset(ptr noundef %23, ptr noundef %26, ptr noundef %28)
-  br label %30
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr @xd, align 8
+  %26 = getelementptr inbounds %struct.xdot_state_t, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 5
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @agxbuse(ptr noundef %29)
+  %31 = call i32 @agxset(ptr noundef %24, ptr noundef %27, ptr noundef %30)
+  br label %32
 
-30:                                               ; preds = %22, %1
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 1), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 5), align 8
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 5), align 4
+32:                                               ; preds = %23, %1
+  %33 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 1
+  store double 1.000000e+00, ptr %33, align 8
+  %34 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 5
+  store double 1.000000e+00, ptr %34, align 8
+  %35 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 1
+  store i32 0, ptr %35, align 4
+  %36 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 5
+  store i32 0, ptr %36, align 4
   ret void
 }
 
@@ -514,43 +522,51 @@ define internal void @xdot_end_node(ptr noundef %0) #0 {
   %7 = getelementptr inbounds %struct.obj_state_s, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 8), align 16
-  %10 = call i64 @agxblen(ptr noundef %9)
-  %11 = icmp ne i64 %10, 0
-  br i1 %11, label %12, label %20
+  %9 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 8
+  %10 = load ptr, ptr %9, align 16
+  %11 = call i64 @agxblen(ptr noundef %10)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %22
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr @xd, align 8
-  %15 = getelementptr inbounds %struct.xdot_state_t, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 8), align 16
-  %18 = call ptr @agxbuse(ptr noundef %17)
-  %19 = call i32 @agxset(ptr noundef %13, ptr noundef %16, ptr noundef %18)
-  br label %20
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr @xd, align 8
+  %16 = getelementptr inbounds %struct.xdot_state_t, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 8
+  %19 = load ptr, ptr %18, align 16
+  %20 = call ptr @agxbuse(ptr noundef %19)
+  %21 = call i32 @agxset(ptr noundef %14, ptr noundef %17, ptr noundef %20)
+  br label %22
 
-20:                                               ; preds = %12, %1
-  %21 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 10), align 16
-  %22 = call i64 @agxblen(ptr noundef %21)
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %32
+22:                                               ; preds = %13, %1
+  %23 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 10
+  %24 = load ptr, ptr %23, align 16
+  %25 = call i64 @agxblen(ptr noundef %24)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %36
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Agnode_s, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr @xd, align 8
-  %28 = getelementptr inbounds %struct.xdot_state_t, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 10), align 16
-  %31 = call ptr @agxbuse(ptr noundef %30)
-  call void @put_escaping_backslashes(ptr noundef %26, ptr noundef %29, ptr noundef %31)
-  br label %32
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.Agnode_s, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr @xd, align 8
+  %31 = getelementptr inbounds %struct.xdot_state_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 10
+  %34 = load ptr, ptr %33, align 16
+  %35 = call ptr @agxbuse(ptr noundef %34)
+  call void @put_escaping_backslashes(ptr noundef %29, ptr noundef %32, ptr noundef %35)
+  br label %36
 
-32:                                               ; preds = %24, %20
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 8), align 16
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 10), align 16
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 8), align 16
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 10), align 8
+36:                                               ; preds = %27, %22
+  %37 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 8
+  store double 1.000000e+00, ptr %37, align 16
+  %38 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 10
+  store double 1.000000e+00, ptr %38, align 16
+  %39 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 8
+  store i32 0, ptr %39, align 16
+  %40 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 10
+  store i32 0, ptr %40, align 8
   ret void
 }
 
@@ -565,115 +581,139 @@ define internal void @xdot_end_edge(ptr noundef %0) #0 {
   %7 = getelementptr inbounds %struct.obj_state_s, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 9), align 8
-  %10 = call i64 @agxblen(ptr noundef %9)
-  %11 = icmp ne i64 %10, 0
-  br i1 %11, label %12, label %20
+  %9 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 9
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i64 @agxblen(ptr noundef %10)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %22
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr @xd, align 8
-  %15 = getelementptr inbounds %struct.xdot_state_t, ptr %14, i32 0, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 9), align 8
-  %18 = call ptr @agxbuse(ptr noundef %17)
-  %19 = call i32 @agxset(ptr noundef %13, ptr noundef %16, ptr noundef %18)
-  br label %20
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr @xd, align 8
+  %16 = getelementptr inbounds %struct.xdot_state_t, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 9
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @agxbuse(ptr noundef %19)
+  %21 = call i32 @agxset(ptr noundef %14, ptr noundef %17, ptr noundef %20)
+  br label %22
 
-20:                                               ; preds = %12, %1
-  %21 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 2), align 16
-  %22 = call i64 @agxblen(ptr noundef %21)
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %32
+22:                                               ; preds = %13, %1
+  %23 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 2
+  %24 = load ptr, ptr %23, align 16
+  %25 = call i64 @agxblen(ptr noundef %24)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %36
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %3, align 8
-  %26 = load ptr, ptr @xd, align 8
-  %27 = getelementptr inbounds %struct.xdot_state_t, ptr %26, i32 0, i32 6
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 2), align 16
-  %30 = call ptr @agxbuse(ptr noundef %29)
-  %31 = call i32 @agxset(ptr noundef %25, ptr noundef %28, ptr noundef %30)
-  br label %32
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr @xd, align 8
+  %30 = getelementptr inbounds %struct.xdot_state_t, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 2
+  %33 = load ptr, ptr %32, align 16
+  %34 = call ptr @agxbuse(ptr noundef %33)
+  %35 = call i32 @agxset(ptr noundef %28, ptr noundef %31, ptr noundef %34)
+  br label %36
 
-32:                                               ; preds = %24, %20
-  %33 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 3), align 8
-  %34 = call i64 @agxblen(ptr noundef %33)
-  %35 = icmp ne i64 %34, 0
-  br i1 %35, label %36, label %44
+36:                                               ; preds = %27, %22
+  %37 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i64 @agxblen(ptr noundef %38)
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %50
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %3, align 8
-  %38 = load ptr, ptr @xd, align 8
-  %39 = getelementptr inbounds %struct.xdot_state_t, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 3), align 8
-  %42 = call ptr @agxbuse(ptr noundef %41)
-  %43 = call i32 @agxset(ptr noundef %37, ptr noundef %40, ptr noundef %42)
-  br label %44
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %3, align 8
+  %43 = load ptr, ptr @xd, align 8
+  %44 = getelementptr inbounds %struct.xdot_state_t, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 3
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @agxbuse(ptr noundef %47)
+  %49 = call i32 @agxset(ptr noundef %42, ptr noundef %45, ptr noundef %48)
+  br label %50
 
-44:                                               ; preds = %36, %32
-  %45 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 11), align 8
-  %46 = call i64 @agxblen(ptr noundef %45)
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %56
+50:                                               ; preds = %41, %36
+  %51 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 11
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i64 @agxblen(ptr noundef %52)
+  %54 = icmp ne i64 %53, 0
+  br i1 %54, label %55, label %64
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.Agedge_s, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr @xd, align 8
-  %52 = getelementptr inbounds %struct.xdot_state_t, ptr %51, i32 0, i32 7
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 11), align 8
-  %55 = call ptr @agxbuse(ptr noundef %54)
-  call void @put_escaping_backslashes(ptr noundef %50, ptr noundef %53, ptr noundef %55)
-  br label %56
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.Agedge_s, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr @xd, align 8
+  %59 = getelementptr inbounds %struct.xdot_state_t, ptr %58, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 11
+  %62 = load ptr, ptr %61, align 8
+  %63 = call ptr @agxbuse(ptr noundef %62)
+  call void @put_escaping_backslashes(ptr noundef %57, ptr noundef %60, ptr noundef %63)
+  br label %64
 
-56:                                               ; preds = %48, %44
-  %57 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 6), align 16
-  %58 = call i64 @agxblen(ptr noundef %57)
-  %59 = icmp ne i64 %58, 0
-  br i1 %59, label %60, label %68
+64:                                               ; preds = %55, %50
+  %65 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 6
+  %66 = load ptr, ptr %65, align 16
+  %67 = call i64 @agxblen(ptr noundef %66)
+  %68 = icmp ne i64 %67, 0
+  br i1 %68, label %69, label %78
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %3, align 8
-  %62 = load ptr, ptr @xd, align 8
-  %63 = getelementptr inbounds %struct.xdot_state_t, ptr %62, i32 0, i32 9
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 6), align 16
-  %66 = call ptr @agxbuse(ptr noundef %65)
-  %67 = call i32 @agxset(ptr noundef %61, ptr noundef %64, ptr noundef %66)
-  br label %68
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %3, align 8
+  %71 = load ptr, ptr @xd, align 8
+  %72 = getelementptr inbounds %struct.xdot_state_t, ptr %71, i32 0, i32 9
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 6
+  %75 = load ptr, ptr %74, align 16
+  %76 = call ptr @agxbuse(ptr noundef %75)
+  %77 = call i32 @agxset(ptr noundef %70, ptr noundef %73, ptr noundef %76)
+  br label %78
 
-68:                                               ; preds = %60, %56
-  %69 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 7), align 8
-  %70 = call i64 @agxblen(ptr noundef %69)
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %80
+78:                                               ; preds = %69, %64
+  %79 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 7
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i64 @agxblen(ptr noundef %80)
+  %82 = icmp ne i64 %81, 0
+  br i1 %82, label %83, label %92
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %3, align 8
-  %74 = load ptr, ptr @xd, align 8
-  %75 = getelementptr inbounds %struct.xdot_state_t, ptr %74, i32 0, i32 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 7), align 8
-  %78 = call ptr @agxbuse(ptr noundef %77)
-  %79 = call i32 @agxset(ptr noundef %73, ptr noundef %76, ptr noundef %78)
-  br label %80
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %3, align 8
+  %85 = load ptr, ptr @xd, align 8
+  %86 = getelementptr inbounds %struct.xdot_state_t, ptr %85, i32 0, i32 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 7
+  %89 = load ptr, ptr %88, align 8
+  %90 = call ptr @agxbuse(ptr noundef %89)
+  %91 = call i32 @agxset(ptr noundef %84, ptr noundef %87, ptr noundef %90)
+  br label %92
 
-80:                                               ; preds = %72, %68
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 9), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 11), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 2), align 16
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 3), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 6), align 16
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 7), align 8
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 9), align 4
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 11), align 4
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 2), align 8
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 3), align 4
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 6), align 8
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 7), align 4
+92:                                               ; preds = %83, %78
+  %93 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 9
+  store double 1.000000e+00, ptr %93, align 8
+  %94 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 11
+  store double 1.000000e+00, ptr %94, align 8
+  %95 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 2
+  store double 1.000000e+00, ptr %95, align 16
+  %96 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 3
+  store double 1.000000e+00, ptr %96, align 8
+  %97 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 6
+  store double 1.000000e+00, ptr %97, align 16
+  %98 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 7
+  store double 1.000000e+00, ptr %98, align 8
+  %99 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 9
+  store i32 0, ptr %99, align 4
+  %100 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 11
+  store i32 0, ptr %100, align 4
+  %101 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 2
+  store i32 0, ptr %101, align 8
+  %102 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 3
+  store i32 0, ptr %102, align 4
+  %103 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 6
+  store i32 0, ptr %103, align 8
+  %104 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 7
+  store i32 0, ptr %104, align 4
   ret void
 }
 
@@ -1581,14 +1621,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -1834,9 +1874,6 @@ define internal i32 @agxbputc(ptr noundef %0, i8 noundef signext %1) #0 {
   ret i32 0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -1855,20 +1892,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #13
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -1955,12 +1992,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %80 = load i32, ptr %4, align 4
   ret i32 %80
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #10
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
@@ -2510,7 +2541,7 @@ define internal void @xdot_end_graph(ptr noundef %0) #0 {
   %29 = getelementptr inbounds %struct.Agraphinfo_t, ptr %28, i32 0, i32 2
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %40
+  br i1 %31, label %32, label %41
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %2, align 8
@@ -2518,45 +2549,48 @@ define internal void @xdot_end_graph(ptr noundef %0) #0 {
   %35 = load ptr, ptr @xd, align 8
   %36 = getelementptr inbounds %struct.xdot_state_t, ptr %35, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @xbufs, i64 0, i64 4), align 16
-  %39 = call ptr @agxbuse(ptr noundef %38)
-  call void @put_escaping_backslashes(ptr noundef %34, ptr noundef %37, ptr noundef %39)
-  br label %40
+  %38 = getelementptr inbounds [12 x ptr], ptr @xbufs, i64 0, i64 4
+  %39 = load ptr, ptr %38, align 16
+  %40 = call ptr @agxbuse(ptr noundef %39)
+  call void @put_escaping_backslashes(ptr noundef %34, ptr noundef %37, ptr noundef %40)
+  br label %41
 
-40:                                               ; preds = %32, %25
-  %41 = load ptr, ptr %2, align 8
-  %42 = load ptr, ptr @xd, align 8
-  %43 = getelementptr inbounds %struct.xdot_state_t, ptr %42, i32 0, i32 11
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 @agsafeset(ptr noundef %41, ptr noundef @.str.21, ptr noundef %44, ptr noundef @.str.1)
+41:                                               ; preds = %32, %25
+  %42 = load ptr, ptr %2, align 8
+  %43 = load ptr, ptr @xd, align 8
+  %44 = getelementptr inbounds %struct.xdot_state_t, ptr %43, i32 0, i32 11
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @agsafeset(ptr noundef %42, ptr noundef @.str.21, ptr noundef %45, ptr noundef @.str.1)
   store i32 0, ptr %3, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %53, %40
-  %47 = load i32, ptr %3, align 4
-  %48 = icmp slt i32 %47, 8
-  br i1 %48, label %49, label %56
+47:                                               ; preds = %54, %41
+  %48 = load i32, ptr %3, align 4
+  %49 = icmp slt i32 %48, 8
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr %3, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.agxbuf, ptr @xbuf, i64 %51
-  call void @agxbfree(ptr noundef %52)
-  br label %53
+50:                                               ; preds = %47
+  %51 = load i32, ptr %3, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.agxbuf, ptr @xbuf, i64 %52
+  call void @agxbfree(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr %3, align 4
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %3, align 4
-  br label %46
+54:                                               ; preds = %50
+  %55 = load i32, ptr %3, align 4
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %3, align 4
+  br label %47
 
-56:                                               ; preds = %46
-  %57 = load ptr, ptr @xd, align 8
-  call void @free(ptr noundef %57) #13
+57:                                               ; preds = %47
+  %58 = load ptr, ptr @xd, align 8
+  call void @free(ptr noundef %58) #13
   store double 1.000000e+00, ptr @penwidth, align 16
-  store double 1.000000e+00, ptr getelementptr inbounds ([12 x double], ptr @penwidth, i64 0, i64 4), align 16
+  %59 = getelementptr inbounds [12 x double], ptr @penwidth, i64 0, i64 4
+  store double 1.000000e+00, ptr %59, align 16
   store i32 0, ptr @textflags, align 16
-  store i32 0, ptr getelementptr inbounds ([12 x i32], ptr @textflags, i64 0, i64 4), align 16
+  %60 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 4
+  store i32 0, ptr %60, align 16
   ret void
 }
 
@@ -3174,7 +3208,7 @@ declare void @get_gradient_points(ptr noundef, ptr noundef, i64 noundef, double 
 declare double @cos(double noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #11
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: nounwind
 declare double @sin(double noundef) #3
@@ -3348,6 +3382,15 @@ define internal void @xdot_points(ptr noundef %0, i8 noundef signext %1, ptr nou
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -3358,8 +3401,8 @@ attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }

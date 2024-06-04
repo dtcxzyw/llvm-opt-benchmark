@@ -5343,7 +5343,7 @@ define ptr @Abc_FrameDeriveStatusArray2(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %49
+  br label %50
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %3, align 8
@@ -5357,7 +5357,7 @@ define ptr @Abc_FrameDeriveStatusArray2(ptr noundef %0) #0 {
   store i32 0, ptr %6, align 4
   br label %17
 
-17:                                               ; preds = %44, %10
+17:                                               ; preds = %45, %10
   %18 = load i32, ptr %6, align 4
   %19 = load ptr, ptr %3, align 8
   %20 = call i32 @Vec_PtrSize(ptr noundef %19)
@@ -5373,53 +5373,54 @@ define ptr @Abc_FrameDeriveStatusArray2(ptr noundef %0) #0 {
 
 26:                                               ; preds = %22, %17
   %27 = phi i1 [ false, %17 ], [ true, %22 ]
-  br i1 %27, label %28, label %47
+  br i1 %27, label %28, label %48
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %5, align 8
-  %30 = icmp eq ptr %29, inttoptr (i64 1 to ptr)
-  br i1 %30, label %31, label %36
+  %30 = inttoptr i64 1 to ptr
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %4, align 8
-  %33 = load i32, ptr %6, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %32, i32 noundef %33, i32 noundef 1)
-  %34 = load ptr, ptr %3, align 8
-  %35 = load i32, ptr %6, align 4
-  call void @Vec_PtrWriteEntry(ptr noundef %34, i32 noundef %35, ptr noundef null)
-  br label %43
-
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %5, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %42
-
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i32, ptr %6, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %40, i32 noundef %41, i32 noundef 0)
-  br label %42
-
-42:                                               ; preds = %39, %36
-  br label %43
-
-43:                                               ; preds = %42, %31
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %4, align 8
+  %34 = load i32, ptr %6, align 4
+  call void @Vec_IntWriteEntry(ptr noundef %33, i32 noundef %34, i32 noundef 1)
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i32, ptr %6, align 4
+  call void @Vec_PtrWriteEntry(ptr noundef %35, i32 noundef %36, ptr noundef null)
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr %6, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %6, align 4
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %5, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %4, align 8
+  %42 = load i32, ptr %6, align 4
+  call void @Vec_IntWriteEntry(ptr noundef %41, i32 noundef %42, i32 noundef 0)
+  br label %43
+
+43:                                               ; preds = %40, %37
+  br label %44
+
+44:                                               ; preds = %43, %32
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load i32, ptr %6, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4
   br label %17, !llvm.loop !8
 
-47:                                               ; preds = %26
-  %48 = load ptr, ptr %4, align 8
-  store ptr %48, ptr %2, align 8
-  br label %49
+48:                                               ; preds = %26
+  %49 = load ptr, ptr %4, align 8
+  store ptr %49, ptr %2, align 8
+  br label %50
 
-49:                                               ; preds = %47, %9
-  %50 = load ptr, ptr %2, align 8
-  ret ptr %50
+50:                                               ; preds = %48, %9
+  %51 = load ptr, ptr %2, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5737,7 +5738,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -5765,7 +5766,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -9871,7 +9872,7 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
 
 34:                                               ; preds = %30
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef @.str.705)
-  br label %260
+  br label %261
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %7, align 8
@@ -9898,10 +9899,10 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
   br label %51
 
 49:                                               ; preds = %28
-  br label %260
+  br label %261
 
 50:                                               ; preds = %28
-  br label %260
+  br label %261
 
 51:                                               ; preds = %46, %43, %35
   br label %23, !llvm.loop !29
@@ -9919,13 +9920,13 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
 58:                                               ; preds = %55
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef @.str.568)
   store i32 1, ptr %4, align 4
-  br label %274
+  br label %275
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %8, align 8
   call void @Abc_NtkPrintPoEquivs(ptr noundef %60)
   store i32 0, ptr %4, align 4
-  br label %274
+  br label %275
 
 61:                                               ; preds = %52
   %62 = load ptr, ptr %5, align 8
@@ -9960,7 +9961,7 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
 
 83:                                               ; preds = %78
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.707)
-  br label %134
+  br label %135
 
 84:                                               ; preds = %78, %73
   %85 = load ptr, ptr %5, align 8
@@ -9981,7 +9982,7 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
   %95 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %94, i32 0, i32 53
   %96 = load ptr, ptr %95, align 8
   %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %133
+  br i1 %97, label %98, label %134
 
 98:                                               ; preds = %93
   store i32 0, ptr %14, align 4
@@ -9989,7 +9990,7 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
   store i32 0, ptr %9, align 4
   br label %99
 
-99:                                               ; preds = %129, %98
+99:                                               ; preds = %130, %98
   %100 = load i32, ptr %9, align 4
   %101 = load ptr, ptr %5, align 8
   %102 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %101, i32 0, i32 53
@@ -10009,284 +10010,285 @@ define internal i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 noundef %1, ptr 
 
 112:                                              ; preds = %106, %99
   %113 = phi i1 [ false, %99 ], [ true, %106 ]
-  br i1 %113, label %114, label %132
+  br i1 %113, label %114, label %133
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr %13, align 8
-  %116 = icmp eq ptr %115, inttoptr (i64 1 to ptr)
-  br i1 %116, label %117, label %120
+  %116 = inttoptr i64 1 to ptr
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %118, label %121
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr %15, align 4
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %15, align 4
+118:                                              ; preds = %114
+  %119 = load i32, ptr %15, align 4
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %15, align 4
+  br label %130
+
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %13, align 8
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %124, label %129
+
+124:                                              ; preds = %121
+  %125 = load i32, ptr %14, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %14, align 4
+  %127 = call i32 (ptr, ...) @printf(ptr noundef @.str.708, i32 noundef %126)
+  %128 = load ptr, ptr %13, align 8
+  call void @Abc_CexPrintStats(ptr noundef %128)
   br label %129
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %13, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %128
+129:                                              ; preds = %124, %121
+  br label %130
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %14, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %14, align 4
-  %126 = call i32 (ptr, ...) @printf(ptr noundef @.str.708, i32 noundef %125)
-  %127 = load ptr, ptr %13, align 8
-  call void @Abc_CexPrintStats(ptr noundef %127)
-  br label %128
-
-128:                                              ; preds = %123, %120
-  br label %129
-
-129:                                              ; preds = %128, %117
-  %130 = load i32, ptr %9, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %9, align 4
+130:                                              ; preds = %129, %118
+  %131 = load i32, ptr %9, align 4
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %9, align 4
   br label %99, !llvm.loop !30
 
-132:                                              ; preds = %112
-  br label %133
-
-133:                                              ; preds = %132, %93
+133:                                              ; preds = %112
   br label %134
 
-134:                                              ; preds = %133, %83
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %135, i32 0, i32 55
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp ne ptr %137, null
-  br i1 %138, label %139, label %259
+134:                                              ; preds = %133, %93
+  br label %135
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %12, align 8
-  %141 = icmp ne ptr %140, null
-  br i1 %141, label %142, label %211
+135:                                              ; preds = %134, %83
+  %136 = load ptr, ptr %5, align 8
+  %137 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %136, i32 0, i32 55
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp ne ptr %138, null
+  br i1 %139, label %140, label %260
 
-142:                                              ; preds = %139
+140:                                              ; preds = %135
+  %141 = load ptr, ptr %12, align 8
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %212
+
+143:                                              ; preds = %140
   store ptr null, ptr %16, align 8
-  %143 = load ptr, ptr %12, align 8
-  %144 = call noalias ptr @fopen(ptr noundef %143, ptr noundef @.str.709)
-  store ptr %144, ptr %17, align 8
-  %145 = load ptr, ptr %17, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %150
+  %144 = load ptr, ptr %12, align 8
+  %145 = call noalias ptr @fopen(ptr noundef %144, ptr noundef @.str.709)
+  store ptr %145, ptr %17, align 8
+  %146 = load ptr, ptr %17, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %151
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %12, align 8
-  %149 = call i32 (ptr, ...) @printf(ptr noundef @.str.710, ptr noundef %148)
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %12, align 8
+  %150 = call i32 (ptr, ...) @printf(ptr noundef @.str.710, ptr noundef %149)
   store i32 0, ptr %4, align 4
-  br label %274
+  br label %275
 
-150:                                              ; preds = %142
+151:                                              ; preds = %143
   store i32 0, ptr %9, align 4
-  br label %151
+  br label %152
 
-151:                                              ; preds = %205, %150
-  %152 = load i32, ptr %9, align 4
-  %153 = load ptr, ptr %5, align 8
-  %154 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %153, i32 0, i32 53
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @Vec_PtrSize(ptr noundef %155)
-  %157 = icmp slt i32 %152, %156
-  br i1 %157, label %158, label %164
+152:                                              ; preds = %206, %151
+  %153 = load i32, ptr %9, align 4
+  %154 = load ptr, ptr %5, align 8
+  %155 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %154, i32 0, i32 53
+  %156 = load ptr, ptr %155, align 8
+  %157 = call i32 @Vec_PtrSize(ptr noundef %156)
+  %158 = icmp slt i32 %153, %157
+  br i1 %158, label %159, label %165
 
-158:                                              ; preds = %151
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %159, i32 0, i32 53
-  %161 = load ptr, ptr %160, align 8
-  %162 = load i32, ptr %9, align 4
-  %163 = call ptr @Vec_PtrEntry(ptr noundef %161, i32 noundef %162)
-  store ptr %163, ptr %16, align 8
-  br label %164
+159:                                              ; preds = %152
+  %160 = load ptr, ptr %5, align 8
+  %161 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %160, i32 0, i32 53
+  %162 = load ptr, ptr %161, align 8
+  %163 = load i32, ptr %9, align 4
+  %164 = call ptr @Vec_PtrEntry(ptr noundef %162, i32 noundef %163)
+  store ptr %164, ptr %16, align 8
+  br label %165
 
-164:                                              ; preds = %158, %151
-  %165 = phi i1 [ false, %151 ], [ true, %158 ]
-  br i1 %165, label %166, label %208
+165:                                              ; preds = %159, %152
+  %166 = phi i1 [ false, %152 ], [ true, %159 ]
+  br i1 %166, label %167, label %209
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %167, i32 0, i32 55
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %9, align 4
-  %171 = call i32 @Vec_IntEntry(ptr noundef %169, i32 noundef %170)
-  store i32 %171, ptr %18, align 4
-  %172 = load i32, ptr %18, align 4
-  %173 = icmp eq i32 %172, -1
-  br i1 %173, label %174, label %177
+167:                                              ; preds = %165
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %168, i32 0, i32 55
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %9, align 4
+  %172 = call i32 @Vec_IntEntry(ptr noundef %170, i32 noundef %171)
+  store i32 %172, ptr %18, align 4
+  %173 = load i32, ptr %18, align 4
+  %174 = icmp eq i32 %173, -1
+  br i1 %174, label %175, label %178
 
-174:                                              ; preds = %166
-  %175 = load ptr, ptr %17, align 8
-  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef @.str.711) #11
+175:                                              ; preds = %167
+  %176 = load ptr, ptr %17, align 8
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.711) #11
+  br label %192
+
+178:                                              ; preds = %167
+  %179 = load i32, ptr %18, align 4
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %184
+
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %17, align 8
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef @.str.712) #11
   br label %191
 
-177:                                              ; preds = %166
-  %178 = load i32, ptr %18, align 4
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %183
+184:                                              ; preds = %178
+  %185 = load i32, ptr %18, align 4
+  %186 = icmp eq i32 %185, 1
+  br i1 %186, label %187, label %190
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr %17, align 8
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef @.str.712) #11
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %17, align 8
+  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef @.str.713) #11
   br label %190
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr %18, align 4
-  %185 = icmp eq i32 %184, 1
-  br i1 %185, label %186, label %189
-
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %17, align 8
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef @.str.713) #11
-  br label %189
-
-189:                                              ; preds = %186, %183
-  br label %190
-
-190:                                              ; preds = %189, %180
+190:                                              ; preds = %187, %184
   br label %191
 
-191:                                              ; preds = %190, %174
-  %192 = load ptr, ptr %17, align 8
-  %193 = load ptr, ptr %8, align 8
-  %194 = load i32, ptr %9, align 4
-  %195 = call ptr @Abc_NtkPo(ptr noundef %193, i32 noundef %194)
-  %196 = call ptr @Abc_ObjName(ptr noundef %195)
-  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef @.str.714, ptr noundef %196) #11
-  %198 = load i32, ptr %18, align 4
-  %199 = icmp ne i32 %198, 0
-  br i1 %199, label %200, label %201
+191:                                              ; preds = %190, %181
+  br label %192
 
-200:                                              ; preds = %191
-  br label %205
+192:                                              ; preds = %191, %175
+  %193 = load ptr, ptr %17, align 8
+  %194 = load ptr, ptr %8, align 8
+  %195 = load i32, ptr %9, align 4
+  %196 = call ptr @Abc_NtkPo(ptr noundef %194, i32 noundef %195)
+  %197 = call ptr @Abc_ObjName(ptr noundef %196)
+  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef @.str.714, ptr noundef %197) #11
+  %199 = load i32, ptr %18, align 4
+  %200 = icmp ne i32 %199, 0
+  br i1 %200, label %201, label %202
 
-201:                                              ; preds = %191
-  %202 = load ptr, ptr %17, align 8
-  %203 = load ptr, ptr %8, align 8
-  %204 = load ptr, ptr %16, align 8
-  call void @Abc_NtkDumpOneCexSpecial(ptr noundef %202, ptr noundef %203, ptr noundef %204)
-  br label %205
+201:                                              ; preds = %192
+  br label %206
 
-205:                                              ; preds = %201, %200
-  %206 = load i32, ptr %9, align 4
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %9, align 4
-  br label %151, !llvm.loop !31
+202:                                              ; preds = %192
+  %203 = load ptr, ptr %17, align 8
+  %204 = load ptr, ptr %8, align 8
+  %205 = load ptr, ptr %16, align 8
+  call void @Abc_NtkDumpOneCexSpecial(ptr noundef %203, ptr noundef %204, ptr noundef %205)
+  br label %206
 
-208:                                              ; preds = %164
-  %209 = load ptr, ptr %17, align 8
-  %210 = call i32 @fclose(ptr noundef %209)
+206:                                              ; preds = %202, %201
+  %207 = load i32, ptr %9, align 4
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %9, align 4
+  br label %152, !llvm.loop !31
+
+209:                                              ; preds = %165
+  %210 = load ptr, ptr %17, align 8
+  %211 = call i32 @fclose(ptr noundef %210)
+  br label %258
+
+212:                                              ; preds = %140
+  %213 = load i32, ptr %11, align 4
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %215, label %233
+
+215:                                              ; preds = %212
+  %216 = load ptr, ptr %5, align 8
+  %217 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %216, i32 0, i32 55
+  %218 = load ptr, ptr %217, align 8
+  %219 = call i32 @Vec_IntCountEntry(ptr noundef %218, i32 noundef 0)
+  %220 = load ptr, ptr %5, align 8
+  %221 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %220, i32 0, i32 55
+  %222 = load ptr, ptr %221, align 8
+  %223 = call i32 @Vec_IntCountEntry(ptr noundef %222, i32 noundef 1)
+  %224 = load ptr, ptr %5, align 8
+  %225 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %224, i32 0, i32 55
+  %226 = load ptr, ptr %225, align 8
+  %227 = call i32 @Vec_IntCountEntry(ptr noundef %226, i32 noundef -1)
+  %228 = load ptr, ptr %5, align 8
+  %229 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %228, i32 0, i32 55
+  %230 = load ptr, ptr %229, align 8
+  %231 = call i32 @Vec_IntSize(ptr noundef %230)
+  %232 = call i32 (ptr, ...) @printf(ptr noundef @.str.715, i32 noundef %219, i32 noundef %223, i32 noundef %227, i32 noundef %231)
   br label %257
 
-211:                                              ; preds = %139
-  %212 = load i32, ptr %11, align 4
-  %213 = icmp ne i32 %212, 0
-  br i1 %213, label %214, label %232
-
-214:                                              ; preds = %211
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %215, i32 0, i32 55
-  %217 = load ptr, ptr %216, align 8
-  %218 = call i32 @Vec_IntCountEntry(ptr noundef %217, i32 noundef 0)
-  %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %219, i32 0, i32 55
-  %221 = load ptr, ptr %220, align 8
-  %222 = call i32 @Vec_IntCountEntry(ptr noundef %221, i32 noundef 1)
-  %223 = load ptr, ptr %5, align 8
-  %224 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %223, i32 0, i32 55
-  %225 = load ptr, ptr %224, align 8
-  %226 = call i32 @Vec_IntCountEntry(ptr noundef %225, i32 noundef -1)
-  %227 = load ptr, ptr %5, align 8
-  %228 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %227, i32 0, i32 55
-  %229 = load ptr, ptr %228, align 8
-  %230 = call i32 @Vec_IntSize(ptr noundef %229)
-  %231 = call i32 (ptr, ...) @printf(ptr noundef @.str.715, i32 noundef %218, i32 noundef %222, i32 noundef %226, i32 noundef %230)
-  br label %256
-
-232:                                              ; preds = %211
+233:                                              ; preds = %212
   store i32 0, ptr %19, align 4
-  br label %233
+  br label %234
 
-233:                                              ; preds = %252, %232
-  %234 = load i32, ptr %19, align 4
-  %235 = load ptr, ptr %5, align 8
-  %236 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %235, i32 0, i32 55
-  %237 = load ptr, ptr %236, align 8
-  %238 = call i32 @Vec_IntSize(ptr noundef %237)
-  %239 = icmp slt i32 %234, %238
-  br i1 %239, label %240, label %246
+234:                                              ; preds = %253, %233
+  %235 = load i32, ptr %19, align 4
+  %236 = load ptr, ptr %5, align 8
+  %237 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %236, i32 0, i32 55
+  %238 = load ptr, ptr %237, align 8
+  %239 = call i32 @Vec_IntSize(ptr noundef %238)
+  %240 = icmp slt i32 %235, %239
+  br i1 %240, label %241, label %247
 
-240:                                              ; preds = %233
-  %241 = load ptr, ptr %5, align 8
-  %242 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %241, i32 0, i32 55
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i32, ptr %19, align 4
-  %245 = call i32 @Vec_IntEntry(ptr noundef %243, i32 noundef %244)
-  store i32 %245, ptr %20, align 4
-  br label %246
+241:                                              ; preds = %234
+  %242 = load ptr, ptr %5, align 8
+  %243 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %242, i32 0, i32 55
+  %244 = load ptr, ptr %243, align 8
+  %245 = load i32, ptr %19, align 4
+  %246 = call i32 @Vec_IntEntry(ptr noundef %244, i32 noundef %245)
+  store i32 %246, ptr %20, align 4
+  br label %247
 
-246:                                              ; preds = %240, %233
-  %247 = phi i1 [ false, %233 ], [ true, %240 ]
-  br i1 %247, label %248, label %255
+247:                                              ; preds = %241, %234
+  %248 = phi i1 [ false, %234 ], [ true, %241 ]
+  br i1 %248, label %249, label %256
 
-248:                                              ; preds = %246
-  %249 = load i32, ptr %19, align 4
-  %250 = load i32, ptr %20, align 4
-  %251 = call i32 (ptr, ...) @printf(ptr noundef @.str.716, i32 noundef %249, i32 noundef %250)
-  br label %252
+249:                                              ; preds = %247
+  %250 = load i32, ptr %19, align 4
+  %251 = load i32, ptr %20, align 4
+  %252 = call i32 (ptr, ...) @printf(ptr noundef @.str.716, i32 noundef %250, i32 noundef %251)
+  br label %253
 
-252:                                              ; preds = %248
-  %253 = load i32, ptr %19, align 4
-  %254 = add nsw i32 %253, 1
-  store i32 %254, ptr %19, align 4
-  br label %233, !llvm.loop !32
+253:                                              ; preds = %249
+  %254 = load i32, ptr %19, align 4
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %19, align 4
+  br label %234, !llvm.loop !32
 
-255:                                              ; preds = %246
-  br label %256
-
-256:                                              ; preds = %255, %214
+256:                                              ; preds = %247
   br label %257
 
-257:                                              ; preds = %256, %208
-  %258 = call i32 (ptr, ...) @printf(ptr noundef @.str.717)
-  br label %259
+257:                                              ; preds = %256, %215
+  br label %258
 
-259:                                              ; preds = %257, %134
+258:                                              ; preds = %257, %209
+  %259 = call i32 (ptr, ...) @printf(ptr noundef @.str.717)
+  br label %260
+
+260:                                              ; preds = %258, %135
   store i32 0, ptr %4, align 4
-  br label %274
+  br label %275
 
-260:                                              ; preds = %50, %49, %34
+261:                                              ; preds = %50, %49, %34
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.718)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.719)
-  %261 = load ptr, ptr %12, align 8
-  %262 = icmp ne ptr %261, null
-  br i1 %262, label %263, label %265
+  %262 = load ptr, ptr %12, align 8
+  %263 = icmp ne ptr %262, null
+  br i1 %263, label %264, label %266
 
-263:                                              ; preds = %260
-  %264 = load ptr, ptr %12, align 8
-  br label %266
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %12, align 8
+  br label %267
 
-265:                                              ; preds = %260
-  br label %266
+266:                                              ; preds = %261
+  br label %267
 
-266:                                              ; preds = %265, %263
-  %267 = phi ptr [ %264, %263 ], [ @.str.721, %265 ]
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.720, ptr noundef %267)
-  %268 = load i32, ptr %10, align 4
-  %269 = icmp ne i32 %268, 0
-  %270 = select i1 %269, ptr @.str.526, ptr @.str.527
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.722, ptr noundef %270)
-  %271 = load i32, ptr %11, align 4
-  %272 = icmp ne i32 %271, 0
-  %273 = select i1 %272, ptr @.str.526, ptr @.str.527
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.723, ptr noundef %273)
+267:                                              ; preds = %266, %264
+  %268 = phi ptr [ %265, %264 ], [ @.str.721, %266 ]
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.720, ptr noundef %268)
+  %269 = load i32, ptr %10, align 4
+  %270 = icmp ne i32 %269, 0
+  %271 = select i1 %270, ptr @.str.526, ptr @.str.527
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.722, ptr noundef %271)
+  %272 = load i32, ptr %11, align 4
+  %273 = icmp ne i32 %272, 0
+  %274 = select i1 %273, ptr @.str.526, ptr @.str.527
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.723, ptr noundef %274)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef @.str.724)
   store i32 1, ptr %4, align 4
-  br label %274
+  br label %275
 
-274:                                              ; preds = %266, %259, %147, %59, %58
-  %275 = load i32, ptr %4, align 4
-  ret i32 %275
+275:                                              ; preds = %267, %260, %148, %59, %58
+  %276 = load i32, ptr %4, align 4
+  ret i32 %276
 }
 
 ; Function Attrs: nounwind uwtable
@@ -130016,13 +130018,13 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  br label %37
+  br label %39
 
 8:                                                ; preds = %1
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %34, %8
+9:                                                ; preds = %36, %8
   %10 = load i32, ptr %4, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @Vec_PtrSize(ptr noundef %11)
@@ -130038,45 +130040,47 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14, %9
   %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = icmp ne ptr %21, inttoptr (i64 1 to ptr)
-  br i1 %22, label %23, label %33
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 2 to ptr)
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 2 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %35
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %30) #11
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %32) #11
   store ptr null, ptr %3, align 8
-  br label %32
-
-31:                                               ; preds = %26
-  br label %32
-
-32:                                               ; preds = %31, %29
-  br label %33
-
-33:                                               ; preds = %32, %23, %20
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %4, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %31
+  br label %35
+
+35:                                               ; preds = %34, %24, %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %4, align 4
   br label %9, !llvm.loop !513
 
-37:                                               ; preds = %18, %7
+39:                                               ; preds = %18, %7
   ret void
 }
 
@@ -130214,9 +130218,6 @@ declare i32 @printf(ptr noundef, ...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -130224,9 +130225,6 @@ declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
@@ -130983,7 +130981,7 @@ define internal i32 @Abc_NtkCiNum(ptr noundef %0) #0 {
 declare ptr @Abc_NtkSparsify(ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare i32 @Lpk_Resynthesize(ptr noundef, ptr noundef) #2
 
@@ -132327,7 +132325,8 @@ define internal void @Abc_LatchSetInit0(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -132337,7 +132336,8 @@ define internal void @Abc_LatchSetInit1(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 2 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 2 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -132347,7 +132347,8 @@ define internal void @Abc_LatchSetInitDc(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 3 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 3 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -132525,7 +132526,7 @@ define internal ptr @Abc_TtSymFunGenerate(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #8
 
 declare void @Extra_PrintHexadecimalString(ptr noundef, ptr noundef, i32 noundef) #2
 
@@ -135437,7 +135438,7 @@ define internal i32 @Abc_MinInt(i32 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #10
+declare void @exit(i32 noundef) #9
 
 declare ptr @Gia_ManMiterInverse(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
@@ -136170,6 +136171,12 @@ declare ptr @Abc_NtkDarUnfold2(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 
 declare ptr @Abc_NtkDarFold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -136177,10 +136184,10 @@ attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }
 attributes #13 = { nounwind willreturn memory(read) }

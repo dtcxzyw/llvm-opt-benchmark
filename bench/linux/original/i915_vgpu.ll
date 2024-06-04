@@ -292,7 +292,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   %6 = getelementptr inbounds i8, ptr %3, i64 7768
   %7 = load i8, ptr %6, align 8, !range !8, !noundef !9
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %93, label %9
+  br i1 %8, label %98, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %3, i64 7368
@@ -360,89 +360,94 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
 52:                                               ; preds = %49, %48
   %53 = phi ptr [ %51, %49 ], [ null, %48 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.8) #5
-  br label %93
+  br label %98
 
 54:                                               ; preds = %38
   %55 = icmp ult i64 %42, %20
-  br i1 %55, label %56, label %59
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
-  %57 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 2), i64 noundef %42, i64 noundef %20)
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %86
+  %57 = getelementptr inbounds %struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 2
+  %58 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull %57, i64 noundef %42, i64 noundef %20)
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %91
 
-59:                                               ; preds = %56, %54
-  %60 = icmp ult i64 %25, %5
-  br i1 %60, label %61, label %64
+60:                                               ; preds = %56, %54
+  %61 = icmp ult i64 %25, %5
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %59
-  %62 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 3), i64 noundef %25, i64 noundef %5)
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %84
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds %struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 3
+  %64 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull %63, i64 noundef %25, i64 noundef %5)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %88
 
-64:                                               ; preds = %61, %59
-  %65 = icmp eq i32 %13, 0
-  br i1 %65, label %69, label %66
+66:                                               ; preds = %62, %60
+  %67 = icmp eq i32 %13, 0
+  br i1 %67, label %71, label %68
 
-66:                                               ; preds = %64
-  %67 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull @bl_info, i64 noundef 0, i64 noundef %14)
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %82
+68:                                               ; preds = %66
+  %69 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull @bl_info, i64 noundef 0, i64 noundef %14)
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %85
 
-69:                                               ; preds = %66, %64
-  %70 = load i64, ptr %41, align 8
-  %71 = icmp ult i64 %24, %70
-  br i1 %71, label %72, label %75
+71:                                               ; preds = %68, %66
+  %72 = load i64, ptr %41, align 8
+  %73 = icmp ult i64 %24, %72
+  br i1 %73, label %74, label %78
 
-72:                                               ; preds = %69
-  %73 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 1), i64 noundef %24, i64 noundef %70)
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %81
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds %struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 1
+  %76 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull %75, i64 noundef %24, i64 noundef %72)
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %84
 
-75:                                               ; preds = %72, %69
-  br i1 %26, label %79, label %76
+78:                                               ; preds = %74, %71
+  br i1 %26, label %82, label %79
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
-  %78 = load ptr, ptr %77, align 8
-  br label %79
-
-79:                                               ; preds = %76, %75
-  %80 = phi ptr [ %78, %76 ], [ null, %75 ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %80, ptr noundef nonnull @.str.9) #5
-  br label %93
-
-81:                                               ; preds = %72
-  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull @bl_info)
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = load ptr, ptr %80, align 8
   br label %82
 
-82:                                               ; preds = %81, %66
-  %83 = phi i32 [ %67, %66 ], [ %73, %81 ]
-  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 3))
-  br label %84
+82:                                               ; preds = %79, %78
+  %83 = phi ptr [ %81, %79 ], [ null, %78 ]
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %83, ptr noundef nonnull @.str.9) #5
+  br label %98
 
-84:                                               ; preds = %82, %61
-  %85 = phi i32 [ %62, %61 ], [ %83, %82 ]
-  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 2))
-  br label %86
+84:                                               ; preds = %74
+  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull @bl_info)
+  br label %85
 
-86:                                               ; preds = %84, %56
-  %87 = phi i32 [ %57, %56 ], [ %85, %84 ]
-  br i1 %26, label %91, label %88
+85:                                               ; preds = %84, %68
+  %86 = phi i32 [ %69, %68 ], [ %76, %84 ]
+  %87 = getelementptr inbounds %struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 3
+  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull %87)
+  br label %88
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
-  %90 = load ptr, ptr %89, align 8
+88:                                               ; preds = %85, %62
+  %89 = phi i32 [ %64, %62 ], [ %86, %85 ]
+  %90 = getelementptr inbounds %struct._balloon_info_, ptr @bl_info, i64 0, i32 0, i64 2
+  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull %90)
   br label %91
 
-91:                                               ; preds = %88, %86
-  %92 = phi ptr [ %90, %88 ], [ null, %86 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %92, ptr noundef nonnull @.str.10) #5
-  br label %93
+91:                                               ; preds = %88, %56
+  %92 = phi i32 [ %58, %56 ], [ %89, %88 ]
+  br i1 %26, label %96, label %93
 
-93:                                               ; preds = %91, %79, %52, %1
-  %94 = phi i32 [ -22, %52 ], [ %87, %91 ], [ 0, %79 ], [ 0, %1 ]
-  ret i32 %94
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %95 = load ptr, ptr %94, align 8
+  br label %96
+
+96:                                               ; preds = %93, %91
+  %97 = phi ptr [ %95, %93 ], [ null, %91 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %97, ptr noundef nonnull @.str.10) #5
+  br label %98
+
+98:                                               ; preds = %96, %82, %52, %1
+  %99 = phi i32 [ -22, %52 ], [ %92, %96 ], [ 0, %82 ], [ 0, %1 ]
+  ret i32 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

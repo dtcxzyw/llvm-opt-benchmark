@@ -144,84 +144,88 @@ define i32 @ompi_osc_base_find_available(i1 noundef zeroext %0, i1 noundef zeroe
   store i8 %11, ptr %5, align 1
   %12 = zext i1 %1 to i8
   store i8 %12, ptr %6, align 1
-  %13 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.opal_list_item_t, ptr %14, i32 0, i32 1
-  %16 = load volatile ptr, ptr %15, align 8
-  store ptr %16, ptr %8, align 8
-  br label %17
+  %13 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12, i32 1, i32 1
+  %14 = load volatile ptr, ptr %13, align 8
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds %struct.opal_list_item_t, ptr %15, i32 0, i32 1
+  %17 = load volatile ptr, ptr %16, align 8
+  store ptr %17, ptr %8, align 8
+  br label %18
 
-17:                                               ; preds = %53, %2
-  %18 = load ptr, ptr %7, align 8
-  %19 = icmp ne ptr %18, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12, i32 1)
-  br i1 %19, label %20, label %58
+18:                                               ; preds = %57, %2
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12, i32 1
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %22, label %62
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %10, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i8, ptr %5, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = load i8, ptr %6, align 1
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %10, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i8, ptr %5, align 1
   %30 = trunc i8 %29 to i1
-  %31 = call i32 %26(i1 noundef zeroext %28, i1 noundef zeroext %30)
-  store i32 %31, ptr %9, align 4
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp ne i32 0, %32
-  br i1 %33, label %34, label %52
+  %31 = load i8, ptr %6, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = call i32 %28(i1 noundef zeroext %30, i1 noundef zeroext %32)
+  store i32 %33, ptr %9, align 4
+  %34 = load i32, ptr %9, align 4
+  %35 = icmp ne i32 0, %34
+  br i1 %35, label %36, label %56
 
-34:                                               ; preds = %20
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %35, i32 0, i32 0
-  %37 = call ptr @opal_list_remove_item(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12), ptr noundef %36)
-  %38 = load ptr, ptr %10, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11), align 4
-  call void @mca_base_component_close(ptr noundef %38, i32 noundef %39)
-  br label %40
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12
+  %40 = call ptr @opal_list_remove_item(ptr noundef %39, ptr noundef %38)
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11
+  %43 = load i32, ptr %42, align 4
+  call void @mca_base_component_close(ptr noundef %41, i32 noundef %43)
+  br label %44
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %7, align 8
-  store ptr %41, ptr %3, align 8
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %7, align 8
+  store ptr %45, ptr %3, align 8
   store i32 -1, ptr %4, align 4
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.opal_object_t, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %4, align 4
-  %45 = call i32 @opal_thread_add_fetch_32(ptr noundef %43, i32 noundef %44)
-  %46 = icmp eq i32 0, %45
-  br i1 %46, label %47, label %50
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.opal_object_t, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %4, align 4
+  %49 = call i32 @opal_thread_add_fetch_32(ptr noundef %47, i32 noundef %48)
+  %50 = icmp eq i32 0, %49
+  br i1 %50, label %51, label %54
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %7, align 8
-  call void @opal_obj_run_destructors(ptr noundef %48)
-  %49 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %49) #5
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %7, align 8
+  call void @opal_obj_run_destructors(ptr noundef %52)
+  %53 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %53) #5
   store ptr null, ptr %7, align 8
-  br label %50
+  br label %54
 
-50:                                               ; preds = %47, %40
-  br label %51
+54:                                               ; preds = %51, %44
+  br label %55
 
-51:                                               ; preds = %50
-  br label %52
+55:                                               ; preds = %54
+  br label %56
 
-52:                                               ; preds = %51, %20
-  br label %53
+56:                                               ; preds = %55, %22
+  br label %57
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %8, align 8
-  store ptr %54, ptr %7, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.opal_list_item_t, ptr %55, i32 0, i32 1
-  %57 = load volatile ptr, ptr %56, align 8
-  store ptr %57, ptr %8, align 8
-  br label %17, !llvm.loop !6
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %8, align 8
+  store ptr %58, ptr %7, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds %struct.opal_list_item_t, ptr %59, i32 0, i32 1
+  %61 = load volatile ptr, ptr %60, align 8
+  store ptr %61, ptr %8, align 8
+  br label %18, !llvm.loop !6
 
-58:                                               ; preds = %17
+62:                                               ; preds = %18
   call void @opal_finalize_append_cleanup(ptr noundef @ompi_osc_base_finalize, ptr noundef @.str.1, ptr noundef null)
   ret i32 0
 }
@@ -271,49 +275,50 @@ define internal i32 @ompi_osc_base_finalize() #0 {
   %4 = alloca ptr, align 8
   br label %5
 
-5:                                                ; preds = %27, %0
-  %6 = call ptr @opal_list_remove_first(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12))
-  store ptr %6, ptr %3, align 8
-  %7 = icmp ne ptr null, %6
-  br i1 %7, label %8, label %28
+5:                                                ; preds = %28, %0
+  %6 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12
+  %7 = call ptr @opal_list_remove_first(ptr noundef %6)
+  store ptr %7, ptr %3, align 8
+  %8 = icmp ne ptr null, %7
+  br i1 %8, label %9, label %29
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14()
-  br label %16
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 %15()
+  br label %17
 
-16:                                               ; preds = %8
-  %17 = load ptr, ptr %3, align 8
-  store ptr %17, ptr %1, align 8
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %3, align 8
+  store ptr %18, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.opal_object_t, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %2, align 4
-  %21 = call i32 @opal_thread_add_fetch_32(ptr noundef %19, i32 noundef %20)
-  %22 = icmp eq i32 0, %21
-  br i1 %22, label %23, label %26
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %2, align 4
+  %22 = call i32 @opal_thread_add_fetch_32(ptr noundef %20, i32 noundef %21)
+  %23 = icmp eq i32 0, %22
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %3, align 8
-  call void @opal_obj_run_destructors(ptr noundef %24)
+24:                                               ; preds = %17
   %25 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %25) #5
+  call void @opal_obj_run_destructors(ptr noundef %25)
+  %26 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %26) #5
   store ptr null, ptr %3, align 8
-  br label %26
-
-26:                                               ; preds = %23, %16
   br label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %24, %17
+  br label %28
+
+28:                                               ; preds = %27
   br label %5, !llvm.loop !7
 
-28:                                               ; preds = %5
+29:                                               ; preds = %5
   ret i32 0
 }
 

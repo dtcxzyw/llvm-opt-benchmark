@@ -1240,23 +1240,24 @@ define void @_ZN12FunnelActionC2EP7QObject(ptr noundef nonnull align 8 dereferen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
-  %8 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 2
+  %7 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
-  %9 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 3
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 4
+  %9 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 3
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 5
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 6
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 7
+  %11 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 4
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 5
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 6
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 8
-  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  %14 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 7
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 8
+  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
   ret void
 }
 
@@ -1304,84 +1305,85 @@ define void @_ZN12FunnelActionC2E7QStringPFvPvES1_iP7QObject(ptr noundef nonnull
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %12, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %19)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %18, align 8
-  %20 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
-  %21 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #8
-  %22 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 3
-  %23 = load ptr, ptr %9, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 4
-  %25 = load ptr, ptr %10, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 5
-  %27 = load i32, ptr %11, align 4
-  store i32 %27, ptr %26, align 8
-  %28 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 8
-  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #8
+  %20 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2
+  store ptr %20, ptr %18, align 8
+  %21 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
+  %22 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
+  %23 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 3
+  %24 = load ptr, ptr %9, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 4
+  %26 = load ptr, ptr %10, align 8
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 5
+  %28 = load i32, ptr %11, align 4
+  store i32 %28, ptr %27, align 8
+  %29 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 8
+  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #8
   call void @_ZN5QCharC2Ec(ptr noundef nonnull align 2 dereferenceable(2) %13, i8 noundef signext 38) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @.str)
-          to label %29 unwind label %40
+          to label %30 unwind label %41
 
-29:                                               ; preds = %6
-  %30 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
-  %31 = load i16, ptr %30, align 2
-  %32 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %1, i16 %31, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 1)
-          to label %33 unwind label %44
+30:                                               ; preds = %6
+  %31 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
+  %32 = load i16, ptr %31, align 2
+  %33 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %1, i16 %32, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 1)
+          to label %34 unwind label %45
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %34 unwind label %40
+          to label %35 unwind label %41
 
-34:                                               ; preds = %33
-  %35 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
-          to label %36 unwind label %40
+35:                                               ; preds = %34
+  %36 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
+          to label %37 unwind label %41
 
-36:                                               ; preds = %34
-  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %35)
-          to label %37 unwind label %40
+37:                                               ; preds = %35
+  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %36)
+          to label %38 unwind label %41
 
-37:                                               ; preds = %36
+38:                                               ; preds = %37
   call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #8
-  %38 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 8
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QSetI7QStringEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %17) #8
+  %39 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 8
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QSetI7QStringEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %17) #8
   call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #8
   ret void
 
-40:                                               ; preds = %36, %34, %33, %6
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %37, %35, %34, %6
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %15, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %16, align 4
-  br label %48
-
-44:                                               ; preds = %29
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %15, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %16, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  br label %48
-
-48:                                               ; preds = %44, %40
-  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #8
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #8
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %15, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %16, align 4
   br label %49
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %15, align 8
-  %51 = load i32, ptr %16, align 4
-  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+45:                                               ; preds = %30
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %15, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #8
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #8
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %15, align 8
+  %52 = load i32, ptr %16, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1511,179 +1513,180 @@ define void @_ZN12FunnelActionC2E7QStringPFvPvP10_GPtrArrayES1_iPKcP7QObject(ptr
   %25 = load ptr, ptr %8, align 8
   %26 = load ptr, ptr %14, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %26)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %25, align 8
-  %27 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
-  %28 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #8
-  %29 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 4
-  %30 = load ptr, ptr %11, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 5
-  %32 = load i32, ptr %12, align 4
-  store i32 %32, ptr %31, align 8
-  %33 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 6
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 8
-  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #8
+  %27 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2
+  store ptr %27, ptr %25, align 8
+  %28 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
+  %29 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #8
+  %30 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 4
+  %31 = load ptr, ptr %11, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 5
+  %33 = load i32, ptr %12, align 4
+  store i32 %33, ptr %32, align 8
+  %34 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 6
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 8
+  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #8
   call void @_ZN5QCharC2Ec(ptr noundef nonnull align 2 dereferenceable(2) %15, i8 noundef signext 38) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str)
-          to label %36 unwind label %59
+          to label %37 unwind label %60
 
-36:                                               ; preds = %7
-  %37 = getelementptr inbounds %class.QChar, ptr %15, i32 0, i32 0
-  %38 = load i16, ptr %37, align 2
-  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %1, i16 %38, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1)
-          to label %40 unwind label %63
+37:                                               ; preds = %7
+  %38 = getelementptr inbounds %class.QChar, ptr %15, i32 0, i32 0
+  %39 = load i16, ptr %38, align 2
+  %40 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %1, i16 %39, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1)
+          to label %41 unwind label %64
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef @.str.1)
-          to label %41 unwind label %59
+          to label %42 unwind label %60
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   call void @_ZN6QFlagsIN2Qt18SplitBehaviorFlagsEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %21, i32 noundef 0) #8
-  %42 = getelementptr inbounds %class.QFlags, ptr %21, i32 0, i32 0
-  %43 = load i32, ptr %42, align 4
-  invoke void @_ZNK7QString5splitERKS_6QFlagsIN2Qt18SplitBehaviorFlagsEENS3_15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QList) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 %43, i32 noundef 1)
-          to label %44 unwind label %67
+  %43 = getelementptr inbounds %class.QFlags, ptr %21, i32 0, i32 0
+  %44 = load i32, ptr %43, align 4
+  invoke void @_ZNK7QString5splitERKS_6QFlagsIN2Qt18SplitBehaviorFlagsEENS3_15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QList) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 %44, i32 noundef 1)
+          to label %45 unwind label %68
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef @.str.2)
-          to label %45 unwind label %71
-
-45:                                               ; preds = %44
-  invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %46 unwind label %75
+          to label %46 unwind label %72
 
 46:                                               ; preds = %45
+  invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %47 unwind label %76
+
+47:                                               ; preds = %46
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %47 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
-  %48 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef @.str.3)
-          to label %49 unwind label %71
+  %48 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
+  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef @.str.3)
+          to label %50 unwind label %72
 
-49:                                               ; preds = %46
-  %50 = call noundef zeroext i1 @_ZNK5QListI7QStringE7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
-  br i1 %50, label %83, label %51
+50:                                               ; preds = %47
+  %51 = call noundef zeroext i1 @_ZNK5QListI7QStringE7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
+  br i1 %51, label %84, label %52
 
-51:                                               ; preds = %49
-  %52 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %53 unwind label %71
+52:                                               ; preds = %50
+  %53 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %54 unwind label %72
 
-53:                                               ; preds = %51
-  invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %52)
-          to label %54 unwind label %71
-
-54:                                               ; preds = %53
-  call void @_ZN5QListI7QStringE10removeLastEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.1)
-          to label %55 unwind label %71
+54:                                               ; preds = %52
+  invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %53)
+          to label %55 unwind label %72
 
 55:                                               ; preds = %54
-  invoke void @_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %56 unwind label %79
+  call void @_ZN5QListI7QStringE10removeLastEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.1)
+          to label %56 unwind label %72
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
-  %58 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %23) #8
+  invoke void @_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %57 unwind label %80
+
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
+  %59 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %23) #8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #8
-  br label %83
+  br label %84
 
-59:                                               ; preds = %40, %7
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %41, %7
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %17, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %18, align 4
-  br label %90
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %17, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %18, align 4
+  br label %91
 
-63:                                               ; preds = %36
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %37
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %17, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %18, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %17, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %18, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  br label %90
+  br label %91
 
-67:                                               ; preds = %41
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %42
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %17, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %18, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %17, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %18, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #8
+  br label %91
+
+72:                                               ; preds = %87, %86, %84, %55, %54, %52, %47, %45
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %17, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %18, align 4
   br label %90
 
-71:                                               ; preds = %86, %85, %83, %54, %53, %51, %46, %44
-  %72 = landingpad { ptr, i32 }
+76:                                               ; preds = %46
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %17, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %18, align 4
-  br label %89
-
-75:                                               ; preds = %45
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %17, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %18, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %17, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %18, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  br label %89
+  br label %90
 
-79:                                               ; preds = %55
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %56
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %17, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %18, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %17, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %18, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #8
-  br label %89
+  br label %90
 
-83:                                               ; preds = %56, %49
-  %84 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
-          to label %85 unwind label %71
+84:                                               ; preds = %57, %50
+  %85 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
+          to label %86 unwind label %72
 
-85:                                               ; preds = %83
-  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %84)
-          to label %86 unwind label %71
+86:                                               ; preds = %84
+  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(24) %85)
+          to label %87 unwind label %72
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %13, align 8
-  invoke void @_ZN12FunnelAction23setPacketRequiredFieldsEPKc(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef %87)
-          to label %88 unwind label %71
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %13, align 8
+  invoke void @_ZN12FunnelAction23setPacketRequiredFieldsEPKc(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef %88)
+          to label %89 unwind label %72
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
   ret void
 
-89:                                               ; preds = %79, %75, %71
+90:                                               ; preds = %80, %76, %72
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #8
-  br label %90
-
-90:                                               ; preds = %89, %67, %63, %59
-  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #8
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #8
   br label %91
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %17, align 8
-  %93 = load i32, ptr %18, align 4
-  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
-  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
-  resume { ptr, i32 } %95
+91:                                               ; preds = %90, %68, %64, %60
+  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #8
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #8
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %17, align 8
+  %94 = load i32, ptr %18, align 4
+  %95 = insertvalue { ptr, i32 } poison, ptr %93, 0
+  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
+  resume { ptr, i32 } %96
 }
 
 declare void @_ZNK7QString5splitERKS_6QFlagsIN2Qt18SplitBehaviorFlagsEENS3_15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QList) align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32, i32 noundef) #1
@@ -1998,13 +2001,14 @@ define void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 8
-  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
-  %5 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
-  %6 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 8
+  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %6 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %7 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
   call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret void
 }
@@ -2831,134 +2835,135 @@ define void @_ZN19FunnelConsoleActionC2E7QStringPFiPKcPPcS4_PvEPFvPFvS2_S5_ES5_S
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %14, align 8
   call void @_ZN12FunnelActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef %25)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2), ptr %24, align 8
-  %26 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #8
-  %27 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 2
-  %28 = load ptr, ptr %10, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 3
-  %30 = load ptr, ptr %11, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 4
-  %32 = load ptr, ptr %12, align 8
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 5
-  %34 = load ptr, ptr %13, align 8
-  store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 6
-  call void @_ZN8QPointerI15IOConsoleDialogEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #8
+  %26 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2
+  store ptr %26, ptr %24, align 8
+  %27 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #8
+  %28 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 2
+  %29 = load ptr, ptr %10, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 3
+  %31 = load ptr, ptr %11, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 4
+  %33 = load ptr, ptr %12, align 8
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 5
+  %35 = load ptr, ptr %13, align 8
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 6
+  call void @_ZN8QPointerI15IOConsoleDialogEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef @.str.5)
-          to label %36 unwind label %51
+          to label %37 unwind label %52
 
-36:                                               ; preds = %7
+37:                                               ; preds = %7
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %21, i8 noundef signext 32) #8
-  %37 = getelementptr inbounds %struct.QLatin1Char, ptr %21, i32 0, i32 0
-  %38 = load i8, ptr %37, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %20, i8 %38) #8
-  %39 = getelementptr inbounds %class.QChar, ptr %20, i32 0, i32 0
-  %40 = load i16, ptr %39, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 0, i16 %40)
-          to label %41 unwind label %55
+  %38 = getelementptr inbounds %struct.QLatin1Char, ptr %21, i32 0, i32 0
+  %39 = load i8, ptr %38, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %20, i8 %39) #8
+  %40 = getelementptr inbounds %class.QChar, ptr %20, i32 0, i32 0
+  %41 = load i16, ptr %40, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 0, i16 %41)
+          to label %42 unwind label %56
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   call void @_ZN5QCharC2Ec(ptr noundef nonnull align 2 dereferenceable(2) %22, i8 noundef signext 38) #8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef @.str)
-          to label %42 unwind label %59
+          to label %43 unwind label %60
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds %class.QChar, ptr %22, i32 0, i32 0
-  %44 = load i16, ptr %43, align 2
-  %45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %16, i16 %44, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 1)
-          to label %46 unwind label %63
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds %class.QChar, ptr %22, i32 0, i32 0
+  %45 = load i16, ptr %44, align 2
+  %46 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %16, i16 %45, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 1)
+          to label %47 unwind label %64
 
-46:                                               ; preds = %42
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %45) #8
+47:                                               ; preds = %43
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %46) #8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %47 unwind label %69
+          to label %48 unwind label %70
 
-47:                                               ; preds = %46
-  %48 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
-          to label %49 unwind label %69
+48:                                               ; preds = %47
+  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN16FunnelStatistics10actionNameEv()
+          to label %50 unwind label %70
 
-49:                                               ; preds = %47
-  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(24) %48)
-          to label %50 unwind label %69
+50:                                               ; preds = %48
+  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(24) %49)
+          to label %51 unwind label %70
 
-50:                                               ; preds = %49
+51:                                               ; preds = %50
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
   ret void
 
-51:                                               ; preds = %7
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %7
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %18, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %19, align 4
-  br label %73
-
-55:                                               ; preds = %36
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %18, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %19, align 4
-  br label %68
-
-59:                                               ; preds = %41
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %18, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %19, align 4
-  br label %67
-
-63:                                               ; preds = %42
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %18, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %19, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #8
-  br label %67
-
-67:                                               ; preds = %63, %59
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  br label %68
-
-68:                                               ; preds = %67, %55
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
-  br label %73
-
-69:                                               ; preds = %49, %47, %46
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %18, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %19, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
-  br label %73
-
-73:                                               ; preds = %69, %68, %51
-  call void @_ZN8QPointerI15IOConsoleDialogED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #8
-  call void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %24) #8
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %18, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %19, align 4
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %18, align 8
-  %76 = load i32, ptr %19, align 4
-  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
-  resume { ptr, i32 } %78
+56:                                               ; preds = %37
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %18, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %19, align 4
+  br label %69
+
+60:                                               ; preds = %42
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %18, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %19, align 4
+  br label %68
+
+64:                                               ; preds = %43
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %18, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %19, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #8
+  br label %68
+
+68:                                               ; preds = %64, %60
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  br label %69
+
+69:                                               ; preds = %68, %56
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
+  br label %74
+
+70:                                               ; preds = %50, %48, %47
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %18, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %19, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
+  br label %74
+
+74:                                               ; preds = %70, %69, %52
+  call void @_ZN8QPointerI15IOConsoleDialogED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #8
+  call void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %24) #8
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %18, align 8
+  %77 = load i32, ptr %19, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3015,11 +3020,12 @@ define void @_ZN19FunnelConsoleActionD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 6
-  call void @_ZN8QPointerI15IOConsoleDialogED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
-  %5 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 6
+  call void @_ZN8QPointerI15IOConsoleDialogED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %6 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
   call void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #8
   ret void
 }
@@ -3306,177 +3312,178 @@ define void @_ZN16FunnelStatisticsC2EP7QObjectR11CaptureFile(ptr noundef nonnull
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 3
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 4
-  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
-  %14 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 5
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 232) #20
-          to label %16 unwind label %118
+  %11 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 3
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 4
+  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %15 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 5
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 232) #20
+          to label %17 unwind label %119
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  store ptr %15, ptr %17, align 8
+17:                                               ; preds = %3
   %18 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 232, i1 false)
-  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #20
-          to label %21 unwind label %118
+  store ptr %16, ptr %18, align 8
+  %19 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 232, i1 false)
+  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #20
+          to label %22 unwind label %119
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 2
-  store ptr %20, ptr %22, align 8
+22:                                               ; preds = %17
   %23 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct._funnel_ops_id_t, ptr %24, i32 0, i32 0
-  store ptr %9, ptr %25, align 8
-  %26 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._funnel_ops_t, ptr %29, i32 0, i32 0
-  store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct._funnel_ops_t, ptr %32, i32 0, i32 1
-  store ptr @_ZL15text_window_newP16_funnel_ops_id_tPKc, ptr %33, align 8
-  %34 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct._funnel_ops_t, ptr %35, i32 0, i32 2
-  store ptr @text_window_set_text, ptr %36, align 8
-  %37 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._funnel_ops_t, ptr %38, i32 0, i32 3
-  store ptr @text_window_append, ptr %39, align 8
-  %40 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._funnel_ops_t, ptr %41, i32 0, i32 4
-  store ptr @text_window_prepend, ptr %42, align 8
-  %43 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._funnel_ops_t, ptr %44, i32 0, i32 5
-  store ptr @text_window_clear, ptr %45, align 8
-  %46 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._funnel_ops_t, ptr %47, i32 0, i32 6
-  store ptr @text_window_get_text, ptr %48, align 8
-  %49 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._funnel_ops_t, ptr %50, i32 0, i32 7
-  store ptr @text_window_set_close_cb, ptr %51, align 8
-  %52 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct._funnel_ops_t, ptr %53, i32 0, i32 8
-  store ptr @text_window_set_editable, ptr %54, align 8
-  %55 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._funnel_ops_t, ptr %56, i32 0, i32 9
-  store ptr @text_window_destroy, ptr %57, align 8
-  %58 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct._funnel_ops_t, ptr %59, i32 0, i32 10
-  store ptr @text_window_add_button, ptr %60, align 8
-  %61 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct._funnel_ops_t, ptr %62, i32 0, i32 11
-  store ptr @_ZL17string_dialog_newP16_funnel_ops_id_tPKcPS2_S3_PFvPPcPvES6_PFvS6_E, ptr %63, align 8
-  %64 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct._funnel_ops_t, ptr %65, i32 0, i32 12
-  store ptr @string_dialogs_close, ptr %66, align 8
-  %67 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct._funnel_ops_t, ptr %68, i32 0, i32 13
-  store ptr @_ZL31funnel_statistics_retap_packetsP16_funnel_ops_id_t, ptr %69, align 8
-  %70 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct._funnel_ops_t, ptr %71, i32 0, i32 14
-  store ptr @_ZL35funnel_statistics_copy_to_clipboardP8_GString, ptr %72, align 8
-  %73 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._funnel_ops_t, ptr %74, i32 0, i32 15
-  store ptr @_ZL28funnel_statistics_get_filterP16_funnel_ops_id_t, ptr %75, align 8
-  %76 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct._funnel_ops_t, ptr %77, i32 0, i32 16
-  store ptr @_ZL28funnel_statistics_set_filterP16_funnel_ops_id_tPKc, ptr %78, align 8
-  %79 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct._funnel_ops_t, ptr %80, i32 0, i32 17
-  store ptr @_ZL39funnel_statistics_get_color_filter_sloth, ptr %81, align 8
-  %82 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct._funnel_ops_t, ptr %83, i32 0, i32 18
-  store ptr @_ZL39funnel_statistics_set_color_filter_slothPKc, ptr %84, align 8
-  %85 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct._funnel_ops_t, ptr %86, i32 0, i32 19
-  store ptr @_ZL27funnel_statistics_open_fileP16_funnel_ops_id_tPKcS2_PPc, ptr %87, align 8
-  %88 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct._funnel_ops_t, ptr %89, i32 0, i32 20
-  store ptr @_ZL32funnel_statistics_reload_packetsP16_funnel_ops_id_t, ptr %90, align 8
-  %91 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct._funnel_ops_t, ptr %92, i32 0, i32 21
-  store ptr @_ZL35funnel_statistics_redissect_packetsP16_funnel_ops_id_t, ptr %93, align 8
-  %94 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._funnel_ops_t, ptr %95, i32 0, i32 22
-  store ptr @_ZL36funnel_statistics_reload_lua_pluginsP16_funnel_ops_id_t, ptr %96, align 8
-  %97 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._funnel_ops_t, ptr %98, i32 0, i32 23
-  store ptr @_ZL30funnel_statistics_apply_filterP16_funnel_ops_id_t, ptr %99, align 8
-  %100 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %struct._funnel_ops_t, ptr %101, i32 0, i32 24
-  store ptr @_ZL16browser_open_urlPKc, ptr %102, align 8
-  %103 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %struct._funnel_ops_t, ptr %104, i32 0, i32 25
-  store ptr @_ZL22browser_open_data_filePKc, ptr %105, align 8
-  %106 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct._funnel_ops_t, ptr %107, i32 0, i32 26
-  store ptr @_ZL19progress_window_newP16_funnel_ops_id_tPKcS2_iPi, ptr %108, align 8
-  %109 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct._funnel_ops_t, ptr %110, i32 0, i32 27
-  store ptr @_ZL22progress_window_updateP7progdlgfPKc, ptr %111, align 8
-  %112 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct._funnel_ops_t, ptr %113, i32 0, i32 28
-  store ptr @_ZL23progress_window_destroyP7progdlg, ptr %114, align 8
-  %115 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  invoke void @funnel_set_funnel_ops(ptr noundef %116)
-          to label %117 unwind label %118
+  store ptr %21, ptr %23, align 8
+  %24 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct._funnel_ops_id_t, ptr %25, i32 0, i32 0
+  store ptr %9, ptr %26, align 8
+  %27 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct._funnel_ops_t, ptr %30, i32 0, i32 0
+  store ptr %28, ptr %31, align 8
+  %32 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct._funnel_ops_t, ptr %33, i32 0, i32 1
+  store ptr @_ZL15text_window_newP16_funnel_ops_id_tPKc, ptr %34, align 8
+  %35 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct._funnel_ops_t, ptr %36, i32 0, i32 2
+  store ptr @text_window_set_text, ptr %37, align 8
+  %38 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._funnel_ops_t, ptr %39, i32 0, i32 3
+  store ptr @text_window_append, ptr %40, align 8
+  %41 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct._funnel_ops_t, ptr %42, i32 0, i32 4
+  store ptr @text_window_prepend, ptr %43, align 8
+  %44 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._funnel_ops_t, ptr %45, i32 0, i32 5
+  store ptr @text_window_clear, ptr %46, align 8
+  %47 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._funnel_ops_t, ptr %48, i32 0, i32 6
+  store ptr @text_window_get_text, ptr %49, align 8
+  %50 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._funnel_ops_t, ptr %51, i32 0, i32 7
+  store ptr @text_window_set_close_cb, ptr %52, align 8
+  %53 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct._funnel_ops_t, ptr %54, i32 0, i32 8
+  store ptr @text_window_set_editable, ptr %55, align 8
+  %56 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct._funnel_ops_t, ptr %57, i32 0, i32 9
+  store ptr @text_window_destroy, ptr %58, align 8
+  %59 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct._funnel_ops_t, ptr %60, i32 0, i32 10
+  store ptr @text_window_add_button, ptr %61, align 8
+  %62 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %struct._funnel_ops_t, ptr %63, i32 0, i32 11
+  store ptr @_ZL17string_dialog_newP16_funnel_ops_id_tPKcPS2_S3_PFvPPcPvES6_PFvS6_E, ptr %64, align 8
+  %65 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct._funnel_ops_t, ptr %66, i32 0, i32 12
+  store ptr @string_dialogs_close, ptr %67, align 8
+  %68 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %struct._funnel_ops_t, ptr %69, i32 0, i32 13
+  store ptr @_ZL31funnel_statistics_retap_packetsP16_funnel_ops_id_t, ptr %70, align 8
+  %71 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct._funnel_ops_t, ptr %72, i32 0, i32 14
+  store ptr @_ZL35funnel_statistics_copy_to_clipboardP8_GString, ptr %73, align 8
+  %74 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct._funnel_ops_t, ptr %75, i32 0, i32 15
+  store ptr @_ZL28funnel_statistics_get_filterP16_funnel_ops_id_t, ptr %76, align 8
+  %77 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct._funnel_ops_t, ptr %78, i32 0, i32 16
+  store ptr @_ZL28funnel_statistics_set_filterP16_funnel_ops_id_tPKc, ptr %79, align 8
+  %80 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct._funnel_ops_t, ptr %81, i32 0, i32 17
+  store ptr @_ZL39funnel_statistics_get_color_filter_sloth, ptr %82, align 8
+  %83 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds %struct._funnel_ops_t, ptr %84, i32 0, i32 18
+  store ptr @_ZL39funnel_statistics_set_color_filter_slothPKc, ptr %85, align 8
+  %86 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct._funnel_ops_t, ptr %87, i32 0, i32 19
+  store ptr @_ZL27funnel_statistics_open_fileP16_funnel_ops_id_tPKcS2_PPc, ptr %88, align 8
+  %89 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct._funnel_ops_t, ptr %90, i32 0, i32 20
+  store ptr @_ZL32funnel_statistics_reload_packetsP16_funnel_ops_id_t, ptr %91, align 8
+  %92 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct._funnel_ops_t, ptr %93, i32 0, i32 21
+  store ptr @_ZL35funnel_statistics_redissect_packetsP16_funnel_ops_id_t, ptr %94, align 8
+  %95 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds %struct._funnel_ops_t, ptr %96, i32 0, i32 22
+  store ptr @_ZL36funnel_statistics_reload_lua_pluginsP16_funnel_ops_id_t, ptr %97, align 8
+  %98 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct._funnel_ops_t, ptr %99, i32 0, i32 23
+  store ptr @_ZL30funnel_statistics_apply_filterP16_funnel_ops_id_t, ptr %100, align 8
+  %101 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds %struct._funnel_ops_t, ptr %102, i32 0, i32 24
+  store ptr @_ZL16browser_open_urlPKc, ptr %103, align 8
+  %104 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds %struct._funnel_ops_t, ptr %105, i32 0, i32 25
+  store ptr @_ZL22browser_open_data_filePKc, ptr %106, align 8
+  %107 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct._funnel_ops_t, ptr %108, i32 0, i32 26
+  store ptr @_ZL19progress_window_newP16_funnel_ops_id_tPKcS2_iPi, ptr %109, align 8
+  %110 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct._funnel_ops_t, ptr %111, i32 0, i32 27
+  store ptr @_ZL22progress_window_updateP7progdlgfPKc, ptr %112, align 8
+  %113 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %struct._funnel_ops_t, ptr %114, i32 0, i32 28
+  store ptr @_ZL23progress_window_destroyP7progdlg, ptr %115, align 8
+  %116 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8
+  invoke void @funnel_set_funnel_ops(ptr noundef %117)
+          to label %118 unwind label %119
 
-117:                                              ; preds = %21
+118:                                              ; preds = %22
   ret void
 
-118:                                              ; preds = %21, %16, %3
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %22, %17, %3
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %7, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %7, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
-  br label %122
+  br label %123
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %7, align 8
-  %124 = load i32, ptr %8, align 4
-  %125 = insertvalue { ptr, i32 } poison, ptr %123, 0
-  %126 = insertvalue { ptr, i32 } %125, i32 %124, 1
-  resume { ptr, i32 } %126
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
+  resume { ptr, i32 } %127
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -4343,17 +4350,18 @@ define void @_ZN16FunnelStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 8, i1 false)
-  %6 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 232, i1 false)
-  %8 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 5
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
-  %9 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 4
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 8, i1 false)
+  %7 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 232, i1 false)
+  %9 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 5
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 4
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret void
 }

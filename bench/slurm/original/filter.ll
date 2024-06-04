@@ -10,34 +10,37 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @filter_job_list(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 17), align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 17
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 18), align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %11, label %8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 18
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %14, label %10
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 19), align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %14
-
-11:                                               ; preds = %8, %5, %1
-  %12 = load ptr, ptr %2, align 8
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 19
+  %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
+  br i1 %13, label %14, label %17
 
-14:                                               ; preds = %11, %8
-  br label %18
+14:                                               ; preds = %10, %6, %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %2, align 8
-  %17 = call i32 @list_delete_all(ptr noundef %16, ptr noundef @_filter_job, ptr noundef null)
-  br label %18
+17:                                               ; preds = %14, %10
+  br label %21
 
-18:                                               ; preds = %15, %14
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %2, align 8
+  %20 = call i32 @list_delete_all(ptr noundef %19, ptr noundef @_filter_job, ptr noundef null)
+  br label %21
+
+21:                                               ; preds = %18, %17
   ret void
 }
 
@@ -53,73 +56,79 @@ define internal i32 @_filter_job(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 17), align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %18
+  %8 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 17
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %20
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 17), align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.priority_factors_object, ptr %12, i32 0, i32 3
-  %14 = call ptr @list_find_first(ptr noundef %11, ptr noundef @_list_find_job_id, ptr noundef %13)
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %17, label %16
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 17
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds %struct.priority_factors_object, ptr %14, i32 0, i32 3
+  %16 = call ptr @list_find_first(ptr noundef %13, ptr noundef @_list_find_job_id, ptr noundef %15)
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-16:                                               ; preds = %10
+18:                                               ; preds = %11
   store i32 1, ptr %3, align 4
-  br label %42
+  br label %48
 
-17:                                               ; preds = %10
-  br label %18
+19:                                               ; preds = %11
+  br label %20
 
-18:                                               ; preds = %17, %2
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 19), align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %29
+20:                                               ; preds = %19, %2
+  %21 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 19
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %33
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 19), align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.priority_factors_object, ptr %23, i32 0, i32 7
-  %25 = call ptr @list_find_first(ptr noundef %22, ptr noundef @_list_find_user, ptr noundef %24)
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 19
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 7
+  %29 = call ptr @list_find_first(ptr noundef %26, ptr noundef @_list_find_user, ptr noundef %28)
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %32, label %31
 
-27:                                               ; preds = %21
+31:                                               ; preds = %24
   store i32 1, ptr %3, align 4
-  br label %42
+  br label %48
 
-28:                                               ; preds = %21
-  br label %29
+32:                                               ; preds = %24
+  br label %33
 
-29:                                               ; preds = %28, %18
-  %30 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 18), align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %41
+33:                                               ; preds = %32, %20
+  %34 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 18
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %47
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 18), align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.priority_factors_object, ptr %34, i32 0, i32 4
-  %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @list_find_first(ptr noundef %33, ptr noundef @_list_find_part, ptr noundef %36)
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %40, label %39
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 18
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.priority_factors_object, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @list_find_first(ptr noundef %39, ptr noundef @_list_find_part, ptr noundef %42)
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %46, label %45
 
-39:                                               ; preds = %32
+45:                                               ; preds = %37
   store i32 1, ptr %3, align 4
-  br label %42
+  br label %48
 
-40:                                               ; preds = %32
-  br label %41
+46:                                               ; preds = %37
+  br label %47
 
-41:                                               ; preds = %40, %29
+47:                                               ; preds = %46, %33
   store i32 0, ptr %3, align 4
-  br label %42
+  br label %48
 
-42:                                               ; preds = %41, %39, %27, %16
-  %43 = load i32, ptr %3, align 4
-  ret i32 %43
+48:                                               ; preds = %47, %45, %31, %18
+  %49 = load i32, ptr %3, align 4
+  ret i32 %49
 }
 
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) #1

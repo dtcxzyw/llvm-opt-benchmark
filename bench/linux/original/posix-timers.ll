@@ -1028,7 +1028,7 @@ define internal fastcc noundef i64 @__se_sys_timer_delete(i64 noundef %0) unname
   store i64 0, ptr %2, align 8, !annotation !5
   %4 = call fastcc ptr @__lock_timer(i32 noundef %3, ptr noundef nonnull %2)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %50, label %6
+  br i1 %5, label %53, label %6
 
 6:                                                ; preds = %21, %1
   %7 = phi ptr [ %22, %21 ], [ %4, %1 ]
@@ -1061,7 +1061,7 @@ define internal fastcc noundef i64 @__se_sys_timer_delete(i64 noundef %0) unname
 21:                                               ; preds = %18
   %22 = call fastcc ptr @timer_wait_running(ptr noundef nonnull %7, ptr noundef nonnull %2)
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %50, label %6
+  br i1 %23, label %53, label %6
 
 24:                                               ; preds = %18
   %25 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
@@ -1075,46 +1075,49 @@ define internal fastcc noundef i64 @__se_sys_timer_delete(i64 noundef %0) unname
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %32, align 8
   store volatile ptr %31, ptr %30, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %29, align 8
-  %33 = load ptr, ptr %27, align 32
-  tail call void @_raw_spin_unlock(ptr noundef %33) #8
-  %34 = getelementptr inbounds i8, ptr %7, i64 96
-  store volatile ptr null, ptr %34, align 8
-  %35 = load i64, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %36, i64 noundef %35) #8
+  %33 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %33, ptr %7, align 8
+  %34 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %34, ptr %29, align 8
+  %35 = load ptr, ptr %27, align 32
+  tail call void @_raw_spin_unlock(ptr noundef %35) #8
+  %36 = getelementptr inbounds i8, ptr %7, i64 96
+  store volatile ptr null, ptr %36, align 8
+  %37 = load i64, ptr %2, align 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 32
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %37) #8
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #8
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 24
+  %39 = getelementptr inbounds i8, ptr %7, i64 16
   %40 = load ptr, ptr %39, align 8
-  store volatile ptr %38, ptr %40, align 8
-  %41 = icmp eq ptr %38, null
-  br i1 %41, label %44, label %42
+  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  %42 = load ptr, ptr %41, align 8
+  store volatile ptr %40, ptr %42, align 8
+  %43 = icmp eq ptr %40, null
+  br i1 %43, label %46, label %44
 
-42:                                               ; preds = %24
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
-  store volatile ptr %40, ptr %43, align 8
-  br label %44
+44:                                               ; preds = %24
+  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  store volatile ptr %42, ptr %45, align 8
+  br label %46
 
-44:                                               ; preds = %42, %24
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %39, align 8
+46:                                               ; preds = %44, %24
+  %47 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %47, ptr %41, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #8
-  %45 = getelementptr inbounds i8, ptr %7, i64 104
-  %46 = load ptr, ptr %45, align 8
-  tail call void @put_pid(ptr noundef %46) #8
-  %47 = getelementptr inbounds i8, ptr %7, i64 112
-  %48 = load ptr, ptr %47, align 8
-  tail call void @sigqueue_free(ptr noundef %48) #8
-  %49 = getelementptr inbounds i8, ptr %7, i64 240
-  tail call void @call_rcu(ptr noundef %49, ptr noundef nonnull @k_itimer_rcu_free) #8
-  br label %50
+  %48 = getelementptr inbounds i8, ptr %7, i64 104
+  %49 = load ptr, ptr %48, align 8
+  tail call void @put_pid(ptr noundef %49) #8
+  %50 = getelementptr inbounds i8, ptr %7, i64 112
+  %51 = load ptr, ptr %50, align 8
+  tail call void @sigqueue_free(ptr noundef %51) #8
+  %52 = getelementptr inbounds i8, ptr %7, i64 240
+  tail call void @call_rcu(ptr noundef %52, ptr noundef nonnull @k_itimer_rcu_free) #8
+  br label %53
 
-50:                                               ; preds = %44, %21, %1
-  %51 = phi i64 [ 0, %44 ], [ -22, %1 ], [ -22, %21 ]
+53:                                               ; preds = %46, %21, %1
+  %54 = phi i64 [ 0, %46 ], [ -22, %1 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  ret i64 %51
+  ret i64 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1137,7 +1140,7 @@ define dso_local void @exit_itimers(ptr nocapture noundef readonly %0) local_unn
   %6 = getelementptr inbounds i8, ptr %5, i64 136
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %77, label %9
+  br i1 %8, label %80, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 1888
@@ -1160,10 +1163,10 @@ define dso_local void @exit_itimers(ptr nocapture noundef readonly %0) local_unn
   call void @_raw_spin_unlock_irq(ptr noundef %19) #8
   %20 = load volatile ptr, ptr %3, align 8
   %21 = icmp eq ptr %20, %3
-  br i1 %21, label %77, label %22
+  br i1 %21, label %80, label %22
 
-22:                                               ; preds = %74, %9
-  %23 = phi ptr [ %75, %74 ], [ %20, %9 ]
+22:                                               ; preds = %77, %9
+  %23 = phi ptr [ %78, %77 ], [ %20, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store i64 0, ptr %2, align 8, !annotation !5
   %24 = getelementptr inbounds i8, ptr %23, i64 32
@@ -1230,7 +1233,7 @@ define dso_local void @exit_itimers(ptr nocapture noundef readonly %0) local_unn
   call void asm sideeffect "404: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 404b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 404) #8, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1069, i32 2307, i64 12) #8, !srcloc !25
   call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_end\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #8, !srcloc !26
-  br label %74
+  br label %77
 
 54:                                               ; preds = %38
   %55 = getelementptr inbounds i8, ptr %23, i64 8
@@ -1239,46 +1242,49 @@ define dso_local void @exit_itimers(ptr nocapture noundef readonly %0) local_unn
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8
   store volatile ptr %57, ptr %56, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %23, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %55, align 8
-  %59 = getelementptr inbounds i8, ptr %23, i64 96
-  store volatile ptr null, ptr %59, align 8
-  %60 = load i64, ptr %2, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %24, i64 noundef %60) #8
+  %59 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %59, ptr %23, align 8
+  %60 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %60, ptr %55, align 8
+  %61 = getelementptr inbounds i8, ptr %23, i64 96
+  store volatile ptr null, ptr %61, align 8
+  %62 = load i64, ptr %2, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %24, i64 noundef %62) #8
   call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #8
-  %61 = getelementptr inbounds i8, ptr %23, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %23, i64 24
+  %63 = getelementptr inbounds i8, ptr %23, i64 16
   %64 = load ptr, ptr %63, align 8
-  store volatile ptr %62, ptr %64, align 8
-  %65 = icmp eq ptr %62, null
-  br i1 %65, label %68, label %66
+  %65 = getelementptr inbounds i8, ptr %23, i64 24
+  %66 = load ptr, ptr %65, align 8
+  store volatile ptr %64, ptr %66, align 8
+  %67 = icmp eq ptr %64, null
+  br i1 %67, label %70, label %68
 
-66:                                               ; preds = %54
-  %67 = getelementptr inbounds i8, ptr %62, i64 8
-  store volatile ptr %64, ptr %67, align 8
-  br label %68
+68:                                               ; preds = %54
+  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  store volatile ptr %66, ptr %69, align 8
+  br label %70
 
-68:                                               ; preds = %66, %54
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %63, align 8
+70:                                               ; preds = %68, %54
+  %71 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %71, ptr %65, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #8
-  %69 = getelementptr inbounds i8, ptr %23, i64 104
-  %70 = load ptr, ptr %69, align 8
-  call void @put_pid(ptr noundef %70) #8
-  %71 = getelementptr inbounds i8, ptr %23, i64 112
-  %72 = load ptr, ptr %71, align 8
-  call void @sigqueue_free(ptr noundef %72) #8
-  %73 = getelementptr inbounds i8, ptr %23, i64 240
-  call void @call_rcu(ptr noundef %73, ptr noundef nonnull @k_itimer_rcu_free) #8
-  br label %74
+  %72 = getelementptr inbounds i8, ptr %23, i64 104
+  %73 = load ptr, ptr %72, align 8
+  call void @put_pid(ptr noundef %73) #8
+  %74 = getelementptr inbounds i8, ptr %23, i64 112
+  %75 = load ptr, ptr %74, align 8
+  call void @sigqueue_free(ptr noundef %75) #8
+  %76 = getelementptr inbounds i8, ptr %23, i64 240
+  call void @call_rcu(ptr noundef %76, ptr noundef nonnull @k_itimer_rcu_free) #8
+  br label %77
 
-74:                                               ; preds = %68, %53
+77:                                               ; preds = %70, %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  %75 = load volatile ptr, ptr %3, align 8
-  %76 = icmp eq ptr %75, %3
-  br i1 %76, label %77, label %22, !llvm.loop !27
+  %78 = load volatile ptr, ptr %3, align 8
+  %79 = icmp eq ptr %78, %3
+  br i1 %79, label %80, label %22, !llvm.loop !27
 
-77:                                               ; preds = %74, %9, %1
+80:                                               ; preds = %77, %9, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret void
 }
@@ -2756,13 +2762,13 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   store i32 0, ptr %4, align 4, !annotation !5
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %229, label %23
+  br i1 %22, label %230, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %21, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %229, label %27
+  br i1 %26, label %230, label %27
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr @posix_timers_cache, align 8
@@ -2790,7 +2796,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
 39:                                               ; preds = %37, %35, %27
   %40 = phi ptr [ null, %35 ], [ %29, %37 ], [ null, %27 ]
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %229, label %42, !prof !11
+  br i1 %41, label %230, label %42, !prof !11
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %40, i64 32
@@ -2893,7 +2899,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %105 = getelementptr inbounds i8, ptr %40, i64 240
   tail call void @call_rcu(ptr noundef %105, ptr noundef nonnull @k_itimer_rcu_free) #8
   %106 = load i32, ptr %4, align 4
-  br label %229
+  br label %230
 
 107:                                              ; preds = %97
   %108 = getelementptr inbounds i8, ptr %40, i64 52
@@ -3071,7 +3077,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   store volatile ptr %40, ptr %209, align 8
   %213 = load ptr, ptr %204, align 32
   call void @_raw_spin_unlock_irq(ptr noundef %213) #8
-  br label %229
+  br label %230
 
 214:                                              ; preds = %199, %190, %150
   %215 = phi i32 [ %201, %199 ], [ -22, %150 ], [ -14, %190 ]
@@ -3090,22 +3096,23 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   br label %223
 
 223:                                              ; preds = %221, %214
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %218, align 8
+  %224 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %224, ptr %218, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #8
-  %224 = getelementptr inbounds i8, ptr %40, i64 104
-  %225 = load ptr, ptr %224, align 8
-  call void @put_pid(ptr noundef %225) #8
-  %226 = getelementptr inbounds i8, ptr %40, i64 112
-  %227 = load ptr, ptr %226, align 8
-  call void @sigqueue_free(ptr noundef %227) #8
-  %228 = getelementptr inbounds i8, ptr %40, i64 240
-  call void @call_rcu(ptr noundef %228, ptr noundef nonnull @k_itimer_rcu_free) #8
-  br label %229
+  %225 = getelementptr inbounds i8, ptr %40, i64 104
+  %226 = load ptr, ptr %225, align 8
+  call void @put_pid(ptr noundef %226) #8
+  %227 = getelementptr inbounds i8, ptr %40, i64 112
+  %228 = load ptr, ptr %227, align 8
+  call void @sigqueue_free(ptr noundef %228) #8
+  %229 = getelementptr inbounds i8, ptr %40, i64 240
+  call void @call_rcu(ptr noundef %229, ptr noundef nonnull @k_itimer_rcu_free) #8
+  br label %230
 
-229:                                              ; preds = %223, %203, %100, %39, %23, %20
-  %230 = phi i32 [ %106, %100 ], [ %215, %223 ], [ 0, %203 ], [ -22, %20 ], [ -95, %23 ], [ -11, %39 ]
+230:                                              ; preds = %223, %203, %100, %39, %23, %20
+  %231 = phi i32 [ %106, %100 ], [ %215, %223 ], [ 0, %203 ], [ -22, %20 ], [ -95, %23 ], [ -11, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  ret i32 %230
+  ret i32 %231
 }
 
 ; Function Attrs: null_pointer_is_valid

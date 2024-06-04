@@ -3714,7 +3714,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
     i64 1, label %46
   ]
 
-36:                                               ; preds = %94, %92, %22
+36:                                               ; preds = %95, %92, %22
   %37 = getelementptr inbounds { i64, ptr }, ptr %14, i32 0, i32 0
   %38 = load i64, ptr %37, align 8, !range !10, !noundef !5
   %39 = getelementptr inbounds { i64, ptr }, ptr %14, i32 0, i32 1
@@ -3736,7 +3736,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 46:                                               ; preds = %24
   store i64 1, ptr %14, align 8
-  br label %94
+  br label %95
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds { [1 x i64], i64 }, ptr %10, i32 0, i32 1
@@ -3793,7 +3793,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
   store ptr %72, ptr %73, align 8
   store i64 0, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr %5)
-  br label %94
+  br label %95
 
 74:                                               ; preds = %58
   call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.85d4489b4372968337c065b78c9ca5ea.29, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85d4489b4372968337c065b78c9ca5ea.31) #10
@@ -3830,11 +3830,12 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 92:                                               ; preds = %75
   %93 = getelementptr inbounds { i64, ptr }, ptr %14, i32 0, i32 1
-  store ptr inttoptr (i64 98784247811 to ptr), ptr %93, align 8
+  %94 = inttoptr i64 98784247811 to ptr
+  store ptr %94, ptr %93, align 8
   store i64 0, ptr %14, align 8
   br label %36
 
-94:                                               ; preds = %68, %46
+95:                                               ; preds = %68, %46
   call void @llvm.lifetime.end.p0(i64 16, ptr %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr %13)
   br label %36

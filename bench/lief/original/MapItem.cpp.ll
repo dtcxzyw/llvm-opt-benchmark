@@ -47,7 +47,8 @@ define void @_ZN4LIEF3DEX7MapItemC2Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -62,11 +63,12 @@ define void @_ZN4LIEF3DEX7MapItemC2ERKS1_(ptr noundef nonnull align 8 dereferenc
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 12, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 12, i1 false)
   ret void
 }
 
@@ -107,19 +109,20 @@ define void @_ZN4LIEF3DEX7MapItemC2ENS1_5TYPESEjjt(ptr noundef nonnull align 8 d
   store i16 %4, ptr %10, align 2
   %11 = load ptr, ptr %6, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %7, align 2
-  store i16 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 2
-  %15 = load i16, ptr %10, align 2
-  store i16 %15, ptr %14, align 2
-  %16 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 3
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 4
-  %19 = load i32, ptr %8, align 4
-  store i32 %19, ptr %18, align 8
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX7MapItemE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 1
+  %14 = load i16, ptr %7, align 2
+  store i16 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 2
+  %16 = load i16, ptr %10, align 2
+  store i16 %16, ptr %15, align 2
+  %17 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 3
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.LIEF::DEX::MapItem", ptr %11, i32 0, i32 4
+  %20 = load i32, ptr %8, align 4
+  store i32 %20, ptr %19, align 8
   ret void
 }
 

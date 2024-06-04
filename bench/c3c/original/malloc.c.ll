@@ -81,14 +81,16 @@ define dso_local ptr @calloc_arena(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @print_arena_status() #0 {
   %1 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  %2 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i32 0, i32 1), align 8
-  %3 = udiv i64 %2, 1024
-  %4 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i64 noundef %3)
-  %5 = load i32, ptr @allocations_done, align 4
-  %6 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %5)
-  %7 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @char_arena, i32 0, i32 1), align 8
-  %8 = udiv i64 %7, 1024
-  %9 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i64 noundef %8)
+  %2 = getelementptr inbounds %struct.Vmem, ptr @arena, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = udiv i64 %3, 1024
+  %5 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i64 noundef %4)
+  %6 = load i32, ptr @allocations_done, align 4
+  %7 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %6)
+  %8 = getelementptr inbounds %struct.Vmem, ptr @char_arena, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %10 = udiv i64 %9, 1024
+  %11 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i64 noundef %10)
   ret void
 }
 
@@ -142,93 +144,96 @@ define dso_local void @run_arena_allocator_tests() #0 {
   %19 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
   br label %20
 
-20:                                               ; preds = %26, %18
-  %21 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i32 0, i32 1), align 8
-  %22 = icmp eq i64 %21, 48
-  %23 = xor i1 %22, true
-  br i1 %23, label %24, label %27
+20:                                               ; preds = %27, %18
+  %21 = getelementptr inbounds %struct.Vmem, ptr @arena, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp eq i64 %22, 48
+  %24 = xor i1 %23, true
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %20
-  br label %25
+25:                                               ; preds = %20
+  br label %26
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void (ptr, ...) @error_exit(ptr noundef @.str.5, ptr noundef @.str.9, ptr noundef @__func__.run_arena_allocator_tests, ptr noundef @.str.7, i32 noundef 74) #5
   unreachable
 
-26:                                               ; No predecessors!
+27:                                               ; No predecessors!
   br label %20, !llvm.loop !9
 
-27:                                               ; preds = %20
-  %28 = call ptr @calloc_arena(i64 noundef 1)
-  br label %29
+28:                                               ; preds = %20
+  %29 = call ptr @calloc_arena(i64 noundef 1)
+  br label %30
 
-29:                                               ; preds = %35, %27
-  %30 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i32 0, i32 1), align 8
-  %31 = icmp eq i64 %30, 64
-  %32 = xor i1 %31, true
-  br i1 %32, label %33, label %36
+30:                                               ; preds = %37, %28
+  %31 = getelementptr inbounds %struct.Vmem, ptr @arena, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp eq i64 %32, 64
+  %34 = xor i1 %33, true
+  br i1 %34, label %35, label %38
 
-33:                                               ; preds = %29
-  br label %34
+35:                                               ; preds = %30
+  br label %36
 
-34:                                               ; preds = %33
+36:                                               ; preds = %35
   call void (ptr, ...) @error_exit(ptr noundef @.str.5, ptr noundef @.str.9, ptr noundef @__func__.run_arena_allocator_tests, ptr noundef @.str.7, i32 noundef 76) #5
   unreachable
 
-35:                                               ; No predecessors!
-  br label %29, !llvm.loop !10
+37:                                               ; No predecessors!
+  br label %30, !llvm.loop !10
 
-36:                                               ; preds = %29
-  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %38
+38:                                               ; preds = %30
+  %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+  br label %40
 
-38:                                               ; preds = %44, %36
-  %39 = call ptr @calloc_arena(i64 noundef 1048576)
-  %40 = icmp ne ptr %39, null
-  %41 = xor i1 %40, true
-  br i1 %41, label %42, label %45
+40:                                               ; preds = %46, %38
+  %41 = call ptr @calloc_arena(i64 noundef 1048576)
+  %42 = icmp ne ptr %41, null
+  %43 = xor i1 %42, true
+  br i1 %43, label %44, label %47
 
-42:                                               ; preds = %38
-  br label %43
+44:                                               ; preds = %40
+  br label %45
 
-43:                                               ; preds = %42
+45:                                               ; preds = %44
   call void (ptr, ...) @error_exit(ptr noundef @.str.5, ptr noundef @.str.11, ptr noundef @__func__.run_arena_allocator_tests, ptr noundef @.str.7, i32 noundef 78) #5
   unreachable
 
-44:                                               ; No predecessors!
-  br label %38, !llvm.loop !11
+46:                                               ; No predecessors!
+  br label %40, !llvm.loop !11
 
-45:                                               ; preds = %38
+47:                                               ; preds = %40
   call void @free_arena()
-  br label %46
+  br label %48
 
-46:                                               ; preds = %52, %45
-  %47 = load i64, ptr getelementptr inbounds (%struct.Vmem, ptr @arena, i32 0, i32 1), align 8
-  %48 = icmp eq i64 %47, 0
-  %49 = xor i1 %48, true
-  br i1 %49, label %50, label %53
+48:                                               ; preds = %55, %47
+  %49 = getelementptr inbounds %struct.Vmem, ptr @arena, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp eq i64 %50, 0
+  %52 = xor i1 %51, true
+  br i1 %52, label %53, label %56
 
-50:                                               ; preds = %46
-  br label %51
+53:                                               ; preds = %48
+  br label %54
 
-51:                                               ; preds = %50
+54:                                               ; preds = %53
   call void (ptr, ...) @error_exit(ptr noundef @.str.5, ptr noundef @.str.12, ptr noundef @__func__.run_arena_allocator_tests, ptr noundef @.str.7, i32 noundef 80) #5
   unreachable
 
-52:                                               ; No predecessors!
-  br label %46, !llvm.loop !12
+55:                                               ; No predecessors!
+  br label %48, !llvm.loop !12
 
-53:                                               ; preds = %46
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
-  %55 = load i8, ptr %1, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %58
+56:                                               ; preds = %48
+  %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
+  %58 = load i8, ptr %1, align 1
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %61
 
-57:                                               ; preds = %53
+60:                                               ; preds = %56
   call void @memory_init()
-  br label %58
+  br label %61
 
-58:                                               ; preds = %57, %53
+61:                                               ; preds = %60, %56
   ret void
 }
 

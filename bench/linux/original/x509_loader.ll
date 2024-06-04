@@ -14,7 +14,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_x509_load_ce
 define dso_local noundef i32 @x509_load_certificate_list(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ugt ptr %4, %0
-  br i1 %5, label %6, label %51
+  br i1 %5, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = ptrtoint ptr %4 to i64
@@ -23,12 +23,12 @@ define dso_local noundef i32 @x509_load_certificate_list(ptr noundef %0, i64 nou
   %10 = inttoptr i64 %9 to ptr
   br label %11
 
-11:                                               ; preds = %46, %6
-  %12 = phi ptr [ %0, %6 ], [ %47, %46 ]
+11:                                               ; preds = %47, %6
+  %12 = phi ptr [ %0, %6 ], [ %48, %47 ]
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %7, %13
   %15 = icmp slt i64 %14, 4
-  br i1 %15, label %49, label %16
+  br i1 %15, label %50, label %16
 
 16:                                               ; preds = %11
   %17 = load i8, ptr %12, align 1
@@ -39,7 +39,7 @@ define dso_local noundef i32 @x509_load_certificate_list(ptr noundef %0, i64 nou
   %20 = getelementptr i8, ptr %12, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, -126
-  br i1 %22, label %23, label %49
+  br i1 %22, label %23, label %50
 
 23:                                               ; preds = %19, %16
   %24 = getelementptr i8, ptr %12, i64 2
@@ -52,37 +52,38 @@ define dso_local noundef i32 @x509_load_certificate_list(ptr noundef %0, i64 nou
   %31 = or disjoint i64 %27, %30
   %32 = add nuw nsw i64 %31, 4
   %33 = icmp ugt i64 %32, %14
-  br i1 %33, label %49, label %34
+  br i1 %33, label %50, label %34
 
 34:                                               ; preds = %23
   %35 = tail call ptr @key_create_or_update(ptr noundef nonnull %10, ptr noundef nonnull @.str, ptr noundef null, ptr noundef %12, i64 noundef %32, i32 noundef 520290304, i64 noundef 14) #3
-  %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
-  %37 = ptrtoint ptr %35 to i64
-  br i1 %36, label %38, label %40
+  %36 = inttoptr i64 -4096 to ptr
+  %37 = icmp ugt ptr %35, %36
+  %38 = ptrtoint ptr %35 to i64
+  br i1 %37, label %39, label %41
 
-38:                                               ; preds = %34
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %37) #4
-  br label %46
+39:                                               ; preds = %34
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %38) #4
+  br label %47
 
-40:                                               ; preds = %34
-  %41 = and i64 %37, -2
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 168
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %44) #4
-  tail call void @key_put(ptr noundef %42) #3
-  br label %46
+41:                                               ; preds = %34
+  %42 = and i64 %38, -2
+  %43 = inttoptr i64 %42 to ptr
+  %44 = getelementptr inbounds i8, ptr %43, i64 168
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %45) #4
+  tail call void @key_put(ptr noundef %43) #3
+  br label %47
 
-46:                                               ; preds = %40, %38
-  %47 = getelementptr i8, ptr %12, i64 %32
-  %48 = icmp ult ptr %47, %4
-  br i1 %48, label %11, label %51, !llvm.loop !5
+47:                                               ; preds = %41, %39
+  %48 = getelementptr i8, ptr %12, i64 %32
+  %49 = icmp ult ptr %48, %4
+  br i1 %49, label %11, label %52, !llvm.loop !5
 
-49:                                               ; preds = %23, %19, %11
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #4
-  br label %51
+50:                                               ; preds = %23, %19, %11
+  %51 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #4
+  br label %52
 
-51:                                               ; preds = %49, %46, %3
+52:                                               ; preds = %50, %47, %3
   ret i32 0
 }
 

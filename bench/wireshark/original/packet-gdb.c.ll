@@ -185,22 +185,26 @@ define internal void @init_gdb_parser() #0 {
   %5 = alloca ptr, align 8
   %6 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 1, ptr noundef @.str.17, ptr noundef null, ptr noundef null, ptr noundef @dissect_gdb_token)
   store ptr %6, ptr %1, align 8
-  %7 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 1, ptr noundef @.str.18, ptr noundef inttoptr (i64 1 to ptr), ptr noundef null, ptr noundef @dissect_gdb_token)
-  store ptr %7, ptr %2, align 8
-  %8 = call ptr @tvbparse_not_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.19, ptr noundef inttoptr (i64 2 to ptr), ptr noundef null, ptr noundef @dissect_gdb_token)
-  store ptr %8, ptr %3, align 8
-  %9 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 1, ptr noundef @.str.20, ptr noundef inttoptr (i64 3 to ptr), ptr noundef null, ptr noundef @dissect_gdb_token)
-  store ptr %9, ptr %4, align 8
-  %10 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 2, i32 noundef 2, ptr noundef @.str.21, ptr noundef inttoptr (i64 4 to ptr), ptr noundef null, ptr noundef @dissect_gdb_token)
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %1, align 8
-  %12 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %11)
-  %13 = load ptr, ptr %2, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef null)
-  store ptr %17, ptr @want, align 8
+  %7 = inttoptr i64 1 to ptr
+  %8 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 1, ptr noundef @.str.18, ptr noundef %7, ptr noundef null, ptr noundef @dissect_gdb_token)
+  store ptr %8, ptr %2, align 8
+  %9 = inttoptr i64 2 to ptr
+  %10 = call ptr @tvbparse_not_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.19, ptr noundef %9, ptr noundef null, ptr noundef @dissect_gdb_token)
+  store ptr %10, ptr %3, align 8
+  %11 = inttoptr i64 3 to ptr
+  %12 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 1, ptr noundef @.str.20, ptr noundef %11, ptr noundef null, ptr noundef @dissect_gdb_token)
+  store ptr %12, ptr %4, align 8
+  %13 = inttoptr i64 4 to ptr
+  %14 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 2, i32 noundef 2, ptr noundef @.str.21, ptr noundef %13, ptr noundef null, ptr noundef @dissect_gdb_token)
+  store ptr %14, ptr %5, align 8
+  %15 = load ptr, ptr %1, align 8
+  %16 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %15)
+  %17 = load ptr, ptr %2, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef null)
+  store ptr %21, ptr @want, align 8
   ret void
 }
 

@@ -29,7 +29,7 @@ define zeroext i1 @nxsched_merge_pending() #0 {
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i32
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %81
+  br i1 %11, label %12, label %82
 
 12:                                               ; preds = %0
   %13 = load ptr, ptr @g_pendingtasks, align 8
@@ -145,13 +145,14 @@ define zeroext i1 @nxsched_merge_pending() #0 {
 
 80:                                               ; preds = %14
   store ptr null, ptr @g_pendingtasks, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_pendingtasks, i32 0, i32 1), align 8
-  br label %81
+  %81 = getelementptr inbounds %struct.dq_queue_s, ptr @g_pendingtasks, i32 0, i32 1
+  store ptr null, ptr %81, align 8
+  br label %82
 
-81:                                               ; preds = %80, %0
-  %82 = load i8, ptr %5, align 1
-  %83 = trunc i8 %82 to i1
-  ret i1 %83
+82:                                               ; preds = %80, %0
+  %83 = load i8, ptr %5, align 1
+  %84 = trunc i8 %83 to i1
+  ret i1 %84
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

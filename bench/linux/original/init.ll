@@ -39,39 +39,40 @@ define internal noundef i32 @pci_arch_init() #0 section ".init.text" align 16 {
   br label %6
 
 6:                                                ; preds = %5, %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7), align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %9
+  %7 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 7
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call i32 %7() #3
-  %11 = icmp eq i32 %10, 0
+10:                                               ; preds = %6
+  %11 = tail call i32 %8() #3
+  %12 = icmp eq i32 %11, 0
   tail call void @x86_create_pci_msi_domain() #3
-  br i1 %11, label %22, label %13
+  br i1 %12, label %23, label %14
 
-12:                                               ; preds = %6
+13:                                               ; preds = %6
   tail call void @x86_create_pci_msi_domain() #3
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %9
+14:                                               ; preds = %13, %10
   tail call void @pci_direct_init(i32 noundef %1) #3
-  %14 = load ptr, ptr @raw_pci_ops, align 8
-  %15 = icmp ne ptr %14, null
-  %16 = load ptr, ptr @raw_pci_ext_ops, align 8
-  %17 = icmp ne ptr %16, null
-  %18 = select i1 %15, i1 true, i1 %17
-  br i1 %18, label %21, label %19
+  %15 = load ptr, ptr @raw_pci_ops, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = load ptr, ptr @raw_pci_ext_ops, align 8
+  %18 = icmp ne ptr %17, null
+  %19 = select i1 %16, i1 true, i1 %18
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %13
-  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #4
-  br label %21
-
-21:                                               ; preds = %19, %13
-  tail call void @dmi_check_pciprobe() #4
-  tail call void @dmi_check_skip_isa_align() #4
+20:                                               ; preds = %14
+  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #4
   br label %22
 
-22:                                               ; preds = %21, %9
+22:                                               ; preds = %20, %14
+  tail call void @dmi_check_pciprobe() #4
+  tail call void @dmi_check_skip_isa_align() #4
+  br label %23
+
+23:                                               ; preds = %22, %10
   ret i32 0
 }
 

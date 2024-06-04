@@ -22720,74 +22720,75 @@ if.then34:                                        ; preds = %if.end31
   %57 = load ptr, ptr %self.addr, align 8
   %parser37 = getelementptr inbounds %struct.XMLParserObject, ptr %57, i32 0, i32 1
   %58 = load ptr, ptr %parser37, align 8
-  %59 = load i64, ptr getelementptr inbounds (%struct.anon.4, ptr @_Py_HashSecret, i32 0, i32 1), align 8
-  %call38 = call i32 %56(ptr noundef %58, i64 noundef %59)
+  %59 = getelementptr inbounds %struct.anon.4, ptr @_Py_HashSecret, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8
+  %call38 = call i32 %56(ptr noundef %58, i64 noundef %60)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %if.end31
-  %60 = load ptr, ptr %target.addr, align 8
-  %cmp40 = icmp ne ptr %60, @_Py_NoneStruct
+  %61 = load ptr, ptr %target.addr, align 8
+  %cmp40 = icmp ne ptr %61, @_Py_NoneStruct
   br i1 %cmp40, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %if.end39
-  %61 = load ptr, ptr %target.addr, align 8
-  store ptr %61, ptr %op.addr.i205, align 8
-  %62 = load ptr, ptr %op.addr.i205, align 8
-  %63 = load i32, ptr %62, align 8
-  store i32 %63, ptr %cur_refcnt.i, align 4
-  %64 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %64, 1
+  %62 = load ptr, ptr %target.addr, align 8
+  store ptr %62, ptr %op.addr.i205, align 8
+  %63 = load ptr, ptr %op.addr.i205, align 8
+  %64 = load i32, ptr %63, align 8
+  store i32 %64, ptr %cur_refcnt.i, align 4
+  %65 = load i32, ptr %cur_refcnt.i, align 4
+  %add.i = add i32 %65, 1
   store i32 %add.i, ptr %new_refcnt.i, align 4
-  %65 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i206 = icmp eq i32 %65, 0
+  %66 = load i32, ptr %new_refcnt.i, align 4
+  %cmp.i206 = icmp eq i32 %66, 0
   br i1 %cmp.i206, label %if.then.i208, label %if.end.i207
 
 if.then.i208:                                     ; preds = %if.then41
   br label %Py_INCREF.exit
 
 if.end.i207:                                      ; preds = %if.then41
-  %66 = load i32, ptr %new_refcnt.i, align 4
-  %67 = load ptr, ptr %op.addr.i205, align 8
-  store i32 %66, ptr %67, align 8
+  %67 = load i32, ptr %new_refcnt.i, align 4
+  %68 = load ptr, ptr %op.addr.i205, align 8
+  store i32 %67, ptr %68, align 8
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.end.i207, %if.then.i208
   br label %if.end62
 
 if.else:                                          ; preds = %if.end39
-  %68 = load ptr, ptr %st, align 8
-  %TreeBuilder_Type = getelementptr inbounds %struct.elementtreestate, ptr %68, i32 0, i32 15
-  %69 = load ptr, ptr %TreeBuilder_Type, align 8
-  %call42 = call ptr @treebuilder_new(ptr noundef %69, ptr noundef null, ptr noundef null)
+  %69 = load ptr, ptr %st, align 8
+  %TreeBuilder_Type = getelementptr inbounds %struct.elementtreestate, ptr %69, i32 0, i32 15
+  %70 = load ptr, ptr %TreeBuilder_Type, align 8
+  %call42 = call ptr @treebuilder_new(ptr noundef %70, ptr noundef null, ptr noundef null)
   store ptr %call42, ptr %target.addr, align 8
-  %70 = load ptr, ptr %target.addr, align 8
-  %tobool43 = icmp ne ptr %70, null
+  %71 = load ptr, ptr %target.addr, align 8
+  %tobool43 = icmp ne ptr %71, null
   br i1 %tobool43, label %if.end61, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   br label %do.body45
 
 do.body45:                                        ; preds = %if.then44
-  %71 = load ptr, ptr %self.addr, align 8
-  %entity47 = getelementptr inbounds %struct.XMLParserObject, ptr %71, i32 0, i32 3
+  %72 = load ptr, ptr %self.addr, align 8
+  %entity47 = getelementptr inbounds %struct.XMLParserObject, ptr %72, i32 0, i32 3
   store ptr %entity47, ptr %_tmp_op_ptr46, align 8
-  %72 = load ptr, ptr %_tmp_op_ptr46, align 8
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %_tmp_old_op48, align 8
-  %74 = load ptr, ptr %_tmp_old_op48, align 8
-  %cmp49 = icmp ne ptr %74, null
+  %73 = load ptr, ptr %_tmp_op_ptr46, align 8
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %_tmp_old_op48, align 8
+  %75 = load ptr, ptr %_tmp_old_op48, align 8
+  %cmp49 = icmp ne ptr %75, null
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %do.body45
-  %75 = load ptr, ptr %_tmp_op_ptr46, align 8
-  store ptr null, ptr %75, align 8
-  %76 = load ptr, ptr %_tmp_old_op48, align 8
-  store ptr %76, ptr %op.addr.i151, align 8
-  %77 = load ptr, ptr %op.addr.i151, align 8
-  store ptr %77, ptr %op.addr.i197, align 8
-  %78 = load ptr, ptr %op.addr.i197, align 8
-  %79 = load i64, ptr %78, align 8
-  %conv.i198 = trunc i64 %79 to i32
+  %76 = load ptr, ptr %_tmp_op_ptr46, align 8
+  store ptr null, ptr %76, align 8
+  %77 = load ptr, ptr %_tmp_old_op48, align 8
+  store ptr %77, ptr %op.addr.i151, align 8
+  %78 = load ptr, ptr %op.addr.i151, align 8
+  store ptr %78, ptr %op.addr.i197, align 8
+  %79 = load ptr, ptr %op.addr.i197, align 8
+  %80 = load i64, ptr %79, align 8
+  %conv.i198 = trunc i64 %80 to i32
   %cmp.i199 = icmp slt i32 %conv.i198, 0
   %conv1.i200 = zext i1 %cmp.i199 to i32
   %tobool.i153 = icmp ne i32 %conv1.i200, 0
@@ -22797,16 +22798,16 @@ if.then.i158:                                     ; preds = %if.then50
   br label %Py_DECREF.exit159
 
 if.end.i154:                                      ; preds = %if.then50
-  %80 = load ptr, ptr %op.addr.i151, align 8
-  %81 = load i64, ptr %80, align 8
-  %dec.i155 = add i64 %81, -1
-  store i64 %dec.i155, ptr %80, align 8
+  %81 = load ptr, ptr %op.addr.i151, align 8
+  %82 = load i64, ptr %81, align 8
+  %dec.i155 = add i64 %82, -1
+  store i64 %dec.i155, ptr %81, align 8
   %cmp.i156 = icmp eq i64 %dec.i155, 0
   br i1 %cmp.i156, label %if.then1.i157, label %Py_DECREF.exit159
 
 if.then1.i157:                                    ; preds = %if.end.i154
-  %82 = load ptr, ptr %op.addr.i151, align 8
-  call void @_Py_Dealloc(ptr noundef %82) #5
+  %83 = load ptr, ptr %op.addr.i151, align 8
+  call void @_Py_Dealloc(ptr noundef %83) #5
   br label %Py_DECREF.exit159
 
 Py_DECREF.exit159:                                ; preds = %if.then1.i157, %if.end.i154, %if.then.i158
@@ -22819,26 +22820,26 @@ do.end52:                                         ; preds = %if.end51
   br label %do.body53
 
 do.body53:                                        ; preds = %do.end52
-  %83 = load ptr, ptr %self.addr, align 8
-  %names55 = getelementptr inbounds %struct.XMLParserObject, ptr %83, i32 0, i32 4
+  %84 = load ptr, ptr %self.addr, align 8
+  %names55 = getelementptr inbounds %struct.XMLParserObject, ptr %84, i32 0, i32 4
   store ptr %names55, ptr %_tmp_op_ptr54, align 8
-  %84 = load ptr, ptr %_tmp_op_ptr54, align 8
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %_tmp_old_op56, align 8
-  %86 = load ptr, ptr %_tmp_old_op56, align 8
-  %cmp57 = icmp ne ptr %86, null
+  %85 = load ptr, ptr %_tmp_op_ptr54, align 8
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %_tmp_old_op56, align 8
+  %87 = load ptr, ptr %_tmp_old_op56, align 8
+  %cmp57 = icmp ne ptr %87, null
   br i1 %cmp57, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %do.body53
-  %87 = load ptr, ptr %_tmp_op_ptr54, align 8
-  store ptr null, ptr %87, align 8
-  %88 = load ptr, ptr %_tmp_old_op56, align 8
-  store ptr %88, ptr %op.addr.i, align 8
-  %89 = load ptr, ptr %op.addr.i, align 8
-  store ptr %89, ptr %op.addr.i201, align 8
-  %90 = load ptr, ptr %op.addr.i201, align 8
-  %91 = load i64, ptr %90, align 8
-  %conv.i202 = trunc i64 %91 to i32
+  %88 = load ptr, ptr %_tmp_op_ptr54, align 8
+  store ptr null, ptr %88, align 8
+  %89 = load ptr, ptr %_tmp_old_op56, align 8
+  store ptr %89, ptr %op.addr.i, align 8
+  %90 = load ptr, ptr %op.addr.i, align 8
+  store ptr %90, ptr %op.addr.i201, align 8
+  %91 = load ptr, ptr %op.addr.i201, align 8
+  %92 = load i64, ptr %91, align 8
+  %conv.i202 = trunc i64 %92 to i32
   %cmp.i203 = icmp slt i32 %conv.i202, 0
   %conv1.i204 = zext i1 %cmp.i203 to i32
   %tobool.i = icmp ne i32 %conv1.i204, 0
@@ -22848,16 +22849,16 @@ if.then.i:                                        ; preds = %if.then58
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then58
-  %92 = load ptr, ptr %op.addr.i, align 8
-  %93 = load i64, ptr %92, align 8
-  %dec.i = add i64 %93, -1
-  store i64 %dec.i, ptr %92, align 8
+  %93 = load ptr, ptr %op.addr.i, align 8
+  %94 = load i64, ptr %93, align 8
+  %dec.i = add i64 %94, -1
+  store i64 %dec.i, ptr %93, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %94 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %94) #5
+  %95 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %95) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -22874,19 +22875,19 @@ if.end61:                                         ; preds = %if.else
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end61, %Py_INCREF.exit
-  %95 = load ptr, ptr %target.addr, align 8
-  %96 = load ptr, ptr %self.addr, align 8
-  %target63 = getelementptr inbounds %struct.XMLParserObject, ptr %96, i32 0, i32 2
-  store ptr %95, ptr %target63, align 8
-  %97 = load ptr, ptr %target.addr, align 8
-  %call64 = call ptr @PyObject_GetAttrString(ptr noundef %97, ptr noundef @.str.126)
-  %98 = load ptr, ptr %self.addr, align 8
-  %handle_start_ns = getelementptr inbounds %struct.XMLParserObject, ptr %98, i32 0, i32 5
-  store ptr %call64, ptr %handle_start_ns, align 8
+  %96 = load ptr, ptr %target.addr, align 8
+  %97 = load ptr, ptr %self.addr, align 8
+  %target63 = getelementptr inbounds %struct.XMLParserObject, ptr %97, i32 0, i32 2
+  store ptr %96, ptr %target63, align 8
+  %98 = load ptr, ptr %target.addr, align 8
+  %call64 = call ptr @PyObject_GetAttrString(ptr noundef %98, ptr noundef @.str.126)
   %99 = load ptr, ptr %self.addr, align 8
-  %handle_start_ns65 = getelementptr inbounds %struct.XMLParserObject, ptr %99, i32 0, i32 5
-  %100 = load ptr, ptr %handle_start_ns65, align 8
-  %call66 = call i32 @ignore_attribute_error(ptr noundef %100)
+  %handle_start_ns = getelementptr inbounds %struct.XMLParserObject, ptr %99, i32 0, i32 5
+  store ptr %call64, ptr %handle_start_ns, align 8
+  %100 = load ptr, ptr %self.addr, align 8
+  %handle_start_ns65 = getelementptr inbounds %struct.XMLParserObject, ptr %100, i32 0, i32 5
+  %101 = load ptr, ptr %handle_start_ns65, align 8
+  %call66 = call i32 @ignore_attribute_error(ptr noundef %101)
   %tobool67 = icmp ne i32 %call66, 0
   br i1 %tobool67, label %if.then68, label %if.end69
 
@@ -22895,15 +22896,15 @@ if.then68:                                        ; preds = %if.end62
   br label %return
 
 if.end69:                                         ; preds = %if.end62
-  %101 = load ptr, ptr %target.addr, align 8
-  %call70 = call ptr @PyObject_GetAttrString(ptr noundef %101, ptr noundef @.str.127)
-  %102 = load ptr, ptr %self.addr, align 8
-  %handle_end_ns = getelementptr inbounds %struct.XMLParserObject, ptr %102, i32 0, i32 6
-  store ptr %call70, ptr %handle_end_ns, align 8
+  %102 = load ptr, ptr %target.addr, align 8
+  %call70 = call ptr @PyObject_GetAttrString(ptr noundef %102, ptr noundef @.str.127)
   %103 = load ptr, ptr %self.addr, align 8
-  %handle_end_ns71 = getelementptr inbounds %struct.XMLParserObject, ptr %103, i32 0, i32 6
-  %104 = load ptr, ptr %handle_end_ns71, align 8
-  %call72 = call i32 @ignore_attribute_error(ptr noundef %104)
+  %handle_end_ns = getelementptr inbounds %struct.XMLParserObject, ptr %103, i32 0, i32 6
+  store ptr %call70, ptr %handle_end_ns, align 8
+  %104 = load ptr, ptr %self.addr, align 8
+  %handle_end_ns71 = getelementptr inbounds %struct.XMLParserObject, ptr %104, i32 0, i32 6
+  %105 = load ptr, ptr %handle_end_ns71, align 8
+  %call72 = call i32 @ignore_attribute_error(ptr noundef %105)
   %tobool73 = icmp ne i32 %call72, 0
   br i1 %tobool73, label %if.then74, label %if.end75
 
@@ -22912,15 +22913,15 @@ if.then74:                                        ; preds = %if.end69
   br label %return
 
 if.end75:                                         ; preds = %if.end69
-  %105 = load ptr, ptr %target.addr, align 8
-  %call76 = call ptr @PyObject_GetAttrString(ptr noundef %105, ptr noundef @.str.29)
-  %106 = load ptr, ptr %self.addr, align 8
-  %handle_start = getelementptr inbounds %struct.XMLParserObject, ptr %106, i32 0, i32 7
-  store ptr %call76, ptr %handle_start, align 8
+  %106 = load ptr, ptr %target.addr, align 8
+  %call76 = call ptr @PyObject_GetAttrString(ptr noundef %106, ptr noundef @.str.29)
   %107 = load ptr, ptr %self.addr, align 8
-  %handle_start77 = getelementptr inbounds %struct.XMLParserObject, ptr %107, i32 0, i32 7
-  %108 = load ptr, ptr %handle_start77, align 8
-  %call78 = call i32 @ignore_attribute_error(ptr noundef %108)
+  %handle_start = getelementptr inbounds %struct.XMLParserObject, ptr %107, i32 0, i32 7
+  store ptr %call76, ptr %handle_start, align 8
+  %108 = load ptr, ptr %self.addr, align 8
+  %handle_start77 = getelementptr inbounds %struct.XMLParserObject, ptr %108, i32 0, i32 7
+  %109 = load ptr, ptr %handle_start77, align 8
+  %call78 = call i32 @ignore_attribute_error(ptr noundef %109)
   %tobool79 = icmp ne i32 %call78, 0
   br i1 %tobool79, label %if.then80, label %if.end81
 
@@ -22929,15 +22930,15 @@ if.then80:                                        ; preds = %if.end75
   br label %return
 
 if.end81:                                         ; preds = %if.end75
-  %109 = load ptr, ptr %target.addr, align 8
-  %call82 = call ptr @PyObject_GetAttrString(ptr noundef %109, ptr noundef @.str.28)
-  %110 = load ptr, ptr %self.addr, align 8
-  %handle_data = getelementptr inbounds %struct.XMLParserObject, ptr %110, i32 0, i32 8
-  store ptr %call82, ptr %handle_data, align 8
+  %110 = load ptr, ptr %target.addr, align 8
+  %call82 = call ptr @PyObject_GetAttrString(ptr noundef %110, ptr noundef @.str.28)
   %111 = load ptr, ptr %self.addr, align 8
-  %handle_data83 = getelementptr inbounds %struct.XMLParserObject, ptr %111, i32 0, i32 8
-  %112 = load ptr, ptr %handle_data83, align 8
-  %call84 = call i32 @ignore_attribute_error(ptr noundef %112)
+  %handle_data = getelementptr inbounds %struct.XMLParserObject, ptr %111, i32 0, i32 8
+  store ptr %call82, ptr %handle_data, align 8
+  %112 = load ptr, ptr %self.addr, align 8
+  %handle_data83 = getelementptr inbounds %struct.XMLParserObject, ptr %112, i32 0, i32 8
+  %113 = load ptr, ptr %handle_data83, align 8
+  %call84 = call i32 @ignore_attribute_error(ptr noundef %113)
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.then86, label %if.end87
 
@@ -22946,15 +22947,15 @@ if.then86:                                        ; preds = %if.end81
   br label %return
 
 if.end87:                                         ; preds = %if.end81
-  %113 = load ptr, ptr %target.addr, align 8
-  %call88 = call ptr @PyObject_GetAttrString(ptr noundef %113, ptr noundef @.str.30)
-  %114 = load ptr, ptr %self.addr, align 8
-  %handle_end = getelementptr inbounds %struct.XMLParserObject, ptr %114, i32 0, i32 9
-  store ptr %call88, ptr %handle_end, align 8
+  %114 = load ptr, ptr %target.addr, align 8
+  %call88 = call ptr @PyObject_GetAttrString(ptr noundef %114, ptr noundef @.str.30)
   %115 = load ptr, ptr %self.addr, align 8
-  %handle_end89 = getelementptr inbounds %struct.XMLParserObject, ptr %115, i32 0, i32 9
-  %116 = load ptr, ptr %handle_end89, align 8
-  %call90 = call i32 @ignore_attribute_error(ptr noundef %116)
+  %handle_end = getelementptr inbounds %struct.XMLParserObject, ptr %115, i32 0, i32 9
+  store ptr %call88, ptr %handle_end, align 8
+  %116 = load ptr, ptr %self.addr, align 8
+  %handle_end89 = getelementptr inbounds %struct.XMLParserObject, ptr %116, i32 0, i32 9
+  %117 = load ptr, ptr %handle_end89, align 8
+  %call90 = call i32 @ignore_attribute_error(ptr noundef %117)
   %tobool91 = icmp ne i32 %call90, 0
   br i1 %tobool91, label %if.then92, label %if.end93
 
@@ -22963,15 +22964,15 @@ if.then92:                                        ; preds = %if.end87
   br label %return
 
 if.end93:                                         ; preds = %if.end87
-  %117 = load ptr, ptr %target.addr, align 8
-  %call94 = call ptr @PyObject_GetAttrString(ptr noundef %117, ptr noundef @.str.31)
-  %118 = load ptr, ptr %self.addr, align 8
-  %handle_comment = getelementptr inbounds %struct.XMLParserObject, ptr %118, i32 0, i32 10
-  store ptr %call94, ptr %handle_comment, align 8
+  %118 = load ptr, ptr %target.addr, align 8
+  %call94 = call ptr @PyObject_GetAttrString(ptr noundef %118, ptr noundef @.str.31)
   %119 = load ptr, ptr %self.addr, align 8
-  %handle_comment95 = getelementptr inbounds %struct.XMLParserObject, ptr %119, i32 0, i32 10
-  %120 = load ptr, ptr %handle_comment95, align 8
-  %call96 = call i32 @ignore_attribute_error(ptr noundef %120)
+  %handle_comment = getelementptr inbounds %struct.XMLParserObject, ptr %119, i32 0, i32 10
+  store ptr %call94, ptr %handle_comment, align 8
+  %120 = load ptr, ptr %self.addr, align 8
+  %handle_comment95 = getelementptr inbounds %struct.XMLParserObject, ptr %120, i32 0, i32 10
+  %121 = load ptr, ptr %handle_comment95, align 8
+  %call96 = call i32 @ignore_attribute_error(ptr noundef %121)
   %tobool97 = icmp ne i32 %call96, 0
   br i1 %tobool97, label %if.then98, label %if.end99
 
@@ -22980,15 +22981,15 @@ if.then98:                                        ; preds = %if.end93
   br label %return
 
 if.end99:                                         ; preds = %if.end93
-  %121 = load ptr, ptr %target.addr, align 8
-  %call100 = call ptr @PyObject_GetAttrString(ptr noundef %121, ptr noundef @.str.32)
-  %122 = load ptr, ptr %self.addr, align 8
-  %handle_pi = getelementptr inbounds %struct.XMLParserObject, ptr %122, i32 0, i32 11
-  store ptr %call100, ptr %handle_pi, align 8
+  %122 = load ptr, ptr %target.addr, align 8
+  %call100 = call ptr @PyObject_GetAttrString(ptr noundef %122, ptr noundef @.str.32)
   %123 = load ptr, ptr %self.addr, align 8
-  %handle_pi101 = getelementptr inbounds %struct.XMLParserObject, ptr %123, i32 0, i32 11
-  %124 = load ptr, ptr %handle_pi101, align 8
-  %call102 = call i32 @ignore_attribute_error(ptr noundef %124)
+  %handle_pi = getelementptr inbounds %struct.XMLParserObject, ptr %123, i32 0, i32 11
+  store ptr %call100, ptr %handle_pi, align 8
+  %124 = load ptr, ptr %self.addr, align 8
+  %handle_pi101 = getelementptr inbounds %struct.XMLParserObject, ptr %124, i32 0, i32 11
+  %125 = load ptr, ptr %handle_pi101, align 8
+  %call102 = call i32 @ignore_attribute_error(ptr noundef %125)
   %tobool103 = icmp ne i32 %call102, 0
   br i1 %tobool103, label %if.then104, label %if.end105
 
@@ -22997,15 +22998,15 @@ if.then104:                                       ; preds = %if.end99
   br label %return
 
 if.end105:                                        ; preds = %if.end99
-  %125 = load ptr, ptr %target.addr, align 8
-  %call106 = call ptr @PyObject_GetAttrString(ptr noundef %125, ptr noundef @.str.33)
-  %126 = load ptr, ptr %self.addr, align 8
-  %handle_close = getelementptr inbounds %struct.XMLParserObject, ptr %126, i32 0, i32 13
-  store ptr %call106, ptr %handle_close, align 8
+  %126 = load ptr, ptr %target.addr, align 8
+  %call106 = call ptr @PyObject_GetAttrString(ptr noundef %126, ptr noundef @.str.33)
   %127 = load ptr, ptr %self.addr, align 8
-  %handle_close107 = getelementptr inbounds %struct.XMLParserObject, ptr %127, i32 0, i32 13
-  %128 = load ptr, ptr %handle_close107, align 8
-  %call108 = call i32 @ignore_attribute_error(ptr noundef %128)
+  %handle_close = getelementptr inbounds %struct.XMLParserObject, ptr %127, i32 0, i32 13
+  store ptr %call106, ptr %handle_close, align 8
+  %128 = load ptr, ptr %self.addr, align 8
+  %handle_close107 = getelementptr inbounds %struct.XMLParserObject, ptr %128, i32 0, i32 13
+  %129 = load ptr, ptr %handle_close107, align 8
+  %call108 = call i32 @ignore_attribute_error(ptr noundef %129)
   %tobool109 = icmp ne i32 %call108, 0
   br i1 %tobool109, label %if.then110, label %if.end111
 
@@ -23014,15 +23015,15 @@ if.then110:                                       ; preds = %if.end105
   br label %return
 
 if.end111:                                        ; preds = %if.end105
-  %129 = load ptr, ptr %target.addr, align 8
-  %call112 = call ptr @PyObject_GetAttrString(ptr noundef %129, ptr noundef @.str.22)
-  %130 = load ptr, ptr %self.addr, align 8
-  %handle_doctype = getelementptr inbounds %struct.XMLParserObject, ptr %130, i32 0, i32 12
-  store ptr %call112, ptr %handle_doctype, align 8
+  %130 = load ptr, ptr %target.addr, align 8
+  %call112 = call ptr @PyObject_GetAttrString(ptr noundef %130, ptr noundef @.str.22)
   %131 = load ptr, ptr %self.addr, align 8
-  %handle_doctype113 = getelementptr inbounds %struct.XMLParserObject, ptr %131, i32 0, i32 12
-  %132 = load ptr, ptr %handle_doctype113, align 8
-  %call114 = call i32 @ignore_attribute_error(ptr noundef %132)
+  %handle_doctype = getelementptr inbounds %struct.XMLParserObject, ptr %131, i32 0, i32 12
+  store ptr %call112, ptr %handle_doctype, align 8
+  %132 = load ptr, ptr %self.addr, align 8
+  %handle_doctype113 = getelementptr inbounds %struct.XMLParserObject, ptr %132, i32 0, i32 12
+  %133 = load ptr, ptr %handle_doctype113, align 8
+  %call114 = call i32 @ignore_attribute_error(ptr noundef %133)
   %tobool115 = icmp ne i32 %call114, 0
   br i1 %tobool115, label %if.then116, label %if.end117
 
@@ -23031,136 +23032,136 @@ if.then116:                                       ; preds = %if.end111
   br label %return
 
 if.end117:                                        ; preds = %if.end111
-  %133 = load ptr, ptr %st, align 8
-  %expat_capi118 = getelementptr inbounds %struct.elementtreestate, ptr %133, i32 0, i32 17
-  %134 = load ptr, ptr %expat_capi118, align 8
-  %SetUserData = getelementptr inbounds %struct.PyExpat_CAPI, ptr %134, i32 0, i32 19
-  %135 = load ptr, ptr %SetUserData, align 8
-  %136 = load ptr, ptr %self.addr, align 8
-  %parser119 = getelementptr inbounds %struct.XMLParserObject, ptr %136, i32 0, i32 1
-  %137 = load ptr, ptr %parser119, align 8
-  %138 = load ptr, ptr %self.addr, align 8
-  call void %135(ptr noundef %137, ptr noundef %138)
+  %134 = load ptr, ptr %st, align 8
+  %expat_capi118 = getelementptr inbounds %struct.elementtreestate, ptr %134, i32 0, i32 17
+  %135 = load ptr, ptr %expat_capi118, align 8
+  %SetUserData = getelementptr inbounds %struct.PyExpat_CAPI, ptr %135, i32 0, i32 19
+  %136 = load ptr, ptr %SetUserData, align 8
+  %137 = load ptr, ptr %self.addr, align 8
+  %parser119 = getelementptr inbounds %struct.XMLParserObject, ptr %137, i32 0, i32 1
+  %138 = load ptr, ptr %parser119, align 8
   %139 = load ptr, ptr %self.addr, align 8
-  %handle_start_ns120 = getelementptr inbounds %struct.XMLParserObject, ptr %139, i32 0, i32 5
-  %140 = load ptr, ptr %handle_start_ns120, align 8
-  %tobool121 = icmp ne ptr %140, null
+  call void %136(ptr noundef %138, ptr noundef %139)
+  %140 = load ptr, ptr %self.addr, align 8
+  %handle_start_ns120 = getelementptr inbounds %struct.XMLParserObject, ptr %140, i32 0, i32 5
+  %141 = load ptr, ptr %handle_start_ns120, align 8
+  %tobool121 = icmp ne ptr %141, null
   br i1 %tobool121, label %if.then124, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end117
-  %141 = load ptr, ptr %self.addr, align 8
-  %handle_end_ns122 = getelementptr inbounds %struct.XMLParserObject, ptr %141, i32 0, i32 6
-  %142 = load ptr, ptr %handle_end_ns122, align 8
-  %tobool123 = icmp ne ptr %142, null
+  %142 = load ptr, ptr %self.addr, align 8
+  %handle_end_ns122 = getelementptr inbounds %struct.XMLParserObject, ptr %142, i32 0, i32 6
+  %143 = load ptr, ptr %handle_end_ns122, align 8
+  %tobool123 = icmp ne ptr %143, null
   br i1 %tobool123, label %if.then124, label %if.end127
 
 if.then124:                                       ; preds = %lor.lhs.false, %if.end117
-  %143 = load ptr, ptr %st, align 8
-  %expat_capi125 = getelementptr inbounds %struct.elementtreestate, ptr %143, i32 0, i32 17
-  %144 = load ptr, ptr %expat_capi125, align 8
-  %SetNamespaceDeclHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %144, i32 0, i32 16
-  %145 = load ptr, ptr %SetNamespaceDeclHandler, align 8
-  %146 = load ptr, ptr %self.addr, align 8
-  %parser126 = getelementptr inbounds %struct.XMLParserObject, ptr %146, i32 0, i32 1
-  %147 = load ptr, ptr %parser126, align 8
-  call void %145(ptr noundef %147, ptr noundef @expat_start_ns_handler, ptr noundef @expat_end_ns_handler)
+  %144 = load ptr, ptr %st, align 8
+  %expat_capi125 = getelementptr inbounds %struct.elementtreestate, ptr %144, i32 0, i32 17
+  %145 = load ptr, ptr %expat_capi125, align 8
+  %SetNamespaceDeclHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %145, i32 0, i32 16
+  %146 = load ptr, ptr %SetNamespaceDeclHandler, align 8
+  %147 = load ptr, ptr %self.addr, align 8
+  %parser126 = getelementptr inbounds %struct.XMLParserObject, ptr %147, i32 0, i32 1
+  %148 = load ptr, ptr %parser126, align 8
+  call void %146(ptr noundef %148, ptr noundef @expat_start_ns_handler, ptr noundef @expat_end_ns_handler)
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then124, %lor.lhs.false
-  %148 = load ptr, ptr %st, align 8
-  %expat_capi128 = getelementptr inbounds %struct.elementtreestate, ptr %148, i32 0, i32 17
-  %149 = load ptr, ptr %expat_capi128, align 8
-  %SetElementHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %149, i32 0, i32 15
-  %150 = load ptr, ptr %SetElementHandler, align 8
-  %151 = load ptr, ptr %self.addr, align 8
-  %parser129 = getelementptr inbounds %struct.XMLParserObject, ptr %151, i32 0, i32 1
-  %152 = load ptr, ptr %parser129, align 8
-  call void %150(ptr noundef %152, ptr noundef @expat_start_handler, ptr noundef @expat_end_handler)
-  %153 = load ptr, ptr %st, align 8
-  %expat_capi130 = getelementptr inbounds %struct.elementtreestate, ptr %153, i32 0, i32 17
-  %154 = load ptr, ptr %expat_capi130, align 8
-  %SetDefaultHandlerExpand = getelementptr inbounds %struct.PyExpat_CAPI, ptr %154, i32 0, i32 14
-  %155 = load ptr, ptr %SetDefaultHandlerExpand, align 8
-  %156 = load ptr, ptr %self.addr, align 8
-  %parser131 = getelementptr inbounds %struct.XMLParserObject, ptr %156, i32 0, i32 1
-  %157 = load ptr, ptr %parser131, align 8
-  call void %155(ptr noundef %157, ptr noundef @expat_default_handler)
-  %158 = load ptr, ptr %st, align 8
-  %expat_capi132 = getelementptr inbounds %struct.elementtreestate, ptr %158, i32 0, i32 17
-  %159 = load ptr, ptr %expat_capi132, align 8
-  %SetCharacterDataHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %159, i32 0, i32 12
-  %160 = load ptr, ptr %SetCharacterDataHandler, align 8
-  %161 = load ptr, ptr %self.addr, align 8
-  %parser133 = getelementptr inbounds %struct.XMLParserObject, ptr %161, i32 0, i32 1
-  %162 = load ptr, ptr %parser133, align 8
-  call void %160(ptr noundef %162, ptr noundef @expat_data_handler)
-  %163 = load ptr, ptr %self.addr, align 8
-  %handle_comment134 = getelementptr inbounds %struct.XMLParserObject, ptr %163, i32 0, i32 10
-  %164 = load ptr, ptr %handle_comment134, align 8
-  %tobool135 = icmp ne ptr %164, null
+  %149 = load ptr, ptr %st, align 8
+  %expat_capi128 = getelementptr inbounds %struct.elementtreestate, ptr %149, i32 0, i32 17
+  %150 = load ptr, ptr %expat_capi128, align 8
+  %SetElementHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %150, i32 0, i32 15
+  %151 = load ptr, ptr %SetElementHandler, align 8
+  %152 = load ptr, ptr %self.addr, align 8
+  %parser129 = getelementptr inbounds %struct.XMLParserObject, ptr %152, i32 0, i32 1
+  %153 = load ptr, ptr %parser129, align 8
+  call void %151(ptr noundef %153, ptr noundef @expat_start_handler, ptr noundef @expat_end_handler)
+  %154 = load ptr, ptr %st, align 8
+  %expat_capi130 = getelementptr inbounds %struct.elementtreestate, ptr %154, i32 0, i32 17
+  %155 = load ptr, ptr %expat_capi130, align 8
+  %SetDefaultHandlerExpand = getelementptr inbounds %struct.PyExpat_CAPI, ptr %155, i32 0, i32 14
+  %156 = load ptr, ptr %SetDefaultHandlerExpand, align 8
+  %157 = load ptr, ptr %self.addr, align 8
+  %parser131 = getelementptr inbounds %struct.XMLParserObject, ptr %157, i32 0, i32 1
+  %158 = load ptr, ptr %parser131, align 8
+  call void %156(ptr noundef %158, ptr noundef @expat_default_handler)
+  %159 = load ptr, ptr %st, align 8
+  %expat_capi132 = getelementptr inbounds %struct.elementtreestate, ptr %159, i32 0, i32 17
+  %160 = load ptr, ptr %expat_capi132, align 8
+  %SetCharacterDataHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %160, i32 0, i32 12
+  %161 = load ptr, ptr %SetCharacterDataHandler, align 8
+  %162 = load ptr, ptr %self.addr, align 8
+  %parser133 = getelementptr inbounds %struct.XMLParserObject, ptr %162, i32 0, i32 1
+  %163 = load ptr, ptr %parser133, align 8
+  call void %161(ptr noundef %163, ptr noundef @expat_data_handler)
+  %164 = load ptr, ptr %self.addr, align 8
+  %handle_comment134 = getelementptr inbounds %struct.XMLParserObject, ptr %164, i32 0, i32 10
+  %165 = load ptr, ptr %handle_comment134, align 8
+  %tobool135 = icmp ne ptr %165, null
   br i1 %tobool135, label %if.then136, label %if.end139
 
 if.then136:                                       ; preds = %if.end127
-  %165 = load ptr, ptr %st, align 8
-  %expat_capi137 = getelementptr inbounds %struct.elementtreestate, ptr %165, i32 0, i32 17
-  %166 = load ptr, ptr %expat_capi137, align 8
-  %SetCommentHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %166, i32 0, i32 13
-  %167 = load ptr, ptr %SetCommentHandler, align 8
-  %168 = load ptr, ptr %self.addr, align 8
-  %parser138 = getelementptr inbounds %struct.XMLParserObject, ptr %168, i32 0, i32 1
-  %169 = load ptr, ptr %parser138, align 8
-  call void %167(ptr noundef %169, ptr noundef @expat_comment_handler)
+  %166 = load ptr, ptr %st, align 8
+  %expat_capi137 = getelementptr inbounds %struct.elementtreestate, ptr %166, i32 0, i32 17
+  %167 = load ptr, ptr %expat_capi137, align 8
+  %SetCommentHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %167, i32 0, i32 13
+  %168 = load ptr, ptr %SetCommentHandler, align 8
+  %169 = load ptr, ptr %self.addr, align 8
+  %parser138 = getelementptr inbounds %struct.XMLParserObject, ptr %169, i32 0, i32 1
+  %170 = load ptr, ptr %parser138, align 8
+  call void %168(ptr noundef %170, ptr noundef @expat_comment_handler)
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then136, %if.end127
-  %170 = load ptr, ptr %self.addr, align 8
-  %handle_pi140 = getelementptr inbounds %struct.XMLParserObject, ptr %170, i32 0, i32 11
-  %171 = load ptr, ptr %handle_pi140, align 8
-  %tobool141 = icmp ne ptr %171, null
+  %171 = load ptr, ptr %self.addr, align 8
+  %handle_pi140 = getelementptr inbounds %struct.XMLParserObject, ptr %171, i32 0, i32 11
+  %172 = load ptr, ptr %handle_pi140, align 8
+  %tobool141 = icmp ne ptr %172, null
   br i1 %tobool141, label %if.then142, label %if.end145
 
 if.then142:                                       ; preds = %if.end139
-  %172 = load ptr, ptr %st, align 8
-  %expat_capi143 = getelementptr inbounds %struct.elementtreestate, ptr %172, i32 0, i32 17
-  %173 = load ptr, ptr %expat_capi143, align 8
-  %SetProcessingInstructionHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %173, i32 0, i32 17
-  %174 = load ptr, ptr %SetProcessingInstructionHandler, align 8
-  %175 = load ptr, ptr %self.addr, align 8
-  %parser144 = getelementptr inbounds %struct.XMLParserObject, ptr %175, i32 0, i32 1
-  %176 = load ptr, ptr %parser144, align 8
-  call void %174(ptr noundef %176, ptr noundef @expat_pi_handler)
+  %173 = load ptr, ptr %st, align 8
+  %expat_capi143 = getelementptr inbounds %struct.elementtreestate, ptr %173, i32 0, i32 17
+  %174 = load ptr, ptr %expat_capi143, align 8
+  %SetProcessingInstructionHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %174, i32 0, i32 17
+  %175 = load ptr, ptr %SetProcessingInstructionHandler, align 8
+  %176 = load ptr, ptr %self.addr, align 8
+  %parser144 = getelementptr inbounds %struct.XMLParserObject, ptr %176, i32 0, i32 1
+  %177 = load ptr, ptr %parser144, align 8
+  call void %175(ptr noundef %177, ptr noundef @expat_pi_handler)
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then142, %if.end139
-  %177 = load ptr, ptr %st, align 8
-  %expat_capi146 = getelementptr inbounds %struct.elementtreestate, ptr %177, i32 0, i32 17
-  %178 = load ptr, ptr %expat_capi146, align 8
-  %SetStartDoctypeDeclHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %178, i32 0, i32 20
-  %179 = load ptr, ptr %SetStartDoctypeDeclHandler, align 8
-  %180 = load ptr, ptr %self.addr, align 8
-  %parser147 = getelementptr inbounds %struct.XMLParserObject, ptr %180, i32 0, i32 1
-  %181 = load ptr, ptr %parser147, align 8
-  call void %179(ptr noundef %181, ptr noundef @expat_start_doctype_handler)
-  %182 = load ptr, ptr %st, align 8
-  %expat_capi148 = getelementptr inbounds %struct.elementtreestate, ptr %182, i32 0, i32 17
-  %183 = load ptr, ptr %expat_capi148, align 8
-  %SetUnknownEncodingHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %183, i32 0, i32 18
-  %184 = load ptr, ptr %SetUnknownEncodingHandler, align 8
-  %185 = load ptr, ptr %self.addr, align 8
-  %parser149 = getelementptr inbounds %struct.XMLParserObject, ptr %185, i32 0, i32 1
-  %186 = load ptr, ptr %parser149, align 8
-  %187 = load ptr, ptr %st, align 8
-  %expat_capi150 = getelementptr inbounds %struct.elementtreestate, ptr %187, i32 0, i32 17
-  %188 = load ptr, ptr %expat_capi150, align 8
-  %DefaultUnknownEncodingHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %188, i32 0, i32 22
-  %189 = load ptr, ptr %DefaultUnknownEncodingHandler, align 8
-  call void %184(ptr noundef %186, ptr noundef %189, ptr noundef null)
+  %178 = load ptr, ptr %st, align 8
+  %expat_capi146 = getelementptr inbounds %struct.elementtreestate, ptr %178, i32 0, i32 17
+  %179 = load ptr, ptr %expat_capi146, align 8
+  %SetStartDoctypeDeclHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %179, i32 0, i32 20
+  %180 = load ptr, ptr %SetStartDoctypeDeclHandler, align 8
+  %181 = load ptr, ptr %self.addr, align 8
+  %parser147 = getelementptr inbounds %struct.XMLParserObject, ptr %181, i32 0, i32 1
+  %182 = load ptr, ptr %parser147, align 8
+  call void %180(ptr noundef %182, ptr noundef @expat_start_doctype_handler)
+  %183 = load ptr, ptr %st, align 8
+  %expat_capi148 = getelementptr inbounds %struct.elementtreestate, ptr %183, i32 0, i32 17
+  %184 = load ptr, ptr %expat_capi148, align 8
+  %SetUnknownEncodingHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %184, i32 0, i32 18
+  %185 = load ptr, ptr %SetUnknownEncodingHandler, align 8
+  %186 = load ptr, ptr %self.addr, align 8
+  %parser149 = getelementptr inbounds %struct.XMLParserObject, ptr %186, i32 0, i32 1
+  %187 = load ptr, ptr %parser149, align 8
+  %188 = load ptr, ptr %st, align 8
+  %expat_capi150 = getelementptr inbounds %struct.elementtreestate, ptr %188, i32 0, i32 17
+  %189 = load ptr, ptr %expat_capi150, align 8
+  %DefaultUnknownEncodingHandler = getelementptr inbounds %struct.PyExpat_CAPI, ptr %189, i32 0, i32 22
+  %190 = load ptr, ptr %DefaultUnknownEncodingHandler, align 8
+  call void %185(ptr noundef %187, ptr noundef %190, ptr noundef null)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end145, %if.then116, %if.then110, %if.then104, %if.then98, %if.then92, %if.then86, %if.then80, %if.then74, %if.then68, %do.end60, %do.end29, %do.end, %if.then
-  %190 = load i32, ptr %retval, align 4
-  ret i32 %190
+  %191 = load i32, ptr %retval, align 4
+  ret i32 %191
 }
 
 ; Function Attrs: nounwind uwtable

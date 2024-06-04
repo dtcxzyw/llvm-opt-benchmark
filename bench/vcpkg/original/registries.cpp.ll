@@ -11987,9 +11987,10 @@ define internal void @_ZN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::GitVersionDbEntryArrayDeserializer", ptr %3, i32 0, i32 1
-  call void @_ZN12_GLOBAL__N_129GitVersionDbEntryDeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #2
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GitVersionDbEntryArrayDeserializer", ptr %3, i32 0, i32 1
+  call void @_ZN12_GLOBAL__N_129GitVersionDbEntryDeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #2
   ret void
 }
 
@@ -20173,7 +20174,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20183,7 +20185,8 @@ define internal void @_ZN12_GLOBAL__N_129GitVersionDbEntryDeserializerC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20380,7 +20383,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerINS_17GitVersio
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30606,62 +30610,63 @@ define internal void @_ZN12_GLOBAL__N_120BuiltinFilesRegistryC2ERKN5vcpkg10Vcpkg
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 1
-  invoke void @_ZN5vcpkg11DelayedInitISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS7_S8_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %20
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 1
+  invoke void @_ZN5vcpkg11DelayedInitISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS7_S8_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %21
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5vcpkg10VcpkgPaths14get_filesystemEv(ptr noundef nonnull align 8 dereferenceable(400) %11)
-          to label %13 unwind label %24
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5vcpkg10VcpkgPaths14get_filesystemEv(ptr noundef nonnull align 8 dereferenceable(400) %12)
+          to label %14 unwind label %25
 
-13:                                               ; preds = %9
-  store ptr %12, ptr %10, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths23builtin_ports_directoryEv(ptr noundef nonnull align 8 dereferenceable(400) %15)
-          to label %17 unwind label %24
+14:                                               ; preds = %10
+  store ptr %13, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths23builtin_ports_directoryEv(ptr noundef nonnull align 8 dereferenceable(400) %16)
+          to label %18 unwind label %25
 
-17:                                               ; preds = %13
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %18 unwind label %24
+18:                                               ; preds = %14
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %19 unwind label %25
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 4
-  call void @_ZN5vcpkg5CacheINS_4PathENS_9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEEESt4lessIvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #2
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 4
+  call void @_ZN5vcpkg5CacheINS_4PathENS_9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEEESt4lessIvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #2
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  br label %28
-
-24:                                               ; preds = %17, %13, %9
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  call void @_ZN5vcpkg11DelayedInitISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS7_S8_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #2
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %6, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %18, %14, %10
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
+  call void @_ZN5vcpkg11DelayedInitISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS7_S8_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #2
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30692,7 +30697,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5vcpkg22RegistryImplementationE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5vcpkg22RegistryImplementationE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35877,66 +35883,67 @@ define internal void @_ZN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryC2EN5vcpkg1
   store ptr %4, ptr %9, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 1
-  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %16 unwind label %21
+  %15 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 1
+  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 2
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %18 unwind label %25
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 2
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %19 unwind label %26
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 3
-  invoke void @_ZN5vcpkg7VersionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(36) %4)
-          to label %20 unwind label %29
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 3
+  invoke void @_ZN5vcpkg7VersionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %20, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   ret void
 
-21:                                               ; preds = %5
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %5
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %10, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %11, align 4
-  br label %34
-
-25:                                               ; preds = %16
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %10, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %11, align 4
-  br label %33
-
-29:                                               ; preds = %18
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %10, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %11, align 4
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #2
-  br label %33
-
-33:                                               ; preds = %29, %25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #2
-  br label %34
-
-34:                                               ; preds = %33, %21
-  call void @_ZN5vcpkg13RegistryEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #2
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %10, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %11, align 4
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr %11, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+26:                                               ; preds = %17
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %10, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %11, align 4
+  br label %34
+
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %10, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %11, align 4
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #2
+  br label %34
+
+34:                                               ; preds = %30, %26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #2
+  br label %35
+
+35:                                               ; preds = %34, %22
+  call void @_ZN5vcpkg13RegistryEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #2
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i32, ptr %11, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -35967,7 +35974,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13RegistryEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5vcpkg13RegistryEntryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -48640,7 +48648,8 @@ define internal void @_ZN12_GLOBAL__N_120BuiltinErrorRegistryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49395,84 +49404,85 @@ define internal void @_ZN12_GLOBAL__N_111GitRegistryC2ERKN5vcpkg10VcpkgPathsEONS
   store ptr %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #2
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 3
-  %19 = load ptr, ptr %9, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #2
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 4
-  %21 = load ptr, ptr %10, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21) #2
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 5
-  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_8LockFile5EntryENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %23 unwind label %29
+  %14 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #2
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 3
+  %20 = load ptr, ptr %9, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #2
+  %21 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 4
+  %22 = load ptr, ptr %10, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22) #2
+  %23 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 5
+  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_8LockFile5EntryENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %24 unwind label %30
 
-23:                                               ; preds = %5
-  %24 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 6
-  call void @_ZN5vcpkg8OptionalINS_4PathEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #2
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 7
-  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_4PathENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %26 unwind label %33
+24:                                               ; preds = %5
+  %25 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 6
+  call void @_ZN5vcpkg8OptionalINS_4PathEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #2
+  %26 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 7
+  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_4PathENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26)
+          to label %27 unwind label %34
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 8
-  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %28 unwind label %37
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 8
+  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %29 unwind label %38
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   ret void
 
-29:                                               ; preds = %5
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %5
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %11, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %12, align 4
-  br label %42
-
-33:                                               ; preds = %23
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %11, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %12, align 4
-  br label %41
-
-37:                                               ; preds = %26
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %11, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %12, align 4
-  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_4PathENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #2
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZN5vcpkg8OptionalINS_4PathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #2
-  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_8LockFile5EntryENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #2
-  br label %42
-
-42:                                               ; preds = %41, %29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #2
-  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %11, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %12, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %11, align 8
-  %45 = load i32, ptr %12, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+34:                                               ; preds = %24
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %11, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %12, align 4
+  br label %42
+
+38:                                               ; preds = %27
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %11, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %12, align 4
+  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_4PathENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #2
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN5vcpkg8OptionalINS_4PathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #2
+  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTINS_8LockFile5EntryENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #2
+  br label %43
+
+43:                                               ; preds = %42, %30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #2
+  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %11, align 8
+  %46 = load i32, ptr %12, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53006,62 +53016,63 @@ define internal void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewE
   store ptr %5, ptr %11, align 8
   %18 = load ptr, ptr %8, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 1
-  %20 = call noundef ptr @_ZNK5vcpkg10StringView4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
-  %21 = call noundef i64 @_ZNK5vcpkg10StringView4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
+  %19 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 1
+  %21 = call noundef ptr @_ZNK5vcpkg10StringView4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
+  %22 = call noundef i64 @_ZNK5vcpkg10StringView4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %20, i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %22 unwind label %32
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %21, i64 noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %23 unwind label %33
 
-22:                                               ; preds = %6
+23:                                               ; preds = %6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #2
-  %23 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 2
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 3
-  %26 = load i8, ptr %10, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr %25, align 8
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 4
-  %30 = load ptr, ptr %11, align 8
-  invoke void @_ZN12_GLOBAL__N_134PortVersionsGitTreesStructOfArraysC2EOSt6vectorIN5vcpkg17GitVersionDbEntryESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
-          to label %31 unwind label %36
+  %24 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 2
+  %25 = load ptr, ptr %9, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 3
+  %27 = load i8, ptr %10, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %26, align 8
+  %30 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 4
+  %31 = load ptr, ptr %11, align 8
+  invoke void @_ZN12_GLOBAL__N_134PortVersionsGitTreesStructOfArraysC2EOSt6vectorIN5vcpkg17GitVersionDbEntryESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(24) %31)
+          to label %32 unwind label %37
 
-31:                                               ; preds = %22
+32:                                               ; preds = %23
   ret void
 
-32:                                               ; preds = %6
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %6
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %13, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %14, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %13, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %14, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #2
-  br label %40
-
-36:                                               ; preds = %22
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %13, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #2
-  br label %40
-
-40:                                               ; preds = %36, %32
-  call void @_ZN5vcpkg13RegistryEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #2
   br label %41
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+37:                                               ; preds = %23
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %13, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #2
+  br label %41
+
+41:                                               ; preds = %37, %33
+  call void @_ZN5vcpkg13RegistryEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #2
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -61375,56 +61386,57 @@ define internal void @_ZN12_GLOBAL__N_118BuiltinGitRegistryC2ERKN5vcpkg10VcpkgPa
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #2
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 2
-  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %19
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #2
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 2
+  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %20
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.93") align 8 %14, ptr noundef nonnull align 8 dereferenceable(400) %15)
-          to label %16 unwind label %23
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.93") align 8 %15, ptr noundef nonnull align 8 dereferenceable(400) %16)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 4
-  %18 = load ptr, ptr %5, align 8
-  store ptr %18, ptr %17, align 8
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 4
+  %19 = load ptr, ptr %5, align 8
+  store ptr %19, ptr %18, align 8
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  br label %27
-
-23:                                               ; preds = %13
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #2
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #2
-  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #2
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %7, align 8
-  %30 = load i32, ptr %8, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
+  call void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #2
+  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #2
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -62006,14 +62018,15 @@ define internal void @_ZN12_GLOBAL__N_123BuiltinGitRegistryEntryC2ERKN5vcpkg10Vc
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #2
-  %9 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 3
-  call void @_ZN12_GLOBAL__N_134PortVersionsGitTreesStructOfArraysC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #2
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #2
+  %10 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 3
+  call void @_ZN12_GLOBAL__N_134PortVersionsGitTreesStructOfArraysC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #2
   ret void
 }
 
@@ -64703,41 +64716,42 @@ define internal void @_ZN12_GLOBAL__N_118FilesystemRegistryC2ERKN5vcpkg18ReadOnl
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #2
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #2
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 4
-  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %19 unwind label %20
-
-19:                                               ; preds = %4
-  ret void
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16) #2
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #2
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 4
+  invoke void @_ZN5vcpkg11DelayedInitINS_9ExpectedTISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEENS_15LocalizedStringEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %21
 
 20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #2
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #2
-  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #2
-  br label %24
+  ret void
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #2
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #2
+  call void @_ZN5vcpkg22RegistryImplementationD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #2
+  br label %25
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -65903,31 +65917,32 @@ define internal void @_ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializ
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryArrayDeserializer", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerC2ERKN5vcpkg4PathE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryArrayDeserializer", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerC2ERKN5vcpkg4PathE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66318,7 +66333,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -66332,31 +66348,32 @@ define internal void @_ZN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerC2E
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryDeserializer", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryDeserializer", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66547,7 +66564,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerINS_24Filesyste
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -69597,35 +69615,36 @@ define internal void @_ZN12_GLOBAL__N_123FilesystemRegistryEntryC2EONSt7__cxx111
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %13
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %14
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIN5vcpkg7VersionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #2
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIN5vcpkg7VersionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #2
   ret void
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   call void @_ZN5vcpkg13RegistryEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

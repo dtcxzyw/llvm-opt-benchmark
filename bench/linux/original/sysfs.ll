@@ -283,42 +283,43 @@ define dso_local i32 @ext4_init_sysfs() local_unnamed_addr #3 section ".init.tex
   %2 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.8, ptr noundef %1) #6
   store ptr %2, ptr @ext4_root, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %19, label %4
+  br i1 %3, label %20, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 64) #7
-  store ptr %6, ptr @ext4_feat, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %16, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #7
+  store ptr %7, ptr @ext4_feat, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %17, label %9
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @ext4_root, align 8
-  %10 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %6, ptr noundef nonnull @ext4_feat_ktype, ptr noundef %9, ptr noundef nonnull @.str.9) #6
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %14
+9:                                                ; preds = %4
+  %10 = load ptr, ptr @ext4_root, align 8
+  %11 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %7, ptr noundef nonnull @ext4_feat_ktype, ptr noundef %10, ptr noundef nonnull @.str.9) #6
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %8
-  %13 = tail call ptr @proc_mkdir(ptr noundef nonnull @proc_dirname, ptr noundef null) #6
-  store ptr %13, ptr @ext4_proc_root, align 8
-  br label %19
+13:                                               ; preds = %9
+  %14 = tail call ptr @proc_mkdir(ptr noundef nonnull @proc_dirname, ptr noundef null) #6
+  store ptr %14, ptr @ext4_proc_root, align 8
+  br label %20
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr @ext4_feat, align 8
-  tail call void @kobject_put(ptr noundef %15) #6
+15:                                               ; preds = %9
+  %16 = load ptr, ptr @ext4_feat, align 8
+  tail call void @kobject_put(ptr noundef %16) #6
   store ptr null, ptr @ext4_feat, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %14, %4
-  %17 = phi i32 [ %10, %14 ], [ -12, %4 ]
-  %18 = load ptr, ptr @ext4_root, align 8
-  tail call void @kobject_put(ptr noundef %18) #6
+17:                                               ; preds = %15, %4
+  %18 = phi i32 [ %11, %15 ], [ -12, %4 ]
+  %19 = load ptr, ptr @ext4_root, align 8
+  tail call void @kobject_put(ptr noundef %19) #6
   store ptr null, ptr @ext4_root, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %16, %12, %0
-  %20 = phi i32 [ %17, %16 ], [ 0, %12 ], [ -12, %0 ]
-  ret i32 %20
+20:                                               ; preds = %17, %13, %0
+  %21 = phi i32 [ %18, %17 ], [ 0, %13 ], [ -12, %0 ]
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid

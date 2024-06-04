@@ -31,7 +31,7 @@ define ptr @signal(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14, %11, %2
-  br label %43
+  br label %44
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %5, align 8
@@ -42,58 +42,60 @@ define ptr @signal(i32 noundef %0, ptr noundef %1) #0 {
   %22 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
   %23 = call i32 @sigemptyset(ptr noundef %22)
   %24 = load ptr, ptr %5, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 1 to ptr)
-  br i1 %25, label %26, label %34
+  %25 = inttoptr i64 1 to ptr
+  %26 = icmp ne ptr %24, %25
+  br i1 %26, label %27, label %35
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
-  %28 = load i32, ptr %4, align 4
-  %29 = call i32 @sigaddset(ptr noundef %27, i32 noundef %28)
-  store i32 %29, ptr %8, align 4
-  %30 = load i32, ptr %8, align 4
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %33
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
+  %29 = load i32, ptr %4, align 4
+  %30 = call i32 @sigaddset(ptr noundef %28, i32 noundef %29)
+  store i32 %30, ptr %8, align 4
+  %31 = load i32, ptr %8, align 4
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %26
-  br label %43
-
-33:                                               ; preds = %26
-  br label %34
-
-34:                                               ; preds = %33, %18
-  %35 = load i32, ptr %4, align 4
-  %36 = call i32 @sigaction(i32 noundef %35, ptr noundef %6, ptr noundef %7)
-  store i32 %36, ptr %8, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %42
-
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %3, align 8
-  br label %49
-
-42:                                               ; preds = %34
-  br label %43
-
-43:                                               ; preds = %42, %32, %17
+33:                                               ; preds = %27
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr %8, align 4
-  %46 = sub nsw i32 0, %45
-  %47 = call ptr @__errno()
-  store i32 %46, ptr %47, align 4
-  br label %48
+34:                                               ; preds = %27
+  br label %35
 
-48:                                               ; preds = %44
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
+35:                                               ; preds = %34, %18
+  %36 = load i32, ptr %4, align 4
+  %37 = call i32 @sigaction(i32 noundef %36, ptr noundef %6, ptr noundef %7)
+  store i32 %37, ptr %8, align 4
+  %38 = load i32, ptr %8, align 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %3, align 8
+  br label %51
+
+43:                                               ; preds = %35
+  br label %44
+
+44:                                               ; preds = %43, %33, %17
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load i32, ptr %8, align 4
+  %47 = sub nsw i32 0, %46
+  %48 = call ptr @__errno()
+  store i32 %47, ptr %48, align 4
   br label %49
 
-49:                                               ; preds = %48, %39
-  %50 = load ptr, ptr %3, align 8
-  ret ptr %50
+49:                                               ; preds = %45
+  %50 = inttoptr i64 -1 to ptr
+  store ptr %50, ptr %3, align 8
+  br label %51
+
+51:                                               ; preds = %49, %40
+  %52 = load ptr, ptr %3, align 8
+  ret ptr %52
 }
 
 declare i32 @sigemptyset(ptr noundef) #1

@@ -178,7 +178,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 1
   store i64 1000000000, ptr %mPeriod, align 8
   %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 2
@@ -285,13 +286,14 @@ entry:
   %frombool = zext i1 %bEnableRefCount to i8
   store i8 %frombool, ptr %bEnableRefCount.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %period.addr, align 8
-  store i64 %0, ptr %mPeriod, align 8
+  %1 = load i64, ptr %period.addr, align 8
+  store i64 %1, ptr %mPeriod, align 8
   %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %precision.addr, align 8
-  store i64 %1, ptr %mPrecision, align 8
+  %2 = load i64, ptr %precision.addr, align 8
+  store i64 %2, ptr %mPrecision, align 8
   %mpCallbackManager = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 3
   store ptr null, ptr %mpCallbackManager, align 8
   %mpFunction = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 4
@@ -299,8 +301,8 @@ entry:
   %mpFunctionArg = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 5
   store ptr null, ptr %mpFunctionArg, align 8
   %mType = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 6
-  %2 = load i32, ptr %type.addr, align 4
-  store i32 %2, ptr %mType, align 8
+  %3 = load i32, ptr %type.addr, align 4
+  store i32 %3, ptr %mType, align 8
   %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 7
   call void @_ZN2EA6Thread9AtomicIntIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %mbStarted, i32 noundef 0)
   %mbOneShot = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 8
@@ -311,11 +313,11 @@ entry:
   store i64 0, ptr %mNextCallbackEvent, align 8
   %mLastCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 11
   store i64 0, ptr %mLastCallbackEvent, align 8
-  %3 = load ptr, ptr %pCallbackFunc.addr, align 8
-  %4 = load ptr, ptr %pCallbackFuncArg.addr, align 8
-  %5 = load i8, ptr %bEnableRefCount.addr, align 1
-  %tobool = trunc i8 %5 to i1
-  %call = call noundef zeroext i1 @_ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %tobool)
+  %4 = load ptr, ptr %pCallbackFunc.addr, align 8
+  %5 = load ptr, ptr %pCallbackFuncArg.addr, align 8
+  %6 = load i8, ptr %bEnableRefCount.addr, align 1
+  %tobool = trunc i8 %6 to i1
+  %call = call noundef zeroext i1 @_ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %tobool)
   ret void
 }
 
@@ -325,7 +327,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 7
   %call = invoke noundef i32 @_ZNK2EA6Thread9AtomicIntIiEcvKiEv(ptr noundef nonnull align 4 dereferenceable(4) %mbStarted)
           to label %invoke.cont unwind label %terminate.lpad
@@ -345,10 +348,10 @@ if.end:                                           ; preds = %invoke.cont2, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 
@@ -909,7 +912,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2EA4StdC16ICallbackManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this1, i32 0, i32 1
   invoke void @_ZN2EA4StdC15CallbackManager14CallbackVectorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %mCallbackArray)
           to label %invoke.cont unwind label %lpad
@@ -974,48 +978,48 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad4:                                            ; preds = %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad9:                                            ; preds = %invoke.cont8
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont10
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mThread) #10
   br label %ehcleanup
 
@@ -1049,7 +1053,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC16ICallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2EA4StdC16ICallbackManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1107,7 +1112,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN2EA4StdC15CallbackManager8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(296) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1124,10 +1130,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 

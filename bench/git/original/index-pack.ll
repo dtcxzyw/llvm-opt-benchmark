@@ -1770,27 +1770,29 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.else, %if.then2
   %3 = load i32, ptr @output_fd, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.thread_local, ptr @nothread_data, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds %struct.thread_local, ptr @nothread_data, i32 0, i32 1
+  store i32 %3, ptr %4, align 8
   br label %if.end7
 
 if.else5:                                         ; preds = %entry
-  %4 = load ptr, ptr %pack_name.addr, align 8
-  %call6 = call i32 (ptr, i32, ...) @xopen(ptr noundef %4, i32 noundef 0)
+  %5 = load ptr, ptr %pack_name.addr, align 8
+  %call6 = call i32 (ptr, i32, ...) @xopen(ptr noundef %5, i32 noundef 0)
   store i32 %call6, ptr @input_fd, align 4
   store i32 -1, ptr @output_fd, align 4
-  %5 = load i32, ptr @input_fd, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.thread_local, ptr @nothread_data, i32 0, i32 1), align 8
+  %6 = load i32, ptr @input_fd, align 4
+  %7 = getelementptr inbounds %struct.thread_local, ptr @nothread_data, i32 0, i32 1
+  store i32 %6, ptr %7, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else5, %if.end
-  %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %6, i32 0, i32 15
-  %7 = load ptr, ptr %hash_algo, align 8
-  %init_fn = getelementptr inbounds %struct.git_hash_algo, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %init_fn, align 8
-  call void %8(ptr noundef @input_ctx)
-  %9 = load ptr, ptr %pack_name.addr, align 8
-  ret ptr %9
+  %8 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds %struct.repository, ptr %8, i32 0, i32 15
+  %9 = load ptr, ptr %hash_algo, align 8
+  %init_fn = getelementptr inbounds %struct.git_hash_algo, ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %init_fn, align 8
+  call void %10(ptr noundef @input_ctx)
+  %11 = load ptr, ptr %pack_name.addr, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4465,13 +4467,13 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 0
   %0 = load ptr, ptr %format.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay2) #13
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %call4 = call ptr @_(ptr noundef @.str.67)
   %1 = load i64, ptr %offset.addr, align 8
   %arraydecay5 = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 0
@@ -4693,20 +4695,15 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @is_delta_type(i32 noundef %type) #0 {
@@ -4733,7 +4730,7 @@ declare i32 @format_object_header(ptr noundef, i64 noundef, i32 noundef, i64 nou
 declare ptr @xmallocz(i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare void @git_inflate_init(ptr noundef) #4
 
@@ -6575,47 +6572,48 @@ if.then:                                          ; preds = %entry
   br label %for.end31
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @done_head, i32 0, i32 1), align 8
-  store ptr %2, ptr %pos, align 8
+  %2 = getelementptr inbounds %struct.list_head, ptr @done_head, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %pos, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %3 = load ptr, ptr %pos, align 8
-  %cmp1 = icmp ne ptr %3, @done_head
+  %4 = load ptr, ptr %pos, align 8
+  %cmp1 = icmp ne ptr %4, @done_head
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 -40
+  %5 = load ptr, ptr %pos, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 -40
   store ptr %add.ptr, ptr %b, align 8
-  %5 = load ptr, ptr %b, align 8
-  %retain_data = getelementptr inbounds %struct.base_data, ptr %5, i32 0, i32 6
-  %6 = load i32, ptr %retain_data, align 8
-  %tobool = icmp ne i32 %6, 0
+  %6 = load ptr, ptr %b, align 8
+  %retain_data = getelementptr inbounds %struct.base_data, ptr %6, i32 0, i32 6
+  %7 = load i32, ptr %retain_data, align 8
+  %tobool = icmp ne i32 %7, 0
   br i1 %tobool, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %7 = load ptr, ptr %b, align 8
-  %8 = load ptr, ptr %retain.addr, align 8
-  %cmp2 = icmp eq ptr %7, %8
+  %8 = load ptr, ptr %b, align 8
+  %9 = load ptr, ptr %retain.addr, align 8
+  %cmp2 = icmp eq ptr %8, %9
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %lor.lhs.false, %for.body
   br label %for.inc
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %b, align 8
-  %data = getelementptr inbounds %struct.base_data, ptr %9, i32 0, i32 9
-  %10 = load ptr, ptr %data, align 8
-  %tobool5 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %b, align 8
+  %data = getelementptr inbounds %struct.base_data, ptr %10, i32 0, i32 9
+  %11 = load ptr, ptr %data, align 8
+  %tobool5 = icmp ne ptr %11, null
   br i1 %tobool5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end4
-  %11 = load ptr, ptr %b, align 8
-  call void @free_base_data(ptr noundef %11)
-  %12 = load i64, ptr @base_cache_used, align 8
-  %13 = load i64, ptr @base_cache_limit, align 8
-  %cmp7 = icmp ule i64 %12, %13
+  %12 = load ptr, ptr %b, align 8
+  call void @free_base_data(ptr noundef %12)
+  %13 = load i64, ptr @base_cache_used, align 8
+  %14 = load i64, ptr @base_cache_limit, align 8
+  %cmp7 = icmp ule i64 %13, %14
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.then6
@@ -6628,54 +6626,55 @@ if.end10:                                         ; preds = %if.end9, %if.end4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end10, %if.then3
-  %14 = load ptr, ptr %pos, align 8
-  %prev = getelementptr inbounds %struct.list_head, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %prev, align 8
-  store ptr %15, ptr %pos, align 8
+  %15 = load ptr, ptr %pos, align 8
+  %prev = getelementptr inbounds %struct.list_head, ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %prev, align 8
+  store ptr %16, ptr %pos, align 8
   br label %for.cond, !llvm.loop !32
 
 for.end:                                          ; preds = %for.cond
-  %16 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @work_head, i32 0, i32 1), align 8
-  store ptr %16, ptr %pos, align 8
+  %17 = getelementptr inbounds %struct.list_head, ptr @work_head, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %pos, align 8
   br label %for.cond11
 
 for.cond11:                                       ; preds = %for.inc29, %for.end
-  %17 = load ptr, ptr %pos, align 8
-  %cmp12 = icmp ne ptr %17, @work_head
+  %19 = load ptr, ptr %pos, align 8
+  %cmp12 = icmp ne ptr %19, @work_head
   br i1 %cmp12, label %for.body13, label %for.end31
 
 for.body13:                                       ; preds = %for.cond11
-  %18 = load ptr, ptr %pos, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %18, i64 -40
+  %20 = load ptr, ptr %pos, align 8
+  %add.ptr15 = getelementptr inbounds i8, ptr %20, i64 -40
   store ptr %add.ptr15, ptr %b14, align 8
-  %19 = load ptr, ptr %b14, align 8
-  %retain_data16 = getelementptr inbounds %struct.base_data, ptr %19, i32 0, i32 6
-  %20 = load i32, ptr %retain_data16, align 8
-  %tobool17 = icmp ne i32 %20, 0
+  %21 = load ptr, ptr %b14, align 8
+  %retain_data16 = getelementptr inbounds %struct.base_data, ptr %21, i32 0, i32 6
+  %22 = load i32, ptr %retain_data16, align 8
+  %tobool17 = icmp ne i32 %22, 0
   br i1 %tobool17, label %if.then20, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %for.body13
-  %21 = load ptr, ptr %b14, align 8
-  %22 = load ptr, ptr %retain.addr, align 8
-  %cmp19 = icmp eq ptr %21, %22
+  %23 = load ptr, ptr %b14, align 8
+  %24 = load ptr, ptr %retain.addr, align 8
+  %cmp19 = icmp eq ptr %23, %24
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.lhs.false18, %for.body13
   br label %for.inc29
 
 if.end21:                                         ; preds = %lor.lhs.false18
-  %23 = load ptr, ptr %b14, align 8
-  %data22 = getelementptr inbounds %struct.base_data, ptr %23, i32 0, i32 9
-  %24 = load ptr, ptr %data22, align 8
-  %tobool23 = icmp ne ptr %24, null
+  %25 = load ptr, ptr %b14, align 8
+  %data22 = getelementptr inbounds %struct.base_data, ptr %25, i32 0, i32 9
+  %26 = load ptr, ptr %data22, align 8
+  %tobool23 = icmp ne ptr %26, null
   br i1 %tobool23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end21
-  %25 = load ptr, ptr %b14, align 8
-  call void @free_base_data(ptr noundef %25)
-  %26 = load i64, ptr @base_cache_used, align 8
-  %27 = load i64, ptr @base_cache_limit, align 8
-  %cmp25 = icmp ule i64 %26, %27
+  %27 = load ptr, ptr %b14, align 8
+  call void @free_base_data(ptr noundef %27)
+  %28 = load i64, ptr @base_cache_used, align 8
+  %29 = load i64, ptr @base_cache_limit, align 8
+  %cmp25 = icmp ule i64 %28, %29
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.then24
@@ -6688,10 +6687,10 @@ if.end28:                                         ; preds = %if.end27, %if.end21
   br label %for.inc29
 
 for.inc29:                                        ; preds = %if.end28, %if.then20
-  %28 = load ptr, ptr %pos, align 8
-  %prev30 = getelementptr inbounds %struct.list_head, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %prev30, align 8
-  store ptr %29, ptr %pos, align 8
+  %30 = load ptr, ptr %pos, align 8
+  %prev30 = getelementptr inbounds %struct.list_head, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %prev30, align 8
+  store ptr %31, ptr %pos, align 8
   br label %for.cond11, !llvm.loop !33
 
 for.end31:                                        ; preds = %if.then26, %for.cond11, %if.then8, %if.then
@@ -8082,12 +8081,18 @@ declare ptr @odb_pack_name(ptr noundef, ptr noundef, ptr noundef) #4
 declare i32 @odb_pack_keep(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #10
+declare ptr @__errno_location() #9
 
 declare i32 @finalize_object_file(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
 declare i32 @chmod(ptr noundef, i32 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -8097,9 +8102,9 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { noreturn }
 attributes #13 = { nounwind }

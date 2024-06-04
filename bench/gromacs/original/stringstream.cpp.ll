@@ -136,9 +136,10 @@ define linkonce_odr void @_ZN3gmx18StringOutputStreamD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   call void @_ZN3gmx16TextOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -178,9 +179,10 @@ define linkonce_odr void @_ZN3gmx17StringInputStreamD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -282,33 +284,34 @@ define void @_ZN3gmx17StringInputStreamC2ERKNSt7__cxx1112basic_stringIcSt11char_
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3gmx15TextInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %12
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %7, i32 0, i32 2
-  store i64 0, ptr %11, align 8
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %7, i32 0, i32 2
+  store i64 0, ptr %12, align 8
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
   call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -316,7 +319,8 @@ define linkonce_odr void @_ZN3gmx15TextInputStreamC2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx15TextInputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx15TextInputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -356,62 +360,63 @@ define void @_ZN3gmx17StringInputStreamC2ERKSt6vectorINSt7__cxx1112basic_stringI
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN3gmx15TextInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #9
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  invoke void @_ZN3gmx11joinStringsIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEES8_T_SF_PKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr %18, ptr %20, ptr noundef @.str)
-          to label %21 unwind label %26
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  %13 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
+  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  invoke void @_ZN3gmx11joinStringsIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEES8_T_SF_PKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr %19, ptr %21, ptr noundef @.str)
+          to label %22 unwind label %27
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 2
-  store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
-  %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @.str)
-          to label %25 unwind label %30
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 2
+  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str)
+          to label %26 unwind label %31
 
-25:                                               ; preds = %21
+26:                                               ; preds = %22
   ret void
 
-26:                                               ; preds = %2
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %7, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %8, align 4
-  br label %34
-
-30:                                               ; preds = %21
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %7, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
-  br label %34
-
-34:                                               ; preds = %30, %26
-  call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %7, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %8, align 4
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %8, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+31:                                               ; preds = %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -663,68 +668,69 @@ define void @_ZN3gmx17StringInputStreamC2ERKNS_8ArrayRefIKPKcEE(ptr noundef nonn
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN3gmx15TextInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = invoke ptr @_ZNK3gmx8ArrayRefIKPKcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %13 unwind label %28
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17StringInputStreamE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  %13 = invoke ptr @_ZNK3gmx8ArrayRefIKPKcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %14 unwind label %29
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
-  store ptr %12, ptr %14, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = invoke ptr @_ZNK3gmx8ArrayRefIKPKcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %17 unwind label %28
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = invoke ptr @_ZNK3gmx8ArrayRefIKPKcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %29
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %8, i32 0, i32 0
-  store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %8, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  invoke void @_ZN3gmx11joinStringsINS_12ArrayRefIterIKPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SC_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr %20, ptr %22, ptr noundef @.str)
-          to label %23 unwind label %28
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %8, i32 0, i32 0
+  store ptr %17, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %8, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  invoke void @_ZN3gmx11joinStringsINS_12ArrayRefIterIKPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SC_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr %21, ptr %23, ptr noundef @.str)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 2
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
-  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str)
-          to label %27 unwind label %32
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 2
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.gmx::StringInputStream", ptr %9, i32 0, i32 1
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str)
+          to label %28 unwind label %33
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   ret void
 
-28:                                               ; preds = %17, %13, %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %18, %14, %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %6, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %7, align 4
-  br label %36
-
-32:                                               ; preds = %23
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %6, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %7, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
-  br label %36
-
-36:                                               ; preds = %32, %28
-  call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %6, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %7, align 4
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %6, align 8
-  %39 = load i32, ptr %7, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+33:                                               ; preds = %24
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %6, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN3gmx15TextInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %7, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress uwtable

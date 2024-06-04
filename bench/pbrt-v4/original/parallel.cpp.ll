@@ -3610,18 +3610,19 @@ entry:
   store ptr %func, ptr %func.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func2 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func2, ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   %nextIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %startIndex.addr, align 8
-  store i64 %0, ptr %nextIndex, align 8
+  %1 = load i64, ptr %startIndex.addr, align 8
+  store i64 %1, ptr %nextIndex, align 8
   %endIndex3 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %endIndex.addr, align 8
-  store i64 %1, ptr %endIndex3, align 8
+  %2 = load i64, ptr %endIndex.addr, align 8
+  store i64 %2, ptr %endIndex3, align 8
   %chunkSize4 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %chunkSize.addr, align 4
-  store i32 %2, ptr %chunkSize4, align 8
+  %3 = load i32, ptr %chunkSize.addr, align 4
+  store i32 %3, ptr %chunkSize4, align 8
   ret void
 }
 
@@ -3641,7 +3642,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   call void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
@@ -3952,19 +3954,20 @@ entry:
   store ptr %func, ptr %func.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func2 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %func2, ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   %extent3 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %extent.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %extent3, ptr align 4 %0, i64 16, i1 false)
-  %nextStart = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 4
   %1 = load ptr, ptr %extent.addr, align 8
-  %pMin = getelementptr inbounds %"class.pbrt::Bounds2", ptr %1, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %extent3, ptr align 4 %1, i64 16, i1 false)
+  %nextStart = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 4
+  %2 = load ptr, ptr %extent.addr, align 8
+  %pMin = getelementptr inbounds %"class.pbrt::Bounds2", ptr %2, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %nextStart, ptr align 4 %pMin, i64 8, i1 false)
   %chunkSize4 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %chunkSize.addr, align 4
-  store i32 %2, ptr %chunkSize4, align 8
+  %3 = load i32, ptr %chunkSize.addr, align 4
+  store i32 %3, ptr %chunkSize4, align 8
   ret void
 }
 
@@ -3984,7 +3987,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   call void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
@@ -5181,7 +5185,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 1
   store i32 0, ptr %activeWorkers, align 8
   %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 3
@@ -5199,7 +5204,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -10673,23 +10679,24 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS3_EEEC2IJS5_S6_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS3_EEEC2IJS5_S6_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #12
   br label %eh.resume
 
@@ -10769,7 +10776,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

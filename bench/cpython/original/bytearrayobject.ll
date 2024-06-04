@@ -3582,7 +3582,8 @@ entry:
   %conv = zext i8 %0 to i32
   %add = add i32 5, %conv
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i64 0, i64 %idxprom
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %arrayidx = getelementptr [262 x %struct._longobject], ptr %1, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -19998,35 +19999,37 @@ entry:
   %iter = alloca ptr, align 8
   store ptr %it, ptr %it.addr, align 8
   store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %call = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %1 = getelementptr inbounds %struct.anon.39, ptr %0, i32 0, i32 3, i32 1, i32 434
+  %call = call ptr @_PyEval_GetBuiltin(ptr noundef %1)
   store ptr %call, ptr %iter, align 8
-  %0 = load ptr, ptr %it.addr, align 8
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %it_seq, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %it.addr, align 8
+  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %it_seq, align 8
+  %cmp = icmp ne ptr %3, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %iter, align 8
-  %3 = load ptr, ptr %it.addr, align 8
-  %it_seq1 = getelementptr inbounds %struct.bytesiterobject, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %it_seq1, align 8
+  %4 = load ptr, ptr %iter, align 8
   %5 = load ptr, ptr %it.addr, align 8
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %it_index, align 8
-  %call2 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.114, ptr noundef %2, ptr noundef %4, i64 noundef %6)
+  %it_seq1 = getelementptr inbounds %struct.bytesiterobject, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %it_seq1, align 8
+  %7 = load ptr, ptr %it.addr, align 8
+  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %7, i32 0, i32 1
+  %8 = load i64, ptr %it_index, align 8
+  %call2 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.114, ptr noundef %4, ptr noundef %6, i64 noundef %8)
   store ptr %call2, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %7 = load ptr, ptr %iter, align 8
-  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.115, ptr noundef %7)
+  %9 = load ptr, ptr %iter, align 8
+  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.115, ptr noundef %9)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

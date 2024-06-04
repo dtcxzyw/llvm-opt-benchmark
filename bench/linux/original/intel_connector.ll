@@ -21,19 +21,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @intel_connector_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 168) #4
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %6, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 168) #4
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %7, label %6
 
-5:                                                ; preds = %1
-  tail call void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr noundef nonnull %3) #5
+6:                                                ; preds = %1
+  tail call void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr noundef nonnull %4) #5
   tail call void @intel_panel_init_alloc(ptr noundef %0) #5
-  br label %6
+  br label %7
 
-6:                                                ; preds = %5, %1
-  %7 = phi i32 [ 0, %5 ], [ -12, %1 ]
-  ret i32 %7
+7:                                                ; preds = %6, %1
+  %8 = phi i32 [ 0, %6 ], [ -12, %1 ]
+  ret i32 %8
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -50,29 +51,31 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @intel_connector_alloc() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %2 = tail call noalias align 8 dereferenceable_or_null(2720) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 2720) #4
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %1 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %2 = load ptr, ptr %1, align 16
+  %3 = tail call noalias align 8 dereferenceable_or_null(2720) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 2720) #4
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %12, label %5
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %6 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 168) #4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 168) #4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %4
-  tail call void @__drm_atomic_helper_connector_reset(ptr noundef nonnull %2, ptr noundef nonnull %6) #5
-  tail call void @intel_panel_init_alloc(ptr noundef nonnull %2) #5
-  br label %10
+10:                                               ; preds = %5
+  tail call void @__drm_atomic_helper_connector_reset(ptr noundef nonnull %3, ptr noundef nonnull %8) #5
+  tail call void @intel_panel_init_alloc(ptr noundef nonnull %3) #5
+  br label %12
 
-9:                                                ; preds = %4
-  tail call void @kfree(ptr noundef nonnull %2) #5
-  br label %10
+11:                                               ; preds = %5
+  tail call void @kfree(ptr noundef nonnull %3) #5
+  br label %12
 
-10:                                               ; preds = %9, %8, %0
-  %11 = phi ptr [ null, %9 ], [ null, %0 ], [ %2, %8 ]
-  ret ptr %11
+12:                                               ; preds = %11, %10, %0
+  %13 = phi ptr [ null, %11 ], [ null, %0 ], [ %3, %10 ]
+  ret ptr %13
 }
 
 ; Function Attrs: null_pointer_is_valid

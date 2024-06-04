@@ -105,7 +105,8 @@ entry:
   %arraydecay3 = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 0
   %add.ptr = getelementptr inbounds i8, ptr %arraydecay3, i64 64
   %arraydecay4 = getelementptr inbounds [64 x i8], ptr %iv, i64 0, i64 0
-  call void @AES_ige_encrypt(ptr noundef getelementptr inbounds (i8, ptr @plaintext, i64 64), ptr noundef %add.ptr, i64 noundef 64, ptr noundef %key, ptr noundef %arraydecay4, i32 noundef 1)
+  %0 = getelementptr inbounds i8, ptr @plaintext, i64 64
+  call void @AES_ige_encrypt(ptr noundef %0, ptr noundef %add.ptr, i64 noundef 64, ptr noundef %key, ptr noundef %arraydecay4, i32 noundef 1)
   %call5 = call i32 @AES_set_decrypt_key(ptr noundef @rkey, i32 noundef 128, ptr noundef %key)
   %arraydecay6 = getelementptr inbounds [64 x i8], ptr %iv, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay6, ptr align 16 @saved_iv, i64 64, i1 false)
@@ -134,7 +135,8 @@ entry:
   %arraydecay3 = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 0
   %add.ptr = getelementptr inbounds i8, ptr %arraydecay3, i64 64
   %arraydecay4 = getelementptr inbounds [64 x i8], ptr %iv, i64 0, i64 0
-  call void @AES_ige_encrypt(ptr noundef getelementptr inbounds (i8, ptr @plaintext, i64 64), ptr noundef %add.ptr, i64 noundef 64, ptr noundef %key, ptr noundef %arraydecay4, i32 noundef 1)
+  %0 = getelementptr inbounds i8, ptr @plaintext, i64 64
+  call void @AES_ige_encrypt(ptr noundef %0, ptr noundef %add.ptr, i64 noundef 64, ptr noundef %key, ptr noundef %arraydecay4, i32 noundef 1)
   %call5 = call i32 @AES_set_decrypt_key(ptr noundef @rkey, i32 noundef 128, ptr noundef %key)
   %arraydecay6 = getelementptr inbounds [64 x i8], ptr %iv, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay6, ptr align 16 @saved_iv, i64 64, i1 false)

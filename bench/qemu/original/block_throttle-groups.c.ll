@@ -315,23 +315,26 @@ do.body:                                          ; preds = %if.end15
   %17 = load ptr, ptr %tg, align 8
   %list = getelementptr inbounds %struct.ThrottleGroup, ptr %17, i32 0, i32 9
   store ptr null, ptr %list, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1), align 8
-  %19 = load ptr, ptr %tg, align 8
-  %list17 = getelementptr inbounds %struct.ThrottleGroup, ptr %19, i32 0, i32 9
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %list17, i32 0, i32 1
-  store ptr %18, ptr %tql_prev, align 8
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %tg, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
-  store ptr %20, ptr %tql_next, align 8
-  %22 = load ptr, ptr %tg, align 8
-  %list18 = getelementptr inbounds %struct.ThrottleGroup, ptr %22, i32 0, i32 9
-  store ptr %list18, ptr getelementptr inbounds (%struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1), align 8
+  %list17 = getelementptr inbounds %struct.ThrottleGroup, ptr %20, i32 0, i32 9
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %list17, i32 0, i32 1
+  store ptr %19, ptr %tql_prev, align 8
+  %21 = load ptr, ptr %tg, align 8
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
+  store ptr %21, ptr %tql_next, align 8
+  %24 = load ptr, ptr %tg, align 8
+  %list18 = getelementptr inbounds %struct.ThrottleGroup, ptr %24, i32 0, i32 9
+  %25 = getelementptr inbounds %struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1
+  store ptr %list18, ptr %25, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %23 = load ptr, ptr %tg, align 8
-  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %23, i32 0, i32 1
+  %26 = load ptr, ptr %tg, align 8
+  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %26, i32 0, i32 1
   store i8 1, ptr %is_initialized, align 8
   br label %return
 
@@ -2580,29 +2583,30 @@ if.else:                                          ; preds = %do.body
   %list6 = getelementptr inbounds %struct.ThrottleGroup, ptr %9, i32 0, i32 9
   %tql_prev7 = getelementptr inbounds %struct.QTailQLink, ptr %list6, i32 0, i32 1
   %10 = load ptr, ptr %tql_prev7, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1), align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @throttle_groups, i32 0, i32 1
+  store ptr %10, ptr %11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  %11 = load ptr, ptr %tg, align 8
-  %list8 = getelementptr inbounds %struct.ThrottleGroup, ptr %11, i32 0, i32 9
-  %12 = load ptr, ptr %list8, align 8
-  %13 = load ptr, ptr %tg, align 8
-  %list9 = getelementptr inbounds %struct.ThrottleGroup, ptr %13, i32 0, i32 9
+  %12 = load ptr, ptr %tg, align 8
+  %list8 = getelementptr inbounds %struct.ThrottleGroup, ptr %12, i32 0, i32 9
+  %13 = load ptr, ptr %list8, align 8
+  %14 = load ptr, ptr %tg, align 8
+  %list9 = getelementptr inbounds %struct.ThrottleGroup, ptr %14, i32 0, i32 9
   %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %list9, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev10, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %15 = load ptr, ptr %tg, align 8
-  %list11 = getelementptr inbounds %struct.ThrottleGroup, ptr %15, i32 0, i32 9
+  %15 = load ptr, ptr %tql_prev10, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
+  store ptr %13, ptr %tql_next, align 8
+  %16 = load ptr, ptr %tg, align 8
+  %list11 = getelementptr inbounds %struct.ThrottleGroup, ptr %16, i32 0, i32 9
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %list11, i32 0, i32 1
   store ptr null, ptr %tql_prev12, align 8
-  %16 = load ptr, ptr %tg, align 8
-  %list13 = getelementptr inbounds %struct.ThrottleGroup, ptr %16, i32 0, i32 9
+  %17 = load ptr, ptr %tg, align 8
+  %list13 = getelementptr inbounds %struct.ThrottleGroup, ptr %17, i32 0, i32 9
   %tql_next14 = getelementptr inbounds %struct.QTailQLink, ptr %list13, i32 0, i32 0
   store ptr null, ptr %tql_next14, align 8
-  %17 = load ptr, ptr %tg, align 8
-  %list15 = getelementptr inbounds %struct.ThrottleGroup, ptr %17, i32 0, i32 9
+  %18 = load ptr, ptr %tg, align 8
+  %list15 = getelementptr inbounds %struct.ThrottleGroup, ptr %18, i32 0, i32 9
   store ptr null, ptr %list15, align 8
   br label %do.end
 
@@ -2610,13 +2614,13 @@ do.end:                                           ; preds = %if.end
   br label %if.end16
 
 if.end16:                                         ; preds = %do.end, %entry
-  %18 = load ptr, ptr %tg, align 8
-  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %18, i32 0, i32 3
-  call void @qemu_mutex_destroy(ptr noundef %lock)
   %19 = load ptr, ptr %tg, align 8
-  %name = getelementptr inbounds %struct.ThrottleGroup, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %20)
+  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %19, i32 0, i32 3
+  call void @qemu_mutex_destroy(ptr noundef %lock)
+  %20 = load ptr, ptr %tg, align 8
+  %name = getelementptr inbounds %struct.ThrottleGroup, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %21)
   ret void
 }
 

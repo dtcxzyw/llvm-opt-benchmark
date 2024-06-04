@@ -1140,27 +1140,29 @@ if.then2:                                         ; preds = %if.end
   %4 = load ptr, ptr @prepare_credentials.c, align 8
   %pw_gid = getelementptr inbounds %struct.passwd, ptr %4, i32 0, i32 3
   %5 = load i32, ptr %pw_gid, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.credentials, ptr @prepare_credentials.c, i32 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.credentials, ptr @prepare_credentials.c, i32 0, i32 1
+  store i32 %5, ptr %6, align 8
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %6 = load ptr, ptr %group_name.addr, align 8
-  %call3 = call ptr @getgrnam(ptr noundef %6)
+  %7 = load ptr, ptr %group_name.addr, align 8
+  %call3 = call ptr @getgrnam(ptr noundef %7)
   store ptr %call3, ptr %group, align 8
-  %7 = load ptr, ptr %group, align 8
-  %tobool4 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %group, align 8
+  %tobool4 = icmp ne ptr %8, null
   br i1 %tobool4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %8 = load ptr, ptr %group_name.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.65, ptr noundef %8) #13
+  %9 = load ptr, ptr %group_name.addr, align 8
+  call void (ptr, ...) @die(ptr noundef @.str.65, ptr noundef %9) #13
   unreachable
 
 if.end6:                                          ; preds = %if.else
-  %9 = load ptr, ptr %group, align 8
-  %gr_gid = getelementptr inbounds %struct.group, ptr %9, i32 0, i32 2
-  %10 = load i32, ptr %gr_gid, align 8
-  store i32 %10, ptr getelementptr inbounds (%struct.credentials, ptr @prepare_credentials.c, i32 0, i32 1), align 8
+  %10 = load ptr, ptr %group, align 8
+  %gr_gid = getelementptr inbounds %struct.group, ptr %10, i32 0, i32 2
+  %11 = load i32, ptr %gr_gid, align 8
+  %12 = getelementptr inbounds %struct.credentials, ptr @prepare_credentials.c, i32 0, i32 1
+  store i32 %11, ptr %12, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %if.then2
@@ -1554,12 +1556,12 @@ entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %err, ptr %err.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %err.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   call void @logreport(i32 noundef 3, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -1629,9 +1631,6 @@ declare void @strbuf_release(ptr noundef) #2
 
 declare i32 @fclose(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 ; Function Attrs: nounwind uwtable
 define internal void @logreport(i32 noundef %priority, ptr noundef %err, ptr noundef %params) #0 {
 entry:
@@ -1686,9 +1685,6 @@ sw.epilog:                                        ; preds = %sw.bb8, %sw.bb2, %s
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
@@ -1710,7 +1706,7 @@ declare void @strvec_pushl(ptr noundef, ...) #2
 declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #9
+declare void @exit(i32 noundef) #8
 
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) #2
 
@@ -1736,12 +1732,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %err.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   call void @logreport(i32 noundef 6, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2014,18 +2010,19 @@ if.then33:                                        ; preds = %land.lhs.true30
   br label %return
 
 if.end34:                                         ; preds = %land.lhs.true30, %if.end28
-  %call35 = call ptr @signal(i32 noundef 15, ptr noundef inttoptr (i64 1 to ptr)) #11
-  %32 = load ptr, ptr %service.addr, align 8
-  %fn = getelementptr inbounds %struct.daemon_service, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %fn, align 8
-  %34 = load ptr, ptr %env.addr, align 8
-  %call36 = call i32 %33(ptr noundef %34)
+  %32 = inttoptr i64 1 to ptr
+  %call35 = call ptr @signal(i32 noundef 15, ptr noundef %32) #11
+  %33 = load ptr, ptr %service.addr, align 8
+  %fn = getelementptr inbounds %struct.daemon_service, ptr %33, i32 0, i32 2
+  %34 = load ptr, ptr %fn, align 8
+  %35 = load ptr, ptr %env.addr, align 8
+  %call36 = call i32 %34(ptr noundef %35)
   store i32 %call36, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then33, %if.then24, %if.then14, %if.then7, %if.then
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+  %36 = load i32, ptr %retval, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2054,7 +2051,7 @@ declare void @strvec_clear(ptr noundef) #2
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #10
+declare ptr @__errno_location() #9
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #3
@@ -4321,7 +4318,7 @@ for.end:                                          ; preds = %if.then5, %for.cond
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) #10
+declare zeroext i16 @ntohs(i16 noundef zeroext) #9
 
 ; Function Attrs: nounwind
 declare i32 @dup(i32 noundef) #3
@@ -4480,6 +4477,12 @@ return:                                           ; preds = %if.end22, %if.then1
 ; Function Attrs: nounwind
 declare i32 @kill(i32 noundef, i32 noundef) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4488,9 +4491,9 @@ attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { noreturn }

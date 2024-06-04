@@ -57,76 +57,82 @@ define void @ompi_comm_request_init() #0 {
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %5 = icmp ne i32 %3, %4
-  br i1 %5, label %6, label %7
+  %4 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ne i32 %3, %5
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %7
-
-7:                                                ; preds = %6, %2
-  store ptr @opal_free_list_t_class, ptr @ompi_comm_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_comm_requests, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_comm_requests)
   br label %8
 
-8:                                                ; preds = %7
-  br label %9
+8:                                                ; preds = %7, %2
+  store ptr @opal_free_list_t_class, ptr @ompi_comm_requests, align 16
+  %9 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_comm_requests, i32 0, i32 1
+  store volatile i32 1, ptr %9, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_comm_requests)
+  br label %10
 
-9:                                                ; preds = %8
-  %10 = call i32 @opal_free_list_init(ptr noundef @ompi_comm_requests, i64 noundef 232, i64 noundef 8, ptr noundef @ompi_comm_request_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+10:                                               ; preds = %8
   br label %11
 
-11:                                               ; preds = %9
-  br label %12
+11:                                               ; preds = %10
+  %12 = call i32 @opal_free_list_init(ptr noundef @ompi_comm_requests, i64 noundef 232, i64 noundef 8, ptr noundef @ompi_comm_request_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  br label %13
 
-12:                                               ; preds = %11
-  %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %15 = icmp ne i32 %13, %14
-  br i1 %15, label %16, label %17
+13:                                               ; preds = %11
+  br label %14
 
-16:                                               ; preds = %12
+14:                                               ; preds = %13
+  %15 = load i32, ptr @opal_class_init_epoch, align 4
+  %16 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ne i32 %15, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %14
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %17
-
-17:                                               ; preds = %16, %12
-  store ptr @opal_list_t_class, ptr @ompi_comm_requests_active, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_comm_requests_active, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_comm_requests_active)
-  br label %18
-
-18:                                               ; preds = %17
-  br label %19
-
-19:                                               ; preds = %18
-  store i8 0, ptr @ompi_comm_request_progress_active, align 1
   br label %20
 
-20:                                               ; preds = %19
-  br label %21
+20:                                               ; preds = %19, %14
+  store ptr @opal_list_t_class, ptr @ompi_comm_requests_active, align 8
+  %21 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_comm_requests_active, i32 0, i32 1
+  store volatile i32 1, ptr %21, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_comm_requests_active)
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+22:                                               ; preds = %20
+  br label %23
 
-25:                                               ; preds = %21
+23:                                               ; preds = %22
+  store i8 0, ptr @ompi_comm_request_progress_active, align 1
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr @opal_class_init_epoch, align 4
+  %27 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ne i32 %26, %28
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %25
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %26
+  br label %31
 
-26:                                               ; preds = %25, %21
+31:                                               ; preds = %30, %25
   store ptr @opal_mutex_t_class, ptr @ompi_comm_request_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_comm_request_mutex, i32 0, i32 1), align 8
+  %32 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_comm_request_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %32, align 8
   call void @opal_obj_run_constructors(ptr noundef @ompi_comm_request_mutex)
-  br label %27
+  br label %33
 
-27:                                               ; preds = %26
-  br label %28
+33:                                               ; preds = %31
+  br label %34
 
-28:                                               ; preds = %27
+34:                                               ; preds = %33
   store i8 1, ptr @ompi_comm_request_initialized, align 1
   ret void
 }
@@ -245,240 +251,243 @@ define internal i32 @ompi_comm_request_progress() #0 {
 
 13:                                               ; preds = %0
   store i32 0, ptr %3, align 4
-  br label %150
+  br label %153
 
 14:                                               ; preds = %0
   call void @opal_mutex_lock(ptr noundef @ompi_comm_request_mutex)
-  %15 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1, i32 1), align 8
-  store ptr %15, ptr %4, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.opal_list_item_t, ptr %16, i32 0, i32 1
-  %18 = load volatile ptr, ptr %17, align 8
-  store ptr %18, ptr %5, align 8
-  br label %19
+  %15 = getelementptr inbounds %struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1, i32 1
+  %16 = load volatile ptr, ptr %15, align 8
+  store ptr %16, ptr %4, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.opal_list_item_t, ptr %17, i32 0, i32 1
+  %19 = load volatile ptr, ptr %18, align 8
+  store ptr %19, ptr %5, align 8
+  br label %20
 
-19:                                               ; preds = %138, %14
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp ne ptr %20, getelementptr inbounds (%struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1)
-  br i1 %21, label %22, label %143
+20:                                               ; preds = %141, %14
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %146
 
-22:                                               ; preds = %19
+24:                                               ; preds = %20
   store i32 0, ptr %7, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %23, i32 0, i32 2
-  %25 = call i64 @opal_list_get_size(ptr noundef %24)
-  %26 = icmp ne i64 %25, 0
-  br i1 %26, label %27, label %115
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %25, i32 0, i32 2
+  %27 = call i64 @opal_list_get_size(ptr noundef %26)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %118
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %28, i32 0, i32 2
-  %30 = call ptr @opal_list_remove_first(ptr noundef %29)
-  store ptr %30, ptr %8, align 8
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %30, i32 0, i32 2
+  %32 = call ptr @opal_list_remove_first(ptr noundef %31)
+  store ptr %32, ptr %8, align 8
   store i32 1, ptr %9, align 4
-  br label %31
+  br label %33
 
-31:                                               ; preds = %81, %27
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %32, i32 0, i32 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %82
+33:                                               ; preds = %84, %29
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %34, i32 0, i32 4
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %85
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %37, i32 0, i32 2
+38:                                               ; preds = %33
   %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %39, i32 0, i32 4
-  %41 = load i32, ptr %40, align 4
-  %42 = sub nsw i32 %41, 1
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [2 x ptr], ptr %38, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %10, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.ompi_request_t, ptr %46, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr inttoptr (i64 1 to ptr), %48
-  br i1 %49, label %50, label %80
+  %40 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %41, i32 0, i32 4
+  %43 = load i32, ptr %42, align 4
+  %44 = sub nsw i32 %43, 1
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [2 x ptr], ptr %40, i64 0, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = inttoptr i64 1 to ptr
+  %52 = icmp eq ptr %51, %50
+  br i1 %52, label %53, label %83
 
-50:                                               ; preds = %36
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.ompi_request_t, ptr %51, i32 0, i32 2
-  %53 = getelementptr inbounds %struct.ompi_status_public_t, ptr %52, i32 0, i32 2
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp ne i32 0, %54
-  br i1 %55, label %56, label %65
+53:                                               ; preds = %38
+  %54 = load ptr, ptr %10, align 8
+  %55 = getelementptr inbounds %struct.ompi_request_t, ptr %54, i32 0, i32 2
+  %56 = getelementptr inbounds %struct.ompi_status_public_t, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp ne i32 0, %57
+  br i1 %58, label %59, label %68
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct.ompi_request_t, ptr %57, i32 0, i32 2
-  %59 = getelementptr inbounds %struct.ompi_status_public_t, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %61, i32 0, i32 0
-  %63 = getelementptr inbounds %struct.ompi_request_t, ptr %62, i32 0, i32 2
-  %64 = getelementptr inbounds %struct.ompi_status_public_t, ptr %63, i32 0, i32 2
-  store i32 %60, ptr %64, align 8
-  br label %65
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds %struct.ompi_request_t, ptr %60, i32 0, i32 2
+  %62 = getelementptr inbounds %struct.ompi_status_public_t, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 8
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds %struct.ompi_request_t, ptr %65, i32 0, i32 2
+  %67 = getelementptr inbounds %struct.ompi_status_public_t, ptr %66, i32 0, i32 2
+  store i32 %63, ptr %67, align 8
+  br label %68
 
-65:                                               ; preds = %56, %50
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %66, i32 0, i32 3
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, 1
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %73, label %71
+68:                                               ; preds = %59, %53
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %69, i32 0, i32 3
+  %71 = load i32, ptr %70, align 8
+  %72 = and i32 %71, 1
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %76, label %74
 
-71:                                               ; preds = %65
-  %72 = call i32 @ompi_request_free(ptr noundef %10)
-  br label %73
+74:                                               ; preds = %68
+  %75 = call i32 @ompi_request_free(ptr noundef %10)
+  br label %76
 
-73:                                               ; preds = %71, %65
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %74, i32 0, i32 4
-  %76 = load i32, ptr %75, align 4
-  %77 = add nsw i32 %76, -1
-  store i32 %77, ptr %75, align 4
-  %78 = load i32, ptr %6, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %6, align 4
-  br label %81
+76:                                               ; preds = %74, %68
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %77, i32 0, i32 4
+  %79 = load i32, ptr %78, align 4
+  %80 = add nsw i32 %79, -1
+  store i32 %80, ptr %78, align 4
+  %81 = load i32, ptr %6, align 4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %6, align 4
+  br label %84
 
-80:                                               ; preds = %36
+83:                                               ; preds = %38
   store i32 0, ptr %9, align 4
-  br label %82
+  br label %85
 
-81:                                               ; preds = %73
-  br label %31, !llvm.loop !6
+84:                                               ; preds = %76
+  br label %33, !llvm.loop !6
 
-82:                                               ; preds = %80, %31
-  %83 = load i32, ptr %9, align 4
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %109
+85:                                               ; preds = %83, %33
+  %86 = load i32, ptr %9, align 4
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %112
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %96
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %99
 
-90:                                               ; preds = %85
+93:                                               ; preds = %88
   call void @opal_mutex_unlock(ptr noundef @ompi_comm_request_mutex)
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = call i32 %93(ptr noundef %94)
-  store i32 %95, ptr %7, align 4
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %4, align 8
+  %98 = call i32 %96(ptr noundef %97)
+  store i32 %98, ptr %7, align 4
   call void @opal_mutex_lock(ptr noundef @ompi_comm_request_mutex)
-  br label %96
+  br label %99
 
-96:                                               ; preds = %90, %85
-  br label %97
+99:                                               ; preds = %93, %88
+  br label %100
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr %8, align 8
-  store ptr %98, ptr %1, align 8
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %8, align 8
+  store ptr %101, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %99 = load ptr, ptr %1, align 8
-  %100 = getelementptr inbounds %struct.opal_object_t, ptr %99, i32 0, i32 1
-  %101 = load i32, ptr %2, align 4
-  %102 = call i32 @opal_thread_add_fetch_32(ptr noundef %100, i32 noundef %101)
-  %103 = icmp eq i32 0, %102
-  br i1 %103, label %104, label %107
+  %102 = load ptr, ptr %1, align 8
+  %103 = getelementptr inbounds %struct.opal_object_t, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %2, align 4
+  %105 = call i32 @opal_thread_add_fetch_32(ptr noundef %103, i32 noundef %104)
+  %106 = icmp eq i32 0, %105
+  br i1 %106, label %107, label %110
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr %8, align 8
-  call void @opal_obj_run_destructors(ptr noundef %105)
-  %106 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %106) #4
+107:                                              ; preds = %100
+  %108 = load ptr, ptr %8, align 8
+  call void @opal_obj_run_destructors(ptr noundef %108)
+  %109 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %109) #4
   store ptr null, ptr %8, align 8
-  br label %107
+  br label %110
 
-107:                                              ; preds = %104, %97
-  br label %108
+110:                                              ; preds = %107, %100
+  br label %111
 
-108:                                              ; preds = %107
-  br label %114
+111:                                              ; preds = %110
+  br label %117
 
-109:                                              ; preds = %82
-  %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %110, i32 0, i32 2
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %112, i32 0, i32 0
-  call void @opal_list_prepend(ptr noundef %111, ptr noundef %113)
-  br label %114
+112:                                              ; preds = %85
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %113, i32 0, i32 2
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds %struct.ompi_comm_request_item_t, ptr %115, i32 0, i32 0
+  call void @opal_list_prepend(ptr noundef %114, ptr noundef %116)
+  br label %117
 
-114:                                              ; preds = %109, %108
-  br label %115
+117:                                              ; preds = %112, %111
+  br label %118
 
-115:                                              ; preds = %114, %22
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %116, i32 0, i32 2
-  %118 = call i64 @opal_list_get_size(ptr noundef %117)
-  %119 = icmp eq i64 0, %118
-  br i1 %119, label %120, label %137
+118:                                              ; preds = %117, %24
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %119, i32 0, i32 2
+  %121 = call i64 @opal_list_get_size(ptr noundef %120)
+  %122 = icmp eq i64 0, %121
+  br i1 %122, label %123, label %140
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %4, align 8
-  %122 = call ptr @opal_list_remove_item(ptr noundef @ompi_comm_requests_active, ptr noundef %121)
-  %123 = load i32, ptr %7, align 4
-  %124 = icmp eq i32 0, %123
-  br i1 %124, label %125, label %126
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %4, align 8
+  %125 = call ptr @opal_list_remove_item(ptr noundef @ompi_comm_requests_active, ptr noundef %124)
+  %126 = load i32, ptr %7, align 4
+  %127 = icmp eq i32 0, %126
+  br i1 %127, label %128, label %129
 
-125:                                              ; preds = %120
-  br label %128
+128:                                              ; preds = %123
+  br label %131
 
-126:                                              ; preds = %120
-  %127 = load i32, ptr %7, align 4
-  br label %128
+129:                                              ; preds = %123
+  %130 = load i32, ptr %7, align 4
+  br label %131
 
-128:                                              ; preds = %126, %125
-  %129 = phi i32 [ 0, %125 ], [ %127, %126 ]
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %130, i32 0, i32 0
-  %132 = getelementptr inbounds %struct.ompi_request_t, ptr %131, i32 0, i32 2
-  %133 = getelementptr inbounds %struct.ompi_status_public_t, ptr %132, i32 0, i32 2
-  store i32 %129, ptr %133, align 8
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %134, i32 0, i32 0
-  %136 = call i32 @ompi_request_complete(ptr noundef %135, i1 noundef zeroext true)
-  br label %137
+131:                                              ; preds = %129, %128
+  %132 = phi i32 [ 0, %128 ], [ %130, %129 ]
+  %133 = load ptr, ptr %4, align 8
+  %134 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds %struct.ompi_request_t, ptr %134, i32 0, i32 2
+  %136 = getelementptr inbounds %struct.ompi_status_public_t, ptr %135, i32 0, i32 2
+  store i32 %132, ptr %136, align 8
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %137, i32 0, i32 0
+  %139 = call i32 @ompi_request_complete(ptr noundef %138, i1 noundef zeroext true)
+  br label %140
 
-137:                                              ; preds = %128, %115
-  br label %138
+140:                                              ; preds = %131, %118
+  br label %141
 
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %5, align 8
-  store ptr %139, ptr %4, align 8
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct.opal_list_item_t, ptr %140, i32 0, i32 1
-  %142 = load volatile ptr, ptr %141, align 8
-  store ptr %142, ptr %5, align 8
-  br label %19, !llvm.loop !7
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %5, align 8
+  store ptr %142, ptr %4, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = getelementptr inbounds %struct.opal_list_item_t, ptr %143, i32 0, i32 1
+  %145 = load volatile ptr, ptr %144, align 8
+  store ptr %145, ptr %5, align 8
+  br label %20, !llvm.loop !7
 
-143:                                              ; preds = %19
-  %144 = call i64 @opal_list_get_size(ptr noundef @ompi_comm_requests_active)
-  %145 = icmp eq i64 0, %144
-  br i1 %145, label %146, label %148
+146:                                              ; preds = %20
+  %147 = call i64 @opal_list_get_size(ptr noundef @ompi_comm_requests_active)
+  %148 = icmp eq i64 0, %147
+  br i1 %148, label %149, label %151
 
-146:                                              ; preds = %143
+149:                                              ; preds = %146
   store i8 0, ptr @ompi_comm_request_progress_active, align 1
-  %147 = call i32 @opal_progress_unregister(ptr noundef @ompi_comm_request_progress)
-  br label %148
+  %150 = call i32 @opal_progress_unregister(ptr noundef @ompi_comm_request_progress)
+  br label %151
 
-148:                                              ; preds = %146, %143
+151:                                              ; preds = %149, %146
   call void @opal_mutex_unlock(ptr noundef @ompi_comm_request_mutex)
   store volatile i32 0, ptr @ompi_comm_request_progress.progressing, align 4
-  %149 = load i32, ptr %6, align 4
-  store i32 %149, ptr %3, align 4
-  br label %150
+  %152 = load i32, ptr %6, align 4
+  store i32 %152, ptr %3, align 4
+  br label %153
 
-150:                                              ; preds = %148, %13
-  %151 = load i32, ptr %3, align 4
-  ret i32 %151
+153:                                              ; preds = %151, %13
+  %154 = load i32, ptr %3, align 4
+  ret i32 %154
 }
 
 ; Function Attrs: nounwind uwtable
@@ -777,32 +786,33 @@ define internal void @ompi_comm_request_construct(ptr noundef %0) #0 {
 
 19:                                               ; preds = %18
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %22 = icmp ne i32 %20, %21
-  br i1 %22, label %23, label %24
+  %21 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %20, %22
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %19
+24:                                               ; preds = %19
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %19
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %25, i32 0, i32 2
-  %27 = getelementptr inbounds %struct.opal_object_t, ptr %26, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %27, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 1
-  store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %31, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %32)
-  br label %33
-
-33:                                               ; preds = %24
+25:                                               ; preds = %24, %19
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %26, i32 0, i32 2
+  %28 = getelementptr inbounds %struct.opal_object_t, ptr %27, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %28, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %29, i32 0, i32 2
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 1
+  store volatile i32 1, ptr %31, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.ompi_comm_request_t, ptr %32, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %33)
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %25
+  br label %35
+
+35:                                               ; preds = %34
   ret void
 }
 
@@ -1248,7 +1258,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -1281,18 +1291,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 
@@ -1505,54 +1516,55 @@ define internal i32 @ompi_comm_request_free(ptr noundef %0) #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds %struct.ompi_request_t, ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr inttoptr (i64 1 to ptr), %10
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %1
-  store i32 7, ptr %2, align 4
-  br label %36
+  %11 = inttoptr i64 1 to ptr
+  %12 = icmp eq ptr %11, %10
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %1
-  br label %14
+  store i32 7, ptr %2, align 4
+  br label %37
 
-14:                                               ; preds = %13
-  %15 = load ptr, ptr %3, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.ompi_request_t, ptr %16, i32 0, i32 4
-  store volatile i32 0, ptr %17, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.ompi_request_t, ptr %19, i32 0, i32 6
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp ne i32 -32766, %21
-  br i1 %22, label %23, label %32
+14:                                               ; preds = %1
+  br label %15
 
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %3, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.ompi_request_t, ptr %25, i32 0, i32 6
-  %27 = load i32, ptr %26, align 8
-  %28 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %27, ptr noundef null)
-  %29 = load ptr, ptr %3, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.ompi_request_t, ptr %30, i32 0, i32 6
-  store i32 -32766, ptr %31, align 8
-  br label %32
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.ompi_request_t, ptr %17, i32 0, i32 4
+  store volatile i32 0, ptr %18, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.ompi_request_t, ptr %20, i32 0, i32 6
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 -32766, %22
+  br i1 %23, label %24, label %33
 
-32:                                               ; preds = %23, %14
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.ompi_request_t, ptr %26, i32 0, i32 6
+  %28 = load i32, ptr %27, align 8
+  %29 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %28, ptr noundef null)
+  %30 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.ompi_request_t, ptr %31, i32 0, i32 6
+  store i32 -32766, ptr %32, align 8
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %4, align 8
-  call void @ompi_comm_request_return(ptr noundef %34)
-  %35 = load ptr, ptr %3, align 8
-  store ptr @ompi_request_null, ptr %35, align 8
-  store i32 0, ptr %2, align 4
-  br label %36
+33:                                               ; preds = %24, %15
+  br label %34
 
-36:                                               ; preds = %33, %12
-  %37 = load i32, ptr %2, align 4
-  ret i32 %37
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %4, align 8
+  call void @ompi_comm_request_return(ptr noundef %35)
+  %36 = load ptr, ptr %3, align 8
+  store ptr @ompi_request_null, ptr %36, align 8
+  store i32 0, ptr %2, align 4
+  br label %37
+
+37:                                               ; preds = %34, %13
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1662,37 +1674,39 @@ define internal i32 @ompi_comm_request_cancel(ptr noundef %0, i32 noundef %1) #0
   br label %21, !llvm.loop !11
 
 68:                                               ; preds = %21
-  %69 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1, i32 1), align 8
-  store ptr %69, ptr %7, align 8
-  br label %70
+  %69 = getelementptr inbounds %struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1, i32 1
+  %70 = load volatile ptr, ptr %69, align 8
+  store ptr %70, ptr %7, align 8
+  br label %71
 
-70:                                               ; preds = %81, %68
-  %71 = load ptr, ptr %7, align 8
-  %72 = icmp ne ptr %71, getelementptr inbounds (%struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1)
-  br i1 %72, label %73, label %85
+71:                                               ; preds = %83, %68
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds %struct.opal_list_t, ptr @ompi_comm_requests_active, i32 0, i32 1
+  %74 = icmp ne ptr %72, %73
+  br i1 %74, label %75, label %87
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %7, align 8
-  %75 = load ptr, ptr %8, align 8
-  %76 = icmp eq ptr %74, %75
-  br i1 %76, label %77, label %80
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %79, label %82
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %8, align 8
-  %79 = call ptr @opal_list_remove_item(ptr noundef @ompi_comm_requests_active, ptr noundef %78)
-  br label %85
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %8, align 8
+  %81 = call ptr @opal_list_remove_item(ptr noundef @ompi_comm_requests_active, ptr noundef %80)
+  br label %87
 
-80:                                               ; preds = %73
-  br label %81
+82:                                               ; preds = %75
+  br label %83
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct.opal_list_item_t, ptr %82, i32 0, i32 1
-  %84 = load volatile ptr, ptr %83, align 8
-  store ptr %84, ptr %7, align 8
-  br label %70, !llvm.loop !12
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.opal_list_item_t, ptr %84, i32 0, i32 1
+  %86 = load volatile ptr, ptr %85, align 8
+  store ptr %86, ptr %7, align 8
+  br label %71, !llvm.loop !12
 
-85:                                               ; preds = %77, %70
+87:                                               ; preds = %79, %71
   call void @opal_mutex_unlock(ptr noundef @ompi_comm_request_mutex)
   ret i32 7
 }

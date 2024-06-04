@@ -1555,103 +1555,105 @@ define void @_ZN3gmx16CheckpointHelperC2EOSt6vectorISt5tupleIJNSt7__cxx1112basic
   call void @_ZN3gmx24ILastStepSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #14
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [7 x ptr] }, ptr @_ZTVN3gmx16CheckpointHelperE, i32 0, i32 0, i32 2), ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [8 x ptr], [7 x ptr] }, ptr @_ZTVN3gmx16CheckpointHelperE, i32 0, i32 1, i32 2), ptr %30, align 8
-  %31 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 2
-  %32 = load ptr, ptr %13, align 8
-  call void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEESaISA_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32) #14
-  %33 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %34 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 4
-  %35 = load i32, ptr %15, align 4
-  %36 = sext i32 %35 to i64
-  store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 5
-  store i64 -1, ptr %37, align 8
-  %38 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 6
-  %39 = load i8, ptr %22, align 1
-  %40 = trunc i8 %39 to i1
-  %41 = zext i1 %40 to i8
-  store i8 %41, ptr %38, align 8
-  %42 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 7
-  %43 = load ptr, ptr %16, align 8
-  store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 8
-  %45 = load ptr, ptr %17, align 8
+  %30 = getelementptr inbounds { [8 x ptr], [7 x ptr] }, ptr @_ZTVN3gmx16CheckpointHelperE, i32 0, i32 0, i32 2
+  store ptr %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds { [8 x ptr], [7 x ptr] }, ptr @_ZTVN3gmx16CheckpointHelperE, i32 0, i32 1, i32 2
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 2
+  %34 = load ptr, ptr %13, align 8
+  call void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEESaISA_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  %35 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
+  %36 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 4
+  %37 = load i32, ptr %15, align 4
+  %38 = sext i32 %37 to i64
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 5
+  store i64 -1, ptr %39, align 8
+  %40 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 6
+  %41 = load i8, ptr %22, align 1
+  %42 = trunc i8 %41 to i1
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %40, align 8
+  %44 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 7
+  %45 = load ptr, ptr %16, align 8
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 9
-  %47 = load ptr, ptr %18, align 8
+  %46 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 8
+  %47 = load ptr, ptr %17, align 8
   store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
-  %49 = load ptr, ptr %19, align 8
+  %48 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 9
+  %49 = load ptr, ptr %18, align 8
   store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 11
-  %51 = load ptr, ptr %20, align 8
+  %50 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
+  %51 = load ptr, ptr %19, align 8
   store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 12
-  %53 = load ptr, ptr %21, align 8
+  %52 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 11
+  %53 = load ptr, ptr %20, align 8
   store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.ObservablesHistory, ptr %55, i32 0, i32 0
-  %57 = call noundef zeroext i1 @_ZNKSt10unique_ptrI15energyhistory_tSt14default_deleteIS0_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %56) #14
-  br i1 %57, label %69, label %58
+  %54 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 12
+  %55 = load ptr, ptr %21, align 8
+  store ptr %55, ptr %54, align 8
+  %56 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.ObservablesHistory, ptr %57, i32 0, i32 0
+  %59 = call noundef zeroext i1 @_ZNKSt10unique_ptrI15energyhistory_tSt14default_deleteIS0_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #14
+  br i1 %59, label %71, label %60
 
-58:                                               ; preds = %11
+60:                                               ; preds = %11
   invoke void @_ZSt11make_uniqueI15energyhistory_tJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.4") align 8 %23)
-          to label %59 unwind label %64
+          to label %61 unwind label %66
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.ObservablesHistory, ptr %61, i32 0, i32 0
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI15energyhistory_tSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) %23) #14
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %struct.ObservablesHistory, ptr %63, i32 0, i32 0
+  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI15energyhistory_tSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(8) %23) #14
   call void @_ZNSt10unique_ptrI15energyhistory_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
-  br label %69
+  br label %71
 
-64:                                               ; preds = %74, %58
-  %65 = landingpad { ptr, i32 }
+66:                                               ; preds = %76, %60
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %24, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %25, align 4
-  call void @_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #14
-  call void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
-  %68 = getelementptr inbounds i8, ptr %28, i64 8
-  call void @_ZN3gmx17ISimulatorElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #14
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %24, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %25, align 4
+  call void @_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #14
+  call void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
+  %70 = getelementptr inbounds i8, ptr %28, i64 8
+  call void @_ZN3gmx17ISimulatorElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #14
   call void @_ZN3gmx24ILastStepSignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
-  br label %81
+  br label %83
 
-69:                                               ; preds = %59, %11
-  %70 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.ObservablesHistory, ptr %71, i32 0, i32 1
-  %73 = call noundef zeroext i1 @_ZNKSt10unique_ptrI11PullHistorySt14default_deleteIS0_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %72) #14
-  br i1 %73, label %80, label %74
+71:                                               ; preds = %61, %11
+  %72 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.ObservablesHistory, ptr %73, i32 0, i32 1
+  %75 = call noundef zeroext i1 @_ZNKSt10unique_ptrI11PullHistorySt14default_deleteIS0_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %74) #14
+  br i1 %75, label %82, label %76
 
-74:                                               ; preds = %69
+76:                                               ; preds = %71
   invoke void @_ZSt11make_uniqueI11PullHistoryJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %26)
-          to label %75 unwind label %64
+          to label %77 unwind label %66
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.ObservablesHistory, ptr %77, i32 0, i32 1
-  %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI11PullHistorySt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds %"class.gmx::CheckpointHelper", ptr %28, i32 0, i32 10
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.ObservablesHistory, ptr %79, i32 0, i32 1
+  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI11PullHistorySt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
   call void @_ZNSt10unique_ptrI11PullHistorySt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #14
-  br label %80
+  br label %82
 
-80:                                               ; preds = %75, %69
+82:                                               ; preds = %77, %71
   ret void
 
-81:                                               ; preds = %64
-  %82 = load ptr, ptr %24, align 8
-  %83 = load i32, ptr %25, align 4
-  %84 = insertvalue { ptr, i32 } poison, ptr %82, 0
-  %85 = insertvalue { ptr, i32 } %84, i32 %83, 1
-  resume { ptr, i32 } %85
+83:                                               ; preds = %66
+  %84 = load ptr, ptr %24, align 8
+  %85 = load i32, ptr %25, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1659,7 +1661,8 @@ define linkonce_odr void @_ZN3gmx24ILastStepSignallerClientC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx24ILastStepSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx24ILastStepSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1668,7 +1671,8 @@ define linkonce_odr void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8134,7 +8138,8 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorC2ERKNS_20Except
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8623,7 +8628,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionIniti
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8658,9 +8664,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }

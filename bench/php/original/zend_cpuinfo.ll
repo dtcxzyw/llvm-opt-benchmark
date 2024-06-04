@@ -9,56 +9,64 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zend_cpu_startup() #0 {
   %1 = alloca %struct._zend_cpu_info, align 4
   %2 = alloca i32, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4), align 4
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %25, label %5
+  %3 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %33, label %6
 
-5:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4), align 4
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4
+  store i32 1, ptr %7, align 4
   call void @__zend_cpuid(i32 noundef 0, i32 noundef 0, ptr noundef @cpuinfo)
-  %6 = load i32, ptr @cpuinfo, align 4
-  store i32 %6, ptr %2, align 4
-  %7 = load i32, ptr %2, align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %10
+  %8 = load i32, ptr @cpuinfo, align 4
+  store i32 %8, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %12
 
-9:                                                ; preds = %5
-  br label %25
+11:                                               ; preds = %6
+  br label %33
 
-10:                                               ; preds = %5
+12:                                               ; preds = %6
   call void @__zend_cpuid(i32 noundef 1, i32 noundef 0, ptr noundef @cpuinfo)
-  %11 = load i32, ptr %2, align 4
-  %12 = icmp sge i32 %11, 7
-  br i1 %12, label %13, label %16
+  %13 = load i32, ptr %2, align 4
+  %14 = icmp sge i32 %13, 7
+  br i1 %14, label %15, label %19
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   call void @__zend_cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %1)
-  %14 = getelementptr inbounds %struct._zend_cpu_info, ptr %1, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1), align 4
-  br label %17
+  %16 = getelementptr inbounds %struct._zend_cpu_info, ptr %1, i32 0, i32 1
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1
+  store i32 %17, ptr %18, align 4
+  br label %21
 
-16:                                               ; preds = %10
-  store i32 0, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1), align 4
-  br label %17
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1
+  store i32 0, ptr %20, align 4
+  br label %21
 
-17:                                               ; preds = %16, %13
-  %18 = call zeroext i1 @is_avx_supported()
-  br i1 %18, label %24, label %19
+21:                                               ; preds = %19, %15
+  %22 = call zeroext i1 @is_avx_supported()
+  br i1 %22, label %32, label %23
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3), align 4
-  %21 = and i32 %20, -268435457
-  store i32 %21, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3), align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1), align 4
-  %23 = and i32 %22, -33
-  store i32 %23, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1), align 4
-  br label %24
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, -268435457
+  %27 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, -33
+  %31 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1
+  store i32 %30, ptr %31, align 4
+  br label %32
 
-24:                                               ; preds = %19, %17
-  br label %25
+32:                                               ; preds = %23, %21
+  br label %33
 
-25:                                               ; preds = %24, %9, %0
+33:                                               ; preds = %32, %11, %0
   ret void
 }
 
@@ -95,42 +103,44 @@ define internal void @__zend_cpuid(i32 noundef %0, i32 noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @is_avx_supported() #0 {
   %1 = alloca i1, align 1
-  %2 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2), align 4
-  %3 = and i32 %2, 268435456
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %6, label %5
-
-5:                                                ; preds = %0
-  store i1 false, ptr %1, align 1
-  br label %17
+  %2 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2
+  %3 = load i32, ptr %2, align 4
+  %4 = and i32 %3, 268435456
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2), align 4
-  %8 = and i32 %7, 134217728
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %6
   store i1 false, ptr %1, align 1
-  br label %17
+  br label %19
 
-11:                                               ; preds = %6
-  %12 = call i32 @get_xcr0_eax()
-  %13 = and i32 %12, 6
-  %14 = icmp ne i32 %13, 6
-  br i1 %14, label %15, label %16
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2
+  %9 = load i32, ptr %8, align 4
+  %10 = and i32 %9, 134217728
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
-15:                                               ; preds = %11
+12:                                               ; preds = %7
   store i1 false, ptr %1, align 1
-  br label %17
+  br label %19
 
-16:                                               ; preds = %11
+13:                                               ; preds = %7
+  %14 = call i32 @get_xcr0_eax()
+  %15 = and i32 %14, 6
+  %16 = icmp ne i32 %15, 6
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %13
+  store i1 false, ptr %1, align 1
+  br label %19
+
+18:                                               ; preds = %13
   store i1 true, ptr %1, align 1
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %15, %10, %5
-  %18 = load i1, ptr %1, align 1
-  ret i1 %18
+19:                                               ; preds = %18, %17, %12, %6
+  %20 = load i1, ptr %1, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -138,46 +148,50 @@ define i32 @zend_cpu_supports(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4), align 4
-  %5 = icmp ne i32 %4, 0
-  call void @llvm.assume(i1 %5)
-  %6 = load i32, ptr %3, align 4
-  %7 = and i32 %6, -2147483648
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %14
+  %4 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 4
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp ne i32 %5, 0
+  call void @llvm.assume(i1 %6)
+  %7 = load i32, ptr %3, align 4
+  %8 = and i32 %7, -2147483648
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %16
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3), align 4
-  %11 = load i32, ptr %3, align 4
-  %12 = and i32 %11, 2147483647
-  %13 = and i32 %10, %12
-  store i32 %13, ptr %2, align 4
-  br label %27
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 3
+  %12 = load i32, ptr %11, align 4
+  %13 = load i32, ptr %3, align 4
+  %14 = and i32 %13, 2147483647
+  %15 = and i32 %12, %14
+  store i32 %15, ptr %2, align 4
+  br label %31
 
-14:                                               ; preds = %1
-  %15 = load i32, ptr %3, align 4
-  %16 = and i32 %15, 1073741824
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %23
+16:                                               ; preds = %1
+  %17 = load i32, ptr %3, align 4
+  %18 = and i32 %17, 1073741824
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %26
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1), align 4
-  %20 = load i32, ptr %3, align 4
-  %21 = and i32 %20, -1073741825
-  %22 = and i32 %19, %21
-  store i32 %22, ptr %2, align 4
-  br label %27
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %3, align 4
+  %24 = and i32 %23, -1073741825
+  %25 = and i32 %22, %24
+  store i32 %25, ptr %2, align 4
+  br label %31
 
-23:                                               ; preds = %14
-  %24 = load i32, ptr getelementptr inbounds (%struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2), align 4
-  %25 = load i32, ptr %3, align 4
-  %26 = and i32 %24, %25
-  store i32 %26, ptr %2, align 4
-  br label %27
+26:                                               ; preds = %16
+  %27 = getelementptr inbounds %struct._zend_cpu_info, ptr @cpuinfo, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4
+  %29 = load i32, ptr %3, align 4
+  %30 = and i32 %28, %29
+  store i32 %30, ptr %2, align 4
+  br label %31
 
-27:                                               ; preds = %23, %18, %9
-  %28 = load i32, ptr %2, align 4
-  ret i32 %28
+31:                                               ; preds = %26, %20, %10
+  %32 = load i32, ptr %2, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

@@ -1437,10 +1437,11 @@ entry:
   store ptr %dest, ptr %dest.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518CharStringByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7518CharStringByteSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dest_ = getelementptr inbounds %"class.icu_75::CharStringByteSink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %dest.addr, align 8
-  store ptr %0, ptr %dest_, align 8
+  %1 = load ptr, ptr %dest.addr, align 8
+  store ptr %1, ptr %dest_, align 8
   ret void
 }
 
@@ -1450,7 +1451,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

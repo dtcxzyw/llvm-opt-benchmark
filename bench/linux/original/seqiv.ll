@@ -38,45 +38,46 @@ define internal i32 @seqiv_module_init() #0 section ".init.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @seqiv_aead_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = tail call ptr @aead_geniv_alloc(ptr noundef %0, ptr noundef %1) #7
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %8
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = ptrtoint ptr %3 to i64
-  %7 = trunc i64 %6 to i32
-  br label %24
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %3 to i64
+  %8 = trunc i64 %7 to i32
+  br label %25
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 56
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, 8
-  br i1 %11, label %12, label %21
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 8
+  br i1 %12, label %13, label %22
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr @seqiv_aead_encrypt, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr @seqiv_aead_decrypt, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr @aead_init_geniv, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr @aead_exit_geniv, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 112
-  %18 = add nuw nsw i32 %10, 24
-  store i32 %18, ptr %17, align 8
-  %19 = tail call i32 @aead_register_instance(ptr noundef %0, ptr noundef %3) #7
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %24, label %21
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr @seqiv_aead_encrypt, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr @seqiv_aead_decrypt, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr @aead_init_geniv, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr @aead_exit_geniv, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 112
+  %19 = add nuw nsw i32 %11, 24
+  store i32 %19, ptr %18, align 8
+  %20 = tail call i32 @aead_register_instance(ptr noundef %0, ptr noundef %3) #7
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %25, label %22
 
-21:                                               ; preds = %12, %8
-  %22 = phi i32 [ -22, %8 ], [ %19, %12 ]
-  %23 = load ptr, ptr %3, align 8
-  tail call void %23(ptr noundef %3) #7
-  br label %24
+22:                                               ; preds = %13, %9
+  %23 = phi i32 [ -22, %9 ], [ %20, %13 ]
+  %24 = load ptr, ptr %3, align 8
+  tail call void %24(ptr noundef %3) #7
+  br label %25
 
-24:                                               ; preds = %21, %12, %5
-  %25 = phi i32 [ %7, %5 ], [ %22, %21 ], [ 0, %12 ]
-  ret i32 %25
+25:                                               ; preds = %22, %13, %6
+  %26 = phi i32 [ %8, %6 ], [ %23, %22 ], [ 0, %13 ]
+  ret i32 %26
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

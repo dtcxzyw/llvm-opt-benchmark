@@ -1341,30 +1341,31 @@ define hidden void @_ZN5ceres8internal17DenseSparseMatrixC2Eii(ptr noundef nonnu
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %9, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %11 unwind label %12
-
-11:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %9, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %12 unwind label %13
 
 12:                                               ; preds = %3
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %7, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %8, align 4
-  call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  br label %16
+  ret void
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %7, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %8, align 4
+  call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1373,7 +1374,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal12SparseMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5ceres8internal12SparseMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1444,127 +1446,128 @@ define hidden void @_ZN5ceres8internal17DenseSparseMatrixC2ERKNS0_19TripletSpars
   store ptr %1, ptr %4, align 8
   %13 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %4, align 8
-  %16 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix8num_rowsEv(ptr noundef nonnull align 8 dereferenceable(48) %15)
-          to label %17 unwind label %67
+  %14 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %4, align 8
+  %17 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix8num_rowsEv(ptr noundef nonnull align 8 dereferenceable(48) %16)
+          to label %18 unwind label %68
 
-17:                                               ; preds = %2
-  %18 = sext i32 %16 to i64
-  %19 = load ptr, ptr %4, align 8
-  %20 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix8num_colsEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
-          to label %21 unwind label %67
+18:                                               ; preds = %2
+  %19 = sext i32 %17 to i64
+  %20 = load ptr, ptr %4, align 8
+  %21 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix8num_colsEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
+          to label %22 unwind label %68
 
-21:                                               ; preds = %17
-  %22 = sext i32 %20 to i64
-  invoke void @_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE4ZeroEll(ptr dead_on_unwind writable sret(%"class.Eigen::CwiseNullaryOp") align 8 %5, i64 noundef %18, i64 noundef %22)
-          to label %23 unwind label %67
+22:                                               ; preds = %18
+  %23 = sext i32 %21 to i64
+  invoke void @_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE4ZeroEll(ptr dead_on_unwind writable sret(%"class.Eigen::CwiseNullaryOp") align 8 %5, i64 noundef %19, i64 noundef %23)
+          to label %24 unwind label %68
 
-23:                                               ; preds = %21
-  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %24 unwind label %67
+24:                                               ; preds = %22
+  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %25 unwind label %68
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  %26 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix6valuesEv(ptr noundef nonnull align 8 dereferenceable(48) %25)
-          to label %27 unwind label %71
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  %27 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix6valuesEv(ptr noundef nonnull align 8 dereferenceable(48) %26)
+          to label %28 unwind label %72
 
-27:                                               ; preds = %24
-  store ptr %26, ptr %8, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix4rowsEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
-          to label %30 unwind label %71
+28:                                               ; preds = %25
+  store ptr %27, ptr %8, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix4rowsEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %31 unwind label %72
 
-30:                                               ; preds = %27
-  store ptr %29, ptr %9, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix4colsEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %33 unwind label %71
+31:                                               ; preds = %28
+  store ptr %30, ptr %9, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = invoke noundef ptr @_ZNK5ceres8internal19TripletSparseMatrix4colsEv(ptr noundef nonnull align 8 dereferenceable(48) %32)
+          to label %34 unwind label %72
 
-33:                                               ; preds = %30
-  store ptr %32, ptr %10, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix12num_nonzerosEv(ptr noundef nonnull align 8 dereferenceable(48) %34)
-          to label %36 unwind label %71
+34:                                               ; preds = %31
+  store ptr %33, ptr %10, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = invoke noundef i32 @_ZNK5ceres8internal19TripletSparseMatrix12num_nonzerosEv(ptr noundef nonnull align 8 dereferenceable(48) %35)
+          to label %37 unwind label %72
 
-36:                                               ; preds = %33
-  store i32 %35, ptr %11, align 4
+37:                                               ; preds = %34
+  store i32 %36, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  br label %37
+  br label %38
 
-37:                                               ; preds = %64, %36
-  %38 = load i32, ptr %12, align 4
-  %39 = load i32, ptr %11, align 4
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %41, label %75
+38:                                               ; preds = %65, %37
+  %39 = load i32, ptr %12, align 4
+  %40 = load i32, ptr %11, align 4
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %42, label %76
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %42, i64 %44
-  %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %13, i32 0, i32 1
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr %12, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %48, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr %12, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %54, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
-  %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1EEclEll(ptr noundef nonnull align 1 dereferenceable(1) %47, i64 noundef %53, i64 noundef %59)
-          to label %61 unwind label %71
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i32, ptr %12, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds double, ptr %43, i64 %45
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %13, i32 0, i32 1
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %49, i64 %51
+  %53 = load i32, ptr %52, align 4
+  %54 = sext i32 %53 to i64
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i32, ptr %12, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %55, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1EEclEll(ptr noundef nonnull align 1 dereferenceable(1) %48, i64 noundef %54, i64 noundef %60)
+          to label %62 unwind label %72
 
-61:                                               ; preds = %41
-  %62 = load double, ptr %60, align 8
-  %63 = fadd double %62, %46
-  store double %63, ptr %60, align 8
-  br label %64
+62:                                               ; preds = %42
+  %63 = load double, ptr %61, align 8
+  %64 = fadd double %63, %47
+  store double %64, ptr %61, align 8
+  br label %65
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %12, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %12, align 4
-  br label %37, !llvm.loop !4
+65:                                               ; preds = %62
+  %66 = load i32, ptr %12, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %12, align 4
+  br label %38, !llvm.loop !4
 
-67:                                               ; preds = %23, %21, %17, %2
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %24, %22, %18, %2
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %6, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %7, align 4
-  br label %76
-
-71:                                               ; preds = %41, %33, %30, %27, %24
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %6, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %7, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
-  br label %76
-
-75:                                               ; preds = %37
-  ret void
-
-76:                                               ; preds = %71, %67
-  call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %6, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %7, align 4
   br label %77
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i32, ptr %7, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+72:                                               ; preds = %42, %34, %31, %28, %25
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %6, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %7, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
+  br label %77
+
+76:                                               ; preds = %38
+  ret void
+
+77:                                               ; preds = %72, %68
+  call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %7, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1711,9 +1714,10 @@ define hidden void @_ZN5ceres8internal17DenseSparseMatrixC2EN5Eigen6MatrixIdLin1
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %5, i32 0, i32 1
-  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
+  %6 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5ceres8internal17DenseSparseMatrixE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::DenseSparseMatrix", ptr %5, i32 0, i32 1
+  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   ret void
 }
 
@@ -2589,7 +2593,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3107,7 +3112,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3121,7 +3127,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

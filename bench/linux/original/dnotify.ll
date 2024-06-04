@@ -559,14 +559,15 @@ define internal noundef i32 @dnotify_init() #4 section ".init.text" align 16 {
   store ptr %2, ptr @dnotify_mark_cache, align 8
   %3 = tail call ptr @fsnotify_alloc_group(ptr noundef nonnull @dnotify_fsnotify_ops, i32 noundef 4) #6
   store ptr %3, ptr @dnotify_group, align 8
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %6
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %7
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.3) #8
   unreachable
 
-6:                                                ; preds = %0
+7:                                                ; preds = %0
   tail call void @__register_sysctl_init(ptr noundef nonnull @.str.4, ptr noundef nonnull @dnotify_sysctls, ptr noundef nonnull @.str.5, i64 noundef 1) #6
   ret i32 0
 }

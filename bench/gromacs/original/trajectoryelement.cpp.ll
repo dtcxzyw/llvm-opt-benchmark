@@ -992,65 +992,68 @@ define void @_ZN3gmx17TrajectoryElementC2ESt6vectorIPNS_23ITrajectoryWriterClien
   call void @_ZN3gmx23ILoggingSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #13
   %36 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZN3gmx26ITrajectorySignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 0, i32 2), ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 1, i32 2), ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 2, i32 2), ptr %38, align 8
-  %39 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 3
-  store i64 -1, ptr %39, align 8
-  %40 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 4
-  store i64 -1, ptr %40, align 8
-  %41 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 5
-  store i64 -1, ptr %41, align 8
-  %42 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 6
-  %43 = load ptr, ptr %18, align 8
-  %44 = load i32, ptr %19, align 4
-  %45 = load ptr, ptr %20, align 8
-  %46 = load ptr, ptr %21, align 8
-  %47 = load ptr, ptr %22, align 8
-  %48 = load ptr, ptr %23, align 8
-  %49 = load ptr, ptr %24, align 8
-  %50 = load ptr, ptr %25, align 8
-  %51 = load ptr, ptr %26, align 8
-  %52 = load ptr, ptr %27, align 8
-  %53 = load ptr, ptr %28, align 8
-  %54 = load i32, ptr %29, align 4
-  %55 = load i8, ptr %30, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = invoke noundef ptr @_Z11init_mdoutfP8_IO_FILEiPK8t_filenmRKN3gmx12MdrunOptionsEPK9t_commrecPNS4_17IMDOutputProviderERKNS4_18MDModulesNotifiersEPK10t_inputrecRK10gmx_mtop_tPK16gmx_output_env_tP13gmx_wallcycleNS4_16StartingBehaviorEbPK14gmx_multisim_t(ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef nonnull align 1 %46, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 1 %49, ptr noundef %50, ptr noundef nonnull align 1 %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i1 noundef zeroext %56, ptr noundef null)
-          to label %58 unwind label %62
+  %37 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 0, i32 2
+  store ptr %37, ptr %34, align 8
+  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 1, i32 2
+  store ptr %39, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17TrajectoryElementE, i32 0, i32 2, i32 2
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 3
+  store i64 -1, ptr %42, align 8
+  %43 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 4
+  store i64 -1, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 5
+  store i64 -1, ptr %44, align 8
+  %45 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 6
+  %46 = load ptr, ptr %18, align 8
+  %47 = load i32, ptr %19, align 4
+  %48 = load ptr, ptr %20, align 8
+  %49 = load ptr, ptr %21, align 8
+  %50 = load ptr, ptr %22, align 8
+  %51 = load ptr, ptr %23, align 8
+  %52 = load ptr, ptr %24, align 8
+  %53 = load ptr, ptr %25, align 8
+  %54 = load ptr, ptr %26, align 8
+  %55 = load ptr, ptr %27, align 8
+  %56 = load ptr, ptr %28, align 8
+  %57 = load i32, ptr %29, align 4
+  %58 = load i8, ptr %30, align 1
+  %59 = trunc i8 %58 to i1
+  %60 = invoke noundef ptr @_Z11init_mdoutfP8_IO_FILEiPK8t_filenmRKN3gmx12MdrunOptionsEPK9t_commrecPNS4_17IMDOutputProviderERKNS4_18MDModulesNotifiersEPK10t_inputrecRK10gmx_mtop_tPK16gmx_output_env_tP13gmx_wallcycleNS4_16StartingBehaviorEbPK14gmx_multisim_t(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef nonnull align 1 %49, ptr noundef %50, ptr noundef %51, ptr noundef nonnull align 1 %52, ptr noundef %53, ptr noundef nonnull align 1 %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, i1 noundef zeroext %59, ptr noundef null)
+          to label %61 unwind label %65
 
-58:                                               ; preds = %15
-  store ptr %57, ptr %42, align 8
-  %59 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 7
-  call void @_ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %1) #13
-  %60 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 8
-  call void @_ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #13
-  %61 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 9
-  call void @_ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #13
+61:                                               ; preds = %15
+  store ptr %60, ptr %45, align 8
+  %62 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 7
+  call void @_ZNSt6vectorIPN3gmx23ITrajectoryWriterClientESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  %63 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 8
+  call void @_ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
+  %64 = getelementptr inbounds %"class.gmx::TrajectoryElement", ptr %34, i32 0, i32 9
+  call void @_ZNSt6vectorISt8functionIFvP10gmx_mdoutfldbbEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #13
   ret void
 
-62:                                               ; preds = %15
-  %63 = landingpad { ptr, i32 }
+65:                                               ; preds = %15
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %31, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %32, align 4
-  %66 = getelementptr inbounds i8, ptr %34, i64 16
-  call void @_ZN3gmx26ITrajectorySignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #13
-  %67 = getelementptr inbounds i8, ptr %34, i64 8
-  call void @_ZN3gmx23ILoggingSignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #13
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %31, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %32, align 4
+  %69 = getelementptr inbounds i8, ptr %34, i64 16
+  call void @_ZN3gmx26ITrajectorySignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #13
+  %70 = getelementptr inbounds i8, ptr %34, i64 8
+  call void @_ZN3gmx23ILoggingSignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #13
   call void @_ZN3gmx17ISimulatorElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #13
-  br label %68
+  br label %71
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %31, align 8
-  %70 = load i32, ptr %32, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %31, align 8
+  %73 = load i32, ptr %32, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1058,7 +1061,8 @@ define linkonce_odr void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1067,7 +1071,8 @@ define linkonce_odr void @_ZN3gmx23ILoggingSignallerClientC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx23ILoggingSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx23ILoggingSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1076,7 +1081,8 @@ define linkonce_odr void @_ZN3gmx26ITrajectorySignallerClientC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx26ITrajectorySignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx26ITrajectorySignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4617,7 +4623,8 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorC2ERKNS_20Except
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -5033,7 +5040,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionIniti
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -5068,9 +5076,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }

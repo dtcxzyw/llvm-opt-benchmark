@@ -47,35 +47,42 @@ define i32 @ompi_vprotocol_pessimist_sender_based_init(ptr noundef %0, i64 nound
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %7 = load i64, ptr %5, align 8
-  store i64 %7, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %8 = call i32 @getpagesize() #5
-  store i32 %8, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8), align 16
-  store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 6), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %6, ptr noundef @.str, ptr noundef %9, ptr noundef %10)
-  %12 = load ptr, ptr %6, align 8
-  %13 = call i32 @sb_mmap_file_open(ptr noundef %12)
-  %14 = icmp ne i32 0, %13
-  br i1 %14, label %15, label %16
+  %7 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  store i64 0, ptr %7, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  store i64 %8, ptr %9, align 8
+  %10 = call i32 @getpagesize() #5
+  %11 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8
+  store i32 %10, ptr %11, align 16
+  %12 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  store i64 0, ptr %12, align 16
+  %13 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  store i64 0, ptr %13, align 16
+  %14 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 6
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %6, ptr noundef @.str, ptr noundef %16, ptr noundef %17)
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i32 @sb_mmap_file_open(ptr noundef %19)
+  %21 = icmp ne i32 0, %20
+  br i1 %21, label %22, label %23
 
-15:                                               ; preds = %2
+22:                                               ; preds = %2
   store i32 -21, ptr %3, align 4
-  br label %18
+  br label %25
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %17) #6
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %24) #6
   store i32 0, ptr %3, align 4
-  br label %18
+  br label %25
 
-18:                                               ; preds = %16, %15
-  %19 = load i32, ptr %3, align 4
-  ret i32 %19
+25:                                               ; preds = %23, %22
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
@@ -90,27 +97,29 @@ define internal i32 @sb_mmap_file_open(ptr noundef %0) #0 {
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = call i32 (ptr, i32, ...) @open(ptr noundef %4, i32 noundef 578, i32 noundef 384)
-  store i32 %5, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %7 = icmp eq i32 -1, %6
-  br i1 %7, label %8, label %13
+  %6 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  store i32 %5, ptr %6, align 4
+  %7 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 -1, %8
+  br i1 %9, label %10, label %15
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @__errno_location() #5
-  %11 = load i32, ptr %10, align 4
-  %12 = call ptr @strerror(i32 noundef %11) #6
-  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.2, ptr noundef %9, ptr noundef %12)
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = call ptr @__errno_location() #5
+  %13 = load i32, ptr %12, align 4
+  %14 = call ptr @strerror(i32 noundef %13) #6
+  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.2, ptr noundef %11, ptr noundef %14)
   store i32 -21, ptr %2, align 4
-  br label %14
+  br label %16
 
-13:                                               ; preds = %1
+15:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %14
+  br label %16
 
-14:                                               ; preds = %13, %8
-  %15 = load i32, ptr %2, align 4
-  ret i32 %15
+16:                                               ; preds = %15, %10
+  %17 = load i32, ptr %2, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind
@@ -118,15 +127,16 @@ declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_vprotocol_pessimist_sender_based_finalize() #0 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %2 = icmp ne i64 0, %1
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %2 = load i64, ptr %1, align 16
+  %3 = icmp ne i64 0, %2
+  br i1 %3, label %4, label %5
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   call void @sb_mmap_free()
-  br label %4
+  br label %5
 
-4:                                                ; preds = %3, %0
+5:                                                ; preds = %4, %0
   call void @sb_mmap_file_close()
   ret void
 }
@@ -134,47 +144,52 @@ define void @ompi_vprotocol_pessimist_sender_based_finalize() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @sb_mmap_free() #0 {
   %1 = alloca i32, align 4
-  %2 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %3 = inttoptr i64 %2 to ptr
-  %4 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %5 = call i32 @munmap(ptr noundef %3, i64 noundef %4) #6
-  store i32 %5, ptr %1, align 4
-  %6 = load i32, ptr %1, align 4
-  %7 = icmp eq i32 -1, %6
-  br i1 %7, label %8, label %14
+  %2 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %3 = load i64, ptr %2, align 16
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %6 = load i64, ptr %5, align 8
+  %7 = call i32 @munmap(ptr noundef %4, i64 noundef %6) #6
+  store i32 %7, ptr %1, align 4
+  %8 = load i32, ptr %1, align 4
+  %9 = icmp eq i32 -1, %8
+  br i1 %9, label %10, label %17
 
-8:                                                ; preds = %0
-  %9 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %10 = inttoptr i64 %9 to ptr
-  %11 = call ptr @__errno_location() #5
-  %12 = load i32, ptr %11, align 4
-  %13 = call ptr @strerror(i32 noundef %12) #6
-  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.4, ptr noundef %10, ptr noundef %13)
-  br label %14
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %12 = load i64, ptr %11, align 16
+  %13 = inttoptr i64 %12 to ptr
+  %14 = call ptr @__errno_location() #5
+  %15 = load i32, ptr %14, align 4
+  %16 = call ptr @strerror(i32 noundef %15) #6
+  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.4, ptr noundef %13, ptr noundef %16)
+  br label %17
 
-14:                                               ; preds = %8, %0
+17:                                               ; preds = %10, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @sb_mmap_file_close() #0 {
   %1 = alloca i32, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %3 = call i32 @close(i32 noundef %2)
-  store i32 %3, ptr %1, align 4
-  %4 = load i32, ptr %1, align 4
-  %5 = icmp eq i32 -1, %4
-  br i1 %5, label %6, label %11
+  %2 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %3 = load i32, ptr %2, align 4
+  %4 = call i32 @close(i32 noundef %3)
+  store i32 %4, ptr %1, align 4
+  %5 = load i32, ptr %1, align 4
+  %6 = icmp eq i32 -1, %5
+  br i1 %6, label %7, label %13
 
-6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %8 = call ptr @__errno_location() #5
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
   %9 = load i32, ptr %8, align 4
-  %10 = call ptr @strerror(i32 noundef %9) #6
-  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.5, i32 noundef %7, ptr noundef %10)
-  br label %11
+  %10 = call ptr @__errno_location() #5
+  %11 = load i32, ptr %10, align 4
+  %12 = call ptr @strerror(i32 noundef %11) #6
+  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.5, i32 noundef %9, ptr noundef %12)
+  br label %13
 
-11:                                               ; preds = %6, %0
+13:                                               ; preds = %7, %0
   ret void
 }
 
@@ -182,109 +197,144 @@ define internal void @sb_mmap_file_close() #0 {
 define void @ompi_vprotocol_pessimist_sender_based_alloc(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %4 = icmp ne i64 0, %3
-  br i1 %4, label %5, label %6
+  %3 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %4 = load i64, ptr %3, align 16
+  %5 = icmp ne i64 0, %4
+  br i1 %5, label %6, label %7
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   call void @sb_mmap_free()
-  br label %6
+  br label %7
 
-6:                                                ; preds = %5, %1
-  %7 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %8 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %9 = sub i64 %7, %8
-  %10 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %11 = add i64 %10, %9
-  store i64 %11, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8), align 16
-  %14 = sext i32 %13 to i64
-  %15 = srem i64 %12, %14
-  store i64 %15, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %16 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %17 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %18 = sub i64 %17, %16
-  store i64 %18, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %20 = add i64 %19, 40
-  %21 = load i64, ptr %2, align 8
-  %22 = add i64 %21, %20
-  store i64 %22, ptr %2, align 8
-  %23 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %24 = load i64, ptr %2, align 8
-  %25 = icmp ult i64 %23, %24
-  br i1 %25, label %26, label %28
-
-26:                                               ; preds = %6
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  br label %28
-
-28:                                               ; preds = %26, %6
-  %29 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %30 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %31 = sub i64 %29, %30
-  store i64 %31, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 6), align 8
-  call void @sb_mmap_alloc()
-  %32 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %33 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
+7:                                                ; preds = %6, %1
+  %8 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %9 = load i64, ptr %8, align 16
+  %10 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %11 = load i64, ptr %10, align 16
+  %12 = sub i64 %9, %11
+  %13 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %14, %12
+  %16 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8
+  %20 = load i32, ptr %19, align 16
+  %21 = sext i32 %20 to i64
+  %22 = srem i64 %18, %21
+  %23 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  store i64 %22, ptr %23, align 16
+  %24 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %25 = load i64, ptr %24, align 16
+  %26 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %27 = load i64, ptr %26, align 8
+  %28 = sub i64 %27, %25
+  %29 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %31 = load i64, ptr %30, align 16
+  %32 = add i64 %31, 40
+  %33 = load i64, ptr %2, align 8
   %34 = add i64 %33, %32
-  store i64 %34, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %35 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %37 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %38 = inttoptr i64 %37 to ptr
-  %39 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5), align 16
-  %40 = inttoptr i64 %39 to ptr
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 30, ptr noundef @.str.1, i64 noundef %35, i64 noundef %36, ptr noundef %38, ptr noundef %40)
+  store i64 %34, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %36 = load i64, ptr %35, align 8
+  %37 = load i64, ptr %2, align 8
+  %38 = icmp ult i64 %36, %37
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %7
+  %40 = load i64, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  store i64 %40, ptr %41, align 8
+  br label %42
+
+42:                                               ; preds = %39, %7
+  %43 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %46 = load i64, ptr %45, align 16
+  %47 = sub i64 %44, %46
+  %48 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 6
+  store i64 %47, ptr %48, align 8
+  call void @sb_mmap_alloc()
+  %49 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %50 = load i64, ptr %49, align 16
+  %51 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %52 = load i64, ptr %51, align 16
+  %53 = add i64 %52, %50
+  %54 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  store i64 %53, ptr %54, align 16
+  %55 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %60 = load i64, ptr %59, align 16
+  %61 = inttoptr i64 %60 to ptr
+  %62 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 5
+  %63 = load i64, ptr %62, align 16
+  %64 = inttoptr i64 %63 to ptr
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 30, ptr noundef @.str.1, i64 noundef %56, i64 noundef %58, ptr noundef %61, ptr noundef %64)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @sb_mmap_alloc() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %2 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %4 = add i64 %2, %3
-  %5 = call i32 @ftruncate(i32 noundef %1, i64 noundef %4) #6
-  %6 = icmp eq i32 -1, %5
-  br i1 %6, label %7, label %14
+  %1 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %6 = load i64, ptr %5, align 8
+  %7 = add i64 %4, %6
+  %8 = call i32 @ftruncate(i32 noundef %2, i64 noundef %7) #6
+  %9 = icmp eq i32 -1, %8
+  br i1 %9, label %10, label %18
 
-7:                                                ; preds = %0
-  %8 = call ptr @__errno_location() #5
-  %9 = load i32, ptr %8, align 4
-  %10 = call ptr @strerror(i32 noundef %9) #6
-  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.6, ptr noundef %10)
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %12 = call i32 @close(i32 noundef %11)
-  %13 = call i32 @ompi_mpi_abort(ptr noundef @ompi_mpi_comm_self, i32 noundef 41)
-  br label %14
+10:                                               ; preds = %0
+  %11 = call ptr @__errno_location() #5
+  %12 = load i32, ptr %11, align 4
+  %13 = call ptr @strerror(i32 noundef %12) #6
+  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.6, ptr noundef %13)
+  %14 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %15 = load i32, ptr %14, align 4
+  %16 = call i32 @close(i32 noundef %15)
+  %17 = call i32 @ompi_mpi_abort(ptr noundef @ompi_mpi_comm_self, i32 noundef 41)
+  br label %18
 
-14:                                               ; preds = %7, %0
-  %15 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %16 = inttoptr i64 %15 to ptr
-  %17 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4), align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %19 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2), align 8
-  %20 = call ptr @mmap(ptr noundef %16, i64 noundef %17, i32 noundef 3, i32 noundef 2, i32 noundef %18, i64 noundef %19) #6
-  %21 = ptrtoint ptr %20 to i64
-  store i64 %21, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %22 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3), align 16
-  %23 = icmp eq i64 -1, %22
-  br i1 %23, label %24, label %31
+18:                                               ; preds = %10, %0
+  %19 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %20 = load i64, ptr %19, align 16
+  %21 = inttoptr i64 %20 to ptr
+  %22 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 4
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 2
+  %27 = load i64, ptr %26, align 8
+  %28 = call ptr @mmap(ptr noundef %21, i64 noundef %23, i32 noundef 3, i32 noundef 2, i32 noundef %25, i64 noundef %27) #6
+  %29 = ptrtoint ptr %28 to i64
+  %30 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  store i64 %29, ptr %30, align 16
+  %31 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 3
+  %32 = load i64, ptr %31, align 16
+  %33 = icmp eq i64 -1, %32
+  br i1 %33, label %34, label %42
 
-24:                                               ; preds = %14
-  %25 = call ptr @__errno_location() #5
-  %26 = load i32, ptr %25, align 4
-  %27 = call ptr @strerror(i32 noundef %26) #6
-  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.7, ptr noundef %27)
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1), align 4
-  %29 = call i32 @close(i32 noundef %28)
-  %30 = call i32 @ompi_mpi_abort(ptr noundef @ompi_mpi_comm_self, i32 noundef 41)
-  br label %31
+34:                                               ; preds = %18
+  %35 = call ptr @__errno_location() #5
+  %36 = load i32, ptr %35, align 4
+  %37 = call ptr @strerror(i32 noundef %36) #6
+  call void (ptr, ...) @V_OUTPUT_ERR(ptr noundef @.str.7, ptr noundef %37)
+  %38 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 8, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = call i32 @close(i32 noundef %39)
+  %41 = call i32 @ompi_mpi_abort(ptr noundef @ompi_mpi_comm_self, i32 noundef 41)
+  br label %42
 
-31:                                               ; preds = %24, %14
+42:                                               ; preds = %34, %18
   ret void
 }
 
@@ -307,7 +357,7 @@ define internal void @V_OUTPUT_ERR(ptr noundef %0, ...) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %9 = call i32 @opal_vasprintf(ptr noundef %4, ptr noundef %7, ptr noundef %8)
@@ -317,7 +367,7 @@ define internal void @V_OUTPUT_ERR(ptr noundef %0, ...) #0 {
   %11 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %11) #6
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   ret void
 }
 
@@ -327,15 +377,9 @@ declare ptr @strerror(i32 noundef) #3
 ; Function Attrs: nounwind willreturn memory(none)
 declare ptr @__errno_location() #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare i32 @opal_vasprintf(ptr noundef, ptr noundef, ptr noundef) #2
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) #3
@@ -349,6 +393,12 @@ declare i32 @ompi_mpi_abort(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

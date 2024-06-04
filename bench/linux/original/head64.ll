@@ -78,270 +78,337 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vmemmap_base
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i64 @__startup_64(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 section ".head.text" align 16 {
-  %3 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !6
-  %4 = and i64 %3, 4096
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %14, label %6
+  %3 = inttoptr i64 4096 to ptr
+  %4 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #12, !srcloc !6
+  %5 = and i64 %4, 4096
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %33, label %7
 
-6:                                                ; preds = %2
-  %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @__pgtable_l5_enabled to i64), i64 ptrtoint (ptr @_text to i64))
-  store i32 1, ptr %8, align 4
-  %9 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @pgdir_shift to i64), i64 ptrtoint (ptr @_text to i64))
-  store i32 48, ptr %9, align 4
-  %10 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @ptrs_per_p4d to i64), i64 ptrtoint (ptr @_text to i64))
-  store i32 512, ptr %10, align 4
-  %11 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @page_offset_base to i64), i64 ptrtoint (ptr @_text to i64))
-  store i64 -67272519433846784, ptr %11, align 8
-  %12 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @vmalloc_base to i64), i64 ptrtoint (ptr @_text to i64))
-  store i64 -27021597764222976, ptr %12, align 8
-  %13 = getelementptr i8, ptr %7, i64 sub (i64 ptrtoint (ptr @vmemmap_base to i64), i64 ptrtoint (ptr @_text to i64))
-  store i64 -12384898975268864, ptr %13, align 8
-  br label %14
+7:                                                ; preds = %2
+  %8 = inttoptr i64 %0 to ptr
+  %9 = ptrtoint ptr @__pgtable_l5_enabled to i64
+  %10 = ptrtoint ptr @_text to i64
+  %11 = sub i64 %9, %10
+  %12 = getelementptr i8, ptr %8, i64 %11
+  store i32 1, ptr %12, align 4
+  %13 = ptrtoint ptr @pgdir_shift to i64
+  %14 = ptrtoint ptr @_text to i64
+  %15 = sub i64 %13, %14
+  %16 = getelementptr i8, ptr %8, i64 %15
+  store i32 48, ptr %16, align 4
+  %17 = ptrtoint ptr @ptrs_per_p4d to i64
+  %18 = ptrtoint ptr @_text to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr i8, ptr %8, i64 %19
+  store i32 512, ptr %20, align 4
+  %21 = ptrtoint ptr @page_offset_base to i64
+  %22 = ptrtoint ptr @_text to i64
+  %23 = sub i64 %21, %22
+  %24 = getelementptr i8, ptr %8, i64 %23
+  store i64 -67272519433846784, ptr %24, align 8
+  %25 = ptrtoint ptr @vmalloc_base to i64
+  %26 = ptrtoint ptr @_text to i64
+  %27 = sub i64 %25, %26
+  %28 = getelementptr i8, ptr %8, i64 %27
+  store i64 -27021597764222976, ptr %28, align 8
+  %29 = ptrtoint ptr @vmemmap_base to i64
+  %30 = ptrtoint ptr @_text to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr i8, ptr %8, i64 %31
+  store i64 -12384898975268864, ptr %32, align 8
+  br label %33
 
-14:                                               ; preds = %6, %2
-  %15 = load i32, ptr @__pgtable_l5_enabled, align 4
-  %16 = icmp eq i32 %15, 0
-  %17 = select i1 %16, i64 46, i64 52
-  %18 = lshr i64 %0, %17
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+33:                                               ; preds = %7, %2
+  %34 = load i32, ptr @__pgtable_l5_enabled, align 4
+  %35 = icmp eq i32 %34, 0
+  %36 = select i1 %35, i64 46, i64 52
+  %37 = lshr i64 %0, %36
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %40, label %39
 
-20:                                               ; preds = %20, %14
-  br label %20, !llvm.loop !7
+39:                                               ; preds = %39, %33
+  br label %39, !llvm.loop !7
 
-21:                                               ; preds = %14
-  %22 = sub i64 %0, ptrtoint (ptr getelementptr ([0 x i8], ptr @_text, i64 0, i64 2147483648) to i64)
-  %23 = and i64 %22, 2097151
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %26, label %25
+40:                                               ; preds = %33
+  %41 = getelementptr [0 x i8], ptr @_text, i64 0, i64 2147483648
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %0, %42
+  %44 = and i64 %43, 2097151
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %47, label %46
 
-25:                                               ; preds = %25, %21
-  br label %25, !llvm.loop !9
+46:                                               ; preds = %46, %40
+  br label %46, !llvm.loop !9
 
-26:                                               ; preds = %21
-  %27 = inttoptr i64 %0 to ptr
-  %28 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  %29 = load i32, ptr @pgdir_shift, align 4
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 -2147483648, %30
-  %32 = and i64 %31, 511
-  %33 = getelementptr i64, ptr %28, i64 %32
-  %34 = select i1 %5, i64 ptrtoint (ptr @level3_kernel_pgt to i64), i64 ptrtoint (ptr @level4_kernel_pgt to i64)
-  %35 = add i64 %22, 2147483751
-  %36 = add i64 %35, %34
-  store i64 %36, ptr %33, align 8
-  br i1 %5, label %42, label %37
+47:                                               ; preds = %40
+  %48 = inttoptr i64 %0 to ptr
+  %49 = ptrtoint ptr @early_top_pgt to i64
+  %50 = ptrtoint ptr @_text to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr i8, ptr %48, i64 %51
+  %53 = load i32, ptr @pgdir_shift, align 4
+  %54 = zext nneg i32 %53 to i64
+  %55 = lshr i64 -2147483648, %54
+  %56 = and i64 %55, 511
+  %57 = getelementptr i64, ptr %52, i64 %56
+  %58 = ptrtoint ptr @level3_kernel_pgt to i64
+  %59 = ptrtoint ptr @level4_kernel_pgt to i64
+  %60 = select i1 %6, i64 %58, i64 %59
+  %61 = add i64 %43, 2147483751
+  %62 = add i64 %61, %60
+  store i64 %62, ptr %57, align 8
+  br i1 %6, label %71, label %63
 
-37:                                               ; preds = %26
-  %38 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @level4_kernel_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  %39 = getelementptr i8, ptr %38, i64 4088
-  %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, %22
-  store i64 %41, ptr %39, align 8
-  br label %42
+63:                                               ; preds = %47
+  %64 = ptrtoint ptr @level4_kernel_pgt to i64
+  %65 = ptrtoint ptr @_text to i64
+  %66 = sub i64 %64, %65
+  %67 = getelementptr i8, ptr %48, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 4088
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %69, %43
+  store i64 %70, ptr %68, align 8
+  br label %71
 
-42:                                               ; preds = %37, %26
-  %43 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @level3_kernel_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  %44 = getelementptr i8, ptr %27, i64 add (i64 sub (i64 ptrtoint (ptr @level3_kernel_pgt to i64), i64 ptrtoint (ptr @_text to i64)), i64 4080)
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, %22
-  store i64 %46, ptr %44, align 8
-  %47 = getelementptr i8, ptr %43, i64 4088
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, %22
-  store i64 %49, ptr %47, align 8
-  %50 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @level2_fixmap_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  br label %51
+71:                                               ; preds = %63, %47
+  %72 = ptrtoint ptr @level3_kernel_pgt to i64
+  %73 = ptrtoint ptr @_text to i64
+  %74 = sub i64 %72, %73
+  %75 = getelementptr i8, ptr %48, i64 %74
+  %76 = ptrtoint ptr @level3_kernel_pgt to i64
+  %77 = ptrtoint ptr @_text to i64
+  %78 = sub i64 %76, %77
+  %79 = add i64 %78, 4080
+  %80 = getelementptr i8, ptr %48, i64 %79
+  %81 = load i64, ptr %80, align 8
+  %82 = add i64 %81, %43
+  store i64 %82, ptr %80, align 8
+  %83 = getelementptr i8, ptr %75, i64 4088
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, %43
+  store i64 %85, ptr %83, align 8
+  %86 = ptrtoint ptr @level2_fixmap_pgt to i64
+  %87 = ptrtoint ptr @_text to i64
+  %88 = sub i64 %86, %87
+  %89 = getelementptr i8, ptr %48, i64 %88
+  br label %90
 
-51:                                               ; preds = %51, %42
-  %52 = phi i64 [ 507, %42 ], [ %56, %51 ]
-  %53 = getelementptr i64, ptr %50, i64 %52
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, %22
-  store i64 %55, ptr %53, align 8
-  %56 = add nsw i64 %52, -1
-  %57 = icmp ugt i64 %52, 506
-  br i1 %57, label %51, label %58, !llvm.loop !10
+90:                                               ; preds = %90, %71
+  %91 = phi i64 [ 507, %71 ], [ %95, %90 ]
+  %92 = getelementptr i64, ptr %89, i64 %91
+  %93 = load i64, ptr %92, align 8
+  %94 = add i64 %93, %43
+  store i64 %94, ptr %92, align 8
+  %95 = add nsw i64 %91, -1
+  %96 = icmp ugt i64 %91, 506
+  br i1 %96, label %90, label %97, !llvm.loop !10
 
-58:                                               ; preds = %51
-  %59 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @next_early_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  %60 = load i32, ptr %59, align 4
-  %61 = add i32 %60, 1
-  %62 = zext i32 %60 to i64
-  %63 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %62
-  %64 = ptrtoint ptr %63 to i64
-  %65 = sub i64 %64, ptrtoint (ptr @_text to i64)
-  %66 = getelementptr i8, ptr %27, i64 %65
-  %67 = add i32 %60, 2
-  store i32 %67, ptr %59, align 4
-  %68 = zext i32 %61 to i64
-  %69 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %68
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %70, ptrtoint (ptr @_text to i64)
-  %72 = getelementptr i8, ptr %27, i64 %71
-  br i1 %5, label %100, label %73
+97:                                               ; preds = %90
+  %98 = ptrtoint ptr @next_early_pgt to i64
+  %99 = ptrtoint ptr @_text to i64
+  %100 = sub i64 %98, %99
+  %101 = getelementptr i8, ptr %48, i64 %100
+  %102 = load i32, ptr %101, align 4
+  %103 = add i32 %102, 1
+  %104 = zext i32 %102 to i64
+  %105 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %104
+  %106 = ptrtoint ptr %105 to i64
+  %107 = ptrtoint ptr @_text to i64
+  %108 = sub i64 %106, %107
+  %109 = getelementptr i8, ptr %48, i64 %108
+  %110 = add i32 %102, 2
+  store i32 %110, ptr %101, align 4
+  %111 = zext i32 %103 to i64
+  %112 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %111
+  %113 = ptrtoint ptr %112 to i64
+  %114 = ptrtoint ptr @_text to i64
+  %115 = sub i64 %113, %114
+  %116 = getelementptr i8, ptr %48, i64 %115
+  br i1 %6, label %145, label %117
 
-73:                                               ; preds = %58
-  %74 = add i32 %60, 3
-  store i32 %74, ptr %59, align 4
-  %75 = zext i32 %67 to i64
-  %76 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %75
-  %77 = ptrtoint ptr %76 to i64
-  %78 = sub i64 %77, ptrtoint (ptr @_text to i64)
-  %79 = getelementptr i8, ptr %27, i64 %78
-  %80 = load i32, ptr @pgdir_shift, align 4
-  %81 = zext nneg i32 %80 to i64
-  %82 = lshr i64 %0, %81
-  %83 = and i64 %82, 511
-  %84 = ptrtoint ptr %79 to i64
-  %85 = add i64 %84, 99
-  %86 = getelementptr i64, ptr %28, i64 %83
-  store i64 %85, ptr %86, align 8
-  %87 = getelementptr i8, ptr %86, i64 8
-  store i64 %85, ptr %87, align 8
-  %88 = lshr i64 %0, 39
-  %89 = trunc i64 %88 to i32
-  %90 = ptrtoint ptr %66 to i64
-  %91 = add i64 %90, 99
-  %92 = load i32, ptr @ptrs_per_p4d, align 4
-  %93 = urem i32 %89, %92
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr i64, ptr %79, i64 %94
-  store i64 %91, ptr %95, align 8
-  %96 = add nuw nsw i32 %89, 1
-  %97 = urem i32 %96, %92
-  %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr i64, ptr %79, i64 %98
-  store i64 %91, ptr %99, align 8
-  br label %109
+117:                                              ; preds = %97
+  %118 = add i32 %102, 3
+  store i32 %118, ptr %101, align 4
+  %119 = zext i32 %110 to i64
+  %120 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %119
+  %121 = ptrtoint ptr %120 to i64
+  %122 = ptrtoint ptr @_text to i64
+  %123 = sub i64 %121, %122
+  %124 = getelementptr i8, ptr %48, i64 %123
+  %125 = load i32, ptr @pgdir_shift, align 4
+  %126 = zext nneg i32 %125 to i64
+  %127 = lshr i64 %0, %126
+  %128 = and i64 %127, 511
+  %129 = ptrtoint ptr %124 to i64
+  %130 = add i64 %129, 99
+  %131 = getelementptr i64, ptr %52, i64 %128
+  store i64 %130, ptr %131, align 8
+  %132 = getelementptr i8, ptr %131, i64 8
+  store i64 %130, ptr %132, align 8
+  %133 = lshr i64 %0, 39
+  %134 = trunc i64 %133 to i32
+  %135 = ptrtoint ptr %109 to i64
+  %136 = add i64 %135, 99
+  %137 = load i32, ptr @ptrs_per_p4d, align 4
+  %138 = urem i32 %134, %137
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr i64, ptr %124, i64 %139
+  store i64 %136, ptr %140, align 8
+  %141 = add nuw nsw i32 %134, 1
+  %142 = urem i32 %141, %137
+  %143 = zext nneg i32 %142 to i64
+  %144 = getelementptr i64, ptr %124, i64 %143
+  store i64 %136, ptr %144, align 8
+  br label %154
 
-100:                                              ; preds = %58
-  %101 = load i32, ptr @pgdir_shift, align 4
-  %102 = zext nneg i32 %101 to i64
-  %103 = lshr i64 %0, %102
-  %104 = and i64 %103, 511
-  %105 = ptrtoint ptr %66 to i64
-  %106 = add i64 %105, 99
-  %107 = getelementptr i64, ptr %28, i64 %104
-  store i64 %106, ptr %107, align 8
-  %108 = getelementptr i8, ptr %107, i64 8
-  store i64 %106, ptr %108, align 8
-  br label %109
-
-109:                                              ; preds = %100, %73
-  %110 = lshr i64 %0, 30
-  %111 = trunc i64 %110 to i32
-  %112 = ptrtoint ptr %72 to i64
-  %113 = add i64 %112, 99
-  %114 = srem i32 %111, 512
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr i64, ptr %66, i64 %115
-  store i64 %113, ptr %116, align 8
-  %117 = add i32 %111, 1
-  %118 = srem i32 %117, 512
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr i64, ptr %66, i64 %119
-  store i64 %113, ptr %120, align 8
-  %121 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @__supported_pte_mask to i64), i64 ptrtoint (ptr @_text to i64))
-  %122 = load i64, ptr %121, align 8
-  %123 = and i64 %122, 227
-  %124 = add i64 %123, %0
-  %125 = lshr i64 sub (i64 add (i64 sub (i64 ptrtoint (ptr @_end to i64), i64 ptrtoint (ptr @_text to i64)), i64 2097152), i64 1), 21
-  br i1 icmp ult (i64 sub (i64 add (i64 sub (i64 ptrtoint (ptr @_end to i64), i64 ptrtoint (ptr @_text to i64)), i64 2097152), i64 1), i64 2097152), label %141, label %126
-
-126:                                              ; preds = %109
-  %127 = lshr i64 %0, 21
-  %128 = trunc i64 %127 to i32
-  br label %129
-
-129:                                              ; preds = %129, %126
-  %130 = phi i64 [ 0, %126 ], [ %139, %129 ]
-  %131 = phi i32 [ 0, %126 ], [ %138, %129 ]
-  %132 = add i32 %131, %128
-  %133 = shl nuw nsw i64 %130, 21
-  %134 = add i64 %124, %133
-  %135 = srem i32 %132, 512
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr i64, ptr %72, i64 %136
-  store i64 %134, ptr %137, align 8
-  %138 = add i32 %131, 1
-  %139 = sext i32 %138 to i64
-  %140 = icmp ugt i64 %125, %139
-  br i1 %140, label %129, label %141, !llvm.loop !12
-
-141:                                              ; preds = %129, %109
-  %142 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @level2_kernel_pgt to i64), i64 ptrtoint (ptr @_text to i64))
-  %143 = lshr i64 ptrtoint (ptr @_text to i64), 21
-  %144 = and i64 %143, 511
-  %145 = icmp eq i64 %144, 0
-  br i1 %145, label %146, label %152
-
-146:                                              ; preds = %152, %141
-  %147 = phi i32 [ 0, %141 ], [ %158, %152 ]
-  %148 = lshr i64 ptrtoint (ptr @_end to i64), 21
+145:                                              ; preds = %97
+  %146 = load i32, ptr @pgdir_shift, align 4
+  %147 = zext nneg i32 %146 to i64
+  %148 = lshr i64 %0, %147
   %149 = and i64 %148, 511
-  %150 = sext i32 %147 to i64
-  %151 = icmp ult i64 %149, %150
-  br i1 %151, label %161, label %166
+  %150 = ptrtoint ptr %109 to i64
+  %151 = add i64 %150, 99
+  %152 = getelementptr i64, ptr %52, i64 %149
+  store i64 %151, ptr %152, align 8
+  %153 = getelementptr i8, ptr %152, i64 8
+  store i64 %151, ptr %153, align 8
+  br label %154
 
-152:                                              ; preds = %152, %141
-  %153 = phi i64 [ %159, %152 ], [ 0, %141 ]
-  %154 = phi i32 [ %158, %152 ], [ 0, %141 ]
-  %155 = getelementptr i64, ptr %142, i64 %153
-  %156 = load i64, ptr %155, align 8
-  %157 = and i64 %156, -2
-  store i64 %157, ptr %155, align 8
-  %158 = add i32 %154, 1
-  %159 = sext i32 %158 to i64
-  %160 = icmp ugt i64 %144, %159
-  br i1 %160, label %152, label %146, !llvm.loop !13
-
-161:                                              ; preds = %175, %146
-  %162 = phi i32 [ %147, %146 ], [ %176, %175 ]
-  %163 = icmp slt i32 %162, 512
-  br i1 %163, label %164, label %187
-
-164:                                              ; preds = %161
-  %165 = sext i32 %162 to i64
-  br label %179
-
-166:                                              ; preds = %175, %146
-  %167 = phi i64 [ %177, %175 ], [ %150, %146 ]
-  %168 = phi i32 [ %176, %175 ], [ %147, %146 ]
-  %169 = getelementptr i64, ptr %142, i64 %167
+154:                                              ; preds = %145, %117
+  %155 = lshr i64 %0, 30
+  %156 = trunc i64 %155 to i32
+  %157 = ptrtoint ptr %116 to i64
+  %158 = add i64 %157, 99
+  %159 = srem i32 %156, 512
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr i64, ptr %109, i64 %160
+  store i64 %158, ptr %161, align 8
+  %162 = add i32 %156, 1
+  %163 = srem i32 %162, 512
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr i64, ptr %109, i64 %164
+  store i64 %158, ptr %165, align 8
+  %166 = ptrtoint ptr @__supported_pte_mask to i64
+  %167 = ptrtoint ptr @_text to i64
+  %168 = sub i64 %166, %167
+  %169 = getelementptr i8, ptr %48, i64 %168
   %170 = load i64, ptr %169, align 8
-  %171 = and i64 %170, 1
-  %172 = icmp eq i64 %171, 0
-  br i1 %172, label %175, label %173
+  %171 = and i64 %170, 227
+  %172 = add i64 %171, %0
+  %173 = ptrtoint ptr @_end to i64
+  %174 = ptrtoint ptr @_text to i64
+  %175 = sub i64 %173, %174
+  %176 = add i64 %175, 2097152
+  %177 = sub i64 %176, 1
+  %178 = lshr i64 %177, 21
+  %179 = ptrtoint ptr @_end to i64
+  %180 = ptrtoint ptr @_text to i64
+  %181 = sub i64 %179, %180
+  %182 = add i64 %181, 2097152
+  %183 = sub i64 %182, 1
+  %184 = icmp ult i64 %183, 2097152
+  br i1 %184, label %200, label %185
 
-173:                                              ; preds = %166
-  %174 = add i64 %170, %22
-  store i64 %174, ptr %169, align 8
-  br label %175
+185:                                              ; preds = %154
+  %186 = lshr i64 %0, 21
+  %187 = trunc i64 %186 to i32
+  br label %188
 
-175:                                              ; preds = %173, %166
-  %176 = add i32 %168, 1
-  %177 = sext i32 %176 to i64
-  %178 = icmp ult i64 %149, %177
-  br i1 %178, label %161, label %166, !llvm.loop !14
+188:                                              ; preds = %188, %185
+  %189 = phi i64 [ 0, %185 ], [ %198, %188 ]
+  %190 = phi i32 [ 0, %185 ], [ %197, %188 ]
+  %191 = add i32 %190, %187
+  %192 = shl nuw nsw i64 %189, 21
+  %193 = add i64 %172, %192
+  %194 = srem i32 %191, 512
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr i64, ptr %116, i64 %195
+  store i64 %193, ptr %196, align 8
+  %197 = add i32 %190, 1
+  %198 = sext i32 %197 to i64
+  %199 = icmp ugt i64 %178, %198
+  br i1 %199, label %188, label %200, !llvm.loop !12
 
-179:                                              ; preds = %179, %164
-  %180 = phi i64 [ %165, %164 ], [ %184, %179 ]
-  %181 = getelementptr i64, ptr %142, i64 %180
-  %182 = load i64, ptr %181, align 8
-  %183 = and i64 %182, -2
-  store i64 %183, ptr %181, align 8
-  %184 = add nsw i64 %180, 1
-  %185 = and i64 %184, 4294967295
-  %186 = icmp eq i64 %185, 512
-  br i1 %186, label %187, label %179, !llvm.loop !15
+200:                                              ; preds = %188, %154
+  %201 = ptrtoint ptr @level2_kernel_pgt to i64
+  %202 = ptrtoint ptr @_text to i64
+  %203 = sub i64 %201, %202
+  %204 = getelementptr i8, ptr %48, i64 %203
+  %205 = ptrtoint ptr @_text to i64
+  %206 = lshr i64 %205, 21
+  %207 = and i64 %206, 511
+  %208 = icmp eq i64 %207, 0
+  br i1 %208, label %209, label %216
 
-187:                                              ; preds = %179, %161
-  %188 = getelementptr i8, ptr %27, i64 sub (i64 ptrtoint (ptr @phys_base to i64), i64 ptrtoint (ptr @_text to i64))
-  %189 = load i64, ptr %188, align 8
-  %190 = add i64 %189, %22
-  store i64 %190, ptr %188, align 8
+209:                                              ; preds = %216, %200
+  %210 = phi i32 [ 0, %200 ], [ %222, %216 ]
+  %211 = ptrtoint ptr @_end to i64
+  %212 = lshr i64 %211, 21
+  %213 = and i64 %212, 511
+  %214 = sext i32 %210 to i64
+  %215 = icmp ult i64 %213, %214
+  br i1 %215, label %225, label %230
+
+216:                                              ; preds = %216, %200
+  %217 = phi i64 [ %223, %216 ], [ 0, %200 ]
+  %218 = phi i32 [ %222, %216 ], [ 0, %200 ]
+  %219 = getelementptr i64, ptr %204, i64 %217
+  %220 = load i64, ptr %219, align 8
+  %221 = and i64 %220, -2
+  store i64 %221, ptr %219, align 8
+  %222 = add i32 %218, 1
+  %223 = sext i32 %222 to i64
+  %224 = icmp ugt i64 %207, %223
+  br i1 %224, label %216, label %209, !llvm.loop !13
+
+225:                                              ; preds = %239, %209
+  %226 = phi i32 [ %210, %209 ], [ %240, %239 ]
+  %227 = icmp slt i32 %226, 512
+  br i1 %227, label %228, label %251
+
+228:                                              ; preds = %225
+  %229 = sext i32 %226 to i64
+  br label %243
+
+230:                                              ; preds = %239, %209
+  %231 = phi i64 [ %241, %239 ], [ %214, %209 ]
+  %232 = phi i32 [ %240, %239 ], [ %210, %209 ]
+  %233 = getelementptr i64, ptr %204, i64 %231
+  %234 = load i64, ptr %233, align 8
+  %235 = and i64 %234, 1
+  %236 = icmp eq i64 %235, 0
+  br i1 %236, label %239, label %237
+
+237:                                              ; preds = %230
+  %238 = add i64 %234, %43
+  store i64 %238, ptr %233, align 8
+  br label %239
+
+239:                                              ; preds = %237, %230
+  %240 = add i32 %232, 1
+  %241 = sext i32 %240 to i64
+  %242 = icmp ult i64 %213, %241
+  br i1 %242, label %225, label %230, !llvm.loop !14
+
+243:                                              ; preds = %243, %228
+  %244 = phi i64 [ %229, %228 ], [ %248, %243 ]
+  %245 = getelementptr i64, ptr %204, i64 %244
+  %246 = load i64, ptr %245, align 8
+  %247 = and i64 %246, -2
+  store i64 %247, ptr %245, align 8
+  %248 = add nsw i64 %244, 1
+  %249 = and i64 %248, 4294967295
+  %250 = icmp eq i64 %249, 512
+  br i1 %250, label %251, label %243, !llvm.loop !15
+
+251:                                              ; preds = %243, %225
+  %252 = ptrtoint ptr @phys_base to i64
+  %253 = ptrtoint ptr @_text to i64
+  %254 = sub i64 %252, %253
+  %255 = getelementptr i8, ptr %48, i64 %254
+  %256 = load i64, ptr %255, align 8
+  %257 = add i64 %256, %43
+  store i64 %257, ptr %255, align 8
   ret i64 0
 }
 
@@ -353,187 +420,212 @@ define dso_local noundef zeroext i1 @__early_make_pgtable(i64 noundef %0, i64 no
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, i64 70368744177664, i64 4503599627370496
   %8 = icmp ult i64 %4, %7
-  br i1 %8, label %9, label %126
+  br i1 %8, label %9, label %151
 
 9:                                                ; preds = %2
-  %10 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !16
-  %11 = and i64 %10, 4503599627366400
-  %12 = load i64, ptr @phys_base, align 8
-  %13 = load i64, ptr @page_offset_base, align 8
-  %14 = sub i64 -2147483648, %13
-  %15 = select i1 icmp ugt (i64 ptrtoint (ptr @early_top_pgt to i64), i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)), i64 %12, i64 %14
-  %16 = add i64 %15, sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)
-  %17 = icmp eq i64 %11, %16
-  br i1 %17, label %18, label %126
+  %10 = inttoptr i64 4096 to ptr
+  %11 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10) #12, !srcloc !16
+  %12 = and i64 %11, 4503599627366400
+  %13 = load i64, ptr @phys_base, align 8
+  %14 = load i64, ptr @page_offset_base, align 8
+  %15 = sub i64 -2147483648, %14
+  %16 = ptrtoint ptr @early_top_pgt to i64
+  %17 = ptrtoint ptr @early_top_pgt to i64
+  %18 = sub i64 %17, -2147483648
+  %19 = icmp ugt i64 %16, %18
+  %20 = select i1 %19, i64 %13, i64 %15
+  %21 = ptrtoint ptr @early_top_pgt to i64
+  %22 = sub i64 %21, -2147483648
+  %23 = add i64 %20, %22
+  %24 = icmp eq i64 %12, %23
+  br i1 %24, label %25, label %151
 
-18:                                               ; preds = %9
-  %19 = lshr i64 %0, 39
-  %20 = lshr i64 %0, 30
-  %21 = and i64 %20, 511
-  br label %22
+25:                                               ; preds = %9
+  %26 = lshr i64 %0, 39
+  %27 = lshr i64 %0, 30
+  %28 = and i64 %27, 511
+  br label %29
 
-22:                                               ; preds = %48, %18
-  %23 = load i32, ptr @pgdir_shift, align 4
-  %24 = zext nneg i32 %23 to i64
-  %25 = lshr i64 %0, %24
-  %26 = and i64 %25, 511
-  %27 = getelementptr [512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8
-  %29 = load i32, ptr @__pgtable_l5_enabled, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %60, label %31
+29:                                               ; preds = %61, %25
+  %30 = load i32, ptr @pgdir_shift, align 4
+  %31 = zext nneg i32 %30 to i64
+  %32 = lshr i64 %0, %31
+  %33 = and i64 %32, 511
+  %34 = getelementptr [512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 %33
+  %35 = load i64, ptr %34, align 8
+  %36 = load i32, ptr @__pgtable_l5_enabled, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %73, label %38
 
-31:                                               ; preds = %22
-  %32 = icmp eq i64 %28, 0
-  br i1 %32, label %39, label %33
+38:                                               ; preds = %29
+  %39 = icmp eq i64 %35, 0
+  br i1 %39, label %46, label %40
 
-33:                                               ; preds = %31
-  %34 = and i64 %28, 4503599627366400
-  %35 = add nsw i64 %34, -2147483648
-  %36 = load i64, ptr @phys_base, align 8
-  %37 = sub i64 %35, %36
-  %38 = inttoptr i64 %37 to ptr
-  br label %60
-
-39:                                               ; preds = %31
-  %40 = load i32, ptr @next_early_pgt, align 4
-  %41 = icmp ugt i32 %40, 63
-  br i1 %41, label %42, label %49
-
-42:                                               ; preds = %39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4088) @early_top_pgt, i8 0, i64 4088, i1 false)
-  store i32 0, ptr @next_early_pgt, align 4
+40:                                               ; preds = %38
+  %41 = and i64 %35, 4503599627366400
+  %42 = add nsw i64 %41, -2147483648
   %43 = load i64, ptr @phys_base, align 8
-  %44 = load i64, ptr @page_offset_base, align 8
-  %45 = sub i64 -2147483648, %44
-  %46 = select i1 icmp ugt (i64 ptrtoint (ptr @early_top_pgt to i64), i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)), i64 %43, i64 %45
-  %47 = add i64 %46, sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)
-  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47) #12, !srcloc !17
-  br label %48
+  %44 = sub i64 %42, %43
+  %45 = inttoptr i64 %44 to ptr
+  br label %73
 
-48:                                               ; preds = %106, %78, %42
-  br label %22
+46:                                               ; preds = %38
+  %47 = load i32, ptr @next_early_pgt, align 4
+  %48 = icmp ugt i32 %47, 63
+  br i1 %48, label %49, label %62
 
-49:                                               ; preds = %39
-  %50 = add nuw nsw i32 %40, 1
-  store i32 %50, ptr @next_early_pgt, align 4
-  %51 = zext nneg i32 %40 to i64
-  %52 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %51
-  %53 = load i32, ptr @ptrs_per_p4d, align 4
-  %54 = zext i32 %53 to i64
-  %55 = shl nuw nsw i64 %54, 3
-  tail call void @llvm.memset.p0.i64(ptr align 16 %52, i8 0, i64 %55, i1 false)
-  %56 = ptrtoint ptr %52 to i64
-  %57 = load i64, ptr @phys_base, align 8
-  %58 = add i64 %56, 2147483747
-  %59 = add i64 %58, %57
-  store i64 %59, ptr %27, align 8
-  br label %60
-
-60:                                               ; preds = %49, %33, %22
-  %61 = phi ptr [ %38, %33 ], [ %52, %49 ], [ %27, %22 ]
-  %62 = load i32, ptr @ptrs_per_p4d, align 4
-  %63 = add i32 %62, -1
-  %64 = zext i32 %63 to i64
-  %65 = and i64 %19, %64
-  %66 = getelementptr i64, ptr %61, i64 %65
-  %67 = load i64, ptr %66, align 8
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %75, label %69
-
-69:                                               ; preds = %60
-  %70 = and i64 %67, 4503599627366400
-  %71 = add nsw i64 %70, -2147483648
-  %72 = load i64, ptr @phys_base, align 8
-  %73 = sub i64 %71, %72
-  %74 = inttoptr i64 %73 to ptr
-  br label %92
-
-75:                                               ; preds = %60
-  %76 = load i32, ptr @next_early_pgt, align 4
-  %77 = icmp ugt i32 %76, 63
-  br i1 %77, label %78, label %84
-
-78:                                               ; preds = %75
+49:                                               ; preds = %46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4088) @early_top_pgt, i8 0, i64 4088, i1 false)
   store i32 0, ptr @next_early_pgt, align 4
-  %79 = load i64, ptr @phys_base, align 8
-  %80 = load i64, ptr @page_offset_base, align 8
-  %81 = sub i64 -2147483648, %80
-  %82 = select i1 icmp ugt (i64 ptrtoint (ptr @early_top_pgt to i64), i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)), i64 %79, i64 %81
-  %83 = add i64 %82, sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)
-  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %83) #12, !srcloc !17
-  br label %48
+  %50 = load i64, ptr @phys_base, align 8
+  %51 = load i64, ptr @page_offset_base, align 8
+  %52 = sub i64 -2147483648, %51
+  %53 = ptrtoint ptr @early_top_pgt to i64
+  %54 = ptrtoint ptr @early_top_pgt to i64
+  %55 = sub i64 %54, -2147483648
+  %56 = icmp ugt i64 %53, %55
+  %57 = select i1 %56, i64 %50, i64 %52
+  %58 = ptrtoint ptr @early_top_pgt to i64
+  %59 = sub i64 %58, -2147483648
+  %60 = add i64 %57, %59
+  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %60) #12, !srcloc !17
+  br label %61
 
-84:                                               ; preds = %75
-  %85 = add nuw nsw i32 %76, 1
-  store i32 %85, ptr @next_early_pgt, align 4
-  %86 = zext nneg i32 %76 to i64
-  %87 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %86
-  tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(4096) %87, i8 0, i64 4096, i1 false)
-  %88 = ptrtoint ptr %87 to i64
-  %89 = load i64, ptr @phys_base, align 8
-  %90 = add i64 %88, 2147483747
-  %91 = add i64 %90, %89
-  store i64 %91, ptr %66, align 8
-  br label %92
+61:                                               ; preds = %125, %91, %49
+  br label %29
 
-92:                                               ; preds = %84, %69
-  %93 = phi ptr [ %74, %69 ], [ %87, %84 ]
-  %94 = getelementptr i64, ptr %93, i64 %21
-  %95 = load i64, ptr %94, align 8
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %103, label %97
+62:                                               ; preds = %46
+  %63 = add nuw nsw i32 %47, 1
+  store i32 %63, ptr @next_early_pgt, align 4
+  %64 = zext nneg i32 %47 to i64
+  %65 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %64
+  %66 = load i32, ptr @ptrs_per_p4d, align 4
+  %67 = zext i32 %66 to i64
+  %68 = shl nuw nsw i64 %67, 3
+  tail call void @llvm.memset.p0.i64(ptr align 16 %65, i8 0, i64 %68, i1 false)
+  %69 = ptrtoint ptr %65 to i64
+  %70 = load i64, ptr @phys_base, align 8
+  %71 = add i64 %69, 2147483747
+  %72 = add i64 %71, %70
+  store i64 %72, ptr %34, align 8
+  br label %73
 
-97:                                               ; preds = %92
-  %98 = and i64 %95, 4503599627366400
-  %99 = add nsw i64 %98, -2147483648
-  %100 = load i64, ptr @phys_base, align 8
-  %101 = sub i64 %99, %100
-  %102 = inttoptr i64 %101 to ptr
-  br label %121
+73:                                               ; preds = %62, %40, %29
+  %74 = phi ptr [ %45, %40 ], [ %65, %62 ], [ %34, %29 ]
+  %75 = load i32, ptr @ptrs_per_p4d, align 4
+  %76 = add i32 %75, -1
+  %77 = zext i32 %76 to i64
+  %78 = and i64 %26, %77
+  %79 = getelementptr i64, ptr %74, i64 %78
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %88, label %82
 
-103:                                              ; preds = %92
-  %104 = load i32, ptr @next_early_pgt, align 4
-  %105 = icmp ugt i32 %104, 63
-  br i1 %105, label %106, label %112
+82:                                               ; preds = %73
+  %83 = and i64 %80, 4503599627366400
+  %84 = add nsw i64 %83, -2147483648
+  %85 = load i64, ptr @phys_base, align 8
+  %86 = sub i64 %84, %85
+  %87 = inttoptr i64 %86 to ptr
+  br label %111
 
-106:                                              ; preds = %103
+88:                                               ; preds = %73
+  %89 = load i32, ptr @next_early_pgt, align 4
+  %90 = icmp ugt i32 %89, 63
+  br i1 %90, label %91, label %103
+
+91:                                               ; preds = %88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4088) @early_top_pgt, i8 0, i64 4088, i1 false)
   store i32 0, ptr @next_early_pgt, align 4
-  %107 = load i64, ptr @phys_base, align 8
-  %108 = load i64, ptr @page_offset_base, align 8
-  %109 = sub i64 -2147483648, %108
-  %110 = select i1 icmp ugt (i64 ptrtoint (ptr @early_top_pgt to i64), i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)), i64 %107, i64 %109
-  %111 = add i64 %110, sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)
-  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %111) #12, !srcloc !17
-  br label %48
+  %92 = load i64, ptr @phys_base, align 8
+  %93 = load i64, ptr @page_offset_base, align 8
+  %94 = sub i64 -2147483648, %93
+  %95 = ptrtoint ptr @early_top_pgt to i64
+  %96 = ptrtoint ptr @early_top_pgt to i64
+  %97 = sub i64 %96, -2147483648
+  %98 = icmp ugt i64 %95, %97
+  %99 = select i1 %98, i64 %92, i64 %94
+  %100 = ptrtoint ptr @early_top_pgt to i64
+  %101 = sub i64 %100, -2147483648
+  %102 = add i64 %99, %101
+  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %102) #12, !srcloc !17
+  br label %61
 
-112:                                              ; preds = %103
-  %113 = getelementptr i64, ptr %93, i64 %21
-  %114 = add nuw nsw i32 %104, 1
-  store i32 %114, ptr @next_early_pgt, align 4
-  %115 = zext nneg i32 %104 to i64
-  %116 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %115
-  tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(4096) %116, i8 0, i64 4096, i1 false)
-  %117 = ptrtoint ptr %116 to i64
-  %118 = load i64, ptr @phys_base, align 8
-  %119 = add i64 %117, 2147483747
-  %120 = add i64 %119, %118
-  store i64 %120, ptr %113, align 8
-  br label %121
+103:                                              ; preds = %88
+  %104 = add nuw nsw i32 %89, 1
+  store i32 %104, ptr @next_early_pgt, align 4
+  %105 = zext nneg i32 %89 to i64
+  %106 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %105
+  tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(4096) %106, i8 0, i64 4096, i1 false)
+  %107 = ptrtoint ptr %106 to i64
+  %108 = load i64, ptr @phys_base, align 8
+  %109 = add i64 %107, 2147483747
+  %110 = add i64 %109, %108
+  store i64 %110, ptr %79, align 8
+  br label %111
 
-121:                                              ; preds = %112, %97
-  %122 = phi ptr [ %102, %97 ], [ %116, %112 ]
-  %123 = lshr i64 %0, 21
-  %124 = and i64 %123, 511
-  %125 = getelementptr i64, ptr %122, i64 %124
-  store i64 %1, ptr %125, align 8
-  br label %126
+111:                                              ; preds = %103, %82
+  %112 = phi ptr [ %87, %82 ], [ %106, %103 ]
+  %113 = getelementptr i64, ptr %112, i64 %28
+  %114 = load i64, ptr %113, align 8
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %122, label %116
 
-126:                                              ; preds = %121, %9, %2
-  %127 = phi i1 [ true, %121 ], [ false, %9 ], [ false, %2 ]
-  ret i1 %127
+116:                                              ; preds = %111
+  %117 = and i64 %114, 4503599627366400
+  %118 = add nsw i64 %117, -2147483648
+  %119 = load i64, ptr @phys_base, align 8
+  %120 = sub i64 %118, %119
+  %121 = inttoptr i64 %120 to ptr
+  br label %146
+
+122:                                              ; preds = %111
+  %123 = load i32, ptr @next_early_pgt, align 4
+  %124 = icmp ugt i32 %123, 63
+  br i1 %124, label %125, label %137
+
+125:                                              ; preds = %122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4088) @early_top_pgt, i8 0, i64 4088, i1 false)
+  store i32 0, ptr @next_early_pgt, align 4
+  %126 = load i64, ptr @phys_base, align 8
+  %127 = load i64, ptr @page_offset_base, align 8
+  %128 = sub i64 -2147483648, %127
+  %129 = ptrtoint ptr @early_top_pgt to i64
+  %130 = ptrtoint ptr @early_top_pgt to i64
+  %131 = sub i64 %130, -2147483648
+  %132 = icmp ugt i64 %129, %131
+  %133 = select i1 %132, i64 %126, i64 %128
+  %134 = ptrtoint ptr @early_top_pgt to i64
+  %135 = sub i64 %134, -2147483648
+  %136 = add i64 %133, %135
+  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %136) #12, !srcloc !17
+  br label %61
+
+137:                                              ; preds = %122
+  %138 = getelementptr i64, ptr %112, i64 %28
+  %139 = add nuw nsw i32 %123, 1
+  store i32 %139, ptr @next_early_pgt, align 4
+  %140 = zext nneg i32 %123 to i64
+  %141 = getelementptr [64 x [512 x %struct.pmd_t]], ptr @early_dynamic_pgts, i64 0, i64 %140
+  tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(4096) %141, i8 0, i64 4096, i1 false)
+  %142 = ptrtoint ptr %141 to i64
+  %143 = load i64, ptr @phys_base, align 8
+  %144 = add i64 %142, 2147483747
+  %145 = add i64 %144, %143
+  store i64 %145, ptr %138, align 8
+  br label %146
+
+146:                                              ; preds = %137, %116
+  %147 = phi ptr [ %121, %116 ], [ %141, %137 ]
+  %148 = lshr i64 %0, 21
+  %149 = and i64 %148, 511
+  %150 = getelementptr i64, ptr %147, i64 %149
+  store i64 %1, ptr %150, align 8
+  br label %151
+
+151:                                              ; preds = %146, %9, %2
+  %152 = phi i1 [ true, %146 ], [ false, %9 ], [ false, %2 ]
+  ret i1 %152
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -543,9 +635,15 @@ define internal fastcc void @reset_early_page_tables() unnamed_addr #1 section "
   %1 = load i64, ptr @phys_base, align 8
   %2 = load i64, ptr @page_offset_base, align 8
   %3 = sub i64 -2147483648, %2
-  %4 = select i1 icmp ugt (i64 ptrtoint (ptr @early_top_pgt to i64), i64 sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)), i64 %1, i64 %3
-  %5 = add i64 %4, sub (i64 ptrtoint (ptr @early_top_pgt to i64), i64 -2147483648)
-  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %5) #12, !srcloc !17
+  %4 = ptrtoint ptr @early_top_pgt to i64
+  %5 = ptrtoint ptr @early_top_pgt to i64
+  %6 = sub i64 %5, -2147483648
+  %7 = icmp ugt i64 %4, %6
+  %8 = select i1 %7, i64 %1, i64 %3
+  %9 = ptrtoint ptr @early_top_pgt to i64
+  %10 = sub i64 %9, -2147483648
+  %11 = add i64 %8, %10
+  tail call void asm sideeffect "mov $0,%cr3", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11) #12, !srcloc !17
   ret void
 }
 
@@ -555,23 +653,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @do_early_exception(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 section ".init.text" align 16 {
   %3 = icmp eq i32 %1, 14
-  br i1 %3, label %4, label %12
+  br i1 %3, label %4, label %13
 
 4:                                                ; preds = %2
-  %5 = tail call i64 asm sideeffect "mov %cr2,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !18
-  %6 = load i64, ptr @page_offset_base, align 8
-  %7 = sub i64 %5, %6
-  %8 = and i64 %7, -2097152
-  %9 = load i64, ptr @early_pmd_flags, align 8
-  %10 = add i64 %8, %9
-  %11 = tail call noundef zeroext i1 @__early_make_pgtable(i64 noundef %5, i64 noundef %10) #13
-  br i1 %11, label %13, label %12
+  %5 = inttoptr i64 4096 to ptr
+  %6 = tail call i64 asm sideeffect "mov %cr2,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5) #12, !srcloc !18
+  %7 = load i64, ptr @page_offset_base, align 8
+  %8 = sub i64 %6, %7
+  %9 = and i64 %8, -2097152
+  %10 = load i64, ptr @early_pmd_flags, align 8
+  %11 = add i64 %9, %10
+  %12 = tail call noundef zeroext i1 @__early_make_pgtable(i64 noundef %6, i64 noundef %11) #13
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %4, %2
+13:                                               ; preds = %4, %2
   tail call void @early_fixup_exception(ptr noundef %0, i32 noundef %1) #12
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %4
+14:                                               ; preds = %13, %4
   ret void
 }
 
@@ -580,8 +679,14 @@ declare dso_local void @early_fixup_exception(ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @clear_bss() local_unnamed_addr #4 section ".init.text" align 16 {
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), i1 false)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 sub (i64 ptrtoint (ptr @__brk_limit to i64), i64 ptrtoint (ptr @__brk_base to i64)), i1 false)
+  %1 = ptrtoint ptr @__bss_stop to i64
+  %2 = ptrtoint ptr @__bss_start to i64
+  %3 = sub i64 %1, %2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 %3, i1 false)
+  %4 = ptrtoint ptr @__brk_limit to i64
+  %5 = ptrtoint ptr @__brk_base to i64
+  %6 = sub i64 %4, %5
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 %6, i1 false)
   ret void
 }
 
@@ -602,28 +707,40 @@ define dso_local void @x86_64_start_kernel(ptr noundef %0) local_unnamed_addr #5
 8:                                                ; preds = %1
   tail call fastcc void @cr4_init_shadow()
   tail call fastcc void @reset_early_page_tables() #13
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), i1 false)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 sub (i64 ptrtoint (ptr @__brk_limit to i64), i64 ptrtoint (ptr @__brk_base to i64)), i1 false)
+  %9 = ptrtoint ptr @__bss_stop to i64
+  %10 = ptrtoint ptr @__bss_start to i64
+  %11 = sub i64 %9, %10
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 %11, i1 false)
+  %12 = ptrtoint ptr @__brk_limit to i64
+  %13 = ptrtoint ptr @__brk_base to i64
+  %14 = sub i64 %12, %13
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 %14, i1 false)
   tail call fastcc void @clear_page()
-  %9 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !22
-  tail call fastcc void @__native_tlb_flush_global(i64 noundef %9)
+  %15 = getelementptr inbounds %struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6
+  %16 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15) #12, !srcloc !22
+  tail call fastcc void @__native_tlb_flush_global(i64 noundef %16)
   tail call void @idt_setup_early_handler() #12
-  %10 = ptrtoint ptr %0 to i64
-  %11 = load i64, ptr @page_offset_base, align 8
-  %12 = add i64 %11, %10
-  %13 = inttoptr i64 %12 to ptr
-  tail call fastcc void @copy_bootdata(ptr noundef %13) #13
+  %17 = ptrtoint ptr %0 to i64
+  %18 = load i64, ptr @page_offset_base, align 8
+  %19 = add i64 %18, %17
+  %20 = inttoptr i64 %19 to ptr
+  tail call fastcc void @copy_bootdata(ptr noundef %20) #13
   tail call void @load_ucode_bsp() #12
-  %14 = load i64, ptr getelementptr inbounds ([512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 511), align 8
-  store i64 %14, ptr getelementptr ([0 x %struct.pgd_t], ptr @init_top_pgt, i64 0, i64 511), align 8
+  %21 = getelementptr inbounds [512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 511
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr [0 x %struct.pgd_t], ptr @init_top_pgt, i64 0, i64 511
+  store i64 %22, ptr %23, align 8
   tail call void @x86_64_start_reservations(ptr noundef %0) #14
   unreachable
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @cr4_init_shadow() unnamed_addr #6 align 16 {
-  %1 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !6
-  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6), i64 %1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !23
+  %1 = inttoptr i64 4096 to ptr
+  %2 = tail call i64 asm sideeffect "mov %cr4,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1) #12, !srcloc !6
+  %3 = getelementptr inbounds %struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6
+  %4 = getelementptr inbounds %struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6
+  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %2, ptr nonnull elementtype(i64) %4) #12, !srcloc !23
   ret void
 }
 
@@ -650,51 +767,54 @@ declare dso_local void @idt_setup_early_handler() local_unnamed_addr #3
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none)
 define internal fastcc void @copy_bootdata(ptr nocapture noundef readonly %0) unnamed_addr #7 section ".init.text" align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) @boot_params, ptr noundef align 1 dereferenceable(4096) %0, i64 4096, i1 false)
-  %2 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 26), align 1
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %18, label %4
+  %2 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 26
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %19, label %5
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) @sanitize_boot_params.scratch, i8 0, i64 4096, i1 false)
-  br label %5
+  br label %6
 
-5:                                                ; preds = %5, %4
-  %6 = phi i64 [ 0, %4 ], [ %15, %5 ]
-  %7 = getelementptr [20 x %struct.boot_params_to_save], ptr @__const.sanitize_boot_params.to_save, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 8
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr i8, ptr @sanitize_boot_params.scratch, i64 %9
-  %11 = getelementptr i8, ptr @boot_params, i64 %9
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = zext i32 %13 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %11, i64 %14, i1 false)
-  %15 = add nuw nsw i64 %6, 1
-  %16 = icmp eq i64 %15, 20
-  br i1 %16, label %17, label %5, !llvm.loop !25
+6:                                                ; preds = %6, %5
+  %7 = phi i64 [ 0, %5 ], [ %16, %6 ]
+  %8 = getelementptr [20 x %struct.boot_params_to_save], ptr @__const.sanitize_boot_params.to_save, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 8
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr i8, ptr @sanitize_boot_params.scratch, i64 %10
+  %12 = getelementptr i8, ptr @boot_params, i64 %10
+  %13 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = zext i32 %14 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %12, i64 %15, i1 false)
+  %16 = add nuw nsw i64 %7, 1
+  %17 = icmp eq i64 %16, 20
+  br i1 %17, label %18, label %6, !llvm.loop !25
 
-17:                                               ; preds = %5
+18:                                               ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) @boot_params, ptr noundef nonnull align 1 dereferenceable(4096) @sanitize_boot_params.scratch, i64 4096, i1 false)
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %1
-  %19 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 23), align 1
-  %20 = zext i32 %19 to i64
-  %21 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 13), align 1
+19:                                               ; preds = %18, %1
+  %20 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 23
+  %21 = load i32, ptr %20, align 1
   %22 = zext i32 %21 to i64
-  %23 = shl nuw i64 %22, 32
-  %24 = or disjoint i64 %23, %20
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %30, label %26
+  %23 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 13
+  %24 = load i32, ptr %23, align 1
+  %25 = zext i32 %24 to i64
+  %26 = shl nuw i64 %25, 32
+  %27 = or disjoint i64 %26, %22
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %33, label %29
 
-26:                                               ; preds = %18
-  %27 = load i64, ptr @page_offset_base, align 8
-  %28 = add i64 %27, %24
-  %29 = inttoptr i64 %28 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) @boot_command_line, ptr noundef align 1 dereferenceable(2048) %29, i64 2048, i1 false)
-  br label %30
+29:                                               ; preds = %19
+  %30 = load i64, ptr @page_offset_base, align 8
+  %31 = add i64 %30, %27
+  %32 = inttoptr i64 %31 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) @boot_command_line, ptr noundef align 1 dereferenceable(2048) %32, i64 2048, i1 false)
+  br label %33
 
-30:                                               ; preds = %26, %18
+33:                                               ; preds = %29, %19
   ret void
 }
 
@@ -706,19 +826,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid optsize
 define dso_local void @x86_64_start_reservations(ptr noundef %0) local_unnamed_addr #5 section ".init.text" align 16 {
-  %2 = load i16, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9), align 1
-  %3 = icmp eq i16 %2, 0
-  br i1 %3, label %4, label %9
+  %2 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9
+  %3 = load i16, ptr %2, align 1
+  %4 = icmp eq i16 %3, 0
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %1
-  %5 = ptrtoint ptr %0 to i64
-  %6 = load i64, ptr @page_offset_base, align 8
-  %7 = add i64 %6, %5
-  %8 = inttoptr i64 %7 to ptr
-  tail call fastcc void @copy_bootdata(ptr noundef %8) #13
-  br label %9
+5:                                                ; preds = %1
+  %6 = ptrtoint ptr %0 to i64
+  %7 = load i64, ptr @page_offset_base, align 8
+  %8 = add i64 %7, %6
+  %9 = inttoptr i64 %8 to ptr
+  tail call fastcc void @copy_bootdata(ptr noundef %9) #13
+  br label %10
 
-9:                                                ; preds = %4, %1
+10:                                               ; preds = %5, %1
   tail call void @x86_early_init_platform_quirks() #12
   tail call void @start_kernel() #15
   unreachable
@@ -732,7 +853,9 @@ declare dso_local void @start_kernel() local_unnamed_addr #9 section ".init.text
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @early_setup_idt() local_unnamed_addr #0 align 16 {
-  store i64 ptrtoint (ptr @bringup_idt_table to i64), ptr getelementptr inbounds (%struct.desc_ptr, ptr @bringup_idt_descr, i64 0, i32 1), align 1
+  %1 = ptrtoint ptr @bringup_idt_table to i64
+  %2 = getelementptr inbounds %struct.desc_ptr, ptr @bringup_idt_descr, i64 0, i32 1
+  store i64 %1, ptr %2, align 1
   tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @bringup_idt_descr) #12, !srcloc !26
   ret void
 }
@@ -740,17 +863,31 @@ define dso_local void @early_setup_idt() local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @startup_64_setup_env(i64 noundef %0) local_unnamed_addr #0 section ".head.text" align 16 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr i8, ptr %2, i64 sub (i64 ptrtoint (ptr @startup_gdt to i64), i64 ptrtoint (ptr @_text to i64))
-  %4 = ptrtoint ptr %3 to i64
-  store i64 %4, ptr getelementptr inbounds (%struct.desc_ptr, ptr @startup_gdt_descr, i64 0, i32 1), align 1
+  %3 = ptrtoint ptr @startup_gdt to i64
+  %4 = ptrtoint ptr @_text to i64
+  %5 = sub i64 %3, %4
+  %6 = getelementptr i8, ptr %2, i64 %5
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.desc_ptr, ptr @startup_gdt_descr, i64 0, i32 1
+  store i64 %7, ptr %8, align 1
   tail call void asm sideeffect "lgdt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @startup_gdt_descr) #12, !srcloc !27
   tail call void asm sideeffect "movl %eax, %ds\0Amovl %eax, %ss\0Amovl %eax, %es\0A", "{ax},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 24) #12, !srcloc !28
-  %5 = getelementptr i8, ptr %2, i64 sub (i64 ptrtoint (ptr @bringup_idt_descr to i64), i64 ptrtoint (ptr @_text to i64))
-  %6 = getelementptr i8, ptr %2, i64 sub (i64 ptrtoint (ptr @bringup_idt_table to i64), i64 ptrtoint (ptr @_text to i64))
-  %7 = ptrtoint ptr %6 to i64
-  %8 = getelementptr i8, ptr %2, i64 add (i64 sub (i64 ptrtoint (ptr @bringup_idt_descr to i64), i64 ptrtoint (ptr @_text to i64)), i64 2)
-  store i64 %7, ptr %8, align 1
-  tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.desc_ptr) %5) #12, !srcloc !26
+  %9 = ptrtoint ptr @bringup_idt_descr to i64
+  %10 = ptrtoint ptr @_text to i64
+  %11 = sub i64 %9, %10
+  %12 = getelementptr i8, ptr %2, i64 %11
+  %13 = ptrtoint ptr @bringup_idt_table to i64
+  %14 = ptrtoint ptr @_text to i64
+  %15 = sub i64 %13, %14
+  %16 = getelementptr i8, ptr %2, i64 %15
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr @bringup_idt_descr to i64
+  %19 = ptrtoint ptr @_text to i64
+  %20 = sub i64 %18, %19
+  %21 = add i64 %20, 2
+  %22 = getelementptr i8, ptr %2, i64 %21
+  store i64 %17, ptr %22, align 1
+  tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.desc_ptr) %12) #12, !srcloc !26
   ret void
 }
 

@@ -119,7 +119,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17btCollisionObject, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17btCollisionObject, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_worldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 1
   call void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform)
   %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 2
@@ -215,12 +216,12 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   ret void
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_objectsWithoutCollisionCheck) #5
   br label %eh.resume
 
@@ -345,7 +346,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17btCollisionObject, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17btCollisionObject, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_objectsWithoutCollisionCheck = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 35
   call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_objectsWithoutCollisionCheck) #5
   ret void

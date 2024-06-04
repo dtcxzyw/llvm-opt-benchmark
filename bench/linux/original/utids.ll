@@ -340,7 +340,7 @@ define dso_local i32 @acpi_ut_execute_CLS(ptr noundef %0, ptr nocapture noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false)
   %6 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 8, ptr noundef nonnull %4) #7
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %68
+  br i1 %7, label %8, label %69
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
@@ -420,31 +420,32 @@ define dso_local i32 @acpi_ut_execute_CLS(ptr noundef %0, ptr nocapture noundef 
   %56 = and i64 %55, 512
   %57 = icmp eq i64 %56, 0
   %58 = select i1 %57, i32 2336, i32 3520
-  %59 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %60 = call noalias align 8 dereferenceable_or_null(23) ptr @kmalloc_trace(ptr noundef %59, i32 noundef %58, i64 noundef 23) #9
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %65, label %62
+  %59 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noalias align 8 dereferenceable_or_null(23) ptr @kmalloc_trace(ptr noundef %60, i32 noundef %58, i64 noundef 23) #9
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %66, label %63
 
-62:                                               ; preds = %54
-  %63 = getelementptr i8, ptr %60, i64 16
-  %64 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %63, ptr %64, align 8
-  call void @acpi_ex_pci_cls_to_string(ptr noundef %63, ptr noundef nonnull %5) #7
-  store i32 7, ptr %60, align 8
-  store ptr %60, ptr %1, align 8
-  br label %65
+63:                                               ; preds = %54
+  %64 = getelementptr i8, ptr %61, i64 16
+  %65 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %64, ptr %65, align 8
+  call void @acpi_ex_pci_cls_to_string(ptr noundef %64, ptr noundef nonnull %5) #7
+  store i32 7, ptr %61, align 8
+  store ptr %61, ptr %1, align 8
+  br label %66
 
-65:                                               ; preds = %62, %54
-  %66 = phi i32 [ 0, %62 ], [ 4, %54 ]
-  %67 = load ptr, ptr %4, align 8
-  call void @acpi_ut_remove_reference(ptr noundef %67) #7
-  br label %68
+66:                                               ; preds = %63, %54
+  %67 = phi i32 [ 0, %63 ], [ 4, %54 ]
+  %68 = load ptr, ptr %4, align 8
+  call void @acpi_ut_remove_reference(ptr noundef %68) #7
+  br label %69
 
-68:                                               ; preds = %65, %2
-  %69 = phi i32 [ %66, %65 ], [ %6, %2 ]
+69:                                               ; preds = %66, %2
+  %70 = phi i32 [ %67, %66 ], [ %6, %2 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i32 %69
+  ret i32 %70
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

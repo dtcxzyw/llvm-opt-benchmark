@@ -5133,7 +5133,7 @@ define dso_local ptr @ExecInitQual(ptr noundef %0, ptr noundef %1) #0 {
 
 18:                                               ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %149
+  br label %150
 
 19:                                               ; preds = %2
   %20 = call ptr @newNode(i64 noundef 120, i32 noundef 364)
@@ -5166,187 +5166,188 @@ define dso_local ptr @ExecInitQual(ptr noundef %0, ptr noundef %1) #0 {
   %39 = getelementptr inbounds %struct.ExprEvalStep, ptr %7, i32 0, i32 2
   store ptr %38, ptr %39, align 8
   store ptr null, ptr %9, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %10, align 8
-  br label %40
+  %40 = inttoptr i64 1 to ptr
+  store ptr %40, ptr %10, align 8
+  br label %41
 
-40:                                               ; preds = %92, %19
-  %41 = load ptr, ptr %10, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %93
+41:                                               ; preds = %93, %19
+  %42 = load ptr, ptr %10, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %94
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
-  %45 = load ptr, ptr %4, align 8
-  store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
-  store i32 0, ptr %46, align 8
-  br label %47
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
+  %46 = load ptr, ptr %4, align 8
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
+  store i32 0, ptr %47, align 8
+  br label %48
 
-47:                                               ; preds = %87, %43
-  %48 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %69
+48:                                               ; preds = %88, %44
+  %49 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %70
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.List, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp slt i32 %53, %57
-  br i1 %58, label %59, label %69
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.List, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp slt i32 %54, %58
+  br i1 %59, label %60, label %70
 
-59:                                               ; preds = %51
-  %60 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.List, ptr %61, i32 0, i32 3
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr %union.ListCell, ptr %63, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %9, align 8
-  br label %69
+60:                                               ; preds = %52
+  %61 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.List, ptr %62, i32 0, i32 3
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr %union.ListCell, ptr %64, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %9, align 8
+  br label %70
 
-69:                                               ; preds = %59, %51, %47
-  %70 = phi i1 [ false, %51 ], [ false, %47 ], [ true, %59 ]
-  br i1 %70, label %71, label %91
+70:                                               ; preds = %60, %52, %48
+  %71 = phi i1 [ false, %52 ], [ false, %48 ], [ true, %60 ]
+  br i1 %71, label %72, label %92
 
-71:                                               ; preds = %69
-  %72 = load ptr, ptr %9, align 8
-  %73 = load ptr, ptr %6, align 8
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %9, align 8
   %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.ExprState, ptr %74, i32 0, i32 3
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.ExprState, ptr %76, i32 0, i32 2
-  call void @ExecInitExprRec(ptr noundef %72, ptr noundef %73, ptr noundef %75, ptr noundef %77)
-  %78 = getelementptr inbounds %struct.ExprEvalStep, ptr %7, i32 0, i32 3
-  %79 = getelementptr inbounds %struct.anon.7, ptr %78, i32 0, i32 0
-  store i32 -1, ptr %79, align 8
-  %80 = load ptr, ptr %6, align 8
-  call void @ExprEvalPushStep(ptr noundef %80, ptr noundef %7)
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.ExprState, ptr %82, i32 0, i32 9
-  %84 = load i32, ptr %83, align 8
-  %85 = sub i32 %84, 1
-  %86 = call ptr @lappend_int(ptr noundef %81, i32 noundef %85)
-  store ptr %86, ptr %8, align 8
-  br label %87
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct.ExprState, ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct.ExprState, ptr %77, i32 0, i32 2
+  call void @ExecInitExprRec(ptr noundef %73, ptr noundef %74, ptr noundef %76, ptr noundef %78)
+  %79 = getelementptr inbounds %struct.ExprEvalStep, ptr %7, i32 0, i32 3
+  %80 = getelementptr inbounds %struct.anon.7, ptr %79, i32 0, i32 0
+  store i32 -1, ptr %80, align 8
+  %81 = load ptr, ptr %6, align 8
+  call void @ExprEvalPushStep(ptr noundef %81, ptr noundef %7)
+  %82 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.ExprState, ptr %83, i32 0, i32 9
+  %85 = load i32, ptr %84, align 8
+  %86 = sub i32 %85, 1
+  %87 = call ptr @lappend_int(ptr noundef %82, i32 noundef %86)
+  store ptr %87, ptr %8, align 8
+  br label %88
 
-87:                                               ; preds = %71
-  %88 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
-  %89 = load i32, ptr %88, align 8
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %88, align 8
-  br label %47, !llvm.loop !22
+88:                                               ; preds = %72
+  %89 = getelementptr inbounds %struct.ForEachState, ptr %11, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  br label %48, !llvm.loop !22
 
-91:                                               ; preds = %69
-  br label %92
+92:                                               ; preds = %70
+  br label %93
 
-92:                                               ; preds = %91
+93:                                               ; preds = %92
   store ptr null, ptr %10, align 8
-  br label %40, !llvm.loop !23
+  br label %41, !llvm.loop !23
 
-93:                                               ; preds = %40
+94:                                               ; preds = %41
   store i32 0, ptr %12, align 4
   store i32 1, ptr %13, align 4
-  br label %94
+  br label %95
 
-94:                                               ; preds = %143, %93
-  %95 = load i32, ptr %13, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %144
+95:                                               ; preds = %144, %94
+  %96 = load i32, ptr %13, align 4
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %145
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %99 = load ptr, ptr %8, align 8
-  store ptr %99, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  store i32 0, ptr %100, align 8
-  br label %101
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
+  %100 = load ptr, ptr %8, align 8
+  store ptr %100, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
+  store i32 0, ptr %101, align 8
+  br label %102
 
-101:                                              ; preds = %138, %97
-  %102 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %123
+102:                                              ; preds = %139, %98
+  %103 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %124
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %107 = load i32, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.List, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp slt i32 %107, %111
-  br i1 %112, label %113, label %123
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
+  %108 = load i32, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds %struct.List, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp slt i32 %108, %112
+  br i1 %113, label %114, label %124
 
-113:                                              ; preds = %105
-  %114 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.List, ptr %115, i32 0, i32 3
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %119 = load i32, ptr %118, align 8
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr %union.ListCell, ptr %117, i64 %120
-  %122 = load i32, ptr %121, align 8
-  store i32 %122, ptr %12, align 4
-  br label %123
+114:                                              ; preds = %106
+  %115 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds %struct.List, ptr %116, i32 0, i32 3
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
+  %120 = load i32, ptr %119, align 8
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr %union.ListCell, ptr %118, i64 %121
+  %123 = load i32, ptr %122, align 8
+  store i32 %123, ptr %12, align 4
+  br label %124
 
-123:                                              ; preds = %113, %105, %101
-  %124 = phi i1 [ false, %105 ], [ false, %101 ], [ true, %113 ]
-  br i1 %124, label %125, label %142
+124:                                              ; preds = %114, %106, %102
+  %125 = phi i1 [ false, %106 ], [ false, %102 ], [ true, %114 ]
+  br i1 %125, label %126, label %143
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds %struct.ExprState, ptr %126, i32 0, i32 5
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %12, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr %struct.ExprEvalStep, ptr %128, i64 %130
-  store ptr %131, ptr %15, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = getelementptr inbounds %struct.ExprState, ptr %132, i32 0, i32 9
-  %134 = load i32, ptr %133, align 8
-  %135 = load ptr, ptr %15, align 8
-  %136 = getelementptr inbounds %struct.ExprEvalStep, ptr %135, i32 0, i32 3
-  %137 = getelementptr inbounds %struct.anon.7, ptr %136, i32 0, i32 0
-  store i32 %134, ptr %137, align 8
-  br label %138
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds %struct.ExprState, ptr %127, i32 0, i32 5
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i32, ptr %12, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr %struct.ExprEvalStep, ptr %129, i64 %131
+  store ptr %132, ptr %15, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = getelementptr inbounds %struct.ExprState, ptr %133, i32 0, i32 9
+  %135 = load i32, ptr %134, align 8
+  %136 = load ptr, ptr %15, align 8
+  %137 = getelementptr inbounds %struct.ExprEvalStep, ptr %136, i32 0, i32 3
+  %138 = getelementptr inbounds %struct.anon.7, ptr %137, i32 0, i32 0
+  store i32 %135, ptr %138, align 8
+  br label %139
 
-138:                                              ; preds = %125
-  %139 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %140 = load i32, ptr %139, align 8
-  %141 = add i32 %140, 1
-  store i32 %141, ptr %139, align 8
-  br label %101, !llvm.loop !24
+139:                                              ; preds = %126
+  %140 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
+  %141 = load i32, ptr %140, align 8
+  %142 = add i32 %141, 1
+  store i32 %142, ptr %140, align 8
+  br label %102, !llvm.loop !24
 
-142:                                              ; preds = %123
-  br label %143
+143:                                              ; preds = %124
+  br label %144
 
-143:                                              ; preds = %142
+144:                                              ; preds = %143
   store i32 0, ptr %13, align 4
-  br label %94, !llvm.loop !25
+  br label %95, !llvm.loop !25
 
-144:                                              ; preds = %94
-  %145 = getelementptr inbounds %struct.ExprEvalStep, ptr %7, i32 0, i32 0
-  store i64 0, ptr %145, align 8
-  %146 = load ptr, ptr %6, align 8
-  call void @ExprEvalPushStep(ptr noundef %146, ptr noundef %7)
+145:                                              ; preds = %95
+  %146 = getelementptr inbounds %struct.ExprEvalStep, ptr %7, i32 0, i32 0
+  store i64 0, ptr %146, align 8
   %147 = load ptr, ptr %6, align 8
-  call void @ExecReadyExpr(ptr noundef %147)
+  call void @ExprEvalPushStep(ptr noundef %147, ptr noundef %7)
   %148 = load ptr, ptr %6, align 8
-  store ptr %148, ptr %3, align 8
-  br label %149
+  call void @ExecReadyExpr(ptr noundef %148)
+  %149 = load ptr, ptr %6, align 8
+  store ptr %149, ptr %3, align 8
+  br label %150
 
-149:                                              ; preds = %144, %18
-  %150 = load ptr, ptr %3, align 8
-  ret ptr %150
+150:                                              ; preds = %145, %18
+  %151 = load ptr, ptr %3, align 8
+  ret ptr %151
 }
 
 declare ptr @lappend_int(ptr noundef, i32 noundef) #2

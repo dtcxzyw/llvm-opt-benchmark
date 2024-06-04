@@ -218,7 +218,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef @.str, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
   invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -276,8 +277,8 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store ptr %call, ptr %mMemoryDNA, align 8
   %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_DnaCopy, align 8
-  %0 = load i32, ptr @b3s_bulletDNAlen64, align 4
-  %conv = sext i32 %0 to i64
+  %1 = load i32, ptr @b3s_bulletDNAlen64, align 4
+  %conv = sext i32 %1 to i64
   %call23 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %conv, i32 noundef 16)
           to label %invoke.cont22 unwind label %lpad18
 
@@ -285,118 +286,118 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   %m_DnaCopy24 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
   store ptr %call23, ptr %m_DnaCopy24, align 8
   %m_DnaCopy25 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_DnaCopy25, align 8
-  %2 = load i32, ptr @b3s_bulletDNAlen64, align 4
-  %conv26 = sext i32 %2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 @b3s_bulletDNAstr64, i64 %conv26, i1 false)
+  %2 = load ptr, ptr %m_DnaCopy25, align 8
+  %3 = load i32, ptr @b3s_bulletDNAlen64, align 4
+  %conv26 = sext i32 %3 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 @b3s_bulletDNAstr64, i64 %conv26, i1 false)
   %mMemoryDNA27 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 10
-  %3 = load ptr, ptr %mMemoryDNA27, align 8
+  %4 = load ptr, ptr %mMemoryDNA27, align 8
   %m_DnaCopy28 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m_DnaCopy28, align 8
-  %5 = load i32, ptr @b3s_bulletDNAlen64, align 4
-  invoke void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false)
+  %5 = load ptr, ptr %m_DnaCopy28, align 8
+  %6 = load i32, ptr @b3s_bulletDNAlen64, align 4
+  invoke void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext false)
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont22
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad4:                                            ; preds = %invoke.cont3
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup36
 
 lpad6:                                            ; preds = %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad8:                                            ; preds = %invoke.cont7
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad10:                                           ; preds = %invoke.cont9
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup33
 
 lpad12:                                           ; preds = %invoke.cont11
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 lpad14:                                           ; preds = %invoke.cont13
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad16:                                           ; preds = %invoke.cont15
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad18:                                           ; preds = %invoke.cont22, %invoke.cont21, %invoke.cont17
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad20:                                           ; preds = %invoke.cont19
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #9
   br label %ehcleanup
 
@@ -546,194 +547,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef %0, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %m_rigidBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 3
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rigidBodies)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  %m_collisionObjects = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 4
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionObjects)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %m_collisionShapes = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 5
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionShapes)
-          to label %invoke.cont7 unwind label %lpad6
-
-invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_constraints = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 6
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraints)
-          to label %invoke.cont9 unwind label %lpad8
-
-invoke.cont9:                                     ; preds = %invoke.cont7
-  %m_bvhs = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 7
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_bvhs)
-          to label %invoke.cont11 unwind label %lpad10
-
-invoke.cont11:                                    ; preds = %invoke.cont9
-  %m_triangleInfoMaps = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 8
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_triangleInfoMaps)
-          to label %invoke.cont13 unwind label %lpad12
-
-invoke.cont13:                                    ; preds = %invoke.cont11
-  %m_dynamicsWorldInfo = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 9
-  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dynamicsWorldInfo)
-          to label %invoke.cont15 unwind label %lpad14
-
-invoke.cont15:                                    ; preds = %invoke.cont13
-  %m_dataBlocks = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 10
-  invoke void @_ZN20b3AlignedObjectArrayIPcEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dataBlocks)
-          to label %invoke.cont17 unwind label %lpad16
-
-invoke.cont17:                                    ; preds = %invoke.cont15
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %m_DnaCopy, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup24
-
-lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup23
-
-lpad4:                                            ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup22
-
-lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup21
-
-lpad8:                                            ; preds = %invoke.cont7
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  br label %ehcleanup20
-
-lpad10:                                           ; preds = %invoke.cont9
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
-  br label %ehcleanup19
-
-lpad12:                                           ; preds = %invoke.cont11
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
-  br label %ehcleanup18
-
-lpad14:                                           ; preds = %invoke.cont13
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad16:                                           ; preds = %invoke.cont15
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dynamicsWorldInfo) #10
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad16, %lpad14
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_triangleInfoMaps) #10
-  br label %ehcleanup18
-
-ehcleanup18:                                      ; preds = %ehcleanup, %lpad12
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_bvhs) #10
-  br label %ehcleanup19
-
-ehcleanup19:                                      ; preds = %ehcleanup18, %lpad10
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraints) #10
-  br label %ehcleanup20
-
-ehcleanup20:                                      ; preds = %ehcleanup19, %lpad8
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionShapes) #10
-  br label %ehcleanup21
-
-ehcleanup21:                                      ; preds = %ehcleanup20, %lpad6
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionObjects) #10
-  br label %ehcleanup22
-
-ehcleanup22:                                      ; preds = %ehcleanup21, %lpad4
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rigidBodies) #10
-  br label %ehcleanup23
-
-ehcleanup23:                                      ; preds = %ehcleanup22, %lpad2
-  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies) #10
-  br label %ehcleanup24
-
-ehcleanup24:                                      ; preds = %ehcleanup23, %lpad
-  call void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this1) #10
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup24
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val25 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val25
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse12b3BulletFileC2EPci(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef %memoryBuffer, i32 noundef %len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %memoryBuffer.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %memoryBuffer, ptr %memoryBuffer.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %memoryBuffer.addr, align 8
-  %1 = load i32, ptr %len.addr, align 4
-  call void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef %0, i32 noundef %1, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
   invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -905,6 +720,194 @@ eh.resume:                                        ; preds = %ehcleanup24
   resume { ptr, i32 } %lpad.val25
 }
 
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN6bParse12b3BulletFileC2EPci(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef %memoryBuffer, i32 noundef %len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %memoryBuffer.addr = alloca ptr, align 8
+  %len.addr = alloca i32, align 4
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %memoryBuffer, ptr %memoryBuffer.addr, align 8
+  store i32 %len, ptr %len.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %memoryBuffer.addr, align 8
+  %1 = load i32, ptr %len.addr, align 4
+  call void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef %0, i32 noundef %1, ptr noundef @.str.1)
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
+  %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %m_rigidBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 3
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rigidBodies)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_collisionObjects = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 4
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionObjects)
+          to label %invoke.cont5 unwind label %lpad4
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  %m_collisionShapes = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 5
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionShapes)
+          to label %invoke.cont7 unwind label %lpad6
+
+invoke.cont7:                                     ; preds = %invoke.cont5
+  %m_constraints = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 6
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraints)
+          to label %invoke.cont9 unwind label %lpad8
+
+invoke.cont9:                                     ; preds = %invoke.cont7
+  %m_bvhs = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 7
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_bvhs)
+          to label %invoke.cont11 unwind label %lpad10
+
+invoke.cont11:                                    ; preds = %invoke.cont9
+  %m_triangleInfoMaps = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 8
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_triangleInfoMaps)
+          to label %invoke.cont13 unwind label %lpad12
+
+invoke.cont13:                                    ; preds = %invoke.cont11
+  %m_dynamicsWorldInfo = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 9
+  invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dynamicsWorldInfo)
+          to label %invoke.cont15 unwind label %lpad14
+
+invoke.cont15:                                    ; preds = %invoke.cont13
+  %m_dataBlocks = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 10
+  invoke void @_ZN20b3AlignedObjectArrayIPcEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dataBlocks)
+          to label %invoke.cont17 unwind label %lpad16
+
+invoke.cont17:                                    ; preds = %invoke.cont15
+  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %m_DnaCopy, align 8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup24
+
+lpad2:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup23
+
+lpad4:                                            ; preds = %invoke.cont3
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  br label %ehcleanup22
+
+lpad6:                                            ; preds = %invoke.cont5
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
+  br label %ehcleanup21
+
+lpad8:                                            ; preds = %invoke.cont7
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
+  br label %ehcleanup20
+
+lpad10:                                           ; preds = %invoke.cont9
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
+  br label %ehcleanup19
+
+lpad12:                                           ; preds = %invoke.cont11
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
+  br label %ehcleanup18
+
+lpad14:                                           ; preds = %invoke.cont13
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad16:                                           ; preds = %invoke.cont15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dynamicsWorldInfo) #10
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad16, %lpad14
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_triangleInfoMaps) #10
+  br label %ehcleanup18
+
+ehcleanup18:                                      ; preds = %ehcleanup, %lpad12
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_bvhs) #10
+  br label %ehcleanup19
+
+ehcleanup19:                                      ; preds = %ehcleanup18, %lpad10
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraints) #10
+  br label %ehcleanup20
+
+ehcleanup20:                                      ; preds = %ehcleanup19, %lpad8
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionShapes) #10
+  br label %ehcleanup21
+
+ehcleanup21:                                      ; preds = %ehcleanup20, %lpad6
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionObjects) #10
+  br label %ehcleanup22
+
+ehcleanup22:                                      ; preds = %ehcleanup21, %lpad4
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rigidBodies) #10
+  br label %ehcleanup23
+
+ehcleanup23:                                      ; preds = %ehcleanup22, %lpad2
+  call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies) #10
+  br label %ehcleanup24
+
+ehcleanup24:                                      ; preds = %ehcleanup23, %lpad
+  call void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this1) #10
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup24
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val25 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val25
+}
+
 declare void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -914,16 +917,17 @@ entry:
   %dataBlock = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_DnaCopy, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_DnaCopy, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_DnaCopy2 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_DnaCopy2, align 8
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %1)
+  %2 = load ptr, ptr %m_DnaCopy2, align 8
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -953,14 +957,14 @@ invoke.cont7:                                     ; preds = %while.body
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %2 = load ptr, ptr %call10, align 8
-  store ptr %2, ptr %dataBlock, align 8
-  %3 = load ptr, ptr %dataBlock, align 8
-  %isnull = icmp eq ptr %3, null
+  %3 = load ptr, ptr %call10, align 8
+  store ptr %3, ptr %dataBlock, align 8
+  %4 = load ptr, ptr %dataBlock, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont9
-  call void @_ZdaPv(ptr noundef %3) #9
+  call void @_ZdaPv(ptr noundef %4) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont9
@@ -994,10 +998,10 @@ while.end:                                        ; preds = %invoke.cont3
   ret void
 
 terminate.lpad:                                   ; preds = %delete.end, %invoke.cont7, %while.body, %while.cond, %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #11
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #11
   unreachable
 }
 

@@ -1275,225 +1275,242 @@ define dso_local void @ShowUsage(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %11, i64 16, i1 false)
   %12 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @Save_t, i32 0, i32 1), align 8
-  %15 = icmp slt i64 %13, %14
-  br i1 %15, label %16, label %23
+  %14 = getelementptr inbounds %struct.timeval, ptr @Save_t, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp slt i64 %13, %15
+  br i1 %16, label %17, label %24
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, -1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1000000
-  store i64 %22, ptr %20, align 8
-  br label %23
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8
+  %20 = add i64 %19, -1
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, 1000000
+  store i64 %23, ptr %21, align 8
+  br label %24
 
-23:                                               ; preds = %16, %1
-  %24 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.timeval, ptr %24, i32 0, i32 1
-  %26 = load i64, ptr %25, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @Save_r, i32 0, i32 1), align 8
-  %28 = icmp slt i64 %26, %27
-  br i1 %28, label %29, label %38
+24:                                               ; preds = %17, %1
+  %25 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
+  %26 = getelementptr inbounds %struct.timeval, ptr %25, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.timeval, ptr @Save_r, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp slt i64 %27, %29
+  br i1 %30, label %31, label %40
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
-  %31 = getelementptr inbounds %struct.timeval, ptr %30, i32 0, i32 0
-  %32 = load i64, ptr %31, align 8
-  %33 = add i64 %32, -1
-  store i64 %33, ptr %31, align 8
-  %34 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
-  %35 = getelementptr inbounds %struct.timeval, ptr %34, i32 0, i32 1
-  %36 = load i64, ptr %35, align 8
-  %37 = add i64 %36, 1000000
-  store i64 %37, ptr %35, align 8
-  br label %38
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.timeval, ptr %32, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, -1
+  store i64 %35, ptr %33, align 8
+  %36 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.timeval, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, 1000000
+  store i64 %39, ptr %37, align 8
+  br label %40
 
-38:                                               ; preds = %29, %23
-  %39 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
-  %40 = getelementptr inbounds %struct.timeval, ptr %39, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  %42 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 1, i32 1), align 8
-  %43 = icmp slt i64 %41, %42
-  br i1 %43, label %44, label %53
+40:                                               ; preds = %31, %24
+  %41 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
+  %42 = getelementptr inbounds %struct.timeval, ptr %41, i32 0, i32 1
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 1, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = icmp slt i64 %43, %45
+  br i1 %46, label %47, label %56
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
-  %46 = getelementptr inbounds %struct.timeval, ptr %45, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, -1
-  store i64 %48, ptr %46, align 8
-  %49 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
-  %50 = getelementptr inbounds %struct.timeval, ptr %49, i32 0, i32 1
-  %51 = load i64, ptr %50, align 8
-  %52 = add i64 %51, 1000000
-  store i64 %52, ptr %50, align 8
-  br label %53
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
+  %49 = getelementptr inbounds %struct.timeval, ptr %48, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, -1
+  store i64 %51, ptr %49, align 8
+  %52 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
+  %53 = getelementptr inbounds %struct.timeval, ptr %52, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, 1000000
+  store i64 %55, ptr %53, align 8
+  br label %56
 
-53:                                               ; preds = %44, %38
+56:                                               ; preds = %47, %40
   call void @initStringInfo(ptr noundef %3)
   call void @appendStringInfoString(ptr noundef %3, ptr noundef @.str.96)
-  %54 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.timeval, ptr %54, i32 0, i32 0
-  %56 = load i64, ptr %55, align 8
-  %57 = load i64, ptr @Save_r, align 8
-  %58 = sub i64 %56, %57
-  %59 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
-  %60 = getelementptr inbounds %struct.timeval, ptr %59, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
-  %62 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @Save_r, i32 0, i32 1), align 8
-  %63 = sub i64 %61, %62
-  %64 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
-  %65 = getelementptr inbounds %struct.timeval, ptr %64, i32 0, i32 0
+  %57 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
+  %58 = getelementptr inbounds %struct.timeval, ptr %57, i32 0, i32 0
+  %59 = load i64, ptr %58, align 8
+  %60 = load i64, ptr @Save_r, align 8
+  %61 = sub i64 %59, %60
+  %62 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 0
+  %63 = getelementptr inbounds %struct.timeval, ptr %62, i32 0, i32 1
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.timeval, ptr @Save_r, i32 0, i32 1
   %66 = load i64, ptr %65, align 8
-  %67 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 1), align 8
-  %68 = sub i64 %66, %67
-  %69 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
-  %70 = getelementptr inbounds %struct.timeval, ptr %69, i32 0, i32 1
-  %71 = load i64, ptr %70, align 8
-  %72 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 1, i32 1), align 8
-  %73 = sub i64 %71, %72
-  %74 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 0
-  %75 = load i64, ptr %74, align 8
-  %76 = load i64, ptr @Save_t, align 8
-  %77 = sub i64 %75, %76
-  %78 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
-  %79 = load i64, ptr %78, align 8
-  %80 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @Save_t, i32 0, i32 1), align 8
-  %81 = sub i64 %79, %80
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.97, i64 noundef %58, i64 noundef %63, i64 noundef %68, i64 noundef %73, i64 noundef %77, i64 noundef %81)
-  %82 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 0
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 1
+  %67 = sub i64 %64, %66
+  %68 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
+  %69 = getelementptr inbounds %struct.timeval, ptr %68, i32 0, i32 0
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 %70, %72
+  %74 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 1
+  %75 = getelementptr inbounds %struct.timeval, ptr %74, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 1, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = sub i64 %76, %78
+  %80 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 0
+  %81 = load i64, ptr %80, align 8
+  %82 = load i64, ptr @Save_t, align 8
+  %83 = sub i64 %81, %82
+  %84 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.timeval, ptr %5, i32 0, i32 0
+  %86 = getelementptr inbounds %struct.timeval, ptr @Save_t, i32 0, i32 1
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.timeval, ptr %5, i32 0, i32 1
-  %89 = load i64, ptr %88, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.98, i64 noundef %83, i64 noundef %85, i64 noundef %87, i64 noundef %89)
-  %90 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 2
-  %91 = load i64, ptr %90, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.99, i64 noundef %91)
-  %92 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 9
-  %93 = load i64, ptr %92, align 8
-  %94 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 9), align 8
-  %95 = sub i64 %93, %94
-  %96 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 10
-  %97 = load i64, ptr %96, align 8
-  %98 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 10), align 8
-  %99 = sub i64 %97, %98
-  %100 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 9
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 10
-  %103 = load i64, ptr %102, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.100, i64 noundef %95, i64 noundef %99, i64 noundef %101, i64 noundef %103)
-  %104 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 7
+  %88 = sub i64 %85, %87
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.97, i64 noundef %61, i64 noundef %67, i64 noundef %73, i64 noundef %79, i64 noundef %83, i64 noundef %88)
+  %89 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 0
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.timeval, ptr %5, i32 0, i32 0
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.timeval, ptr %5, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.98, i64 noundef %90, i64 noundef %92, i64 noundef %94, i64 noundef %96)
+  %97 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 2
+  %98 = load i64, ptr %97, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.99, i64 noundef %98)
+  %99 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 9
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 9
+  %102 = load i64, ptr %101, align 8
+  %103 = sub i64 %100, %102
+  %104 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 10
   %105 = load i64, ptr %104, align 8
-  %106 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 7), align 8
-  %107 = sub i64 %105, %106
-  %108 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 6
-  %109 = load i64, ptr %108, align 8
-  %110 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 6), align 8
-  %111 = sub i64 %109, %110
-  %112 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 7
-  %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 6
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 8
-  %117 = load i64, ptr %116, align 8
-  %118 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 8), align 8
-  %119 = sub i64 %117, %118
-  %120 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 8
+  %106 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 10
+  %107 = load i64, ptr %106, align 8
+  %108 = sub i64 %105, %107
+  %109 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 9
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 10
+  %112 = load i64, ptr %111, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.100, i64 noundef %103, i64 noundef %108, i64 noundef %110, i64 noundef %112)
+  %113 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 7
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 7
+  %116 = load i64, ptr %115, align 8
+  %117 = sub i64 %114, %116
+  %118 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 6
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 6
   %121 = load i64, ptr %120, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.101, i64 noundef %107, i64 noundef %111, i64 noundef %113, i64 noundef %115, i64 noundef %119, i64 noundef %121)
-  %122 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 13
-  %123 = load i64, ptr %122, align 8
-  %124 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 13), align 8
-  %125 = sub i64 %123, %124
-  %126 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 13
-  %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 12
-  %129 = load i64, ptr %128, align 8
-  %130 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 12), align 8
-  %131 = sub i64 %129, %130
-  %132 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 11
+  %122 = sub i64 %119, %121
+  %123 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 7
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 6
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 8
+  %128 = load i64, ptr %127, align 8
+  %129 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 8
+  %130 = load i64, ptr %129, align 8
+  %131 = sub i64 %128, %130
+  %132 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 8
   %133 = load i64, ptr %132, align 8
-  %134 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 11), align 8
-  %135 = sub i64 %133, %134
-  %136 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.101, i64 noundef %117, i64 noundef %122, i64 noundef %124, i64 noundef %126, i64 noundef %131, i64 noundef %133)
+  %134 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 13
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 13
   %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 11
-  %139 = load i64, ptr %138, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.102, i64 noundef %125, i64 noundef %127, i64 noundef %131, i64 noundef %135, i64 noundef %137, i64 noundef %139)
-  %140 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 14
-  %141 = load i64, ptr %140, align 8
-  %142 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 14), align 8
-  %143 = sub i64 %141, %142
-  %144 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 15
-  %145 = load i64, ptr %144, align 8
-  %146 = load i64, ptr getelementptr inbounds (%struct.rusage, ptr @Save_r, i32 0, i32 15), align 8
-  %147 = sub i64 %145, %146
-  %148 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 14
+  %138 = sub i64 %135, %137
+  %139 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 13
+  %140 = load i64, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 12
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 12
+  %144 = load i64, ptr %143, align 8
+  %145 = sub i64 %142, %144
+  %146 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 11
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 11
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 15
-  %151 = load i64, ptr %150, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.103, i64 noundef %143, i64 noundef %147, i64 noundef %149, i64 noundef %151)
-  %152 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 1
-  %155 = load i32, ptr %154, align 8
-  %156 = sub i32 %155, 1
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr i8, ptr %153, i64 %157
-  %159 = load i8, ptr %158, align 1
-  %160 = sext i8 %159 to i32
-  %161 = icmp eq i32 %160, 10
-  br i1 %161, label %162, label %170
+  %150 = sub i64 %147, %149
+  %151 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 12
+  %152 = load i64, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 11
+  %154 = load i64, ptr %153, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.102, i64 noundef %138, i64 noundef %140, i64 noundef %145, i64 noundef %150, i64 noundef %152, i64 noundef %154)
+  %155 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 14
+  %156 = load i64, ptr %155, align 8
+  %157 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 14
+  %158 = load i64, ptr %157, align 8
+  %159 = sub i64 %156, %158
+  %160 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 15
+  %161 = load i64, ptr %160, align 8
+  %162 = getelementptr inbounds %struct.rusage, ptr @Save_r, i32 0, i32 15
+  %163 = load i64, ptr %162, align 8
+  %164 = sub i64 %161, %163
+  %165 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 14
+  %166 = load i64, ptr %165, align 8
+  %167 = getelementptr inbounds %struct.rusage, ptr %7, i32 0, i32 15
+  %168 = load i64, ptr %167, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef @.str.103, i64 noundef %159, i64 noundef %164, i64 noundef %166, i64 noundef %168)
+  %169 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 1
+  %172 = load i32, ptr %171, align 8
+  %173 = sub i32 %172, 1
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr i8, ptr %170, i64 %174
+  %176 = load i8, ptr %175, align 1
+  %177 = sext i8 %176 to i32
+  %178 = icmp eq i32 %177, 10
+  br i1 %178, label %179, label %187
 
-162:                                              ; preds = %53
-  %163 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 1
-  %166 = load i32, ptr %165, align 8
-  %167 = add i32 %166, -1
-  store i32 %167, ptr %165, align 8
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr i8, ptr %164, i64 %168
-  store i8 0, ptr %169, align 1
-  br label %170
+179:                                              ; preds = %56
+  %180 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 1
+  %183 = load i32, ptr %182, align 8
+  %184 = add i32 %183, -1
+  store i32 %184, ptr %182, align 8
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr i8, ptr %181, i64 %185
+  store i8 0, ptr %186, align 1
+  br label %187
 
-170:                                              ; preds = %162, %53
-  br label %171
+187:                                              ; preds = %179, %56
+  br label %188
 
-171:                                              ; preds = %170
-  br i1 false, label %172, label %174
+188:                                              ; preds = %187
+  br i1 false, label %189, label %191
 
-172:                                              ; preds = %171
-  %173 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
-  br i1 %173, label %176, label %182
+189:                                              ; preds = %188
+  %190 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %190, label %193, label %199
 
-174:                                              ; preds = %171
-  %175 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %175, label %176, label %182
+191:                                              ; preds = %188
+  %192 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %192, label %193, label %199
 
-176:                                              ; preds = %174, %172
-  %177 = load ptr, ptr %2, align 8
-  %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.104, ptr noundef %177)
-  %179 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.104, ptr noundef %180)
+193:                                              ; preds = %191, %189
+  %194 = load ptr, ptr %2, align 8
+  %195 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.104, ptr noundef %194)
+  %196 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
+  %197 = load ptr, ptr %196, align 8
+  %198 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.104, ptr noundef %197)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 5095, ptr noundef @__func__.ShowUsage)
-  br label %182
+  br label %199
 
-182:                                              ; preds = %176, %174, %172
-  br label %183
+199:                                              ; preds = %193, %191, %189
+  br label %200
 
-183:                                              ; preds = %182
-  %184 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
-  %185 = load ptr, ptr %184, align 8
-  call void @pfree(ptr noundef %185)
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds %struct.StringInfoData, ptr %3, i32 0, i32 0
+  %202 = load ptr, ptr %201, align 8
+  call void @pfree(ptr noundef %202)
   ret void
 }
 
@@ -3996,7 +4013,7 @@ define dso_local void @PostgresMain(ptr noundef %0, ptr noundef %1) #4 {
 
 32:                                               ; preds = %29
   call void @WalSndSignals()
-  br label %49
+  br label %51
 
 33:                                               ; preds = %29
   %34 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
@@ -4016,795 +4033,797 @@ define dso_local void @PostgresMain(ptr noundef %0, ptr noundef %1) #4 {
 
 43:                                               ; preds = %41, %39
   call void @InitializeTimeouts()
-  %44 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %45 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %46 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %47 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
-  %48 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  br label %49
+  %44 = inttoptr i64 1 to ptr
+  %45 = call ptr @pqsignal(i32 noundef 13, ptr noundef %44)
+  %46 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %47 = inttoptr i64 1 to ptr
+  %48 = call ptr @pqsignal(i32 noundef 12, ptr noundef %47)
+  %49 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
+  %50 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  br label %51
 
-49:                                               ; preds = %43, %32
+51:                                               ; preds = %43, %32
   call void @BaseInit()
-  %50 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #15
-  %51 = load ptr, ptr %3, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = load i8, ptr @am_walsender, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = xor i1 %54, true
-  %56 = select i1 %55, i32 1, i32 0
-  call void @InitPostgres(ptr noundef %51, i32 noundef 0, ptr noundef %52, i32 noundef 0, i32 noundef %56, ptr noundef null)
-  %57 = load ptr, ptr @PostmasterContext, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %61
+  %52 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #15
+  %53 = load ptr, ptr %3, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = load i8, ptr @am_walsender, align 1
+  %56 = trunc i8 %55 to i1
+  %57 = xor i1 %56, true
+  %58 = select i1 %57, i32 1, i32 0
+  call void @InitPostgres(ptr noundef %53, i32 noundef 0, ptr noundef %54, i32 noundef 0, i32 noundef %58, ptr noundef null)
+  %59 = load ptr, ptr @PostmasterContext, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %63
 
-59:                                               ; preds = %49
-  %60 = load ptr, ptr @PostmasterContext, align 8
-  call void @MemoryContextDelete(ptr noundef %60)
+61:                                               ; preds = %51
+  %62 = load ptr, ptr @PostmasterContext, align 8
+  call void @MemoryContextDelete(ptr noundef %62)
   store ptr null, ptr @PostmasterContext, align 8
-  br label %61
-
-61:                                               ; preds = %59, %49
-  br label %62
-
-62:                                               ; preds = %61
-  store i32 2, ptr @Mode, align 4
   br label %63
 
-63:                                               ; preds = %62
+63:                                               ; preds = %61, %51
+  br label %64
+
+64:                                               ; preds = %63
+  store i32 2, ptr @Mode, align 4
+  br label %65
+
+65:                                               ; preds = %64
   call void @BeginReportingGUCOptions()
-  %64 = load i8, ptr @IsUnderPostmaster, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %70
+  %66 = load i8, ptr @IsUnderPostmaster, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %72
 
-66:                                               ; preds = %63
-  %67 = load i8, ptr @Log_disconnections, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %70
+68:                                               ; preds = %65
+  %69 = load i8, ptr @Log_disconnections, align 1
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %72
 
-69:                                               ; preds = %66
+71:                                               ; preds = %68
   call void @on_proc_exit(ptr noundef @log_disconnections, i64 noundef 0)
-  br label %70
+  br label %72
 
-70:                                               ; preds = %69, %66, %63
-  %71 = load i32, ptr @MyDatabaseId, align 4
-  call void @pgstat_report_connect(i32 noundef %71)
-  %72 = load i8, ptr @am_walsender, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %75
+72:                                               ; preds = %71, %68, %65
+  %73 = load i32, ptr @MyDatabaseId, align 4
+  call void @pgstat_report_connect(i32 noundef %73)
+  %74 = load i8, ptr @am_walsender, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %77
 
-74:                                               ; preds = %70
+76:                                               ; preds = %72
   call void @InitWalSender()
-  br label %75
+  br label %77
 
-75:                                               ; preds = %74, %70
-  %76 = load i32, ptr @whereToSendOutput, align 4
-  %77 = icmp eq i32 %76, 2
-  br i1 %77, label %78, label %81
+77:                                               ; preds = %76, %72
+  %78 = load i32, ptr @whereToSendOutput, align 4
+  %79 = icmp eq i32 %78, 2
+  br i1 %79, label %80, label %83
 
-78:                                               ; preds = %75
+80:                                               ; preds = %77
   call void @pq_beginmessage(ptr noundef %9, i8 noundef signext 75)
-  %79 = load i32, ptr @MyProcPid, align 4
-  call void @pq_sendint32(ptr noundef %9, i32 noundef %79)
-  %80 = load i32, ptr @MyCancelKey, align 4
-  call void @pq_sendint32(ptr noundef %9, i32 noundef %80)
+  %81 = load i32, ptr @MyProcPid, align 4
+  call void @pq_sendint32(ptr noundef %9, i32 noundef %81)
+  %82 = load i32, ptr @MyCancelKey, align 4
+  call void @pq_sendint32(ptr noundef %9, i32 noundef %82)
   call void @pq_endmessage(ptr noundef %9)
-  br label %81
+  br label %83
 
-81:                                               ; preds = %78, %75
-  %82 = load i32, ptr @whereToSendOutput, align 4
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %86
+83:                                               ; preds = %80, %77
+  %84 = load i32, ptr @whereToSendOutput, align 4
+  %85 = icmp eq i32 %84, 1
+  br i1 %85, label %86, label %88
 
-84:                                               ; preds = %81
-  %85 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.84, ptr noundef @.str.85)
-  br label %86
-
-86:                                               ; preds = %84, %81
-  br label %87
-
-87:                                               ; preds = %86
+86:                                               ; preds = %83
+  %87 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.84, ptr noundef @.str.85)
   br label %88
 
-88:                                               ; preds = %87
+88:                                               ; preds = %86, %83
+  br label %89
+
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89
   store i32 1, ptr %10, align 4
-  %89 = load ptr, ptr @TopMemoryContext, align 8
-  %90 = call ptr @AllocSetContextCreateInternal(ptr noundef %89, ptr noundef @.str.86, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %90, ptr @MessageContext, align 8
-  br label %91
+  %91 = load ptr, ptr @TopMemoryContext, align 8
+  %92 = call ptr @AllocSetContextCreateInternal(ptr noundef %91, ptr noundef @.str.86, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %92, ptr @MessageContext, align 8
+  br label %93
 
-91:                                               ; preds = %88
-  br label %92
+93:                                               ; preds = %90
+  br label %94
 
-92:                                               ; preds = %91
+94:                                               ; preds = %93
   store i32 1, ptr %11, align 4
-  %93 = load ptr, ptr @TopMemoryContext, align 8
-  %94 = call ptr @AllocSetContextCreateInternal(ptr noundef %93, ptr noundef @.str.87, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %94, ptr @row_description_context, align 8
-  %95 = load ptr, ptr @row_description_context, align 8
-  %96 = call ptr @MemoryContextSwitchTo(ptr noundef %95)
-  call void @initStringInfo(ptr noundef @row_description_buf)
-  %97 = load ptr, ptr @TopMemoryContext, align 8
+  %95 = load ptr, ptr @TopMemoryContext, align 8
+  %96 = call ptr @AllocSetContextCreateInternal(ptr noundef %95, ptr noundef @.str.87, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %96, ptr @row_description_context, align 8
+  %97 = load ptr, ptr @row_description_context, align 8
   %98 = call ptr @MemoryContextSwitchTo(ptr noundef %97)
+  call void @initStringInfo(ptr noundef @row_description_buf)
+  %99 = load ptr, ptr @TopMemoryContext, align 8
+  %100 = call ptr @MemoryContextSwitchTo(ptr noundef %99)
   call void @EventTriggerOnLogin()
-  %99 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
-  %100 = call i32 @__sigsetjmp(ptr noundef %99, i32 noundef 1) #17
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %139
+  %101 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
+  %102 = call i32 @__sigsetjmp(ptr noundef %101, i32 noundef 1) #17
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %141
 
-102:                                              ; preds = %92
+104:                                              ; preds = %94
   store ptr null, ptr @error_context_stack, align 8
-  %103 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %104 = add i32 %103, 1
-  store volatile i32 %104, ptr @InterruptHoldoffCount, align 4
+  %105 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %106 = add i32 %105, 1
+  store volatile i32 %106, ptr @InterruptHoldoffCount, align 4
   call void @disable_all_timeouts(i1 noundef zeroext false)
   store volatile i32 0, ptr @QueryCancelPending, align 4
   store volatile i8 0, ptr %7, align 1
   store volatile i8 0, ptr %8, align 1
   store i8 0, ptr @DoingCommandRead, align 1
-  %105 = load ptr, ptr @PqCommMethods, align 8
-  %106 = getelementptr inbounds %struct.PQcommMethods, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  call void %107()
+  %107 = load ptr, ptr @PqCommMethods, align 8
+  %108 = getelementptr inbounds %struct.PQcommMethods, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  call void %109()
   call void @EmitErrorReport()
   store ptr null, ptr @debug_query_string, align 8
   call void @AbortCurrentTransaction()
-  %108 = load i8, ptr @am_walsender, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %111
+  %110 = load i8, ptr @am_walsender, align 1
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %113
 
-110:                                              ; preds = %102
+112:                                              ; preds = %104
   call void @WalSndErrorCleanup()
-  br label %111
+  br label %113
 
-111:                                              ; preds = %110, %102
+113:                                              ; preds = %112, %104
   call void @PortalErrorCleanup()
-  %112 = load ptr, ptr @MyReplicationSlot, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %115
+  %114 = load ptr, ptr @MyReplicationSlot, align 8
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %117
 
-114:                                              ; preds = %111
+116:                                              ; preds = %113
   call void @ReplicationSlotRelease()
-  br label %115
+  br label %117
 
-115:                                              ; preds = %114, %111
+117:                                              ; preds = %116, %113
   call void @ReplicationSlotCleanup()
   call void @jit_reset_after_error()
-  %116 = load ptr, ptr @TopMemoryContext, align 8
-  %117 = call ptr @MemoryContextSwitchTo(ptr noundef %116)
+  %118 = load ptr, ptr @TopMemoryContext, align 8
+  %119 = call ptr @MemoryContextSwitchTo(ptr noundef %118)
   call void @FlushErrorState()
-  %118 = load i8, ptr @doing_extended_query_message, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %121
+  %120 = load i8, ptr @doing_extended_query_message, align 1
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %123
 
-120:                                              ; preds = %115
+122:                                              ; preds = %117
   store i8 1, ptr @ignore_till_sync, align 1
-  br label %121
+  br label %123
 
-121:                                              ; preds = %120, %115
+123:                                              ; preds = %122, %117
   store i8 0, ptr @xact_started, align 1
-  %122 = call zeroext i1 @pq_is_reading_msg()
-  br i1 %122, label %123, label %134
+  %124 = call zeroext i1 @pq_is_reading_msg()
+  br i1 %124, label %125, label %136
 
-123:                                              ; preds = %121
-  br label %124
+125:                                              ; preds = %123
+  br label %126
 
-124:                                              ; preds = %123
-  br i1 true, label %125, label %127
+126:                                              ; preds = %125
+  br i1 true, label %127, label %129
 
-125:                                              ; preds = %124
-  %126 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  br i1 %126, label %129, label %132
+127:                                              ; preds = %126
+  %128 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
+  br i1 %128, label %131, label %134
 
-127:                                              ; preds = %124
-  %128 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %128, label %129, label %132
+129:                                              ; preds = %126
+  %130 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %130, label %131, label %134
 
-129:                                              ; preds = %127, %125
-  %130 = call i32 @errcode(i32 noundef 16908800)
-  %131 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.88)
+131:                                              ; preds = %129, %127
+  %132 = call i32 @errcode(i32 noundef 16908800)
+  %133 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.88)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 4441, ptr noundef @__func__.PostgresMain)
-  br label %132
-
-132:                                              ; preds = %129, %127, %125
-  unreachable
-
-133:                                              ; No predecessors!
   br label %134
 
-134:                                              ; preds = %133, %121
-  br label %135
+134:                                              ; preds = %131, %129, %127
+  unreachable
 
-135:                                              ; preds = %134
-  %136 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %137 = add i32 %136, -1
-  store volatile i32 %137, ptr @InterruptHoldoffCount, align 4
-  br label %138
+135:                                              ; No predecessors!
+  br label %136
 
-138:                                              ; preds = %135
-  br label %139
+136:                                              ; preds = %135, %123
+  br label %137
 
-139:                                              ; preds = %138, %92
+137:                                              ; preds = %136
+  %138 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %139 = add i32 %138, -1
+  store volatile i32 %139, ptr @InterruptHoldoffCount, align 4
+  br label %140
+
+140:                                              ; preds = %137
+  br label %141
+
+141:                                              ; preds = %140, %94
   store ptr %5, ptr @PG_exception_stack, align 8
-  %140 = load i8, ptr @ignore_till_sync, align 1
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %143, label %142
+  %142 = load i8, ptr @ignore_till_sync, align 1
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %145, label %144
 
-142:                                              ; preds = %139
+144:                                              ; preds = %141
   store volatile i8 1, ptr %6, align 1
-  br label %143
+  br label %145
 
-143:                                              ; preds = %142, %139
-  br label %144
+145:                                              ; preds = %144, %141
+  br label %146
 
-144:                                              ; preds = %392, %235, %143
+146:                                              ; preds = %394, %237, %145
   store i8 0, ptr @doing_extended_query_message, align 1
-  %145 = load ptr, ptr @MessageContext, align 8
-  %146 = call ptr @MemoryContextSwitchTo(ptr noundef %145)
   %147 = load ptr, ptr @MessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %147)
+  %148 = call ptr @MemoryContextSwitchTo(ptr noundef %147)
+  %149 = load ptr, ptr @MessageContext, align 8
+  call void @MemoryContextReset(ptr noundef %149)
   call void @initStringInfo(ptr noundef %13)
   call void @InvalidateCatalogSnapshotConditionally()
-  %148 = load volatile i8, ptr %6, align 1
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %207
+  %150 = load volatile i8, ptr %6, align 1
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %152, label %209
 
-150:                                              ; preds = %144
-  %151 = call zeroext i1 @IsAbortedTransactionBlockState()
-  br i1 %151, label %152, label %165
+152:                                              ; preds = %146
+  %153 = call zeroext i1 @IsAbortedTransactionBlockState()
+  br i1 %153, label %154, label %167
 
-152:                                              ; preds = %150
+154:                                              ; preds = %152
   call void @set_ps_display(ptr noundef @.str.89)
   call void @pgstat_report_activity(i32 noundef 5, ptr noundef null)
-  %153 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %155, label %164
+  %155 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  %156 = icmp sgt i32 %155, 0
+  br i1 %156, label %157, label %166
 
-155:                                              ; preds = %152
-  %156 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  %157 = load i32, ptr @TransactionTimeout, align 4
-  %158 = icmp slt i32 %156, %157
-  br i1 %158, label %162, label %159
+157:                                              ; preds = %154
+  %158 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  %159 = load i32, ptr @TransactionTimeout, align 4
+  %160 = icmp slt i32 %158, %159
+  br i1 %160, label %164, label %161
 
-159:                                              ; preds = %155
-  %160 = load i32, ptr @TransactionTimeout, align 4
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %164
+161:                                              ; preds = %157
+  %162 = load i32, ptr @TransactionTimeout, align 4
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %166
 
-162:                                              ; preds = %159, %155
+164:                                              ; preds = %161, %157
   store volatile i8 1, ptr %7, align 1
-  %163 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  call void @enable_timeout_after(i32 noundef 7, i32 noundef %163)
-  br label %164
+  %165 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  call void @enable_timeout_after(i32 noundef 7, i32 noundef %165)
+  br label %166
 
-164:                                              ; preds = %162, %159, %152
-  br label %205
-
-165:                                              ; preds = %150
-  %166 = call zeroext i1 @IsTransactionOrTransactionBlock()
-  br i1 %166, label %167, label %180
-
-167:                                              ; preds = %165
-  call void @set_ps_display(ptr noundef @.str.90)
-  call void @pgstat_report_activity(i32 noundef 3, ptr noundef null)
-  %168 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %170, label %179
-
-170:                                              ; preds = %167
-  %171 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  %172 = load i32, ptr @TransactionTimeout, align 4
-  %173 = icmp slt i32 %171, %172
-  br i1 %173, label %177, label %174
-
-174:                                              ; preds = %170
-  %175 = load i32, ptr @TransactionTimeout, align 4
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %179
-
-177:                                              ; preds = %174, %170
-  store volatile i8 1, ptr %7, align 1
-  %178 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
-  call void @enable_timeout_after(i32 noundef 7, i32 noundef %178)
-  br label %179
-
-179:                                              ; preds = %177, %174, %167
-  br label %204
-
-180:                                              ; preds = %165
-  %181 = load volatile i32, ptr @notifyInterruptPending, align 4
-  %182 = icmp ne i32 %181, 0
-  br i1 %182, label %183, label %184
-
-183:                                              ; preds = %180
-  call void @ProcessNotifyInterrupt(i1 noundef zeroext false)
-  br label %184
-
-184:                                              ; preds = %183, %180
-  %185 = call i64 @pgstat_report_stat(i1 noundef zeroext false)
-  store i64 %185, ptr %14, align 8
-  %186 = load i64, ptr %14, align 8
-  %187 = icmp sgt i64 %186, 0
-  br i1 %187, label %188, label %194
-
-188:                                              ; preds = %184
-  %189 = call zeroext i1 @get_timeout_active(i32 noundef 10)
-  br i1 %189, label %193, label %190
-
-190:                                              ; preds = %188
-  %191 = load i64, ptr %14, align 8
-  %192 = trunc i64 %191 to i32
-  call void @enable_timeout_after(i32 noundef 10, i32 noundef %192)
-  br label %193
-
-193:                                              ; preds = %190, %188
-  br label %198
-
-194:                                              ; preds = %184
-  %195 = call zeroext i1 @get_timeout_active(i32 noundef 10)
-  br i1 %195, label %196, label %197
-
-196:                                              ; preds = %194
-  call void @disable_timeout(i32 noundef 10, i1 noundef zeroext false)
-  br label %197
-
-197:                                              ; preds = %196, %194
-  br label %198
-
-198:                                              ; preds = %197, %193
-  call void @set_ps_display(ptr noundef @.str.91)
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null)
-  %199 = load i32, ptr @IdleSessionTimeout, align 4
-  %200 = icmp sgt i32 %199, 0
-  br i1 %200, label %201, label %203
-
-201:                                              ; preds = %198
-  store volatile i8 1, ptr %8, align 1
-  %202 = load i32, ptr @IdleSessionTimeout, align 4
-  call void @enable_timeout_after(i32 noundef 9, i32 noundef %202)
-  br label %203
-
-203:                                              ; preds = %201, %198
-  br label %204
-
-204:                                              ; preds = %203, %179
-  br label %205
-
-205:                                              ; preds = %204, %164
-  call void @ReportChangedGUCOptions()
-  %206 = load i32, ptr @whereToSendOutput, align 4
-  call void @ReadyForQuery(i32 noundef %206)
-  store volatile i8 0, ptr %6, align 1
+166:                                              ; preds = %164, %161, %154
   br label %207
 
-207:                                              ; preds = %205, %144
-  store i8 1, ptr @DoingCommandRead, align 1
-  %208 = call i32 @ReadCommand(ptr noundef %13)
-  store i32 %208, ptr %12, align 4
-  %209 = load volatile i8, ptr %7, align 1
-  %210 = trunc i8 %209 to i1
-  br i1 %210, label %211, label %212
+167:                                              ; preds = %152
+  %168 = call zeroext i1 @IsTransactionOrTransactionBlock()
+  br i1 %168, label %169, label %182
 
-211:                                              ; preds = %207
+169:                                              ; preds = %167
+  call void @set_ps_display(ptr noundef @.str.90)
+  call void @pgstat_report_activity(i32 noundef 3, ptr noundef null)
+  %170 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %172, label %181
+
+172:                                              ; preds = %169
+  %173 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  %174 = load i32, ptr @TransactionTimeout, align 4
+  %175 = icmp slt i32 %173, %174
+  br i1 %175, label %179, label %176
+
+176:                                              ; preds = %172
+  %177 = load i32, ptr @TransactionTimeout, align 4
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %181
+
+179:                                              ; preds = %176, %172
+  store volatile i8 1, ptr %7, align 1
+  %180 = load i32, ptr @IdleInTransactionSessionTimeout, align 4
+  call void @enable_timeout_after(i32 noundef 7, i32 noundef %180)
+  br label %181
+
+181:                                              ; preds = %179, %176, %169
+  br label %206
+
+182:                                              ; preds = %167
+  %183 = load volatile i32, ptr @notifyInterruptPending, align 4
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %186
+
+185:                                              ; preds = %182
+  call void @ProcessNotifyInterrupt(i1 noundef zeroext false)
+  br label %186
+
+186:                                              ; preds = %185, %182
+  %187 = call i64 @pgstat_report_stat(i1 noundef zeroext false)
+  store i64 %187, ptr %14, align 8
+  %188 = load i64, ptr %14, align 8
+  %189 = icmp sgt i64 %188, 0
+  br i1 %189, label %190, label %196
+
+190:                                              ; preds = %186
+  %191 = call zeroext i1 @get_timeout_active(i32 noundef 10)
+  br i1 %191, label %195, label %192
+
+192:                                              ; preds = %190
+  %193 = load i64, ptr %14, align 8
+  %194 = trunc i64 %193 to i32
+  call void @enable_timeout_after(i32 noundef 10, i32 noundef %194)
+  br label %195
+
+195:                                              ; preds = %192, %190
+  br label %200
+
+196:                                              ; preds = %186
+  %197 = call zeroext i1 @get_timeout_active(i32 noundef 10)
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %196
+  call void @disable_timeout(i32 noundef 10, i1 noundef zeroext false)
+  br label %199
+
+199:                                              ; preds = %198, %196
+  br label %200
+
+200:                                              ; preds = %199, %195
+  call void @set_ps_display(ptr noundef @.str.91)
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null)
+  %201 = load i32, ptr @IdleSessionTimeout, align 4
+  %202 = icmp sgt i32 %201, 0
+  br i1 %202, label %203, label %205
+
+203:                                              ; preds = %200
+  store volatile i8 1, ptr %8, align 1
+  %204 = load i32, ptr @IdleSessionTimeout, align 4
+  call void @enable_timeout_after(i32 noundef 9, i32 noundef %204)
+  br label %205
+
+205:                                              ; preds = %203, %200
+  br label %206
+
+206:                                              ; preds = %205, %181
+  br label %207
+
+207:                                              ; preds = %206, %166
+  call void @ReportChangedGUCOptions()
+  %208 = load i32, ptr @whereToSendOutput, align 4
+  call void @ReadyForQuery(i32 noundef %208)
+  store volatile i8 0, ptr %6, align 1
+  br label %209
+
+209:                                              ; preds = %207, %146
+  store i8 1, ptr @DoingCommandRead, align 1
+  %210 = call i32 @ReadCommand(ptr noundef %13)
+  store i32 %210, ptr %12, align 4
+  %211 = load volatile i8, ptr %7, align 1
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %213, label %214
+
+213:                                              ; preds = %209
   call void @disable_timeout(i32 noundef 7, i1 noundef zeroext false)
   store volatile i8 0, ptr %7, align 1
-  br label %212
+  br label %214
 
-212:                                              ; preds = %211, %207
-  %213 = load volatile i8, ptr %8, align 1
-  %214 = trunc i8 %213 to i1
-  br i1 %214, label %215, label %216
+214:                                              ; preds = %213, %209
+  %215 = load volatile i8, ptr %8, align 1
+  %216 = trunc i8 %215 to i1
+  br i1 %216, label %217, label %218
 
-215:                                              ; preds = %212
+217:                                              ; preds = %214
   call void @disable_timeout(i32 noundef 9, i1 noundef zeroext false)
   store volatile i8 0, ptr %8, align 1
-  br label %216
+  br label %218
 
-216:                                              ; preds = %215, %212
-  br label %217
+218:                                              ; preds = %217, %214
+  br label %219
 
-217:                                              ; preds = %216
-  %218 = load volatile i32, ptr @InterruptPending, align 4
-  %219 = icmp ne i32 %218, 0
-  %220 = zext i1 %219 to i32
-  %221 = sext i32 %220 to i64
-  %222 = icmp ne i64 %221, 0
-  br i1 %222, label %223, label %224
+219:                                              ; preds = %218
+  %220 = load volatile i32, ptr @InterruptPending, align 4
+  %221 = icmp ne i32 %220, 0
+  %222 = zext i1 %221 to i32
+  %223 = sext i32 %222 to i64
+  %224 = icmp ne i64 %223, 0
+  br i1 %224, label %225, label %226
 
-223:                                              ; preds = %217
+225:                                              ; preds = %219
   call void @ProcessInterrupts()
-  br label %224
+  br label %226
 
-224:                                              ; preds = %223, %217
-  br label %225
+226:                                              ; preds = %225, %219
+  br label %227
 
-225:                                              ; preds = %224
+227:                                              ; preds = %226
   store i8 0, ptr @DoingCommandRead, align 1
-  %226 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %228, label %229
+  %228 = load volatile i32, ptr @ConfigReloadPending, align 4
+  %229 = icmp ne i32 %228, 0
+  br i1 %229, label %230, label %231
 
-228:                                              ; preds = %225
+230:                                              ; preds = %227
   store volatile i32 0, ptr @ConfigReloadPending, align 4
   call void @ProcessConfigFile(i32 noundef 2)
-  br label %229
+  br label %231
 
-229:                                              ; preds = %228, %225
-  %230 = load i8, ptr @ignore_till_sync, align 1
-  %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %236
+231:                                              ; preds = %230, %227
+  %232 = load i8, ptr @ignore_till_sync, align 1
+  %233 = trunc i8 %232 to i1
+  br i1 %233, label %234, label %238
 
-232:                                              ; preds = %229
-  %233 = load i32, ptr %12, align 4
-  %234 = icmp ne i32 %233, -1
-  br i1 %234, label %235, label %236
+234:                                              ; preds = %231
+  %235 = load i32, ptr %12, align 4
+  %236 = icmp ne i32 %235, -1
+  br i1 %236, label %237, label %238
 
-235:                                              ; preds = %232
-  br label %144
+237:                                              ; preds = %234
+  br label %146
 
-236:                                              ; preds = %232, %229
-  %237 = load i32, ptr %12, align 4
-  switch i32 %237, label %380 [
-    i32 81, label %238
-    i32 80, label %251
-    i32 66, label %283
-    i32 69, label %286
-    i32 70, label %294
-    i32 67, label %299
-    i32 68, label %340
-    i32 72, label %363
-    i32 83, label %372
-    i32 -1, label %373
-    i32 88, label %374
-    i32 100, label %379
-    i32 99, label %379
-    i32 102, label %379
+238:                                              ; preds = %234, %231
+  %239 = load i32, ptr %12, align 4
+  switch i32 %239, label %382 [
+    i32 81, label %240
+    i32 80, label %253
+    i32 66, label %285
+    i32 69, label %288
+    i32 70, label %296
+    i32 67, label %301
+    i32 68, label %342
+    i32 72, label %365
+    i32 83, label %374
+    i32 -1, label %375
+    i32 88, label %376
+    i32 100, label %381
+    i32 99, label %381
+    i32 102, label %381
   ]
 
-238:                                              ; preds = %236
+240:                                              ; preds = %238
   call void @SetCurrentStatementStartTimestamp()
-  %239 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %239, ptr %15, align 8
+  %241 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %241, ptr %15, align 8
   call void @pq_getmsgend(ptr noundef %13)
-  %240 = load i8, ptr @am_walsender, align 1
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %248
+  %242 = load i8, ptr @am_walsender, align 1
+  %243 = trunc i8 %242 to i1
+  br i1 %243, label %244, label %250
 
-242:                                              ; preds = %238
-  %243 = load ptr, ptr %15, align 8
-  %244 = call zeroext i1 @exec_replication_command(ptr noundef %243)
-  br i1 %244, label %247, label %245
+244:                                              ; preds = %240
+  %245 = load ptr, ptr %15, align 8
+  %246 = call zeroext i1 @exec_replication_command(ptr noundef %245)
+  br i1 %246, label %249, label %247
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %15, align 8
-  call void @exec_simple_query(ptr noundef %246)
-  br label %247
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %15, align 8
+  call void @exec_simple_query(ptr noundef %248)
+  br label %249
 
-247:                                              ; preds = %245, %242
-  br label %250
+249:                                              ; preds = %247, %244
+  br label %252
 
-248:                                              ; preds = %238
-  %249 = load ptr, ptr %15, align 8
-  call void @exec_simple_query(ptr noundef %249)
-  br label %250
+250:                                              ; preds = %240
+  %251 = load ptr, ptr %15, align 8
+  call void @exec_simple_query(ptr noundef %251)
+  br label %252
 
-250:                                              ; preds = %248, %247
+252:                                              ; preds = %250, %249
   store volatile i8 1, ptr %6, align 1
-  br label %392
+  br label %394
 
-251:                                              ; preds = %236
+253:                                              ; preds = %238
   store ptr null, ptr %19, align 8
-  %252 = load i32, ptr %12, align 4
-  %253 = trunc i32 %252 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %253)
+  %254 = load i32, ptr %12, align 4
+  %255 = trunc i32 %254 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %255)
   call void @SetCurrentStatementStartTimestamp()
-  %254 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %254, ptr %16, align 8
-  %255 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %255, ptr %17, align 8
-  %256 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 2)
-  store i32 %256, ptr %18, align 4
-  %257 = load i32, ptr %18, align 4
-  %258 = icmp sgt i32 %257, 0
-  br i1 %258, label %259, label %278
+  %256 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %256, ptr %16, align 8
+  %257 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %257, ptr %17, align 8
+  %258 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 2)
+  store i32 %258, ptr %18, align 4
+  %259 = load i32, ptr %18, align 4
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %261, label %280
 
-259:                                              ; preds = %251
-  %260 = load i32, ptr %18, align 4
-  %261 = sext i32 %260 to i64
-  %262 = mul i64 4, %261
-  %263 = call ptr @palloc(i64 noundef %262)
-  store ptr %263, ptr %19, align 8
+261:                                              ; preds = %253
+  %262 = load i32, ptr %18, align 4
+  %263 = sext i32 %262 to i64
+  %264 = mul i64 4, %263
+  %265 = call ptr @palloc(i64 noundef %264)
+  store ptr %265, ptr %19, align 8
   store i32 0, ptr %20, align 4
-  br label %264
+  br label %266
 
-264:                                              ; preds = %274, %259
-  %265 = load i32, ptr %20, align 4
-  %266 = load i32, ptr %18, align 4
-  %267 = icmp slt i32 %265, %266
-  br i1 %267, label %268, label %277
+266:                                              ; preds = %276, %261
+  %267 = load i32, ptr %20, align 4
+  %268 = load i32, ptr %18, align 4
+  %269 = icmp slt i32 %267, %268
+  br i1 %269, label %270, label %279
 
-268:                                              ; preds = %264
-  %269 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 4)
-  %270 = load ptr, ptr %19, align 8
-  %271 = load i32, ptr %20, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr i32, ptr %270, i64 %272
-  store i32 %269, ptr %273, align 4
-  br label %274
+270:                                              ; preds = %266
+  %271 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 4)
+  %272 = load ptr, ptr %19, align 8
+  %273 = load i32, ptr %20, align 4
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr i32, ptr %272, i64 %274
+  store i32 %271, ptr %275, align 4
+  br label %276
 
-274:                                              ; preds = %268
-  %275 = load i32, ptr %20, align 4
-  %276 = add i32 %275, 1
-  store i32 %276, ptr %20, align 4
-  br label %264, !llvm.loop !10
+276:                                              ; preds = %270
+  %277 = load i32, ptr %20, align 4
+  %278 = add i32 %277, 1
+  store i32 %278, ptr %20, align 4
+  br label %266, !llvm.loop !10
 
-277:                                              ; preds = %264
-  br label %278
+279:                                              ; preds = %266
+  br label %280
 
-278:                                              ; preds = %277, %251
+280:                                              ; preds = %279, %253
   call void @pq_getmsgend(ptr noundef %13)
-  %279 = load ptr, ptr %17, align 8
-  %280 = load ptr, ptr %16, align 8
-  %281 = load ptr, ptr %19, align 8
-  %282 = load i32, ptr %18, align 4
-  call void @exec_parse_message(ptr noundef %279, ptr noundef %280, ptr noundef %281, i32 noundef %282)
-  br label %392
+  %281 = load ptr, ptr %17, align 8
+  %282 = load ptr, ptr %16, align 8
+  %283 = load ptr, ptr %19, align 8
+  %284 = load i32, ptr %18, align 4
+  call void @exec_parse_message(ptr noundef %281, ptr noundef %282, ptr noundef %283, i32 noundef %284)
+  br label %394
 
-283:                                              ; preds = %236
-  %284 = load i32, ptr %12, align 4
-  %285 = trunc i32 %284 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %285)
+285:                                              ; preds = %238
+  %286 = load i32, ptr %12, align 4
+  %287 = trunc i32 %286 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %287)
   call void @SetCurrentStatementStartTimestamp()
   call void @exec_bind_message(ptr noundef %13)
-  br label %392
+  br label %394
 
-286:                                              ; preds = %236
-  %287 = load i32, ptr %12, align 4
-  %288 = trunc i32 %287 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %288)
+288:                                              ; preds = %238
+  %289 = load i32, ptr %12, align 4
+  %290 = trunc i32 %289 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %290)
   call void @SetCurrentStatementStartTimestamp()
-  %289 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %289, ptr %21, align 8
-  %290 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 4)
-  store i32 %290, ptr %22, align 4
+  %291 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %291, ptr %21, align 8
+  %292 = call i32 @pq_getmsgint(ptr noundef %13, i32 noundef 4)
+  store i32 %292, ptr %22, align 4
   call void @pq_getmsgend(ptr noundef %13)
-  %291 = load ptr, ptr %21, align 8
-  %292 = load i32, ptr %22, align 4
-  %293 = sext i32 %292 to i64
-  call void @exec_execute_message(ptr noundef %291, i64 noundef %293)
-  br label %392
+  %293 = load ptr, ptr %21, align 8
+  %294 = load i32, ptr %22, align 4
+  %295 = sext i32 %294 to i64
+  call void @exec_execute_message(ptr noundef %293, i64 noundef %295)
+  br label %394
 
-294:                                              ; preds = %236
-  %295 = load i32, ptr %12, align 4
-  %296 = trunc i32 %295 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %296)
+296:                                              ; preds = %238
+  %297 = load i32, ptr %12, align 4
+  %298 = trunc i32 %297 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %298)
   call void @SetCurrentStatementStartTimestamp()
   call void @pgstat_report_activity(i32 noundef 4, ptr noundef null)
   call void @set_ps_display(ptr noundef @.str.92)
   call void @start_xact_command()
-  %297 = load ptr, ptr @MessageContext, align 8
-  %298 = call ptr @MemoryContextSwitchTo(ptr noundef %297)
+  %299 = load ptr, ptr @MessageContext, align 8
+  %300 = call ptr @MemoryContextSwitchTo(ptr noundef %299)
   call void @HandleFunctionRequest(ptr noundef %13)
   call void @finish_xact_command()
   store volatile i8 1, ptr %6, align 1
-  br label %392
+  br label %394
 
-299:                                              ; preds = %236
-  %300 = load i32, ptr %12, align 4
-  %301 = trunc i32 %300 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %301)
-  %302 = call i32 @pq_getmsgbyte(ptr noundef %13)
-  store i32 %302, ptr %23, align 4
-  %303 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %303, ptr %24, align 8
+301:                                              ; preds = %238
+  %302 = load i32, ptr %12, align 4
+  %303 = trunc i32 %302 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %303)
+  %304 = call i32 @pq_getmsgbyte(ptr noundef %13)
+  store i32 %304, ptr %23, align 4
+  %305 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %305, ptr %24, align 8
   call void @pq_getmsgend(ptr noundef %13)
-  %304 = load i32, ptr %23, align 4
-  switch i32 %304, label %323 [
-    i32 83, label %305
-    i32 80, label %315
+  %306 = load i32, ptr %23, align 4
+  switch i32 %306, label %325 [
+    i32 83, label %307
+    i32 80, label %317
   ]
 
-305:                                              ; preds = %299
-  %306 = load ptr, ptr %24, align 8
-  %307 = getelementptr i8, ptr %306, i64 0
-  %308 = load i8, ptr %307, align 1
-  %309 = sext i8 %308 to i32
-  %310 = icmp ne i32 %309, 0
-  br i1 %310, label %311, label %313
+307:                                              ; preds = %301
+  %308 = load ptr, ptr %24, align 8
+  %309 = getelementptr i8, ptr %308, i64 0
+  %310 = load i8, ptr %309, align 1
+  %311 = sext i8 %310 to i32
+  %312 = icmp ne i32 %311, 0
+  br i1 %312, label %313, label %315
 
-311:                                              ; preds = %305
-  %312 = load ptr, ptr %24, align 8
-  call void @DropPreparedStatement(ptr noundef %312, i1 noundef zeroext false)
-  br label %314
+313:                                              ; preds = %307
+  %314 = load ptr, ptr %24, align 8
+  call void @DropPreparedStatement(ptr noundef %314, i1 noundef zeroext false)
+  br label %316
 
-313:                                              ; preds = %305
+315:                                              ; preds = %307
   call void @drop_unnamed_stmt()
-  br label %314
+  br label %316
 
-314:                                              ; preds = %313, %311
-  br label %335
+316:                                              ; preds = %315, %313
+  br label %337
 
-315:                                              ; preds = %299
-  %316 = load ptr, ptr %24, align 8
-  %317 = call ptr @GetPortalByName(ptr noundef %316)
-  store ptr %317, ptr %25, align 8
-  %318 = load ptr, ptr %25, align 8
-  %319 = icmp ne ptr %318, null
-  br i1 %319, label %320, label %322
+317:                                              ; preds = %301
+  %318 = load ptr, ptr %24, align 8
+  %319 = call ptr @GetPortalByName(ptr noundef %318)
+  store ptr %319, ptr %25, align 8
+  %320 = load ptr, ptr %25, align 8
+  %321 = icmp ne ptr %320, null
+  br i1 %321, label %322, label %324
 
-320:                                              ; preds = %315
-  %321 = load ptr, ptr %25, align 8
-  call void @PortalDrop(ptr noundef %321, i1 noundef zeroext false)
-  br label %322
-
-322:                                              ; preds = %320, %315
-  br label %335
-
-323:                                              ; preds = %299
+322:                                              ; preds = %317
+  %323 = load ptr, ptr %25, align 8
+  call void @PortalDrop(ptr noundef %323, i1 noundef zeroext false)
   br label %324
 
-324:                                              ; preds = %323
-  br i1 true, label %325, label %327
+324:                                              ; preds = %322, %317
+  br label %337
 
-325:                                              ; preds = %324
-  %326 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  br i1 %326, label %329, label %333
+325:                                              ; preds = %301
+  br label %326
 
-327:                                              ; preds = %324
-  %328 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %328, label %329, label %333
+326:                                              ; preds = %325
+  br i1 true, label %327, label %329
 
-329:                                              ; preds = %327, %325
-  %330 = call i32 @errcode(i32 noundef 16908800)
-  %331 = load i32, ptr %23, align 4
-  %332 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.93, i32 noundef %331)
+327:                                              ; preds = %326
+  %328 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  br i1 %328, label %331, label %335
+
+329:                                              ; preds = %326
+  %330 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %330, label %331, label %335
+
+331:                                              ; preds = %329, %327
+  %332 = call i32 @errcode(i32 noundef 16908800)
+  %333 = load i32, ptr %23, align 4
+  %334 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.93, i32 noundef %333)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 4818, ptr noundef @__func__.PostgresMain)
-  br label %333
-
-333:                                              ; preds = %329, %327, %325
-  unreachable
-
-334:                                              ; No predecessors!
   br label %335
 
-335:                                              ; preds = %334, %322, %314
-  %336 = load i32, ptr @whereToSendOutput, align 4
-  %337 = icmp eq i32 %336, 2
-  br i1 %337, label %338, label %339
-
-338:                                              ; preds = %335
-  call void @pq_putemptymessage(i8 noundef signext 51)
-  br label %339
-
-339:                                              ; preds = %338, %335
-  br label %392
-
-340:                                              ; preds = %236
-  %341 = load i32, ptr %12, align 4
-  %342 = trunc i32 %341 to i8
-  call void @forbidden_in_wal_sender(i8 noundef signext %342)
-  call void @SetCurrentStatementStartTimestamp()
-  %343 = call i32 @pq_getmsgbyte(ptr noundef %13)
-  store i32 %343, ptr %26, align 4
-  %344 = call ptr @pq_getmsgstring(ptr noundef %13)
-  store ptr %344, ptr %27, align 8
-  call void @pq_getmsgend(ptr noundef %13)
-  %345 = load i32, ptr %26, align 4
-  switch i32 %345, label %350 [
-    i32 83, label %346
-    i32 80, label %348
-  ]
-
-346:                                              ; preds = %340
-  %347 = load ptr, ptr %27, align 8
-  call void @exec_describe_statement_message(ptr noundef %347)
-  br label %362
-
-348:                                              ; preds = %340
-  %349 = load ptr, ptr %27, align 8
-  call void @exec_describe_portal_message(ptr noundef %349)
-  br label %362
-
-350:                                              ; preds = %340
-  br label %351
-
-351:                                              ; preds = %350
-  br i1 true, label %352, label %354
-
-352:                                              ; preds = %351
-  %353 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  br i1 %353, label %356, label %360
-
-354:                                              ; preds = %351
-  %355 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %355, label %356, label %360
-
-356:                                              ; preds = %354, %352
-  %357 = call i32 @errcode(i32 noundef 16908800)
-  %358 = load i32, ptr %26, align 4
-  %359 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.94, i32 noundef %358)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 4855, ptr noundef @__func__.PostgresMain)
-  br label %360
-
-360:                                              ; preds = %356, %354, %352
+335:                                              ; preds = %331, %329, %327
   unreachable
 
-361:                                              ; No predecessors!
+336:                                              ; No predecessors!
+  br label %337
+
+337:                                              ; preds = %336, %324, %316
+  %338 = load i32, ptr @whereToSendOutput, align 4
+  %339 = icmp eq i32 %338, 2
+  br i1 %339, label %340, label %341
+
+340:                                              ; preds = %337
+  call void @pq_putemptymessage(i8 noundef signext 51)
+  br label %341
+
+341:                                              ; preds = %340, %337
+  br label %394
+
+342:                                              ; preds = %238
+  %343 = load i32, ptr %12, align 4
+  %344 = trunc i32 %343 to i8
+  call void @forbidden_in_wal_sender(i8 noundef signext %344)
+  call void @SetCurrentStatementStartTimestamp()
+  %345 = call i32 @pq_getmsgbyte(ptr noundef %13)
+  store i32 %345, ptr %26, align 4
+  %346 = call ptr @pq_getmsgstring(ptr noundef %13)
+  store ptr %346, ptr %27, align 8
+  call void @pq_getmsgend(ptr noundef %13)
+  %347 = load i32, ptr %26, align 4
+  switch i32 %347, label %352 [
+    i32 83, label %348
+    i32 80, label %350
+  ]
+
+348:                                              ; preds = %342
+  %349 = load ptr, ptr %27, align 8
+  call void @exec_describe_statement_message(ptr noundef %349)
+  br label %364
+
+350:                                              ; preds = %342
+  %351 = load ptr, ptr %27, align 8
+  call void @exec_describe_portal_message(ptr noundef %351)
+  br label %364
+
+352:                                              ; preds = %342
+  br label %353
+
+353:                                              ; preds = %352
+  br i1 true, label %354, label %356
+
+354:                                              ; preds = %353
+  %355 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  br i1 %355, label %358, label %362
+
+356:                                              ; preds = %353
+  %357 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %357, label %358, label %362
+
+358:                                              ; preds = %356, %354
+  %359 = call i32 @errcode(i32 noundef 16908800)
+  %360 = load i32, ptr %26, align 4
+  %361 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.94, i32 noundef %360)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 4855, ptr noundef @__func__.PostgresMain)
   br label %362
 
-362:                                              ; preds = %361, %348, %346
-  br label %392
+362:                                              ; preds = %358, %356, %354
+  unreachable
 
-363:                                              ; preds = %236
+363:                                              ; No predecessors!
+  br label %364
+
+364:                                              ; preds = %363, %350, %348
+  br label %394
+
+365:                                              ; preds = %238
   call void @pq_getmsgend(ptr noundef %13)
-  %364 = load i32, ptr @whereToSendOutput, align 4
-  %365 = icmp eq i32 %364, 2
-  br i1 %365, label %366, label %371
+  %366 = load i32, ptr @whereToSendOutput, align 4
+  %367 = icmp eq i32 %366, 2
+  br i1 %367, label %368, label %373
 
-366:                                              ; preds = %363
-  %367 = load ptr, ptr @PqCommMethods, align 8
-  %368 = getelementptr inbounds %struct.PQcommMethods, ptr %367, i32 0, i32 1
-  %369 = load ptr, ptr %368, align 8
-  %370 = call i32 %369()
-  br label %371
+368:                                              ; preds = %365
+  %369 = load ptr, ptr @PqCommMethods, align 8
+  %370 = getelementptr inbounds %struct.PQcommMethods, ptr %369, i32 0, i32 1
+  %371 = load ptr, ptr %370, align 8
+  %372 = call i32 %371()
+  br label %373
 
-371:                                              ; preds = %366, %363
-  br label %392
+373:                                              ; preds = %368, %365
+  br label %394
 
-372:                                              ; preds = %236
+374:                                              ; preds = %238
   call void @pq_getmsgend(ptr noundef %13)
   call void @finish_xact_command()
   store volatile i8 1, ptr %6, align 1
-  br label %392
+  br label %394
 
-373:                                              ; preds = %236
+375:                                              ; preds = %238
   store i32 2, ptr @pgStatSessionEndCause, align 4
-  br label %374
+  br label %376
 
-374:                                              ; preds = %373, %236
-  %375 = load i32, ptr @whereToSendOutput, align 4
-  %376 = icmp eq i32 %375, 2
-  br i1 %376, label %377, label %378
+376:                                              ; preds = %375, %238
+  %377 = load i32, ptr @whereToSendOutput, align 4
+  %378 = icmp eq i32 %377, 2
+  br i1 %378, label %379, label %380
 
-377:                                              ; preds = %374
+379:                                              ; preds = %376
   store i32 0, ptr @whereToSendOutput, align 4
-  br label %378
+  br label %380
 
-378:                                              ; preds = %377, %374
+380:                                              ; preds = %379, %376
   call void @proc_exit(i32 noundef 0) #14
   unreachable
 
-379:                                              ; preds = %236, %236, %236
+381:                                              ; preds = %238, %238, %238
+  br label %394
+
+382:                                              ; preds = %238
+  br label %383
+
+383:                                              ; preds = %382
+  br i1 true, label %384, label %386
+
+384:                                              ; preds = %383
+  %385 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
+  br i1 %385, label %388, label %392
+
+386:                                              ; preds = %383
+  %387 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %387, label %388, label %392
+
+388:                                              ; preds = %386, %384
+  %389 = call i32 @errcode(i32 noundef 16908800)
+  %390 = load i32, ptr %12, align 4
+  %391 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.95, i32 noundef %390)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 4921, ptr noundef @__func__.PostgresMain)
   br label %392
 
-380:                                              ; preds = %236
-  br label %381
-
-381:                                              ; preds = %380
-  br i1 true, label %382, label %384
-
-382:                                              ; preds = %381
-  %383 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  br i1 %383, label %386, label %390
-
-384:                                              ; preds = %381
-  %385 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %385, label %386, label %390
-
-386:                                              ; preds = %384, %382
-  %387 = call i32 @errcode(i32 noundef 16908800)
-  %388 = load i32, ptr %12, align 4
-  %389 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.95, i32 noundef %388)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 4921, ptr noundef @__func__.PostgresMain)
-  br label %390
-
-390:                                              ; preds = %386, %384, %382
+392:                                              ; preds = %388, %386, %384
   unreachable
 
-391:                                              ; No predecessors!
-  br label %392
+393:                                              ; No predecessors!
+  br label %394
 
-392:                                              ; preds = %391, %379, %372, %371, %362, %339, %294, %286, %283, %278, %250
-  br label %144
+394:                                              ; preds = %393, %381, %374, %373, %364, %341, %296, %288, %285, %280, %252
+  br label %146
 }
 
 declare void @WalSndSignals() #2

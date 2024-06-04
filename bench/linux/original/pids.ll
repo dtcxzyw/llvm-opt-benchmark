@@ -30,23 +30,25 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @pids_css_alloc(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 288) #8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 288) #8
+  %5 = icmp eq ptr %4, null
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %11, label %7
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 200
-  store volatile i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 208
-  store volatile i64 4194305, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 280
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %4, i64 200
   store volatile i64 0, ptr %8, align 8
-  br label %9
+  %9 = getelementptr inbounds i8, ptr %4, i64 208
+  store volatile i64 4194305, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 280
+  store volatile i64 0, ptr %10, align 8
+  br label %11
 
-9:                                                ; preds = %5, %1
-  %10 = phi ptr [ %3, %5 ], [ inttoptr (i64 -12 to ptr), %1 ]
-  ret ptr %10
+11:                                               ; preds = %7, %1
+  %12 = phi ptr [ %4, %7 ], [ %6, %1 ]
+  ret ptr %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

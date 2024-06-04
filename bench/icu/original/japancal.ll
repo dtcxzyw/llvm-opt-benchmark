@@ -120,9 +120,10 @@ entry:
   %0 = load ptr, ptr %aLocale.addr, align 8
   %1 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %2 = load ptr, ptr %success.addr, align 8
-  invoke void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %2 = getelementptr inbounds { [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
+  %3 = load ptr, ptr %success.addr, align 8
+  invoke void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -130,20 +131,20 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %success.addr, align 8
-  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %success.addr, align 8
+  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #6
   br label %eh.resume
 
@@ -214,7 +215,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(654) %0)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   store i32 0, ptr %status, align 4
   invoke void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -223,12 +225,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #6
   br label %eh.resume
 

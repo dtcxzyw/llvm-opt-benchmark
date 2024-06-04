@@ -240,19 +240,20 @@ define internal i32 @ompi_mpi_errcode_get_class(i32 noundef %0) #0 {
   %30 = getelementptr inbounds %struct.ompi_mpi_errcode_t, ptr %29, i32 0, i32 2
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %2, align 4
-  br label %35
+  br label %36
 
 32:                                               ; preds = %23
   br label %33
 
 33:                                               ; preds = %32, %20
-  %34 = load i32, ptr getelementptr inbounds (%struct.ompi_mpi_errcode_t, ptr @ompi_err_unknown, i32 0, i32 2), align 4
-  store i32 %34, ptr %2, align 4
-  br label %35
+  %34 = getelementptr inbounds %struct.ompi_mpi_errcode_t, ptr @ompi_err_unknown, i32 0, i32 2
+  %35 = load i32, ptr %34, align 4
+  store i32 %35, ptr %2, align 4
+  br label %36
 
-35:                                               ; preds = %33, %28
-  %36 = load i32, ptr %2, align 4
-  ret i32 %36
+36:                                               ; preds = %33, %28
+  %37 = load i32, ptr %2, align 4
+  ret i32 %37
 }
 
 declare void @ompi_mpi_instance_release() #1

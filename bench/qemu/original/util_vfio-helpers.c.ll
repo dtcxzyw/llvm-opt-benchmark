@@ -237,20 +237,21 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %26 = load ptr, ptr %p, align 8
   call void @trace_qemu_vfio_pci_map_bar(i32 noundef %20, i64 noundef %23, i64 noundef %24, i32 noundef %conv, ptr noundef %26)
   %27 = load ptr, ptr %p, align 8
-  %cmp12 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
+  %28 = inttoptr i64 -1 to ptr
+  %cmp12 = icmp eq ptr %27, %28
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %cond.end
-  %28 = load ptr, ptr %errp.addr, align 8
+  %29 = load ptr, ptr %errp.addr, align 8
   %call15 = call ptr @__errno_location() #13
-  %29 = load i32, ptr %call15, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %28, ptr noundef @.str.1, i32 noundef 176, ptr noundef @__func__.qemu_vfio_pci_map_bar, i32 noundef %29, ptr noundef @.str.2)
+  %30 = load i32, ptr %call15, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %29, ptr noundef @.str.1, i32 noundef 176, ptr noundef @__func__.qemu_vfio_pci_map_bar, i32 noundef %30, ptr noundef @.str.2)
   store ptr null, ptr %p, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %cond.end
-  %30 = load ptr, ptr %p, align 8
-  ret ptr %30
+  %31 = load ptr, ptr %p, align 8
+  ret ptr %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

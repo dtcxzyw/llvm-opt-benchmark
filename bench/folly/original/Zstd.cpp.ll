@@ -201,15 +201,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !22
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2
+  store ptr %0, ptr %exception, align 8, !tbaa !22
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont, %if.end, %if.then
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10unique_ptrI18ZSTD_CCtx_params_sN5folly23static_function_deleterIS0_XadL_ZNS1_2io4zstd7Options14freeCCtxParamsEPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
   %call6 = invoke i64 @ZSTD_CCtxParams_init(ptr noundef nonnull %call, i32 noundef %level)
@@ -546,7 +547,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %state_.i.i, i8 0, i64 21, i1 false)
   store i8 1, ptr %progressMade_.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds inrange(-16, 128) ({ [18 x ptr] }, ptr @_ZTVN5folly2io4zstd12_GLOBAL__N_115ZSTDStreamCodecE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !22
+  %2 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN5folly2io4zstd12_GLOBAL__N_115ZSTDStreamCodecE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %call, align 8, !tbaa !22
   %options_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %0, ptr %options_.i, align 8, !tbaa !7
   store ptr null, ptr %agg.tmp, align 8, !tbaa !7
@@ -562,18 +564,18 @@ invoke.cont.i:                                    ; preds = %.noexc
           to label %_ZN5folly2io4zstd7OptionsD2Ev.exit unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad4.i:                                          ; preds = %invoke.cont.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI11ZSTD_CCtx_sN5folly11compression31CompressionCoreLocalContextPoolIS0_NS2_8contexts17ZSTD_CCtx_CreatorENS4_17ZSTD_CCtx_DeleterENS4_18ZSTD_CCtx_ResetterELm4EE19ReturnToPoolDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cctx_.i) #19
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %3, %lpad4.i ], [ %2, %lpad.i ]
+  %.pn.i = phi { ptr, i32 } [ %4, %lpad4.i ], [ %3, %lpad.i ]
   call void @_ZN5folly2io4zstd7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %options_.i) #19
   br label %lpad.body
 
@@ -582,12 +584,12 @@ _ZN5folly2io4zstd7OptionsD2Ev.exit:               ; preds = %invoke.cont.i
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %ehcleanup.i
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %.pn.i, %ehcleanup.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %.pn.i, %ehcleanup.i ]
   call void @_ZN5folly2io4zstd7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp) #19
   call void @_ZdlPv(ptr noundef nonnull %call) #21
   resume { ptr, i32 } %eh.lpad-body
@@ -1565,8 +1567,9 @@ entry:
   %cpu.i.i.i = alloca i32, align 4
   %resetter_.i = getelementptr inbounds i8, ptr %this, i64 2
   tail call void @_ZNK5folly11compression8contexts18ZSTD_CCtx_ResetterclEP11ZSTD_CCtx_s(ptr noundef nonnull align 1 dereferenceable(1) %resetter_.i, ptr noundef %ptr) #19
-  %0 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i.i = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %1 = load atomic i64, ptr %0 acquire, align 8
+  %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i, !prof !67
 
 if.then.i.i:                                      ; preds = %entry
@@ -1574,49 +1577,50 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i: ; preds = %if.then.i.i, %entry
-  %1 = tail call noundef nonnull align 4 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache)
-  %cachedCpuUses_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %2 = load i32, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
-  %dec.i.i.i = add i32 %2, -1
+  %2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache)
+  %cachedCpuUses_.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = load i32, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
+  %dec.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
-  %cmp.i.i.i = icmp eq i32 %2, 0
+  %cmp.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %entry.if.end_crit_edge.i.i.i, !prof !67
 
 entry.if.end_crit_edge.i.i.i:                     ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
-  %.pre.i.i.i = load i32, ptr %1, align 4, !tbaa !90
+  %.pre.i.i.i = load i32, ptr %2, align 4, !tbaa !90
   br label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE5localEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i.i.i) #19
-  %3 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %3 to ptr
+  %4 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %5 to ptr
   %call2.i.i.i = call noundef i32 %atomic-temp.0.i.i.i.i.i(ptr noundef nonnull %cpu.i.i.i, ptr noundef null, ptr noundef null)
-  %4 = load i32, ptr %cpu.i.i.i, align 4, !tbaa !32
-  %rem.i.i.i = and i32 %4, 255
-  store i32 %rem.i.i.i, ptr %1, align 4, !tbaa !90
+  %6 = load i32, ptr %cpu.i.i.i, align 4, !tbaa !32
+  %rem.i.i.i = and i32 %6, 255
+  store i32 %rem.i.i.i, ptr %2, align 4, !tbaa !90
   store i32 31, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i.i.i) #19
   br label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE5localEv.exit
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE5localEv.exit: ; preds = %if.then.i.i.i, %entry.if.end_crit_edge.i.i.i
-  %5 = phi i32 [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ]
-  %idxprom.i.i = zext i32 %5 to i64
+  %7 = phi i32 [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ]
+  %idxprom.i.i = zext i32 %7 to i64
   %arrayidx3.i.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 4, i64 %idxprom.i.i
-  %6 = load atomic i8, ptr %arrayidx3.i.i monotonic, align 1
-  %conv.i.i = zext i8 %6 to i64
+  %8 = load atomic i8, ptr %arrayidx3.i.i monotonic, align 1
+  %conv.i.i = zext i8 %8 to i64
   %caches_.i = getelementptr inbounds i8, ptr %this, i64 128
   %arrayidx.i.i.i = getelementptr inbounds [4 x %"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_CCtx_s, folly::compression::contexts::ZSTD_CCtx_Creator, folly::compression::contexts::ZSTD_CCtx_Deleter, folly::compression::contexts::ZSTD_CCtx_Resetter, 4>::Storage"], ptr %caches_.i, i64 0, i64 %conv.i.i
-  %7 = ptrtoint ptr %ptr to i64
-  %8 = cmpxchg weak ptr %arrayidx.i.i.i, i64 0, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %if.end, label %if.then
+  %9 = ptrtoint ptr %ptr to i64
+  %10 = cmpxchg weak ptr %arrayidx.i.i.i, i64 0, i64 %9 seq_cst seq_cst, align 8
+  %11 = extractvalue { i64, i1 } %10, 1
+  br i1 %11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE5localEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.ensured.i)
-  %10 = ptrtoint ptr %this to i64
-  store i64 %10, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
-  %11 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
-  store ptr %ptr, ptr %11, align 8, !tbaa !91
+  %12 = ptrtoint ptr %this to i64
+  store i64 %12, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
+  %13 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
+  store ptr %ptr, ptr %13, align 8, !tbaa !91
   %cmp.not.i.i = icmp eq ptr %ptr, null
   br i1 %cmp.not.i.i, label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit, label %if.then.i.i25
 
@@ -1625,10 +1629,10 @@ if.then.i.i25:                                    ; preds = %if.then
           to label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i25
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #22
   unreachable
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit: ; preds = %if.then.i.i25, %if.then
@@ -2540,8 +2544,9 @@ entry:
   %cpu.i.i.i = alloca i32, align 4
   %resetter_.i = getelementptr inbounds i8, ptr %this, i64 2
   tail call void @_ZNK5folly11compression8contexts18ZSTD_DCtx_ResetterclEP11ZSTD_DCtx_s(ptr noundef nonnull align 1 dereferenceable(1) %resetter_.i, ptr noundef %ptr) #19
-  %0 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1) acquire, align 8
-  %tobool.not.i.i = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1
+  %1 = load atomic i64, ptr %0 acquire, align 8
+  %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i, !prof !67
 
 if.then.i.i:                                      ; preds = %entry
@@ -2549,49 +2554,50 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i: ; preds = %if.then.i.i, %entry
-  %1 = tail call noundef nonnull align 4 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache)
-  %cachedCpuUses_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %2 = load i32, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
-  %dec.i.i.i = add i32 %2, -1
+  %2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache)
+  %cachedCpuUses_.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = load i32, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
+  %dec.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
-  %cmp.i.i.i = icmp eq i32 %2, 0
+  %cmp.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %entry.if.end_crit_edge.i.i.i, !prof !67
 
 entry.if.end_crit_edge.i.i.i:                     ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
-  %.pre.i.i.i = load i32, ptr %1, align 4, !tbaa !90
+  %.pre.i.i.i = load i32, ptr %2, align 4, !tbaa !90
   br label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE5localEv.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i.i.i) #19
-  %3 = load atomic i64, ptr getelementptr inbounds ({ [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0) monotonic, align 8
-  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %3 to ptr
+  %4 = getelementptr inbounds { [257 x [256 x i8]], %"struct.std::atomic.61" }, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i32 1, i32 0, i32 0
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %5 to ptr
   %call2.i.i.i = call noundef i32 %atomic-temp.0.i.i.i.i.i(ptr noundef nonnull %cpu.i.i.i, ptr noundef null, ptr noundef null)
-  %4 = load i32, ptr %cpu.i.i.i, align 4, !tbaa !32
-  %rem.i.i.i = and i32 %4, 255
-  store i32 %rem.i.i.i, ptr %1, align 4, !tbaa !90
+  %6 = load i32, ptr %cpu.i.i.i, align 4, !tbaa !32
+  %rem.i.i.i = and i32 %6, 255
+  store i32 %rem.i.i.i, ptr %2, align 4, !tbaa !90
   store i32 31, ptr %cachedCpuUses_.i.i.i, align 4, !tbaa !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i.i.i) #19
   br label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE5localEv.exit
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE5localEv.exit: ; preds = %if.then.i.i.i, %entry.if.end_crit_edge.i.i.i
-  %5 = phi i32 [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ]
-  %idxprom.i.i = zext i32 %5 to i64
+  %7 = phi i32 [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ]
+  %idxprom.i.i = zext i32 %7 to i64
   %arrayidx3.i.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 4, i64 %idxprom.i.i
-  %6 = load atomic i8, ptr %arrayidx3.i.i monotonic, align 1
-  %conv.i.i = zext i8 %6 to i64
+  %8 = load atomic i8, ptr %arrayidx3.i.i monotonic, align 1
+  %conv.i.i = zext i8 %8 to i64
   %caches_.i = getelementptr inbounds i8, ptr %this, i64 128
   %arrayidx.i.i.i = getelementptr inbounds [4 x %"class.folly::compression::CompressionCoreLocalContextPool<ZSTD_DCtx_s, folly::compression::contexts::ZSTD_DCtx_Creator, folly::compression::contexts::ZSTD_DCtx_Deleter, folly::compression::contexts::ZSTD_DCtx_Resetter, 4>::Storage"], ptr %caches_.i, i64 0, i64 %conv.i.i
-  %7 = ptrtoint ptr %ptr to i64
-  %8 = cmpxchg weak ptr %arrayidx.i.i.i, i64 0, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %if.end, label %if.then
+  %9 = ptrtoint ptr %ptr to i64
+  %10 = cmpxchg weak ptr %arrayidx.i.i.i, i64 0, i64 %9 seq_cst seq_cst, align 8
+  %11 = extractvalue { i64, i1 } %10, 1
+  br i1 %11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE5localEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.ensured.i)
-  %10 = ptrtoint ptr %this to i64
-  store i64 %10, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
-  %11 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
-  store ptr %ptr, ptr %11, align 8, !tbaa !141
+  %12 = ptrtoint ptr %this to i64
+  store i64 %12, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
+  %13 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
+  store ptr %ptr, ptr %13, align 8, !tbaa !141
   %cmp.not.i.i = icmp eq ptr %ptr, null
   br i1 %cmp.not.i.i, label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit, label %if.then.i.i24
 
@@ -2600,10 +2606,10 @@ if.then.i.i24:                                    ; preds = %if.then
           to label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i24
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #22
   unreachable
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit: ; preds = %if.then.i.i24, %if.then
