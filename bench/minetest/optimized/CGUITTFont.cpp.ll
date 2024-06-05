@@ -6466,8 +6466,8 @@ vector.body995:                                   ; preds = %vector.body995, %ve
   %207 = getelementptr inbounds %"class.irr::core::vector2d", ptr %202, i64 %205
   %wide.vec997 = load <4 x i32>, ptr %206, align 4, !tbaa !30
   %wide.vec998 = load <4 x i32>, ptr %207, align 4, !tbaa !30
-  %interleaved.vec1005 = add <4 x i32> %wide.vec997, %204
-  %interleaved.vec1006 = add <4 x i32> %wide.vec998, %203
+  %interleaved.vec1005 = add nsw <4 x i32> %wide.vec997, %204
+  %interleaved.vec1006 = add nsw <4 x i32> %wide.vec998, %203
   store <4 x i32> %interleaved.vec1005, ptr %206, align 4, !tbaa !30
   store <4 x i32> %interleaved.vec1006, ptr %207, align 4, !tbaa !30
   %index.next1007 = add nuw i64 %index996, 4
@@ -6550,8 +6550,8 @@ vector.body979:                                   ; preds = %vector.body979, %ve
   %225 = getelementptr inbounds %"class.irr::core::vector2d", ptr %219, i64 %223
   %wide.vec = load <4 x i32>, ptr %224, align 4, !tbaa !30
   %wide.vec981 = load <4 x i32>, ptr %225, align 4, !tbaa !30
-  %interleaved.vec = sub <4 x i32> %wide.vec, %222
-  %interleaved.vec985 = sub <4 x i32> %wide.vec981, %221
+  %interleaved.vec = sub nsw <4 x i32> %wide.vec, %222
+  %interleaved.vec985 = sub nsw <4 x i32> %wide.vec981, %221
   store <4 x i32> %interleaved.vec, ptr %224, align 4, !tbaa !30
   store <4 x i32> %interleaved.vec985, ptr %225, align 4, !tbaa !30
   %index.next986 = add nuw i64 %index980, 4

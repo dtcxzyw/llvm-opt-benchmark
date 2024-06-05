@@ -773,7 +773,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %82 = uitofp <8 x i32> %81 to <8 x float>
   %83 = fmul reassoc nsz arcp contract afn <8 x float> %82, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
   %84 = fpext <8 x float> %83 to <8 x double>
-  %85 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %84, <8 x double> %78)
+  %85 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %84, <8 x double> %78)
   %86 = fptrunc <8 x double> %85 to <8 x float>
   %87 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 0, i64 %80
   store <8 x float> %86, ptr %87, align 4, !tbaa !26
@@ -816,7 +816,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %117 = uitofp <8 x i32> %116 to <8 x float>
   %118 = fmul reassoc nsz arcp contract afn <8 x float> %117, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
   %119 = fpext <8 x float> %118 to <8 x double>
-  %120 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %119, <8 x double> %113)
+  %120 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %119, <8 x double> %113)
   %121 = fptrunc <8 x double> %120 to <8 x float>
   %122 = getelementptr inbounds [65536 x float], ptr %110, i64 0, i64 %115
   store <8 x float> %121, ptr %122, align 4, !tbaa !26
@@ -857,7 +857,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %150 = uitofp <8 x i32> %149 to <8 x float>
   %151 = fmul reassoc nsz arcp contract afn <8 x float> %150, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
   %152 = fpext <8 x float> %151 to <8 x double>
-  %153 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %152, <8 x double> %146)
+  %153 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %152, <8 x double> %146)
   %154 = fptrunc <8 x double> %153 to <8 x float>
   %155 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 1, i64 %148
   store <8 x float> %154, ptr %155, align 4, !tbaa !26
@@ -894,7 +894,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %181 = uitofp <8 x i32> %180 to <8 x float>
   %182 = fmul reassoc nsz arcp contract afn <8 x float> %181, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
   %183 = fpext <8 x float> %182 to <8 x double>
-  %184 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %183, <8 x double> %177)
+  %184 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %183, <8 x double> %177)
   %185 = fptrunc <8 x double> %184 to <8 x float>
   %186 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 2, i64 %179
   store <8 x float> %185, ptr %186, align 4, !tbaa !26

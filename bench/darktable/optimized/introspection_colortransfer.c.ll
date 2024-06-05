@@ -1936,7 +1936,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %352 = phi i64 [ 0, %349 ], [ %356, %351 ]
   %353 = getelementptr inbounds [2 x float], ptr %5, i64 %352
   %354 = load <16 x float>, ptr %353, align 4, !tbaa !37
-  %355 = tail call <16 x float> @llvm.sqrt.v16f32(<16 x float> %354)
+  %355 = tail call reassoc nsz arcp contract afn <16 x float> @llvm.sqrt.v16f32(<16 x float> %354)
   store <16 x float> %355, ptr %353, align 4, !tbaa !37
   %356 = add nuw nsw i64 %352, 8
   %357 = icmp eq i64 %356, %350
