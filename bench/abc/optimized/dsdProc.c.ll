@@ -2215,7 +2215,7 @@ dsdKernelFindContainingComponent.exit801:         ; preds = %953, %.lr.ph933, %9
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
   %1065 = load ptr, ptr %814, align 8
   %.not646 = icmp eq ptr %.3567, %1065
-  %.not647 = icmp eq ptr %.3, %1065
+  %.not647 = icmp eq ptr %.3, %.3567
   %or.cond684 = select i1 %.not646, i1 %.not647, i1 false
   br i1 %or.cond684, label %._crit_edge956.loopexit, label %.critedge2, !llvm.loop !20
 

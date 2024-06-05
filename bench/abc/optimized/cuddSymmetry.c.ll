@@ -172,7 +172,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 54:                                               ; preds = %52
   %55 = load ptr, ptr %34, align 8
   %.not101 = icmp eq ptr %38, %55
-  %.not102 = icmp eq ptr %55, %43
+  %.not102 = icmp eq ptr %38, %43
   %or.cond108 = select i1 %.not101, i1 %.not102, i1 false
   br i1 %or.cond108, label %56, label %.loopexit
 
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   %.190 = select i1 %.not104, ptr %.089, ptr %71
   %75 = load ptr, ptr %34, align 8
   %.not105 = icmp eq ptr %38, %75
-  %.not106 = icmp eq ptr %75, %43
+  %.not106 = icmp eq ptr %38, %43
   %or.cond109 = select i1 %.not105, i1 %.not106, i1 false
   br i1 %or.cond109, label %76, label %79
 

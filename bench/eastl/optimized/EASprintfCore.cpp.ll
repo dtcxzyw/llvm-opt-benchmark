@@ -169,7 +169,7 @@ define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_1
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 1, i64 noundef %nCount, ptr noundef %pContext8)
   %cmp = icmp eq i64 %call, %nCount
-  %conv = trunc i64 %call to i32
+  %conv = trunc i64 %nCount to i32
   %retval.0 = select i1 %cmp, i32 %conv, i32 -1
   ret i32 %retval.0
 }
@@ -182,7 +182,7 @@ define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 2, i64 noundef %nCount, ptr noundef %pContext16)
   %cmp = icmp eq i64 %call, %nCount
-  %conv = trunc i64 %call to i32
+  %conv = trunc i64 %nCount to i32
   %retval.0 = select i1 %cmp, i32 %conv, i32 -1
   ret i32 %retval.0
 }
@@ -192,7 +192,7 @@ define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 4, i64 noundef %nCount, ptr noundef %pContext32)
   %cmp = icmp eq i64 %call, %nCount
-  %conv = trunc i64 %call to i32
+  %conv = trunc i64 %nCount to i32
   %retval.0 = select i1 %cmp, i32 %conv, i32 -1
   ret i32 %retval.0
 }

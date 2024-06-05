@@ -13902,9 +13902,8 @@ MaskMac.exit:                                     ; preds = %for.body112.i, %for
   %38 = and i8 %37, %36
   %narrow = xor i8 %38, 1
   %sub25 = zext nneg i8 %narrow to i32
-  %sub26 = sub nsw i32 %call3, %sub25
   %cmp.not = icmp eq i32 %call3, %sub25
-  %spec.store.select = select i1 %cmp.not, i32 %sub26, i32 -305
+  %spec.store.select = select i1 %cmp.not, i32 0, i32 -305
   ret i32 %spec.store.select
 }
 

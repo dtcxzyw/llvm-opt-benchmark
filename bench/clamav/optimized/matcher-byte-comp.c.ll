@@ -41,7 +41,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readn
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %330, label %9
+  br i1 %.not, label %329, label %9
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %2, align 1
@@ -50,7 +50,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readn
   %or.cond = and i1 %12, %11
   %13 = icmp ne ptr %1, null
   %or.cond3 = and i1 %13, %or.cond
-  br i1 %or.cond3, label %14, label %330
+  br i1 %or.cond3, label %14, label %329
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 408
@@ -61,7 +61,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readn
 
 18:                                               ; preds = %14
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #14
-  br label %330
+  br label %329
 
 19:                                               ; preds = %14
   %.not221 = icmp eq ptr %3, null
@@ -148,7 +148,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readn
 cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
   %53 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %53, ptr noundef nonnull %17) #14
-  br label %330
+  br label %329
 
 54:                                               ; preds = %32, %28
   %55 = icmp sgt i16 %30, 64
@@ -206,7 +206,7 @@ cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
 cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i276
   %75 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %75, ptr noundef nonnull %17) #14
-  br label %330
+  br label %329
 
 76:                                               ; preds = %54
   store i16 %30, ptr %17, align 8
@@ -232,7 +232,7 @@ cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i2
 88:                                               ; preds = %79
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #14
   tail call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 89:                                               ; preds = %76
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #14
@@ -286,13 +286,13 @@ cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i2
 cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i289
   %108 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %108, ptr noundef nonnull %17) #14
-  br label %330
+  br label %329
 
 109:                                              ; preds = %81
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5, i64 noundef %87) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 110:                                              ; preds = %81
   %111 = getelementptr inbounds i8, ptr %7, i64 24
@@ -334,7 +334,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6, ptr noundef %127, ptr noundef %125, ptr noundef %129) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 130:                                              ; preds = %122, %118
   %131 = sub nsw i64 0, %120
@@ -348,7 +348,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %112, ptr noundef %134, ptr noundef %136) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 137:                                              ; preds = %110
   %138 = getelementptr inbounds i8, ptr %112, i64 1
@@ -377,7 +377,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6, ptr noundef %150, ptr noundef %148, ptr noundef %152) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 153:                                              ; preds = %137
   %154 = getelementptr inbounds i8, ptr %7, i64 8
@@ -387,7 +387,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %112, ptr noundef %155, ptr noundef %157) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 158:                                              ; preds = %110
   %159 = getelementptr inbounds i8, ptr %7, i64 8
@@ -397,7 +397,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %112, ptr noundef %160, ptr noundef %162) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 163:                                              ; preds = %110, %110, %141, %145, %130
   %.0200 = phi i64 [ %143, %145 ], [ %143, %141 ], [ %131, %130 ], [ 0, %110 ], [ 0, %110 ]
@@ -504,7 +504,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10, ptr noundef %211, ptr noundef nonnull %166, ptr noundef %213) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 214:                                              ; preds = %207, %180, %185, %190, %195, %200, %205
   %.sink = phi i16 [ %209, %207 ], [ %181, %180 ], [ %186, %185 ], [ %191, %190 ], [ %196, %195 ], [ %201, %200 ], [ %206, %205 ]
@@ -552,7 +552,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, ptr noundef %233, ptr noundef %234, ptr noundef %232) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 235:                                              ; preds = %224, %230
   %236 = getelementptr inbounds i8, ptr %17, i64 24
@@ -579,7 +579,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12, ptr noundef %244, ptr noundef %245, ptr noundef %247) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 248:                                              ; preds = %235
   %249 = and i16 %237, 1
@@ -596,7 +596,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.13, ptr noundef %253, ptr noundef %254, ptr noundef %256) #14
   call void @free(ptr noundef %86) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 .thread292:                                       ; preds = %241, %248
   %257 = getelementptr inbounds i8, ptr %17, i64 32
@@ -610,7 +610,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 261:                                              ; preds = %.thread292
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.14) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
 262:                                              ; preds = %.thread292
   %263 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %260, i32 noundef 44) #15
@@ -637,7 +637,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef nonnull %260) #14
-  br label %330
+  br label %329
 
 274:                                              ; preds = %262, %269
   %.sink313 = phi i32 [ 2, %269 ], [ 1, %262 ]
@@ -651,125 +651,122 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %280 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr %279, ptr %280, align 8
   %.not235 = icmp eq ptr %279, null
-  br i1 %.not235, label %283, label %.preheader
+  br i1 %.not235, label %282, label %.preheader
 
 .preheader:                                       ; preds = %274
   %281 = load i32, ptr %278, align 8
   %.not304 = icmp eq i32 %281, 0
   br i1 %.not304, label %._crit_edge303, label %.lr.ph302
 
-.lr.ph302:                                        ; preds = %.preheader
-  %282 = getelementptr inbounds i8, ptr %.0196, i64 1
-  br label %284
-
-283:                                              ; preds = %274
+282:                                              ; preds = %274
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.16) #14
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef nonnull %260) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
-284:                                              ; preds = %.lr.ph302, %308
-  %indvars.iv = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next, %308 ]
-  %.0197301 = phi ptr [ %260, %.lr.ph302 ], [ %spec.select, %308 ]
-  %285 = load ptr, ptr %15, align 8
-  %286 = call ptr @mpool_calloc(ptr noundef %285, i64 noundef 1, i64 noundef 16) #14
+.lr.ph302:                                        ; preds = %.preheader, %306
+  %indvars.iv = phi i64 [ %indvars.iv.next, %306 ], [ 0, %.preheader ]
+  %.0197301 = phi ptr [ %spec.select, %306 ], [ %260, %.preheader ]
+  %283 = load ptr, ptr %15, align 8
+  %284 = call ptr @mpool_calloc(ptr noundef %283, i64 noundef 1, i64 noundef 16) #14
+  %285 = load ptr, ptr %280, align 8
+  %286 = getelementptr inbounds ptr, ptr %285, i64 %indvars.iv
+  store ptr %284, ptr %286, align 8
   %287 = load ptr, ptr %280, align 8
   %288 = getelementptr inbounds ptr, ptr %287, i64 %indvars.iv
-  store ptr %286, ptr %288, align 8
-  %289 = load ptr, ptr %280, align 8
-  %290 = getelementptr inbounds ptr, ptr %289, i64 %indvars.iv
-  %291 = load ptr, ptr %290, align 8
-  %.not237 = icmp eq ptr %291, null
-  br i1 %.not237, label %292, label %293
+  %289 = load ptr, ptr %288, align 8
+  %.not237 = icmp eq ptr %289, null
+  br i1 %.not237, label %290, label %291
 
-292:                                              ; preds = %284
+290:                                              ; preds = %.lr.ph302
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.17) #14
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef %260) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
-293:                                              ; preds = %284
-  %294 = load i8, ptr %.0197301, align 1
-  %.off = add i8 %294, -60
+291:                                              ; preds = %.lr.ph302
+  %292 = load i8, ptr %.0197301, align 1
+  %.off = add i8 %292, -60
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %295, label %300
+  br i1 %switch, label %293, label %298
 
-295:                                              ; preds = %293
-  store i8 %294, ptr %291, align 8
+293:                                              ; preds = %291
+  store i8 %292, ptr %289, align 8
   store ptr null, ptr %8, align 8
-  %296 = getelementptr inbounds i8, ptr %.0197301, i64 1
-  %297 = call i64 @strtoll(ptr noundef nonnull %296, ptr noundef nonnull %8, i32 noundef 0) #14
-  %298 = load ptr, ptr %8, align 8
-  %299 = load i8, ptr %298, align 1
-  %.not238 = icmp eq i8 %299, 0
-  br i1 %.not238, label %308, label %304
+  %294 = getelementptr inbounds i8, ptr %.0197301, i64 1
+  %295 = call i64 @strtoll(ptr noundef nonnull %294, ptr noundef nonnull %8, i32 noundef 0) #14
+  %296 = load ptr, ptr %8, align 8
+  %297 = load i8, ptr %296, align 1
+  %.not238 = icmp eq i8 %297, 0
+  br i1 %.not238, label %306, label %302
 
-300:                                              ; preds = %293
-  %301 = load ptr, ptr %7, align 16
-  %302 = load ptr, ptr %165, align 8
-  %303 = load ptr, ptr %258, align 16
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, ptr noundef %301, ptr noundef %302, ptr noundef %303, ptr noundef nonnull %.0197301) #14
+298:                                              ; preds = %291
+  %299 = load ptr, ptr %7, align 16
+  %300 = load ptr, ptr %165, align 8
+  %301 = load ptr, ptr %258, align 16
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, ptr noundef %299, ptr noundef %300, ptr noundef %301, ptr noundef nonnull %.0197301) #14
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef %260) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
-304:                                              ; preds = %295
-  %305 = load ptr, ptr %7, align 16
-  %306 = load ptr, ptr %165, align 8
-  %307 = load ptr, ptr %258, align 16
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.19, ptr noundef %305, ptr noundef %306, ptr noundef %307) #14
+302:                                              ; preds = %293
+  %303 = load ptr, ptr %7, align 16
+  %304 = load ptr, ptr %165, align 8
+  %305 = load ptr, ptr %258, align 16
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.19, ptr noundef %303, ptr noundef %304, ptr noundef %305) #14
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef %260) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
-308:                                              ; preds = %295
-  %309 = load ptr, ptr %280, align 8
-  %310 = getelementptr inbounds ptr, ptr %309, i64 %indvars.iv
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
-  store i64 %297, ptr %312, align 8
-  %313 = icmp eq ptr %298, %.0196
-  %spec.select = select i1 %313, ptr %282, ptr %296
+306:                                              ; preds = %293
+  %307 = load ptr, ptr %280, align 8
+  %308 = getelementptr inbounds ptr, ptr %307, i64 %indvars.iv
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 8
+  store i64 %295, ptr %310, align 8
+  %311 = icmp eq ptr %296, %.0196
+  %312 = getelementptr inbounds i8, ptr %296, i64 1
+  %spec.select = select i1 %311, ptr %312, ptr %294
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %314 = load i32, ptr %278, align 8
-  %315 = zext i32 %314 to i64
-  %316 = icmp ult i64 %indvars.iv.next, %315
-  br i1 %316, label %284, label %._crit_edge303
+  %313 = load i32, ptr %278, align 8
+  %314 = zext i32 %313 to i64
+  %315 = icmp ult i64 %indvars.iv.next, %314
+  br i1 %315, label %.lr.ph302, label %._crit_edge303
 
-._crit_edge303:                                   ; preds = %308, %.preheader
+._crit_edge303:                                   ; preds = %306, %.preheader
   call void @free(ptr noundef %260) #14
-  %317 = getelementptr inbounds i8, ptr %0, i64 352
-  %318 = load i32, ptr %317, align 8
-  %319 = add i32 %318, 1
-  %320 = load ptr, ptr %15, align 8
-  %321 = getelementptr inbounds i8, ptr %0, i64 360
-  %322 = load ptr, ptr %321, align 8
-  %323 = zext i32 %319 to i64
-  %324 = shl nuw nsw i64 %323, 3
-  %325 = call ptr @mpool_realloc(ptr noundef %320, ptr noundef %322, i64 noundef %324) #14
-  %.not236 = icmp eq ptr %325, null
-  br i1 %.not236, label %326, label %327
+  %316 = getelementptr inbounds i8, ptr %0, i64 352
+  %317 = load i32, ptr %316, align 8
+  %318 = add i32 %317, 1
+  %319 = load ptr, ptr %15, align 8
+  %320 = getelementptr inbounds i8, ptr %0, i64 360
+  %321 = load ptr, ptr %320, align 8
+  %322 = zext i32 %318 to i64
+  %323 = shl nuw nsw i64 %322, 3
+  %324 = call ptr @mpool_realloc(ptr noundef %319, ptr noundef %321, i64 noundef %323) #14
+  %.not236 = icmp eq ptr %324, null
+  br i1 %.not236, label %325, label %326
 
-326:                                              ; preds = %._crit_edge303
+325:                                              ; preds = %._crit_edge303
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.20) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  br label %330
+  br label %329
 
-327:                                              ; preds = %._crit_edge303
-  %328 = zext i32 %318 to i64
-  %329 = getelementptr inbounds ptr, ptr %325, i64 %328
-  store ptr %17, ptr %329, align 8
-  store ptr %325, ptr %321, align 8
-  store i32 %319, ptr %317, align 8
+326:                                              ; preds = %._crit_edge303
+  %327 = zext i32 %317 to i64
+  %328 = getelementptr inbounds ptr, ptr %324, i64 %327
+  store ptr %17, ptr %328, align 8
+  store ptr %324, ptr %320, align 8
+  store i32 %318, ptr %316, align 8
   call void @free(ptr noundef %86) #14
-  br label %330
+  br label %329
 
-330:                                              ; preds = %5, %9, %327, %326, %304, %300, %292, %283, %270, %261, %252, %243, %231, %210, %158, %153, %149, %132, %126, %109, %cli_bcomp_freemeta.exit290, %88, %cli_bcomp_freemeta.exit277, %cli_bcomp_freemeta.exit, %18
-  %.0 = phi i32 [ 4, %cli_bcomp_freemeta.exit ], [ 4, %cli_bcomp_freemeta.exit277 ], [ 4, %109 ], [ 4, %158 ], [ 4, %210 ], [ 4, %231 ], [ 4, %243 ], [ 4, %252 ], [ 4, %300 ], [ 4, %304 ], [ 20, %292 ], [ 0, %327 ], [ 20, %326 ], [ 20, %283 ], [ 27, %270 ], [ 20, %261 ], [ 4, %149 ], [ 4, %153 ], [ 4, %126 ], [ 4, %132 ], [ 4, %88 ], [ 4, %cli_bcomp_freemeta.exit290 ], [ 20, %18 ], [ 2, %9 ], [ 2, %5 ]
+329:                                              ; preds = %5, %9, %326, %325, %302, %298, %290, %282, %270, %261, %252, %243, %231, %210, %158, %153, %149, %132, %126, %109, %cli_bcomp_freemeta.exit290, %88, %cli_bcomp_freemeta.exit277, %cli_bcomp_freemeta.exit, %18
+  %.0 = phi i32 [ 4, %cli_bcomp_freemeta.exit ], [ 4, %cli_bcomp_freemeta.exit277 ], [ 4, %109 ], [ 4, %158 ], [ 4, %210 ], [ 4, %231 ], [ 4, %243 ], [ 4, %252 ], [ 4, %298 ], [ 4, %302 ], [ 20, %290 ], [ 0, %326 ], [ 20, %325 ], [ 20, %282 ], [ 27, %270 ], [ 20, %261 ], [ 4, %149 ], [ 4, %153 ], [ 4, %126 ], [ 4, %132 ], [ 4, %88 ], [ 4, %cli_bcomp_freemeta.exit290 ], [ 20, %18 ], [ 2, %9 ], [ 2, %5 ]
   ret i32 %.0
 }
 
