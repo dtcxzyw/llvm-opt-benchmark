@@ -115,50 +115,50 @@ define i32 @Abc_NtkTestTimNodeStrash(ptr noundef %0, ptr noundef %1) local_unnam
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr i8, ptr %1, i64 32
-  br label %20
+  br label %21
 
 ._crit_edge:                                      ; preds = %2, %10
   %18 = trunc i64 %9 to i32
   %19 = and i32 %18, 1
-  br label %37
+  %20 = xor i32 %19, 1
+  br label %39
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+21:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val22 = load ptr, ptr %1, align 8
   %.val23 = load ptr, ptr %17, align 8
-  %21 = getelementptr i8, ptr %.val22, i64 32
-  %.val22.val = load ptr, ptr %21, align 8
-  %22 = getelementptr i8, ptr %.val22.val, i64 8
-  %.val22.val.val = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 64
-  %29 = load i32, ptr %28, align 8
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %30) #11
-  store i32 %29, ptr %31, align 8
+  %22 = getelementptr i8, ptr %.val22, i64 32
+  %.val22.val = load ptr, ptr %22, align 8
+  %23 = getelementptr i8, ptr %.val22.val, i64 8
+  %.val22.val.val = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %30 = load i32, ptr %29, align 8
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  %32 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %31) #11
+  store i32 %30, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val21 = load i32, ptr %15, align 4
-  %32 = sext i32 %.val21 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %20, label %.critedge, !llvm.loop !4
+  %33 = sext i32 %.val21 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %21, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %20, %.preheader
+.critedge:                                        ; preds = %21, %.preheader
   tail call void @Abc_NtkTestTimNodeStrash_rec(ptr noundef %0, ptr noundef %12)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %12) #11
-  %34 = load i32, ptr %12, align 8
-  %35 = trunc i64 %9 to i32
-  %36 = and i32 %35, 1
-  br label %37
+  %35 = load i32, ptr %12, align 8
+  %36 = trunc i64 %9 to i32
+  %37 = and i32 %36, 1
+  %38 = xor i32 %35, %37
+  br label %39
 
-37:                                               ; preds = %.critedge, %._crit_edge
-  %.sink27 = phi i32 [ %36, %.critedge ], [ 1, %._crit_edge ]
-  %.sink = phi i32 [ %34, %.critedge ], [ %19, %._crit_edge ]
-  %38 = xor i32 %.sink, %.sink27
-  ret i32 %38
+39:                                               ; preds = %.critedge, %._crit_edge
+  %.019 = phi i32 [ %20, %._crit_edge ], [ %38, %.critedge ]
+  ret i32 %.019
 }
 
 declare i32 @Abc_NodeIsConst(ptr noundef) local_unnamed_addr #1

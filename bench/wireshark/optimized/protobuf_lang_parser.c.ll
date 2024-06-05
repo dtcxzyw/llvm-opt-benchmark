@@ -1483,7 +1483,8 @@ yy_reduce.exit:                                   ; preds = %45, %68, %72, %86, 
   %.not.i.i = sub i64 %reass.sub.i.i, %.promoted6.i.i
   %669 = and i64 %.not.i.i, -16
   %scevgep.i.i = getelementptr i8, ptr %661, i64 %669
-  br label %yyStackOverflow.exit.sink.split.i
+  store ptr %scevgep.i.i, ptr %0, align 8
+  br label %yy_shift.exit
 
 670:                                              ; preds = %660
   %671 = icmp ugt i16 %.0.i, 151
@@ -1493,15 +1494,10 @@ yy_reduce.exit:                                   ; preds = %45, %68, %72, %86, 
   %673 = getelementptr i8, ptr %661, i64 18
   store i8 %9, ptr %673, align 2
   %674 = getelementptr i8, ptr %661, i64 24
-  br label %yyStackOverflow.exit.sink.split.i
-
-yyStackOverflow.exit.sink.split.i:                ; preds = %670, %.lr.ph.preheader.i.i
-  %.sink.i39 = phi ptr [ %0, %.lr.ph.preheader.i.i ], [ %674, %670 ]
-  %scevgep.i.sink.i = phi ptr [ %scevgep.i.i, %.lr.ph.preheader.i.i ], [ %2, %670 ]
-  store ptr %scevgep.i.sink.i, ptr %.sink.i39, align 8
+  store ptr %2, ptr %674, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %665, %yyStackOverflow.exit.sink.split.i
+yy_shift.exit:                                    ; preds = %665, %.lr.ph.preheader.i.i, %670
   %675 = getelementptr inbounds i8, ptr %0, i64 8
   %676 = load i32, ptr %675, align 8
   %677 = add i32 %676, -1
@@ -1542,21 +1538,21 @@ yy_shift.exit:                                    ; preds = %665, %yyStackOverfl
 692:                                              ; preds = %691
   %693 = load ptr, ptr %5, align 8
   %694 = getelementptr inbounds i8, ptr %0, i64 24
-  %.promoted.i40 = load ptr, ptr %0, align 8
-  %695 = icmp ugt ptr %.promoted.i40, %694
-  br i1 %695, label %.lr.ph.preheader.i41, label %yy_parse_failed.exit
+  %.promoted.i39 = load ptr, ptr %0, align 8
+  %695 = icmp ugt ptr %.promoted.i39, %694
+  br i1 %695, label %.lr.ph.preheader.i40, label %yy_parse_failed.exit
 
-.lr.ph.preheader.i41:                             ; preds = %692
-  %.promoted8.i = ptrtoint ptr %.promoted.i40 to i64
+.lr.ph.preheader.i40:                             ; preds = %692
+  %.promoted8.i = ptrtoint ptr %.promoted.i39 to i64
   %696 = ptrtoint ptr %0 to i64
-  %reass.sub.i42 = add i64 %696, 24
-  %.not.i43 = sub i64 %reass.sub.i42, %.promoted8.i
-  %697 = and i64 %.not.i43, -16
-  %scevgep.i44 = getelementptr i8, ptr %.promoted.i40, i64 %697
-  store ptr %scevgep.i44, ptr %0, align 8
+  %reass.sub.i41 = add i64 %696, 24
+  %.not.i42 = sub i64 %reass.sub.i41, %.promoted8.i
+  %697 = and i64 %.not.i42, -16
+  %scevgep.i43 = getelementptr i8, ptr %.promoted.i39, i64 %697
+  store ptr %scevgep.i43, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %692, %.lr.ph.preheader.i41
+yy_parse_failed.exit:                             ; preds = %692, %.lr.ph.preheader.i40
   tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %693, ptr noundef nonnull @.str.23)
   %698 = getelementptr inbounds i8, ptr %693, i64 48
   store i32 1, ptr %698, align 8

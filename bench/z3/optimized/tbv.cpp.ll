@@ -210,6 +210,8 @@ if.then:                                          ; preds = %for.body
   %shl.i.i.i.i = shl nuw nsw i32 1, %rem.i.i.i.i
   %and.i.i.i = and i32 %shl.i.i.i.i, %xor.i.i.i
   %shl.i.i.i10.i = shl nuw i32 2, %rem.i.i.i.i
+  %and.i.i11.i = and i32 %2, %shl.i.i.i10.i
+  %3 = or disjoint i32 %and.i.i.i, %and.i.i11.i
   br label %if.end
 
 if.else:                                          ; preds = %for.body
@@ -218,15 +220,13 @@ if.else:                                          ; preds = %for.body
   %and.i.i.i13 = and i32 %2, %shl.i.i.i.i12
   %xor.i.i8.i = xor i32 %2, -1
   %shl.i.i.i10.i14 = shl nuw i32 2, %rem.i.i.i.i11
+  %and.i.i11.i15 = and i32 %shl.i.i.i10.i14, %xor.i.i8.i
+  %4 = or disjoint i32 %and.i.i.i13, %and.i.i11.i15
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %xor.i.i8.i.sink = phi i32 [ %xor.i.i8.i, %if.else ], [ %shl.i.i.i10.i, %if.then ]
-  %shl.i.i.i10.i14.sink = phi i32 [ %shl.i.i.i10.i14, %if.else ], [ %2, %if.then ]
-  %and.i.i.i13.sink = phi i32 [ %and.i.i.i13, %if.else ], [ %and.i.i.i, %if.then ]
-  %and.i.i11.i15 = and i32 %shl.i.i.i10.i14.sink, %xor.i.i8.i.sink
-  %3 = or disjoint i32 %and.i.i.i13.sink, %and.i.i11.i15
-  %xor4.i.i12.i16 = xor i32 %3, %2
+  %.sink = phi i32 [ %4, %if.else ], [ %3, %if.then ]
+  %xor4.i.i12.i16 = xor i32 %.sink, %2
   store i32 %xor4.i.i12.i16, ptr %arrayidx.i.i.i.i9, align 4
   %cmp.not = icmp eq i32 %dec21, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
@@ -738,6 +738,8 @@ if.then7:                                         ; preds = %_ZN8rationalD2Ev.ex
   %and.i.i.i = and i32 %17, %shl.i.i.i.i
   %xor.i.i8.i = xor i32 %17, -1
   %shl.i.i.i10.i = shl nuw i32 2, %rem.i.i.i.i
+  %and.i.i11.i = and i32 %shl.i.i.i10.i, %xor.i.i8.i
+  %18 = or disjoint i32 %and.i.i.i, %and.i.i11.i
   br label %for.inc
 
 if.else:                                          ; preds = %_ZN8rationalD2Ev.exit20
@@ -746,15 +748,13 @@ if.else:                                          ; preds = %_ZN8rationalD2Ev.ex
   %shl.i.i.i.i26 = shl nuw nsw i32 1, %rem.i.i.i.i25
   %and.i.i.i27 = and i32 %shl.i.i.i.i26, %xor.i.i.i
   %shl.i.i.i10.i29 = shl nuw i32 2, %rem.i.i.i.i25
+  %and.i.i11.i30 = and i32 %17, %shl.i.i.i10.i29
+  %19 = or disjoint i32 %and.i.i.i27, %and.i.i11.i30
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then7, %if.else
-  %xor.i.i8.i.sink = phi i32 [ %xor.i.i8.i, %if.then7 ], [ %shl.i.i.i10.i29, %if.else ]
-  %shl.i.i.i10.i.sink = phi i32 [ %shl.i.i.i10.i, %if.then7 ], [ %17, %if.else ]
-  %and.i.i.i.sink = phi i32 [ %and.i.i.i, %if.then7 ], [ %and.i.i.i27, %if.else ]
-  %and.i.i11.i = and i32 %shl.i.i.i10.i.sink, %xor.i.i8.i.sink
-  %18 = or disjoint i32 %and.i.i.i.sink, %and.i.i11.i
-  %xor4.i.i12.i = xor i32 %18, %17
+  %.sink = phi i32 [ %18, %if.then7 ], [ %19, %if.else ]
+  %xor4.i.i12.i = xor i32 %.sink, %17
   store i32 %xor4.i.i12.i, ptr %arrayidx.i.i.i.i, align 4
   %inc = add nuw i32 %i.034, 1
   %exitcond.not = icmp eq i32 %inc, %umax
@@ -861,7 +861,6 @@ if.then.i:                                        ; preds = %for.body.i
   %rem.i.i.i.i.i = and i32 %mul.i6.i, 30
   %shl.i.i.i.i.i = shl nuw nsw i32 1, %rem.i.i.i.i.i
   %and.i.i.i.i = and i32 %shl.i.i.i.i.i, %xor.i.i.i.i
-  %shl.i.i.i10.i.i = shl nuw i32 2, %rem.i.i.i.i.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -869,15 +868,15 @@ if.else.i:                                        ; preds = %for.body.i
   %shl.i.i.i.i12.i = shl nuw nsw i32 1, %rem.i.i.i.i11.i
   %and.i.i.i13.i = and i32 %shl.i.i.i.i12.i, %6
   %xor.i.i8.i.i = xor i32 %6, -1
-  %shl.i.i.i10.i14.i = shl nuw i32 2, %rem.i.i.i.i11.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %xor.i.i8.i.sink.i = phi i32 [ %xor.i.i8.i.i, %if.else.i ], [ %shl.i.i.i10.i.i, %if.then.i ]
-  %shl.i.i.i10.i14.sink.i = phi i32 [ %shl.i.i.i10.i14.i, %if.else.i ], [ %6, %if.then.i ]
-  %and.i.i.i13.sink.i = phi i32 [ %and.i.i.i13.i, %if.else.i ], [ %and.i.i.i.i, %if.then.i ]
-  %and.i.i11.i15.i = and i32 %shl.i.i.i10.i14.sink.i, %xor.i.i8.i.sink.i
-  %7 = or disjoint i32 %and.i.i.i13.sink.i, %and.i.i11.i15.i
+  %rem.i.i.i.i11.i.sink = phi i32 [ %rem.i.i.i.i11.i, %if.else.i ], [ %rem.i.i.i.i.i, %if.then.i ]
+  %xor.i.i8.i.i.sink = phi i32 [ %xor.i.i8.i.i, %if.else.i ], [ %6, %if.then.i ]
+  %and.i.i.i13.i.sink = phi i32 [ %and.i.i.i13.i, %if.else.i ], [ %and.i.i.i.i, %if.then.i ]
+  %shl.i.i.i10.i14.i = shl nuw i32 2, %rem.i.i.i.i11.i.sink
+  %and.i.i11.i15.i = and i32 %shl.i.i.i10.i14.i, %xor.i.i8.i.i.sink
+  %7 = or disjoint i32 %and.i.i.i13.i.sink, %and.i.i11.i15.i
   %xor4.i.i12.i16.i = xor i32 %7, %6
   store i32 %xor4.i.i12.i16.i, ptr %arrayidx.i.i.i.i9.i, align 4
   %cmp.not.i = icmp eq i32 %dec21.i, 0
@@ -984,6 +983,8 @@ if.then10:                                        ; preds = %_ZN8rationalD2Ev.ex
   %and.i.i.i = and i32 %19, %shl.i.i.i.i
   %xor.i.i8.i = xor i32 %19, -1
   %shl.i.i.i10.i = shl nuw i32 2, %rem.i.i.i.i
+  %and.i.i11.i = and i32 %shl.i.i.i10.i, %xor.i.i8.i
+  %20 = or disjoint i32 %and.i.i.i, %and.i.i11.i
   br label %if.end11
 
 if.else:                                          ; preds = %_ZN8rationalD2Ev.exit18
@@ -992,15 +993,13 @@ if.else:                                          ; preds = %_ZN8rationalD2Ev.ex
   %shl.i.i.i.i24 = shl nuw nsw i32 1, %rem.i.i.i.i23
   %and.i.i.i25 = and i32 %shl.i.i.i.i24, %xor.i.i.i
   %shl.i.i.i10.i27 = shl nuw i32 2, %rem.i.i.i.i23
+  %and.i.i11.i28 = and i32 %19, %shl.i.i.i10.i27
+  %21 = or disjoint i32 %and.i.i.i25, %and.i.i11.i28
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then10
-  %shl.i.i.i10.i27.sink = phi i32 [ %shl.i.i.i10.i27, %if.else ], [ %xor.i.i8.i, %if.then10 ]
-  %.sink = phi i32 [ %19, %if.else ], [ %shl.i.i.i10.i, %if.then10 ]
-  %and.i.i.i25.sink = phi i32 [ %and.i.i.i25, %if.else ], [ %and.i.i.i, %if.then10 ]
-  %and.i.i11.i28 = and i32 %.sink, %shl.i.i.i10.i27.sink
-  %20 = or disjoint i32 %and.i.i.i25.sink, %and.i.i11.i28
-  %xor4.i.i12.i29 = xor i32 %20, %19
+  %.sink = phi i32 [ %21, %if.else ], [ %20, %if.then10 ]
+  %xor4.i.i12.i29 = xor i32 %.sink, %19
   store i32 %xor4.i.i12.i29, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not = icmp eq i32 %dec, 0
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !17

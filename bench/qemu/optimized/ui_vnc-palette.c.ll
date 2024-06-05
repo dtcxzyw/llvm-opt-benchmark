@@ -54,12 +54,22 @@ entry:
   %bpp = getelementptr inbounds i8, ptr %palette, i64 6160
   %1 = load i32, ptr %bpp, align 8
   %cmp.i = icmp eq i32 %1, 16
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  %shr.i = lshr i32 %color, 8
+  %add.i = add i32 %shr.i, %color
+  br label %palette_hash.exit
+
+if.else.i:                                        ; preds = %entry
+  %shr1.i = lshr i32 %color, 16
   %shr2.i = lshr i32 %color, 8
-  %shr2.sink.i = select i1 %cmp.i, i32 %color, i32 %shr2.i
-  %shr1.sink.v.i = select i1 %cmp.i, i32 8, i32 16
-  %shr1.sink.i = lshr i32 %color, %shr1.sink.v.i
-  %add3.i = add i32 %shr1.sink.i, %shr2.sink.i
-  %retval.0.i = and i32 %add3.i, 255
+  %add3.i = add nuw nsw i32 %shr1.i, %shr2.i
+  br label %palette_hash.exit
+
+palette_hash.exit:                                ; preds = %if.then.i, %if.else.i
+  %retval.0.in.i = phi i32 [ %add.i, %if.then.i ], [ %add3.i, %if.else.i ]
+  %retval.0.i = and i32 %retval.0.in.i, 255
   %table.i = getelementptr inbounds i8, ptr %palette, i64 6168
   %idxprom.i = zext nneg i32 %retval.0.i to i64
   %arrayidx.i = getelementptr [256 x %struct.anon.0], ptr %table.i, i64 0, i64 %idxprom.i
@@ -67,8 +77,8 @@ entry:
   %tobool.not5.i = icmp eq ptr %entry1.04.i, null
   br i1 %tobool.not5.i, label %land.lhs.true, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %entry ]
+for.body.i:                                       ; preds = %palette_hash.exit, %for.inc.i
+  %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %palette_hash.exit ]
   %color2.i = getelementptr inbounds i8, ptr %entry1.06.i, i64 4
   %2 = load i32, ptr %color2.i, align 4
   %cmp.i26 = icmp eq i32 %2, %color
@@ -80,7 +90,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %land.lhs.true, label %for.body.i, !llvm.loop !5
 
-land.lhs.true:                                    ; preds = %for.inc.i, %entry
+land.lhs.true:                                    ; preds = %for.inc.i, %palette_hash.exit
   %max = getelementptr inbounds i8, ptr %palette, i64 6152
   %3 = load i64, ptr %max, align 8
   %cmp.not = icmp ult i64 %0, %3
@@ -123,12 +133,22 @@ entry:
   %bpp = getelementptr inbounds i8, ptr %palette, i64 6160
   %0 = load i32, ptr %bpp, align 8
   %cmp.i = icmp eq i32 %0, 16
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  %shr.i = lshr i32 %color, 8
+  %add.i = add i32 %shr.i, %color
+  br label %palette_hash.exit
+
+if.else.i:                                        ; preds = %entry
+  %shr1.i = lshr i32 %color, 16
   %shr2.i = lshr i32 %color, 8
-  %shr2.sink.i = select i1 %cmp.i, i32 %color, i32 %shr2.i
-  %shr1.sink.v.i = select i1 %cmp.i, i32 8, i32 16
-  %shr1.sink.i = lshr i32 %color, %shr1.sink.v.i
-  %add3.i = add i32 %shr1.sink.i, %shr2.sink.i
-  %retval.0.i = and i32 %add3.i, 255
+  %add3.i = add nuw nsw i32 %shr1.i, %shr2.i
+  br label %palette_hash.exit
+
+palette_hash.exit:                                ; preds = %if.then.i, %if.else.i
+  %retval.0.in.i = phi i32 [ %add.i, %if.then.i ], [ %add3.i, %if.else.i ]
+  %retval.0.i = and i32 %retval.0.in.i, 255
   %table.i = getelementptr inbounds i8, ptr %palette, i64 6168
   %idxprom.i = zext nneg i32 %retval.0.i to i64
   %arrayidx.i = getelementptr [256 x %struct.anon.0], ptr %table.i, i64 0, i64 %idxprom.i
@@ -136,8 +156,8 @@ entry:
   %tobool.not5.i = icmp eq ptr %entry1.04.i, null
   br i1 %tobool.not5.i, label %cond.end, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %entry ]
+for.body.i:                                       ; preds = %palette_hash.exit, %for.inc.i
+  %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %palette_hash.exit ]
   %color2.i = getelementptr inbounds i8, ptr %entry1.06.i, i64 4
   %1 = load i32, ptr %color2.i, align 4
   %cmp.i4 = icmp eq i32 %1, %color
@@ -153,8 +173,8 @@ cond.false:                                       ; preds = %for.body.i
   %2 = load i32, ptr %entry1.06.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %for.inc.i, %entry, %cond.false
-  %cond = phi i32 [ %2, %cond.false ], [ -1, %entry ], [ -1, %for.inc.i ]
+cond.end:                                         ; preds = %for.inc.i, %palette_hash.exit, %cond.false
+  %cond = phi i32 [ %2, %cond.false ], [ -1, %palette_hash.exit ], [ -1, %for.inc.i ]
   ret i32 %cond
 }
 

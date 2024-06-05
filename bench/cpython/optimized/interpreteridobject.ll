@@ -141,9 +141,12 @@ PyObject_TypeCheck.exit30:                        ; preds = %if.end3
   br i1 %tobool3.i28.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit30
+  %id7 = getelementptr inbounds i8, ptr %self, i64 16
+  %3 = load i64, ptr %id7, align 8
   %id8 = getelementptr inbounds i8, ptr %other, i64 16
-  %3 = load i64, ptr %id8, align 8
-  br label %if.end42.sink.split
+  %4 = load i64, ptr %id8, align 8
+  %cmp9 = icmp eq i64 %3, %4
+  br label %if.end42
 
 if.else:                                          ; preds = %PyObject_TypeCheck.exit30
   %other.val = load ptr, ptr %2, align 8
@@ -161,11 +164,17 @@ land.lhs.true17:                                  ; preds = %if.then12
   br i1 %tobool19.not, label %if.end42, label %return
 
 if.end21:                                         ; preds = %if.then12
-  %4 = load i32, ptr %overflow, align 4
-  %tobool22 = icmp eq i32 %4, 0
+  %5 = load i32, ptr %overflow, align 4
+  %tobool22 = icmp eq i32 %5, 0
   %cmp24 = icmp sgt i64 %call14, -1
   %or.cond1 = and i1 %cmp24, %tobool22
-  br i1 %or.cond1, label %if.end42.sink.split, label %if.end42
+  br i1 %or.cond1, label %land.rhs, label %if.end42
+
+land.rhs:                                         ; preds = %if.end21
+  %id26 = getelementptr inbounds i8, ptr %self, i64 16
+  %6 = load i64, ptr %id26, align 8
+  %cmp27 = icmp eq i64 %6, %call14
+  br label %if.end42
 
 if.else29:                                        ; preds = %if.else
   %call30 = tail call i32 @PyNumber_Check(ptr noundef nonnull %other) #2
@@ -174,20 +183,20 @@ if.else29:                                        ; preds = %if.else
 
 if.then32:                                        ; preds = %if.else29
   %id33 = getelementptr inbounds i8, ptr %self, i64 16
-  %5 = load i64, ptr %id33, align 8
-  %call34 = tail call ptr @PyLong_FromLongLong(i64 noundef %5) #2
+  %7 = load i64, ptr %id33, align 8
+  %call34 = tail call ptr @PyLong_FromLongLong(i64 noundef %7) #2
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
   %call39 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %call34, ptr noundef nonnull %other, i32 noundef %op) #2
-  %6 = load i64, ptr %call34, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i54.not = icmp eq i64 %7, 0
+  %8 = load i64, ptr %call34, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i54.not = icmp eq i64 %9, 0
   br i1 %cmp.i54.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end38
-  %dec.i = add i64 %6, -1
+  %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %call34, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -196,15 +205,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call34) #2
   br label %return
 
-if.end42.sink.split:                              ; preds = %if.end21, %if.then6
-  %call14.sink = phi i64 [ %3, %if.then6 ], [ %call14, %if.end21 ]
-  %.sink.in = getelementptr inbounds i8, ptr %self, i64 16
-  %.sink = load i64, ptr %.sink.in, align 8
-  %cmp27 = icmp eq i64 %.sink, %call14.sink
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.end42.sink.split, %land.lhs.true17, %if.end21
-  %equal.0 = phi i1 [ false, %if.end21 ], [ false, %land.lhs.true17 ], [ %cmp27, %if.end42.sink.split ]
+if.end42:                                         ; preds = %land.lhs.true17, %if.end21, %land.rhs, %if.then6
+  %equal.0 = phi i1 [ %cmp9, %if.then6 ], [ false, %if.end21 ], [ %cmp27, %land.rhs ], [ false, %land.lhs.true17 ]
   %cmp43 = icmp eq i32 %op, 2
   %or.cond2 = select i1 %cmp43, i1 %equal.0, i1 false
   %or.cond2.not = xor i1 %or.cond2, true

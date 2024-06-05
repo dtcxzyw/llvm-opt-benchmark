@@ -109,49 +109,49 @@ define i32 @Abc_NodeStrashToGia(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 ._crit_edge:                                      ; preds = %2, %10
   %17 = trunc i64 %9 to i32
   %18 = and i32 %17, 1
-  br label %36
+  %19 = xor i32 %18, 1
+  br label %38
 
 .lr.ph:                                           ; preds = %.preheader
-  %19 = getelementptr i8, ptr %1, i64 32
+  %20 = getelementptr i8, ptr %1, i64 32
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.val31 = load ptr, ptr %1, align 8
-  %.val32 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %.val31, i64 32
-  %.val31.val = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %.val31.val, i64 8
-  %.val31.val.val = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds i32, ptr %.val32, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
-  %28 = load i32, ptr %27, align 8
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %29) #13
-  store i32 %28, ptr %30, align 8
+  %.val32 = load ptr, ptr %20, align 8
+  %21 = getelementptr i8, ptr %.val31, i64 32
+  %.val31.val = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %.val31.val, i64 8
+  %.val31.val.val = load ptr, ptr %22, align 8
+  %23 = getelementptr inbounds i32, ptr %.val32, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 64
+  %29 = load i32, ptr %28, align 8
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %30) #13
+  store i32 %29, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val28 = load i32, ptr %15, align 4
-  %31 = sext i32 %.val28 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.critedge, label %.critedge2, !llvm.loop !4
+  %32 = sext i32 %.val28 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.critedge, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %.critedge, %.preheader
   tail call void @Abc_NodeStrashToGia_rec(ptr noundef %0, ptr noundef %12)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %12) #13
-  %33 = load i32, ptr %12, align 8
-  %34 = trunc i64 %9 to i32
-  %35 = and i32 %34, 1
-  br label %36
+  %34 = load i32, ptr %12, align 8
+  %35 = trunc i64 %9 to i32
+  %36 = and i32 %35, 1
+  %37 = xor i32 %34, %36
+  br label %38
 
-36:                                               ; preds = %.critedge2, %._crit_edge
-  %.sink36 = phi i32 [ %35, %.critedge2 ], [ 1, %._crit_edge ]
-  %.sink = phi i32 [ %33, %.critedge2 ], [ %18, %._crit_edge ]
-  %37 = xor i32 %.sink, %.sink36
-  ret i32 %37
+38:                                               ; preds = %.critedge2, %._crit_edge
+  %.026 = phi i32 [ %19, %._crit_edge ], [ %37, %.critedge2 ]
+  ret i32 %.026
 }
 
 declare i32 @Abc_NodeIsConst(ptr noundef) local_unnamed_addr #1

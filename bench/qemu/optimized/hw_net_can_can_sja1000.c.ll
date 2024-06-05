@@ -1895,27 +1895,28 @@ entry:
 
 if.then:                                          ; preds = %entry
   %interrupt_en.i = getelementptr inbounds i8, ptr %opaque, i64 3
+  %1 = load i8, ptr %interrupt_en.i, align 1
   %interrupt_pel.i = getelementptr inbounds i8, ptr %opaque, i64 2
-  %1 = load i8, ptr %interrupt_pel.i, align 2
+  %2 = load i8, ptr %interrupt_pel.i, align 2
+  %and4.i = and i8 %2, %1
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %control.i = getelementptr inbounds i8, ptr %opaque, i64 100
-  %2 = load i8, ptr %control.i, align 4
-  %3 = lshr i8 %2, 1
+  %3 = load i8, ptr %control.i, align 4
+  %4 = lshr i8 %3, 1
   %interrupt_bas.i = getelementptr inbounds i8, ptr %opaque, i64 102
+  %5 = load i8, ptr %interrupt_bas.i, align 2
+  %and4.i3 = and i8 %4, %5
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink7.in = phi ptr [ %interrupt_bas.i, %if.else ], [ %interrupt_en.i, %if.then ]
-  %.sink = phi i8 [ %3, %if.else ], [ %1, %if.then ]
-  %.sink7 = load i8, ptr %.sink7.in, align 1
-  %and4.i3 = and i8 %.sink, %.sink7
-  %tobool.not.i4 = icmp ne i8 %and4.i3, 0
+  %and4.i3.sink = phi i8 [ %and4.i3, %if.else ], [ %and4.i, %if.then ]
+  %tobool.not.i4 = icmp ne i8 %and4.i3.sink, 0
   %irq2.i5 = getelementptr inbounds i8, ptr %opaque, i64 144
-  %4 = load ptr, ptr %irq2.i5, align 8
+  %6 = load ptr, ptr %irq2.i5, align 8
   %..i6 = zext i1 %tobool.not.i4 to i32
-  tail call void @qemu_set_irq(ptr noundef %4, i32 noundef %..i6) #9
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i6) #9
   ret i32 0
 }
 

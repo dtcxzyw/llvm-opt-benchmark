@@ -29732,53 +29732,62 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
   %shr2.i = lshr i32 %5, 23
   %cmp4.not.i = icmp eq i32 %shr2.i, %reg
   %or.cond.i = or i1 %cmp1.not.i, %cmp4.not.i
+  br i1 %or.cond.i, label %if.else.i, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.end.i
+  %and6.i = and i32 %5, -16357
+  %or.i = or disjoint i32 %and6.i, %and7.i
+  br label %if.then
+
+if.else.i:                                        ; preds = %if.end.i
   %6 = lshr i32 %5, 17
   %shl10.i = and i32 %6, 32704
   %or11.i = and i32 %5, 8372250
-  %and6.i = and i32 %5, -16357
-  %7 = or i32 %shl10.i, %or11.i
-  %8 = or disjoint i32 %and6.i, %and7.i
-  %or16.i = select i1 %or.cond.i, i32 %7, i32 %8
-  store i32 %or16.i, ptr %retval.0.i.i, align 4
+  %or16.i = or i32 %shl10.i, %or11.i
+  br label %if.then
+
+if.then:                                          ; preds = %if.else.i, %if.then5.i
+  %storemerge.i = phi i32 [ %or16.i, %if.else.i ], [ %or.i, %if.then5.i ]
+  store i32 %storemerge.i, ptr %retval.0.i.i, align 4
   %add.neg.i = xor i32 %list.addr.037, -1
   %sub.i10 = add i32 %add.neg.i, %vtarget
-  %9 = tail call i32 @llvm.abs.i32(i32 %sub.i10, i1 true)
-  %cmp.i11 = icmp ugt i32 %9, 131071
+  %7 = tail call i32 @llvm.abs.i32(i32 %sub.i10, i1 true)
+  %cmp.i11 = icmp ugt i32 %7, 131071
   br i1 %cmp.i11, label %if.then.i, label %fixjump.exit
 
-if.then.i:                                        ; preds = %if.end.i
+if.then.i:                                        ; preds = %if.then
   %ls.i = getelementptr inbounds i8, ptr %fs, i64 24
-  %10 = load ptr, ptr %ls.i, align 8
-  %t.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load i32, ptr %t.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %10, ptr noundef nonnull @.str.148, i32 noundef %11)
+  %8 = load ptr, ptr %ls.i, align 8
+  %t.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load i32, ptr %t.i.i, align 8
+  tail call fastcc void @luaX_lexerror(ptr noundef readonly %8, ptr noundef nonnull @.str.148, i32 noundef %9)
   unreachable
 
-fixjump.exit:                                     ; preds = %if.end.i
-  %12 = load ptr, ptr %fs, align 8
-  %code.i = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %code.i, align 8
-  %arrayidx.i14 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i
-  %14 = load i32, ptr %arrayidx.i14, align 4
+fixjump.exit:                                     ; preds = %if.then
+  %10 = load ptr, ptr %fs, align 8
+  %code.i = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = load ptr, ptr %code.i, align 8
+  %arrayidx.i14 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i
+  %12 = load i32, ptr %arrayidx.i14, align 4
   br label %if.end
 
 if.else:                                          ; preds = %getjumpcontrol.exit.i
   %add.neg.i19 = xor i32 %list.addr.037, -1
   %sub.i20 = add i32 %add.neg.i19, %dtarget
-  %15 = tail call i32 @llvm.abs.i32(i32 %sub.i20, i1 true)
-  %cmp.i21 = icmp ugt i32 %15, 131071
+  %13 = tail call i32 @llvm.abs.i32(i32 %sub.i20, i1 true)
+  %cmp.i21 = icmp ugt i32 %13, 131071
   br i1 %cmp.i21, label %if.then.i30, label %if.end
 
 if.then.i30:                                      ; preds = %if.else
   %ls.i31 = getelementptr inbounds i8, ptr %fs, i64 24
-  %16 = load ptr, ptr %ls.i31, align 8
-  %t.i.i32 = getelementptr inbounds i8, ptr %16, i64 16
-  %17 = load i32, ptr %t.i.i32, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %16, ptr noundef nonnull @.str.148, i32 noundef %17)
+  %14 = load ptr, ptr %ls.i31, align 8
+  %t.i.i32 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i32, ptr %t.i.i32, align 8
+  tail call fastcc void @luaX_lexerror(ptr noundef readonly %14, ptr noundef nonnull @.str.148, i32 noundef %15)
   unreachable
 
 if.end:                                           ; preds = %if.else, %fixjump.exit
-  %.sink = phi i32 [ %14, %fixjump.exit ], [ %1, %if.else ]
+  %.sink = phi i32 [ %12, %fixjump.exit ], [ %1, %if.else ]
   %sub.i20.sink = phi i32 [ %sub.i10, %fixjump.exit ], [ %sub.i20, %if.else ]
   %arrayidx.i.sink = phi ptr [ %arrayidx.i14, %fixjump.exit ], [ %arrayidx.i, %if.else ]
   %and.i26 = and i32 %.sink, 16383

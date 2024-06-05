@@ -745,26 +745,26 @@ define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr n
   %5 = sext i8 %4 to i32
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %5) #20
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %10 = load i64, ptr %1, align 8
-  br label %16
+  %11 = add i64 %10, %9
+  br label %18
 
-11:                                               ; preds = %2
-  %12 = ptrtoint ptr %6 to i64
-  %13 = ptrtoint ptr %0 to i64
-  %14 = sub i64 %12, %13
-  %15 = load i64, ptr %1, align 8
-  br label %16
+12:                                               ; preds = %2
+  %13 = ptrtoint ptr %6 to i64
+  %14 = ptrtoint ptr %0 to i64
+  %15 = sub i64 %13, %14
+  %16 = load i64, ptr %1, align 8
+  %17 = add i64 %15, %16
+  br label %18
 
-16:                                               ; preds = %11, %8
-  %.sink10 = phi i64 [ %15, %11 ], [ %9, %8 ]
-  %.sink = phi i64 [ %14, %11 ], [ %10, %8 ]
-  %.0 = phi i32 [ 1, %11 ], [ 0, %8 ]
-  %17 = add i64 %.sink, %.sink10
-  store i64 %17, ptr %1, align 8
+18:                                               ; preds = %12, %8
+  %storemerge = phi i64 [ %17, %12 ], [ %11, %8 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %8 ]
+  store i64 %storemerge, ptr %1, align 8
   ret i32 %.0
 }
 

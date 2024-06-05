@@ -91,23 +91,20 @@ if.then20:                                        ; preds = %if.end19
   %user_line_stride = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %15 = load i32, ptr %user_line_stride, align 4
   %conv23 = sext i32 %15 to i64
-  br label %if.end32.sink.split
+  %mul24 = mul nsw i64 %conv23, %conv22
+  %add.ptr25 = getelementptr inbounds i8, ptr %11, i64 %mul24
+  br label %if.end32
 
 if.else:                                          ; preds = %if.end
   %user_line_stride28 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %16 = load i32, ptr %user_line_stride28, align 4
   %conv29 = sext i32 %16 to i64
-  br label %if.end32.sink.split
-
-if.end32.sink.split:                              ; preds = %if.else, %if.then20
-  %conv22.sink = phi i64 [ %conv22, %if.then20 ], [ %conv29, %if.else ]
-  %conv23.sink = phi i64 [ %conv23, %if.then20 ], [ %indvars.iv195, %if.else ]
-  %mul24 = mul nsw i64 %conv23.sink, %conv22.sink
-  %add.ptr25 = getelementptr inbounds i8, ptr %11, i64 %mul24
+  %mul30 = mul nsw i64 %indvars.iv195, %conv29
+  %add.ptr31 = getelementptr inbounds i8, ptr %11, i64 %mul30
   br label %if.end32
 
-if.end32:                                         ; preds = %if.end32.sink.split, %if.end19
-  %cdata.0 = phi ptr [ null, %if.end19 ], [ %add.ptr25, %if.end32.sink.split ]
+if.end32:                                         ; preds = %if.end19, %if.then20, %if.else
+  %cdata.0 = phi ptr [ %add.ptr25, %if.then20 ], [ null, %if.end19 ], [ %add.ptr31, %if.else ]
   %user_pixel_stride = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %17 = load i32, ptr %user_pixel_stride, align 8
   %data_type = getelementptr inbounds i8, ptr %add.ptr, i64 26

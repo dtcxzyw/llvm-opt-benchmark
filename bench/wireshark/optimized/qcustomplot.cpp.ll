@@ -29009,11 +29009,11 @@ define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(
   %25 = sitofp i32 %24 to double
   %26 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef 0.000000e+00, double noundef %25)
   %27 = load i32, ptr %1, align 8
-  switch i32 %27, label %40 [
+  switch i32 %27, label %41 [
     i32 0, label %28
     i32 1, label %28
-    i32 2, label %33
-    i32 3, label %33
+    i32 2, label %34
+    i32 3, label %34
   ]
 
 28:                                               ; preds = %12, %12
@@ -29021,60 +29021,59 @@ define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(
   %30 = sub i32 0, %29
   %31 = sitofp i32 %30 to double
   %32 = fmul double %31, 5.000000e-01
+  %33 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef 0.000000e+00, double noundef %32)
   br label %thread-pre-split
 
-33:                                               ; preds = %12, %12
-  %34 = getelementptr inbounds i8, ptr %1, i64 224
-  %35 = load i32, ptr %34, align 8
-  %36 = load i32, ptr %14, align 8
-  %.neg26 = xor i32 %35, -1
-  %.neg25 = add i32 %36, %.neg26
-  %37 = sitofp i32 %.neg25 to double
-  %38 = fmul double %37, 5.000000e-01
+34:                                               ; preds = %12, %12
+  %35 = getelementptr inbounds i8, ptr %1, i64 224
+  %36 = load i32, ptr %35, align 8
+  %37 = load i32, ptr %14, align 8
+  %.neg26 = xor i32 %36, -1
+  %.neg25 = add i32 %37, %.neg26
+  %38 = sitofp i32 %.neg25 to double
+  %39 = fmul double %38, 5.000000e-01
+  %40 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef %39, double noundef 0.000000e+00)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %28, %33
-  %.sink29 = phi double [ %32, %28 ], [ 0.000000e+00, %33 ]
-  %.sink = phi double [ 0.000000e+00, %28 ], [ %38, %33 ]
-  %39 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef %.sink, double noundef %.sink29)
+thread-pre-split:                                 ; preds = %28, %34
   %.pr = load i32, ptr %1, align 8
-  br label %40
+  br label %41
 
-40:                                               ; preds = %thread-pre-split, %12
-  %41 = phi i32 [ %.pr, %thread-pre-split ], [ %27, %12 ]
-  switch i32 %41, label %48 [
-    i32 5, label %42
-    i32 1, label %42
-    i32 6, label %42
+41:                                               ; preds = %thread-pre-split, %12
+  %42 = phi i32 [ %.pr, %thread-pre-split ], [ %27, %12 ]
+  switch i32 %42, label %49 [
+    i32 5, label %43
+    i32 1, label %43
+    i32 6, label %43
   ]
 
-42:                                               ; preds = %40, %40, %40
-  %43 = getelementptr inbounds i8, ptr %1, i64 224
-  %44 = load i32, ptr %43, align 8
-  %45 = load i32, ptr %14, align 8
-  %.neg28 = xor i32 %44, -1
-  %.neg27 = add i32 %45, %.neg28
-  %46 = sitofp i32 %.neg27 to double
-  %47 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef %46, double noundef 0.000000e+00)
+43:                                               ; preds = %41, %41, %41
+  %44 = getelementptr inbounds i8, ptr %1, i64 224
+  %45 = load i32, ptr %44, align 8
+  %46 = load i32, ptr %14, align 8
+  %.neg28 = xor i32 %45, -1
+  %.neg27 = add i32 %46, %.neg28
+  %47 = sitofp i32 %.neg27 to double
+  %48 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef %47, double noundef 0.000000e+00)
   %.pre = load i32, ptr %1, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %40, %42
-  %49 = phi i32 [ %41, %40 ], [ %.pre, %42 ]
-  switch i32 %49, label %55 [
-    i32 7, label %50
-    i32 3, label %50
-    i32 6, label %50
+49:                                               ; preds = %41, %43
+  %50 = phi i32 [ %42, %41 ], [ %.pre, %43 ]
+  switch i32 %50, label %56 [
+    i32 7, label %51
+    i32 3, label %51
+    i32 6, label %51
   ]
 
-50:                                               ; preds = %48, %48, %48
-  %51 = load i32, ptr %22, align 8
-  %52 = sub i32 0, %51
-  %53 = sitofp i32 %52 to double
-  %54 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef 0.000000e+00, double noundef %53)
-  br label %55
+51:                                               ; preds = %49, %49, %49
+  %52 = load i32, ptr %22, align 8
+  %53 = sub i32 0, %52
+  %54 = sitofp i32 %53 to double
+  %55 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable(74) %13, double noundef 0.000000e+00, double noundef %54)
+  br label %56
 
-55:                                               ; preds = %48, %50
+56:                                               ; preds = %49, %51
   ret void
 }
 

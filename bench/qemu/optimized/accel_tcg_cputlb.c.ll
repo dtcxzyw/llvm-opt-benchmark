@@ -3073,8 +3073,11 @@ if.then.i:                                        ; preds = %if.then
   %4 = load i64, ptr %addr.i, align 8
   %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 2, i32 noundef %2, i32 noundef %access_type, i64 noundef %ra)
   %conv3.i = trunc i64 %call.i to i16
+  %and4.i = and i32 %1, 16
+  %cmp.i = icmp eq i32 %and4.i, 0
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv3.i)
-  br label %do_ld_2.exit
+  %spec.select.i = select i1 %cmp.i, i16 %5, i16 %conv3.i
+  br label %return
 
 if.else.i:                                        ; preds = %if.then
   %haddr.i = getelementptr inbounds i8, ptr %l, i64 8
@@ -3268,15 +3271,10 @@ do.body.i.i:                                      ; preds = %required_atomicity.
 
 load_atom_2.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then31.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
   %retval.0.i.i = phi i16 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %if.then31.i.i ], [ %conv36.i.i, %load_atom_extract_al16_or_exit.exit.i.i ], [ %pv.val.i.i, %sw.bb.i.i ]
+  %and8.i = and i32 %1, 16
+  %tobool9.not.i = icmp eq i32 %and8.i, 0
   %25 = tail call i16 @llvm.bswap.i16(i16 %retval.0.i.i)
-  br label %do_ld_2.exit
-
-do_ld_2.exit:                                     ; preds = %if.then.i, %load_atom_2.exit.i
-  %.sink.i = phi i16 [ %25, %load_atom_2.exit.i ], [ %conv3.i, %if.then.i ]
-  %retval.0.i.sink.i = phi i16 [ %retval.0.i.i, %load_atom_2.exit.i ], [ %5, %if.then.i ]
-  %tobool9.not.sink.in.i = and i32 %1, 16
-  %tobool9.not.sink.i = icmp eq i32 %tobool9.not.sink.in.i, 0
-  %spec.select10.i = select i1 %tobool9.not.sink.i, i16 %retval.0.i.sink.i, i16 %.sink.i
+  %spec.select10.i = select i1 %tobool9.not.i, i16 %retval.0.i.i, i16 %25
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3343,8 +3341,8 @@ if.else:                                          ; preds = %do_ld_1.exit31
   %or22 = or disjoint i16 %shl21, %conv19
   br label %return
 
-return:                                           ; preds = %if.then15, %if.else, %do_ld_2.exit
-  %retval.0 = phi i16 [ %spec.select10.i, %do_ld_2.exit ], [ %or, %if.then15 ], [ %or22, %if.else ]
+return:                                           ; preds = %load_atom_2.exit.i, %if.then.i, %if.then15, %if.else
+  %retval.0 = phi i16 [ %or, %if.then15 ], [ %or22, %if.else ], [ %spec.select.i, %if.then.i ], [ %spec.select10.i, %load_atom_2.exit.i ]
   ret i16 %retval.0
 }
 
@@ -3384,8 +3382,11 @@ if.then.i:                                        ; preds = %if.then
   %4 = load i64, ptr %addr.i, align 8
   %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 4, i32 noundef %2, i32 noundef %access_type, i64 noundef %ra)
   %conv3.i = trunc i64 %call.i to i32
+  %and4.i = and i32 %0, 16
+  %cmp.i = icmp eq i32 %and4.i, 0
   %5 = tail call i32 @llvm.bswap.i32(i32 %conv3.i)
-  br label %do_ld_4.exit
+  %spec.select.i = select i1 %cmp.i, i32 %5, i32 %conv3.i
+  br label %return
 
 if.else.i:                                        ; preds = %if.then
   %haddr.i = getelementptr inbounds i8, ptr %l, i64 8
@@ -3605,15 +3606,10 @@ do.body.i.i:                                      ; preds = %required_atomicity.
 
 load_atom_4.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then29.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %load_atom_extract_al16_or_exit.exit.i.i ], [ %conv3.i.i.i, %if.then29.i.i ], [ %or.i.i.i, %sw.bb.i.i ]
+  %and8.i = and i32 %0, 16
+  %tobool9.not.i = icmp eq i32 %and8.i, 0
   %31 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i.i)
-  br label %do_ld_4.exit
-
-do_ld_4.exit:                                     ; preds = %if.then.i, %load_atom_4.exit.i
-  %.sink.i = phi i32 [ %31, %load_atom_4.exit.i ], [ %conv3.i, %if.then.i ]
-  %retval.0.i.sink.i = phi i32 [ %retval.0.i.i, %load_atom_4.exit.i ], [ %5, %if.then.i ]
-  %tobool9.not.sink.in.i = and i32 %0, 16
-  %tobool9.not.sink.i = icmp eq i32 %tobool9.not.sink.in.i, 0
-  %spec.select10.i = select i1 %tobool9.not.sink.i, i32 %retval.0.i.sink.i, i32 %.sink.i
+  %spec.select10.i = select i1 %tobool9.not.i, i32 %retval.0.i.i, i32 %31
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3632,8 +3628,8 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %cmp, i32 %34, i32 %conv17
   br label %return
 
-return:                                           ; preds = %if.end, %do_ld_4.exit
-  %retval.0 = phi i32 [ %spec.select10.i, %do_ld_4.exit ], [ %spec.select, %if.end ]
+return:                                           ; preds = %load_atom_4.exit.i, %if.then.i, %if.end
+  %retval.0 = phi i32 [ %spec.select, %if.end ], [ %spec.select.i, %if.then.i ], [ %spec.select10.i, %load_atom_4.exit.i ]
   ret i32 %retval.0
 }
 
@@ -12955,7 +12951,10 @@ if.then:                                          ; preds = %entry
   %addr = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i64, ptr %addr, align 8
   %call = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %1, i64 noundef 0, i64 noundef %2, i32 noundef 8, i32 noundef %mmu_idx, i32 noundef %type, i64 noundef %ra)
+  %and3 = and i32 %memop, 16
+  %cmp = icmp eq i32 %and3, 0
   %3 = tail call i64 @llvm.bswap.i64(i64 %call)
+  %spec.select = select i1 %cmp, i64 %3, i64 %call
   br label %if.end11
 
 if.else:                                          ; preds = %entry
@@ -13127,16 +13126,15 @@ if.end18.i:                                       ; preds = %cpu_in_serial_conte
 
 load_atom_8.exit:                                 ; preds = %if.then.i, %load_atom_extract_al16_or_al8.exit.i, %load_atom_extract_al16_or_exit.exit.i, %if.end18.i
   %retval.0.i = phi i64 [ %6, %if.then.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %load_atom_extract_al16_or_al8.exit.i ], [ %retval.sroa.0.0.extract.trunc.i.i20.i, %load_atom_extract_al16_or_exit.exit.i ], [ %or.i.i, %if.end18.i ]
+  %and7 = and i32 %memop, 16
+  %tobool8.not = icmp eq i32 %and7, 0
   %26 = tail call i64 @llvm.bswap.i64(i64 %retval.0.i)
+  %spec.select10 = select i1 %tobool8.not, i64 %retval.0.i, i64 %26
   br label %if.end11
 
 if.end11:                                         ; preds = %load_atom_8.exit, %if.then
-  %.sink = phi i64 [ %26, %load_atom_8.exit ], [ %call, %if.then ]
-  %retval.0.i.sink = phi i64 [ %retval.0.i, %load_atom_8.exit ], [ %3, %if.then ]
-  %tobool8.not.sink.in = and i32 %memop, 16
-  %tobool8.not.sink = icmp eq i32 %tobool8.not.sink.in, 0
-  %spec.select10 = select i1 %tobool8.not.sink, i64 %retval.0.i.sink, i64 %.sink
-  ret i64 %spec.select10
+  %ret.0 = phi i64 [ %spec.select, %if.then ], [ %spec.select10, %load_atom_8.exit ]
+  ret i64 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -224,7 +224,7 @@ thread-pre-split:                                 ; preds = %15
   %.078.ph = phi i32 [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
   %.075.ph = phi i32 [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
   call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.079.ph, ptr noundef %.080.ph) #16
-  br label %52
+  br label %56
 
 25:                                               ; preds = %17, %19
   %26 = getelementptr inbounds i8, ptr %18, i64 24
@@ -235,7 +235,7 @@ thread-pre-split:                                 ; preds = %15
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %29, align 8
-  br label %52
+  br label %56
 
 30:                                               ; preds = %25
   %31 = call i32 @php_check_open_basedir(ptr noundef nonnull %5) #16
@@ -245,13 +245,13 @@ thread-pre-split:                                 ; preds = %15
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
-  br label %52
+  br label %56
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
-  br i1 %.not.i, label %36, label %47
+  br i1 %.not.i, label %36, label %51
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %3, i64 8
@@ -260,29 +260,38 @@ thread-pre-split:                                 ; preds = %15
   %39 = getelementptr inbounds i8, ptr %3, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = uitofp i64 %40 to double
-  %42 = load i64, ptr %3, align 8
-  %43 = uitofp i64 %42 to double
-  %44 = uitofp i64 %38 to double
-  %.sink6.i = select i1 %.not5.i, double %43, double %41
-  %.sink.i = select i1 %.not5.i, double %41, double %44
-  %45 = fmul double %.sink.i, %.sink6.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  store double %45, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %46, align 8
-  br label %52
+  br i1 %.not5.i, label %45, label %42
 
-47:                                               ; preds = %34
-  %48 = tail call ptr @__errno_location() #18
-  %49 = load i32, ptr %48, align 4
-  %50 = call ptr @strerror(i32 noundef %49) #16
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %50) #16
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %51, align 8
-  br label %52
+42:                                               ; preds = %36
+  %43 = uitofp i64 %38 to double
+  %44 = fmul double %43, %41
+  br label %49
 
-52:                                               ; preds = %47, %36, %32, %28, %24
+45:                                               ; preds = %36
+  %46 = load i64, ptr %3, align 8
+  %47 = uitofp i64 %46 to double
+  %48 = fmul double %41, %47
+  br label %49
+
+49:                                               ; preds = %45, %42
+  %.0.ph = phi double [ %48, %45 ], [ %44, %42 ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  store double %.0.ph, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %50, align 8
+  br label %56
+
+51:                                               ; preds = %34
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4
+  %54 = call ptr @strerror(i32 noundef %53) #16
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %54) #16
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %55, align 8
+  br label %56
+
+56:                                               ; preds = %51, %49, %32, %28, %24
   ret void
 }
 
@@ -350,7 +359,7 @@ thread-pre-split:                                 ; preds = %15
   %.078.ph = phi i32 [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
   %.075.ph = phi i32 [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
   call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.079.ph, ptr noundef %.080.ph) #16
-  br label %52
+  br label %56
 
 25:                                               ; preds = %17, %19
   %26 = getelementptr inbounds i8, ptr %18, i64 24
@@ -361,7 +370,7 @@ thread-pre-split:                                 ; preds = %15
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %29, align 8
-  br label %52
+  br label %56
 
 30:                                               ; preds = %25
   %31 = call i32 @php_check_open_basedir(ptr noundef nonnull %5) #16
@@ -371,13 +380,13 @@ thread-pre-split:                                 ; preds = %15
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
-  br label %52
+  br label %56
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
-  br i1 %.not.i, label %36, label %47
+  br i1 %.not.i, label %36, label %51
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %3, i64 8
@@ -386,29 +395,38 @@ thread-pre-split:                                 ; preds = %15
   %39 = getelementptr inbounds i8, ptr %3, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = uitofp i64 %40 to double
-  %42 = load i64, ptr %3, align 8
-  %43 = uitofp i64 %42 to double
-  %44 = uitofp i64 %38 to double
-  %.sink6.i = select i1 %.not5.i, double %43, double %41
-  %.sink.i = select i1 %.not5.i, double %41, double %44
-  %45 = fmul double %.sink.i, %.sink6.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  store double %45, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %46, align 8
-  br label %52
+  br i1 %.not5.i, label %45, label %42
 
-47:                                               ; preds = %34
-  %48 = tail call ptr @__errno_location() #18
-  %49 = load i32, ptr %48, align 4
-  %50 = call ptr @strerror(i32 noundef %49) #16
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %50) #16
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %51, align 8
-  br label %52
+42:                                               ; preds = %36
+  %43 = uitofp i64 %38 to double
+  %44 = fmul double %43, %41
+  br label %49
 
-52:                                               ; preds = %47, %36, %32, %28, %24
+45:                                               ; preds = %36
+  %46 = load i64, ptr %3, align 8
+  %47 = uitofp i64 %46 to double
+  %48 = fmul double %41, %47
+  br label %49
+
+49:                                               ; preds = %45, %42
+  %.0.ph = phi double [ %48, %45 ], [ %44, %42 ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  store double %.0.ph, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %50, align 8
+  br label %56
+
+51:                                               ; preds = %34
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4
+  %54 = call ptr @strerror(i32 noundef %53) #16
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %54) #16
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %55, align 8
+  br label %56
+
+56:                                               ; preds = %51, %49, %32, %28, %24
   ret void
 }
 

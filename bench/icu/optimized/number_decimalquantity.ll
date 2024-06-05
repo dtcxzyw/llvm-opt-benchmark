@@ -6472,7 +6472,9 @@ if.then3:                                         ; preds = %if.then
   %add = add nsw i32 %leadingZeros, 1
   %scale = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %scale, align 4
-  br label %if.end22.sink.split
+  %add4 = add nsw i32 %add, %1
+  store i32 %add4, ptr %scale, align 4
+  br label %if.end22
 
 if.end5:                                          ; preds = %entry
   %scale6 = getelementptr inbounds i8, ptr %this, i64 12
@@ -6543,17 +6545,11 @@ _ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit: ; preds = %if.end3
 
 if.then18:                                        ; preds = %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
   %8 = load i32, ptr %scale6, align 4
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.then18, %if.then3
-  %.sink = phi i32 [ %1, %if.then3 ], [ %add16, %if.then18 ]
-  %add.sink = phi i32 [ %add, %if.then3 ], [ %8, %if.then18 ]
-  %scale.sink = phi ptr [ %scale, %if.then3 ], [ %scale6, %if.then18 ]
-  %add4 = add nsw i32 %add.sink, %.sink
-  store i32 %add4, ptr %scale.sink, align 4
+  %add21 = add nsw i32 %8, %add16
+  store i32 %add21, ptr %scale6, align 4
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then, %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
+if.end22:                                         ; preds = %if.then, %if.then3, %if.then18, %_ZN6icu_756number4impl15DecimalQuantity11setDigitPosEia.exit
   ret void
 }
 

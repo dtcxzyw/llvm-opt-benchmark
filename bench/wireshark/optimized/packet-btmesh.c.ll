@@ -12097,7 +12097,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %58 = ashr exact i32 %55, 2
   %spec.select = select i1 %57, i32 %58, i32 -1
   %.not = icmp eq i32 %spec.select, -1
-  br i1 %.not, label %103, label %.thread
+  br i1 %.not, label %105, label %.thread
 
 .thread:                                          ; preds = %find_btmesh_property_length.exit101.thread, %find_btmesh_property_length.exit, %find_btmesh_property_length.exit101, %find_btmesh_property_length.exit.thread
   %.0108 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ %spec.select88, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ %46, %find_btmesh_property_length.exit101 ]
@@ -12136,7 +12136,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %78, i32 noundef 1, i32 noundef -2147483648) #16
   %83 = add nuw nsw i32 %78, 1
   %.not86 = icmp eq i32 %.0108, -1
-  br i1 %.not86, label %96, label %84
+  br i1 %.not86, label %97, label %84
 
 84:                                               ; preds = %76
   %85 = getelementptr inbounds i8, ptr %5, i64 24
@@ -12150,32 +12150,33 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %93 = load i32, ptr %92, align 4
   %94 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %90, i16 noundef zeroext %3, i32 noundef %.0108)
   %95 = zext i16 %94 to i32
-  br label %110
+  %96 = add nuw nsw i32 %90, %95
+  br label %113
 
-96:                                               ; preds = %76
-  %97 = getelementptr inbounds i8, ptr %5, i64 40
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %98, align 4
-  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %83) #16
-  %101 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %99, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %100)
-  %102 = zext i16 %101 to i32
-  br label %110
+97:                                               ; preds = %76
+  %98 = getelementptr inbounds i8, ptr %5, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %99, align 4
+  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %83) #16
+  %102 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %100, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %101)
+  %103 = zext i16 %102 to i32
+  %104 = add nuw nsw i32 %83, %103
+  br label %113
 
-103:                                              ; preds = %find_btmesh_property_length.exit.thread
-  %104 = getelementptr inbounds i8, ptr %5, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %106 = load i32, ptr %105, align 4
-  %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %108 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %106, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %107)
-  %109 = zext i16 %108 to i32
-  br label %110
+105:                                              ; preds = %find_btmesh_property_length.exit.thread
+  %106 = getelementptr inbounds i8, ptr %5, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i32, ptr %107, align 4
+  %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %110 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %108, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %109)
+  %111 = zext i16 %110 to i32
+  %112 = add nuw nsw i32 %111, %2
+  br label %113
 
-110:                                              ; preds = %84, %96, %103
-  %.sink130 = phi i32 [ %95, %84 ], [ %102, %96 ], [ %2, %103 ]
-  %.sink129 = phi i32 [ %90, %84 ], [ %83, %96 ], [ %109, %103 ]
-  %111 = add nuw nsw i32 %.sink129, %.sink130
-  %112 = sub nsw i32 %111, %2
-  ret i32 %112
+113:                                              ; preds = %84, %97, %105
+  %.183 = phi i32 [ %96, %84 ], [ %104, %97 ], [ %112, %105 ]
+  %114 = sub nsw i32 %.183, %2
+  ret i32 %114
 }
 
 ; Function Attrs: nounwind uwtable

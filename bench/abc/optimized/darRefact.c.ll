@@ -760,7 +760,7 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.preheader52
   %7 = getelementptr i8, ptr %2, i64 16
   %8 = getelementptr i8, ptr %1, i64 8
-  br label %15
+  br label %16
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %0, i64 48
@@ -770,38 +770,39 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr nocapture noundef readonly 
   %12 = and i32 %.val46, 1
   %13 = ptrtoint ptr %.val45 to i64
   %14 = zext nneg i32 %12 to i64
-  br label %73
+  %15 = xor i64 %14, %13
+  br label %76
 
-15:                                               ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+16:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val43 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val43, i64 %indvars.iv
+  %17 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val43, i64 %indvars.iv
   %.val44 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %18, ptr %19, align 8
+  %18 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %4, align 4
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %15, label %.critedge, !llvm.loop !13
+  %21 = load i32, ptr %4, align 4
+  %22 = sext i32 %21 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %16, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %15, %.preheader52
-  %.034.lcssa = phi ptr [ null, %.preheader52 ], [ %16, %15 ]
-  %.lcssa = phi i32 [ %5, %.preheader52 ], [ %20, %15 ]
-  %23 = getelementptr i8, ptr %2, i64 24
-  %.val39 = load i32, ptr %23, align 8
-  %24 = lshr i32 %.val39, 1
-  %25 = and i32 %24, 1073741823
-  %.not51 = icmp ult i32 %25, %.lcssa
-  br i1 %.not51, label %31, label %.preheader
+.critedge:                                        ; preds = %16, %.preheader52
+  %.034.lcssa = phi ptr [ null, %.preheader52 ], [ %17, %16 ]
+  %.lcssa = phi i32 [ %5, %.preheader52 ], [ %21, %16 ]
+  %24 = getelementptr i8, ptr %2, i64 24
+  %.val39 = load i32, ptr %24, align 8
+  %25 = lshr i32 %.val39, 1
+  %26 = and i32 %25, 1073741823
+  %.not51 = icmp ult i32 %26, %.lcssa
+  br i1 %.not51, label %32, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp slt i32 %.lcssa, %27
-  br i1 %28, label %.lr.ph56, label %.preheader..critedge2_crit_edge
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp slt i32 %.lcssa, %28
+  br i1 %29, label %.lr.ph56, label %.preheader..critedge2_crit_edge
 
 .preheader..critedge2_crit_edge:                  ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.034.lcssa, i64 8
@@ -809,74 +810,74 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr nocapture noundef readonly 
   br label %.critedge2
 
 .lr.ph56:                                         ; preds = %.preheader
-  %29 = getelementptr i8, ptr %2, i64 16
-  %30 = zext nneg i32 %.lcssa to i64
-  br label %39
+  %30 = getelementptr i8, ptr %2, i64 16
+  %31 = zext nneg i32 %.lcssa to i64
+  br label %41
 
-31:                                               ; preds = %.critedge
-  %32 = getelementptr i8, ptr %2, i64 16
-  %.val49 = load ptr, ptr %32, align 8
-  %33 = zext nneg i32 %25 to i64
-  %34 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val49, i64 %33, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = and i32 %.val39, 1
-  %37 = ptrtoint ptr %35 to i64
-  %38 = zext nneg i32 %36 to i64
-  br label %73
+32:                                               ; preds = %.critedge
+  %33 = getelementptr i8, ptr %2, i64 16
+  %.val49 = load ptr, ptr %33, align 8
+  %34 = zext nneg i32 %26 to i64
+  %35 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val49, i64 %34, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = and i32 %.val39, 1
+  %38 = ptrtoint ptr %36 to i64
+  %39 = zext nneg i32 %37 to i64
+  %40 = xor i64 %38, %39
+  br label %76
 
-39:                                               ; preds = %.lr.ph56, %39
-  %indvars.iv62 = phi i64 [ %30, %.lr.ph56 ], [ %indvars.iv.next63, %39 ]
-  %.val42 = load ptr, ptr %29, align 8
-  %40 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %indvars.iv62
-  %41 = load i32, ptr %40, align 8
-  %42 = lshr i32 %41, 1
-  %43 = and i32 %42, 1073741823
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %44, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = and i32 %41, 1
-  %48 = ptrtoint ptr %46 to i64
-  %49 = zext nneg i32 %47 to i64
-  %50 = xor i64 %49, %48
-  %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %40, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = lshr i32 %53, 1
-  %55 = and i32 %54, 1073741823
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %56, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = and i32 %53, 1
-  %60 = ptrtoint ptr %58 to i64
-  %61 = zext nneg i32 %59 to i64
-  %62 = xor i64 %61, %60
-  %63 = inttoptr i64 %62 to ptr
-  %64 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %51, ptr noundef %63) #20
-  %65 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %64, ptr %65, align 8
+41:                                               ; preds = %.lr.ph56, %41
+  %indvars.iv62 = phi i64 [ %31, %.lr.ph56 ], [ %indvars.iv.next63, %41 ]
+  %.val42 = load ptr, ptr %30, align 8
+  %42 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %indvars.iv62
+  %43 = load i32, ptr %42, align 8
+  %44 = lshr i32 %43, 1
+  %45 = and i32 %44, 1073741823
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %46, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = and i32 %43, 1
+  %50 = ptrtoint ptr %48 to i64
+  %51 = zext nneg i32 %49 to i64
+  %52 = xor i64 %51, %50
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds i8, ptr %42, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = lshr i32 %55, 1
+  %57 = and i32 %56, 1073741823
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val42, i64 %58, i32 2
+  %60 = load ptr, ptr %59, align 8
+  %61 = and i32 %55, 1
+  %62 = ptrtoint ptr %60 to i64
+  %63 = zext nneg i32 %61 to i64
+  %64 = xor i64 %63, %62
+  %65 = inttoptr i64 %64 to ptr
+  %66 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %53, ptr noundef %65) #20
+  %67 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %66, ptr %67, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %66 = load i32, ptr %26, align 8
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next63, %67
-  br i1 %68, label %39, label %.critedge2.loopexit, !llvm.loop !14
+  %68 = load i32, ptr %27, align 8
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next63, %69
+  br i1 %70, label %41, label %.critedge2.loopexit, !llvm.loop !14
 
-.critedge2.loopexit:                              ; preds = %39
-  %.val48.pre = load i32, ptr %23, align 8
+.critedge2.loopexit:                              ; preds = %41
+  %.val48.pre = load i32, ptr %24, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.preheader..critedge2_crit_edge, %.critedge2.loopexit
   %.val48 = phi i32 [ %.val39, %.preheader..critedge2_crit_edge ], [ %.val48.pre, %.critedge2.loopexit ]
-  %69 = phi ptr [ %.pre, %.preheader..critedge2_crit_edge ], [ %64, %.critedge2.loopexit ]
-  %70 = and i32 %.val48, 1
-  %71 = ptrtoint ptr %69 to i64
-  %72 = zext nneg i32 %70 to i64
-  br label %73
+  %71 = phi ptr [ %.pre, %.preheader..critedge2_crit_edge ], [ %66, %.critedge2.loopexit ]
+  %72 = and i32 %.val48, 1
+  %73 = ptrtoint ptr %71 to i64
+  %74 = zext nneg i32 %72 to i64
+  %75 = xor i64 %74, %73
+  br label %76
 
-73:                                               ; preds = %.critedge2, %31, %9
-  %.sink69 = phi i64 [ %71, %.critedge2 ], [ %38, %31 ], [ %13, %9 ]
-  %.sink = phi i64 [ %72, %.critedge2 ], [ %37, %31 ], [ %14, %9 ]
-  %74 = xor i64 %.sink, %.sink69
-  %.036 = inttoptr i64 %74 to ptr
+76:                                               ; preds = %.critedge2, %32, %9
+  %.036.in = phi i64 [ %15, %9 ], [ %40, %32 ], [ %75, %.critedge2 ]
+  %.036 = inttoptr i64 %.036.in to ptr
   ret ptr %.036
 }
 

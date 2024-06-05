@@ -278,53 +278,52 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %47 = getelementptr i8, ptr %46, i64 32
   %.val = load i32, ptr %47, align 8
   %48 = and i32 %.val, -64
-  br i1 %.not, label %52, label %49
+  br i1 %.not, label %53, label %49
 
 49:                                               ; preds = %Vec_PtrPush.exit
   %50 = add i32 %48, 64
   %51 = and i32 %.val, 63
-  br label %55
+  %52 = or disjoint i32 %50, %51
+  store i32 %52, ptr %47, align 8
+  br label %57
 
-52:                                               ; preds = %Vec_PtrPush.exit
-  %53 = load i32, ptr %4, align 8
-  %54 = and i32 %53, 63
-  br label %55
+53:                                               ; preds = %Vec_PtrPush.exit
+  %54 = load i32, ptr %4, align 8
+  %55 = and i32 %54, 63
+  %56 = or disjoint i32 %55, %48
+  store i32 %56, ptr %4, align 8
+  br label %57
 
-55:                                               ; preds = %52, %49
-  %.sink16 = phi i32 [ %48, %52 ], [ %51, %49 ]
-  %.sink15 = phi i32 [ %54, %52 ], [ %50, %49 ]
-  %.sink14 = phi ptr [ %4, %52 ], [ %47, %49 ]
-  %56 = or disjoint i32 %.sink15, %.sink16
-  store i32 %56, ptr %.sink14, align 8
-  %57 = and i64 %44, 1
-  %.not.i = icmp eq i64 %57, 0
-  br i1 %.not.i, label %64, label %58
+57:                                               ; preds = %53, %49
+  %58 = and i64 %44, 1
+  %.not.i = icmp eq i64 %58, 0
+  br i1 %.not.i, label %65, label %59
 
-58:                                               ; preds = %55
-  %59 = and i64 %44, -2
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
-  %62 = load i32, ptr %61, align 8
-  %.lobit.i = and i32 %62, 8
-  %63 = xor i32 %.lobit.i, 8
+59:                                               ; preds = %57
+  %60 = and i64 %44, -2
+  %61 = inttoptr i64 %60 to ptr
+  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %63 = load i32, ptr %62, align 8
+  %.lobit.i = and i32 %63, 8
+  %64 = xor i32 %.lobit.i, 8
   br label %Hop_ObjPhaseCompl.exit
 
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 8
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 8
   br label %Hop_ObjPhaseCompl.exit
 
-Hop_ObjPhaseCompl.exit:                           ; preds = %58, %64
-  %68 = phi i32 [ %63, %58 ], [ %67, %64 ]
-  %69 = load i32, ptr %4, align 8
-  %70 = and i32 %69, -9
-  %71 = or disjoint i32 %70, %68
-  store i32 %71, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 84
-  %73 = load i32, ptr %72, align 4
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %72, align 4
+Hop_ObjPhaseCompl.exit:                           ; preds = %59, %65
+  %69 = phi i32 [ %64, %59 ], [ %68, %65 ]
+  %70 = load i32, ptr %4, align 8
+  %71 = and i32 %70, -9
+  %72 = or disjoint i32 %71, %69
+  store i32 %72, ptr %4, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 84
+  %74 = load i32, ptr %73, align 4
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %73, align 4
   ret ptr %3
 }
 

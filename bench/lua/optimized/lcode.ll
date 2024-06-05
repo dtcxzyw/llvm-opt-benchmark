@@ -364,19 +364,19 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   %and6.i = and i32 %5, -32701
+  %or.i = or disjoint i32 %and6.i, %and7.i
   br label %if.then
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %6 = lshr i32 %5, 9
   %shl10.i = and i32 %6, 32640
   %or11.i = and i32 %5, 32834
+  %or17.i = or disjoint i32 %shl10.i, %or11.i
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i, %if.then5.i
-  %or11.i.sink = phi i32 [ %or11.i, %if.else.i ], [ %and7.i, %if.then5.i ]
-  %shl10.i.sink = phi i32 [ %shl10.i, %if.else.i ], [ %and6.i, %if.then5.i ]
-  %or17.i = or disjoint i32 %shl10.i.sink, %or11.i.sink
-  store i32 %or17.i, ptr %retval.0.i.i, align 4
+  %storemerge.i = phi i32 [ %or17.i, %if.else.i ], [ %or.i, %if.then5.i ]
+  store i32 %storemerge.i, ptr %retval.0.i.i, align 4
   %add.neg.i = xor i32 %list.addr.034, -1
   %sub.i10 = add i32 %add.neg.i, %vtarget
   %7 = add i32 %sub.i10, 16777215

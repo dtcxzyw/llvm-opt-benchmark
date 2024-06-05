@@ -35120,15 +35120,15 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   %.not103.us = icmp eq i32 %37, 0
   br i1 %.not103.us, label %._crit_edge123, label %.lr.ph122.split.us, !llvm.loop !51
 
-.lr.ph122.split:                                  ; preds = %.lr.ph122, %145
-  %75 = phi i32 [ %146, %145 ], [ %.pre130, %.lr.ph122 ]
-  %76 = phi i32 [ %147, %145 ], [ %35, %.lr.ph122 ]
+.lr.ph122.split:                                  ; preds = %.lr.ph122, %147
+  %75 = phi i32 [ %storemerge, %147 ], [ %.pre130, %.lr.ph122 ]
+  %76 = phi i32 [ %148, %147 ], [ %35, %.lr.ph122 ]
   %77 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %75) #10
   %78 = zext i8 %77 to i32
   %79 = icmp eq i8 %77, -1
   %80 = load i32, ptr %1, align 4
   %81 = add i32 %80, 1
-  br i1 %79, label %82, label %88
+  br i1 %79, label %82, label %89
 
 82:                                               ; preds = %.lr.ph122.split
   %83 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %81) #10
@@ -35136,119 +35136,119 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   %85 = load i32, ptr %1, align 4
   %86 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 5, i32 noundef %83) #10
   %87 = load i32, ptr %1, align 4
-  br label %145
+  %88 = add i32 %87, 5
+  br label %147
 
-88:                                               ; preds = %.lr.ph122.split
-  %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %81) #10
-  %90 = load i32, ptr %1, align 4
+89:                                               ; preds = %.lr.ph122.split
+  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %81) #10
+  %91 = load i32, ptr %1, align 4
   %.not8.i = icmp eq i8 %77, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %88, %92
-  %.010.i = phi i32 [ %93, %92 ], [ %78, %88 ]
-  %.059.i.in = phi i32 [ %.059.i, %92 ], [ %90, %88 ]
+.lr.ph.i:                                         ; preds = %89, %93
+  %.010.i = phi i32 [ %94, %93 ], [ %78, %89 ]
+  %.059.i.in = phi i32 [ %.059.i, %93 ], [ %91, %89 ]
   %.059.i = add i32 %.059.i.in, 2
-  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.059.i) #10
-  %.not7.i = icmp eq i8 %91, 0
-  br i1 %.not7.i, label %92, label %stringIsActuallyAn8BitString.exit
+  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.059.i) #10
+  %.not7.i = icmp eq i8 %92, 0
+  br i1 %.not7.i, label %93, label %stringIsActuallyAn8BitString.exit
 
-92:                                               ; preds = %.lr.ph.i
-  %93 = add nsw i32 %.010.i, -1
-  %.not.i = icmp eq i32 %93, 0
+93:                                               ; preds = %.lr.ph.i
+  %94 = add nsw i32 %.010.i, -1
+  %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !42
 
-.loopexit.loopexit:                               ; preds = %92
+.loopexit.loopexit:                               ; preds = %93
   %.pre129 = load i32, ptr %1, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %88
-  %94 = phi i32 [ %.pre129, %.loopexit.loopexit ], [ %90, %88 ]
-  %95 = tail call ptr @wmem_packet_scope() #10
-  %96 = add nuw nsw i32 %78, 1
-  %97 = zext nneg i32 %96 to i64
-  %98 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %95, i64 noundef %97) #10
+.loopexit:                                        ; preds = %.loopexit.loopexit, %89
+  %95 = phi i32 [ %.pre129, %.loopexit.loopexit ], [ %91, %89 ]
+  %96 = tail call ptr @wmem_packet_scope() #10
+  %97 = add nuw nsw i32 %78, 1
+  %98 = zext nneg i32 %97 to i64
+  %99 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %96, i64 noundef %98) #10
   br i1 %.not8.i, label %tvb_get_ascii_string16.exit, label %.lr.ph.i107
 
-.lr.ph.i107:                                      ; preds = %.loopexit, %105
-  %.in.i = phi i32 [ %99, %105 ], [ %78, %.loopexit ]
-  %.012.i.in = phi i32 [ %.012.i, %105 ], [ %94, %.loopexit ]
+.lr.ph.i107:                                      ; preds = %.loopexit, %106
+  %.in.i = phi i32 [ %100, %106 ], [ %78, %.loopexit ]
+  %.012.i.in = phi i32 [ %.012.i, %106 ], [ %95, %.loopexit ]
   %.012.i = add i32 %.012.i.in, 2
-  %99 = add nsw i32 %.in.i, -1
-  %100 = add i32 %.012.i.in, 3
-  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %100) #10
-  %102 = icmp sgt i8 %101, -1
-  br i1 %102, label %103, label %104
-
-103:                                              ; preds = %.lr.ph.i107
-  tail call void @wmem_strbuf_append_c(ptr noundef %98, i8 noundef signext %101) #10
-  br label %105
+  %100 = add nsw i32 %.in.i, -1
+  %101 = add i32 %.012.i.in, 3
+  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #10
+  %103 = icmp sgt i8 %102, -1
+  br i1 %103, label %104, label %105
 
 104:                                              ; preds = %.lr.ph.i107
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %98, i32 noundef 65533) #10
-  br label %105
+  tail call void @wmem_strbuf_append_c(ptr noundef %99, i8 noundef signext %102) #10
+  br label %106
 
-105:                                              ; preds = %104, %103
-  %.not.i108 = icmp eq i32 %99, 0
+105:                                              ; preds = %.lr.ph.i107
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %99, i32 noundef 65533) #10
+  br label %106
+
+106:                                              ; preds = %105, %104
+  %.not.i108 = icmp eq i32 %100, 0
   br i1 %.not.i108, label %tvb_get_ascii_string16.exit, label %.lr.ph.i107, !llvm.loop !43
 
-tvb_get_ascii_string16.exit:                      ; preds = %105, %.loopexit
-  %106 = tail call ptr @wmem_strbuf_finalize(ptr noundef %98) #10
-  %107 = load i32, ptr @hf_x11_textitem_string, align 4
-  %108 = load i32, ptr %1, align 4
-  %109 = shl nuw nsw i32 %78, 1
-  %110 = add nuw nsw i32 %109, 2
-  %111 = sext i8 %89 to i32
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %34, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %110, ptr noundef nonnull @.str.14712, i32 noundef %111, ptr noundef %106) #10
-  %113 = load i32, ptr @ett_x11_text_item, align 4
-  %114 = tail call ptr @proto_item_add_subtree(ptr noundef %112, i32 noundef %113) #10
-  %115 = load i32, ptr @hf_x11_textitem_string_delta, align 4
-  %116 = load i32, ptr %1, align 4
-  %117 = add i32 %116, 1
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef %6) #10
-  %119 = load i32, ptr @hf_x11_textitem_string_string16, align 4
-  %120 = load i32, ptr %1, align 4
-  %121 = add i32 %120, 2
-  %122 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %114, i32 noundef %119, ptr noundef %0, i32 noundef %121, i32 noundef %78, ptr noundef %106, ptr noundef nonnull @.str.14707, ptr noundef %106) #10
-  br label %143
+tvb_get_ascii_string16.exit:                      ; preds = %106, %.loopexit
+  %107 = tail call ptr @wmem_strbuf_finalize(ptr noundef %99) #10
+  %108 = load i32, ptr @hf_x11_textitem_string, align 4
+  %109 = load i32, ptr %1, align 4
+  %110 = shl nuw nsw i32 %78, 1
+  %111 = add nuw nsw i32 %110, 2
+  %112 = sext i8 %90 to i32
+  %113 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %34, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %111, ptr noundef nonnull @.str.14712, i32 noundef %112, ptr noundef %107) #10
+  %114 = load i32, ptr @ett_x11_text_item, align 4
+  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #10
+  %116 = load i32, ptr @hf_x11_textitem_string_delta, align 4
+  %117 = load i32, ptr %1, align 4
+  %118 = add i32 %117, 1
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef %6) #10
+  %120 = load i32, ptr @hf_x11_textitem_string_string16, align 4
+  %121 = load i32, ptr %1, align 4
+  %122 = add i32 %121, 2
+  %123 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %115, i32 noundef %120, ptr noundef %0, i32 noundef %122, i32 noundef %78, ptr noundef %107, ptr noundef nonnull @.str.14707, ptr noundef %107) #10
+  br label %144
 
 stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
-  %123 = load i32, ptr @hf_x11_textitem_string, align 4
-  %124 = load i32, ptr %1, align 4
-  %125 = shl nuw nsw i32 %78, 1
-  %126 = add nuw nsw i32 %125, 2
-  %127 = sext i8 %89 to i32
-  %128 = tail call ptr @wmem_packet_scope() #10
-  %129 = load i32, ptr %1, align 4
-  %130 = add i32 %129, 2
-  %131 = tail call ptr @tvb_bytes_to_str(ptr noundef %128, ptr noundef %0, i32 noundef %130, i32 noundef %125) #10
-  %132 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %34, i32 noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef %126, ptr noundef nonnull @.str.14713, i32 noundef %127, ptr noundef %131) #10
-  %133 = load i32, ptr @ett_x11_text_item, align 4
-  %134 = tail call ptr @proto_item_add_subtree(ptr noundef %132, i32 noundef %133) #10
-  %135 = load i32, ptr @hf_x11_textitem_string_delta, align 4
-  %136 = load i32, ptr %1, align 4
-  %137 = add i32 %136, 1
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef %6) #10
-  %139 = load i32, ptr @hf_x11_textitem_string_string16_bytes, align 4
-  %140 = load i32, ptr %1, align 4
-  %141 = add i32 %140, 2
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %139, ptr noundef %0, i32 noundef %141, i32 noundef %125, i32 noundef %6) #10
-  br label %143
+  %124 = load i32, ptr @hf_x11_textitem_string, align 4
+  %125 = load i32, ptr %1, align 4
+  %126 = shl nuw nsw i32 %78, 1
+  %127 = add nuw nsw i32 %126, 2
+  %128 = sext i8 %90 to i32
+  %129 = tail call ptr @wmem_packet_scope() #10
+  %130 = load i32, ptr %1, align 4
+  %131 = add i32 %130, 2
+  %132 = tail call ptr @tvb_bytes_to_str(ptr noundef %129, ptr noundef %0, i32 noundef %131, i32 noundef %126) #10
+  %133 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %34, i32 noundef %124, ptr noundef %0, i32 noundef %125, i32 noundef %127, ptr noundef nonnull @.str.14713, i32 noundef %128, ptr noundef %132) #10
+  %134 = load i32, ptr @ett_x11_text_item, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #10
+  %136 = load i32, ptr @hf_x11_textitem_string_delta, align 4
+  %137 = load i32, ptr %1, align 4
+  %138 = add i32 %137, 1
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef %6) #10
+  %140 = load i32, ptr @hf_x11_textitem_string_string16_bytes, align 4
+  %141 = load i32, ptr %1, align 4
+  %142 = add i32 %141, 2
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %140, ptr noundef %0, i32 noundef %142, i32 noundef %126, i32 noundef %6) #10
+  br label %144
 
-143:                                              ; preds = %stringIsActuallyAn8BitString.exit, %tvb_get_ascii_string16.exit
-  %.pre-phi131 = phi i32 [ %126, %stringIsActuallyAn8BitString.exit ], [ %110, %tvb_get_ascii_string16.exit ]
-  %144 = load i32, ptr %1, align 4
-  br label %145
+144:                                              ; preds = %stringIsActuallyAn8BitString.exit, %tvb_get_ascii_string16.exit
+  %.pre-phi131 = phi i32 [ %127, %stringIsActuallyAn8BitString.exit ], [ %111, %tvb_get_ascii_string16.exit ]
+  %145 = load i32, ptr %1, align 4
+  %146 = add i32 %.pre-phi131, %145
+  br label %147
 
-145:                                              ; preds = %143, %82
-  %.sink = phi i32 [ %144, %143 ], [ 5, %82 ]
-  %.pre-phi131.sink = phi i32 [ %.pre-phi131, %143 ], [ %87, %82 ]
-  %146 = add i32 %.pre-phi131.sink, %.sink
-  store i32 %146, ptr %1, align 4
-  %147 = add i32 %76, -1
+147:                                              ; preds = %144, %82
+  %storemerge = phi i32 [ %146, %144 ], [ %88, %82 ]
+  store i32 %storemerge, ptr %1, align 4
+  %148 = add i32 %76, -1
   %.not103 = icmp eq i32 %76, 0
   br i1 %.not103, label %._crit_edge123, label %.lr.ph122.split, !llvm.loop !51
 
-._crit_edge123:                                   ; preds = %145, %71, %._crit_edge
+._crit_edge123:                                   ; preds = %147, %71, %._crit_edge
   ret void
 }
 
@@ -65099,110 +65099,128 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86dri_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %78 [
-    i8 11, label %69
+  switch i8 %trunc, label %99 [
+    i8 11, label %89
     i8 1, label %25
-    i8 2, label %27
-    i8 3, label %29
-    i8 4, label %31
-    i8 5, label %33
-    i8 6, label %43
-    i8 7, label %49
-    i8 8, label %55
-    i8 9, label %61
-    i8 10, label %67
+    i8 2, label %29
+    i8 3, label %33
+    i8 4, label %37
+    i8 5, label %41
+    i8 6, label %53
+    i8 7, label %61
+    i8 8, label %69
+    i8 9, label %77
+    i8 10, label %85
   ]
 
 25:                                               ; preds = %requestLength.exit
-  %26 = load i32, ptr %2, align 4
-  br label %.sink.split
-
-27:                                               ; preds = %requestLength.exit
-  %28 = load i32, ptr %2, align 4
+  %26 = load i32, ptr @hf_x11_xf86dri_QueryDirectRenderingCapable_screen, align 4
+  %27 = load i32, ptr %2, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
 29:                                               ; preds = %requestLength.exit
-  %30 = load i32, ptr %2, align 4
-  br label %.sink.split
-
-31:                                               ; preds = %requestLength.exit
-  %32 = load i32, ptr %2, align 4
+  %30 = load i32, ptr @hf_x11_xf86dri_OpenConnection_screen, align 4
+  %31 = load i32, ptr %2, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
 33:                                               ; preds = %requestLength.exit
-  %34 = load i32, ptr @hf_x11_xf86dri_CreateContext_screen, align 4
+  %34 = load i32, ptr @hf_x11_xf86dri_CloseConnection_screen, align 4
   %35 = load i32, ptr %2, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %4) #10
-  %37 = load i32, ptr %2, align 4
-  %38 = add i32 %37, 4
-  store i32 %38, ptr %2, align 4
-  %39 = load i32, ptr @hf_x11_xf86dri_CreateContext_visual, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %4) #10
-  %41 = load i32, ptr %2, align 4
-  %42 = add i32 %41, 4
-  store i32 %42, ptr %2, align 4
   br label %.sink.split
 
-43:                                               ; preds = %requestLength.exit
-  %44 = load i32, ptr @hf_x11_xf86dri_DestroyContext_screen, align 4
+37:                                               ; preds = %requestLength.exit
+  %38 = load i32, ptr @hf_x11_xf86dri_GetClientDriverName_screen, align 4
+  %39 = load i32, ptr %2, align 4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef %4) #10
+  br label %.sink.split
+
+41:                                               ; preds = %requestLength.exit
+  %42 = load i32, ptr @hf_x11_xf86dri_CreateContext_screen, align 4
+  %43 = load i32, ptr %2, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %4) #10
   %45 = load i32, ptr %2, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %4) #10
-  %47 = load i32, ptr %2, align 4
-  %48 = add i32 %47, 4
-  store i32 %48, ptr %2, align 4
+  %46 = add i32 %45, 4
+  store i32 %46, ptr %2, align 4
+  %47 = load i32, ptr @hf_x11_xf86dri_CreateContext_visual, align 4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef %4) #10
+  %49 = load i32, ptr %2, align 4
+  %50 = add i32 %49, 4
+  store i32 %50, ptr %2, align 4
+  %51 = load i32, ptr @hf_x11_xf86dri_CreateContext_context, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
-49:                                               ; preds = %requestLength.exit
-  %50 = load i32, ptr @hf_x11_xf86dri_CreateDrawable_screen, align 4
-  %51 = load i32, ptr %2, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef %4) #10
-  %53 = load i32, ptr %2, align 4
-  %54 = add i32 %53, 4
-  store i32 %54, ptr %2, align 4
-  br label %.sink.split
-
-55:                                               ; preds = %requestLength.exit
-  %56 = load i32, ptr @hf_x11_xf86dri_DestroyDrawable_screen, align 4
+53:                                               ; preds = %requestLength.exit
+  %54 = load i32, ptr @hf_x11_xf86dri_DestroyContext_screen, align 4
+  %55 = load i32, ptr %2, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef %4) #10
   %57 = load i32, ptr %2, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %4) #10
-  %59 = load i32, ptr %2, align 4
-  %60 = add i32 %59, 4
-  store i32 %60, ptr %2, align 4
+  %58 = add i32 %57, 4
+  store i32 %58, ptr %2, align 4
+  %59 = load i32, ptr @hf_x11_xf86dri_DestroyContext_context, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
 61:                                               ; preds = %requestLength.exit
-  %62 = load i32, ptr @hf_x11_xf86dri_GetDrawableInfo_screen, align 4
+  %62 = load i32, ptr @hf_x11_xf86dri_CreateDrawable_screen, align 4
   %63 = load i32, ptr %2, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef %4) #10
   %65 = load i32, ptr %2, align 4
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
-  br label %.sink.split
-
-67:                                               ; preds = %requestLength.exit
-  %68 = load i32, ptr %2, align 4
+  %67 = load i32, ptr @hf_x11_xf86dri_CreateDrawable_drawable, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
 69:                                               ; preds = %requestLength.exit
-  %70 = load i32, ptr @hf_x11_xf86dri_AuthConnection_screen, align 4
+  %70 = load i32, ptr @hf_x11_xf86dri_DestroyDrawable_screen, align 4
   %71 = load i32, ptr %2, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %4) #10
   %73 = load i32, ptr %2, align 4
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
+  %75 = load i32, ptr @hf_x11_xf86dri_DestroyDrawable_drawable, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %27, %29, %31, %33, %43, %49, %55, %61, %67, %69
-  %.sink83 = phi i32 [ %74, %69 ], [ %68, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ]
-  %.sink.in = phi ptr [ @hf_x11_xf86dri_AuthConnection_magic, %69 ], [ @hf_x11_xf86dri_GetDeviceInfo_screen, %67 ], [ @hf_x11_xf86dri_GetDrawableInfo_drawable, %61 ], [ @hf_x11_xf86dri_DestroyDrawable_drawable, %55 ], [ @hf_x11_xf86dri_CreateDrawable_drawable, %49 ], [ @hf_x11_xf86dri_DestroyContext_context, %43 ], [ @hf_x11_xf86dri_CreateContext_context, %33 ], [ @hf_x11_xf86dri_GetClientDriverName_screen, %31 ], [ @hf_x11_xf86dri_CloseConnection_screen, %29 ], [ @hf_x11_xf86dri_OpenConnection_screen, %27 ], [ @hf_x11_xf86dri_QueryDirectRenderingCapable_screen, %25 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %.sink, ptr noundef %0, i32 noundef %.sink83, i32 noundef 4, i32 noundef %4) #10
-  %76 = load i32, ptr %2, align 4
-  %77 = add i32 %76, 4
-  store i32 %77, ptr %2, align 4
-  br label %78
+77:                                               ; preds = %requestLength.exit
+  %78 = load i32, ptr @hf_x11_xf86dri_GetDrawableInfo_screen, align 4
+  %79 = load i32, ptr %2, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef %4) #10
+  %81 = load i32, ptr %2, align 4
+  %82 = add i32 %81, 4
+  store i32 %82, ptr %2, align 4
+  %83 = load i32, ptr @hf_x11_xf86dri_GetDrawableInfo_drawable, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 4, i32 noundef %4) #10
+  br label %.sink.split
 
-78:                                               ; preds = %.sink.split, %requestLength.exit
+85:                                               ; preds = %requestLength.exit
+  %86 = load i32, ptr @hf_x11_xf86dri_GetDeviceInfo_screen, align 4
+  %87 = load i32, ptr %2, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %86, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef %4) #10
+  br label %.sink.split
+
+89:                                               ; preds = %requestLength.exit
+  %90 = load i32, ptr @hf_x11_xf86dri_AuthConnection_screen, align 4
+  %91 = load i32, ptr %2, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef %4) #10
+  %93 = load i32, ptr %2, align 4
+  %94 = add i32 %93, 4
+  store i32 %94, ptr %2, align 4
+  %95 = load i32, ptr @hf_x11_xf86dri_AuthConnection_magic, align 4
+  %96 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef %4) #10
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %25, %29, %33, %37, %41, %53, %61, %69, %77, %85, %89
+  %97 = load i32, ptr %2, align 4
+  %98 = add i32 %97, 4
+  store i32 %98, ptr %2, align 4
+  br label %99
+
+99:                                               ; preds = %.sink.split, %requestLength.exit
   ret void
 }
 

@@ -385,54 +385,58 @@ declare noundef zeroext i1 @_ZN3gmx19StandardInputStream13isInteractiveEv() loca
 define linkonce_odr void @_ZN3gmx23SelectionOptionBehavior4Impl15initIndexGroupsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZNK3gmx19SelectionCollection19requiresIndexGroupsEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br i1 %3, label %14, label %4
+  br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call noundef zeroext i1 @_ZNK3gmx22SelectionOptionManager22hasRequestedSelectionsEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br i1 %6, label %14, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  br i1 %9, label %30, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @stderr, align 8
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef %12) #21
-  br label %30
+  br label %14
 
-14:                                               ; preds = %4, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
-  br i1 %16, label %17, label %24
+14:                                               ; preds = %10, %7
+  %15 = load ptr, ptr %0, align 8
+  tail call void @_ZN3gmx19SelectionCollection14setIndexGroupsEP19gmx_ana_indexgrps_t(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef null)
+  br label %33
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %19, align 8
+16:                                               ; preds = %4, %1
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i1 noundef zeroext false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_Z22gmx_ana_indexgrps_initPP19gmx_ana_indexgrps_tP10gmx_mtop_tPKc(ptr noundef nonnull %23, ptr noundef %22, ptr noundef null)
-  br label %27
-
-24:                                               ; preds = %14
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i1 noundef zeroext false)
   %25 = getelementptr inbounds i8, ptr %0, i64 64
-  %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
-  tail call void @_Z22gmx_ana_indexgrps_initPP19gmx_ana_indexgrps_tP10gmx_mtop_tPKc(ptr noundef nonnull %25, ptr noundef null, ptr noundef %26)
-  br label %27
+  tail call void @_Z22gmx_ana_indexgrps_initPP19gmx_ana_indexgrps_tP10gmx_mtop_tPKc(ptr noundef nonnull %25, ptr noundef %24, ptr noundef null)
+  br label %29
 
-27:                                               ; preds = %24, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
-  %29 = load ptr, ptr %28, align 8
-  br label %30
+26:                                               ; preds = %16
+  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
+  tail call void @_Z22gmx_ana_indexgrps_initPP19gmx_ana_indexgrps_tP10gmx_mtop_tPKc(ptr noundef nonnull %27, ptr noundef null, ptr noundef %28)
+  br label %29
 
-30:                                               ; preds = %7, %10, %27
-  %.sink2 = phi ptr [ %29, %27 ], [ null, %10 ], [ null, %7 ]
-  %.sink = load ptr, ptr %0, align 8
-  tail call void @_ZN3gmx19SelectionCollection14setIndexGroupsEP19gmx_ana_indexgrps_t(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef %.sink2)
+29:                                               ; preds = %26, %19
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = load ptr, ptr %31, align 8
+  tail call void @_ZN3gmx19SelectionCollection14setIndexGroupsEP19gmx_ana_indexgrps_t(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %32)
+  br label %33
+
+33:                                               ; preds = %29, %14
   ret void
 }
 

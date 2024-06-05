@@ -697,7 +697,7 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %52 = getelementptr inbounds i8, ptr %51, i64 92
   %53 = load i32, ptr %52, align 4
   %.not72 = icmp eq i32 %53, 0
-  br i1 %.not72, label %80, label %54
+  br i1 %.not72, label %91, label %54
 
 54:                                               ; preds = %gop_attrs_tree.exit
   %55 = getelementptr inbounds i8, ptr %51, i64 136
@@ -715,7 +715,7 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %.not73 = icmp eq i32 %66, 0
   %67 = load ptr, ptr %5, align 8
   %68 = load float, ptr %62, align 8
-  br i1 %.not73, label %.sink.split, label %69
+  br i1 %.not73, label %84, label %69
 
 69:                                               ; preds = %54
   %70 = getelementptr inbounds i8, ptr %67, i64 112
@@ -725,98 +725,102 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %74 = fsub float %73, %68
   %75 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %71, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %74) #4
   %76 = load ptr, ptr %5, align 8
-  %77 = load float, ptr %62, align 8
-  br label %.sink.split
+  %77 = getelementptr inbounds i8, ptr %76, i64 116
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr inbounds i8, ptr %3, i64 80
+  %80 = load float, ptr %79, align 8
+  %81 = load float, ptr %62, align 8
+  %82 = fsub float %80, %81
+  %83 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %78, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %82) #4
+  br label %91
 
-.sink.split:                                      ; preds = %54, %69
-  %.sink86 = phi float [ %77, %69 ], [ %68, %54 ]
-  %.pn = phi ptr [ %76, %69 ], [ %67, %54 ]
-  %.sink.in = getelementptr inbounds i8, ptr %.pn, i64 116
-  %.sink = load i32, ptr %.sink.in, align 4
-  %.sink85.in = getelementptr inbounds i8, ptr %3, i64 80
-  %.sink85 = load float, ptr %.sink85.in, align 8
-  %78 = fsub float %.sink85, %.sink86
-  %79 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %.sink, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %78) #4
-  br label %80
+84:                                               ; preds = %54
+  %85 = getelementptr inbounds i8, ptr %67, i64 116
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds i8, ptr %3, i64 80
+  %88 = load float, ptr %87, align 8
+  %89 = fsub float %88, %68
+  %90 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %86, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %89) #4
+  br label %91
 
-80:                                               ; preds = %.sink.split, %gop_attrs_tree.exit
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 124
-  %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %3, i64 84
-  %85 = load i32, ptr %84, align 4
-  %86 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %83, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %85) #4
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 88
-  %89 = load i32, ptr %88, align 8
-  %.not74 = icmp eq i32 %89, 0
-  br i1 %.not74, label %.loopexit, label %90
+91:                                               ; preds = %69, %84, %gop_attrs_tree.exit
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 124
+  %94 = load i32, ptr %93, align 4
+  %95 = getelementptr inbounds i8, ptr %3, i64 84
+  %96 = load i32, ptr %95, align 4
+  %97 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %94, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %96) #4
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 88
+  %100 = load i32, ptr %99, align 8
+  %.not74 = icmp eq i32 %100, 0
+  br i1 %.not74, label %.loopexit, label %101
 
-90:                                               ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %87, i64 140
-  %92 = load i32, ptr %91, align 4
-  %93 = tail call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %92) #4
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 88
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 2
-  %98 = select i1 %97, ptr @.str.24, ptr @.str.25
-  %99 = getelementptr inbounds i8, ptr %3, i64 96
-  %.079 = load ptr, ptr %99, align 8
+101:                                              ; preds = %91
+  %102 = getelementptr inbounds i8, ptr %98, i64 140
+  %103 = load i32, ptr %102, align 4
+  %104 = tail call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %103) #4
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 88
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp eq i32 %107, 2
+  %109 = select i1 %108, ptr @.str.24, ptr @.str.25
+  %110 = getelementptr inbounds i8, ptr %3, i64 96
+  %.079 = load ptr, ptr %110, align 8
   %.not7581 = icmp eq ptr %.079, null
   br i1 %.not7581, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %90
-  %100 = getelementptr inbounds i8, ptr %3, i64 72
+.lr.ph.preheader:                                 ; preds = %101
+  %111 = getelementptr inbounds i8, ptr %3, i64 72
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %114
-  %.06983.in = phi ptr [ %115, %114 ], [ %100, %.lr.ph.preheader ]
-  %.082 = phi ptr [ %.0, %114 ], [ %.079, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %125
+  %.06983.in = phi ptr [ %126, %125 ], [ %111, %.lr.ph.preheader ]
+  %.082 = phi ptr [ %.0, %125 ], [ %.079, %.lr.ph.preheader ]
   %.06983 = load float, ptr %.06983.in, align 8
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 88
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp eq i32 %103, 2
-  %.in.idx = select i1 %104, i64 24, i64 0
+  %112 = load ptr, ptr %5, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 88
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 2
+  %.in.idx = select i1 %115, i64 24, i64 0
   %.in = getelementptr inbounds i8, ptr %.082, i64 %.in.idx
-  %105 = load i32, ptr %.in, align 8
-  %106 = getelementptr inbounds i8, ptr %.082, i64 72
-  %107 = load i32, ptr %106, align 8
-  %.not76 = icmp eq i32 %107, 0
-  br i1 %.not76, label %108, label %114
+  %116 = load i32, ptr %.in, align 8
+  %117 = getelementptr inbounds i8, ptr %.082, i64 72
+  %118 = load i32, ptr %117, align 8
+  %.not76 = icmp eq i32 %118, 0
+  br i1 %.not76, label %119, label %125
 
-108:                                              ; preds = %.lr.ph
-  %109 = getelementptr inbounds i8, ptr %.082, i64 76
-  %110 = load i32, ptr %109, align 4
-  %.not77 = icmp eq i32 %110, 0
-  br i1 %.not77, label %111, label %114
+119:                                              ; preds = %.lr.ph
+  %120 = getelementptr inbounds i8, ptr %.082, i64 76
+  %121 = load i32, ptr %120, align 4
+  %.not77 = icmp eq i32 %121, 0
+  br i1 %.not77, label %122, label %125
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %.082, i64 80
-  %113 = load i32, ptr %112, align 8
-  %.not78 = icmp eq i32 %113, 0
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %.082, i64 80
+  %124 = load i32, ptr %123, align 8
+  %.not78 = icmp eq i32 %124, 0
   %.str.19..str.28 = select i1 %.not78, ptr @.str.19, ptr @.str.28
-  br label %114
+  br label %125
 
-114:                                              ; preds = %111, %108, %.lr.ph
-  %.070 = phi ptr [ @.str.26, %.lr.ph ], [ @.str.27, %108 ], [ %.str.19..str.28, %111 ]
-  %115 = getelementptr inbounds i8, ptr %.082, i64 64
-  %116 = load float, ptr %115, align 8
-  %117 = fcmp une float %116, 0.000000e+00
-  %118 = fsub float %116, %.06983
-  %119 = select i1 %117, float %118, float 0.000000e+00
-  %120 = getelementptr inbounds i8, ptr %101, i64 120
-  %121 = load i32, ptr %120, align 8
-  %122 = fpext float %116 to double
-  %123 = fpext float %119 to double
-  %124 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %93, i32 noundef %121, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %105, ptr noundef nonnull @.str.29, ptr noundef nonnull %.070, ptr noundef nonnull %98, i32 noundef %105, double noundef %122, double noundef %123) #4
-  %125 = getelementptr inbounds i8, ptr %.082, i64 56
-  %.0 = load ptr, ptr %125, align 8
+125:                                              ; preds = %122, %119, %.lr.ph
+  %.070 = phi ptr [ @.str.26, %.lr.ph ], [ @.str.27, %119 ], [ %.str.19..str.28, %122 ]
+  %126 = getelementptr inbounds i8, ptr %.082, i64 64
+  %127 = load float, ptr %126, align 8
+  %128 = fcmp une float %127, 0.000000e+00
+  %129 = fsub float %127, %.06983
+  %130 = select i1 %128, float %129, float 0.000000e+00
+  %131 = getelementptr inbounds i8, ptr %112, i64 120
+  %132 = load i32, ptr %131, align 8
+  %133 = fpext float %127 to double
+  %134 = fpext float %130 to double
+  %135 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %104, i32 noundef %132, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %116, ptr noundef nonnull @.str.29, ptr noundef nonnull %.070, ptr noundef nonnull %109, i32 noundef %116, double noundef %133, double noundef %134) #4
+  %136 = getelementptr inbounds i8, ptr %.082, i64 56
+  %.0 = load ptr, ptr %136, align 8
   %.not75 = icmp eq ptr %.0, null
   br i1 %.not75, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.loopexit:                                        ; preds = %114, %90, %80
+.loopexit:                                        ; preds = %125, %101, %91
   ret void
 }
 

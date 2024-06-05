@@ -17517,15 +17517,23 @@ define void @_ZN19QualityMapperDialog30on_EqHandle_crossing_histogramEP8EqHandle
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 656
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %0, i64 657
-  %11 = load i8, ptr %10, align 1
-  %12 = trunc i8 %11 to i1
-  %.sink3 = select i1 %6, i1 %12, i1 %2
-  %.sink = select i1 %6, i1 %2, i1 %9
-  %13 = tail call noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(ptr noundef nonnull align 8 dereferenceable(824) %0, i1 noundef zeroext %.sink, i1 noundef zeroext %.sink3)
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 657
+  %9 = load i8, ptr %8, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = tail call noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(ptr noundef nonnull align 8 dereferenceable(824) %0, i1 noundef zeroext %2, i1 noundef zeroext %10)
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds i8, ptr %0, i64 656
+  %14 = load i8, ptr %13, align 8
+  %15 = trunc i8 %14 to i1
+  %16 = tail call noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(ptr noundef nonnull align 8 dereferenceable(824) %0, i1 noundef zeroext %15, i1 noundef zeroext %2)
+  br label %17
+
+17:                                               ; preds = %12, %7
   ret void
 }
 

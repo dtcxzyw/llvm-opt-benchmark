@@ -371,38 +371,38 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef %0, i64 nou
   %6 = add nuw i64 %1, 1
   br label %10
 
-.preheader37:                                     ; preds = %10
+.preheader36:                                     ; preds = %10
   %7 = getelementptr i8, ptr %0, i64 %1
   %8 = icmp ugt ptr %7, %0
   br i1 %8, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader37
+.lr.ph:                                           ; preds = %.preheader36
   %9 = ptrtoint ptr %7 to i64
   br label %16
 
 10:                                               ; preds = %4, %10
-  %.039 = phi i64 [ 0, %4 ], [ %12, %10 ]
-  %11 = getelementptr [512 x i64], ptr %5, i64 0, i64 %.039
+  %.038 = phi i64 [ 0, %4 ], [ %12, %10 ]
+  %11 = getelementptr [512 x i64], ptr %5, i64 0, i64 %.038
   store i64 %6, ptr %11, align 8
-  %12 = add nuw nsw i64 %.039, 1
+  %12 = add nuw nsw i64 %.038, 1
   %exitcond.not = icmp eq i64 %12, 512
-  br i1 %exitcond.not, label %.preheader37, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader36, label %10, !llvm.loop !12
 
-.preheader:                                       ; preds = %rb_memsearch_qs_utf8_hash.exit, %.preheader37
+.preheader:                                       ; preds = %rb_memsearch_qs_utf8_hash.exit, %.preheader36
   %13 = getelementptr i8, ptr %2, i64 %3
   %14 = getelementptr i8, ptr %2, i64 %1
-  %.not42 = icmp ugt ptr %14, %13
-  br i1 %.not42, label %.loopexit, label %.lr.ph44
+  %.not41 = icmp ugt ptr %14, %13
+  br i1 %.not41, label %.loopexit, label %.lr.ph43
 
-.lr.ph44:                                         ; preds = %.preheader
+.lr.ph43:                                         ; preds = %.preheader
   %15 = load i8, ptr %0, align 1
-  br label %62
+  br label %64
 
 16:                                               ; preds = %.lr.ph, %rb_memsearch_qs_utf8_hash.exit
-  %.03040 = phi ptr [ %0, %.lr.ph ], [ %61, %rb_memsearch_qs_utf8_hash.exit ]
-  %17 = ptrtoint ptr %.03040 to i64
+  %.03039 = phi ptr [ %0, %.lr.ph ], [ %63, %rb_memsearch_qs_utf8_hash.exit ]
+  %17 = ptrtoint ptr %.03039 to i64
   %18 = sub i64 %9, %17
-  %19 = load i8, ptr %.03040, align 1
+  %19 = load i8, ptr %.03039, align 1
   %20 = zext i8 %19 to i32
   %21 = icmp ult i8 %19, -64
   br i1 %21, label %22, label %24
@@ -413,159 +413,161 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef %0, i64 nou
 
 24:                                               ; preds = %16
   %25 = icmp ult i8 %19, -32
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
   %27 = mul i8 %19, -95
-  %28 = getelementptr i8, ptr %.03040, i64 1
+  %28 = getelementptr i8, ptr %.03039, i64 1
   %29 = load i8, ptr %28, align 1
-  br label %56
+  %30 = add i8 %29, %27
+  br label %59
 
-30:                                               ; preds = %24
-  %31 = icmp ult i8 %19, -16
-  br i1 %31, label %32, label %40
+31:                                               ; preds = %24
+  %32 = icmp ult i8 %19, -16
+  br i1 %32, label %33, label %42
 
-32:                                               ; preds = %30
-  %33 = mul i8 %19, -95
-  %34 = getelementptr i8, ptr %.03040, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = add i8 %35, %33
-  %37 = mul i8 %36, -95
-  %38 = getelementptr i8, ptr %.03040, i64 2
-  %39 = load i8, ptr %38, align 1
-  br label %56
+33:                                               ; preds = %31
+  %34 = mul i8 %19, -95
+  %35 = getelementptr i8, ptr %.03039, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = add i8 %36, %34
+  %38 = mul i8 %37, -95
+  %39 = getelementptr i8, ptr %.03039, i64 2
+  %40 = load i8, ptr %39, align 1
+  %41 = add i8 %38, %40
+  br label %59
 
-40:                                               ; preds = %30
-  %41 = icmp ult i8 %19, -11
-  br i1 %41, label %42, label %54
+42:                                               ; preds = %31
+  %43 = icmp ult i8 %19, -11
+  br i1 %43, label %44, label %57
 
-42:                                               ; preds = %40
-  %43 = mul i8 %19, -95
-  %44 = getelementptr i8, ptr %.03040, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = add i8 %45, %43
-  %47 = mul i8 %46, -95
-  %48 = getelementptr i8, ptr %.03040, i64 2
-  %49 = load i8, ptr %48, align 1
-  %50 = add i8 %47, %49
-  %51 = mul i8 %50, -95
-  %52 = getelementptr i8, ptr %.03040, i64 3
-  %53 = load i8, ptr %52, align 1
-  br label %56
+44:                                               ; preds = %42
+  %45 = mul i8 %19, -95
+  %46 = getelementptr i8, ptr %.03039, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = add i8 %47, %45
+  %49 = mul i8 %48, -95
+  %50 = getelementptr i8, ptr %.03039, i64 2
+  %51 = load i8, ptr %50, align 1
+  %52 = add i8 %49, %51
+  %53 = mul i8 %52, -95
+  %54 = getelementptr i8, ptr %.03039, i64 3
+  %55 = load i8, ptr %54, align 1
+  %56 = add i8 %53, %55
+  br label %59
 
-54:                                               ; preds = %40
-  %55 = or disjoint i32 %20, 256
+57:                                               ; preds = %42
+  %58 = or disjoint i32 %20, 256
   br label %rb_memsearch_qs_utf8_hash.exit
 
-56:                                               ; preds = %42, %32, %26
-  %.sink28.i = phi i8 [ %27, %26 ], [ %53, %42 ], [ %39, %32 ]
-  %.sink.i = phi i8 [ %29, %26 ], [ %51, %42 ], [ %37, %32 ]
-  %57 = add i8 %.sink.i, %.sink28.i
-  %58 = zext i8 %57 to i32
+59:                                               ; preds = %44, %33, %26
+  %.0.i = phi i8 [ %30, %26 ], [ %41, %33 ], [ %56, %44 ]
+  %60 = zext i8 %.0.i to i32
   br label %rb_memsearch_qs_utf8_hash.exit
 
-rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %54, %56
-  %.026.i = phi i32 [ %23, %22 ], [ %58, %56 ], [ %55, %54 ]
-  %59 = zext nneg i32 %.026.i to i64
-  %60 = getelementptr [512 x i64], ptr %5, i64 0, i64 %59
-  store i64 %18, ptr %60, align 8
-  %61 = getelementptr i8, ptr %.03040, i64 1
-  %exitcond46.not = icmp eq ptr %61, %7
-  br i1 %exitcond46.not, label %.preheader, label %16, !llvm.loop !13
+rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
+  %.026.i = phi i32 [ %23, %22 ], [ %60, %59 ], [ %58, %57 ]
+  %61 = zext nneg i32 %.026.i to i64
+  %62 = getelementptr [512 x i64], ptr %5, i64 0, i64 %61
+  store i64 %18, ptr %62, align 8
+  %63 = getelementptr i8, ptr %.03039, i64 1
+  %exitcond45.not = icmp eq ptr %63, %7
+  br i1 %exitcond45.not, label %.preheader, label %16, !llvm.loop !13
 
-62:                                               ; preds = %.lr.ph44, %rb_memsearch_qs_utf8_hash.exit36
-  %63 = phi ptr [ %14, %.lr.ph44 ], [ %117, %rb_memsearch_qs_utf8_hash.exit36 ]
-  %.02843 = phi ptr [ %2, %.lr.ph44 ], [ %116, %rb_memsearch_qs_utf8_hash.exit36 ]
-  %64 = load i8, ptr %.02843, align 1
-  %65 = icmp eq i8 %15, %64
-  br i1 %65, label %66, label %72
+64:                                               ; preds = %.lr.ph43, %rb_memsearch_qs_utf8_hash.exit35
+  %65 = phi ptr [ %14, %.lr.ph43 ], [ %121, %rb_memsearch_qs_utf8_hash.exit35 ]
+  %.02842 = phi ptr [ %2, %.lr.ph43 ], [ %120, %rb_memsearch_qs_utf8_hash.exit35 ]
+  %66 = load i8, ptr %.02842, align 1
+  %67 = icmp eq i8 %15, %66
+  br i1 %67, label %68, label %74
 
-66:                                               ; preds = %62
-  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %.02843, i64 %1)
-  %67 = icmp eq i32 %bcmp, 0
-  br i1 %67, label %68, label %72
+68:                                               ; preds = %64
+  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %.02842, i64 %1)
+  %69 = icmp eq i32 %bcmp, 0
+  br i1 %69, label %70, label %74
 
-68:                                               ; preds = %66
-  %69 = ptrtoint ptr %.02843 to i64
-  %70 = ptrtoint ptr %2 to i64
-  %71 = sub i64 %69, %70
+70:                                               ; preds = %68
+  %71 = ptrtoint ptr %.02842 to i64
+  %72 = ptrtoint ptr %2 to i64
+  %73 = sub i64 %71, %72
   br label %.loopexit
 
-72:                                               ; preds = %62, %66
-  %73 = load i8, ptr %63, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp ult i8 %73, -64
-  br i1 %75, label %76, label %78
+74:                                               ; preds = %64, %68
+  %75 = load i8, ptr %65, align 1
+  %76 = zext i8 %75 to i32
+  %77 = icmp ult i8 %75, -64
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %72
-  %77 = or disjoint i32 %74, 256
-  br label %rb_memsearch_qs_utf8_hash.exit36
+78:                                               ; preds = %74
+  %79 = or disjoint i32 %76, 256
+  br label %rb_memsearch_qs_utf8_hash.exit35
 
-78:                                               ; preds = %72
-  %79 = icmp ult i8 %73, -32
-  br i1 %79, label %80, label %84
+80:                                               ; preds = %74
+  %81 = icmp ult i8 %75, -32
+  br i1 %81, label %82, label %87
 
-80:                                               ; preds = %78
-  %81 = mul i8 %73, -95
-  %82 = getelementptr i8, ptr %63, i64 1
-  %83 = load i8, ptr %82, align 1
-  br label %110
+82:                                               ; preds = %80
+  %83 = mul i8 %75, -95
+  %84 = getelementptr i8, ptr %65, i64 1
+  %85 = load i8, ptr %84, align 1
+  %86 = add i8 %85, %83
+  br label %115
 
-84:                                               ; preds = %78
-  %85 = icmp ult i8 %73, -16
-  br i1 %85, label %86, label %94
+87:                                               ; preds = %80
+  %88 = icmp ult i8 %75, -16
+  br i1 %88, label %89, label %98
 
-86:                                               ; preds = %84
-  %87 = mul i8 %73, -95
-  %88 = getelementptr i8, ptr %63, i64 1
-  %89 = load i8, ptr %88, align 1
-  %90 = add i8 %89, %87
-  %91 = mul i8 %90, -95
-  %92 = getelementptr i8, ptr %63, i64 2
-  %93 = load i8, ptr %92, align 1
-  br label %110
+89:                                               ; preds = %87
+  %90 = mul i8 %75, -95
+  %91 = getelementptr i8, ptr %65, i64 1
+  %92 = load i8, ptr %91, align 1
+  %93 = add i8 %92, %90
+  %94 = mul i8 %93, -95
+  %95 = getelementptr i8, ptr %65, i64 2
+  %96 = load i8, ptr %95, align 1
+  %97 = add i8 %94, %96
+  br label %115
 
-94:                                               ; preds = %84
-  %95 = icmp ult i8 %73, -11
-  br i1 %95, label %96, label %108
+98:                                               ; preds = %87
+  %99 = icmp ult i8 %75, -11
+  br i1 %99, label %100, label %113
 
-96:                                               ; preds = %94
-  %97 = mul i8 %73, -95
-  %98 = getelementptr i8, ptr %63, i64 1
-  %99 = load i8, ptr %98, align 1
-  %100 = add i8 %99, %97
-  %101 = mul i8 %100, -95
-  %102 = getelementptr i8, ptr %63, i64 2
+100:                                              ; preds = %98
+  %101 = mul i8 %75, -95
+  %102 = getelementptr i8, ptr %65, i64 1
   %103 = load i8, ptr %102, align 1
-  %104 = add i8 %101, %103
+  %104 = add i8 %103, %101
   %105 = mul i8 %104, -95
-  %106 = getelementptr i8, ptr %63, i64 3
+  %106 = getelementptr i8, ptr %65, i64 2
   %107 = load i8, ptr %106, align 1
-  br label %110
+  %108 = add i8 %105, %107
+  %109 = mul i8 %108, -95
+  %110 = getelementptr i8, ptr %65, i64 3
+  %111 = load i8, ptr %110, align 1
+  %112 = add i8 %109, %111
+  br label %115
 
-108:                                              ; preds = %94
-  %109 = or disjoint i32 %74, 256
-  br label %rb_memsearch_qs_utf8_hash.exit36
+113:                                              ; preds = %98
+  %114 = or disjoint i32 %76, 256
+  br label %rb_memsearch_qs_utf8_hash.exit35
 
-110:                                              ; preds = %96, %86, %80
-  %.sink28.i34 = phi i8 [ %81, %80 ], [ %107, %96 ], [ %93, %86 ]
-  %.sink.i35 = phi i8 [ %83, %80 ], [ %105, %96 ], [ %91, %86 ]
-  %111 = add i8 %.sink.i35, %.sink28.i34
-  %112 = zext i8 %111 to i32
-  br label %rb_memsearch_qs_utf8_hash.exit36
+115:                                              ; preds = %100, %89, %82
+  %.0.i34 = phi i8 [ %86, %82 ], [ %97, %89 ], [ %112, %100 ]
+  %116 = zext i8 %.0.i34 to i32
+  br label %rb_memsearch_qs_utf8_hash.exit35
 
-rb_memsearch_qs_utf8_hash.exit36:                 ; preds = %76, %108, %110
-  %.026.i33 = phi i32 [ %77, %76 ], [ %112, %110 ], [ %109, %108 ]
-  %113 = zext nneg i32 %.026.i33 to i64
-  %114 = getelementptr [512 x i64], ptr %5, i64 0, i64 %113
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr i8, ptr %.02843, i64 %115
-  %117 = getelementptr i8, ptr %116, i64 %1
-  %.not = icmp ugt ptr %117, %13
-  br i1 %.not, label %.loopexit, label %62, !llvm.loop !14
+rb_memsearch_qs_utf8_hash.exit35:                 ; preds = %78, %113, %115
+  %.026.i33 = phi i32 [ %79, %78 ], [ %116, %115 ], [ %114, %113 ]
+  %117 = zext nneg i32 %.026.i33 to i64
+  %118 = getelementptr [512 x i64], ptr %5, i64 0, i64 %117
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr i8, ptr %.02842, i64 %119
+  %121 = getelementptr i8, ptr %120, i64 %1
+  %.not = icmp ugt ptr %121, %13
+  br i1 %.not, label %.loopexit, label %64, !llvm.loop !14
 
-.loopexit:                                        ; preds = %rb_memsearch_qs_utf8_hash.exit36, %.preheader, %68
-  %.029 = phi i64 [ %71, %68 ], [ -1, %.preheader ], [ -1, %rb_memsearch_qs_utf8_hash.exit36 ]
+.loopexit:                                        ; preds = %rb_memsearch_qs_utf8_hash.exit35, %.preheader, %70
+  %.029 = phi i64 [ %73, %70 ], [ -1, %.preheader ], [ -1, %rb_memsearch_qs_utf8_hash.exit35 ]
   ret i64 %.029
 }
 

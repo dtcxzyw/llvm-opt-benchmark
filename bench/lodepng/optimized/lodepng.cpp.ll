@@ -1431,7 +1431,8 @@ if.then.i145.i.i:                                 ; preds = %while.body42.i.i
   %36 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %36 to i32
   %shl17.i.i.i = shl nuw i32 %conv16.i.i.i, 24
-  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i.i
+  %or18.i.i.i = or disjoint i32 %or12.i150.i.i, %shl17.i.i.i
+  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i
 
 if.else.i142.i.i:                                 ; preds = %while.body42.i.i
   %cmp24.i.i.i = icmp ult i64 %shr.i138.i.i, %insize
@@ -1468,16 +1469,11 @@ if.then45.i.i.i:                                  ; preds = %if.end42.i.i.i
   %41 = load i8, ptr %arrayidx48.i.i.i, align 1
   %conv49.i.i.i = zext i8 %41 to i32
   %shl50.i.i.i = shl nuw nsw i32 %conv49.i.i.i, 16
-  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i.i
-
-_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i.i: ; preds = %if.then45.i.i.i, %if.then.i145.i.i
-  %shl17.i.sink.i.i = phi i32 [ %shl17.i.i.i, %if.then.i145.i.i ], [ %40, %if.then45.i.i.i ]
-  %or12.i150.sink.i.i = phi i32 [ %or12.i150.i.i, %if.then.i145.i.i ], [ %shl50.i.i.i, %if.then45.i.i.i ]
-  %or18.i.i.i = or i32 %or12.i150.sink.i.i, %shl17.i.sink.i.i
+  %or52.i.i.i = or i32 %shl50.i.i.i, %40
   br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i
 
-_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i:   ; preds = %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i.i, %if.end42.i.i.i
-  %.sink.i144.i.i = phi i32 [ %40, %if.end42.i.i.i ], [ %or18.i.i.i, %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i.i ]
+_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i:   ; preds = %if.then45.i.i.i, %if.end42.i.i.i, %if.then.i145.i.i
+  %.sink.i144.i.i = phi i32 [ %or18.i.i.i, %if.then.i145.i.i ], [ %or52.i.i.i, %if.then45.i.i.i ], [ %40, %if.end42.i.i.i ]
   %42 = trunc i64 %reader.sroa.40.3 to i32
   %sh_prom57.i.i.i = and i32 %42, 7
   %shr58.i.i.i = lshr i32 %.sink.i144.i.i, %sh_prom57.i.i.i
@@ -1951,7 +1947,8 @@ if.then.i147.i:                                   ; preds = %if.then30.i
   %95 = load i8, ptr %arrayidx15.i.i, align 1
   %conv16.i.i = zext i8 %95 to i32
   %shl17.i.i = shl nuw i32 %conv16.i.i, 24
-  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i
+  %or18.i.i = or disjoint i32 %or12.i.i, %shl17.i.i
+  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i
 
 if.else.i137.i:                                   ; preds = %if.then30.i
   %cmp24.i.i = icmp ult i64 %shr.i133.i, %insize
@@ -1988,16 +1985,11 @@ if.then45.i142.i:                                 ; preds = %if.end42.i.i
   %100 = load i8, ptr %arrayidx48.i143.i, align 1
   %conv49.i144.i = zext i8 %100 to i32
   %shl50.i145.i = shl nuw nsw i32 %conv49.i144.i, 16
-  br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i
-
-_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i: ; preds = %if.then45.i142.i, %if.then.i147.i
-  %shl17.i.sink.i = phi i32 [ %shl17.i.i, %if.then.i147.i ], [ %99, %if.then45.i142.i ]
-  %or12.i.sink.i = phi i32 [ %or12.i.i, %if.then.i147.i ], [ %shl50.i145.i, %if.then45.i142.i ]
-  %or18.i.i = or i32 %or12.i.sink.i, %shl17.i.sink.i
+  %or52.i146.i = or i32 %shl50.i145.i, %99
   br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i
 
-_ZL12ensureBits25P16LodePNGBitReaderm.exit.i:     ; preds = %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i, %if.end42.i.i
-  %.sink.i141.i = phi i32 [ %99, %if.end42.i.i ], [ %or18.i.i, %_ZL12ensureBits25P16LodePNGBitReaderm.exit.sink.split.i ]
+_ZL12ensureBits25P16LodePNGBitReaderm.exit.i:     ; preds = %if.then45.i142.i, %if.end42.i.i, %if.then.i147.i
+  %.sink.i141.i = phi i32 [ %or18.i.i, %if.then.i147.i ], [ %or52.i146.i, %if.then45.i142.i ], [ %99, %if.end42.i.i ]
   %101 = trunc i64 %reader.sroa.40.12 to i32
   %sh_prom57.i.i = and i32 %101, 7
   %shr58.i.i = lshr i32 %.sink.i141.i, %sh_prom57.i.i

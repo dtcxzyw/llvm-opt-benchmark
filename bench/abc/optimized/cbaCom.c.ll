@@ -5280,13 +5280,13 @@ define internal fastcc void @Cba_ManBoxNumRec_rec(ptr nocapture noundef %0, ptr 
   %16 = getelementptr i8, ptr %0, i64 192
   br label %17
 
-17:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %67 ]
+17:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.val31 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %.val31, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
-  switch i8 %19, label %64 [
-    i8 0, label %67
+  switch i8 %19, label %65 [
+    i8 0, label %68
     i8 3, label %20
   ]
 
@@ -5378,28 +5378,24 @@ Cba_ObjNtkId.exit39:                              ; preds = %Cba_ObjNtkId.exit, 
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, 1
   %63 = load i32, ptr %10, align 4
-  br label %.sink.split
+  %64 = add nsw i32 %62, %63
+  store i32 %64, ptr %10, align 4
+  br label %68
 
-64:                                               ; preds = %17
-  %65 = load i32, ptr %6, align 4
-  br label %.sink.split
+65:                                               ; preds = %17
+  %66 = load i32, ptr %6, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %6, align 4
+  br label %68
 
-.sink.split:                                      ; preds = %Cba_ObjNtkId.exit39, %64
-  %.sink47 = phi i32 [ 1, %64 ], [ %63, %Cba_ObjNtkId.exit39 ]
-  %.sink46 = phi i32 [ %65, %64 ], [ %62, %Cba_ObjNtkId.exit39 ]
-  %.sink45 = phi ptr [ %6, %64 ], [ %10, %Cba_ObjNtkId.exit39 ]
-  %66 = add nsw i32 %.sink46, %.sink47
-  store i32 %66, ptr %.sink45, align 4
-  br label %67
-
-67:                                               ; preds = %.sink.split, %17
+68:                                               ; preds = %17, %65, %Cba_ObjNtkId.exit39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val30 = load i32, ptr %11, align 4
-  %68 = sext i32 %.val30 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %17, label %.loopexit, !llvm.loop !35
+  %69 = sext i32 %.val30 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %17, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %67, %9, %3
+.loopexit:                                        ; preds = %68, %9, %3
   ret void
 }
 

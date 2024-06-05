@@ -150,32 +150,32 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   br i1 %cmp10.not, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  br i1 %cmp, label %if.then1.i, label %detect_self_dependency.exit
+  br i1 %cmp, label %detect_self_dependency.exit, label %if.end6.i
 
-if.then1.i:                                       ; preds = %if.then12
-  %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
+if.end6.i:                                        ; preds = %if.then12
   %3 = load i32, ptr %pri_spec, align 4
-  br label %detect_self_dependency.exit
+  %cmp8.i = icmp eq i32 %3, %stream_id
+  br i1 %cmp8.i, label %return, label %if.end17
 
-detect_self_dependency.exit:                      ; preds = %if.then12, %if.then1.i
-  %stream_id.sink.i = phi i32 [ %3, %if.then1.i ], [ %stream_id, %if.then12 ]
-  %.sink.in.i = phi ptr [ %next_stream_id.i, %if.then1.i ], [ %pri_spec, %if.then12 ]
-  %.sink.i = load i32, ptr %.sink.in.i, align 4
-  %cmp8.i.not = icmp eq i32 %.sink.i, %stream_id.sink.i
-  br i1 %cmp8.i.not, label %return, label %if.end17
+detect_self_dependency.exit:                      ; preds = %if.then12
+  %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
+  %4 = load i32, ptr %next_stream_id.i, align 8
+  %5 = load i32, ptr %pri_spec, align 4
+  %cmp3.i = icmp eq i32 %4, %5
+  br i1 %cmp3.i, label %return, label %if.end17
 
-if.end17:                                         ; preds = %detect_self_dependency.exit
-  %4 = or disjoint i8 %1, 32
+if.end17:                                         ; preds = %if.end6.i, %detect_self_dependency.exit
+  %6 = or disjoint i8 %1, 32
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end5, %land.lhs.true, %land.lhs.true9, %if.end17
   %pri_spec.addr.0 = phi ptr [ %pri_spec, %if.end17 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %if.end5 ]
-  %flags.addr.0 = phi i8 [ %4, %if.end17 ], [ %1, %land.lhs.true9 ], [ %1, %land.lhs.true ], [ %1, %if.end5 ]
+  %flags.addr.0 = phi i8 [ %6, %if.end17 ], [ %1, %land.lhs.true9 ], [ %1, %land.lhs.true ], [ %1, %if.end5 ]
   %call22 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext %flags.addr.0, i32 noundef %stream_id, ptr noundef %pri_spec.addr.0, ptr noundef %nva, i64 noundef %nvlen, ptr noundef null, ptr noundef %stream_user_data)
   br label %return
 
-return:                                           ; preds = %detect_self_dependency.exit, %if.else, %if.then, %if.end21
-  %retval.0 = phi i32 [ %call22, %if.end21 ], [ -505, %if.then ], [ -501, %if.else ], [ -501, %detect_self_dependency.exit ]
+return:                                           ; preds = %if.end6.i, %detect_self_dependency.exit, %if.else, %if.then, %if.end21
+  %retval.0 = phi i32 [ %call22, %if.end21 ], [ -505, %if.then ], [ -501, %if.else ], [ -501, %detect_self_dependency.exit ], [ -501, %if.end6.i ]
   ret i32 %retval.0
 }
 
@@ -864,10 +864,10 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
 
 if.then4:                                         ; preds = %land.lhs.true3
   %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
-  %2 = load i32, ptr %pri_spec, align 4
-  %.sink.i = load i32, ptr %next_stream_id.i, align 4
-  %cmp8.i.not = icmp eq i32 %.sink.i, %2
-  br i1 %cmp8.i.not, label %return, label %if.end9
+  %2 = load i32, ptr %next_stream_id.i, align 8
+  %3 = load i32, ptr %pri_spec, align 4
+  %cmp3.i.not = icmp eq i32 %2, %3
+  br i1 %cmp3.i.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end, %land.lhs.true, %land.lhs.true3, %if.then4
   %pri_spec.addr.0 = phi ptr [ %pri_spec, %if.then4 ], [ null, %land.lhs.true3 ], [ null, %land.lhs.true ], [ null, %if.end ]
@@ -876,8 +876,8 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 
 lor.lhs.false.i:                                  ; preds = %if.end9
   %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
-  %3 = load ptr, ptr %read_callback.i, align 8
-  %cmp1.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %read_callback.i, align 8
+  %cmp1.i = icmp eq ptr %4, null
   br i1 %cmp1.i, label %if.then.i, label %set_request_flags.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end9
@@ -886,8 +886,8 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 set_request_flags.exit:                           ; preds = %lor.lhs.false.i, %if.then.i
   %flags.0.i = phi i8 [ 1, %if.then.i ], [ 0, %lor.lhs.false.i ]
   %tobool.not.i = icmp eq ptr %pri_spec.addr.0, null
-  %4 = or disjoint i8 %flags.0.i, 32
-  %spec.select.i = select i1 %tobool.not.i, i8 %flags.0.i, i8 %4
+  %5 = or disjoint i8 %flags.0.i, 32
+  %spec.select.i = select i1 %tobool.not.i, i8 %flags.0.i, i8 %5
   %call11 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %session, i8 noundef zeroext %spec.select.i, i32 noundef -1, ptr noundef %pri_spec.addr.0, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %data_prd, ptr noundef %stream_user_data)
   br label %return
 

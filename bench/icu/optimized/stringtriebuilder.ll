@@ -1228,6 +1228,7 @@ if.then36:                                        ; preds = %land.lhs.true
   %mul.i = mul i32 %15, 37
   %add.i = add i32 %mul.i, %conv
   %mul9.i = mul i32 %add.i, 37
+  %add10.i = add i32 %mul9.i, %call39
   br label %if.end43
 
 if.else:                                          ; preds = %land.lhs.true, %do.body
@@ -1262,13 +1263,12 @@ _ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
   %mul.i74 = mul i32 %20, 37
   %add.i75 = add i32 %mul.i74, %conv40
   %mul9.i76 = mul i32 %add.i75, 37
+  %add10.i77 = add i32 %cond.i.i, %mul9.i76
   br label %if.end43
 
 if.end43:                                         ; preds = %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit, %if.then36
-  %mul9.i76.sink = phi i32 [ %mul9.i76, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %call39, %if.then36 ]
-  %cond.i.i.sink = phi i32 [ %cond.i.i, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %mul9.i, %if.then36 ]
-  %add10.i77 = add i32 %cond.i.i.sink, %mul9.i76.sink
-  store i32 %add10.i77, ptr %hash.i.i.i, align 8
+  %storemerge = phi i32 [ %add10.i77, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit ], [ %add10.i, %if.then36 ]
+  store i32 %storemerge, ptr %hash.i.i.i, align 8
   %inc44 = add nuw nsw i32 %unitNumber.0, 1
   %exitcond.not = icmp eq i32 %inc44, %smax
   br i1 %exitcond.not, label %do.end, label %do.body, !llvm.loop !13
@@ -1315,6 +1315,7 @@ if.then59:                                        ; preds = %land.lhs.true53
   %mul.i91 = mul i32 %29, 37
   %add.i92 = add i32 %mul.i91, %conv60
   %mul9.i93 = mul i32 %add.i92, 37
+  %add10.i94 = add i32 %mul9.i93, %call63
   br label %if.end68
 
 if.else64:                                        ; preds = %land.lhs.true53, %do.end
@@ -1349,13 +1350,12 @@ _ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116: ; preds 
   %mul.i112 = mul i32 %34, 37
   %add.i113 = add i32 %mul.i112, %conv65
   %mul9.i114 = mul i32 %add.i113, 37
+  %add10.i115 = add i32 %cond.i.i111, %mul9.i114
   br label %if.end68
 
 if.end68:                                         ; preds = %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116, %if.then59
-  %mul9.i114.sink = phi i32 [ %mul9.i114, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116 ], [ %call63, %if.then59 ]
-  %cond.i.i111.sink = phi i32 [ %cond.i.i111, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116 ], [ %mul9.i93, %if.then59 ]
-  %add10.i115 = add i32 %cond.i.i111.sink, %mul9.i114.sink
-  store i32 %add10.i115, ptr %hash.i.i.i, align 8
+  %storemerge168 = phi i32 [ %add10.i115, %_ZN6icu_7517StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit116 ], [ %add10.i94, %if.then59 ]
+  store i32 %storemerge168, ptr %hash.i.i.i, align 8
   %36 = load i32, ptr %errorCode, align 4
   %cmp.i.i117 = icmp slt i32 %36, 1
   br i1 %cmp.i.i117, label %if.end3.i, label %delete.notnull.i

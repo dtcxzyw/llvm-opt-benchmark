@@ -587,25 +587,25 @@ define dso_local noundef ptr @GetSQLCurrentTime(i32 noundef %0) local_unnamed_ad
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %24
   %28 = load i64, ptr %27, align 8
-  br i1 %23, label %29, label %32
+  br i1 %23, label %29, label %33
 
 29:                                               ; preds = %22
   %30 = add i64 %26, %20
   %.fr14.i = freeze i64 %30
   %31 = srem i64 %.fr14.i, %28
+  %32 = sub nsw i64 %.fr14.i, %31
   br label %.sink.split.i
 
-32:                                               ; preds = %22
-  %33 = sub i64 %26, %20
-  %.fr.i = freeze i64 %33
-  %34 = srem i64 %.fr.i, %28
+33:                                               ; preds = %22
+  %34 = sub i64 %26, %20
+  %.fr.i = freeze i64 %34
+  %35 = srem i64 %.fr.i, %28
+  %.neg.i = sub i64 %35, %.fr.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %32, %29
-  %.sink15.i = phi i64 [ %31, %29 ], [ %.fr.i, %32 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %29 ], [ %34, %32 ]
-  %35 = sub i64 %.fr14.sink.i, %.sink15.i
-  store i64 %35, ptr %5, align 8
+.sink.split.i:                                    ; preds = %33, %29
+  %.sink.i = phi i64 [ %32, %29 ], [ %.neg.i, %33 ]
+  store i64 %.sink.i, ptr %5, align 8
   br label %AdjustTimeForTypmod.exit
 
 AdjustTimeForTypmod.exit:                         ; preds = %1, %.sink.split.i
@@ -650,25 +650,25 @@ define dso_local void @AdjustTimeForTypmod(ptr nocapture noundef %0, i32 noundef
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %6
   %10 = load i64, ptr %9, align 8
-  br i1 %5, label %11, label %14
+  br i1 %5, label %11, label %15
 
 11:                                               ; preds = %3
   %12 = add i64 %8, %4
   %.fr14 = freeze i64 %12
   %13 = srem i64 %.fr14, %10
+  %14 = sub nsw i64 %.fr14, %13
   br label %.sink.split
 
-14:                                               ; preds = %3
-  %15 = sub i64 %8, %4
-  %.fr = freeze i64 %15
-  %16 = srem i64 %.fr, %10
+15:                                               ; preds = %3
+  %16 = sub i64 %8, %4
+  %.fr = freeze i64 %16
+  %17 = srem i64 %.fr, %10
+  %.neg = sub i64 %17, %.fr
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %11
-  %.sink15 = phi i64 [ %13, %11 ], [ %.fr, %14 ]
-  %.fr14.sink = phi i64 [ %.fr14, %11 ], [ %16, %14 ]
-  %17 = sub i64 %.fr14.sink, %.sink15
-  store i64 %17, ptr %0, align 8
+.sink.split:                                      ; preds = %15, %11
+  %.sink = phi i64 [ %14, %11 ], [ %.neg, %15 ]
+  store i64 %.sink, ptr %0, align 8
   br label %18
 
 18:                                               ; preds = %.sink.split, %2
@@ -705,28 +705,24 @@ define dso_local i64 @GetSQLLocalTime(i32 noundef %0) local_unnamed_addr #0 {
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %21
   %25 = load i64, ptr %24, align 8
-  br i1 %20, label %26, label %29
+  br i1 %20, label %26, label %30
 
 26:                                               ; preds = %19
   %27 = add i64 %23, %18
   %.fr14.i = freeze i64 %27
   %28 = srem i64 %.fr14.i, %25
-  br label %.sink.split.i
-
-29:                                               ; preds = %19
-  %30 = sub i64 %23, %18
-  %.fr.i = freeze i64 %30
-  %31 = srem i64 %.fr.i, %25
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %29, %26
-  %.sink15.i = phi i64 [ %28, %26 ], [ %.fr.i, %29 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %26 ], [ %31, %29 ]
-  %32 = sub i64 %.fr14.sink.i, %.sink15.i
+  %29 = sub nsw i64 %.fr14.i, %28
   br label %AdjustTimeForTypmod.exit
 
-AdjustTimeForTypmod.exit:                         ; preds = %1, %.sink.split.i
-  %.0 = phi i64 [ %32, %.sink.split.i ], [ %18, %1 ]
+30:                                               ; preds = %19
+  %31 = sub i64 %23, %18
+  %.fr.i = freeze i64 %31
+  %32 = srem i64 %.fr.i, %25
+  %.neg.i = sub i64 %32, %.fr.i
+  br label %AdjustTimeForTypmod.exit
+
+AdjustTimeForTypmod.exit:                         ; preds = %26, %30, %1
+  %.0 = phi i64 [ %18, %1 ], [ %29, %26 ], [ %.neg.i, %30 ]
   ret i64 %.0
 }
 
@@ -3561,28 +3557,24 @@ define dso_local i64 @time_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %42
   %46 = load i64, ptr %45, align 8
-  br i1 %41, label %47, label %50
+  br i1 %41, label %47, label %51
 
 47:                                               ; preds = %40
   %48 = add i64 %44, %39
   %.fr14.i = freeze i64 %48
   %49 = srem i64 %.fr14.i, %46
-  br label %.sink.split.i
-
-50:                                               ; preds = %40
-  %51 = sub i64 %44, %39
-  %.fr.i = freeze i64 %51
-  %52 = srem i64 %.fr.i, %46
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %50, %47
-  %.sink15.i = phi i64 [ %49, %47 ], [ %.fr.i, %50 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %47 ], [ %52, %50 ]
-  %53 = sub i64 %.fr14.sink.i, %.sink15.i
+  %50 = sub nsw i64 %.fr14.i, %49
   br label %AdjustTimeForTypmod.exit
 
-AdjustTimeForTypmod.exit:                         ; preds = %.sink.split.i, %25, %.thread
-  %.013 = phi i64 [ 0, %.thread ], [ %53, %.sink.split.i ], [ %39, %25 ]
+51:                                               ; preds = %40
+  %52 = sub i64 %44, %39
+  %.fr.i = freeze i64 %52
+  %53 = srem i64 %.fr.i, %46
+  %.neg.i = sub i64 %53, %.fr.i
+  br label %AdjustTimeForTypmod.exit
+
+AdjustTimeForTypmod.exit:                         ; preds = %25, %51, %47, %.thread
+  %.013 = phi i64 [ 0, %.thread ], [ %39, %25 ], [ %50, %47 ], [ %.neg.i, %51 ]
   ret i64 %.013
 }
 
@@ -3923,28 +3915,24 @@ define dso_local i64 @time_scale(ptr nocapture noundef readonly %0) local_unname
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %9
   %13 = load i64, ptr %12, align 8
-  br i1 %8, label %14, label %17
+  br i1 %8, label %14, label %18
 
 14:                                               ; preds = %7
   %15 = add i64 %11, %3
   %.fr14.i = freeze i64 %15
   %16 = srem i64 %.fr14.i, %13
-  br label %.sink.split.i
-
-17:                                               ; preds = %7
-  %18 = sub i64 %11, %3
-  %.fr.i = freeze i64 %18
-  %19 = srem i64 %.fr.i, %13
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %17, %14
-  %.sink15.i = phi i64 [ %16, %14 ], [ %.fr.i, %17 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %14 ], [ %19, %17 ]
-  %20 = sub i64 %.fr14.sink.i, %.sink15.i
+  %17 = sub nsw i64 %.fr14.i, %16
   br label %AdjustTimeForTypmod.exit
 
-AdjustTimeForTypmod.exit:                         ; preds = %1, %.sink.split.i
-  %.0 = phi i64 [ %20, %.sink.split.i ], [ %3, %1 ]
+18:                                               ; preds = %7
+  %19 = sub i64 %11, %3
+  %.fr.i = freeze i64 %19
+  %20 = srem i64 %.fr.i, %13
+  %.neg.i = sub i64 %20, %.fr.i
+  br label %AdjustTimeForTypmod.exit
+
+AdjustTimeForTypmod.exit:                         ; preds = %14, %18, %1
+  %.0 = phi i64 [ %3, %1 ], [ %17, %14 ], [ %.neg.i, %18 ]
   ret i64 %.0
 }
 
@@ -4848,25 +4836,25 @@ define dso_local noundef i64 @timetz_in(ptr nocapture noundef %0) local_unnamed_
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %45
   %49 = load i64, ptr %48, align 8
-  br i1 %44, label %50, label %53
+  br i1 %44, label %50, label %54
 
 50:                                               ; preds = %43
   %51 = add i64 %47, %41
   %.fr14.i = freeze i64 %51
   %52 = srem i64 %.fr14.i, %49
+  %53 = sub nsw i64 %.fr14.i, %52
   br label %.sink.split.i
 
-53:                                               ; preds = %43
-  %54 = sub i64 %47, %41
-  %.fr.i = freeze i64 %54
-  %55 = srem i64 %.fr.i, %49
+54:                                               ; preds = %43
+  %55 = sub i64 %47, %41
+  %.fr.i = freeze i64 %55
+  %56 = srem i64 %.fr.i, %49
+  %.neg.i = sub i64 %56, %.fr.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %53, %50
-  %.sink15.i = phi i64 [ %52, %50 ], [ %.fr.i, %53 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %50 ], [ %55, %53 ]
-  %56 = sub i64 %.fr14.sink.i, %.sink15.i
-  store i64 %56, ptr %26, align 8
+.sink.split.i:                                    ; preds = %54, %50
+  %.sink.i = phi i64 [ %53, %50 ], [ %.neg.i, %54 ]
+  store i64 %.sink.i, ptr %26, align 8
   br label %AdjustTimeForTypmod.exit
 
 AdjustTimeForTypmod.exit:                         ; preds = %25, %.sink.split.i
@@ -5006,25 +4994,25 @@ define dso_local i64 @timetz_recv(ptr nocapture noundef readonly %0) local_unnam
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %26
   %30 = load i64, ptr %29, align 8
-  br i1 %25, label %31, label %34
+  br i1 %25, label %31, label %35
 
 31:                                               ; preds = %23
   %32 = add i64 %28, %24
   %.fr14.i = freeze i64 %32
   %33 = srem i64 %.fr14.i, %30
+  %34 = sub nsw i64 %.fr14.i, %33
   br label %.sink.split.i
 
-34:                                               ; preds = %23
-  %35 = sub i64 %28, %24
-  %.fr.i = freeze i64 %35
-  %36 = srem i64 %.fr.i, %30
+35:                                               ; preds = %23
+  %36 = sub i64 %28, %24
+  %.fr.i = freeze i64 %36
+  %37 = srem i64 %.fr.i, %30
+  %.neg.i = sub i64 %37, %.fr.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %34, %31
-  %.sink15.i = phi i64 [ %33, %31 ], [ %.fr.i, %34 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %31 ], [ %36, %34 ]
-  %37 = sub i64 %.fr14.sink.i, %.sink15.i
-  store i64 %37, ptr %8, align 8
+.sink.split.i:                                    ; preds = %35, %31
+  %.sink.i = phi i64 [ %34, %31 ], [ %.neg.i, %35 ]
+  store i64 %.sink.i, ptr %8, align 8
   br label %AdjustTimeForTypmod.exit
 
 AdjustTimeForTypmod.exit:                         ; preds = %22, %.sink.split.i
@@ -5144,25 +5132,25 @@ define dso_local noundef i64 @timetz_scale(ptr nocapture noundef readonly %0) lo
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %15
   %19 = load i64, ptr %18, align 8
-  br i1 %14, label %20, label %23
+  br i1 %14, label %20, label %24
 
 20:                                               ; preds = %13
   %21 = add i64 %17, %9
   %.fr14.i = freeze i64 %21
   %22 = srem i64 %.fr14.i, %19
+  %23 = sub nsw i64 %.fr14.i, %22
   br label %.sink.split.i
 
-23:                                               ; preds = %13
-  %24 = sub i64 %17, %9
-  %.fr.i = freeze i64 %24
-  %25 = srem i64 %.fr.i, %19
+24:                                               ; preds = %13
+  %25 = sub i64 %17, %9
+  %.fr.i = freeze i64 %25
+  %26 = srem i64 %.fr.i, %19
+  %.neg.i = sub i64 %26, %.fr.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %23, %20
-  %.sink15.i = phi i64 [ %22, %20 ], [ %.fr.i, %23 ]
-  %.fr14.sink.i = phi i64 [ %.fr14.i, %20 ], [ %25, %23 ]
-  %26 = sub i64 %.fr14.sink.i, %.sink15.i
-  store i64 %26, ptr %8, align 8
+.sink.split.i:                                    ; preds = %24, %20
+  %.sink.i = phi i64 [ %23, %20 ], [ %.neg.i, %24 ]
+  store i64 %.sink.i, ptr %8, align 8
   br label %AdjustTimeForTypmod.exit
 
 AdjustTimeForTypmod.exit:                         ; preds = %1, %.sink.split.i

@@ -269,7 +269,8 @@ default.unreachable:                              ; preds = %.preheader.split
   %76 = zext i32 %75 to i64
   %77 = sub nsw i64 0, %76
   %78 = getelementptr inbounds i8, ptr %69, i64 %77
-  br label %.sink.split
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %67, i64 %17, i1 false)
+  br label %122
 
 .preheader.split:                                 ; preds = %.preheader, %114
   %.1125174 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
@@ -383,15 +384,10 @@ default.unreachable:                              ; preds = %.preheader.split
   %119 = zext i32 %118 to i64
   %120 = sub nsw i64 0, %119
   %121 = getelementptr inbounds i8, ptr %112, i64 %120
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %74, %117
-  %.sink = phi ptr [ %121, %117 ], [ %67, %74 ]
-  %.lcssa181.sink = phi ptr [ %111, %117 ], [ %78, %74 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.lcssa181.sink, ptr nonnull align 1 %.sink, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %121, i64 %17, i1 false)
   br label %122
 
-122:                                              ; preds = %.sink.split, %116, %73
+122:                                              ; preds = %116, %117, %73, %74
   %123 = load ptr, ptr %5, align 8
   %124 = tail call ptr @H5MM_xfree(ptr noundef %123) #4
   store ptr %21, ptr %5, align 8

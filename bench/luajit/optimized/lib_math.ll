@@ -143,7 +143,8 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   %mul = fmul double %sub, %call6
   %call10 = tail call double @lj_vm_floor(double noundef %mul) #4
-  br label %if.end17.sink.split
+  %add = fadd double %call10, 1.000000e+00
+  br label %if.end17
 
 if.else:                                          ; preds = %if.then
   %call11 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef 2) #4
@@ -151,16 +152,11 @@ if.else:                                          ; preds = %if.then
   %add13 = fadd double %sub12, 1.000000e+00
   %mul14 = fmul double %sub, %add13
   %call15 = tail call double @lj_vm_floor(double noundef %mul14) #4
-  br label %if.end17.sink.split
-
-if.end17.sink.split:                              ; preds = %if.else, %if.then9
-  %.sink = phi double [ 1.000000e+00, %if.then9 ], [ %call15, %if.else ]
-  %call10.sink = phi double [ %call10, %if.then9 ], [ %call6, %if.else ]
-  %add = fadd double %call10.sink, %.sink
+  %add16 = fadd double %call6, %call15
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end17.sink.split, %entry
-  %d.0 = phi double [ %sub, %entry ], [ %add, %if.end17.sink.split ]
+if.end17:                                         ; preds = %if.then9, %if.else, %entry
+  %d.0 = phi double [ %add, %if.then9 ], [ %add16, %if.else ], [ %sub, %entry ]
   %7 = load ptr, ptr %top, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr, ptr %top, align 8

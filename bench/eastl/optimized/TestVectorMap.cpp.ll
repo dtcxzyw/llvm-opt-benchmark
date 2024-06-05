@@ -3753,7 +3753,9 @@ if.else.i:                                        ; preds = %if.then7
   br label %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit
 
 _ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit: ; preds = %if.then.i, %if.else.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %position to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false.if.end9_crit_edge, %lor.lhs.false5
@@ -3792,7 +3794,7 @@ _ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES
 
 if.then.i.i:                                      ; preds = %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE11upper_boundERKf.exit.i
   tail call void @_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE13DoInsertValueIJRKS2_EEEvPS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first.addr.0.lcssa.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %value)
-  br label %return
+  br label %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertERKS6_.exit
 
 if.else.i.i:                                      ; preds = %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE11upper_boundERKf.exit.i
   %13 = load i64, ptr %value, align 4
@@ -3800,15 +3802,17 @@ if.else.i.i:                                      ; preds = %_ZN5eastl15vector_m
   %14 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
+  br label %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertERKS6_.exit
+
+_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertERKS6_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %first.addr.0.lcssa.i.i.i to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   br label %return
 
-return:                                           ; preds = %if.else.i.i, %if.then.i.i, %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i.sink = phi i64 [ %sub.ptr.rhs.cast.i, %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.then.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.else.i.i ]
-  %sub.ptr.lhs.cast.i.i.sink.in = phi ptr [ %position, %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit ], [ %first.addr.0.lcssa.i.i.i, %if.then.i.i ], [ %first.addr.0.lcssa.i.i.i, %if.else.i.i ]
-  %sub.ptr.lhs.cast.i.i.sink = ptrtoint ptr %sub.ptr.lhs.cast.i.i.sink.in to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.sink, %sub.ptr.rhs.cast.i.i.i.i.i.sink
+return:                                           ; preds = %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertERKS6_.exit, %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit
+  %sub.ptr.sub.i.i.sink = phi i64 [ %sub.ptr.sub.i.i, %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertERKS6_.exit ], [ %sub.ptr.sub.i, %_ZN5eastl6vectorINS_4pairIfiEENS_9allocatorEE6insertEPKS2_RS5_.exit ]
   %15 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i.i.sink
   ret ptr %add.ptr.i.i
 }
 
@@ -170658,7 +170662,9 @@ if.else.i:                                        ; preds = %if.then7
   br label %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit
 
 _ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit: ; preds = %if.then.i, %if.else.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %position to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false.if.end9_crit_edge, %lor.lhs.false5
@@ -170697,7 +170703,7 @@ _ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_
 
 if.then.i.i:                                      ; preds = %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE11upper_boundERKi.exit.i
   tail call void @_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE13DoInsertValueIJRKS3_EEEvPS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first.addr.0.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value)
-  br label %return
+  br label %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE6insertERKS7_.exit
 
 if.else.i.i:                                      ; preds = %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE11upper_boundERKi.exit.i
   store i32 %15, ptr %0, align 8
@@ -170728,15 +170734,17 @@ if.else.i.i:                                      ; preds = %_ZN5eastl15vector_m
   %25 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 32
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
+  br label %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE6insertERKS7_.exit
+
+_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE6insertERKS7_.exit: ; preds = %if.then.i.i, %if.else.i.i
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %first.addr.0.lcssa.i.i.i to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   br label %return
 
-return:                                           ; preds = %if.else.i.i, %if.then.i.i, %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i.sink = phi i64 [ %sub.ptr.rhs.cast.i, %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.then.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.else.i.i ]
-  %sub.ptr.lhs.cast.i.i.sink.in = phi ptr [ %position, %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit ], [ %first.addr.0.lcssa.i.i.i, %if.then.i.i ], [ %first.addr.0.lcssa.i.i.i, %if.else.i.i ]
-  %sub.ptr.lhs.cast.i.i.sink = ptrtoint ptr %sub.ptr.lhs.cast.i.i.sink.in to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.sink, %sub.ptr.rhs.cast.i.i.i.i.i.sink
+return:                                           ; preds = %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE6insertERKS7_.exit, %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit
+  %sub.ptr.sub.i.i.sink = phi i64 [ %sub.ptr.sub.i.i, %_ZN5eastl15vector_multimapIi10TestObjectNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiS1_EES4_EEE6insertERKS7_.exit ], [ %sub.ptr.sub.i, %_ZN5eastl6vectorINS_4pairIi10TestObjectEENS_9allocatorEE6insertEPKS3_RS6_.exit ]
   %26 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i.i.sink
   ret ptr %add.ptr.i.i
 }
 

@@ -11672,7 +11672,8 @@ land.rhs:                                         ; preds = %if.then123
   %12 = load i64, ptr %upper, align 8
   %upper126 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %13 = load i64, ptr %upper126, align 8
-  br label %if.end152.sink.split.sink.split
+  %cmp127 = icmp eq i64 %12, %13
+  br label %if.end152.sink.split
 
 if.then129:                                       ; preds = %if.then121
   %14 = load i64, ptr %tag, align 8
@@ -11683,7 +11684,8 @@ if.then129:                                       ; preds = %if.then121
 land.rhs133:                                      ; preds = %if.then129
   %upper134 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %16 = load i64, ptr %upper134, align 8
-  br label %if.end152.sink.split.sink.split
+  %cmp135 = icmp eq i64 %16, 0
+  br label %if.end152.sink.split
 
 if.then140:                                       ; preds = %if.then121
   %17 = load i64, ptr %type_tag, align 8
@@ -11693,17 +11695,12 @@ if.then140:                                       ; preds = %if.then121
 land.rhs143:                                      ; preds = %if.then140
   %upper144 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %18 = load i64, ptr %upper144, align 8
-  br label %if.end152.sink.split.sink.split
-
-if.end152.sink.split.sink.split:                  ; preds = %land.rhs, %land.rhs133, %land.rhs143
-  %.sink55 = phi i64 [ 0, %land.rhs143 ], [ 0, %land.rhs133 ], [ %13, %land.rhs ]
-  %.sink54 = phi i64 [ %18, %land.rhs143 ], [ %16, %land.rhs133 ], [ %12, %land.rhs ]
-  %cmp145 = icmp eq i64 %.sink54, %.sink55
-  %19 = zext i1 %cmp145 to i8
+  %cmp145 = icmp eq i64 %18, 0
   br label %if.end152.sink.split
 
-if.end152.sink.split:                             ; preds = %if.end152.sink.split.sink.split, %if.then140, %if.then129, %if.then123
-  %frombool137.sink = phi i8 [ 0, %if.then123 ], [ 0, %if.then129 ], [ 0, %if.then140 ], [ %19, %if.end152.sink.split.sink.split ]
+if.end152.sink.split:                             ; preds = %if.then140, %land.rhs143, %if.then129, %land.rhs133, %if.then123, %land.rhs
+  %frombool137.sink.shrunk = phi i1 [ false, %if.then123 ], [ %cmp127, %land.rhs ], [ false, %if.then129 ], [ %cmp135, %land.rhs133 ], [ false, %if.then140 ], [ %cmp145, %land.rhs143 ]
+  %frombool137.sink = zext i1 %frombool137.sink.shrunk to i8
   store i8 %frombool137.sink, ptr %result, align 1
   br label %if.end152
 
@@ -11712,9 +11709,9 @@ if.end152:                                        ; preds = %if.end152.sink.spli
   br i1 %call153, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split.sink.split:                    ; preds = %do.end74, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end27, %do.end14
-  %.sink56 = phi i32 [ 1, %do.end14 ], [ 2, %do.end27 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end74 ]
+  %.sink54 = phi i32 [ 1, %do.end14 ], [ 2, %do.end27 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end74 ]
   %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %cond24 = select i1 %call23, i32 10, i32 %.sink56
+  %cond24 = select i1 %call23, i32 10, i32 %.sink54
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %if.end152
@@ -11733,17 +11730,17 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %call.i, label %if.then.i51, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i51:                                      ; preds = %cleanup
-  %20 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds i8, ptr %20, i64 24
-  %isolate.i53 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %isolate.i53, align 8
+  %19 = load ptr, ptr %_env.i, align 8
+  %last_exception.i = getelementptr inbounds i8, ptr %19, i64 24
+  %isolate.i53 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %isolate.i53, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
-  %22 = load ptr, ptr %last_exception.i, align 8
-  %cmp.i.i.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %last_exception.i, align 8
+  %cmp.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i51
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %22) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %21) #24
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11752,8 +11749,8 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
   br i1 %cmp.i9.i.i, label %_ZN6v8impl8TryCatchD2Ev.exit, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
-  %23 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %21, i64 noundef %23) #24
+  %22 = load i64, ptr %call3.i, align 8
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %20, i64 noundef %22) #24
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 

@@ -5652,13 +5652,13 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %149, label %9
+  br i1 %8, label %150, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %149, label %13
+  br i1 %12, label %150, label %13
 
 13:                                               ; preds = %9
   %spec.store.select = tail call i16 @llvm.umax.i16(i16 %5, i16 1)
@@ -5700,8 +5700,8 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br i1 %.not65, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.thread110.i
-  %41 = phi ptr [ %148, %.thread110.i ], [ %40, %13 ]
-  %.03566 = phi i64 [ %147, %.thread110.i ], [ -2, %13 ]
+  %41 = phi ptr [ %149, %.thread110.i ], [ %40, %13 ]
+  %.03566 = phi i64 [ %148, %.thread110.i ], [ -2, %13 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %41, align 8
@@ -5828,111 +5828,111 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
 
 106:                                              ; preds = %102
   switch i16 %104, label %107 [
-    i16 -2, label %109
-    i16 0, label %109
+    i16 -2, label %110
+    i16 0, label %110
   ]
 
 107:                                              ; preds = %106
   %108 = zext i16 %104 to i64
-  br label %114
+  %109 = mul i64 %55, %108
+  br label %116
 
-109:                                              ; preds = %106, %106
-  br i1 %.not96.i, label %.thread127.i, label %110
+110:                                              ; preds = %106, %106
+  br i1 %.not96.i, label %.thread127.i, label %111
 
-110:                                              ; preds = %109
-  %111 = add i64 %55, -1
-  %112 = add i64 %111, %87
-  %113 = udiv i64 %112, %87
-  br label %114
+111:                                              ; preds = %110
+  %112 = add i64 %55, -1
+  %113 = add i64 %112, %87
+  %114 = udiv i64 %113, %87
+  %115 = mul i64 %114, %39
+  br label %116
 
-114:                                              ; preds = %110, %107
-  %.sink135.i = phi i64 [ %39, %110 ], [ %55, %107 ]
-  %.sink.i = phi i64 [ %113, %110 ], [ %108, %107 ]
-  %115 = mul i64 %.sink.i, %.sink135.i
-  %116 = icmp ne i64 %115, 0
-  %or.cond6.i = select i1 %72, i1 %116, i1 false
-  br i1 %or.cond6.i, label %117, label %.thread.i
+116:                                              ; preds = %111, %107
+  %.081.i = phi i64 [ %109, %107 ], [ %115, %111 ]
+  %117 = icmp ne i64 %.081.i, 0
+  %or.cond6.i = select i1 %72, i1 %117, i1 false
+  br i1 %or.cond6.i, label %118, label %.thread.i
 
-.thread127.i:                                     ; preds = %109
-  br i1 %72, label %117, label %.thread110.i
+.thread127.i:                                     ; preds = %110
+  br i1 %72, label %118, label %.thread110.i
 
-117:                                              ; preds = %.thread127.i, %114
-  %.081130.i = phi i64 [ -2, %.thread127.i ], [ %115, %114 ]
-  %118 = getelementptr inbounds i8, ptr %43, i64 56
-  %119 = load i64, ptr %118, align 8
-  switch i64 %119, label %120 [
+118:                                              ; preds = %.thread127.i, %116
+  %.081130.i = phi i64 [ -2, %.thread127.i ], [ %.081.i, %116 ]
+  %119 = getelementptr inbounds i8, ptr %43, i64 56
+  %120 = load i64, ptr %119, align 8
+  switch i64 %120, label %121 [
     i64 0, label %.thread110.i
     i64 -2, label %.thread110.i
   ]
 
-120:                                              ; preds = %117
-  %121 = mul i64 %119, %.3.i
-  %122 = getelementptr inbounds i8, ptr %74, i64 72
-  %123 = load ptr, ptr %122, align 8
-  %124 = sext i32 %73 to i64
-  %125 = getelementptr inbounds i64, ptr %123, i64 %124
-  %126 = load i64, ptr %125, align 8
-  br i1 %70, label %133, label %127
+121:                                              ; preds = %118
+  %122 = mul i64 %120, %.3.i
+  %123 = getelementptr inbounds i8, ptr %74, i64 72
+  %124 = load ptr, ptr %123, align 8
+  %125 = sext i32 %73 to i64
+  %126 = getelementptr inbounds i64, ptr %124, i64 %125
+  %127 = load i64, ptr %126, align 8
+  br i1 %70, label %134, label %128
 
-127:                                              ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %74, i64 80
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i64, ptr %129, i64 %124
-  %131 = load i64, ptr %130, align 8
-  %132 = sub i64 %126, %131
-  br label %133
+128:                                              ; preds = %121
+  %129 = getelementptr inbounds i8, ptr %74, i64 80
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i64, ptr %130, i64 %125
+  %132 = load i64, ptr %131, align 8
+  %133 = sub i64 %127, %132
+  br label %134
 
-133:                                              ; preds = %127, %120
-  %.0.i = phi i64 [ %126, %120 ], [ %132, %127 ]
-  %134 = icmp ult i64 %.0.i, %121
-  br i1 %134, label %135, label %.thread110.i
+134:                                              ; preds = %128, %121
+  %.0.i = phi i64 [ %127, %121 ], [ %133, %128 ]
+  %135 = icmp ult i64 %.0.i, %122
+  br i1 %135, label %136, label %.thread110.i
 
-135:                                              ; preds = %133
-  %136 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %137 = and i64 %136, 2
-  %.not102.i = icmp eq i64 %137, 0
-  br i1 %.not102.i, label %.thread116.i, label %138
+136:                                              ; preds = %134
+  %137 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %138 = and i64 %137, 2
+  %.not102.i = icmp eq i64 %138, 0
+  br i1 %.not102.i, label %.thread116.i, label %139
 
-138:                                              ; preds = %135
-  %139 = call i32 @get_log_level() #8
-  %140 = icmp sgt i32 %139, 3
-  br i1 %140, label %141, label %.thread116.i
+139:                                              ; preds = %136
+  %140 = call i32 @get_log_level() #8
+  %141 = icmp sgt i32 %140, 3
+  br i1 %141, label %142, label %.thread116.i
 
-141:                                              ; preds = %138
-  %142 = load i32, ptr %2, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._step_test, i32 noundef %142, i64 noundef %.0.i, i64 noundef %121) #8
+142:                                              ; preds = %139
+  %143 = load i32, ptr %2, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._step_test, i32 noundef %143, i64 noundef %.0.i, i64 noundef %122) #8
   br label %.thread116.i
 
-.thread116.i:                                     ; preds = %141, %138, %135
+.thread116.i:                                     ; preds = %142, %139, %136
   store i32 2044, ptr %75, align 4
   br label %.loopexit
 
-.thread.i:                                        ; preds = %114
-  %.not103.i = icmp eq i64 %115, 0
+.thread.i:                                        ; preds = %116
+  %.not103.i = icmp eq i64 %.081.i, 0
   br i1 %.not103.i, label %.loopexit, label %.thread110.i
 
-.thread110.i:                                     ; preds = %.thread.i, %133, %117, %117, %.thread127.i, %101
-  %.1115.i = phi i64 [ %115, %.thread.i ], [ %.081130.i, %133 ], [ %.081130.i, %117 ], [ %.081130.i, %117 ], [ -2, %101 ], [ -2, %.thread127.i ]
-  %.080108114.i = phi i64 [ %55, %.thread.i ], [ %55, %133 ], [ %55, %117 ], [ %55, %117 ], [ 0, %101 ], [ %55, %.thread127.i ]
+.thread110.i:                                     ; preds = %.thread.i, %134, %118, %118, %.thread127.i, %101
+  %.1115.i = phi i64 [ %.081.i, %.thread.i ], [ %.081130.i, %134 ], [ %.081130.i, %118 ], [ %.081130.i, %118 ], [ -2, %101 ], [ -2, %.thread127.i ]
+  %.080108114.i = phi i64 [ %55, %.thread.i ], [ %55, %134 ], [ %55, %118 ], [ %55, %118 ], [ 0, %101 ], [ %55, %.thread127.i ]
   %.1115.i.fr = freeze i64 %.1115.i
   %. = select i1 %70, i64 80, i64 72
-  %143 = getelementptr inbounds i8, ptr %43, i64 %.
-  %144 = load i64, ptr %143, align 8
-  %145 = add i64 %144, %.080108114.i
-  store i64 %145, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %43, i64 %.
+  %145 = load i64, ptr %144, align 8
+  %146 = add i64 %145, %.080108114.i
+  store i64 %146, ptr %144, align 8
   %.not40.not = icmp eq i64 %.1115.i.fr, -2
-  %146 = call i64 @llvm.umin.i64(i64 %.1115.i.fr, i64 %.03566)
-  %147 = select i1 %.not40.not, i64 %.03566, i64 %146
-  %148 = call ptr @list_next(ptr noundef %29) #8
-  %.not = icmp eq ptr %148, null
+  %147 = call i64 @llvm.umin.i64(i64 %.1115.i.fr, i64 %.03566)
+  %148 = select i1 %.not40.not, i64 %.03566, i64 %147
+  %149 = call ptr @list_next(ptr noundef %29) #8
+  %.not = icmp eq ptr %149, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.thread110.i, %51, %102, %.thread.i, %67, %13, %.thread116.i, %63, %60, %56
-  %.2 = phi i64 [ 0, %56 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread116.i ], [ -2, %13 ], [ 0, %67 ], [ 0, %.thread.i ], [ 0, %102 ], [ -2, %51 ], [ %147, %.thread110.i ]
+  %.2 = phi i64 [ 0, %56 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread116.i ], [ -2, %13 ], [ 0, %67 ], [ 0, %.thread.i ], [ 0, %102 ], [ -2, %51 ], [ %148, %.thread110.i ]
   call void @list_iterator_destroy(ptr noundef %29) #8
-  br label %149
+  br label %150
 
-149:                                              ; preds = %9, %1, %.loopexit
+150:                                              ; preds = %9, %1, %.loopexit
   %.0 = phi i64 [ %.2, %.loopexit ], [ -2, %1 ], [ 0, %9 ]
   ret i64 %.0
 }

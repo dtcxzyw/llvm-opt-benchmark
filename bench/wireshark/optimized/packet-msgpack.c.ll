@@ -401,31 +401,29 @@ dissect_msgpack_float.exit:                       ; preds = %112, %120
   %161 = tail call ptr @proto_item_add_subtree(ptr noundef %159, i32 noundef %160) #3
   %162 = load i32, ptr @hf_msgpack_type, align 4
   %163 = load i32, ptr %4, align 4
-  br i1 %148, label %164, label %170
+  br i1 %148, label %164, label %169
 
 164:                                              ; preds = %.thread3.i
   %165 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef %8, ptr noundef nonnull @.str.52) #3
   %166 = load i32, ptr @hf_msgpack_string_len, align 4
   %167 = load i32, ptr %4, align 4
   %168 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.53) #3
-  %169 = load i32, ptr %4, align 4
   br label %dissect_msgpack_string.exit
 
-170:                                              ; preds = %.thread3.i
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #3
-  %172 = load i32, ptr @hf_msgpack_string_len, align 4
-  %173 = load i32, ptr %4, align 4
-  %174 = add i32 %173, 1
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %172, ptr noundef %0, i32 noundef %174, i32 noundef %.361.i, i32 noundef 0) #3
+169:                                              ; preds = %.thread3.i
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #3
+  %171 = load i32, ptr @hf_msgpack_string_len, align 4
+  %172 = load i32, ptr %4, align 4
+  %173 = add i32 %172, 1
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %171, ptr noundef %0, i32 noundef %173, i32 noundef %.361.i, i32 noundef 0) #3
+  br label %dissect_msgpack_string.exit
+
+dissect_msgpack_string.exit:                      ; preds = %164, %169
+  %.sink3 = phi i32 [ 1, %164 ], [ %152, %169 ]
+  %175 = load i32, ptr @hf_msgpack_string, align 4
   %176 = load i32, ptr %4, align 4
-  br label %dissect_msgpack_string.exit
-
-dissect_msgpack_string.exit:                      ; preds = %164, %170
-  %.sink8.i = phi i32 [ %176, %170 ], [ 1, %164 ]
-  %.sink7.i = phi i32 [ %152, %170 ], [ %169, %164 ]
-  %.sink.i = load i32, ptr @hf_msgpack_string, align 4
-  %177 = add i32 %.sink7.i, %.sink8.i
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %.sink.i, ptr noundef %0, i32 noundef %177, i32 noundef %.3.i, i32 noundef 0) #3
+  %177 = add i32 %176, %.sink3
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %175, ptr noundef %0, i32 noundef %177, i32 noundef %.3.i, i32 noundef 0) #3
   %179 = load i32, ptr %4, align 4
   %180 = add i32 %179, %158
   store i32 %180, ptr %4, align 4

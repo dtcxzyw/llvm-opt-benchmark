@@ -13603,6 +13603,7 @@ if.then60:                                        ; preds = %sw.default
 
 if.then.i76:                                      ; preds = %if.then60
   %bf.set.i = and i32 %bf.load56, -1572865
+  %bf.clear5.i = or disjoint i32 %bf.set.i, 1048576
   br label %if.end18.i
 
 if.else.i:                                        ; preds = %if.then60
@@ -13668,17 +13669,16 @@ oideq.exit.i:                                     ; preds = %if.end.i.i.i82, %if
 for.end.i:                                        ; preds = %oideq.exit.i, %for.body.i79, %for.cond.i, %if.else.i
   %bf.shl.i = phi i32 [ 0, %if.else.i ], [ 0, %for.cond.i ], [ 1048576, %oideq.exit.i ], [ 1048576, %for.body.i79 ]
   %bf.clear16.i = and i32 %bf.load56, -1572865
+  %bf.set17.i = or disjoint i32 %bf.shl.i, %bf.clear16.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %for.end.i, %if.then.i76
-  %bf.clear16.sink.i = phi i32 [ %bf.clear16.i, %for.end.i ], [ 1048576, %if.then.i76 ]
-  %bf.shl.sink.i = phi i32 [ %bf.shl.i, %for.end.i ], [ %bf.set.i, %if.then.i76 ]
-  %bf.set17.i = or disjoint i32 %bf.shl.sink.i, %bf.clear16.sink.i
-  store i32 %bf.set17.i, ptr %track_linear, align 4
+  %storemerge.i = phi i32 [ %bf.set17.i, %for.end.i ], [ %bf.clear5.i, %if.then.i76 ]
+  store i32 %storemerge.i, ptr %track_linear, align 4
   %bf.load19.i = load i64, ptr %limited, align 8
   %50 = and i64 %bf.load19.i, 2147483648
   %tobool22.not.i = icmp eq i64 %50, 0
-  %51 = and i32 %bf.set17.i, 1048576
+  %51 = and i32 %storemerge.i, 1048576
   %tobool28.not.i = icmp eq i32 %51, 0
   %or.cond.i = select i1 %tobool22.not.i, i1 true, i1 %tobool28.not.i
   br i1 %or.cond.i, label %track_linear.exit, label %if.then29.i

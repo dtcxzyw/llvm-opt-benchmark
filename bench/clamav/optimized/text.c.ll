@@ -340,145 +340,148 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %54, label %.lr.ph24.i
+  br i1 %4, label %56, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %3, %getLength.exit
-  %.039 = phi i64 [ %10, %getLength.exit ], [ 0, %3 ]
-  %.123.i = phi ptr [ %12, %getLength.exit ], [ %0, %3 ]
+  %.039 = phi i64 [ %storemerge.i, %getLength.exit ], [ 0, %3 ]
+  %.123.i = phi ptr [ %14, %getLength.exit ], [ %0, %3 ]
   %5 = load ptr, ptr %.123.i, align 8
   %.not.i32 = icmp eq ptr %5, null
-  br i1 %.not.i32, label %getLength.exit, label %6
+  br i1 %.not.i32, label %11, label %6
 
 6:                                                ; preds = %.lr.ph24.i
   %7 = tail call ptr @lineGetData(ptr noundef nonnull %5) #7
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
-  %9 = add i64 %8, 1
+  %9 = add i64 %.039, 1
+  %10 = add i64 %9, %8
   br label %getLength.exit
 
-getLength.exit:                                   ; preds = %.lr.ph24.i, %6
-  %.sink5.i = phi i64 [ %.039, %6 ], [ 1, %.lr.ph24.i ]
-  %.sink.i = phi i64 [ %9, %6 ], [ %.039, %.lr.ph24.i ]
-  %10 = add i64 %.sink.i, %.sink5.i
-  %11 = getelementptr inbounds i8, ptr %.123.i, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %.not15.i = icmp eq ptr %12, null
+11:                                               ; preds = %.lr.ph24.i
+  %12 = add i64 %.039, 1
+  br label %getLength.exit
+
+getLength.exit:                                   ; preds = %6, %11
+  %storemerge.i = phi i64 [ %12, %11 ], [ %10, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.123.i, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %textIterate.exit, label %.lr.ph24.i
 
 textIterate.exit:                                 ; preds = %getLength.exit
-  %13 = icmp eq i64 %10, 0
-  br i1 %13, label %54, label %14
+  %15 = icmp eq i64 %storemerge.i, 0
+  br i1 %15, label %56, label %16
 
-14:                                               ; preds = %textIterate.exit
-  %15 = icmp eq ptr %1, null
-  br i1 %15, label %16, label %19
+16:                                               ; preds = %textIterate.exit
+  %17 = icmp eq ptr %1, null
+  br i1 %17, label %18, label %21
 
-16:                                               ; preds = %14
-  %17 = tail call ptr @blobCreate() #7
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %54, label %19
+18:                                               ; preds = %16
+  %19 = tail call ptr @blobCreate() #7
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %56, label %21
 
-19:                                               ; preds = %16, %14
-  %.018 = phi ptr [ %17, %16 ], [ %1, %14 ]
-  %20 = tail call i32 @blobGrow(ptr noundef nonnull %.018, i64 noundef %10) #7
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+21:                                               ; preds = %18, %16
+  %.018 = phi ptr [ %19, %18 ], [ %1, %16 ]
+  %22 = tail call i32 @blobGrow(ptr noundef nonnull %.018, i64 noundef %storemerge.i) #7
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
 
-21:                                               ; preds = %19
+23:                                               ; preds = %21
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.6) #7
-  br i1 %15, label %22, label %54
+  br i1 %17, label %24, label %56
 
-22:                                               ; preds = %21
+24:                                               ; preds = %23
   tail call void @blobDestroy(ptr noundef nonnull %.018) #7
-  br label %54
+  br label %56
 
-23:                                               ; preds = %19
+25:                                               ; preds = %21
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %.lr.ph24.i26, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %33
-  %.021.i = phi ptr [ %35, %33 ], [ %0, %23 ]
-  %24 = load ptr, ptr %.021.i, align 8
-  %.not.i34 = icmp eq ptr %24, null
-  br i1 %.not.i34, label %addToBlob.exit35, label %25
+.lr.ph.i:                                         ; preds = %25, %35
+  %.021.i = phi ptr [ %37, %35 ], [ %0, %25 ]
+  %26 = load ptr, ptr %.021.i, align 8
+  %.not.i34 = icmp eq ptr %26, null
+  br i1 %.not.i34, label %addToBlob.exit35, label %27
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = tail call ptr @lineGetData(ptr noundef nonnull %24) #7
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #10
-  %28 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %26, i64 noundef %27) #7
+27:                                               ; preds = %.lr.ph.i
+  %28 = tail call ptr @lineGetData(ptr noundef nonnull %26) #7
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #10
+  %30 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %28, i64 noundef %29) #7
   br label %addToBlob.exit35
 
-addToBlob.exit35:                                 ; preds = %.lr.ph.i, %25
-  %29 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %30 = load ptr, ptr %.021.i, align 8
-  %.not17.i = icmp eq ptr %30, null
-  br i1 %.not17.i, label %33, label %31
+addToBlob.exit35:                                 ; preds = %.lr.ph.i, %27
+  %31 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
+  %32 = load ptr, ptr %.021.i, align 8
+  %.not17.i = icmp eq ptr %32, null
+  br i1 %.not17.i, label %35, label %33
 
-31:                                               ; preds = %addToBlob.exit35
-  %32 = tail call ptr @lineUnlink(ptr noundef nonnull %30) #7
+33:                                               ; preds = %addToBlob.exit35
+  %34 = tail call ptr @lineUnlink(ptr noundef nonnull %32) #7
   store ptr null, ptr %.021.i, align 8
-  br label %33
+  br label %35
 
-33:                                               ; preds = %31, %addToBlob.exit35
-  %34 = getelementptr inbounds i8, ptr %.021.i, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not16.i = icmp eq ptr %35, null
+35:                                               ; preds = %33, %addToBlob.exit35
+  %36 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not16.i = icmp eq ptr %37, null
   br i1 %.not16.i, label %textIterate.exit29, label %.lr.ph.i
 
-.lr.ph24.i26:                                     ; preds = %23, %addToBlob.exit
-  %.123.i27 = phi ptr [ %43, %addToBlob.exit ], [ %0, %23 ]
-  %36 = load ptr, ptr %.123.i27, align 8
-  %.not.i33 = icmp eq ptr %36, null
-  br i1 %.not.i33, label %addToBlob.exit, label %37
+.lr.ph24.i26:                                     ; preds = %25, %addToBlob.exit
+  %.123.i27 = phi ptr [ %45, %addToBlob.exit ], [ %0, %25 ]
+  %38 = load ptr, ptr %.123.i27, align 8
+  %.not.i33 = icmp eq ptr %38, null
+  br i1 %.not.i33, label %addToBlob.exit, label %39
 
-37:                                               ; preds = %.lr.ph24.i26
-  %38 = tail call ptr @lineGetData(ptr noundef nonnull %36) #7
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #10
-  %40 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %38, i64 noundef %39) #7
+39:                                               ; preds = %.lr.ph24.i26
+  %40 = tail call ptr @lineGetData(ptr noundef nonnull %38) #7
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #10
+  %42 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %40, i64 noundef %41) #7
   br label %addToBlob.exit
 
-addToBlob.exit:                                   ; preds = %.lr.ph24.i26, %37
-  %41 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %42 = getelementptr inbounds i8, ptr %.123.i27, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not15.i28 = icmp eq ptr %43, null
+addToBlob.exit:                                   ; preds = %.lr.ph24.i26, %39
+  %43 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
+  %44 = getelementptr inbounds i8, ptr %.123.i27, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %.not15.i28 = icmp eq ptr %45, null
   br i1 %.not15.i28, label %textIterate.exit29, label %.lr.ph24.i26
 
-textIterate.exit29:                               ; preds = %33, %addToBlob.exit
-  br i1 %.not.i, label %53, label %44
+textIterate.exit29:                               ; preds = %35, %addToBlob.exit
+  br i1 %.not.i, label %55, label %46
 
-44:                                               ; preds = %textIterate.exit29
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %.not24 = icmp eq ptr %46, null
-  br i1 %.not24, label %53, label %.lr.ph.i30
-
-.lr.ph.i30:                                       ; preds = %44, %52
-  %.010.i = phi ptr [ %48, %52 ], [ %46, %44 ]
-  %47 = getelementptr inbounds i8, ptr %.010.i, i64 8
+46:                                               ; preds = %textIterate.exit29
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %.010.i, align 8
-  %.not8.i = icmp eq ptr %49, null
-  br i1 %.not8.i, label %52, label %50
+  %.not24 = icmp eq ptr %48, null
+  br i1 %.not24, label %55, label %.lr.ph.i30
 
-50:                                               ; preds = %.lr.ph.i30
-  %51 = tail call ptr @lineUnlink(ptr noundef nonnull %49) #7
-  br label %52
+.lr.ph.i30:                                       ; preds = %46, %54
+  %.010.i = phi ptr [ %50, %54 ], [ %48, %46 ]
+  %49 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %.010.i, align 8
+  %.not8.i = icmp eq ptr %51, null
+  br i1 %.not8.i, label %54, label %52
 
-52:                                               ; preds = %50, %.lr.ph.i30
-  tail call void @free(ptr noundef nonnull %.010.i) #7
-  %.not.i31 = icmp eq ptr %48, null
-  br i1 %.not.i31, label %textDestroy.exit, label %.lr.ph.i30
-
-textDestroy.exit:                                 ; preds = %52
-  store ptr null, ptr %45, align 8
-  br label %53
-
-53:                                               ; preds = %textDestroy.exit, %44, %textIterate.exit29
-  tail call void @blobClose(ptr noundef nonnull %.018) #7
+52:                                               ; preds = %.lr.ph.i30
+  %53 = tail call ptr @lineUnlink(ptr noundef nonnull %51) #7
   br label %54
 
-54:                                               ; preds = %21, %22, %16, %textIterate.exit, %3, %53
-  %.0 = phi ptr [ %.018, %53 ], [ null, %3 ], [ %1, %textIterate.exit ], [ null, %16 ], [ null, %22 ], [ null, %21 ]
+54:                                               ; preds = %52, %.lr.ph.i30
+  tail call void @free(ptr noundef nonnull %.010.i) #7
+  %.not.i31 = icmp eq ptr %50, null
+  br i1 %.not.i31, label %textDestroy.exit, label %.lr.ph.i30
+
+textDestroy.exit:                                 ; preds = %54
+  store ptr null, ptr %47, align 8
+  br label %55
+
+55:                                               ; preds = %textDestroy.exit, %46, %textIterate.exit29
+  tail call void @blobClose(ptr noundef nonnull %.018) #7
+  br label %56
+
+56:                                               ; preds = %23, %24, %18, %textIterate.exit, %3, %55
+  %.0 = phi ptr [ %.018, %55 ], [ null, %3 ], [ %1, %textIterate.exit ], [ null, %18 ], [ null, %24 ], [ null, %23 ]
   ret ptr %.0
 }
 

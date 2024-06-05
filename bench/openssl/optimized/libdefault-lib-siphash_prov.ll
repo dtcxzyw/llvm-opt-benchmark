@@ -83,7 +83,8 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   %siphash = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %sipcopy = getelementptr inbounds i8, ptr %vmacctx, i64 72
-  br label %return.sink.split
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %siphash, ptr noundef nonnull align 8 dereferenceable(64) %sipcopy, i64 64, i1 false)
+  br label %return
 
 if.end4:                                          ; preds = %if.end
   %cmp.not.i = icmp eq i64 %keylen, 16
@@ -105,17 +106,11 @@ if.end.i:                                         ; preds = %if.end4
 
 if.then3.i:                                       ; preds = %if.end.i
   %sipcopy.i = getelementptr inbounds i8, ptr %vmacctx, i64 72
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then3, %if.then3.i
-  %siphash.i.sink = phi ptr [ %siphash.i, %if.then3.i ], [ %sipcopy, %if.then3 ]
-  %sipcopy.i.sink = phi ptr [ %sipcopy.i, %if.then3.i ], [ %siphash, %if.then3 ]
-  %retval.0.ph = phi i32 [ %call2.i, %if.then3.i ], [ 1, %if.then3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sipcopy.i.sink, ptr noundef nonnull align 8 dereferenceable(64) %siphash.i.sink, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sipcopy.i, ptr noundef nonnull align 8 dereferenceable(64) %siphash.i, i64 64, i1 false)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i, %if.end4, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end4 ], [ 0, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.then3.i, %if.end.i, %if.end4, %entry, %lor.lhs.false, %if.then3
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end4 ], [ %call2.i, %if.then3.i ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 

@@ -13246,30 +13246,27 @@ switch.hole_check:                                ; preds = %2
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i16 %3 to i64
   %switch.gep = getelementptr inbounds [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %5
+  %switch.load = load i8, ptr %switch.gep, align 1
   %6 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
   %7 = load i8, ptr %6, align 1, !range !866, !noundef !7
-  br label %.sink.split
-
-_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread: ; preds = %switch.hole_check, %2
-  %8 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
-  %9 = load i8, ptr %8, align 1, !range !866, !noundef !7
-  %10 = icmp eq i8 %9, 6
-  br i1 %10, label %13, label %12
-
-.sink.split:                                      ; preds = %13, %switch.lookup
-  %.sink = phi i8 [ %7, %switch.lookup ], [ 0, %13 ]
-  %switch.load.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %14, %13 ]
-  %switch.load.sink = load i8, ptr %switch.load.sink.in, align 1
-  %11 = icmp eq i8 %switch.load.sink, %.sink
+  %8 = icmp eq i8 %switch.load, %7
   br label %12
 
-12:                                               ; preds = %.sink.split, %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread
-  %.0 = phi i1 [ false, %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread ], [ %11, %.sink.split ]
+_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread: ; preds = %switch.hole_check, %2
+  %9 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
+  %10 = load i8, ptr %9, align 1, !range !866, !noundef !7
+  %11 = icmp eq i8 %10, 6
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %switch.lookup, %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread, %13
+  %.0 = phi i1 [ %16, %13 ], [ false, %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread ], [ %8, %switch.lookup ]
   ret i1 %.0
 
 13:                                               ; preds = %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
-  br label %.sink.split
+  %14 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1, !noundef !7
+  %16 = icmp eq i8 %15, 0
+  br label %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
