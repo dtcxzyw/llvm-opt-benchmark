@@ -69,7 +69,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
 
 7:                                                ; preds = %3
   %8 = icmp eq i64 %2, 1
-  br i1 %8, label %9, label %134
+  br i1 %8, label %9, label %133
 
 9:                                                ; preds = %7
   %10 = icmp ugt i64 %0, 255
@@ -85,11 +85,11 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %15 = lshr i64 %14, 3
   %16 = and i64 %15, 7
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.loopexit7, label %.preheader6
+  br i1 %17, label %.loopexit8, label %.preheader7
 
-.preheader6:                                      ; preds = %12, %.preheader6
-  %18 = phi i64 [ %26, %.preheader6 ], [ 0, %12 ]
-  %19 = phi double [ %25, %.preheader6 ], [ 0.000000e+00, %12 ]
+.preheader7:                                      ; preds = %12, %.preheader7
+  %18 = phi i64 [ %26, %.preheader7 ], [ 0, %12 ]
+  %19 = phi double [ %25, %.preheader7 ], [ 0.000000e+00, %12 ]
   %20 = getelementptr inbounds double, ptr %1, i64 %18
   %21 = load double, ptr %20, align 8, !tbaa !7
   %22 = fcmp ogt double %21, 0.000000e+00
@@ -98,10 +98,10 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %25 = fadd double %19, %24
   %26 = add nuw nsw i64 %18, 1
   %27 = icmp eq i64 %26, %16
-  br i1 %27, label %.loopexit7, label %.preheader6, !llvm.loop !12
+  br i1 %27, label %.loopexit8, label %.preheader7, !llvm.loop !12
 
-.loopexit7:                                       ; preds = %.preheader6, %12
-  %28 = phi double [ 0.000000e+00, %12 ], [ %25, %.preheader6 ]
+.loopexit8:                                       ; preds = %.preheader7, %12
+  %28 = phi double [ 0.000000e+00, %12 ], [ %25, %.preheader7 ]
   %29 = sub nuw nsw i64 %0, %16
   %30 = getelementptr inbounds double, ptr %1, i64 %16
   %31 = and i64 %29, 9223372036854775800
@@ -109,16 +109,16 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %33 = icmp sgt i64 %29, 255
   br i1 %33, label %34, label %73
 
-34:                                               ; preds = %.loopexit7
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %69, label %.preheader5
+34:                                               ; preds = %.loopexit8
+  %.not4 = icmp eq i64 %32, 0
+  br i1 %.not4, label %69, label %.preheader6
 
-.preheader5:                                      ; preds = %34, %.preheader5
-  %35 = phi <8 x double> [ %62, %.preheader5 ], [ zeroinitializer, %34 ]
-  %36 = phi <8 x double> [ %56, %.preheader5 ], [ zeroinitializer, %34 ]
-  %37 = phi <8 x double> [ %50, %.preheader5 ], [ zeroinitializer, %34 ]
-  %38 = phi <8 x double> [ %44, %.preheader5 ], [ zeroinitializer, %34 ]
-  %39 = phi i64 [ %63, %.preheader5 ], [ 0, %34 ]
+.preheader6:                                      ; preds = %34, %.preheader6
+  %35 = phi <8 x double> [ %62, %.preheader6 ], [ zeroinitializer, %34 ]
+  %36 = phi <8 x double> [ %56, %.preheader6 ], [ zeroinitializer, %34 ]
+  %37 = phi <8 x double> [ %50, %.preheader6 ], [ zeroinitializer, %34 ]
+  %38 = phi <8 x double> [ %44, %.preheader6 ], [ zeroinitializer, %34 ]
+  %39 = phi i64 [ %63, %.preheader6 ], [ 0, %34 ]
   %40 = getelementptr inbounds double, ptr %30, i64 %39
   %41 = load <8 x i64>, ptr %40, align 64, !tbaa !13
   %42 = and <8 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807, i64 9223372036854775807>
@@ -144,9 +144,9 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %62 = fadd <8 x double> %35, %61
   %63 = add nuw nsw i64 %39, 32
   %64 = icmp ult i64 %63, %32
-  br i1 %64, label %.preheader5, label %65, !llvm.loop !14
+  br i1 %64, label %.preheader6, label %65, !llvm.loop !14
 
-65:                                               ; preds = %.preheader5
+65:                                               ; preds = %.preheader6
   %66 = fadd <8 x double> %44, %50
   %67 = fadd <8 x double> %66, %56
   %68 = fadd <8 x double> %67, %62
@@ -158,25 +158,25 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %72 = fadd double %28, %71
   br label %73
 
-73:                                               ; preds = %.thread, %69, %.loopexit7
-  %74 = phi i64 [ %32, %69 ], [ %32, %.loopexit7 ], [ 0, %.thread ]
-  %75 = phi i64 [ %31, %69 ], [ %31, %.loopexit7 ], [ %11, %.thread ]
-  %76 = phi i64 [ %29, %69 ], [ %29, %.loopexit7 ], [ %0, %.thread ]
-  %77 = phi ptr [ %30, %69 ], [ %30, %.loopexit7 ], [ %1, %.thread ]
-  %78 = phi double [ %72, %69 ], [ %28, %.loopexit7 ], [ 0.000000e+00, %.thread ]
+73:                                               ; preds = %.thread, %69, %.loopexit8
+  %74 = phi i64 [ %32, %69 ], [ %32, %.loopexit8 ], [ 0, %.thread ]
+  %75 = phi i64 [ %31, %69 ], [ %31, %.loopexit8 ], [ %11, %.thread ]
+  %76 = phi i64 [ %29, %69 ], [ %29, %.loopexit8 ], [ %0, %.thread ]
+  %77 = phi ptr [ %30, %69 ], [ %30, %.loopexit8 ], [ %1, %.thread ]
+  %78 = phi double [ %72, %69 ], [ %28, %.loopexit8 ], [ 0.000000e+00, %.thread ]
   %79 = icmp sgt i64 %76, 7
   br i1 %79, label %80, label %121
 
 80:                                               ; preds = %73
   %81 = icmp ult i64 %74, %75
-  br i1 %81, label %.preheader4, label %116
+  br i1 %81, label %.preheader5, label %116
 
-.preheader4:                                      ; preds = %80, %.preheader4
-  %82 = phi <2 x double> [ %109, %.preheader4 ], [ zeroinitializer, %80 ]
-  %83 = phi <2 x double> [ %103, %.preheader4 ], [ zeroinitializer, %80 ]
-  %84 = phi <2 x double> [ %97, %.preheader4 ], [ zeroinitializer, %80 ]
-  %85 = phi <2 x double> [ %91, %.preheader4 ], [ zeroinitializer, %80 ]
-  %86 = phi i64 [ %110, %.preheader4 ], [ %74, %80 ]
+.preheader5:                                      ; preds = %80, %.preheader5
+  %82 = phi <2 x double> [ %109, %.preheader5 ], [ zeroinitializer, %80 ]
+  %83 = phi <2 x double> [ %103, %.preheader5 ], [ zeroinitializer, %80 ]
+  %84 = phi <2 x double> [ %97, %.preheader5 ], [ zeroinitializer, %80 ]
+  %85 = phi <2 x double> [ %91, %.preheader5 ], [ zeroinitializer, %80 ]
+  %86 = phi i64 [ %110, %.preheader5 ], [ %74, %80 ]
   %87 = getelementptr inbounds double, ptr %77, i64 %86
   %88 = load <2 x i64>, ptr %87, align 1, !tbaa !13
   %89 = and <2 x i64> %88, <i64 9223372036854775807, i64 9223372036854775807>
@@ -202,9 +202,9 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %109 = fadd <2 x double> %82, %108
   %110 = add nuw nsw i64 %86, 8
   %111 = icmp ult i64 %110, %75
-  br i1 %111, label %.preheader4, label %112, !llvm.loop !15
+  br i1 %111, label %.preheader5, label %112, !llvm.loop !15
 
-112:                                              ; preds = %.preheader4
+112:                                              ; preds = %.preheader5
   %113 = fadd <2 x double> %91, %97
   %114 = fadd <2 x double> %113, %103
   %115 = fadd <2 x double> %114, %109
@@ -219,42 +219,42 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
 
 121:                                              ; preds = %116, %73
   %122 = phi double [ %120, %116 ], [ %78, %73 ]
-  %123 = icmp slt i64 %75, %76
-  br i1 %123, label %.preheader, label %.loopexit
+  %.not = icmp eq i64 %75, %76
+  br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %121, %.preheader
-  %124 = phi i64 [ %132, %.preheader ], [ %75, %121 ]
-  %125 = phi double [ %131, %.preheader ], [ %122, %121 ]
-  %126 = getelementptr inbounds double, ptr %77, i64 %124
-  %127 = load double, ptr %126, align 8, !tbaa !7
-  %128 = fcmp ogt double %127, 0.000000e+00
-  %129 = fneg double %127
-  %130 = select i1 %128, double %127, double %129
-  %131 = fadd double %125, %130
-  %132 = add nuw nsw i64 %124, 1
-  %133 = icmp eq i64 %132, %76
-  br i1 %133, label %.loopexit, label %.preheader, !llvm.loop !16
+  %123 = phi i64 [ %131, %.preheader ], [ %75, %121 ]
+  %124 = phi double [ %130, %.preheader ], [ %122, %121 ]
+  %125 = getelementptr inbounds double, ptr %77, i64 %123
+  %126 = load double, ptr %125, align 8, !tbaa !7
+  %127 = fcmp ogt double %126, 0.000000e+00
+  %128 = fneg double %126
+  %129 = select i1 %127, double %126, double %128
+  %130 = fadd double %124, %129
+  %131 = add nuw nsw i64 %123, 1
+  %132 = icmp eq i64 %131, %76
+  br i1 %132, label %.loopexit, label %.preheader, !llvm.loop !16
 
-134:                                              ; preds = %7
-  %135 = mul nuw nsw i64 %2, %0
-  br label %136
+133:                                              ; preds = %7
+  %134 = mul nuw nsw i64 %2, %0
+  br label %135
 
-136:                                              ; preds = %134, %136
-  %137 = phi double [ %144, %136 ], [ 0.000000e+00, %134 ]
-  %138 = phi i64 [ %145, %136 ], [ 0, %134 ]
-  %139 = getelementptr inbounds double, ptr %1, i64 %138
-  %140 = load double, ptr %139, align 8, !tbaa !7
-  %141 = fcmp ogt double %140, 0.000000e+00
-  %142 = fneg double %140
-  %143 = select i1 %141, double %140, double %142
-  %144 = fadd double %137, %143
-  %145 = add nuw nsw i64 %138, %2
-  %146 = icmp slt i64 %145, %135
-  br i1 %146, label %136, label %.loopexit, !llvm.loop !17
+135:                                              ; preds = %133, %135
+  %136 = phi double [ %143, %135 ], [ 0.000000e+00, %133 ]
+  %137 = phi i64 [ %144, %135 ], [ 0, %133 ]
+  %138 = getelementptr inbounds double, ptr %1, i64 %137
+  %139 = load double, ptr %138, align 8, !tbaa !7
+  %140 = fcmp ogt double %139, 0.000000e+00
+  %141 = fneg double %139
+  %142 = select i1 %140, double %139, double %141
+  %143 = fadd double %136, %142
+  %144 = add nuw nsw i64 %137, %2
+  %145 = icmp slt i64 %144, %134
+  br i1 %145, label %135, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %136, %.preheader, %121, %3
-  %147 = phi double [ 0.000000e+00, %3 ], [ %122, %121 ], [ %131, %.preheader ], [ %144, %136 ]
-  ret double %147
+.loopexit:                                        ; preds = %135, %.preheader, %121, %3
+  %146 = phi double [ 0.000000e+00, %3 ], [ %122, %121 ], [ %130, %.preheader ], [ %143, %135 ]
+  ret double %146
 }
 
 declare i32 @blas_level1_thread_with_return_value(i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

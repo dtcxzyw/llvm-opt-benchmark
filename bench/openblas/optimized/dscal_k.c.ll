@@ -125,34 +125,34 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 .loopexit10:                                      ; preds = %78, %70, %65
   %85 = fcmp oeq double %3, 0.000000e+00
-  %86 = icmp slt i64 %66, %0
-  br i1 %85, label %88, label %87
+  %.not = icmp eq i64 %66, %0
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %.loopexit10
+  br i1 %.not, label %.loopexit, label %.preheader
 
 87:                                               ; preds = %.loopexit10
-  br i1 %86, label %.preheader, label %.loopexit
+  br i1 %.not, label %.loopexit, label %88
 
-88:                                               ; preds = %.loopexit10
-  br i1 %86, label %89, label %.loopexit
-
-89:                                               ; preds = %88
-  %90 = shl i64 %0, 3
-  %91 = and i64 %90, -64
-  %92 = getelementptr i8, ptr %4, i64 %91
-  %93 = and i64 %90, 56
-  tail call void @llvm.memset.p0.i64(ptr align 8 %92, i8 0, i64 %93, i1 false), !tbaa !3
+88:                                               ; preds = %87
+  %89 = shl i64 %0, 3
+  %90 = and i64 %89, -64
+  %91 = getelementptr i8, ptr %4, i64 %90
+  %92 = and i64 %89, 56
+  tail call void @llvm.memset.p0.i64(ptr align 8 %91, i8 0, i64 %92, i1 false), !tbaa !3
   br label %.loopexit
 
-.preheader:                                       ; preds = %87, %.preheader
-  %94 = phi i64 [ %98, %.preheader ], [ %66, %87 ]
-  %95 = getelementptr inbounds double, ptr %4, i64 %94
-  %96 = load double, ptr %95, align 8, !tbaa !3
-  %97 = fmul double %96, %3
-  store double %97, ptr %95, align 8, !tbaa !3
-  %98 = add nsw i64 %94, 1
-  %99 = icmp eq i64 %98, %0
-  br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !15
+.preheader:                                       ; preds = %86, %.preheader
+  %93 = phi i64 [ %97, %.preheader ], [ %66, %86 ]
+  %94 = getelementptr inbounds double, ptr %4, i64 %93
+  %95 = load double, ptr %94, align 8, !tbaa !3
+  %96 = fmul double %95, %3
+  store double %96, ptr %94, align 8, !tbaa !3
+  %97 = add nsw i64 %93, 1
+  %98 = icmp eq i64 %97, %0
+  br i1 %98, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %56, %.preheader11, %.preheader, %89, %88, %87, %50, %24
+.loopexit:                                        ; preds = %56, %.preheader11, %.preheader, %88, %87, %86, %50, %24
   ret i32 0
 }
 
