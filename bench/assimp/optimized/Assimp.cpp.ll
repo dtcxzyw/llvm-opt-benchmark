@@ -7455,7 +7455,7 @@ if.then6.i:                                       ; preds = %_ZL14stbi__zreceive
   br i1 %tobool.not.i.i, label %if.end.i45.i, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %if.then6.i
-  %cmp.i.i.i = icmp slt i32 %sub3.i22.i, %and.i43.i
+  %cmp.i.i.i = icmp slt i32 %20, 2
   br i1 %cmp.i.i.i, label %do.body.i.i.i.i, label %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i.i
 
 do.body.i.i.i.i:                                  ; preds = %if.then.i44.i, %_ZL11stbi__zget8P10stbi__zbuf.exit.i.i.i.i

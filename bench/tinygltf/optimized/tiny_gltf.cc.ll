@@ -3808,7 +3808,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit31.i:       ; preds = %_ZL11stbi__zget8P10
   br i1 %.not.i.i, label %112, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp slt i32 %89, %91
+  %93 = icmp slt i32 %84, 2
   br i1 %93, label %.preheader.i, label %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i.i
 
 .preheader.i:                                     ; preds = %92, %_ZL11stbi__zget8P10stbi__zbuf.exit.i.i.i.i

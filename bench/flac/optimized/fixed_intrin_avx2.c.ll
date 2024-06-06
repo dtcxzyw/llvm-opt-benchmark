@@ -379,8 +379,8 @@ for.body272.lr.ph:                                ; preds = %for.end260
   %24 = zext nneg i32 %div291423 to i64
   %wide.trip.count = zext nneg i32 %div to i64
   %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %22
-  %invariant.gep535 = getelementptr inbounds i32, ptr %data, i64 %23
-  %invariant.gep537 = getelementptr inbounds i32, ptr %data, i64 %24
+  %invariant.gep533 = getelementptr inbounds i32, ptr %data, i64 %23
+  %invariant.gep535 = getelementptr inbounds i32, ptr %data, i64 %24
   br label %for.body272
 
 for.body272:                                      ; preds = %for.body272.lr.ph, %for.body272
@@ -407,12 +407,12 @@ for.body272:                                      ; preds = %for.body272.lr.ph, 
   %26 = load i32, ptr %gep, align 4
   %conv281 = sext i32 %26 to i64
   %data_scalar.sroa.0.8.vec.insert = insertelement <4 x i64> %data_scalar.sroa.0.0.vec.insert, i64 %conv281, i64 1
-  %gep536 = getelementptr inbounds i32, ptr %invariant.gep535, i64 %indvars.iv523
-  %27 = load i32, ptr %gep536, align 4
+  %gep534 = getelementptr inbounds i32, ptr %invariant.gep533, i64 %indvars.iv523
+  %27 = load i32, ptr %gep534, align 4
   %conv288 = sext i32 %27 to i64
   %data_scalar.sroa.0.16.vec.insert = insertelement <4 x i64> %data_scalar.sroa.0.8.vec.insert, i64 %conv288, i64 2
-  %gep538 = getelementptr inbounds i32, ptr %invariant.gep537, i64 %indvars.iv523
-  %28 = load i32, ptr %gep538, align 4
+  %gep536 = getelementptr inbounds i32, ptr %invariant.gep535, i64 %indvars.iv523
+  %28 = load i32, ptr %gep536, align 4
   %conv295 = sext i32 %28 to i64
   %data_scalar.sroa.0.24.vec.insert = insertelement <4 x i64> %data_scalar.sroa.0.16.vec.insert, i64 %conv295, i64 3
   %sub.i1027 = tail call <4 x i64> @llvm.abs.v4i64(<4 x i64> %data_scalar.sroa.0.24.vec.insert, i1 false)
@@ -450,77 +450,77 @@ for.end392:                                       ; preds = %for.body272, %for.e
   %total_err1.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end260 ], [ %add.i1054, %for.body272 ]
   %total_err0.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end260 ], [ %add.i1061, %for.body272 ]
   %29 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err0.0.lcssa)
-  %op.rdx548 = add i64 %29, %add181
+  %op.rdx546 = add i64 %29, %add181
   %30 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err1.0.lcssa)
-  %op.rdx547 = add i64 %30, %add182
+  %op.rdx545 = add i64 %30, %add182
   %31 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err2.0.lcssa)
-  %op.rdx546 = add i64 %31, %add183
+  %op.rdx544 = add i64 %31, %add183
   %32 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err3.0.lcssa)
-  %op.rdx545 = add i64 %32, %add184
+  %op.rdx543 = add i64 %32, %add184
   %33 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err4.0.lcssa)
   %34 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err0.0.lcssa)
-  %op.rdx544 = or i64 %34, %or
+  %op.rdx542 = or i64 %34, %or
   %35 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err1.0.lcssa)
-  %op.rdx543 = or i64 %35, %or185
+  %op.rdx541 = or i64 %35, %or185
   %36 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err2.0.lcssa)
-  %op.rdx542 = or i64 %36, %or186
+  %op.rdx540 = or i64 %36, %or186
   %37 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err3.0.lcssa)
   %op.rdx = or i64 %37, %or187
   %38 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err4.0.lcssa)
   %div493419 = and i32 %data_len, -4
-  %cmp496492 = icmp slt i32 %div493419, %data_len
-  br i1 %cmp496492, label %for.body498.preheader, label %for.end759
+  %cmp496492.not = icmp eq i32 %div493419, %data_len
+  br i1 %cmp496492.not, label %for.end759, label %for.body498.preheader
 
 for.body498.preheader:                            ; preds = %for.end392
   %39 = sext i32 %div493419 to i64
-  %wide.trip.count533 = sext i32 %data_len to i64
+  %40 = sext i32 %data_len to i64
   br label %for.body498
 
 for.body498:                                      ; preds = %for.body498.preheader, %for.body498
   %indvars.iv530 = phi i64 [ %39, %for.body498.preheader ], [ %indvars.iv.next531, %for.body498 ]
-  %total_error_0.1503 = phi i64 [ %op.rdx548, %for.body498.preheader ], [ %add747, %for.body498 ]
-  %total_error_1.1502 = phi i64 [ %op.rdx547, %for.body498.preheader ], [ %add748, %for.body498 ]
-  %total_error_2.1501 = phi i64 [ %op.rdx546, %for.body498.preheader ], [ %add749, %for.body498 ]
-  %total_error_3.1500 = phi i64 [ %op.rdx545, %for.body498.preheader ], [ %add750, %for.body498 ]
+  %total_error_0.1503 = phi i64 [ %op.rdx546, %for.body498.preheader ], [ %add747, %for.body498 ]
+  %total_error_1.1502 = phi i64 [ %op.rdx545, %for.body498.preheader ], [ %add748, %for.body498 ]
+  %total_error_2.1501 = phi i64 [ %op.rdx544, %for.body498.preheader ], [ %add749, %for.body498 ]
+  %total_error_3.1500 = phi i64 [ %op.rdx543, %for.body498.preheader ], [ %add750, %for.body498 ]
   %total_error_4.0499 = phi i64 [ %33, %for.body498.preheader ], [ %add751, %for.body498 ]
-  %shadow_error_0.1498 = phi i64 [ %op.rdx544, %for.body498.preheader ], [ %or752, %for.body498 ]
-  %shadow_error_1.1497 = phi i64 [ %op.rdx543, %for.body498.preheader ], [ %or753, %for.body498 ]
-  %shadow_error_2.1496 = phi i64 [ %op.rdx542, %for.body498.preheader ], [ %or754, %for.body498 ]
+  %shadow_error_0.1498 = phi i64 [ %op.rdx542, %for.body498.preheader ], [ %or752, %for.body498 ]
+  %shadow_error_1.1497 = phi i64 [ %op.rdx541, %for.body498.preheader ], [ %or753, %for.body498 ]
+  %shadow_error_2.1496 = phi i64 [ %op.rdx540, %for.body498.preheader ], [ %or754, %for.body498 ]
   %shadow_error_3.1495 = phi i64 [ %op.rdx, %for.body498.preheader ], [ %or755, %for.body498 ]
   %shadow_error_4.0494 = phi i64 [ %38, %for.body498.preheader ], [ %or756, %for.body498 ]
   %arrayidx500 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv530
-  %40 = load i32, ptr %arrayidx500, align 4
-  %conv501 = sext i32 %40 to i64
+  %41 = load i32, ptr %arrayidx500, align 4
+  %conv501 = sext i32 %41 to i64
   %cond514 = tail call i64 @llvm.abs.i64(i64 %conv501, i1 true)
   %arrayidx520 = getelementptr i8, ptr %arrayidx500, i64 -4
-  %41 = load i32, ptr %arrayidx520, align 4
-  %conv521 = sext i32 %41 to i64
+  %42 = load i32, ptr %arrayidx520, align 4
+  %conv521 = sext i32 %42 to i64
   %sub522 = sub nsw i64 %conv501, %conv521
   %cond545 = tail call i64 @llvm.abs.i64(i64 %sub522, i1 true)
-  %42 = shl nsw i64 %conv521, 1
-  %sub554 = sub nsw i64 %conv501, %42
+  %43 = shl nsw i64 %conv521, 1
+  %sub554 = sub nsw i64 %conv501, %43
   %arrayidx557 = getelementptr i8, ptr %arrayidx500, i64 -8
-  %43 = load i32, ptr %arrayidx557, align 4
-  %conv558 = sext i32 %43 to i64
+  %44 = load i32, ptr %arrayidx557, align 4
+  %conv558 = sext i32 %44 to i64
   %add559 = add nsw i64 %sub554, %conv558
   %cond594 = tail call i64 @llvm.abs.i64(i64 %add559, i1 true)
   %arrayidx612 = getelementptr i8, ptr %arrayidx500, i64 -12
-  %44 = load i32, ptr %arrayidx612, align 4
-  %conv613 = sext i32 %44 to i64
+  %45 = load i32, ptr %arrayidx612, align 4
+  %conv613 = sext i32 %45 to i64
   %reass.add = sub nsw i64 %conv558, %conv521
   %reass.mul = mul nsw i64 %reass.add, 3
   %add609 = sub nsw i64 %conv501, %conv613
   %sub614 = add nsw i64 %add609, %reass.mul
   %cond661 = tail call i64 @llvm.abs.i64(i64 %sub614, i1 true)
   %mul675 = mul nsw i64 %conv558, 6
-  %45 = add nsw i64 %mul675, %conv501
+  %46 = add nsw i64 %mul675, %conv501
   %mul669420 = add nsw i64 %conv613, %conv521
   %arrayidx685 = getelementptr i8, ptr %arrayidx500, i64 -16
-  %46 = load i32, ptr %arrayidx685, align 4
-  %conv686 = sext i32 %46 to i64
-  %sub682 = add nsw i64 %45, %conv686
-  %47 = shl nsw i64 %mul669420, 2
-  %add687 = sub nsw i64 %sub682, %47
+  %47 = load i32, ptr %arrayidx685, align 4
+  %conv686 = sext i32 %47 to i64
+  %sub682 = add nsw i64 %46, %conv686
+  %48 = shl nsw i64 %mul669420, 2
+  %add687 = sub nsw i64 %sub682, %48
   %cond746 = tail call i64 @llvm.abs.i64(i64 %add687, i1 true)
   %add747 = add i64 %cond514, %total_error_0.1503
   %add748 = add i64 %cond545, %total_error_1.1502
@@ -533,20 +533,20 @@ for.body498:                                      ; preds = %for.body498.prehead
   %or755 = or i64 %cond661, %shadow_error_3.1495
   %or756 = or i64 %cond746, %shadow_error_4.0494
   %indvars.iv.next531 = add nsw i64 %indvars.iv530, 1
-  %exitcond534.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count533
-  br i1 %exitcond534.not, label %for.end759, label %for.body498, !llvm.loop !10
+  %cmp496 = icmp slt i64 %indvars.iv.next531, %40
+  br i1 %cmp496, label %for.body498, label %for.end759, !llvm.loop !10
 
 for.end759:                                       ; preds = %for.body498, %for.end392
   %shadow_error_4.0.lcssa = phi i64 [ %38, %for.end392 ], [ %or756, %for.body498 ]
   %shadow_error_3.1.lcssa = phi i64 [ %op.rdx, %for.end392 ], [ %or755, %for.body498 ]
-  %shadow_error_2.1.lcssa = phi i64 [ %op.rdx542, %for.end392 ], [ %or754, %for.body498 ]
-  %shadow_error_1.1.lcssa = phi i64 [ %op.rdx543, %for.end392 ], [ %or753, %for.body498 ]
-  %shadow_error_0.1.lcssa = phi i64 [ %op.rdx544, %for.end392 ], [ %or752, %for.body498 ]
+  %shadow_error_2.1.lcssa = phi i64 [ %op.rdx540, %for.end392 ], [ %or754, %for.body498 ]
+  %shadow_error_1.1.lcssa = phi i64 [ %op.rdx541, %for.end392 ], [ %or753, %for.body498 ]
+  %shadow_error_0.1.lcssa = phi i64 [ %op.rdx542, %for.end392 ], [ %or752, %for.body498 ]
   %total_error_4.0.lcssa = phi i64 [ %33, %for.end392 ], [ %add751, %for.body498 ]
-  %total_error_3.1.lcssa = phi i64 [ %op.rdx545, %for.end392 ], [ %add750, %for.body498 ]
-  %total_error_2.1.lcssa = phi i64 [ %op.rdx546, %for.end392 ], [ %add749, %for.body498 ]
-  %total_error_1.1.lcssa = phi i64 [ %op.rdx547, %for.end392 ], [ %add748, %for.body498 ]
-  %total_error_0.1.lcssa = phi i64 [ %op.rdx548, %for.end392 ], [ %add747, %for.body498 ]
+  %total_error_3.1.lcssa = phi i64 [ %op.rdx543, %for.end392 ], [ %add750, %for.body498 ]
+  %total_error_2.1.lcssa = phi i64 [ %op.rdx544, %for.end392 ], [ %add749, %for.body498 ]
+  %total_error_1.1.lcssa = phi i64 [ %op.rdx545, %for.end392 ], [ %add748, %for.body498 ]
+  %total_error_0.1.lcssa = phi i64 [ %op.rdx546, %for.end392 ], [ %add747, %for.body498 ]
   %cmp760 = icmp ult i64 %shadow_error_0.1.lcssa, 2147483648
   br i1 %cmp760, label %if.then, label %if.end780
 
@@ -561,11 +561,11 @@ cond.true767:                                     ; preds = %if.then
   %div771 = fdiv reassoc nsz arcp double %mul769, %conv770
   %call772 = tail call reassoc nsz arcp double @log(double noundef %div771) #3
   %div773 = fmul reassoc nsz arcp double %call772, 0x3FF71547652B82FE
-  %48 = fptrunc double %div773 to float
+  %49 = fptrunc double %div773 to float
   br label %if.end780
 
 if.end780:                                        ; preds = %for.end759, %cond.true767
-  %storemerge = phi float [ %48, %cond.true767 ], [ 3.400000e+01, %for.end759 ]
+  %storemerge = phi float [ %49, %cond.true767 ], [ 3.400000e+01, %for.end759 ]
   %smallest_error.1 = phi i64 [ %total_error_0.1.lcssa, %cond.true767 ], [ -1, %for.end759 ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp781 = icmp ult i64 %shadow_error_1.1.lcssa, 2147483648
@@ -588,13 +588,13 @@ cond.true790:                                     ; preds = %if.then783
   %div794 = fdiv reassoc nsz arcp double %mul792, %conv793
   %call795 = tail call reassoc nsz arcp double @log(double noundef %div794) #3
   %div796 = fmul reassoc nsz arcp double %call795, 0x3FF71547652B82FE
-  %49 = fptrunc double %div796 to float
+  %50 = fptrunc double %div796 to float
   br label %cond.end798
 
 cond.end798:                                      ; preds = %if.end780.thread, %if.then783, %cond.true790
   %spec.select425453 = phi i64 [ %spec.select425, %cond.true790 ], [ %spec.select425, %if.then783 ], [ 0, %if.end780.thread ]
   %smallest_error.1.pn = phi i64 [ %smallest_error.1, %cond.true790 ], [ %smallest_error.1, %if.then783 ], [ 0, %if.end780.thread ]
-  %cond799 = phi float [ %49, %cond.true790 ], [ 0.000000e+00, %if.then783 ], [ 0.000000e+00, %if.end780.thread ]
+  %cond799 = phi float [ %50, %cond.true790 ], [ 0.000000e+00, %if.then783 ], [ 0.000000e+00, %if.end780.thread ]
   %spec.select424452.in = icmp ult i64 %total_error_1.1.lcssa, %smallest_error.1.pn
   %spec.select424452 = zext i1 %spec.select424452.in to i32
   br label %if.end804
@@ -622,15 +622,15 @@ cond.true814:                                     ; preds = %if.then807
   %div818 = fdiv reassoc nsz arcp double %mul816, %conv817
   %call819 = tail call reassoc nsz arcp double @log(double noundef %div818) #3
   %div820 = fmul reassoc nsz arcp double %call819, 0x3FF71547652B82FE
-  %50 = fptrunc double %div820 to float
+  %51 = fptrunc double %div820 to float
   br label %if.end828
 
 if.end828:                                        ; preds = %if.end804, %cond.true814, %if.then807
-  %.sink539 = phi float [ %50, %cond.true814 ], [ 0.000000e+00, %if.then807 ], [ 3.400000e+01, %if.end804 ]
+  %.sink537 = phi float [ %51, %cond.true814 ], [ 0.000000e+00, %if.then807 ], [ 3.400000e+01, %if.end804 ]
   %order.5 = phi i32 [ %spec.select426, %cond.true814 ], [ %spec.select426, %if.then807 ], [ %order.3, %if.end804 ]
   %smallest_error.5 = phi i64 [ %spec.select427, %cond.true814 ], [ %spec.select427, %if.then807 ], [ %smallest_error.3, %if.end804 ]
   %arrayidx827 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
-  store float %.sink539, ptr %arrayidx827, align 4
+  store float %.sink537, ptr %arrayidx827, align 4
   %cmp829 = icmp ult i64 %shadow_error_3.1.lcssa, 2147483648
   br i1 %cmp829, label %if.then831, label %if.end852
 
@@ -648,15 +648,15 @@ cond.true838:                                     ; preds = %if.then831
   %div842 = fdiv reassoc nsz arcp double %mul840, %conv841
   %call843 = tail call reassoc nsz arcp double @log(double noundef %div842) #3
   %div844 = fmul reassoc nsz arcp double %call843, 0x3FF71547652B82FE
-  %51 = fptrunc double %div844 to float
+  %52 = fptrunc double %div844 to float
   br label %if.end852
 
 if.end852:                                        ; preds = %if.end828, %cond.true838, %if.then831
-  %.sink540 = phi float [ %51, %cond.true838 ], [ 0.000000e+00, %if.then831 ], [ 3.400000e+01, %if.end828 ]
+  %.sink538 = phi float [ %52, %cond.true838 ], [ 0.000000e+00, %if.then831 ], [ 3.400000e+01, %if.end828 ]
   %order.7 = phi i32 [ %spec.select428, %cond.true838 ], [ %spec.select428, %if.then831 ], [ %order.5, %if.end828 ]
   %smallest_error.7 = phi i64 [ %spec.select429, %cond.true838 ], [ %spec.select429, %if.then831 ], [ %smallest_error.5, %if.end828 ]
   %arrayidx851 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
-  store float %.sink540, ptr %arrayidx851, align 4
+  store float %.sink538, ptr %arrayidx851, align 4
   %cmp853 = icmp ult i64 %shadow_error_4.0.lcssa, 2147483648
   br i1 %cmp853, label %if.then855, label %if.end876
 
@@ -673,14 +673,14 @@ cond.true862:                                     ; preds = %if.then855
   %div866 = fdiv reassoc nsz arcp double %mul864, %conv865
   %call867 = tail call reassoc nsz arcp double @log(double noundef %div866) #3
   %div868 = fmul reassoc nsz arcp double %call867, 0x3FF71547652B82FE
-  %52 = fptrunc double %div868 to float
+  %53 = fptrunc double %div868 to float
   br label %if.end876
 
 if.end876:                                        ; preds = %if.end852, %cond.true862, %if.then855
-  %.sink541 = phi float [ %52, %cond.true862 ], [ 0.000000e+00, %if.then855 ], [ 3.400000e+01, %if.end852 ]
+  %.sink539 = phi float [ %53, %cond.true862 ], [ 0.000000e+00, %if.then855 ], [ 3.400000e+01, %if.end852 ]
   %order.9 = phi i32 [ %spec.select430, %cond.true862 ], [ %spec.select430, %if.then855 ], [ %order.7, %if.end852 ]
   %arrayidx875 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
-  store float %.sink541, ptr %arrayidx875, align 4
+  store float %.sink539, ptr %arrayidx875, align 4
   ret i32 %order.9
 }
 

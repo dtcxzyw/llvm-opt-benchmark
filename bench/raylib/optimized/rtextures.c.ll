@@ -2010,7 +2010,7 @@ stbi__zreceive.exit30.i:                          ; preds = %stbi__zget8.exit.i.
   br i1 %.not.i.i, label %110, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp slt i32 %87, %89
+  %91 = icmp slt i32 %82, 2
   br i1 %91, label %.preheader.i, label %stbi__zreceive.exit.i.i
 
 .preheader.i:                                     ; preds = %90, %stbi__zget8.exit.i.i.i.i

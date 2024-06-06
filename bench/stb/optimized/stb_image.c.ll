@@ -20159,7 +20159,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp slt i32 %0, %and
+  %cmp.i = icmp slt i32 %0, 0
   %code_buffer.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %code_buffer.promoted.i.i = load i32, ptr %code_buffer.i.i, align 8
   br i1 %cmp.i, label %if.then.i, label %stbi__zreceive.exit

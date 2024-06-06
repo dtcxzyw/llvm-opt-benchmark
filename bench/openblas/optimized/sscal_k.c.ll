@@ -171,34 +171,34 @@ sscal_kernel_inc_8.exit:                          ; preds = %48
 
 .loopexit12:                                      ; preds = %.preheader11, %95, %83, %78
   %114 = fcmp oeq float %3, 0.000000e+00
-  %115 = icmp slt i64 %79, %0
-  br i1 %114, label %117, label %116
+  %.not = icmp eq i64 %79, %0
+  br i1 %114, label %116, label %115
+
+115:                                              ; preds = %.loopexit12
+  br i1 %.not, label %.loopexit, label %.preheader
 
 116:                                              ; preds = %.loopexit12
-  br i1 %115, label %.preheader, label %.loopexit
+  br i1 %.not, label %.loopexit, label %117
 
-117:                                              ; preds = %.loopexit12
-  br i1 %115, label %118, label %.loopexit
-
-118:                                              ; preds = %117
-  %119 = shl i64 %0, 2
-  %120 = and i64 %119, -64
-  %121 = getelementptr i8, ptr %4, i64 %120
-  %122 = and i64 %119, 60
-  tail call void @llvm.memset.p0.i64(ptr align 4 %121, i8 0, i64 %122, i1 false), !tbaa !3
+117:                                              ; preds = %116
+  %118 = shl i64 %0, 2
+  %119 = and i64 %118, -64
+  %120 = getelementptr i8, ptr %4, i64 %119
+  %121 = and i64 %118, 60
+  tail call void @llvm.memset.p0.i64(ptr align 4 %120, i8 0, i64 %121, i1 false), !tbaa !3
   br label %.loopexit
 
-.preheader:                                       ; preds = %116, %.preheader
-  %123 = phi i64 [ %127, %.preheader ], [ %79, %116 ]
-  %124 = getelementptr inbounds float, ptr %4, i64 %123
-  %125 = load float, ptr %124, align 4, !tbaa !3
-  %126 = fmul float %125, %3
-  store float %126, ptr %124, align 4, !tbaa !3
-  %127 = add nsw i64 %123, 1
-  %128 = icmp eq i64 %127, %0
-  br i1 %128, label %.loopexit, label %.preheader, !llvm.loop !16
+.preheader:                                       ; preds = %115, %.preheader
+  %122 = phi i64 [ %126, %.preheader ], [ %79, %115 ]
+  %123 = getelementptr inbounds float, ptr %4, i64 %122
+  %124 = load float, ptr %123, align 4, !tbaa !3
+  %125 = fmul float %124, %3
+  store float %125, ptr %123, align 4, !tbaa !3
+  %126 = add nsw i64 %122, 1
+  %127 = icmp eq i64 %126, %0
+  br i1 %127, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.preheader16, %.preheader14, %.preheader, %118, %117, %116, %66, %23
+.loopexit:                                        ; preds = %.preheader16, %.preheader14, %.preheader, %117, %116, %115, %66, %23
   ret i32 0
 }
 
