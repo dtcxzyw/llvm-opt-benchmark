@@ -22,43 +22,36 @@ define void @lib_memoutstream(ptr nocapture noundef writeonly %0, ptr noundef %1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @memoutstream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = alloca i8, align 1
-  %4 = trunc i32 %1 to i8
-  store i8 %4, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = load i64, ptr %5, align 8
-  %7 = load i32, ptr %0, align 8
-  %8 = sext i32 %7 to i64
-  %.not.i = icmp eq i64 %6, %8
-  %9 = trunc i64 %6 to i32
-  %10 = sub i32 %9, %7
-  %11 = select i1 %.not.i, i32 %10, i32 1
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %memoutstream_puts.exit
+  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = load i64, ptr %3, align 8
+  %5 = load i32, ptr %0, align 8
+  %6 = sext i32 %5 to i64
+  %.not.i.not = icmp eq i64 %4, %6
+  br i1 %.not.i.not, label %memoutstream_puts.exit, label %7
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 %8
-  %17 = zext nneg i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 %3, i64 %17, i1 false)
-  %18 = load i32, ptr %0, align 8
-  %19 = add nsw i32 %18, %11
-  store i32 %19, ptr %0, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  store i8 0, ptr %22, align 1
+7:                                                ; preds = %2
+  %8 = trunc i32 %1 to i8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 %6
+  store i8 %8, ptr %11, align 1
+  %12 = load i32, ptr %0, align 8
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %0, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = sext i32 %13 to i64
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  store i8 0, ptr %16, align 1
   br label %memoutstream_puts.exit
 
-memoutstream_puts.exit:                           ; preds = %2, %13
+memoutstream_puts.exit:                           ; preds = %2, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
@@ -90,15 +83,16 @@ define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture n
   ret i32 %11
 }
 
-declare i32 @lib_noflush(ptr noundef) #2
+declare i32 @lib_noflush(ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
