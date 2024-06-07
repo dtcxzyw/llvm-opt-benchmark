@@ -9083,7 +9083,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %346 = and i32 %345, 1
   %347 = xor i32 %346, %341
   store i32 %347, ptr %33, align 4
-  %348 = icmp eq i32 %347, 0
+  %348 = icmp eq i32 %346, %341
   br i1 %348, label %1034, label %349
 
 349:                                              ; preds = %318

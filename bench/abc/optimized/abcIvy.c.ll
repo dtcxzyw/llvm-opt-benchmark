@@ -1948,12 +1948,12 @@ define void @Abc_NtkTransferPointers(ptr noundef %0, ptr noundef %1) local_unnam
   %.not.i = icmp eq ptr %79, null
   %80 = and i64 %75, 1
   %81 = ptrtoint ptr %79 to i64
-  %82 = xor i64 %80, %81
-  %83 = icmp eq i64 %82, 0
-  %84 = or i1 %.not.i, %83
-  br i1 %84, label %.critedge4, label %85
+  %82 = icmp eq i64 %80, %81
+  %83 = or i1 %.not.i, %82
+  br i1 %83, label %.critedge4, label %84
 
-85:                                               ; preds = %74
+84:                                               ; preds = %74
+  %85 = xor i64 %81, %75
   %86 = and i64 %81, -2
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds i8, ptr %87, i64 4
@@ -1968,7 +1968,7 @@ define void @Abc_NtkTransferPointers(ptr noundef %0, ptr noundef %1) local_unnam
   %95 = and i32 %89, 1
   %96 = ptrtoint ptr %94 to i64
   %97 = zext nneg i32 %95 to i64
-  %98 = and i64 %82, 1
+  %98 = and i64 %85, 1
   %99 = xor i64 %98, %97
   %100 = xor i64 %99, %96
   %101 = inttoptr i64 %100 to ptr
@@ -1976,8 +1976,8 @@ define void @Abc_NtkTransferPointers(ptr noundef %0, ptr noundef %1) local_unnam
   %.pre93 = load ptr, ptr %40, align 8
   br label %.critedge4
 
-.critedge4:                                       ; preds = %85, %67, %61, %74, %70
-  %102 = phi ptr [ %.pre93, %85 ], [ %62, %67 ], [ %62, %61 ], [ %62, %74 ], [ %62, %70 ]
+.critedge4:                                       ; preds = %84, %67, %61, %74, %70
+  %102 = phi ptr [ %.pre93, %84 ], [ %62, %67 ], [ %62, %61 ], [ %62, %74 ], [ %62, %70 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %103 = getelementptr i8, ptr %102, i64 4
   %.val54 = load i32, ptr %103, align 4

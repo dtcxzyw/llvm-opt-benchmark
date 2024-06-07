@@ -307,63 +307,63 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %107 = call i64 @llvm.cttz.i64(i64 %104, i1 true), !range !53
   %108 = add i64 %105, %107
   %109 = shl nsw i64 -1, %107
-  %110 = xor i64 %109, %104
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %139
+  %110 = icmp eq i64 %109, %104
+  br i1 %110, label %111, label %138
 
-112:                                              ; preds = %103
-  %113 = add i64 %105, 64
-  %114 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %113)
-  %115 = sub i64 %114, %108
-  %116 = icmp eq i64 %115, -1
-  br i1 %116, label %.loopexit16, label %117
+111:                                              ; preds = %103
+  %112 = add i64 %105, 64
+  %113 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %112)
+  %114 = sub i64 %113, %108
+  %115 = icmp eq i64 %114, -1
+  br i1 %115, label %.loopexit16, label %116
 
-117:                                              ; preds = %112
-  %118 = icmp ult i64 %113, %80
-  br i1 %118, label %.preheader, label %.loopexit16
+116:                                              ; preds = %111
+  %117 = icmp ult i64 %112, %80
+  br i1 %117, label %.preheader, label %.loopexit16
 
-119:                                              ; preds = %134
-  %120 = add nuw nsw i64 %122, 64
-  %121 = icmp ult i64 %120, %80
-  br i1 %121, label %.preheader, label %.loopexit16, !llvm.loop !54
+118:                                              ; preds = %133
+  %119 = add nuw nsw i64 %121, 64
+  %120 = icmp ult i64 %119, %80
+  br i1 %120, label %.preheader, label %.loopexit16, !llvm.loop !54
 
-.preheader:                                       ; preds = %117, %119
-  %122 = phi i64 [ %120, %119 ], [ %113, %117 ]
-  %123 = phi i64 [ %122, %119 ], [ %105, %117 ]
-  %124 = phi ptr [ %125, %119 ], [ %106, %117 ]
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
-  %126 = load i64, ptr %125, align 8, !tbaa !51
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %134, label %128
+.preheader:                                       ; preds = %116, %118
+  %121 = phi i64 [ %119, %118 ], [ %112, %116 ]
+  %122 = phi i64 [ %121, %118 ], [ %105, %116 ]
+  %123 = phi ptr [ %124, %118 ], [ %106, %116 ]
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = load i64, ptr %124, align 8, !tbaa !51
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %133, label %127
 
-128:                                              ; preds = %.preheader
-  %129 = call i64 @llvm.cttz.i64(i64 %126, i1 true), !range !53
-  %130 = add i64 %129, %122
-  %131 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %130)
-  %132 = shl nsw i64 -1, %129
-  %133 = xor i64 %132, %126
+127:                                              ; preds = %.preheader
+  %128 = call i64 @llvm.cttz.i64(i64 %125, i1 true), !range !53
+  %129 = add i64 %128, %121
+  %130 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %129)
+  %131 = shl nsw i64 -1, %128
+  %132 = xor i64 %131, %125
   br label %.loopexit16
 
-134:                                              ; preds = %.preheader
-  %135 = add i64 %123, 128
-  %136 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %135)
-  %137 = sub i64 %136, %108
-  %138 = icmp eq i64 %137, -1
-  br i1 %138, label %.loopexit16, label %119, !llvm.loop !54
+133:                                              ; preds = %.preheader
+  %134 = add i64 %122, 128
+  %135 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %134)
+  %136 = sub i64 %135, %108
+  %137 = icmp eq i64 %136, -1
+  br i1 %137, label %.loopexit16, label %118, !llvm.loop !54
 
-139:                                              ; preds = %103
-  %140 = call i64 @llvm.cttz.i64(i64 %110, i1 true), !range !53
+138:                                              ; preds = %103
+  %139 = xor i64 %109, %104
+  %140 = call i64 @llvm.cttz.i64(i64 %139, i1 true), !range !53
   %141 = add i64 %140, %105
   %142 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %141)
   %143 = shl nsw i64 -1, %140
-  %144 = xor i64 %143, %110
+  %144 = xor i64 %143, %139
   br label %.loopexit16
 
-.loopexit16:                                      ; preds = %134, %119, %139, %128, %117, %112
-  %145 = phi i64 [ %142, %139 ], [ %131, %128 ], [ %114, %112 ], [ %114, %117 ], [ %136, %119 ], [ %136, %134 ]
-  %146 = phi ptr [ %106, %139 ], [ %125, %128 ], [ %106, %112 ], [ %106, %117 ], [ %125, %119 ], [ %125, %134 ]
-  %147 = phi i64 [ %105, %139 ], [ %122, %128 ], [ %105, %112 ], [ %113, %117 ], [ %122, %134 ], [ %120, %119 ]
-  %148 = phi i64 [ %144, %139 ], [ %133, %128 ], [ 0, %112 ], [ 0, %117 ], [ 0, %119 ], [ 0, %134 ]
+.loopexit16:                                      ; preds = %133, %118, %138, %127, %116, %111
+  %145 = phi i64 [ %142, %138 ], [ %130, %127 ], [ %113, %111 ], [ %113, %116 ], [ %135, %118 ], [ %135, %133 ]
+  %146 = phi ptr [ %106, %138 ], [ %124, %127 ], [ %106, %111 ], [ %106, %116 ], [ %124, %118 ], [ %124, %133 ]
+  %147 = phi i64 [ %105, %138 ], [ %121, %127 ], [ %105, %111 ], [ %112, %116 ], [ %121, %133 ], [ %119, %118 ]
+  %148 = phi i64 [ %144, %138 ], [ %132, %127 ], [ 0, %111 ], [ 0, %116 ], [ 0, %118 ], [ 0, %133 ]
   %149 = mul i64 %108, %87
   %150 = getelementptr inbounds i8, ptr %74, i64 %149
   %151 = sub i64 %145, %108
@@ -941,63 +941,63 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %123 = tail call i64 @llvm.cttz.i64(i64 %122, i1 true), !range !53
   %124 = add i64 %123, %120
   %125 = shl nsw i64 -1, %123
-  %126 = xor i64 %125, %122
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %128, label %155
+  %126 = icmp eq i64 %125, %122
+  br i1 %126, label %127, label %154
 
-128:                                              ; preds = %119
-  %129 = add i64 %120, 64
-  %130 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %129)
-  %131 = sub i64 %130, %124
-  %132 = icmp ult i64 %131, %59
-  br i1 %132, label %133, label %.loopexit29
+127:                                              ; preds = %119
+  %128 = add i64 %120, 64
+  %129 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %128)
+  %130 = sub i64 %129, %124
+  %131 = icmp ult i64 %130, %59
+  br i1 %131, label %132, label %.loopexit29
 
-133:                                              ; preds = %128
-  %134 = icmp ult i64 %129, %90
-  br i1 %134, label %.preheader, label %.loopexit29
+132:                                              ; preds = %127
+  %133 = icmp ult i64 %128, %90
+  br i1 %133, label %.preheader, label %.loopexit29
 
-135:                                              ; preds = %150
-  %136 = add nuw nsw i64 %138, 64
-  %137 = icmp ult i64 %136, %90
-  br i1 %137, label %.preheader, label %.loopexit29, !llvm.loop !54
+134:                                              ; preds = %149
+  %135 = add nuw nsw i64 %137, 64
+  %136 = icmp ult i64 %135, %90
+  br i1 %136, label %.preheader, label %.loopexit29, !llvm.loop !54
 
-.preheader:                                       ; preds = %133, %135
-  %138 = phi i64 [ %136, %135 ], [ %129, %133 ]
-  %139 = phi i64 [ %138, %135 ], [ %120, %133 ]
-  %140 = phi ptr [ %141, %135 ], [ %121, %133 ]
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  %142 = load i64, ptr %141, align 8, !tbaa !51
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %150, label %144
+.preheader:                                       ; preds = %132, %134
+  %137 = phi i64 [ %135, %134 ], [ %128, %132 ]
+  %138 = phi i64 [ %137, %134 ], [ %120, %132 ]
+  %139 = phi ptr [ %140, %134 ], [ %121, %132 ]
+  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %141 = load i64, ptr %140, align 8, !tbaa !51
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %149, label %143
 
-144:                                              ; preds = %.preheader
-  %145 = tail call i64 @llvm.cttz.i64(i64 %142, i1 true), !range !53
-  %146 = add i64 %145, %138
-  %147 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %146)
-  %148 = shl nsw i64 -1, %145
-  %149 = xor i64 %148, %142
+143:                                              ; preds = %.preheader
+  %144 = tail call i64 @llvm.cttz.i64(i64 %141, i1 true), !range !53
+  %145 = add i64 %144, %137
+  %146 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %145)
+  %147 = shl nsw i64 -1, %144
+  %148 = xor i64 %147, %141
   br label %.loopexit29
 
-150:                                              ; preds = %.preheader
-  %151 = add i64 %139, 128
-  %152 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %151)
-  %153 = sub i64 %152, %124
-  %154 = icmp ult i64 %153, %59
-  br i1 %154, label %135, label %.loopexit29, !llvm.loop !54
+149:                                              ; preds = %.preheader
+  %150 = add i64 %138, 128
+  %151 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %150)
+  %152 = sub i64 %151, %124
+  %153 = icmp ult i64 %152, %59
+  br i1 %153, label %134, label %.loopexit29, !llvm.loop !54
 
-155:                                              ; preds = %119
-  %156 = tail call i64 @llvm.cttz.i64(i64 %126, i1 true), !range !53
+154:                                              ; preds = %119
+  %155 = xor i64 %125, %122
+  %156 = tail call i64 @llvm.cttz.i64(i64 %155, i1 true), !range !53
   %157 = add i64 %156, %120
   %158 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %157)
   %159 = shl nsw i64 -1, %156
-  %160 = xor i64 %159, %126
+  %160 = xor i64 %159, %155
   br label %.loopexit29
 
-.loopexit29:                                      ; preds = %150, %135, %155, %144, %133, %128
-  %161 = phi i64 [ %160, %155 ], [ %149, %144 ], [ 0, %128 ], [ 0, %133 ], [ 0, %135 ], [ 0, %150 ]
-  %162 = phi i64 [ %158, %155 ], [ %147, %144 ], [ %130, %128 ], [ %130, %133 ], [ %152, %135 ], [ %152, %150 ]
-  %163 = phi ptr [ %121, %155 ], [ %141, %144 ], [ %121, %128 ], [ %121, %133 ], [ %141, %135 ], [ %141, %150 ]
-  %164 = phi i64 [ %120, %155 ], [ %138, %144 ], [ %120, %128 ], [ %129, %133 ], [ %138, %150 ], [ %136, %135 ]
+.loopexit29:                                      ; preds = %149, %134, %154, %143, %132, %127
+  %161 = phi i64 [ %160, %154 ], [ %148, %143 ], [ 0, %127 ], [ 0, %132 ], [ 0, %134 ], [ 0, %149 ]
+  %162 = phi i64 [ %158, %154 ], [ %146, %143 ], [ %129, %127 ], [ %129, %132 ], [ %151, %134 ], [ %151, %149 ]
+  %163 = phi ptr [ %121, %154 ], [ %140, %143 ], [ %121, %127 ], [ %121, %132 ], [ %140, %134 ], [ %140, %149 ]
+  %164 = phi i64 [ %120, %154 ], [ %137, %143 ], [ %120, %127 ], [ %128, %132 ], [ %137, %149 ], [ %135, %134 ]
   %165 = sub i64 %162, %124
   %166 = icmp ult i64 %165, %59
   br i1 %166, label %167, label %170

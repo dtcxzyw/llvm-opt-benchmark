@@ -1523,13 +1523,13 @@ define i32 @Fra_ImpCheckForNode(ptr noundef %0, ptr nocapture noundef readonly %
   %11 = sext i32 %3 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %95
-  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %95 ]
+12:                                               ; preds = %.lr.ph, %96
+  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %.val53 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds i32, ptr %.val53, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %95, label %16
+  br i1 %15, label %96, label %16
 
 16:                                               ; preds = %12
   %17 = and i32 %14, 65535
@@ -1584,83 +1584,84 @@ Aig_ManObj.exit66:                                ; preds = %16
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
   %55 = lshr i32 %54, 3
-  %56 = ptrtoint ptr %42 to i64
-  %57 = trunc i64 %56 to i32
-  %58 = xor i32 %55, %57
+  %56 = and i32 %55, 1
+  %57 = ptrtoint ptr %42 to i64
+  %58 = trunc i64 %57 to i32
   %59 = and i32 %58, 1
-  %60 = getelementptr inbounds i8, ptr %30, i64 24
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i64 %61 to i32
-  %63 = lshr i32 %62, 3
-  %64 = ptrtoint ptr %51 to i64
-  %65 = trunc i64 %64 to i32
-  %66 = xor i32 %63, %65
-  %67 = and i32 %66, 1
-  %68 = and i64 %56, -2
-  %69 = inttoptr i64 %68 to ptr
-  %70 = and i64 %64, -2
-  %71 = inttoptr i64 %70 to ptr
-  %72 = icmp eq ptr %69, %71
-  br i1 %72, label %73, label %84
+  %60 = xor i32 %56, %59
+  %61 = getelementptr inbounds i8, ptr %30, i64 24
+  %62 = load i64, ptr %61, align 8
+  %63 = trunc i64 %62 to i32
+  %64 = lshr i32 %63, 3
+  %65 = ptrtoint ptr %51 to i64
+  %66 = trunc i64 %65 to i32
+  %67 = xor i32 %64, %66
+  %68 = and i32 %67, 1
+  %69 = and i64 %57, -2
+  %70 = inttoptr i64 %69 to ptr
+  %71 = and i64 %65, -2
+  %72 = inttoptr i64 %71 to ptr
+  %73 = icmp eq ptr %70, %72
+  br i1 %73, label %74, label %85
 
-73:                                               ; preds = %Aig_ManObj.exit66
-  %74 = icmp eq i32 %59, %67
-  br i1 %74, label %95, label %75
+74:                                               ; preds = %Aig_ManObj.exit66
+  %75 = icmp eq i32 %60, %68
+  br i1 %75, label %96, label %76
 
-75:                                               ; preds = %73
-  %76 = getelementptr i8, ptr %69, i64 24
-  %.val63 = load i64, ptr %76, align 8
-  %77 = and i64 %.val63, 7
-  %78 = icmp eq i64 %77, 1
-  %79 = icmp ne i32 %59, 0
-  %or.cond = select i1 %78, i1 %79, i1 false
-  br i1 %or.cond, label %95, label %80
+76:                                               ; preds = %74
+  %77 = getelementptr i8, ptr %70, i64 24
+  %.val63 = load i64, ptr %77, align 8
+  %78 = and i64 %.val63, 7
+  %79 = icmp eq i64 %78, 1
+  %80 = icmp ne i32 %56, %59
+  %or.cond = select i1 %79, i1 %80, i1 false
+  br i1 %or.cond, label %96, label %81
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 76
-  store i32 1, ptr %82, align 4
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 76
+  store i32 1, ptr %83, align 4
   %.val62 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds i32, ptr %.val62, i64 %indvars.iv
-  store i32 0, ptr %83, align 4
-  br label %95
+  %84 = getelementptr inbounds i32, ptr %.val62, i64 %indvars.iv
+  store i32 0, ptr %84, align 4
+  br label %96
 
-84:                                               ; preds = %Aig_ManObj.exit66
-  %85 = tail call i32 @Fra_NodesAreImp(ptr noundef nonnull %0, ptr noundef %69, ptr noundef %71, i32 noundef %59, i32 noundef %67) #19
-  %.not = icmp eq i32 %85, 1
-  br i1 %.not, label %95, label %86
+85:                                               ; preds = %Aig_ManObj.exit66
+  %86 = tail call i32 @Fra_NodesAreImp(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %72, i32 noundef %60, i32 noundef %68) #19
+  %.not = icmp eq i32 %86, 1
+  br i1 %.not, label %96, label %87
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 76
-  store i32 1, ptr %88, align 4
-  %89 = icmp eq i32 %85, 0
-  br i1 %89, label %90, label %91
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 76
+  store i32 1, ptr %89, align 4
+  %90 = icmp eq i32 %86, 0
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %86
+91:                                               ; preds = %87
   tail call void @Fra_SmlResimulate(ptr noundef nonnull %0) #19
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %86
+92:                                               ; preds = %91, %87
   %.val52 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds i32, ptr %.val52, i64 %indvars.iv
-  %93 = load i32, ptr %92, align 4
-  %.not51 = icmp eq i32 %93, 0
-  br i1 %.not51, label %95, label %94
+  %93 = getelementptr inbounds i32, ptr %.val52, i64 %indvars.iv
+  %94 = load i32, ptr %93, align 4
+  %.not51 = icmp eq i32 %94, 0
+  br i1 %.not51, label %96, label %95
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %84, %94, %91, %75, %73, %12, %80
+96:                                               ; preds = %85, %95, %92, %76, %74, %12, %81
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4
-  %96 = sext i32 %.val to i64
-  %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %12, label %.critedge.loopexit, !llvm.loop !30
+  %97 = sext i32 %.val to i64
+  %98 = icmp slt i64 %indvars.iv.next, %97
+  br i1 %98, label %12, label %.critedge.loopexit, !llvm.loop !30
 
-.critedge.loopexit:                               ; preds = %95, %16
-  %.048.lcssa.ph.in = phi i64 [ %indvars.iv, %16 ], [ %indvars.iv.next, %95 ]
+.critedge.loopexit:                               ; preds = %96, %16
+  %.048.lcssa.ph.in = phi i64 [ %indvars.iv, %16 ], [ %indvars.iv.next, %96 ]
   %.048.lcssa.ph = trunc i64 %.048.lcssa.ph.in to i32
   br label %.critedge
 

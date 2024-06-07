@@ -2703,13 +2703,16 @@ if.end24.us.thread:                               ; preds = %for.body.us
   br label %while.body28.us.preheader
 
 if.then15.us:                                     ; preds = %for.body.us
-  %xor17.us = xor i32 %and.us, 1073741823
-  %cmp19.not60.us = icmp eq i32 %xor17.us, 0
-  br i1 %cmp19.not60.us, label %if.end24.us, label %while.body.us
+  %cmp19.not60.us = icmp eq i32 %and.us, 1073741823
+  br i1 %cmp19.not60.us, label %if.end24.us, label %while.body.us.preheader
 
-while.body.us:                                    ; preds = %if.then15.us, %while.body.us
-  %s.062.us = phi i32 [ %shr21.us, %while.body.us ], [ %xor17.us, %if.then15.us ]
-  %accumbits.161.us = phi i32 [ %inc.us, %while.body.us ], [ %accumbits.074.us, %if.then15.us ]
+while.body.us.preheader:                          ; preds = %if.then15.us
+  %xor17.us = xor i32 %and.us, 1073741823
+  br label %while.body.us
+
+while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
+  %s.062.us = phi i32 [ %shr21.us, %while.body.us ], [ %xor17.us, %while.body.us.preheader ]
+  %accumbits.161.us = phi i32 [ %inc.us, %while.body.us ], [ %accumbits.074.us, %while.body.us.preheader ]
   %shr21.us = lshr i32 %s.062.us, 1
   %inc.us = add i32 %accumbits.161.us, 1
   %cmp19.not.us = icmp ult i32 %s.062.us, 2

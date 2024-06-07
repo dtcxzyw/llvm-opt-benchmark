@@ -24573,7 +24573,7 @@ invoke.cont488:                                   ; preds = %cleanup.cont481
   store i8 %frombool498, ptr %gtest_ar_495, align 8, !tbaa !40
   %message_.i1871 = getelementptr inbounds i8, ptr %gtest_ar_495, i64 8
   store ptr null, ptr %message_.i1871, align 8, !tbaa !48
-  %tobool.i1872.not = icmp eq i8 %frombool498, 0
+  %tobool.i1872.not = icmp eq i8 %381, 1
   br i1 %tobool.i1872.not, label %if.else506, label %cleanup.cont530
 
 ehcleanup482:                                     ; preds = %ehcleanup475, %lpad452

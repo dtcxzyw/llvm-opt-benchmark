@@ -1500,7 +1500,7 @@ define i32 @ompi_coll_base_reduce_intra_redscat_gather(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %8
   %21 = shl nuw nsw i32 1, %19
-  %22 = icmp eq i32 %19, 0
+  %22 = icmp eq i32 %18, 31
   %23 = icmp sgt i32 %21, %2
   %or.cond380 = or i1 %22, %23
   br i1 %or.cond380, label %27, label %24
@@ -1870,7 +1870,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %145, %147
   %210 = shl nsw i32 %208, 1
   %211 = add nsw i32 %208, %64
   %212 = select i1 %209, i32 %210, i32 %211
-  %213 = icmp ne i32 %208, 0
+  %213 = icmp ne i32 %.1318512, %.0300
   %214 = or i1 %.not371, %213
   %or.cond383 = or i1 %170, %214
   %.0 = select i1 %or.cond383, i32 %212, i32 %5

@@ -995,7 +995,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish10MovePicker5scoreILNS_7GenType
   %3 = getelementptr inbounds i8, ptr %2, i64 860
   %4 = load i32, ptr %3, align 4
   %5 = xor i32 %4, 1
-  %6 = icmp eq i32 %5, 0
+  %6 = icmp eq i32 %4, 1
   %7 = getelementptr inbounds i8, ptr %2, i64 264
   %8 = load i64, ptr %7, align 8
   br i1 %6, label %9, label %18

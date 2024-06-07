@@ -1620,12 +1620,12 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
 get_header_err.exit:                              ; preds = %44
   %51 = getelementptr i8, ptr %43, i64 4
   %52 = load i8, ptr %51, align 1
-  %53 = xor i8 %50, %52
+  %53 = xor i8 %52, %50
   %54 = xor i8 %53, 85
   %55 = zext i8 %54 to i64
   %56 = getelementptr [256 x i32], ptr @err_posn_table, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i8 %54, 0
+  %58 = icmp eq i8 %53, 85
   %59 = icmp slt i32 %57, 40
   %..i = select i1 %59, i32 %57, i32 128
   %.0.i = select i1 %58, i32 -128, i32 %..i

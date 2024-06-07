@@ -30,17 +30,16 @@ define dso_local void @pg_prng_seed(ptr nocapture noundef writeonly %0, i64 noun
   %20 = xor i64 %19, %18
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8
-  %22 = icmp eq i64 %11, 0
-  %23 = icmp eq i64 %20, 0
-  %or.cond = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond, label %24, label %pg_prng_seed_check.exit
+  %22 = or i64 %3, %12
+  %or.cond = icmp eq i64 %22, 0
+  br i1 %or.cond, label %23, label %pg_prng_seed_check.exit
 
-24:                                               ; preds = %2
+23:                                               ; preds = %2
   store i64 6364136223846793005, ptr %0, align 8
   store i64 1442695040888963407, ptr %21, align 8
   br label %pg_prng_seed_check.exit
 
-pg_prng_seed_check.exit:                          ; preds = %2, %24
+pg_prng_seed_check.exit:                          ; preds = %2, %23
   ret void
 }
 
@@ -90,17 +89,16 @@ define dso_local void @pg_prng_fseed(ptr nocapture noundef writeonly %0, double 
   %22 = xor i64 %21, %20
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = icmp eq i64 %13, 0
-  %25 = icmp eq i64 %22, 0
-  %or.cond.i = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond.i, label %26, label %pg_prng_seed.exit
+  %24 = or i64 %5, %14
+  %or.cond.i = icmp eq i64 %24, 0
+  br i1 %or.cond.i, label %25, label %pg_prng_seed.exit
 
-26:                                               ; preds = %2
+25:                                               ; preds = %2
   store i64 6364136223846793005, ptr %0, align 8
   store i64 1442695040888963407, ptr %23, align 8
   br label %pg_prng_seed.exit
 
-pg_prng_seed.exit:                                ; preds = %2, %26
+pg_prng_seed.exit:                                ; preds = %2, %25
   ret void
 }
 

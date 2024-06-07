@@ -9140,7 +9140,7 @@ define internal fastcc void @_ZL15make_dd_indicesP12gmx_domdec_ti(ptr nocapture 
   br label %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i
 
 102:                                              ; preds = %91
-  %103 = icmp eq i64 %97, 0
+  %103 = icmp eq i64 %82, 9223372036854775792
   br i1 %103, label %104, label %_ZNKSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE12_M_check_lenEmPKc.exit.i
 
 104:                                              ; preds = %102

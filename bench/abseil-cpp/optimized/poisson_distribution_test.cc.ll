@@ -3200,11 +3200,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i = add i64 %.tr.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i, align 8
-  %xor.i.i14.i.i.i.i = xor i64 %.narrow.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i = xor i64 %.narrow.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i
   %shr.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i, 58
   %or.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i, i64 %xor.i.i14.i.i.i.i, i64 %shr.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
@@ -14981,11 +14981,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -18038,11 +18038,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -23524,11 +23524,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -27071,11 +27071,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -30602,11 +30602,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -33590,11 +33590,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -36578,11 +36578,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
@@ -39566,11 +39566,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %cmp.i = icmp eq i64 %xor.i.i14.i.i.i.i.i, 0
+  %cmp.i = icmp eq i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   br i1 %cmp.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
+  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)

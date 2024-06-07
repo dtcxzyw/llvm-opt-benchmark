@@ -1661,34 +1661,33 @@ define internal void @"_ZN4core3ptr53drop_in_place$LT$$RF$image..error..Paramete
 define internal void @"_ZN4core3ptr53drop_in_place$LT$image..error..ParameterErrorKind$GT$17h4a9ae7f2882ab157E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !196, !noundef !14
-  %4 = xor i64 %3, -9223372036854775808
-  %5 = icmp ugt i64 %4, 3
-  %cond1 = icmp eq i64 %4, 2
-  %cond = or i1 %5, %cond1
-  br i1 %cond, label %7, label %6
+  %4 = icmp sgt i64 %3, -9223372036854775805
+  %cond1 = icmp eq i64 %3, -9223372036854775806
+  %cond = or i1 %4, %cond1
+  br i1 %cond, label %6, label %5
 
-6:                                                ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit"
+5:                                                ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit"
   ret void
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !197
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8, !range !182, !noalias !197, !noundef !14
-  %.not.i.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit", label %10
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = load i64, ptr %7, align 8, !range !182, !noalias !197, !noundef !14
+  %.not.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit", label %9
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %2, align 8, !noalias !197, !nonnull !14, !noundef !14
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !197, !noundef !14
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %14, ptr noundef nonnull %11, i64 noundef %9, i64 noundef %13)
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %2, align 8, !noalias !197, !nonnull !14, !noundef !14
+  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = load i64, ptr %11, align 8, !noalias !197, !noundef !14
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %13, ptr noundef nonnull %10, i64 noundef %8, i64 noundef %12)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit": ; preds = %7, %10
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit": ; preds = %6, %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !197
-  br label %6
+  br label %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

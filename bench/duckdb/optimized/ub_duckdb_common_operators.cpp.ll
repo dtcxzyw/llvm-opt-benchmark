@@ -13670,8 +13670,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end
   %10 = getelementptr i8, ptr %9, i64 -17
   %11 = add nsw i64 %conv.i, -3
   %12 = and i64 %input.coerce0, 3
-  %xtraiter = xor i64 %12, 2
-  %lcmp.mod.not = icmp eq i64 %xtraiter, 0
+  %lcmp.mod.not = icmp eq i64 %12, 2
   br i1 %lcmp.mod.not, label %for.body.i.prol.loopexit, label %for.body.i.prol
 
 for.body.i.prol:                                  ; preds = %for.body.lr.ph.i, %for.body.i.prol
@@ -13683,41 +13682,42 @@ for.body.i.prol:                                  ; preds = %for.body.lr.ph.i, %
   %sub10.i.prol = xor i64 %idx.020.i.prol, 15
   %arrayidx11.i.prol = getelementptr inbounds i8, ptr %result, i64 %sub10.i.prol
   store i8 %13, ptr %arrayidx11.i.prol, align 1, !tbaa !7
-  %prol.iter.next = add nuw nsw i64 %prol.iter, 1
-  %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
+  %prol.iter.next = add i64 %prol.iter, 1
+  %14 = xor i64 %prol.iter.next, %12
+  %prol.iter.cmp.not = icmp eq i64 %14, 2
   br i1 %prol.iter.cmp.not, label %for.body.i.prol.loopexit, label %for.body.i.prol, !llvm.loop !198
 
 for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %for.body.lr.ph.i
   %idx.020.i.unr = phi i64 [ %add6.i, %for.body.lr.ph.i ], [ %add7.i.prol, %for.body.i.prol ]
-  %14 = icmp ult i64 %11, 3
-  br i1 %14, label %_ZN6duckdb3Bit12BitToNumericINS_9hugeint_tEEEvNS_8string_tERT_.exit, label %for.body.i
+  %15 = icmp ult i64 %11, 3
+  br i1 %15, label %_ZN6duckdb3Bit12BitToNumericINS_9hugeint_tEEEvNS_8string_tERT_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %idx.020.i = phi i64 [ %add7.i.3, %for.body.i ], [ %idx.020.i.unr, %for.body.i.prol.loopexit ]
   %add7.i = add nuw nsw i64 %idx.020.i, 1
   %arrayidx9.i = getelementptr i8, ptr %10, i64 %add7.i
-  %15 = load i8, ptr %arrayidx9.i, align 1, !tbaa !7
+  %16 = load i8, ptr %arrayidx9.i, align 1, !tbaa !7
   %sub10.i = xor i64 %idx.020.i, 15
   %arrayidx11.i = getelementptr inbounds i8, ptr %result, i64 %sub10.i
-  store i8 %15, ptr %arrayidx11.i, align 1, !tbaa !7
+  store i8 %16, ptr %arrayidx11.i, align 1, !tbaa !7
   %add7.i.1 = add nuw nsw i64 %idx.020.i, 2
   %arrayidx9.i.1 = getelementptr i8, ptr %10, i64 %add7.i.1
-  %16 = load i8, ptr %arrayidx9.i.1, align 1, !tbaa !7
+  %17 = load i8, ptr %arrayidx9.i.1, align 1, !tbaa !7
   %sub10.i.1 = xor i64 %add7.i, 15
   %arrayidx11.i.1 = getelementptr inbounds i8, ptr %result, i64 %sub10.i.1
-  store i8 %16, ptr %arrayidx11.i.1, align 1, !tbaa !7
+  store i8 %17, ptr %arrayidx11.i.1, align 1, !tbaa !7
   %add7.i.2 = add nuw nsw i64 %idx.020.i, 3
   %arrayidx9.i.2 = getelementptr i8, ptr %10, i64 %add7.i.2
-  %17 = load i8, ptr %arrayidx9.i.2, align 1, !tbaa !7
+  %18 = load i8, ptr %arrayidx9.i.2, align 1, !tbaa !7
   %sub10.i.2 = xor i64 %add7.i.1, 15
   %arrayidx11.i.2 = getelementptr inbounds i8, ptr %result, i64 %sub10.i.2
-  store i8 %17, ptr %arrayidx11.i.2, align 1, !tbaa !7
+  store i8 %18, ptr %arrayidx11.i.2, align 1, !tbaa !7
   %add7.i.3 = add nuw nsw i64 %idx.020.i, 4
   %arrayidx9.i.3 = getelementptr i8, ptr %10, i64 %add7.i.3
-  %18 = load i8, ptr %arrayidx9.i.3, align 1, !tbaa !7
+  %19 = load i8, ptr %arrayidx9.i.3, align 1, !tbaa !7
   %sub10.i.3 = xor i64 %add7.i.2, 15
   %arrayidx11.i.3 = getelementptr inbounds i8, ptr %result, i64 %sub10.i.3
-  store i8 %18, ptr %arrayidx11.i.3, align 1, !tbaa !7
+  store i8 %19, ptr %arrayidx11.i.3, align 1, !tbaa !7
   %exitcond.not.i.3 = icmp eq i64 %add7.i.3, 16
   br i1 %exitcond.not.i.3, label %_ZN6duckdb3Bit12BitToNumericINS_9hugeint_tEEEvNS_8string_tERT_.exit, label %for.body.i, !llvm.loop !200
 

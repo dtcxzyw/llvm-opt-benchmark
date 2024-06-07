@@ -17771,13 +17771,16 @@ if.then99:                                        ; preds = %checkmclim.exit
 
 if.end106:                                        ; preds = %if.then99, %checkmclim.exit
   %2481 = load i32, ptr %freeset.i.i, align 8
+  %tobool.not24.i = icmp ugt i32 %2481, -65537
+  br i1 %tobool.not24.i, label %while.end.i383, label %while.body.lr.ph.i
+
+while.body.lr.ph.i:                               ; preds = %if.end106
   %not.i = and i32 %2481, -65536
   %and.i377 = xor i32 %not.i, -65536
-  %tobool.not24.i = icmp eq i32 %and.i377, 0
-  br i1 %tobool.not24.i, label %while.end.i383, label %while.body.i
+  br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end106, %if.end.i
-  %work.025.i = phi i32 [ %and6.i, %if.end.i ], [ %and.i377, %if.end106 ]
+while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
+  %work.025.i = phi i32 [ %and.i377, %while.body.lr.ph.i ], [ %and6.i, %if.end.i ]
   %2482 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.025.i, i1 true)
   %idxprom.i378 = zext nneg i32 %2482 to i64
   %arrayidx.i379 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom.i378
@@ -17811,12 +17814,15 @@ while.end.loopexit.i:                             ; preds = %if.end.i
 while.end.i383:                                   ; preds = %while.end.loopexit.i, %if.end106
   %2486 = phi i32 [ %.pre.i382, %while.end.loopexit.i ], [ %2481, %if.end106 ]
   %not8.i = and i32 %2486, 49135
-  %and9.i = xor i32 %not8.i, 49135
-  %tobool11.not26.i = icmp eq i32 %and9.i, 0
-  br i1 %tobool11.not26.i, label %ra_evictk.exit, label %while.body12.i
+  %tobool11.not26.i = icmp eq i32 %not8.i, 49135
+  br i1 %tobool11.not26.i, label %ra_evictk.exit, label %while.body12.lr.ph.i
 
-while.body12.i:                                   ; preds = %while.end.i383, %if.end27.i
-  %work.127.i = phi i32 [ %and30.i, %if.end27.i ], [ %and9.i, %while.end.i383 ]
+while.body12.lr.ph.i:                             ; preds = %while.end.i383
+  %and9.i = xor i32 %not8.i, 49135
+  br label %while.body12.i
+
+while.body12.i:                                   ; preds = %if.end27.i, %while.body12.lr.ph.i
+  %work.127.i = phi i32 [ %and9.i, %while.body12.lr.ph.i ], [ %and30.i, %if.end27.i ]
   %2487 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.127.i, i1 true)
   %idxprom16.i = zext nneg i32 %2487 to i64
   %arrayidx17.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom16.i
@@ -18510,12 +18516,15 @@ emit_addptr.exit.i423:                            ; preds = %if.end.i.i.i417, %i
 if.then199.i:                                     ; preds = %emit_addptr.exit.i423
   %2570 = load i32, ptr %freeset.i.i, align 8
   %not201.i = and i32 %2570, -16401
-  %and202.i = xor i32 %not201.i, -16401
-  %tobool203.not266.i = icmp eq i32 %and202.i, 0
-  br i1 %tobool203.not266.i, label %while.cond234.i.preheader, label %while.body.i425
+  %tobool203.not266.i = icmp eq i32 %not201.i, -16401
+  br i1 %tobool203.not266.i, label %while.cond234.i.preheader, label %while.body.lr.ph.i424
 
-while.body.i425:                                  ; preds = %if.then199.i, %if.end230.i
-  %work.0267.i = phi i32 [ %and217.i, %if.end230.i ], [ %and202.i, %if.then199.i ]
+while.body.lr.ph.i424:                            ; preds = %if.then199.i
+  %and202.i = xor i32 %not201.i, -16401
+  br label %while.body.i425
+
+while.body.i425:                                  ; preds = %if.end230.i, %while.body.lr.ph.i424
+  %work.0267.i = phi i32 [ %and202.i, %while.body.lr.ph.i424 ], [ %and217.i, %if.end230.i ]
   %2571 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.0267.i, i1 true)
   %idxprom205.i = zext nneg i32 %2571 to i64
   %arrayidx206.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom205.i

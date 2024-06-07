@@ -2268,7 +2268,7 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %127 = load i32, ptr %107, align 4
   %128 = add i32 %127, -1
   store i32 %128, ptr %107, align 4
-  %129 = icmp eq i64 %125, 0
+  %129 = icmp eq ptr %112, inttoptr (i64 1 to ptr)
   br i1 %129, label %227, label %130
 
 130:                                              ; preds = %.thread241, %123
@@ -2348,7 +2348,7 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %172 = load i32, ptr %152, align 4
   %173 = add i32 %172, -1
   store i32 %173, ptr %152, align 4
-  %174 = icmp eq i64 %170, 0
+  %174 = icmp eq ptr %165, inttoptr (i64 1 to ptr)
   br i1 %174, label %227, label %175
 
 175:                                              ; preds = %.thread244, %168

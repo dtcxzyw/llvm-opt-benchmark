@@ -732,7 +732,7 @@ define noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr nocapture noundef nonnull 
   %9 = load i32, ptr %0, align 8
   %10 = xor i32 %9, 256
   store i32 %10, ptr %0, align 8
-  %.not51 = icmp eq i32 %10, 0
+  %.not51 = icmp eq i32 %9, 256
   br i1 %.not51, label %_ZN8tinyxml27StrPair18CollapseWhitespaceEv.exit, label %11
 
 11:                                               ; preds = %6

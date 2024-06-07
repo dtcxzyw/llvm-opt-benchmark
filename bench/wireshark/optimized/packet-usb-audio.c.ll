@@ -1245,7 +1245,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.787 = private unnamed_addr constant [25 x i8] c"Layout 2 Parameter Block\00", align 1
 @.str.788 = private unnamed_addr constant [25 x i8] c"Layout 3 Parameter Block\00", align 1
 @.str.789 = private unnamed_addr constant [31 x i8] c"Unknown Layout Parameter Block\00", align 1
-@switch.table.dissect_usb_audio_bulk = private unnamed_addr constant [16 x i32] [i32 3, i32 3, i32 2, i32 3, i32 3, i32 1, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 2, i32 2, i32 3, i32 1], align 4
 @switch.table.dissect_as_if_general_body = private unnamed_addr constant [4 x ptr] [ptr @dissect_as_if_general_body.v2_formats_type_i, ptr @dissect_as_if_general_body.v2_formats_type_ii, ptr @dissect_as_if_general_body.v2_formats_type_iii, ptr @dissect_as_if_general_body.v2_formats_type_iv], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
@@ -1319,7 +1318,7 @@ define internal i32 @dissect_usb_audio_bulk(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds i8, ptr %3, i64 38
   %11 = load i16, ptr %10, align 2
   %cond = icmp eq i16 %11, 3
-  br i1 %cond, label %12, label %72
+  br i1 %cond, label %12, label %74
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
@@ -1334,112 +1333,139 @@ define internal i32 @dissect_usb_audio_bulk(ptr noundef %0, ptr noundef %1, ptr 
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_usb_midi_event.exit
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %71, %dissect_usb_midi_event.exit ]
-  %.02123 = phi i32 [ 0, %.lr.ph ], [ %70, %dissect_usb_midi_event.exit ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %73, %dissect_usb_midi_event.exit ]
+  %.02123 = phi i32 [ 0, %.lr.ph ], [ %72, %dissect_usb_midi_event.exit ]
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02123) #8
   %19 = lshr i8 %18, 4
   %20 = and i8 %18, 15
-  br i1 %.not.i, label %42, label %switch.lookup
+  br i1 %.not.i, label %44, label %21
 
-switch.lookup:                                    ; preds = %17
-  %21 = load i32, ptr @proto_usb_audio, align 4
-  %22 = zext nneg i8 %20 to i32
-  %23 = tail call ptr @try_val_to_str(i32 noundef %22, ptr noundef nonnull @code_index_vals) #8
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %21, ptr noundef %0, i32 noundef %.02123, i32 noundef 4, ptr noundef nonnull @.str.750, ptr noundef %23) #8
-  %25 = load i32, ptr @ett_usb_audio, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #8
-  %27 = load i32, ptr @hf_midi_cable_number, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.02123, i32 noundef 1, i32 noundef 0) #8
-  %29 = load i32, ptr @hf_midi_code_index, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %.02123, i32 noundef 1, i32 noundef 0) #8
-  %31 = zext nneg i8 %20 to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.dissect_usb_audio_bulk, i64 0, i64 %31
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %32 = xor i32 %switch.load, 3
-  %33 = or disjoint i32 %.02123, 1
-  %34 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %33, i32 noundef %switch.load) #8
-  %35 = load i32, ptr @hf_midi_event, align 4
-  %36 = tail call ptr @proto_tree_add_bytes(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef %33, i32 noundef %switch.load, ptr noundef %34) #8
-  %.not72.i = icmp eq i32 %32, 0
-  br i1 %.not72.i, label %42, label %37
+21:                                               ; preds = %17
+  %22 = load i32, ptr @proto_usb_audio, align 4
+  %23 = zext nneg i8 %20 to i32
+  %24 = tail call ptr @try_val_to_str(i32 noundef %23, ptr noundef nonnull @code_index_vals) #8
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %22, ptr noundef %0, i32 noundef %.02123, i32 noundef 4, ptr noundef nonnull @.str.750, ptr noundef %24) #8
+  %26 = load i32, ptr @ett_usb_audio, align 4
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #8
+  %28 = load i32, ptr @hf_midi_cable_number, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.02123, i32 noundef 1, i32 noundef 0) #8
+  %30 = load i32, ptr @hf_midi_code_index, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %0, i32 noundef %.02123, i32 noundef 1, i32 noundef 0) #8
+  switch i8 %20, label %default.unreachable [
+    i8 0, label %get_midi_event_size.exit.i
+    i8 1, label %get_midi_event_size.exit.i
+    i8 5, label %32
+    i8 15, label %32
+    i8 2, label %33
+    i8 6, label %33
+    i8 12, label %33
+    i8 13, label %33
+    i8 3, label %get_midi_event_size.exit.i
+    i8 4, label %get_midi_event_size.exit.i
+    i8 7, label %get_midi_event_size.exit.i
+    i8 8, label %get_midi_event_size.exit.i
+    i8 9, label %get_midi_event_size.exit.i
+    i8 10, label %get_midi_event_size.exit.i
+    i8 11, label %get_midi_event_size.exit.i
+    i8 14, label %get_midi_event_size.exit.i
+  ]
 
-37:                                               ; preds = %switch.lookup
-  %38 = add nuw i32 %switch.load, %33
-  %39 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %38, i32 noundef %32) #8
-  %40 = load i32, ptr @hf_midi_padding, align 4
-  %41 = tail call ptr @proto_tree_add_bytes(ptr noundef %26, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef %32, ptr noundef %39) #8
-  br label %42
+32:                                               ; preds = %21, %21
+  br label %get_midi_event_size.exit.i
 
-42:                                               ; preds = %37, %switch.lookup, %17
-  %.066.i = phi ptr [ %26, %37 ], [ %26, %switch.lookup ], [ null, %17 ]
-  %43 = load i32, ptr %16, align 8
-  %44 = and i8 %18, 12
-  %narrow.i.not.i = icmp eq i8 %44, 4
-  br i1 %narrow.i.not.i, label %45, label %dissect_usb_midi_event.exit
+33:                                               ; preds = %21, %21, %21, %21
+  br label %get_midi_event_size.exit.i
 
-45:                                               ; preds = %42
+default.unreachable:                              ; preds = %21
+  unreachable
+
+get_midi_event_size.exit.i:                       ; preds = %33, %32, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
+  %.not72.i = phi i1 [ false, %33 ], [ false, %32 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ]
+  %.0.i.i = phi i32 [ 2, %33 ], [ 1, %32 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ], [ 3, %21 ]
+  %34 = or disjoint i32 %.02123, 1
+  %35 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %34, i32 noundef %.0.i.i) #8
+  %36 = load i32, ptr @hf_midi_event, align 4
+  %37 = tail call ptr @proto_tree_add_bytes(ptr noundef %27, i32 noundef %36, ptr noundef %0, i32 noundef %34, i32 noundef %.0.i.i, ptr noundef %35) #8
+  br i1 %.not72.i, label %44, label %38
+
+38:                                               ; preds = %get_midi_event_size.exit.i
+  %39 = xor i32 %.0.i.i, 3
+  %40 = add nuw i32 %.0.i.i, %34
+  %41 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %40, i32 noundef %39) #8
+  %42 = load i32, ptr @hf_midi_padding, align 4
+  %43 = tail call ptr @proto_tree_add_bytes(ptr noundef %27, i32 noundef %42, ptr noundef %0, i32 noundef %40, i32 noundef %39, ptr noundef %41) #8
+  br label %44
+
+44:                                               ; preds = %38, %get_midi_event_size.exit.i, %17
+  %.066.i = phi ptr [ %27, %38 ], [ %27, %get_midi_event_size.exit.i ], [ null, %17 ]
+  %45 = load i32, ptr %16, align 8
+  %46 = and i8 %18, 12
+  %narrow.i.not.i = icmp eq i8 %46, 4
+  br i1 %narrow.i.not.i, label %47, label %dissect_usb_midi_event.exit
+
+47:                                               ; preds = %44
   store i32 1, ptr %16, align 8
-  %46 = icmp eq i8 %20, 4
-  br i1 %46, label %47, label %51
+  %48 = icmp eq i8 %20, 4
+  br i1 %48, label %49, label %53
 
-47:                                               ; preds = %45
-  %48 = or disjoint i32 %.02123, 1
-  %49 = zext nneg i8 %19 to i32
-  %50 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @midi_data_reassembly_table, ptr noundef %0, i32 noundef %48, ptr noundef nonnull %1, i32 noundef %49, ptr noundef null, i32 noundef 3, i32 noundef 1) #8
-  br label %57
-
-51:                                               ; preds = %45
-  %52 = zext nneg i8 %20 to i32
-  %53 = or disjoint i32 %.02123, 1
-  %54 = zext nneg i8 %19 to i32
-  %55 = add nsw i32 %52, -4
-  %56 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @midi_data_reassembly_table, ptr noundef %0, i32 noundef %53, ptr noundef nonnull %1, i32 noundef %54, ptr noundef null, i32 noundef %55, i32 noundef 0) #8
-  br label %57
-
-57:                                               ; preds = %51, %47
-  %.0.i = phi ptr [ %50, %47 ], [ %56, %51 ]
-  %58 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
+49:                                               ; preds = %47
+  %50 = or disjoint i32 %.02123, 1
+  %51 = zext nneg i8 %19 to i32
+  %52 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @midi_data_reassembly_table, ptr noundef %0, i32 noundef %50, ptr noundef nonnull %1, i32 noundef %51, ptr noundef null, i32 noundef 3, i32 noundef 1) #8
   br label %59
 
-59:                                               ; preds = %61, %57
-  %.0.in.i.i = phi i32 [ %.02123, %57 ], [ %.0.i77.i, %61 ]
+53:                                               ; preds = %47
+  %54 = zext nneg i8 %20 to i32
+  %55 = or disjoint i32 %.02123, 1
+  %56 = zext nneg i8 %19 to i32
+  %57 = add nsw i32 %54, -4
+  %58 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @midi_data_reassembly_table, ptr noundef %0, i32 noundef %55, ptr noundef nonnull %1, i32 noundef %56, ptr noundef null, i32 noundef %57, i32 noundef 0) #8
+  br label %59
+
+59:                                               ; preds = %53, %49
+  %.0.i = phi ptr [ %52, %49 ], [ %58, %53 ]
+  %60 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
+  br label %61
+
+61:                                               ; preds = %63, %59
+  %.0.in.i.i = phi i32 [ %.02123, %59 ], [ %.0.i77.i, %63 ]
   %.0.i77.i = add i32 %.0.in.i.i, 4
-  %60 = icmp slt i32 %.0.i77.i, %58
-  br i1 %60, label %61, label %is_last_sysex_packet_in_tvb.exit.i
+  %62 = icmp slt i32 %.0.i77.i, %60
+  br i1 %62, label %63, label %is_last_sysex_packet_in_tvb.exit.i
 
-61:                                               ; preds = %59
-  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i77.i) #8
-  %63 = and i8 %62, 12
-  %narrow.i.not.i.i = icmp eq i8 %63, 4
-  br i1 %narrow.i.not.i.i, label %dissect_usb_midi_event.exit, label %59, !llvm.loop !4
+63:                                               ; preds = %61
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i77.i) #8
+  %65 = and i8 %64, 12
+  %narrow.i.not.i.i = icmp eq i8 %65, 4
+  br i1 %narrow.i.not.i.i, label %dissect_usb_midi_event.exit, label %61, !llvm.loop !4
 
-is_last_sysex_packet_in_tvb.exit.i:               ; preds = %59
-  %64 = or disjoint i32 %.02123, 1
-  %65 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %64, ptr noundef %1, ptr noundef nonnull @.str.751, ptr noundef %.0.i, ptr noundef nonnull @sysex_msg_frag_items, ptr noundef null, ptr noundef %.066.i) #8
-  %66 = load ptr, ptr %7, align 8
-  %.str.753..str.752.i = select i1 %46, ptr @.str.753, ptr @.str.752
-  tail call void @col_append_str(ptr noundef %66, i32 noundef 25, ptr noundef nonnull %.str.753..str.752.i) #8
-  %.not76.i = icmp eq ptr %65, null
-  br i1 %.not76.i, label %dissect_usb_midi_event.exit, label %67
+is_last_sysex_packet_in_tvb.exit.i:               ; preds = %61
+  %66 = or disjoint i32 %.02123, 1
+  %67 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %66, ptr noundef %1, ptr noundef nonnull @.str.751, ptr noundef %.0.i, ptr noundef nonnull @sysex_msg_frag_items, ptr noundef null, ptr noundef %.066.i) #8
+  %68 = load ptr, ptr %7, align 8
+  %.str.753..str.752.i = select i1 %48, ptr @.str.753, ptr @.str.752
+  tail call void @col_append_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull %.str.753..str.752.i) #8
+  %.not76.i = icmp eq ptr %67, null
+  br i1 %.not76.i, label %dissect_usb_midi_event.exit, label %69
 
-67:                                               ; preds = %is_last_sysex_packet_in_tvb.exit.i
-  %68 = load ptr, ptr @sysex_handle, align 8
-  %69 = tail call i32 @call_dissector(ptr noundef %68, ptr noundef nonnull %65, ptr noundef nonnull %1, ptr noundef %2) #8
+69:                                               ; preds = %is_last_sysex_packet_in_tvb.exit.i
+  %70 = load ptr, ptr @sysex_handle, align 8
+  %71 = tail call i32 @call_dissector(ptr noundef %70, ptr noundef nonnull %67, ptr noundef nonnull %1, ptr noundef %2) #8
   br label %dissect_usb_midi_event.exit
 
-dissect_usb_midi_event.exit:                      ; preds = %61, %42, %is_last_sysex_packet_in_tvb.exit.i, %67
-  store i32 %43, ptr %16, align 8
-  %70 = add nuw nsw i32 %.02123, 4
-  %71 = add nuw nsw i32 %.024, 1
-  %exitcond.not = icmp eq i32 %71, %14
+dissect_usb_midi_event.exit:                      ; preds = %63, %44, %is_last_sysex_packet_in_tvb.exit.i, %69
+  store i32 %45, ptr %16, align 8
+  %72 = add nuw nsw i32 %.02123, 4
+  %73 = add nuw nsw i32 %.024, 1
+  %exitcond.not = icmp eq i32 %73, %14
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !6
 
-72:                                               ; preds = %6
-  %73 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_usb_audio_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef %9) #8
+74:                                               ; preds = %6
+  %75 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_usb_audio_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef %9) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_usb_midi_event.exit, %12, %72, %4
-  %.020 = phi i32 [ 0, %4 ], [ %9, %72 ], [ %9, %12 ], [ %9, %dissect_usb_midi_event.exit ]
+.loopexit:                                        ; preds = %dissect_usb_midi_event.exit, %12, %74, %4
+  %.020 = phi i32 [ 0, %4 ], [ %9, %74 ], [ %9, %12 ], [ %9, %dissect_usb_midi_event.exit ]
   ret i32 %.020
 }
 

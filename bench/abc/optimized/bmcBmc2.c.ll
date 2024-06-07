@@ -1175,7 +1175,7 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   %29 = zext nneg i32 %27 to i64
   %30 = xor i64 %28, %29
   %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq i64 %30, 0
+  %.not = icmp eq i64 %28, %29
   br i1 %.not, label %Saig_BmcObjFrame.exit.thread, label %174
 
 Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thread.i, %4, %Saig_BmcObjFrame.exit
@@ -2484,12 +2484,12 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   %56 = and i32 %45, 1
   %57 = ptrtoint ptr %54 to i64
   %58 = zext nneg i32 %56 to i64
-  %59 = xor i64 %57, %58
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %Saig_BmcObjFrame.exit.thread, label %61
+  %59 = icmp eq i64 %57, %58
+  br i1 %59, label %Saig_BmcObjFrame.exit.thread, label %60
 
-61:                                               ; preds = %Saig_BmcObjFrame.exit
-  %62 = inttoptr i64 %59 to ptr
+60:                                               ; preds = %Saig_BmcObjFrame.exit
+  %61 = xor i64 %57, %58
+  %62 = inttoptr i64 %61 to ptr
   %.val48 = load ptr, ptr %17, align 8
   %63 = getelementptr i8, ptr %62, i64 36
   %.val49 = load i32, ptr %63, align 4
@@ -2499,7 +2499,7 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   %.not.i.not = icmp sgt i32 %66, %.val49
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %67
 
-67:                                               ; preds = %61
+67:                                               ; preds = %60
   %68 = load i32, ptr %.val48, align 8
   %69 = shl nsw i32 %68, 1
   %.not55 = icmp sgt i32 %69, %.val49
@@ -2584,7 +2584,7 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   store i32 %64, ptr %65, align 4
   br label %Vec_IntFillExtra.exit
 
-Vec_IntFillExtra.exit:                            ; preds = %61, %._crit_edge.i
+Vec_IntFillExtra.exit:                            ; preds = %60, %._crit_edge.i
   %100 = getelementptr i8, ptr %.val48, i64 8
   %.val.i.i52 = load ptr, ptr %100, align 8
   %101 = sext i32 %.val49 to i64

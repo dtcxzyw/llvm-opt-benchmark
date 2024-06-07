@@ -9284,8 +9284,8 @@ invoke.cont4:                                     ; preds = %if.then.i41.i111, %
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !52
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !65
-  %tobool.i.not = icmp eq i8 %frombool, 0
-  br i1 %tobool.i.not, label %if.else, label %cleanup.cont
+  %tobool.i.not.not = icmp eq i8 %.pre125, 0
+  br i1 %tobool.i.not.not, label %cleanup.cont, label %if.else
 
 lpad:                                             ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE12_M_check_lenEmPKc.exit.i
   %3 = landingpad { ptr, i32 }
@@ -10350,8 +10350,8 @@ invoke.cont193:                                   ; preds = %.noexc648, %cleanup
   store i8 %frombool199, ptr %gtest_ar_194, align 8, !tbaa !52
   %message_.i650 = getelementptr inbounds i8, ptr %gtest_ar_194, i64 8
   store ptr null, ptr %message_.i650, align 8, !tbaa !65
-  %tobool.i651.not = icmp eq i8 %frombool199, 0
-  br i1 %tobool.i651.not, label %if.else207, label %cleanup.cont231
+  %tobool.i651.not.not = icmp eq i8 %136, 0
+  br i1 %tobool.i651.not.not, label %cleanup.cont231, label %if.else207
 
 ehcleanup192:                                     ; preds = %ehcleanup185, %lpad164
   %.pn346.pn.pn = phi { ptr, i32 } [ %.pn346.pn, %ehcleanup185 ], [ %113, %lpad164 ]

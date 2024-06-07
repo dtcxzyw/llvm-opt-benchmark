@@ -11546,9 +11546,9 @@ _ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.thr
   %50 = shl i32 %48, 3
   %51 = add i32 %49, %50
   %52 = lshr i32 %51, 16
-  %53 = xor i32 %51, %52
+  %53 = xor i32 %52, %51
   %54 = xor i32 %53, -1252372727
-  %55 = icmp eq i32 %54, -1
+  %55 = icmp eq i32 %53, 1252372726
   %spec.store.select = select i1 %55, i32 0, i32 %54
   br label %56
 

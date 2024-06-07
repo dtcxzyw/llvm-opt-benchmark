@@ -373,7 +373,7 @@ define dso_local void @intel_gt_mcr_init(ptr nocapture noundef %0) local_unnamed
   %203 = getelementptr inbounds i8, ptr %0, i64 4952
   %204 = getelementptr inbounds i8, ptr %0, i64 4960
   store i32 %202, ptr %204, align 8
-  %205 = icmp eq i32 %202, 0
+  %205 = icmp eq i32 %201, 15
   br i1 %205, label %206, label %220
 
 206:                                              ; preds = %194

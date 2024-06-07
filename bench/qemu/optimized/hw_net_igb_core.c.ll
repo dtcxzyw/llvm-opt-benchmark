@@ -2441,20 +2441,14 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i, %if.e
 
 if.then13.i.i.i:                                  ; preds = %while.end.i.i.i
   %core.val.i.i.i = load i32, ptr %arrayidx.i78, align 4
-  %and.i.i.i77.i = lshr i32 %core.val.i.i.i, 24
-  %284 = and i32 %and.i.i.i77.i, 4
-  %cond.i.i.i.i = xor i32 %284, 4
-  %cmp.not1.i = icmp eq i32 %cond.i.i.i.i, 0
-  br i1 %cmp.not1.i, label %igb_write_to_rx_buffers.exit.i, label %while.body.lr.ph.i
+  %284 = and i32 %core.val.i.i.i, 67108864
+  %cmp.not1.i.not = icmp eq i32 %284, 0
+  br i1 %cmp.not1.i.not, label %while.body.i, label %igb_write_to_rx_buffers.exit.i
 
-while.body.lr.ph.i:                               ; preds = %if.then13.i.i.i
-  %conv.i53.i.i = zext nneg i32 %cond.i.i.i.i to i64
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %if.end60.i, %while.body.lr.ph.i
-  %285 = phi i8 [ %.pre.i234, %while.body.lr.ph.i ], [ %304, %if.end60.i ]
-  %data.addr.03.i = phi ptr [ @igb_write_payload_to_rx_buffers.fcs_pad, %while.body.lr.ph.i ], [ %add.ptr.i247, %if.end60.i ]
-  %data_len.addr.02.i = phi i64 [ %conv.i53.i.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end60.i ]
+while.body.i:                                     ; preds = %if.then13.i.i.i, %if.end60.i
+  %285 = phi i8 [ %304, %if.end60.i ], [ %.pre.i234, %if.then13.i.i.i ]
+  %data.addr.03.i = phi ptr [ %add.ptr.i247, %if.end60.i ], [ @igb_write_payload_to_rx_buffers.fcs_pad, %if.then13.i.i.i ]
+  %data_len.addr.02.i = phi i64 [ %sub46.i, %if.end60.i ], [ 4, %if.then13.i.i.i ]
   %cmp1.i = icmp ult i8 %285, 2
   br i1 %cmp1.i, label %if.end.i236, label %if.else.i235
 

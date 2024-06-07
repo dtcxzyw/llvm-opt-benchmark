@@ -106,11 +106,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_clrs32P11p
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %.lobit = ashr i32 %20, 31
-  %spec.select = xor i32 %.lobit, %20
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %20
   br i1 %.not, label %.split.us, label %.split
 
 .split:                                           ; preds = %11
+  %spec.select = xor i32 %.lobit, %20
   %21 = icmp ult i32 %spec.select, 65536
   %22 = shl nuw i32 %spec.select, 16
   %spec.select57 = select i1 %21, i32 %22, i32 %spec.select
@@ -212,11 +212,11 @@ define noundef i64 @_Z17fast_rv64i_clrs32P11processor_t6insn_tm(ptr nocapture no
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i32
   %.lobit = ashr i32 %30, 31
-  %spec.select = xor i32 %.lobit, %30
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %30
   br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i32 %.lobit, %30
   %32 = icmp ult i32 %spec.select, 65536
   %33 = shl nuw i32 %spec.select, 16
   %spec.select57 = select i1 %32, i32 16, i32 0
@@ -298,11 +298,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_clrs32P1
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %.lobit = ashr i32 %20, 31
-  %spec.select = xor i32 %.lobit, %20
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %20
   br i1 %.not, label %.split.us, label %.split
 
 .split:                                           ; preds = %11
+  %spec.select = xor i32 %.lobit, %20
   %21 = icmp ult i32 %spec.select, 65536
   %22 = shl nuw i32 %spec.select, 16
   %spec.select59 = select i1 %21, i32 %22, i32 %spec.select
@@ -447,11 +447,11 @@ define noundef i64 @_Z19logged_rv64i_clrs32P11processor_t6insn_tm(ptr noundef %0
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i32
   %.lobit = ashr i32 %30, 31
-  %spec.select = xor i32 %.lobit, %30
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %30
   br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i32 %.lobit, %30
   %32 = icmp ult i32 %spec.select, 65536
   %33 = shl nuw i32 %spec.select, 16
   %spec.select60 = select i1 %32, i32 %33, i32 %spec.select
@@ -622,11 +622,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_clrs32P11p
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %.lobit = ashr i32 %34, 31
-  %spec.select = xor i32 %.lobit, %34
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %34
   br i1 %.not, label %.split.us, label %.split
 
 .split:                                           ; preds = %31
+  %spec.select = xor i32 %.lobit, %34
   %35 = icmp ult i32 %spec.select, 65536
   %36 = shl nuw i32 %spec.select, 16
   %spec.select66 = select i1 %35, i32 %36, i32 %spec.select
@@ -746,11 +746,11 @@ define noundef i64 @_Z17fast_rv64e_clrs32P11processor_t6insn_tm(ptr nocapture no
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i32
   %.lobit = ashr i32 %44, 31
-  %spec.select = xor i32 %.lobit, %44
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %44
   br i1 %.not, label %59, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i32 %.lobit, %44
   %46 = icmp ult i32 %spec.select, 65536
   %47 = shl nuw i32 %spec.select, 16
   %spec.select66 = select i1 %46, i32 16, i32 0
@@ -864,11 +864,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_clrs32P1
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %.lobit = ashr i32 %34, 31
-  %spec.select = xor i32 %.lobit, %34
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %34
   br i1 %.not, label %.split.us, label %.split
 
 .split:                                           ; preds = %31
+  %spec.select = xor i32 %.lobit, %34
   %35 = icmp ult i32 %spec.select, 65536
   %36 = shl nuw i32 %spec.select, 16
   %spec.select69 = select i1 %35, i32 %36, i32 %spec.select
@@ -1045,11 +1045,11 @@ define noundef i64 @_Z19logged_rv64e_clrs32P11processor_t6insn_tm(ptr noundef %0
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i32
   %.lobit = ashr i32 %44, 31
-  %spec.select = xor i32 %.lobit, %44
-  %.not = icmp eq i32 %spec.select, 0
+  %.not = icmp eq i32 %.lobit, %44
   br i1 %.not, label %59, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i32 %.lobit, %44
   %46 = icmp ult i32 %spec.select, 65536
   %47 = shl nuw i32 %spec.select, 16
   %spec.select69 = select i1 %46, i32 16, i32 0

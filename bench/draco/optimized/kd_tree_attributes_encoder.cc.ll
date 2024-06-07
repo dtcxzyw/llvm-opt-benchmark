@@ -9660,7 +9660,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
 
 225:                                              ; preds = %224, %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit
   %226 = lshr i32 %103, 1
-  %.not180 = icmp eq i32 %218, 0
+  %.not180 = icmp eq i32 %217, 31
   br i1 %223, label %227, label %235
 
 227:                                              ; preds = %225
@@ -9668,7 +9668,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   br i1 %.not180, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %227
-  %229 = sub nsw i32 30, %217
+  %229 = sub nuw nsw i32 30, %217
   %230 = shl nuw nsw i32 1, %229
   %wide.trip.count.i.i = zext nneg i32 %218 to i64
   br label %.lr.ph.i.i88
@@ -9693,7 +9693,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   br i1 %.not180, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i90
 
 .lr.ph.preheader.i.i90:                           ; preds = %235
-  %237 = sub nsw i32 30, %217
+  %237 = sub nuw nsw i32 30, %217
   %238 = shl nuw nsw i32 1, %237
   %wide.trip.count.i.i91 = zext nneg i32 %218 to i64
   br label %.lr.ph.i.i92

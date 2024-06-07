@@ -5009,37 +5009,36 @@ define internal void @"_ZN4core3ptr53drop_in_place$LT$$RF$image..error..LimitErr
 define internal void @"_ZN4core3ptr53drop_in_place$LT$image..error..ParameterErrorKind$GT$17ha70364e435ea0cdaE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !968, !noundef !4
-  %4 = xor i64 %3, -9223372036854775808
-  %5 = icmp ugt i64 %4, 3
-  %cond1 = icmp eq i64 %4, 2
-  %cond = or i1 %5, %cond1
-  br i1 %cond, label %7, label %6
+  %4 = icmp sgt i64 %3, -9223372036854775805
+  %cond1 = icmp eq i64 %3, -9223372036854775806
+  %cond = or i1 %4, %cond1
+  br i1 %cond, label %6, label %5
 
-6:                                                ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit"
+5:                                                ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit"
   ret void
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !969
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8, !range !869, !noalias !969, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit", label %10
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = load i64, ptr %7, align 8, !range !869, !noalias !969, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit", label %9
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !969, !noundef !4
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit", label %14
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = load i64, ptr %10, align 8, !noalias !969, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit", label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %2, align 8, !noalias !969, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %9) #29
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %2, align 8, !noalias !969, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef %8) #29
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit": ; preds = %7, %10, %14
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit": ; preds = %6, %9, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !969
-  br label %6
+  br label %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

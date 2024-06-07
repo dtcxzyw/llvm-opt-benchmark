@@ -350,7 +350,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
   %19 = and i8 %18, 63
   %20 = xor i8 %19, 32
   %21 = zext nneg i8 %20 to i64
-  %22 = icmp eq i8 %20, 0
+  %22 = icmp eq i8 %19, 32
   br i1 %22, label %._crit_edge123, label %23
 
 23:                                               ; preds = %.lr.ph122
@@ -359,7 +359,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
 
 25:                                               ; preds = %23
   %26 = add i64 %.0101120, %21
-  %27 = icmp eq i8 %20, 45
+  %27 = icmp eq i8 %19, 13
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25

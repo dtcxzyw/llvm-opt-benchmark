@@ -66218,8 +66218,8 @@ invoke.cont282:                                   ; preds = %cleanup.cont273
   store ptr null, ptr %message_.i715, align 8, !tbaa !63
   call void @_ZN4entt9meta_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp278) #26
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp278) #26
-  %tobool.i716.not = icmp eq i8 %frombool286, 0
-  br i1 %tobool.i716.not, label %if.else297, label %cleanup317
+  %tobool.i716.not.not = icmp eq i8 %189, 0
+  br i1 %tobool.i716.not.not, label %cleanup317, label %if.else297
 
 ehcleanup274:                                     ; preds = %ehcleanup267, %lpad237
   %.pn353.pn.pn.pn = phi { ptr, i32 } [ %.pn353.pn.pn, %ehcleanup267 ], [ %170, %lpad237 ]

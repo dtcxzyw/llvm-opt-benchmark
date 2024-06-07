@@ -449,16 +449,16 @@ for.body.i.i.i8.i:                                ; preds = %if.end18.i.i.i.i, %
   %idxprom.i63.i.i.i.i = sext i32 %div20.i.i.i.i to i64
   %arrayidx.i64.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i63.i.i.i.i
   %31 = load i64, ptr %arrayidx.i64.i.i.i.i, align 8
-  %tobool4.not.i67.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %tobool4.not.i67.i.i.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNKS0_17SelectivityVector8toStringB5cxx11EiE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i.i.i", label %while.cond.preheader.i68.i.i.i.i
+  %tobool4.not.i66.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %tobool4.not.i66.i.i.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNKS0_17SelectivityVector8toStringB5cxx11EiE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i.i.i", label %while.cond.preheader.i67.i.i.i.i
 
-while.cond.preheader.i68.i.i.i.i:                 ; preds = %for.body.i.i.i8.i
+while.cond.preheader.i67.i.i.i.i:                 ; preds = %for.body.i.i.i8.i
   %mul.i69.i.i.i.i = shl nsw i32 %div20.i.i.i.i, 6
   br label %while.body.i72.i.i.i.i
 
-while.body.i72.i.i.i.i:                           ; preds = %if.end7.i83.i.i.i.i, %while.cond.preheader.i68.i.i.i.i
-  %cnt.5 = phi i32 [ %cnt.4, %while.cond.preheader.i68.i.i.i.i ], [ %inc.i.i80.i.i.i.i, %if.end7.i83.i.i.i.i ]
-  %word.07.i73.i.i.i.i = phi i64 [ %31, %while.cond.preheader.i68.i.i.i.i ], [ %and.i85.i.i.i.i, %if.end7.i83.i.i.i.i ]
+while.body.i72.i.i.i.i:                           ; preds = %if.end7.i83.i.i.i.i, %while.cond.preheader.i67.i.i.i.i
+  %cnt.5 = phi i32 [ %cnt.4, %while.cond.preheader.i67.i.i.i.i ], [ %inc.i.i80.i.i.i.i, %if.end7.i83.i.i.i.i ]
+  %word.07.i73.i.i.i.i = phi i64 [ %31, %while.cond.preheader.i67.i.i.i.i ], [ %and.i85.i.i.i.i, %if.end7.i83.i.i.i.i ]
   %32 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.07.i73.i.i.i.i, i1 true)
   %cast.i74.i.i.i.i = trunc nuw nsw i64 %32 to i32
   %add.i75.i.i.i.i = or disjoint i32 %mul.i69.i.i.i.i, %cast.i74.i.i.i.i
@@ -1649,12 +1649,12 @@ for.body:                                         ; preds = %for.cond
   %idxprom.i43 = sext i32 %div21 to i64
   %arrayidx.i44 = getelementptr inbounds i64, ptr %20, i64 %idxprom.i43
   %24 = load i64, ptr %arrayidx.i44, align 8
-  %cond.i46 = xor i64 %24, %not.i45
-  %tobool4.not.i47 = icmp eq i64 %cond.i46, 0
-  br i1 %tobool4.not.i47, label %for.cond, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread, !llvm.loop !18
+  %tobool4.not.i46 = icmp eq i64 %24, %not.i45
+  br i1 %tobool4.not.i46, label %for.cond, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread: ; preds = %for.body
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %cond.i46, i1 true)
+  %cond.i48 = xor i64 %24, %not.i45
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %cond.i48, i1 true)
   %cast.i51 = trunc nuw nsw i64 %25 to i32
   %26 = xor i32 %cast.i51, -1
   %sub.i52 = add i32 %i.0.in, %26
@@ -1770,4 +1770,3 @@ attributes #18 = { builtin allocsize(0) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

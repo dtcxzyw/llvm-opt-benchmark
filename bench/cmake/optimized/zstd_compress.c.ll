@@ -14538,12 +14538,12 @@ define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %0, i64 nound
 12:                                               ; preds = %9
   %.val.i = load i64, ptr %0, align 1
   %.val52.i = load i64, ptr %10, align 1
-  %13 = xor i64 %.val52.i, %.val.i
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %.preheader.i, label %14
+  %.not.i = icmp eq i64 %.val.i, %.val52.i
+  br i1 %.not.i, label %.preheader.i, label %13
 
-14:                                               ; preds = %12
-  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
+13:                                               ; preds = %12
+  %14 = xor i64 %.val52.i, %.val.i
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %14, i1 true)
   %16 = lshr i64 %15, 3
   br label %ZSTD_count.exit
 
@@ -14558,12 +14558,12 @@ define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %0, i64 nound
 18:                                               ; preds = %.preheader.i
   %.041.val.i = load i64, ptr %.041.i, align 1
   %.040.val.i = load i64, ptr %.040.i, align 1
-  %19 = xor i64 %.040.val.i, %.041.val.i
-  %.not51.i = icmp eq i64 %19, 0
-  br i1 %.not51.i, label %.preheader.i, label %20, !llvm.loop !75
+  %.not51.i = icmp eq i64 %.041.val.i, %.040.val.i
+  br i1 %.not51.i, label %.preheader.i, label %19, !llvm.loop !75
 
-20:                                               ; preds = %18
-  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 true)
+19:                                               ; preds = %18
+  %20 = xor i64 %.040.val.i, %.041.val.i
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
   %22 = lshr i64 %21, 3
   %23 = getelementptr inbounds i8, ptr %.040.i, i64 %22
   %24 = ptrtoint ptr %23 to i64
@@ -14628,8 +14628,8 @@ define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %0, i64 nound
   %51 = sub i64 %49, %50
   br label %ZSTD_count.exit
 
-ZSTD_count.exit:                                  ; preds = %14, %20, %48
-  %.0.i = phi i64 [ %16, %14 ], [ %26, %20 ], [ %51, %48 ]
+ZSTD_count.exit:                                  ; preds = %13, %19, %48
+  %.0.i = phi i64 [ %16, %13 ], [ %26, %19 ], [ %51, %48 ]
   %52 = add nsw i64 %6, -1
   %.not25 = icmp eq i64 %.0.i, %52
   br i1 %.not25, label %53, label %.loopexit

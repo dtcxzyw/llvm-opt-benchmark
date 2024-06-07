@@ -1132,7 +1132,7 @@ define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef 
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %19 = icmp eq i8 %18, 0
+  %19 = icmp eq i8 %17, %.031
   %20 = select i1 %19, i32 0, i32 -25088
   br label %._crit_edge
 

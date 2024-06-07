@@ -120,11 +120,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_clrs8P11pr
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i8
   %.lobit = ashr i8 %30, 7
-  %spec.select = xor i8 %.lobit, %30
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %30
   br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i8 %.lobit, %30
   %32 = icmp ult i8 %spec.select, 16
   %33 = shl i8 %spec.select, 4
   %spec.select48 = select i1 %32, i8 4, i8 0
@@ -228,11 +228,11 @@ define noundef i64 @_Z16fast_rv64i_clrs8P11processor_t6insn_tm(ptr nocapture nou
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i8
   %.lobit = ashr i8 %30, 7
-  %spec.select = xor i8 %.lobit, %30
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %30
   br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i8 %.lobit, %30
   %32 = icmp ult i8 %spec.select, 16
   %33 = shl i8 %spec.select, 4
   %spec.select48 = select i1 %32, i8 4, i8 0
@@ -318,11 +318,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_clrs8P11
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i8
   %.lobit = ashr i8 %30, 7
-  %spec.select = xor i8 %.lobit, %30
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %30
   br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i8 %.lobit, %30
   %32 = icmp ult i8 %spec.select, 16
   %33 = shl i8 %spec.select, 4
   %spec.select51 = select i1 %32, i8 %33, i8 %spec.select
@@ -469,11 +469,11 @@ define noundef i64 @_Z18logged_rv64i_clrs8P11processor_t6insn_tm(ptr noundef %0,
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i8
   %.lobit = ashr i8 %30, 7
-  %spec.select = xor i8 %.lobit, %30
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %30
   br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %21
+  %spec.select = xor i8 %.lobit, %30
   %32 = icmp ult i8 %spec.select, 16
   %33 = shl i8 %spec.select, 4
   %spec.select51 = select i1 %32, i8 %33, i8 %spec.select
@@ -648,11 +648,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_clrs8P11pr
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i8
   %.lobit = ashr i8 %44, 7
-  %spec.select = xor i8 %.lobit, %44
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %44
   br i1 %.not, label %52, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i8 %.lobit, %44
   %46 = icmp ult i8 %spec.select, 16
   %47 = shl i8 %spec.select, 4
   %spec.select57 = select i1 %46, i8 4, i8 0
@@ -774,11 +774,11 @@ define noundef i64 @_Z16fast_rv64e_clrs8P11processor_t6insn_tm(ptr nocapture nou
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i8
   %.lobit = ashr i8 %44, 7
-  %spec.select = xor i8 %.lobit, %44
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %44
   br i1 %.not, label %52, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i8 %.lobit, %44
   %46 = icmp ult i8 %spec.select, 16
   %47 = shl i8 %spec.select, 4
   %spec.select57 = select i1 %46, i8 4, i8 0
@@ -896,11 +896,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_clrs8P11
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i8
   %.lobit = ashr i8 %44, 7
-  %spec.select = xor i8 %.lobit, %44
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %44
   br i1 %.not, label %52, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i8 %.lobit, %44
   %46 = icmp ult i8 %spec.select, 16
   %47 = shl i8 %spec.select, 4
   %spec.select60 = select i1 %46, i8 4, i8 0
@@ -1079,11 +1079,11 @@ define noundef i64 @_Z18logged_rv64e_clrs8P11processor_t6insn_tm(ptr noundef %0,
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i8
   %.lobit = ashr i8 %44, 7
-  %spec.select = xor i8 %.lobit, %44
-  %.not = icmp eq i8 %spec.select, 0
+  %.not = icmp eq i8 %.lobit, %44
   br i1 %.not, label %52, label %45
 
 45:                                               ; preds = %35
+  %spec.select = xor i8 %.lobit, %44
   %46 = icmp ult i8 %spec.select, 16
   %47 = shl i8 %spec.select, 4
   %spec.select60 = select i1 %46, i8 4, i8 0

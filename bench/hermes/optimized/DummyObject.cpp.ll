@@ -29,7 +29,7 @@ entry:
   %1 = load i64, ptr %arrayidx.i, align 8
   %xor.i = xor i64 %1, %0
   %2 = inttoptr i64 %xor.i to ptr
-  %tobool.not = icmp eq i64 %xor.i, 0
+  %tobool.not = icmp eq i64 %1, %0
   br i1 %tobool.not, label %if.end.thread, label %if.then
 
 if.end.thread:                                    ; preds = %entry

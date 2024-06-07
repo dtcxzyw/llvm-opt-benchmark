@@ -906,7 +906,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %349 = trunc i32 %348 to i16
   %350 = and i16 %349, 255
   %351 = xor i16 %350, 255
-  %352 = icmp eq i16 %351, 0
+  %352 = icmp eq i16 %350, 255
   br i1 %352, label %356, label %353
 
 353:                                              ; preds = %345
@@ -1349,7 +1349,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %645 = trunc i32 %644 to i16
   %646 = and i16 %645, 255
   %647 = xor i16 %646, 255
-  %648 = icmp eq i16 %647, 0
+  %648 = icmp eq i16 %646, 255
   br i1 %648, label %652, label %649
 
 649:                                              ; preds = %638
@@ -1606,7 +1606,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr nocapture noundef %0)
   %18 = trunc nuw i32 %14 to i16
   %19 = and i16 %18, 255
   %20 = xor i16 %19, 255
-  %21 = icmp eq i16 %20, 0
+  %21 = icmp eq i16 %19, 255
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %13
@@ -1632,7 +1632,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr nocapture noundef %0)
   store i8 %34, ptr %32, align 8
   %35 = trunc nuw nsw i32 %31 to i16
   %36 = xor i16 %35, 255
-  %37 = icmp eq i16 %36, 0
+  %37 = icmp eq i32 %31, 255
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %30

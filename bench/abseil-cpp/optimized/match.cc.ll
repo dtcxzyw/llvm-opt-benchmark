@@ -218,11 +218,11 @@ while.body:                                       ; preds = %while.cond
   %t.0.copyload.i.i = load i16, ptr %add.ptr, align 1
   %add.ptr8 = getelementptr inbounds i8, ptr %b.coerce1, i64 %count.0
   %t.0.copyload.i.i44 = load i16, ptr %add.ptr8, align 1
-  %xor41 = xor i16 %t.0.copyload.i.i44, %t.0.copyload.i.i
-  %cmp13.not = icmp eq i16 %xor41, 0
+  %cmp13.not = icmp eq i16 %t.0.copyload.i.i, %t.0.copyload.i.i44
   br i1 %cmp13.not, label %while.cond, label %if.then15, !llvm.loop !8
 
 if.then15:                                        ; preds = %while.body
+  %xor41 = xor i16 %t.0.copyload.i.i44, %t.0.copyload.i.i
   %0 = and i16 %xor41, 255
   %cmp17 = icmp eq i16 %0, 0
   %inc = zext i1 %cmp17 to i64
@@ -249,14 +249,14 @@ do.body:                                          ; preds = %entry, %if.end47
   %t.0.copyload.i.i47 = load i64, ptr %add.ptr36, align 1
   %add.ptr38 = getelementptr inbounds i8, ptr %b.coerce1, i64 %count.3
   %t.0.copyload.i.i48 = load i64, ptr %add.ptr38, align 1
-  %xor40 = xor i64 %t.0.copyload.i.i48, %t.0.copyload.i.i47
-  %cmp41.not = icmp eq i64 %xor40, 0
+  %cmp41.not = icmp eq i64 %t.0.copyload.i.i47, %t.0.copyload.i.i48
   br i1 %cmp41.not, label %if.end47, label %if.then43
 
 if.then43:                                        ; preds = %do.body
-  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor40, i1 true)
+  %xor40 = xor i64 %t.0.copyload.i.i48, %t.0.copyload.i.i47
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor40, i1 false)
   %shr = lshr i64 %3, 3
-  %add46 = or disjoint i64 %shr, %count.3
+  %add46 = add i64 %shr, %count.3
   br label %return
 
 if.end47:                                         ; preds = %do.body
@@ -271,12 +271,12 @@ do.end:                                           ; preds = %if.end47
   %t.0.copyload.i.i50 = load i64, ptr %add.ptr53, align 1
   %add.ptr55 = getelementptr inbounds i8, ptr %b.coerce1, i64 %sub
   %t.0.copyload.i.i51 = load i64, ptr %add.ptr55, align 1
-  %xor57 = xor i64 %t.0.copyload.i.i51, %t.0.copyload.i.i50
-  %cmp58.not = icmp eq i64 %xor57, 0
+  %cmp58.not = icmp eq i64 %t.0.copyload.i.i50, %t.0.copyload.i.i51
   br i1 %cmp58.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %do.end
-  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor57, i1 true)
+  %xor57 = xor i64 %t.0.copyload.i.i51, %t.0.copyload.i.i50
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor57, i1 false)
   %shr62 = lshr i64 %4, 3
   %add64 = add i64 %shr62, %sub
   br label %return

@@ -1216,7 +1216,7 @@ define noundef i32 @dissect_per_boolean(ptr noundef %0, i32 noundef %1, ptr noca
   %37 = select i1 %.not43, i8 46, i8 %18
   %38 = getelementptr inbounds i8, ptr %7, i64 7
   store i8 %37, ptr %38, align 1
-  %.not44.not = icmp eq i32 %11, 0
+  %.not44.not = icmp eq i32 %10, 7
   %39 = select i1 %.not44.not, i8 %18, i8 46
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %39, ptr %40, align 1

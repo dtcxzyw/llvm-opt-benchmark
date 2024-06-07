@@ -1766,12 +1766,11 @@ if.end44:                                         ; preds = %if.then, %entry
   %.pn.in.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %conv38.pn
   %.pn.in = load i64, ptr %.pn.in.in, align 8, !tbaa !69
   %.pn = trunc i64 %.pn.in to i32
-  %xor_result.1 = xor i32 %.pn, %in
-  %cmp45 = icmp eq i32 %xor_result.1, 0
+  %cmp45 = icmp eq i32 %.pn, %in
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45181 = icmp eq i32 %conv18, 0
+  %cmp45181 = icmp eq i32 %4, %in
   br i1 %cmp45181, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44
@@ -1813,6 +1812,7 @@ if.then52:                                        ; preds = %if.end44.thread
   br label %if.end94
 
 if.else69:                                        ; preds = %if.end44
+  %xor_result.1 = xor i32 %.pn, %in
   %15 = tail call noundef i32 @llvm.ctlz.i32(i32 %xor_result.1, i1 true), !range !118
   %idxprom = zext nneg i32 %15 to i64
   %arrayidx = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom
@@ -2672,11 +2672,11 @@ if.end44:                                         ; preds = %if.then, %entry
   %xor_result.1 = xor i32 %.pn, %in
   %previous_index.0.in = trunc i64 %1 to i8
   %previous_index.0 = and i8 %previous_index.0.in, 127
-  %cmp45 = icmp eq i32 %xor_result.1, 0
+  %cmp45 = icmp eq i32 %.pn, %in
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45243 = icmp eq i32 %conv18, 0
+  %cmp45243 = icmp eq i32 %5, %in
   br i1 %cmp45243, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44
@@ -6052,12 +6052,11 @@ if.end34:                                         ; preds = %if.then, %entry
   %conv30.pn = and i64 %1, 127
   %.pn.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %conv30.pn
   %.pn = load i64, ptr %.pn.in, align 8, !tbaa !69
-  %xor_result.1 = xor i64 %.pn, %in
-  %cmp35 = icmp eq i64 %xor_result.1, 0
+  %cmp35 = icmp eq i64 %.pn, %in
   br i1 %cmp35, label %if.then36, label %if.else59
 
 if.end34.thread:                                  ; preds = %if.then
-  %cmp35172 = icmp eq i64 %xor, 0
+  %cmp35172 = icmp eq i64 %3, %in
   br i1 %cmp35172, label %if.then36, label %if.then42
 
 if.then36:                                        ; preds = %if.end34.thread, %if.end34
@@ -6098,6 +6097,7 @@ if.then42:                                        ; preds = %if.end34.thread
   br label %if.end84
 
 if.else59:                                        ; preds = %if.end34
+  %xor_result.1 = xor i64 %.pn, %in
   %14 = tail call i64 @llvm.ctlz.i64(i64 %xor_result.1, i1 true), !range !280
   %arrayidx = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %14
   %15 = load i8, ptr %arrayidx, align 1, !tbaa !63
@@ -6828,11 +6828,11 @@ if.end34:                                         ; preds = %if.then, %entry
   %xor_result.1 = xor i64 %.pn, %in
   %previous_index.0.in = trunc i64 %1 to i8
   %previous_index.0 = and i8 %previous_index.0.in, 127
-  %cmp35 = icmp eq i64 %xor_result.1, 0
+  %cmp35 = icmp eq i64 %.pn, %in
   br i1 %cmp35, label %if.then36, label %if.else59
 
 if.end34.thread:                                  ; preds = %if.then
-  %cmp35233 = icmp eq i64 %xor, 0
+  %cmp35233 = icmp eq i64 %4, %in
   br i1 %cmp35233, label %if.then36, label %if.then42
 
 if.then36:                                        ; preds = %if.end34.thread, %if.end34

@@ -55716,7 +55716,7 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$tree_sitter_cli..generate.
   ]
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %9, 1
+  %14 = icmp eq i64 %8, -9223372036854775807
   br i1 %14, label %15, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread"
 
 15:                                               ; preds = %13

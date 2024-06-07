@@ -1622,11 +1622,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i8, ptr %add.ptr.i, align 1
   %add.ptr.i12 = getelementptr inbounds i8, ptr %2, i64 %i.024
   %4 = load i8, ptr %add.ptr.i12, align 1
-  %xor11 = xor i8 %4, %3
-  %tobool.not = icmp eq i8 %xor11, 0
+  %tobool.not = icmp eq i8 %3, %4
   br i1 %tobool.not, label %for.inc19, label %if.end10
 
 if.end10:                                         ; preds = %for.body
+  %xor11 = xor i8 %4, %3
   %xor = zext i8 %xor11 to i32
   br label %for.body13
 
@@ -1700,11 +1700,11 @@ for.body.i:                                       ; preds = %if.then.i.i.i.i.i.i
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5.i.i7, i64 %i.024.i
   %3 = load i8, ptr %add.ptr.i12.i, align 1
-  %xor11.i = xor i8 %3, %2
-  %tobool.not.i = icmp eq i8 %xor11.i, 0
+  %tobool.not.i = icmp eq i8 %2, %3
   br i1 %tobool.not.i, label %for.inc19.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %for.body.i
+  %xor11.i = xor i8 %3, %2
   %xor.i = zext i8 %xor11.i to i32
   br label %for.body13.i
 

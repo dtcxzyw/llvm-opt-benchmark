@@ -907,7 +907,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %arrayidx.i2.i.i = getelementptr inbounds %class.mpf, ptr %40, i64 %idxprom.i1.i.i
   %bf.load.i.i.i = load i32, ptr %arrayidx.i.i.i18, align 8
   %bf.load2.i.i.i = load i32, ptr %arrayidx.i2.i.i, align 8
-  %or.cond.i.i.i = icmp eq i32 %bf.load2.i.i.i, %bf.load.i.i.i
+  %or.cond.i.i.i = icmp eq i32 %bf.load.i.i.i, %bf.load2.i.i.i
   br i1 %or.cond.i.i.i, label %land.lhs.true16.i.i.i, label %if.end11
 
 land.lhs.true16.i.i.i:                            ; preds = %do.body
@@ -1150,7 +1150,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %arrayidx.i2.i.i = getelementptr inbounds %class.mpf, ptr %33, i64 %idxprom.i1.i.i
   %bf.load.i.i.i = load i32, ptr %arrayidx.i.i.i16, align 8
   %bf.load2.i.i.i = load i32, ptr %arrayidx.i2.i.i, align 8
-  %or.cond.i.i.i = icmp eq i32 %bf.load2.i.i.i, %bf.load.i.i.i
+  %or.cond.i.i.i = icmp eq i32 %bf.load.i.i.i, %bf.load2.i.i.i
   br i1 %or.cond.i.i.i, label %land.lhs.true16.i.i.i, label %if.end14
 
 land.lhs.true16.i.i.i:                            ; preds = %do.body

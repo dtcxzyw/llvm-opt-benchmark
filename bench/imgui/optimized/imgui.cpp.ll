@@ -24861,7 +24861,7 @@ if.then342.i.i:                                   ; preds = %if.end328.i.i
 if.then342.split.i.i:                             ; preds = %if.then342.i.i
   %xor.i.i = xor i32 %532, 1
   %534 = load ptr, ptr @GImGui, align 8
-  %cmp.i511.i = icmp eq i32 %xor.i.i, 0
+  %cmp.i511.i = icmp eq i32 %532, 1
   br i1 %cmp.i511.i, label %if.then.i538.i, label %if.end9.i.i
 
 if.then.i538.i:                                   ; preds = %if.then342.split.i.i, %if.then342.split.i.thread.i

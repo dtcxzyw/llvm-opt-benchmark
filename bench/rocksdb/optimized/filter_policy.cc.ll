@@ -9063,7 +9063,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit159:                ; preds = %if.then40
 
 _ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit159
   %.pre = load ptr, ptr %_M_start.i, align 8, !noalias !125
-  %.pre494 = load ptr, ptr %_M_finish.i, align 8, !noalias !128
+  %.pre506 = load ptr, ptr %_M_finish.i, align 8, !noalias !128
   br label %if.end59
 
 lpad44.loopexit.split:                            ; preds = %if.then3.i.i, %_ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit.i.i
@@ -9140,7 +9140,7 @@ invoke.cont57:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup160
 
 if.end59:                                         ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge, %invoke.cont38
-  %45 = phi ptr [ %.pre494, %_ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge ], [ %25, %invoke.cont38 ]
+  %45 = phi ptr [ %.pre506, %_ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge ], [ %25, %invoke.cont38 ]
   %46 = phi ptr [ %.pre, %_ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge ], [ %26, %invoke.cont38 ]
   %status_banding_cache_res.sroa.9.1377 = phi ptr [ %32, %_ZN7rocksdb6StatusaSEOS0_.exit159.if.end59_crit_edge ], [ null, %invoke.cont38 ]
   %47 = load ptr, ptr %_M_last.i.i, align 8, !noalias !125
@@ -9188,7 +9188,7 @@ lpad44.loopexit.split.us:                         ; preds = %_ZNSt10unique_ptrIA
   br label %ehcleanup161
 
 if.else.i.i:                                      ; preds = %if.end59, %if.end.i
-  %51 = phi ptr [ %80, %if.end.i ], [ null, %if.end59 ]
+  %51 = phi ptr [ %81, %if.end.i ], [ null, %if.end59 ]
   %cur_ordinal_seed.0.i = phi i32 [ %and3.i, %if.end.i ], [ %and, %if.end59 ]
   %conv.i.i = zext nneg i32 %cur_ordinal_seed.0.i to i64
   %mul.i.i220 = mul i64 %conv.i.i, -4070662928558531325
@@ -9254,7 +9254,6 @@ _ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__
 
 for.cond.preheader.i.i.i.i:                       ; preds = %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i
   %conv.i.i.i.i.i.i = and i64 %xor.i.i, 4294967295
-  %.pre495.pre = load ptr, ptr %result_rows_12.i.i, align 8
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %for.cond.preheader.i.i.i.i
@@ -9277,58 +9276,59 @@ for.cond.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_itera
   %56 = and i64 %mul.i.i.i.i.i, -2
   %or.i.i.i.i.i.i.i = xor i64 %56, -4366375858499063011
   %57 = load ptr, ptr %coeff_rows_.i, align 8
-  %arrayidx.i.i21.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %57, i64 %shr11.i.i.i.i.i.i.i
-  %cr_at_i.sroa.0.0.copyload22.i.i.i.i.i = load i64, ptr %arrayidx.i.i21.i.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload24.i.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i.i.i.i.i, align 8
-  %cmp.i25.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i.i.i.i.i, 0
-  %cmp3.i26.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i.i.i.i.i, 0
-  %58 = select i1 %cmp.i25.i.i.i.i.i, i1 %cmp3.i26.i.i.i.i.i, i1 false
-  br i1 %58, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.lr.ph.i.i.i.i.i
+  %58 = load ptr, ptr %result_rows_12.i.i, align 8
+  %arrayidx.i.i22.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %57, i64 %shr11.i.i.i.i.i.i.i
+  %cr_at_i.sroa.0.0.copyload23.i.i.i.i.i = load i64, ptr %arrayidx.i.i22.i.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i22.i.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload25.i.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i.i.i.i.i, align 8
+  %cmp.i27.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload23.i.i.i.i.i, 0
+  %cmp3.i28.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload25.i.i.i.i.i, 0
+  %59 = select i1 %cmp.i27.i.i.i.i.i, i1 %cmp3.i28.i.i.i.i.i, i1 false
+  br i1 %59, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.i.preheader.i.i.i.i
 
-if.end.lr.ph.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i
+if.end.i.preheader.i.i.i.i:                       ; preds = %for.cond.i.i.i.i
   %conv18.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr11.i.i.i.i.i.i.i to i32
   br label %if.end.i.i.i.i.i
 
 _ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i: ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i, %for.cond.i.i.i.i
-  %arrayidx.i.i.lcssa19.i.i.i.i.i = phi ptr [ %arrayidx.i.i21.i.i.i.i.i, %for.cond.i.i.i.i ], [ %arrayidx.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
+  %arrayidx.i.i.lcssa20.i.i.i.i.i = phi ptr [ %arrayidx.i.i22.i.i.i.i.i, %for.cond.i.i.i.i ], [ %arrayidx.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %cr.sroa.0.0.lcssa.i.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i.i, %for.cond.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %cr.sroa.8.0.lcssa.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %rr.addr.0.lcssa.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i, %for.cond.i.i.i.i ], [ %xor.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %conv.i.lcssa.i.i.i.i.i = phi i64 [ %shr11.i.i.i.i.i.i.i, %for.cond.i.i.i.i ], [ %conv.i.i49.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i.i.i.i.i, i64 8
-  store i64 %cr.sroa.0.0.lcssa.i.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa20.i.i.i.i.i, i64 8
+  store i64 %cr.sroa.0.0.lcssa.i.i.i.i.i, ptr %arrayidx.i.i.lcssa20.i.i.i.i.i, align 8
   store i64 %cr.sroa.8.0.lcssa.i.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i.i.i.i.i, align 8
-  %arrayidx.i2.i14.i.i.i.i.i = getelementptr inbounds i32, ptr %.pre495.pre, i64 %conv.i.lcssa.i.i.i.i.i
+  %arrayidx.i2.i14.i.i.i.i.i = getelementptr inbounds i32, ptr %58, i64 %conv.i.lcssa.i.i.i.i.i
   store i32 %rr.addr.0.lcssa.i.i.i.i.i, ptr %arrayidx.i2.i14.i.i.i.i.i, align 4
   br label %if.end13.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i
-  %cr_at_i.sroa.4.0.copyload33.i.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload24.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %cr_at_i.sroa.0.0.copyload32.i.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload22.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %conv.i31.i.i.i.i.i = phi i64 [ %shr11.i.i.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %conv.i.i49.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %rr.addr.030.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %xor.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %i.029.i.i.i.i.i = phi i32 [ %conv18.i.i.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %add.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %cr.sroa.8.028.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %cr.sroa.0.027.i.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i.i, %if.end.lr.ph.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
-  %arrayidx.i2.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.pre495.pre, i64 %conv.i31.i.i.i.i.i
-  %59 = load i32, ptr %arrayidx.i2.i.i.i.i.i.i, align 4
-  %xor.i.i.i.i.i.i.i = xor i64 %cr.sroa.0.027.i.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i.i.i.i.i
-  %xor3.i.i.i.i.i.i.i = xor i64 %cr.sroa.8.028.i.i.i.i.i, %cr_at_i.sroa.4.0.copyload33.i.i.i.i.i
-  %xor.i.i.i.i.i = xor i32 %59, %rr.addr.030.i.i.i.i.i
-  %cmp.i16.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i.i.i, 0
-  %cmp3.i19.i.i.i.i.i = icmp eq i64 %xor3.i.i.i.i.i.i.i, 0
-  %60 = select i1 %cmp.i16.i.i.i.i.i, i1 %cmp3.i19.i.i.i.i.i, i1 false
-  br i1 %60, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, label %if.end5.i.i.i.i.i
+if.end.i.i.i.i.i:                                 ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i, %if.end.i.preheader.i.i.i.i
+  %conv.i.pn.i.i.i.i.i = phi i64 [ %conv.i.i49.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %shr11.i.i.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %cr_at_i.sroa.4.0.copyload34.i.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload25.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %cr_at_i.sroa.0.0.copyload33.i.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload23.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %rr.addr.032.i.i.i.i.i = phi i32 [ %xor.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %conv.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %i.031.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %conv18.i.i.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %cr.sroa.8.030.i.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %cr.sroa.0.029.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ], [ %or.i.i.i.i.i.i.i, %if.end.i.preheader.i.i.i.i ]
+  %.in.i.i.i.i.i = getelementptr inbounds i32, ptr %58, i64 %conv.i.pn.i.i.i.i.i
+  %60 = load i32, ptr %.in.i.i.i.i.i, align 4
+  %xor.i.i.i.i.i.i.i = xor i64 %cr.sroa.0.029.i.i.i.i.i, %cr_at_i.sroa.0.0.copyload33.i.i.i.i.i
+  %xor3.i.i.i.i.i.i.i = xor i64 %cr.sroa.8.030.i.i.i.i.i, %cr_at_i.sroa.4.0.copyload34.i.i.i.i.i
+  %cmp.i16.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i.i.i.i.i, %cr.sroa.0.029.i.i.i.i.i
+  %cmp3.i19.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i.i.i.i.i, %cr.sroa.8.030.i.i.i.i.i
+  %61 = select i1 %cmp.i16.i.i.i.i.i, i1 %cmp3.i19.i.i.i.i.i, i1 false
+  br i1 %61, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, label %if.end5.i.i.i.i.i
 
 if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
-  %61 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %61 to i32
-  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i.i.i.i.i, i1 true)
-  %cast.i5.i.i.i.i.i.i = trunc nuw nsw i64 %62 to i32
+  %xor.i.i.i.i.i = xor i32 %60, %rr.addr.032.i.i.i.i.i
+  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %62 to i32
+  %63 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i.i.i.i.i, i1 true)
+  %cast.i5.i.i.i.i.i.i = trunc nuw nsw i64 %63 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %cast.i5.i.i.i.i.i.i, 64
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i16.i.i.i.i.i, i32 %add.i.i.i.i.i.i, i32 %cast.i.i.i.i.i.i.i
-  %add.i.i.i.i.i = add i32 %retval.0.i.i.i.i.i.i, %i.029.i.i.i.i.i
+  %add.i.i.i.i.i = add i32 %retval.0.i.i.i.i.i.i, %i.031.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, 63
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
@@ -9359,11 +9359,11 @@ _ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i
   %cr_at_i.sroa.4.0.copyload.i.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i.i.i.i.i, 0
   %cmp3.i.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i.i.i.i.i, 0
-  %63 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 false
-  br i1 %63, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !132
+  %64 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 false
+  br i1 %64, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !132
 
 _ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %cmp.i51.i.i.i.i = icmp eq i32 %xor.i.i.i.i.i, 0
+  %cmp.i51.i.i.i.i = icmp eq i32 %rr.addr.032.i.i.i.i.i, %60
   br i1 %cmp.i51.i.i.i.i, label %if.end13.i.i.i.i, label %if.end.i
 
 if.end13.i.i.i.i:                                 ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i
@@ -9373,14 +9373,14 @@ if.end13.i.i.i.i:                                 ; preds = %_ZN7rocksdb6ribbon1
 
 if.then.i55.i.i.i.i:                              ; preds = %if.end13.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cur.sroa.23.0.i.i.i.i, i64 8
-  %64 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 512
+  %65 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 512
   br label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i
 
 _ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i:   ; preds = %if.then.i55.i.i.i.i, %if.end13.i.i.i.i
   %cur.sroa.23.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i55.i.i.i.i ], [ %cur.sroa.23.0.i.i.i.i, %if.end13.i.i.i.i ]
   %cur.sroa.18.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i55.i.i.i.i ], [ %cur.sroa.18.0.i.i.i.i, %if.end13.i.i.i.i ]
-  %cur.sroa.0.1.i.i.i.i = phi ptr [ %64, %if.then.i55.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end13.i.i.i.i ]
+  %cur.sroa.0.1.i.i.i.i = phi ptr [ %65, %if.then.i55.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end13.i.i.i.i ]
   %cmp.i57.i.i.i.i = icmp eq ptr %cur.sroa.0.1.i.i.i.i, %45
   br i1 %cmp.i57.i.i.i.i, label %if.end81, label %for.cond.i.i.i.i, !llvm.loop !133
 
@@ -9408,222 +9408,222 @@ for.cond26.i.i.i.i:                               ; preds = %for.cond26.i.i.i.i.
   %cur.sroa.23.2.i.i.i.i = phi ptr [ %48, %if.else.i.i.i.i ], [ %cur.sroa.23.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %cur.sroa.18.2.i.i.i.i = phi ptr [ %47, %if.else.i.i.i.i ], [ %cur.sroa.18.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %cur.sroa.0.2.i.i.i.i = phi ptr [ %46, %if.else.i.i.i.i ], [ %cur.sroa.0.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
-  %start21.0.i.i.i.i.in = phi i64 [ %shr11.i.i.i68.i.i.i.i, %if.else.i.i.i.i ], [ %shr11.i.i.i165.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
-  %h18.0.i.i.i.i = phi i64 [ %mul.i.i60.i.i.i.i, %if.else.i.i.i.i ], [ %mul.i.i157.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
+  %start21.0.i.i.i.i.in = phi i64 [ %shr11.i.i.i68.i.i.i.i, %if.else.i.i.i.i ], [ %shr11.i.i.i164.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
+  %h18.0.i.i.i.i = phi i64 [ %mul.i.i60.i.i.i.i, %if.else.i.i.i.i ], [ %mul.i.i156.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %start21.0.i.i.i.i = trunc nuw i64 %start21.0.i.i.i.i.in to i32
   %mul.i71.i.i.i.i = mul i64 %h18.0.i.i.i.i, -4427176413096506387
-  %65 = call noundef i64 @llvm.bswap.i64(i64 %mul.i71.i.i.i.i)
-  %conv.i72.i.i.i.i = trunc i64 %65 to i32
-  %66 = and i64 %mul.i71.i.i.i.i, -2
-  %or.i.i.i74.i.i.i.i = xor i64 %66, -4366375858499063011
+  %66 = call noundef i64 @llvm.bswap.i64(i64 %mul.i71.i.i.i.i)
+  %conv.i72.i.i.i.i = trunc i64 %66 to i32
+  %67 = and i64 %mul.i71.i.i.i.i, -2
+  %or.i.i.i74.i.i.i.i = xor i64 %67, -4366375858499063011
   %incdec.ptr.i77.i.i.i.i = getelementptr inbounds i8, ptr %cur.sroa.0.2.i.i.i.i, i64 8
   %cmp.i79.i.i.i.i = icmp eq ptr %incdec.ptr.i77.i.i.i.i, %cur.sroa.18.2.i.i.i.i
   br i1 %cmp.i79.i.i.i.i, label %if.then.i81.i.i.i.i, label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i
 
 if.then.i81.i.i.i.i:                              ; preds = %for.cond26.i.i.i.i
   %add.ptr.i83.i.i.i.i = getelementptr inbounds i8, ptr %cur.sroa.23.2.i.i.i.i, i64 8
-  %67 = load ptr, ptr %add.ptr.i83.i.i.i.i, align 8
-  %add.ptr.i.i85.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 512
+  %68 = load ptr, ptr %add.ptr.i83.i.i.i.i, align 8
+  %add.ptr.i.i85.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 512
   br label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i
 
 _ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i: ; preds = %if.then.i81.i.i.i.i, %for.cond26.i.i.i.i
   %cur.sroa.23.3.i.i.i.i = phi ptr [ %add.ptr.i83.i.i.i.i, %if.then.i81.i.i.i.i ], [ %cur.sroa.23.2.i.i.i.i, %for.cond26.i.i.i.i ]
   %cur.sroa.18.3.i.i.i.i = phi ptr [ %add.ptr.i.i85.i.i.i.i, %if.then.i81.i.i.i.i ], [ %cur.sroa.18.2.i.i.i.i, %for.cond26.i.i.i.i ]
-  %cur.sroa.0.3.i.i.i.i = phi ptr [ %67, %if.then.i81.i.i.i.i ], [ %incdec.ptr.i77.i.i.i.i, %for.cond26.i.i.i.i ]
+  %cur.sroa.0.3.i.i.i.i = phi ptr [ %68, %if.then.i81.i.i.i.i ], [ %incdec.ptr.i77.i.i.i.i, %for.cond26.i.i.i.i ]
   %cmp.i87.i.i.i.i = icmp eq ptr %cur.sroa.0.3.i.i.i.i, %45
   br i1 %cmp.i87.i.i.i.i, label %if.then33.i.i.i.i, label %if.end38.i.i.i.i
 
 if.then33.i.i.i.i:                                ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i
-  %arrayidx.i.i21.i91.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
-  %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i = load i64, ptr %arrayidx.i.i21.i91.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i93.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i91.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i93.i.i.i.i, align 8
-  %cmp.i25.i95.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i, 0
-  %cmp3.i26.i96.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i, 0
-  %68 = select i1 %cmp.i25.i95.i.i.i.i, i1 %cmp3.i26.i96.i.i.i.i, i1 false
-  br i1 %68, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i, label %if.end.i98.i.i.i.i
+  %arrayidx.i.i22.i91.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
+  %cr_at_i.sroa.0.0.copyload23.i92.i.i.i.i = load i64, ptr %arrayidx.i.i22.i91.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i93.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i22.i91.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload25.i94.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i93.i.i.i.i, align 8
+  %cmp.i27.i95.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload23.i92.i.i.i.i, 0
+  %cmp3.i28.i96.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload25.i94.i.i.i.i, 0
+  %69 = select i1 %cmp.i27.i95.i.i.i.i, i1 %cmp3.i28.i96.i.i.i.i, i1 false
+  br i1 %69, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
-  %arrayidx.i.i.lcssa19.i139.i.i.i.i = phi ptr [ %arrayidx.i.i.i132.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %arrayidx.i.i21.i91.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.0.0.lcssa.i140.i.i.i.i = phi i64 [ %storemerge.i.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.8.0.lcssa.i141.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
-  %rr.addr.0.lcssa.i142.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
-  %conv.i.lcssa.i143.i.i.i.i = phi i64 [ %conv.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i144.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i139.i.i.i.i, i64 8
-  store i64 %cr.sroa.0.0.lcssa.i140.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i139.i.i.i.i, align 8
-  store i64 %cr.sroa.8.0.lcssa.i141.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i144.i.i.i.i, align 8
-  %arrayidx.i2.i14.i145.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i143.i.i.i.i
-  store i32 %rr.addr.0.lcssa.i142.i.i.i.i, ptr %arrayidx.i2.i14.i145.i.i.i.i, align 4
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
+  %arrayidx.i.i.lcssa20.i138.i.i.i.i = phi ptr [ %arrayidx.i.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %arrayidx.i.i22.i91.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.0.0.lcssa.i139.i.i.i.i = phi i64 [ %storemerge.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.8.0.lcssa.i140.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i128.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
+  %rr.addr.0.lcssa.i141.i.i.i.i = phi i32 [ %xor.i111.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
+  %conv.i.lcssa.i142.i.i.i.i = phi i64 [ %conv.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i143.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa20.i138.i.i.i.i, i64 8
+  store i64 %cr.sroa.0.0.lcssa.i139.i.i.i.i, ptr %arrayidx.i.i.lcssa20.i138.i.i.i.i, align 8
+  store i64 %cr.sroa.8.0.lcssa.i140.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i143.i.i.i.i, align 8
+  %arrayidx.i2.i14.i144.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i142.i.i.i.i
+  store i32 %rr.addr.0.lcssa.i141.i.i.i.i, ptr %arrayidx.i2.i14.i144.i.i.i.i, align 4
   br label %if.end81
 
-if.end.i98.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
-  %cr_at_i.sroa.4.0.copyload33.i99.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr_at_i.sroa.0.0.copyload32.i100.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i, %if.then33.i.i.i.i ]
-  %conv.i31.i101.i.i.i.i = phi i64 [ %conv.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
-  %rr.addr.030.i102.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
-  %i.029.i103.i.i.i.i = phi i32 [ %add.i117.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.8.028.i104.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.0.027.i105.i.i.i.i = phi i64 [ %storemerge.i.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
-  %arrayidx.i2.i.i106.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i31.i101.i.i.i.i
-  %69 = load i32, ptr %arrayidx.i2.i.i106.i.i.i.i, align 4
-  %xor.i.i.i107.i.i.i.i = xor i64 %cr.sroa.0.027.i105.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i100.i.i.i.i
-  %xor3.i.i.i108.i.i.i.i = xor i64 %cr.sroa.8.028.i104.i.i.i.i, %cr_at_i.sroa.4.0.copyload33.i99.i.i.i.i
-  %xor.i109.i.i.i.i = xor i32 %69, %rr.addr.030.i102.i.i.i.i
-  %cmp.i16.i110.i.i.i.i = icmp eq i64 %xor.i.i.i107.i.i.i.i, 0
-  %cmp3.i19.i111.i.i.i.i = icmp eq i64 %xor3.i.i.i108.i.i.i.i, 0
-  %70 = select i1 %cmp.i16.i110.i.i.i.i, i1 %cmp3.i19.i111.i.i.i.i, i1 false
-  br i1 %70, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i, label %if.end5.i112.i.i.i.i
+if.end.i97.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
+  %conv.i.pn.i98.i.i.i.i = phi i64 [ %conv.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
+  %cr_at_i.sroa.4.0.copyload34.i99.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i134.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload25.i94.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr_at_i.sroa.0.0.copyload33.i100.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i132.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload23.i92.i.i.i.i, %if.then33.i.i.i.i ]
+  %rr.addr.032.i101.i.i.i.i = phi i32 [ %xor.i111.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
+  %i.031.i102.i.i.i.i = phi i32 [ %add.i116.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %start21.0.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.8.030.i103.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i128.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.0.029.i104.i.i.i.i = phi i64 [ %storemerge.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
+  %.in.i105.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.pn.i98.i.i.i.i
+  %70 = load i32, ptr %.in.i105.i.i.i.i, align 4
+  %xor.i.i.i106.i.i.i.i = xor i64 %cr.sroa.0.029.i104.i.i.i.i, %cr_at_i.sroa.0.0.copyload33.i100.i.i.i.i
+  %xor3.i.i.i107.i.i.i.i = xor i64 %cr.sroa.8.030.i103.i.i.i.i, %cr_at_i.sroa.4.0.copyload34.i99.i.i.i.i
+  %cmp.i16.i108.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i100.i.i.i.i, %cr.sroa.0.029.i104.i.i.i.i
+  %cmp3.i19.i109.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i99.i.i.i.i, %cr.sroa.8.030.i103.i.i.i.i
+  %71 = select i1 %cmp.i16.i108.i.i.i.i, i1 %cmp3.i19.i109.i.i.i.i, i1 false
+  br i1 %71, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i, label %if.end5.i110.i.i.i.i
 
-if.end5.i112.i.i.i.i:                             ; preds = %if.end.i98.i.i.i.i
-  %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i107.i.i.i.i, i1 true)
-  %cast.i.i.i113.i.i.i.i = trunc nuw nsw i64 %71 to i32
-  %72 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i108.i.i.i.i, i1 true)
-  %cast.i5.i.i114.i.i.i.i = trunc nuw nsw i64 %72 to i32
-  %add.i.i115.i.i.i.i = or disjoint i32 %cast.i5.i.i114.i.i.i.i, 64
-  %retval.0.i.i116.i.i.i.i = select i1 %cmp.i16.i110.i.i.i.i, i32 %add.i.i115.i.i.i.i, i32 %cast.i.i.i113.i.i.i.i
-  %add.i117.i.i.i.i = add i32 %retval.0.i.i116.i.i.i.i, %i.029.i103.i.i.i.i
-  %cmp.i.i.i118.i.i.i.i = icmp ugt i32 %retval.0.i.i116.i.i.i.i, 63
-  br i1 %cmp.i.i.i118.i.i.i.i, label %if.then.i.i.i148.i.i.i.i, label %if.else.i.i.i119.i.i.i.i
+if.end5.i110.i.i.i.i:                             ; preds = %if.end.i97.i.i.i.i
+  %xor.i111.i.i.i.i = xor i32 %70, %rr.addr.032.i101.i.i.i.i
+  %72 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i106.i.i.i.i, i1 true)
+  %cast.i.i.i112.i.i.i.i = trunc nuw nsw i64 %72 to i32
+  %73 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i107.i.i.i.i, i1 true)
+  %cast.i5.i.i113.i.i.i.i = trunc nuw nsw i64 %73 to i32
+  %add.i.i114.i.i.i.i = or disjoint i32 %cast.i5.i.i113.i.i.i.i, 64
+  %retval.0.i.i115.i.i.i.i = select i1 %cmp.i16.i108.i.i.i.i, i32 %add.i.i114.i.i.i.i, i32 %cast.i.i.i112.i.i.i.i
+  %add.i116.i.i.i.i = add i32 %retval.0.i.i115.i.i.i.i, %i.031.i102.i.i.i.i
+  %cmp.i.i.i117.i.i.i.i = icmp ugt i32 %retval.0.i.i115.i.i.i.i, 63
+  br i1 %cmp.i.i.i117.i.i.i.i, label %if.then.i.i.i147.i.i.i.i, label %if.else.i.i.i118.i.i.i.i
 
-if.then.i.i.i148.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
-  %and2.i.i.i149.i.i.i.i = and i32 %retval.0.i.i116.i.i.i.i, 63
-  %sh_prom.i.i.i150.i.i.i.i = zext nneg i32 %and2.i.i.i149.i.i.i.i to i64
-  %shr.i.i.i151.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %sh_prom.i.i.i150.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
+if.then.i.i.i147.i.i.i.i:                         ; preds = %if.end5.i110.i.i.i.i
+  %and2.i.i.i148.i.i.i.i = and i32 %retval.0.i.i115.i.i.i.i, 63
+  %sh_prom.i.i.i149.i.i.i.i = zext nneg i32 %and2.i.i.i148.i.i.i.i to i64
+  %shr.i.i.i150.i.i.i.i = lshr i64 %xor3.i.i.i107.i.i.i.i, %sh_prom.i.i.i149.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
 
-if.else.i.i.i119.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
-  %sh_prom4.i.i.i120.i.i.i.i = zext nneg i32 %retval.0.i.i116.i.i.i.i to i64
-  %shr5.i.i.i121.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %sh_prom4.i.i.i120.i.i.i.i
-  %shl.i.i.i122.i.i.i.i = shl i64 %xor3.i.i.i108.i.i.i.i, 1
-  %sub.i.i.i123.i.i.i.i = sub nuw nsw i32 63, %retval.0.i.i116.i.i.i.i
-  %sh_prom7.i.i.i124.i.i.i.i = zext nneg i32 %sub.i.i.i123.i.i.i.i to i64
-  %shl8.i.i.i125.i.i.i.i = shl i64 %shl.i.i.i122.i.i.i.i, %sh_prom7.i.i.i124.i.i.i.i
-  %shr11.i.i.i126.i.i.i.i = lshr i64 %xor.i.i.i107.i.i.i.i, %sh_prom4.i.i.i120.i.i.i.i
-  %or.i.i.i127.i.i.i.i = or i64 %shl8.i.i.i125.i.i.i.i, %shr11.i.i.i126.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
+if.else.i.i.i118.i.i.i.i:                         ; preds = %if.end5.i110.i.i.i.i
+  %sh_prom4.i.i.i119.i.i.i.i = zext nneg i32 %retval.0.i.i115.i.i.i.i to i64
+  %shr5.i.i.i120.i.i.i.i = lshr i64 %xor3.i.i.i107.i.i.i.i, %sh_prom4.i.i.i119.i.i.i.i
+  %shl.i.i.i121.i.i.i.i = shl i64 %xor3.i.i.i107.i.i.i.i, 1
+  %sub.i.i.i122.i.i.i.i = sub nuw nsw i32 63, %retval.0.i.i115.i.i.i.i
+  %sh_prom7.i.i.i123.i.i.i.i = zext nneg i32 %sub.i.i.i122.i.i.i.i to i64
+  %shl8.i.i.i124.i.i.i.i = shl i64 %shl.i.i.i121.i.i.i.i, %sh_prom7.i.i.i123.i.i.i.i
+  %shr11.i.i.i125.i.i.i.i = lshr i64 %xor.i.i.i106.i.i.i.i, %sh_prom4.i.i.i119.i.i.i.i
+  %or.i.i.i126.i.i.i.i = or i64 %shl8.i.i.i124.i.i.i.i, %shr11.i.i.i125.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
 
-_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i: ; preds = %if.else.i.i.i119.i.i.i.i, %if.then.i.i.i148.i.i.i.i
-  %retval.sroa.2.0.i.i.i129.i.i.i.i = phi i64 [ 0, %if.then.i.i.i148.i.i.i.i ], [ %shr5.i.i.i121.i.i.i.i, %if.else.i.i.i119.i.i.i.i ]
-  %storemerge.i.i.i130.i.i.i.i = phi i64 [ %shr.i.i.i151.i.i.i.i, %if.then.i.i.i148.i.i.i.i ], [ %or.i.i.i127.i.i.i.i, %if.else.i.i.i119.i.i.i.i ]
-  %conv.i.i131.i.i.i.i = zext i32 %add.i117.i.i.i.i to i64
-  %arrayidx.i.i.i132.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i131.i.i.i.i
-  %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i = load i64, ptr %arrayidx.i.i.i132.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i134.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i132.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i134.i.i.i.i, align 8
-  %cmp.i.i136.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i, 0
-  %cmp3.i.i137.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i, 0
-  %73 = select i1 %cmp.i.i136.i.i.i.i, i1 %cmp3.i.i137.i.i.i.i, i1 false
-  br i1 %73, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i, label %if.end.i98.i.i.i.i, !llvm.loop !132
+_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i: ; preds = %if.else.i.i.i118.i.i.i.i, %if.then.i.i.i147.i.i.i.i
+  %retval.sroa.2.0.i.i.i128.i.i.i.i = phi i64 [ 0, %if.then.i.i.i147.i.i.i.i ], [ %shr5.i.i.i120.i.i.i.i, %if.else.i.i.i118.i.i.i.i ]
+  %storemerge.i.i.i129.i.i.i.i = phi i64 [ %shr.i.i.i150.i.i.i.i, %if.then.i.i.i147.i.i.i.i ], [ %or.i.i.i126.i.i.i.i, %if.else.i.i.i118.i.i.i.i ]
+  %conv.i.i130.i.i.i.i = zext i32 %add.i116.i.i.i.i to i64
+  %arrayidx.i.i.i131.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i130.i.i.i.i
+  %cr_at_i.sroa.0.0.copyload.i132.i.i.i.i = load i64, ptr %arrayidx.i.i.i131.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i133.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i131.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload.i134.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i133.i.i.i.i, align 8
+  %cmp.i.i135.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i132.i.i.i.i, 0
+  %cmp3.i.i136.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i134.i.i.i.i, 0
+  %74 = select i1 %cmp.i.i135.i.i.i.i, i1 %cmp3.i.i136.i.i.i.i, i1 false
+  br i1 %74, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i, !llvm.loop !132
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i: ; preds = %if.end.i98.i.i.i.i
-  %cmp.i153.i.i.i.i = icmp eq i32 %xor.i109.i.i.i.i, 0
-  br i1 %cmp.i153.i.i.i.i, label %if.end81, label %if.end.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i: ; preds = %if.end.i97.i.i.i.i
+  %cmp.i152.i.i.i.i = icmp eq i32 %rr.addr.032.i101.i.i.i.i, %70
+  br i1 %cmp.i152.i.i.i.i, label %if.end81, label %if.end.i
 
 if.end38.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i
   %call39.val.i.i.i.i = load i64, ptr %cur.sroa.0.3.i.i.i.i, align 8
-  %xor.i.i156.i.i.i.i = xor i64 %call39.val.i.i.i.i, %conv.i.i58.i.i.i.i
-  %mul.i.i157.i.i.i.i = mul i64 %xor.i.i156.i.i.i.i, 7031196922566818317
-  %and1.i.i.i159.i.i.i.i = and i64 %mul.i.i157.i.i.i.i, 4294967295
-  %mul.i.i.i160.i.i.i.i = mul nuw i64 %and1.i.i.i159.i.i.i.i, %conv.i.i.i.i.i.i.i
-  %shr.i.i.i161.i.i.i.i = lshr i64 %mul.i.i.i160.i.i.i.i, 32
-  %shr3.i.i.i162.i.i.i.i = lshr i64 %mul.i.i157.i.i.i.i, 32
-  %mul4.i.i.i163.i.i.i.i = mul nuw i64 %shr3.i.i.i162.i.i.i.i, %conv.i.i.i.i.i.i.i
-  %add.i.i.i164.i.i.i.i = add nuw i64 %shr.i.i.i161.i.i.i.i, %mul4.i.i.i163.i.i.i.i
-  %shr11.i.i.i165.i.i.i.i = lshr i64 %add.i.i.i164.i.i.i.i, 32
-  %arrayidx.i.i168.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i165.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i.i168.i.i.i.i, i32 1, i32 1, i32 1)
-  %arrayidx.i2.i169.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i165.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i2.i169.i.i.i.i, i32 1, i32 1, i32 1)
-  %arrayidx.i.i21.i173.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
-  %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i = load i64, ptr %arrayidx.i.i21.i173.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i175.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i173.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i175.i.i.i.i, align 8
-  %cmp.i25.i177.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i, 0
-  %cmp3.i26.i178.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i, 0
-  %74 = select i1 %cmp.i25.i177.i.i.i.i, i1 %cmp3.i26.i178.i.i.i.i, i1 false
-  br i1 %74, label %if.then.i220.i.i.i.i, label %if.end.i180.i.i.i.i
+  %xor.i.i155.i.i.i.i = xor i64 %call39.val.i.i.i.i, %conv.i.i58.i.i.i.i
+  %mul.i.i156.i.i.i.i = mul i64 %xor.i.i155.i.i.i.i, 7031196922566818317
+  %and1.i.i.i158.i.i.i.i = and i64 %mul.i.i156.i.i.i.i, 4294967295
+  %mul.i.i.i159.i.i.i.i = mul nuw i64 %and1.i.i.i158.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %shr.i.i.i160.i.i.i.i = lshr i64 %mul.i.i.i159.i.i.i.i, 32
+  %shr3.i.i.i161.i.i.i.i = lshr i64 %mul.i.i156.i.i.i.i, 32
+  %mul4.i.i.i162.i.i.i.i = mul nuw i64 %shr3.i.i.i161.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %add.i.i.i163.i.i.i.i = add nuw i64 %shr.i.i.i160.i.i.i.i, %mul4.i.i.i162.i.i.i.i
+  %shr11.i.i.i164.i.i.i.i = lshr i64 %add.i.i.i163.i.i.i.i, 32
+  %arrayidx.i.i167.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i164.i.i.i.i
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i.i167.i.i.i.i, i32 1, i32 1, i32 1)
+  %arrayidx.i2.i168.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i164.i.i.i.i
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i2.i168.i.i.i.i, i32 1, i32 1, i32 1)
+  %arrayidx.i.i22.i172.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
+  %cr_at_i.sroa.0.0.copyload23.i173.i.i.i.i = load i64, ptr %arrayidx.i.i22.i172.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i174.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i22.i172.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload25.i175.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i174.i.i.i.i, align 8
+  %cmp.i27.i176.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload23.i173.i.i.i.i, 0
+  %cmp3.i28.i177.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload25.i175.i.i.i.i, 0
+  %75 = select i1 %cmp.i27.i176.i.i.i.i, i1 %cmp3.i28.i177.i.i.i.i, i1 false
+  br i1 %75, label %if.then.i218.i.i.i.i, label %if.end.i178.i.i.i.i
 
-if.then.i220.i.i.i.i:                             ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i, %if.end38.i.i.i.i
-  %arrayidx.i.i.lcssa19.i221.i.i.i.i = phi ptr [ %arrayidx.i.i21.i173.i.i.i.i, %if.end38.i.i.i.i ], [ %arrayidx.i.i.i214.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr.sroa.0.0.lcssa.i222.i.i.i.i = phi i64 [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ], [ %storemerge.i.i.i212.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr.sroa.8.0.lcssa.i223.i.i.i.i = phi i64 [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ], [ %retval.sroa.2.0.i.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %rr.addr.0.lcssa.i224.i.i.i.i = phi i32 [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ], [ %xor.i191.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %conv.i.lcssa.i225.i.i.i.i = phi i64 [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ], [ %conv.i.i213.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i226.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i221.i.i.i.i, i64 8
-  store i64 %cr.sroa.0.0.lcssa.i222.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i221.i.i.i.i, align 8
-  store i64 %cr.sroa.8.0.lcssa.i223.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i226.i.i.i.i, align 8
-  %arrayidx.i2.i14.i227.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i225.i.i.i.i
-  store i32 %rr.addr.0.lcssa.i224.i.i.i.i, ptr %arrayidx.i2.i14.i227.i.i.i.i, align 4
+if.then.i218.i.i.i.i:                             ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i, %if.end38.i.i.i.i
+  %arrayidx.i.i.lcssa20.i219.i.i.i.i = phi ptr [ %arrayidx.i.i22.i172.i.i.i.i, %if.end38.i.i.i.i ], [ %arrayidx.i.i.i212.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ]
+  %cr.sroa.0.0.lcssa.i220.i.i.i.i = phi i64 [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ], [ %storemerge.i.i.i210.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ]
+  %cr.sroa.8.0.lcssa.i221.i.i.i.i = phi i64 [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ], [ %retval.sroa.2.0.i.i.i209.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ]
+  %rr.addr.0.lcssa.i222.i.i.i.i = phi i32 [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ], [ %xor.i192.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ]
+  %conv.i.lcssa.i223.i.i.i.i = phi i64 [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ], [ %conv.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ]
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i224.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa20.i219.i.i.i.i, i64 8
+  store i64 %cr.sroa.0.0.lcssa.i220.i.i.i.i, ptr %arrayidx.i.i.lcssa20.i219.i.i.i.i, align 8
+  store i64 %cr.sroa.8.0.lcssa.i221.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i224.i.i.i.i, align 8
+  %arrayidx.i2.i14.i225.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i223.i.i.i.i
+  store i32 %rr.addr.0.lcssa.i222.i.i.i.i, ptr %arrayidx.i2.i14.i225.i.i.i.i, align 4
   br label %for.cond26.i.i.i.i.backedge
 
-if.end.i180.i.i.i.i:                              ; preds = %if.end38.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
-  %cr_at_i.sroa.4.0.copyload33.i181.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr_at_i.sroa.0.0.copyload32.i182.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i, %if.end38.i.i.i.i ]
-  %conv.i31.i183.i.i.i.i = phi i64 [ %conv.i.i213.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ]
-  %rr.addr.030.i184.i.i.i.i = phi i32 [ %xor.i191.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ]
-  %i.029.i185.i.i.i.i = phi i32 [ %add.i199.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %start21.0.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr.sroa.8.028.i186.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr.sroa.0.027.i187.i.i.i.i = phi i64 [ %storemerge.i.i.i212.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ]
-  %arrayidx.i2.i.i188.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i31.i183.i.i.i.i
-  %75 = load i32, ptr %arrayidx.i2.i.i188.i.i.i.i, align 4
-  %xor.i.i.i189.i.i.i.i = xor i64 %cr.sroa.0.027.i187.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i182.i.i.i.i
-  %xor3.i.i.i190.i.i.i.i = xor i64 %cr.sroa.8.028.i186.i.i.i.i, %cr_at_i.sroa.4.0.copyload33.i181.i.i.i.i
-  %xor.i191.i.i.i.i = xor i32 %75, %rr.addr.030.i184.i.i.i.i
-  %cmp.i16.i192.i.i.i.i = icmp eq i64 %xor.i.i.i189.i.i.i.i, 0
-  %cmp3.i19.i193.i.i.i.i = icmp eq i64 %xor3.i.i.i190.i.i.i.i, 0
-  %76 = select i1 %cmp.i16.i192.i.i.i.i, i1 %cmp3.i19.i193.i.i.i.i, i1 false
-  br i1 %76, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, label %if.end5.i194.i.i.i.i
+if.end.i178.i.i.i.i:                              ; preds = %if.end38.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i
+  %conv.i.pn.i179.i.i.i.i = phi i64 [ %conv.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ]
+  %cr_at_i.sroa.4.0.copyload34.i180.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i215.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload25.i175.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr_at_i.sroa.0.0.copyload33.i181.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i213.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload23.i173.i.i.i.i, %if.end38.i.i.i.i ]
+  %rr.addr.032.i182.i.i.i.i = phi i32 [ %xor.i192.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ]
+  %i.031.i183.i.i.i.i = phi i32 [ %add.i197.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %start21.0.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr.sroa.8.030.i184.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i209.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr.sroa.0.029.i185.i.i.i.i = phi i64 [ %storemerge.i.i.i210.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ]
+  %.in.i186.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.pn.i179.i.i.i.i
+  %76 = load i32, ptr %.in.i186.i.i.i.i, align 4
+  %xor.i.i.i187.i.i.i.i = xor i64 %cr.sroa.0.029.i185.i.i.i.i, %cr_at_i.sroa.0.0.copyload33.i181.i.i.i.i
+  %xor3.i.i.i188.i.i.i.i = xor i64 %cr.sroa.8.030.i184.i.i.i.i, %cr_at_i.sroa.4.0.copyload34.i180.i.i.i.i
+  %cmp.i16.i189.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i181.i.i.i.i, %cr.sroa.0.029.i185.i.i.i.i
+  %cmp3.i19.i190.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i180.i.i.i.i, %cr.sroa.8.030.i184.i.i.i.i
+  %77 = select i1 %cmp.i16.i189.i.i.i.i, i1 %cmp3.i19.i190.i.i.i.i, i1 false
+  br i1 %77, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, label %if.end5.i191.i.i.i.i
 
-if.end5.i194.i.i.i.i:                             ; preds = %if.end.i180.i.i.i.i
-  %77 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i189.i.i.i.i, i1 true)
-  %cast.i.i.i195.i.i.i.i = trunc nuw nsw i64 %77 to i32
-  %78 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i190.i.i.i.i, i1 true)
-  %cast.i5.i.i196.i.i.i.i = trunc nuw nsw i64 %78 to i32
-  %add.i.i197.i.i.i.i = or disjoint i32 %cast.i5.i.i196.i.i.i.i, 64
-  %retval.0.i.i198.i.i.i.i = select i1 %cmp.i16.i192.i.i.i.i, i32 %add.i.i197.i.i.i.i, i32 %cast.i.i.i195.i.i.i.i
-  %add.i199.i.i.i.i = add i32 %retval.0.i.i198.i.i.i.i, %i.029.i185.i.i.i.i
-  %cmp.i.i.i200.i.i.i.i = icmp ugt i32 %retval.0.i.i198.i.i.i.i, 63
-  br i1 %cmp.i.i.i200.i.i.i.i, label %if.then.i.i.i230.i.i.i.i, label %if.else.i.i.i201.i.i.i.i
+if.end5.i191.i.i.i.i:                             ; preds = %if.end.i178.i.i.i.i
+  %xor.i192.i.i.i.i = xor i32 %76, %rr.addr.032.i182.i.i.i.i
+  %78 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.i187.i.i.i.i, i1 true)
+  %cast.i.i.i193.i.i.i.i = trunc nuw nsw i64 %78 to i32
+  %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor3.i.i.i188.i.i.i.i, i1 true)
+  %cast.i5.i.i194.i.i.i.i = trunc nuw nsw i64 %79 to i32
+  %add.i.i195.i.i.i.i = or disjoint i32 %cast.i5.i.i194.i.i.i.i, 64
+  %retval.0.i.i196.i.i.i.i = select i1 %cmp.i16.i189.i.i.i.i, i32 %add.i.i195.i.i.i.i, i32 %cast.i.i.i193.i.i.i.i
+  %add.i197.i.i.i.i = add i32 %retval.0.i.i196.i.i.i.i, %i.031.i183.i.i.i.i
+  %cmp.i.i.i198.i.i.i.i = icmp ugt i32 %retval.0.i.i196.i.i.i.i, 63
+  br i1 %cmp.i.i.i198.i.i.i.i, label %if.then.i.i.i228.i.i.i.i, label %if.else.i.i.i199.i.i.i.i
 
-if.then.i.i.i230.i.i.i.i:                         ; preds = %if.end5.i194.i.i.i.i
-  %and2.i.i.i231.i.i.i.i = and i32 %retval.0.i.i198.i.i.i.i, 63
-  %sh_prom.i.i.i232.i.i.i.i = zext nneg i32 %and2.i.i.i231.i.i.i.i to i64
-  %shr.i.i.i233.i.i.i.i = lshr i64 %xor3.i.i.i190.i.i.i.i, %sh_prom.i.i.i232.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
+if.then.i.i.i228.i.i.i.i:                         ; preds = %if.end5.i191.i.i.i.i
+  %and2.i.i.i229.i.i.i.i = and i32 %retval.0.i.i196.i.i.i.i, 63
+  %sh_prom.i.i.i230.i.i.i.i = zext nneg i32 %and2.i.i.i229.i.i.i.i to i64
+  %shr.i.i.i231.i.i.i.i = lshr i64 %xor3.i.i.i188.i.i.i.i, %sh_prom.i.i.i230.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i
 
-if.else.i.i.i201.i.i.i.i:                         ; preds = %if.end5.i194.i.i.i.i
-  %sh_prom4.i.i.i202.i.i.i.i = zext nneg i32 %retval.0.i.i198.i.i.i.i to i64
-  %shr5.i.i.i203.i.i.i.i = lshr i64 %xor3.i.i.i190.i.i.i.i, %sh_prom4.i.i.i202.i.i.i.i
-  %shl.i.i.i204.i.i.i.i = shl i64 %xor3.i.i.i190.i.i.i.i, 1
-  %sub.i.i.i205.i.i.i.i = sub nuw nsw i32 63, %retval.0.i.i198.i.i.i.i
-  %sh_prom7.i.i.i206.i.i.i.i = zext nneg i32 %sub.i.i.i205.i.i.i.i to i64
-  %shl8.i.i.i207.i.i.i.i = shl i64 %shl.i.i.i204.i.i.i.i, %sh_prom7.i.i.i206.i.i.i.i
-  %shr11.i.i.i208.i.i.i.i = lshr i64 %xor.i.i.i189.i.i.i.i, %sh_prom4.i.i.i202.i.i.i.i
-  %or.i.i.i209.i.i.i.i = or i64 %shl8.i.i.i207.i.i.i.i, %shr11.i.i.i208.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
+if.else.i.i.i199.i.i.i.i:                         ; preds = %if.end5.i191.i.i.i.i
+  %sh_prom4.i.i.i200.i.i.i.i = zext nneg i32 %retval.0.i.i196.i.i.i.i to i64
+  %shr5.i.i.i201.i.i.i.i = lshr i64 %xor3.i.i.i188.i.i.i.i, %sh_prom4.i.i.i200.i.i.i.i
+  %shl.i.i.i202.i.i.i.i = shl i64 %xor3.i.i.i188.i.i.i.i, 1
+  %sub.i.i.i203.i.i.i.i = sub nuw nsw i32 63, %retval.0.i.i196.i.i.i.i
+  %sh_prom7.i.i.i204.i.i.i.i = zext nneg i32 %sub.i.i.i203.i.i.i.i to i64
+  %shl8.i.i.i205.i.i.i.i = shl i64 %shl.i.i.i202.i.i.i.i, %sh_prom7.i.i.i204.i.i.i.i
+  %shr11.i.i.i206.i.i.i.i = lshr i64 %xor.i.i.i187.i.i.i.i, %sh_prom4.i.i.i200.i.i.i.i
+  %or.i.i.i207.i.i.i.i = or i64 %shl8.i.i.i205.i.i.i.i, %shr11.i.i.i206.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i
 
-_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i: ; preds = %if.else.i.i.i201.i.i.i.i, %if.then.i.i.i230.i.i.i.i
-  %retval.sroa.2.0.i.i.i211.i.i.i.i = phi i64 [ 0, %if.then.i.i.i230.i.i.i.i ], [ %shr5.i.i.i203.i.i.i.i, %if.else.i.i.i201.i.i.i.i ]
-  %storemerge.i.i.i212.i.i.i.i = phi i64 [ %shr.i.i.i233.i.i.i.i, %if.then.i.i.i230.i.i.i.i ], [ %or.i.i.i209.i.i.i.i, %if.else.i.i.i201.i.i.i.i ]
-  %conv.i.i213.i.i.i.i = zext i32 %add.i199.i.i.i.i to i64
-  %arrayidx.i.i.i214.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i213.i.i.i.i
-  %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i = load i64, ptr %arrayidx.i.i.i214.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i216.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i214.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i216.i.i.i.i, align 8
-  %cmp.i.i218.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i, 0
-  %cmp3.i.i219.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i, 0
-  %79 = select i1 %cmp.i.i218.i.i.i.i, i1 %cmp3.i.i219.i.i.i.i, i1 false
-  br i1 %79, label %if.then.i220.i.i.i.i, label %if.end.i180.i.i.i.i, !llvm.loop !132
+_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i: ; preds = %if.else.i.i.i199.i.i.i.i, %if.then.i.i.i228.i.i.i.i
+  %retval.sroa.2.0.i.i.i209.i.i.i.i = phi i64 [ 0, %if.then.i.i.i228.i.i.i.i ], [ %shr5.i.i.i201.i.i.i.i, %if.else.i.i.i199.i.i.i.i ]
+  %storemerge.i.i.i210.i.i.i.i = phi i64 [ %shr.i.i.i231.i.i.i.i, %if.then.i.i.i228.i.i.i.i ], [ %or.i.i.i207.i.i.i.i, %if.else.i.i.i199.i.i.i.i ]
+  %conv.i.i211.i.i.i.i = zext i32 %add.i197.i.i.i.i to i64
+  %arrayidx.i.i.i212.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i211.i.i.i.i
+  %cr_at_i.sroa.0.0.copyload.i213.i.i.i.i = load i64, ptr %arrayidx.i.i.i212.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i214.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i212.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload.i215.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i214.i.i.i.i, align 8
+  %cmp.i.i216.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i213.i.i.i.i, 0
+  %cmp3.i.i217.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i215.i.i.i.i, 0
+  %80 = select i1 %cmp.i.i216.i.i.i.i, i1 %cmp3.i.i217.i.i.i.i, i1 false
+  br i1 %80, label %if.then.i218.i.i.i.i, label %if.end.i178.i.i.i.i, !llvm.loop !132
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i: ; preds = %if.end.i180.i.i.i.i
-  %cmp.i235.i.i.i.i = icmp eq i32 %xor.i191.i.i.i.i, 0
-  br i1 %cmp.i235.i.i.i.i, label %for.cond26.i.i.i.i.backedge, label %if.end.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i: ; preds = %if.end.i178.i.i.i.i
+  %cmp.i233.i.i.i.i = icmp eq i32 %rr.addr.032.i182.i.i.i.i, %76
+  br i1 %cmp.i233.i.i.i.i, label %for.cond26.i.i.i.i.backedge, label %if.end.i
 
-for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, %if.then.i220.i.i.i.i
+for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, %if.then.i218.i.i.i.i
   br label %for.cond26.i.i.i.i, !llvm.loop !134
 
-if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i
-  %80 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i ], [ %.pre495.pre, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i ]
+if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i
+  %81 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i ], [ %58, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i ]
   %add.i221 = add nuw nsw i32 %cur_ordinal_seed.0.i, 1
   %and3.i = and i32 %add.i221, 255
   %cmp.not.i222 = icmp eq i32 %and3.i, %and
@@ -9631,32 +9631,32 @@ if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon1
 
 if.then68:                                        ; preds = %if.end.i
   %info_log_69 = getelementptr inbounds i8, ptr %this, i64 296
-  %81 = load ptr, ptr %info_log_69, align 8
-  %82 = load ptr, ptr %_M_node.i.i, align 8
-  %83 = load ptr, ptr %_M_node1.i.i, align 8
-  %sub.ptr.lhs.cast.i.i229 = ptrtoint ptr %82 to i64
-  %sub.ptr.rhs.cast.i.i230 = ptrtoint ptr %83 to i64
+  %82 = load ptr, ptr %info_log_69, align 8
+  %83 = load ptr, ptr %_M_node.i.i, align 8
+  %84 = load ptr, ptr %_M_node1.i.i, align 8
+  %sub.ptr.lhs.cast.i.i229 = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i230 = ptrtoint ptr %84 to i64
   %sub.ptr.sub.i.i231 = sub i64 %sub.ptr.lhs.cast.i.i229, %sub.ptr.rhs.cast.i.i230
   %sub.ptr.div.i.i232 = ashr exact i64 %sub.ptr.sub.i.i231, 3
-  %tobool.i.i233 = icmp ne ptr %82, null
+  %tobool.i.i233 = icmp ne ptr %83, null
   %conv.neg.i.i234 = sext i1 %tobool.i.i233 to i64
   %sub.i.i235 = add nsw i64 %sub.ptr.div.i.i232, %conv.neg.i.i234
   %mul.i.i236 = shl nsw i64 %sub.i.i235, 6
-  %84 = load ptr, ptr %_M_finish.i, align 8
-  %85 = load ptr, ptr %_M_first.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i238 = ptrtoint ptr %84 to i64
-  %sub.ptr.rhs.cast4.i.i239 = ptrtoint ptr %85 to i64
+  %85 = load ptr, ptr %_M_finish.i, align 8
+  %86 = load ptr, ptr %_M_first.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i238 = ptrtoint ptr %85 to i64
+  %sub.ptr.rhs.cast4.i.i239 = ptrtoint ptr %86 to i64
   %sub.ptr.sub5.i.i240 = sub i64 %sub.ptr.lhs.cast3.i.i238, %sub.ptr.rhs.cast4.i.i239
   %sub.ptr.div6.i.i241 = ashr exact i64 %sub.ptr.sub5.i.i240, 3
   %add.i.i242 = add nsw i64 %mul.i.i236, %sub.ptr.div6.i.i241
-  %86 = load ptr, ptr %_M_last.i.i, align 8
-  %87 = load ptr, ptr %_M_start.i, align 8
-  %sub.ptr.lhs.cast8.i.i244 = ptrtoint ptr %86 to i64
-  %sub.ptr.rhs.cast9.i.i245 = ptrtoint ptr %87 to i64
+  %87 = load ptr, ptr %_M_last.i.i, align 8
+  %88 = load ptr, ptr %_M_start.i, align 8
+  %sub.ptr.lhs.cast8.i.i244 = ptrtoint ptr %87 to i64
+  %sub.ptr.rhs.cast9.i.i245 = ptrtoint ptr %88 to i64
   %sub.ptr.sub10.i.i246 = sub i64 %sub.ptr.lhs.cast8.i.i244, %sub.ptr.rhs.cast9.i.i245
   %sub.ptr.div11.i.i247 = ashr exact i64 %sub.ptr.sub10.i.i246, 3
   %add12.i.i248 = add nsw i64 %add.i.i242, %sub.ptr.div11.i.i247
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %81, ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), i64 noundef %add12.i.i248, i64 noundef %conv.i139)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %82, ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), i64 noundef %add12.i.i248, i64 noundef %conv.i139)
           to label %invoke.cont77 unwind label %lpad44.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %if.then68
@@ -9665,13 +9665,13 @@ invoke.cont77:                                    ; preds = %if.then68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i250)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i250, ptr noundef nonnull align 8 dereferenceable(16) %hash_entries_info_, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i261 = getelementptr inbounds i8, ptr %this, i64 440
-  %88 = load <4 x ptr>, ptr %_M_start.i, align 8
+  %89 = load <4 x ptr>, ptr %_M_start.i, align 8
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i265 = getelementptr inbounds i8, ptr %this, i64 472
-  %89 = load <4 x ptr>, ptr %_M_finish.i, align 8
+  %90 = load <4 x ptr>, ptr %_M_finish.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hash_entries_info_, ptr noundef nonnull align 8 dereferenceable(80) %hash_entries_info_2.i252, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hash_entries_info_2.i252, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i250, i64 16, i1 false)
-  store <4 x ptr> %88, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i261, align 8
-  store <4 x ptr> %89, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i265, align 8
+  store <4 x ptr> %89, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i261, align 8
+  store <4 x ptr> %90, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i265, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i250)
   %cache_res_bucket_handles.i.i269 = getelementptr inbounds i8, ptr %this, i64 200
   %cache_res_bucket_handles3.i.i270 = getelementptr inbounds i8, ptr %this, i64 504
@@ -9680,31 +9680,30 @@ invoke.cont77:                                    ; preds = %if.then68
   %_M_start3.i.i.i.i.i.i4.i.i271 = getelementptr inbounds i8, ptr %this, i64 216
   %_M_finish4.i.i.i.i.i.i8.i.i275 = getelementptr inbounds i8, ptr %this, i64 248
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i12.i.i279 = getelementptr inbounds i8, ptr %this, i64 520
-  %90 = load <4 x ptr>, ptr %_M_start3.i.i.i.i.i.i4.i.i271, align 8
+  %91 = load <4 x ptr>, ptr %_M_start3.i.i.i.i.i.i4.i.i271, align 8
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i16.i.i283 = getelementptr inbounds i8, ptr %this, i64 552
-  %91 = load <4 x ptr>, ptr %_M_finish4.i.i.i.i.i.i8.i.i275, align 8
+  %92 = load <4 x ptr>, ptr %_M_finish4.i.i.i.i.i.i8.i.i275, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %cache_res_bucket_handles.i.i269, ptr noundef nonnull align 8 dereferenceable(80) %cache_res_bucket_handles3.i.i270, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cache_res_bucket_handles3.i.i270, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i3.i.i249, i64 16, i1 false)
-  store <4 x ptr> %90, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i12.i.i279, align 8
-  store <4 x ptr> %91, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i16.i.i283, align 8
+  store <4 x ptr> %91, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i12.i.i279, align 8
+  store <4 x ptr> %92, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i16.i.i283, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i3.i.i249)
   %xor_checksum.i.i287 = getelementptr inbounds i8, ptr %this, i64 280
   %xor_checksum4.i.i288 = getelementptr inbounds i8, ptr %this, i64 584
-  %92 = load i64, ptr %xor_checksum.i.i287, align 8
-  %93 = load i64, ptr %xor_checksum4.i.i288, align 8
-  store i64 %93, ptr %xor_checksum.i.i287, align 8
-  store i64 %92, ptr %xor_checksum4.i.i288, align 8
+  %93 = load i64, ptr %xor_checksum.i.i287, align 8
+  %94 = load i64, ptr %xor_checksum4.i.i288, align 8
+  store i64 %94, ptr %xor_checksum.i.i287, align 8
+  store i64 %93, ptr %xor_checksum4.i.i288, align 8
   %call80 = invoke { ptr, i64 } @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder6FinishEPSt10unique_ptrIA_KcSt14default_deleteIS4_EEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(292) %bloom_fallback_76, ptr noundef %buf, ptr noundef %status)
           to label %invoke.cont79 unwind label %lpad44.loopexit.split-lp
 
 invoke.cont79:                                    ; preds = %invoke.cont77
-  %94 = extractvalue { ptr, i64 } %call80, 0
-  %95 = extractvalue { ptr, i64 } %call80, 1
+  %95 = extractvalue { ptr, i64 } %call80, 0
+  %96 = extractvalue { ptr, i64 } %call80, 1
   br label %cleanup160
 
-if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i
-  %96 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i ], [ %call5.i.i224.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %.pre495.pre, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ]
-  %conv2.i.i433 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ]
+if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i
+  %conv2.i.i439 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i ]
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder30MaybeVerifyHashEntriesChecksumEv(ptr noalias nonnull align 8 %verify_hash_entries_checksum_status, ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont82 unwind label %lpad44.loopexit.split-lp
 
@@ -9745,9 +9744,9 @@ if.then103:                                       ; preds = %if.end99
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then103, %if.end99
-  %and.i = lshr i32 %conv2.i.i433, 4
+  %and.i = lshr i32 %conv2.i.i439, 4
   %shr.i = and i32 %and.i, 15
-  %xor.i = xor i32 %shr.i, %conv2.i.i433
+  %xor.i = xor i32 %shr.i, %conv2.i.i439
   store ptr null, ptr %mutable_buf, align 8
   store ptr null, ptr %final_filter_cache_res_handle, align 8
   %102 = load i64, ptr %len_with_metadata, align 8
@@ -9830,7 +9829,8 @@ call4.i.i.noexc:                                  ; preds = %if.end.i.i
 
 while.body.i.i.preheader:                         ; preds = %call4.i.i.noexc
   %110 = load ptr, ptr %coeff_rows_.i, align 8
-  %111 = lshr i64 %conv.i139, 7
+  %111 = load ptr, ptr %result_rows_12.i.i, align 8
+  %112 = lshr i64 %conv.i139, 7
   br label %while.body.i.i
 
 while.cond.loopexit.i.i:                          ; preds = %for.inc.i.i
@@ -9839,47 +9839,47 @@ while.cond.loopexit.i.i:                          ; preds = %for.inc.i.i
   br i1 %cmp5.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !136
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.cond.loopexit.i.i
-  %indvars.iv = phi i64 [ %111, %while.body.i.i.preheader ], [ %indvars.iv.next, %while.cond.loopexit.i.i ]
+  %indvars.iv = phi i64 [ %112, %while.body.i.i.preheader ], [ %indvars.iv.next, %while.cond.loopexit.i.i ]
   %segment_num.086.i.i = phi i32 [ %num_segments.0.i.i127.i.i, %while.body.i.i.preheader ], [ %sub9.i.i, %while.cond.loopexit.i.i ]
-  %112 = trunc nuw i64 %indvars.iv to i32
-  %dec.i.i = add i32 %112, -1
+  %113 = trunc nuw i64 %indvars.iv to i32
+  %dec.i.i = add i32 %113, -1
   %mul.i.i304 = shl i32 %dec.i.i, 7
   %cmp17.i.not.i.i = icmp eq i32 %mul.i.i304, -128
   br i1 %cmp17.i.not.i.i, label %invoke.cont8.i.i, label %for.body.us.preheader.i.i.i
 
 for.body.us.preheader.i.i.i:                      ; preds = %while.body.i.i
   %add.i.i.i = add nuw i32 %mul.i.i304, 128
-  %113 = zext i32 %add.i.i.i to i64
-  %114 = zext i32 %mul.i.i304 to i64
+  %114 = zext i32 %add.i.i.i to i64
+  %115 = zext i32 %mul.i.i304 to i64
   br label %for.body.us.i.i.i
 
 for.body.us.i.i.i:                                ; preds = %for.cond1.for.cond.loopexit_crit_edge.us.i.i.i, %for.body.us.preheader.i.i.i
-  %indvars.iv21.i.i.i = phi i64 [ %113, %for.body.us.preheader.i.i.i ], [ %115, %for.cond1.for.cond.loopexit_crit_edge.us.i.i.i ]
-  %115 = add nsw i64 %indvars.iv21.i.i.i, -1
-  %arrayidx.i.i.us.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %110, i64 %115
+  %indvars.iv21.i.i.i = phi i64 [ %114, %for.body.us.preheader.i.i.i ], [ %116, %for.cond1.for.cond.loopexit_crit_edge.us.i.i.i ]
+  %116 = add nsw i64 %indvars.iv21.i.i.i, -1
+  %arrayidx.i.i.us.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %110, i64 %116
   %cr.sroa.0.0.copyload.us.i.i.i = load i64, ptr %arrayidx.i.i.us.i.i.i, align 8
   %cr.sroa.3.0.arrayidx.i.i.sroa_idx.us.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.us.i.i.i, i64 8
   %cr.sroa.3.0.copyload.us.i.i.i = load i64, ptr %cr.sroa.3.0.arrayidx.i.i.sroa_idx.us.i.i.i, align 8
-  %arrayidx.i2.i.us.i.i.i = getelementptr inbounds i32, ptr %96, i64 %115
-  %116 = load i32, ptr %arrayidx.i2.i.us.i.i.i, align 4
+  %arrayidx.i2.i.us.i.i.i = getelementptr inbounds i32, ptr %111, i64 %116
+  %117 = load i32, ptr %arrayidx.i2.i.us.i.i.i, align 4
   br label %for.body3.us.i.i.i
 
 for.body3.us.i.i.i:                               ; preds = %for.body3.us.i.i.i, %for.body.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.us.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body3.us.i.i.i ]
   %arrayidx.us.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %call4.i.i310, i64 %indvars.iv.i.i.i
-  %117 = load i64, ptr %arrayidx.us.i.i.i, align 8
-  %shl5.i.us.i.i.i = shl i64 %117, 1
+  %118 = load i64, ptr %arrayidx.us.i.i.i, align 8
+  %shl5.i.us.i.i.i = shl i64 %118, 1
   %hi9.i.us.i.i.i = getelementptr inbounds i8, ptr %arrayidx.us.i.i.i, i64 8
-  %118 = load i64, ptr %hi9.i.us.i.i.i, align 8
-  %or.i.us.i.i.i = call i64 @llvm.fshl.i64(i64 %118, i64 %117, i64 1)
+  %119 = load i64, ptr %hi9.i.us.i.i.i, align 8
+  %or.i.us.i.i.i = call i64 @llvm.fshl.i64(i64 %119, i64 %118, i64 1)
   %and.i.us.i.i.i = and i64 %shl5.i.us.i.i.i, %cr.sroa.0.0.copyload.us.i.i.i
   %and3.i.us.i.i.i = and i64 %or.i.us.i.i.i, %cr.sroa.3.0.copyload.us.i.i.i
   %xor.i.us.i.i.i = xor i64 %and3.i.us.i.i.i, %and.i.us.i.i.i
-  %119 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %xor.i.us.i.i.i)
-  %120 = trunc nuw nsw i64 %119 to i32
-  %121 = trunc nuw i64 %indvars.iv.i.i.i to i32
-  %shr.us.i.i.i = lshr i32 %116, %121
-  %cast.i.i14.us.i.i.i = xor i32 %shr.us.i.i.i, %120
+  %120 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %xor.i.us.i.i.i)
+  %121 = trunc nuw nsw i64 %120 to i32
+  %122 = trunc nuw i64 %indvars.iv.i.i.i to i32
+  %shr.us.i.i.i = lshr i32 %117, %122
+  %cast.i.i14.us.i.i.i = xor i32 %shr.us.i.i.i, %121
   %xor.us.i.i.i = and i32 %cast.i.i14.us.i.i.i, 1
   %conv.us.i.i.i = zext nneg i32 %xor.us.i.i.i to i64
   %or.i.i.us.i.i.i = or disjoint i64 %shl5.i.us.i.i.i, %conv.us.i.i.i
@@ -9890,7 +9890,7 @@ for.body3.us.i.i.i:                               ; preds = %for.body3.us.i.i.i,
   br i1 %exitcond.not.i.i.i, label %for.cond1.for.cond.loopexit_crit_edge.us.i.i.i, label %for.body3.us.i.i.i, !llvm.loop !137
 
 for.cond1.for.cond.loopexit_crit_edge.us.i.i.i:   ; preds = %for.body3.us.i.i.i
-  %cmp.us.wide.i.i.i = icmp ugt i64 %115, %114
+  %cmp.us.wide.i.i.i = icmp ugt i64 %116, %115
   br i1 %cmp.us.wide.i.i.i, label %for.body.us.i.i.i, label %invoke.cont8.i.i, !llvm.loop !138
 
 invoke.cont8.i.i:                                 ; preds = %for.cond1.for.cond.loopexit_crit_edge.us.i.i.i, %while.body.i.i
@@ -9899,14 +9899,14 @@ invoke.cont8.i.i:                                 ; preds = %for.cond1.for.cond.
 
 for.inc.i.i:                                      ; preds = %for.inc.i.i, %invoke.cont8.i.i
   %indvars.iv.i.i305 = phi i64 [ 0, %invoke.cont8.i.i ], [ %indvars.iv.next.i.i308, %for.inc.i.i ]
-  %122 = trunc nuw i64 %indvars.iv.i.i305 to i32
-  %add11.i.i = add i32 %sub9.i.i, %122
+  %123 = trunc nuw i64 %indvars.iv.i.i305 to i32
+  %add11.i.i = add i32 %sub9.i.i, %123
   %arrayidx.i.i.i306 = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %call4.i.i310, i64 %indvars.iv.i.i305
   %conv.i36.i.i = zext i32 %add11.i.i to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i36.i.i, 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %108, i64 %mul.i.i.i
-  %123 = load <2 x i64>, ptr %arrayidx.i.i.i306, align 8
-  store <2 x i64> %123, ptr %add.ptr.i.i.i, align 1
+  %124 = load <2 x i64>, ptr %arrayidx.i.i.i306, align 8
+  store <2 x i64> %124, ptr %add.ptr.i.i.i, align 1
   %indvars.iv.next.i.i308 = add nuw nsw i64 %indvars.iv.i.i305, 1
   %exitcond.not.i.i309 = icmp eq i64 %indvars.iv.next.i.i308, %conv.i.i303
   br i1 %exitcond.not.i.i309, label %while.cond.loopexit.i.i, label %for.inc.i.i, !llvm.loop !139
@@ -9923,8 +9923,9 @@ while.body18.lr.ph.i.i:                           ; preds = %while.end.i.i, %cal
   br i1 %cmp215.not.i41.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EED2Ev.exit78.i.i, label %while.body18.preheader.i.i
 
 while.body18.preheader.i.i:                       ; preds = %while.body18.lr.ph.i.i
-  %124 = call i32 @llvm.umin.i32(i32 %div1.i.i.i.i.i, i32 %iss.val32126.i.i)
-  %125 = load ptr, ptr %coeff_rows_.i, align 8
+  %125 = call i32 @llvm.umin.i32(i32 %div1.i.i.i.i.i, i32 %iss.val32126.i.i)
+  %126 = load ptr, ptr %coeff_rows_.i, align 8
+  %127 = load ptr, ptr %result_rows_12.i.i, align 8
   br label %while.body18.i.i
 
 while.cond16.loopexit.i.i:                        ; preds = %for.inc33.i.i
@@ -9932,7 +9933,7 @@ while.cond16.loopexit.i.i:                        ; preds = %for.inc33.i.i
   br i1 %cmp17.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EED2Ev.exit78.i.i, label %while.body18.i.i, !llvm.loop !140
 
 while.body18.i.i:                                 ; preds = %while.cond16.loopexit.i.i, %while.body18.preheader.i.i
-  %indvars.iv104.i.i = phi i32 [ %124, %while.body18.preheader.i.i ], [ %dec19.i.i, %while.cond16.loopexit.i.i ]
+  %indvars.iv104.i.i = phi i32 [ %125, %while.body18.preheader.i.i ], [ %dec19.i.i, %while.cond16.loopexit.i.i ]
   %segment_num.192.i.i = phi i32 [ %segment_num.0.lcssa.i5.i, %while.body18.preheader.i.i ], [ %sub23.i.i, %while.cond16.loopexit.i.i ]
   %dec19.i.i = add i32 %indvars.iv104.i.i, -1
   %mul21.i.i = shl i32 %dec19.i.i, 7
@@ -9941,37 +9942,37 @@ while.body18.i.i:                                 ; preds = %while.cond16.loopex
 
 for.body.lr.ph.i38.i.i:                           ; preds = %while.body18.i.i
   %add.i43.i.i = add nuw i32 %mul21.i.i, 128
-  %126 = zext i32 %add.i43.i.i to i64
-  %127 = zext i32 %mul21.i.i to i64
+  %128 = zext i32 %add.i43.i.i to i64
+  %129 = zext i32 %mul21.i.i to i64
   br label %for.body.us.i45.i.i
 
 for.body.us.i45.i.i:                              ; preds = %for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i, %for.body.lr.ph.i38.i.i
-  %indvars.iv21.i46.i.i = phi i64 [ %126, %for.body.lr.ph.i38.i.i ], [ %128, %for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i ]
-  %128 = add nsw i64 %indvars.iv21.i46.i.i, -1
-  %arrayidx.i.i.us.i47.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %125, i64 %128
+  %indvars.iv21.i46.i.i = phi i64 [ %128, %for.body.lr.ph.i38.i.i ], [ %130, %for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i ]
+  %130 = add nsw i64 %indvars.iv21.i46.i.i, -1
+  %arrayidx.i.i.us.i47.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %126, i64 %130
   %cr.sroa.0.0.copyload.us.i48.i.i = load i64, ptr %arrayidx.i.i.us.i47.i.i, align 8
   %cr.sroa.3.0.arrayidx.i.i.sroa_idx.us.i49.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.us.i47.i.i, i64 8
   %cr.sroa.3.0.copyload.us.i50.i.i = load i64, ptr %cr.sroa.3.0.arrayidx.i.i.sroa_idx.us.i49.i.i, align 8
-  %arrayidx.i2.i.us.i51.i.i = getelementptr inbounds i32, ptr %96, i64 %128
-  %129 = load i32, ptr %arrayidx.i2.i.us.i51.i.i, align 4
+  %arrayidx.i2.i.us.i51.i.i = getelementptr inbounds i32, ptr %127, i64 %130
+  %131 = load i32, ptr %arrayidx.i2.i.us.i51.i.i, align 4
   br label %for.body3.us.i52.i.i
 
 for.body3.us.i52.i.i:                             ; preds = %for.body3.us.i52.i.i, %for.body.us.i45.i.i
   %indvars.iv.i53.i.i = phi i64 [ 0, %for.body.us.i45.i.i ], [ %indvars.iv.next.i66.i.i, %for.body3.us.i52.i.i ]
   %arrayidx.us.i54.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %call4.i.i310, i64 %indvars.iv.i53.i.i
-  %130 = load i64, ptr %arrayidx.us.i54.i.i, align 8
-  %shl5.i.us.i55.i.i = shl i64 %130, 1
+  %132 = load i64, ptr %arrayidx.us.i54.i.i, align 8
+  %shl5.i.us.i55.i.i = shl i64 %132, 1
   %hi9.i.us.i56.i.i = getelementptr inbounds i8, ptr %arrayidx.us.i54.i.i, i64 8
-  %131 = load i64, ptr %hi9.i.us.i56.i.i, align 8
-  %or.i.us.i57.i.i = call i64 @llvm.fshl.i64(i64 %131, i64 %130, i64 1)
+  %133 = load i64, ptr %hi9.i.us.i56.i.i, align 8
+  %or.i.us.i57.i.i = call i64 @llvm.fshl.i64(i64 %133, i64 %132, i64 1)
   %and.i.us.i58.i.i = and i64 %shl5.i.us.i55.i.i, %cr.sroa.0.0.copyload.us.i48.i.i
   %and3.i.us.i59.i.i = and i64 %or.i.us.i57.i.i, %cr.sroa.3.0.copyload.us.i50.i.i
   %xor.i.us.i60.i.i = xor i64 %and3.i.us.i59.i.i, %and.i.us.i58.i.i
-  %132 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %xor.i.us.i60.i.i)
-  %133 = trunc nuw nsw i64 %132 to i32
-  %134 = trunc nuw i64 %indvars.iv.i53.i.i to i32
-  %shr.us.i61.i.i = lshr i32 %129, %134
-  %cast.i.i14.us.i62.i.i = xor i32 %shr.us.i61.i.i, %133
+  %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %xor.i.us.i60.i.i)
+  %135 = trunc nuw nsw i64 %134 to i32
+  %136 = trunc nuw i64 %indvars.iv.i53.i.i to i32
+  %shr.us.i61.i.i = lshr i32 %131, %136
+  %cast.i.i14.us.i62.i.i = xor i32 %shr.us.i61.i.i, %135
   %xor.us.i63.i.i = and i32 %cast.i.i14.us.i62.i.i, 1
   %conv.us.i64.i.i = zext nneg i32 %xor.us.i63.i.i to i64
   %or.i.i.us.i65.i.i = or disjoint i64 %shl5.i.us.i55.i.i, %conv.us.i64.i.i
@@ -9982,7 +9983,7 @@ for.body3.us.i52.i.i:                             ; preds = %for.body3.us.i52.i.
   br i1 %exitcond.not.i67.i.i, label %for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i, label %for.body3.us.i52.i.i, !llvm.loop !137
 
 for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i: ; preds = %for.body3.us.i52.i.i
-  %cmp.us.wide.i69.i.i = icmp ugt i64 %128, %127
+  %cmp.us.wide.i69.i.i = icmp ugt i64 %130, %129
   br i1 %cmp.us.wide.i69.i.i, label %for.body.us.i45.i.i, label %for.inc33.preheader.i.i, !llvm.loop !138
 
 for.inc33.preheader.i.i:                          ; preds = %for.cond1.for.cond.loopexit_crit_edge.us.i68.i.i, %while.body18.i.i
@@ -9991,14 +9992,14 @@ for.inc33.preheader.i.i:                          ; preds = %for.cond1.for.cond.
 
 for.inc33.i.i:                                    ; preds = %for.inc33.i.i, %for.inc33.preheader.i.i
   %indvars.iv99.i.i = phi i64 [ 0, %for.inc33.preheader.i.i ], [ %indvars.iv.next100.i.i, %for.inc33.i.i ]
-  %135 = trunc nuw i64 %indvars.iv99.i.i to i32
-  %add28.i.i = add i32 %sub23.i.i, %135
+  %137 = trunc nuw i64 %indvars.iv99.i.i to i32
+  %add28.i.i = add i32 %sub23.i.i, %137
   %arrayidx.i71.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %call4.i.i310, i64 %indvars.iv99.i.i
   %conv.i72.i.i = zext i32 %add28.i.i to i64
   %mul.i73.i.i = shl nuw nsw i64 %conv.i72.i.i, 4
   %add.ptr.i74.i.i = getelementptr inbounds i8, ptr %108, i64 %mul.i73.i.i
-  %136 = load <2 x i64>, ptr %arrayidx.i71.i.i, align 8
-  store <2 x i64> %136, ptr %add.ptr.i74.i.i, align 1
+  %138 = load <2 x i64>, ptr %arrayidx.i71.i.i, align 8
+  store <2 x i64> %138, ptr %add.ptr.i74.i.i, align 1
   %indvars.iv.next100.i.i = add nuw nsw i64 %indvars.iv99.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next100.i.i, %wide.trip.count.i44.i.i
   br i1 %exitcond103.not.i.i, label %while.cond16.loopexit.i.i, label %for.inc33.i.i, !llvm.loop !141
@@ -10008,49 +10009,49 @@ _ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EED2Ev.exit78.i
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %if.end122, %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE19PrepareForNumStartsEj.exit.i.i, %_ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EED2Ev.exit78.i.i
-  %137 = getelementptr i8, ptr %108, i64 %call111
-  %arrayidx.i = getelementptr i8, ptr %137, i64 -5
+  %139 = getelementptr i8, ptr %108, i64 %call111
+  %arrayidx.i = getelementptr i8, ptr %139, i64 -5
   store i8 -2, ptr %arrayidx.i, align 1
-  %138 = trunc i32 %xor.i to i8
-  %conv129 = mul i8 %138, -85
-  %arrayidx.i311 = getelementptr i8, ptr %137, i64 -4
+  %140 = trunc i32 %xor.i to i8
+  %conv129 = mul i8 %140, -85
+  %arrayidx.i311 = getelementptr i8, ptr %139, i64 -4
   store i8 %conv129, ptr %arrayidx.i311, align 1
   %conv133 = trunc i32 %div1.i.i.i.i.i to i8
-  %arrayidx.i312 = getelementptr i8, ptr %137, i64 -3
+  %arrayidx.i312 = getelementptr i8, ptr %139, i64 -3
   store i8 %conv133, ptr %arrayidx.i312, align 1
   %shr = lshr i32 %16, 15
   %conv137 = trunc i32 %shr to i8
-  %arrayidx.i313 = getelementptr i8, ptr %137, i64 -2
+  %arrayidx.i313 = getelementptr i8, ptr %139, i64 -2
   store i8 %conv137, ptr %arrayidx.i313, align 1
   %shr140 = lshr i32 %16, 23
   %conv142 = trunc i32 %shr140 to i8
-  %arrayidx.i314 = getelementptr i8, ptr %137, i64 -1
+  %arrayidx.i314 = getelementptr i8, ptr %139, i64 -1
   store i8 %conv142, ptr %arrayidx.i314, align 1
   store ptr null, ptr %mutable_buf, align 8
-  %139 = load ptr, ptr %buf, align 8
+  %141 = load ptr, ptr %buf, align 8
   store ptr %108, ptr %buf, align 8
-  %tobool.not.i.i.i = icmp eq ptr %139, null
+  %tobool.not.i.i.i = icmp eq ptr %141, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSIA_cS2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt8is_arrayIT_ESt7is_sameIPS0_SE_ESD_INS_ISB_T0_E7pointerEPNSH_12element_typeEESt14is_convertibleIPA_SJ_PS1_EEESt13is_assignableIRS3_OSG_EEE5valueERS4_E4typeEOSH_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %invoke.cont146
-  call void @_ZdaPv(ptr noundef nonnull %139) #31
+  call void @_ZdaPv(ptr noundef nonnull %141) #31
   br label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSIA_cS2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt8is_arrayIT_ESt7is_sameIPS0_SE_ESD_INS_ISB_T0_E7pointerEPNSH_12element_typeEESt14is_convertibleIPA_SJ_PS1_EEESt13is_assignableIRS3_OSG_EEE5valueERS4_E4typeEOSH_.exit
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSIA_cS2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt8is_arrayIT_ESt7is_sameIPS0_SE_ESD_INS_ISB_T0_E7pointerEPNSH_12element_typeEESt14is_convertibleIPA_SJ_PS1_EEESt13is_assignableIRS3_OSG_EEE5valueERS4_E4typeEOSH_.exit: ; preds = %invoke.cont146, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %140 = load ptr, ptr %_M_finish.i.i, align 8
+  %142 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_last.i.i315 = getelementptr inbounds i8, ptr %this, i64 96
-  %141 = load ptr, ptr %_M_last.i.i315, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %141, i64 -8
-  %cmp.not.i.i316 = icmp eq ptr %140, %add.ptr.i.i
+  %143 = load ptr, ptr %_M_last.i.i315, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %143, i64 -8
+  %cmp.not.i.i316 = icmp eq ptr %142, %add.ptr.i.i
   br i1 %cmp.not.i.i316, label %if.else.i.i318, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSIA_cS2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt8is_arrayIT_ESt7is_sameIPS0_SE_ESD_INS_ISB_T0_E7pointerEPNSH_12element_typeEESt14is_convertibleIPA_SJ_PS1_EEESt13is_assignableIRS3_OSG_EEE5valueERS4_E4typeEOSH_.exit
-  %142 = load i64, ptr %final_filter_cache_res_handle, align 8
-  store i64 %142, ptr %140, align 8
+  %144 = load i64, ptr %final_filter_cache_res_handle, align 8
+  store i64 %144, ptr %142, align 8
   store ptr null, ptr %final_filter_cache_res_handle, align 8
-  %143 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %143, i64 8
+  %145 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %145, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont151
 
@@ -10068,12 +10069,12 @@ invoke.cont155:                                   ; preds = %invoke.cont151
   store ptr null, ptr %state_.i.i319, align 8, !alias.scope !142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp154, i8 0, i64 6, i1 false), !alias.scope !142
   %call156 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb6StatusaSEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %status, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp154) #32
-  %144 = load ptr, ptr %state_.i.i319, align 8
-  %cmp.not.i.i321 = icmp eq ptr %144, null
+  %146 = load ptr, ptr %state_.i.i319, align 8
+  %cmp.not.i.i321 = icmp eq ptr %146, null
   br i1 %cmp.not.i.i321, label %_ZN7rocksdb6StatusD2Ev.exit323, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i322
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i322: ; preds = %invoke.cont155
-  call void @_ZdaPv(ptr noundef nonnull %144) #31
+  call void @_ZdaPv(ptr noundef nonnull %146) #31
   br label %_ZN7rocksdb6StatusD2Ev.exit323
 
 _ZN7rocksdb6StatusD2Ev.exit323:                   ; preds = %invoke.cont155, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i322
@@ -10081,15 +10082,15 @@ _ZN7rocksdb6StatusD2Ev.exit323:                   ; preds = %invoke.cont155, %_Z
   br label %if.end157
 
 if.end157:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit323, %invoke.cont151
-  %145 = load ptr, ptr %final_filter_cache_res_handle, align 8
-  %cmp.not.i324 = icmp eq ptr %145, null
+  %147 = load ptr, ptr %final_filter_cache_res_handle, align 8
+  %cmp.not.i324 = icmp eq ptr %147, null
   br i1 %cmp.not.i324, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i: ; preds = %if.end157
-  %vtable.i.i = load ptr, ptr %145, align 8
+  %vtable.i.i = load ptr, ptr %147, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %146 = load ptr, ptr %vfn.i.i, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(8) %145) #32
+  %148 = load ptr, ptr %vfn.i.i, align 8
+  call void %148(ptr noundef nonnull align 8 dereferenceable(8) %147) #32
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i, %if.end157
@@ -10100,18 +10101,18 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
 _ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i329: ; preds = %lpad109
   %vtable.i.i330 = load ptr, ptr %107, align 8
   %vfn.i.i331 = getelementptr inbounds i8, ptr %vtable.i.i330, i64 8
-  %147 = load ptr, ptr %vfn.i.i331, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(8) %107) #32
+  %149 = load ptr, ptr %vfn.i.i331, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(8) %107) #32
   br label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit333
 
 _ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit333: ; preds = %lpad109, %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i329
   store ptr null, ptr %final_filter_cache_res_handle, align 8
-  %148 = load ptr, ptr %mutable_buf, align 8
-  %cmp.not.i334 = icmp eq ptr %148, null
+  %150 = load ptr, ptr %mutable_buf, align 8
+  %cmp.not.i334 = icmp eq ptr %150, null
   br i1 %cmp.not.i334, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit337, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i335
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i335: ; preds = %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit333
-  call void @_ZdaPv(ptr noundef nonnull %148) #31
+  call void @_ZdaPv(ptr noundef nonnull %150) #31
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit337
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit337: ; preds = %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit333, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i335
@@ -10122,12 +10123,12 @@ cleanup:                                          ; preds = %if.then93, %invoke.
   %retval.sroa.0.0 = phi ptr [ %108, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ @.str.22, %invoke.cont91 ], [ @.str.22, %if.then93 ]
   %retval.sroa.8.0 = phi i64 [ %call111, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ 6, %invoke.cont91 ], [ 6, %if.then93 ]
   %state_.i338 = getelementptr inbounds i8, ptr %verify_hash_entries_checksum_status, i64 8
-  %149 = load ptr, ptr %state_.i338, align 8
-  %cmp.not.i.i339 = icmp eq ptr %149, null
+  %151 = load ptr, ptr %state_.i338, align 8
+  %cmp.not.i.i339 = icmp eq ptr %151, null
   br i1 %cmp.not.i.i339, label %_ZN7rocksdb6StatusD2Ev.exit341, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i340
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i340: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %149) #31
+  call void @_ZdaPv(ptr noundef nonnull %151) #31
   br label %_ZN7rocksdb6StatusD2Ev.exit341
 
 _ZN7rocksdb6StatusD2Ev.exit341:                   ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i340
@@ -10137,12 +10138,12 @@ _ZN7rocksdb6StatusD2Ev.exit341:                   ; preds = %cleanup, %_ZNKSt14d
 ehcleanup159:                                     ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit337, %lpad83
   %.pn.pn = phi { ptr, i32 } [ %106, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit337 ], [ %100, %lpad83 ]
   %state_.i342 = getelementptr inbounds i8, ptr %verify_hash_entries_checksum_status, i64 8
-  %150 = load ptr, ptr %state_.i342, align 8
-  %cmp.not.i.i343 = icmp eq ptr %150, null
+  %152 = load ptr, ptr %state_.i342, align 8
+  %cmp.not.i.i343 = icmp eq ptr %152, null
   br i1 %cmp.not.i.i343, label %_ZN7rocksdb6StatusD2Ev.exit345, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i344
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i344: ; preds = %ehcleanup159
-  call void @_ZdaPv(ptr noundef nonnull %150) #31
+  call void @_ZdaPv(ptr noundef nonnull %152) #31
   br label %_ZN7rocksdb6StatusD2Ev.exit345
 
 _ZN7rocksdb6StatusD2Ev.exit345:                   ; preds = %ehcleanup159, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i344
@@ -10151,17 +10152,17 @@ _ZN7rocksdb6StatusD2Ev.exit345:                   ; preds = %ehcleanup159, %_ZNK
 
 cleanup160:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit341, %invoke.cont79, %invoke.cont57
   %status_banding_cache_res.sroa.9.1376 = phi ptr [ %32, %invoke.cont57 ], [ %status_banding_cache_res.sroa.9.1377, %_ZN7rocksdb6StatusD2Ev.exit341 ], [ %status_banding_cache_res.sroa.9.1377, %invoke.cont79 ]
-  %retval.sroa.0.1 = phi ptr [ %43, %invoke.cont57 ], [ %retval.sroa.0.0, %_ZN7rocksdb6StatusD2Ev.exit341 ], [ %94, %invoke.cont79 ]
-  %retval.sroa.8.1 = phi i64 [ %44, %invoke.cont57 ], [ %retval.sroa.8.0, %_ZN7rocksdb6StatusD2Ev.exit341 ], [ %95, %invoke.cont79 ]
-  %151 = load ptr, ptr %banding_res_handle, align 8
-  %cmp.not.i346 = icmp eq ptr %151, null
+  %retval.sroa.0.1 = phi ptr [ %43, %invoke.cont57 ], [ %retval.sroa.0.0, %_ZN7rocksdb6StatusD2Ev.exit341 ], [ %95, %invoke.cont79 ]
+  %retval.sroa.8.1 = phi i64 [ %44, %invoke.cont57 ], [ %retval.sroa.8.0, %_ZN7rocksdb6StatusD2Ev.exit341 ], [ %96, %invoke.cont79 ]
+  %153 = load ptr, ptr %banding_res_handle, align 8
+  %cmp.not.i346 = icmp eq ptr %153, null
   br i1 %cmp.not.i346, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit351, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i347
 
 _ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i347: ; preds = %cleanup160
-  %vtable.i.i348 = load ptr, ptr %151, align 8
+  %vtable.i.i348 = load ptr, ptr %153, align 8
   %vfn.i.i349 = getelementptr inbounds i8, ptr %vtable.i.i348, i64 8
-  %152 = load ptr, ptr %vfn.i.i349, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(8) %151) #32
+  %154 = load ptr, ptr %vfn.i.i349, align 8
+  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %153) #32
   br label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit351
 
 _ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit351: ; preds = %cleanup160, %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i347
@@ -10175,45 +10176,45 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit355:                   ; preds = %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit351, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i354
   %backtrack_.i = getelementptr inbounds i8, ptr %banding, i64 32
-  %153 = load ptr, ptr %backtrack_.i, align 8
-  %cmp.not.i.i356 = icmp eq ptr %153, null
+  %155 = load ptr, ptr %backtrack_.i, align 8
+  %cmp.not.i.i356 = icmp eq ptr %155, null
   br i1 %cmp.not.i.i356, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit355
-  call void @_ZdaPv(ptr noundef nonnull %153) #31
+  call void @_ZdaPv(ptr noundef nonnull %155) #31
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %_ZN7rocksdb6StatusD2Ev.exit355
   %result_rows_.i = getelementptr inbounds i8, ptr %banding, i64 16
-  %154 = load ptr, ptr %result_rows_.i, align 8
-  %cmp.not.i1.i = icmp eq ptr %154, null
+  %156 = load ptr, ptr %result_rows_.i, align 8
+  %cmp.not.i1.i = icmp eq ptr %156, null
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit3.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i2.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i2.i: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %154) #31
+  call void @_ZdaPv(ptr noundef nonnull %156) #31
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit3.i
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit3.i: ; preds = %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i2.i, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i
-  %155 = load ptr, ptr %coeff_rows_.i, align 8
-  %cmp.not.i4.i = icmp eq ptr %155, null
+  %157 = load ptr, ptr %coeff_rows_.i, align 8
+  %cmp.not.i4.i = icmp eq ptr %157, null
   br i1 %cmp.not.i4.i, label %return, label %_ZNKSt14default_deleteIA_N7rocksdb11Unsigned128EEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
 
 _ZNKSt14default_deleteIA_N7rocksdb11Unsigned128EEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit3.i
-  call void @_ZdaPv(ptr noundef nonnull %155) #31
+  call void @_ZdaPv(ptr noundef nonnull %157) #31
   br label %return
 
 ehcleanup161:                                     ; preds = %lpad44.loopexit.split-lp, %lpad44.loopexit.split.us, %lpad44.loopexit.split, %_ZN7rocksdb6StatusD2Ev.exit345
   %status_banding_cache_res.sroa.9.2 = phi ptr [ %status_banding_cache_res.sroa.9.1377, %_ZN7rocksdb6StatusD2Ev.exit345 ], [ %status_banding_cache_res.sroa.9.0.ph, %lpad44.loopexit.split-lp ], [ %status_banding_cache_res.sroa.9.1377, %lpad44.loopexit.split.us ], [ %status_banding_cache_res.sroa.9.1377, %lpad44.loopexit.split ]
   %.pn21 = phi { ptr, i32 } [ %.pn.pn, %_ZN7rocksdb6StatusD2Ev.exit345 ], [ %lpad.loopexit.split-lp, %lpad44.loopexit.split-lp ], [ %lpad.loopexit.us, %lpad44.loopexit.split.us ], [ %lpad.loopexit, %lpad44.loopexit.split ]
-  %156 = load ptr, ptr %banding_res_handle, align 8
-  %cmp.not.i358 = icmp eq ptr %156, null
+  %158 = load ptr, ptr %banding_res_handle, align 8
+  %cmp.not.i358 = icmp eq ptr %158, null
   br i1 %cmp.not.i358, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit363, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i359
 
 _ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i359: ; preds = %ehcleanup161
-  %vtable.i.i360 = load ptr, ptr %156, align 8
+  %vtable.i.i360 = load ptr, ptr %158, align 8
   %vfn.i.i361 = getelementptr inbounds i8, ptr %vtable.i.i360, i64 8
-  %157 = load ptr, ptr %vfn.i.i361, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %156) #32
+  %159 = load ptr, ptr %vfn.i.i361, align 8
+  call void %159(ptr noundef nonnull align 8 dereferenceable(8) %158) #32
   br label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit363
 
 _ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit363: ; preds = %ehcleanup161, %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i359

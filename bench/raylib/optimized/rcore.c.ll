@@ -34225,16 +34225,16 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.not.i11.i.i = icmp eq i32 %160, 0
   %161 = sext i32 %160 to i64
   %162 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %161, i1 true)
-  %163 = trunc nuw nsw i64 %162 to i32
-  %164 = xor i32 %163, 63
-  %.not.i3.i = icmp eq i32 %164, 0
+  %.not.i3.i = icmp eq i64 %162, 63
   %.not.i.i = select i1 %.not.i11.i.i, i1 true, i1 %.not.i3.i
-  br i1 %.not.i.i, label %175, label %165
+  br i1 %.not.i.i, label %175, label %163
 
-165:                                              ; preds = %142
-  %166 = shl nuw nsw i32 %164, 1
+163:                                              ; preds = %142
+  %164 = trunc nuw nsw i64 %162 to i32
+  %165 = xor i32 %164, 63
+  %166 = shl nuw nsw i32 %165, 1
   %167 = add nuw nsw i32 %166, 2
-  %168 = zext nneg i32 %164 to i64
+  %168 = zext nneg i32 %165 to i64
   %169 = getelementptr inbounds [14 x i16], ptr @sdefl_match_codes.dxmax, i64 0, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = sext i16 %170 to i32
@@ -34244,8 +34244,8 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.pre.i = zext nneg i32 %174 to i64
   br label %175
 
-175:                                              ; preds = %165, %142
-  %.pre-phi.i = phi i64 [ %154, %142 ], [ %.pre.i, %165 ]
+175:                                              ; preds = %163, %142
+  %.pre-phi.i = phi i64 [ %154, %142 ], [ %.pre.i, %163 ]
   %176 = zext i8 %152 to i64
   %177 = add nuw nsw i64 %176, 257
   %178 = getelementptr inbounds [288 x i32], ptr %15, i64 0, i64 %177

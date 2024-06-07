@@ -17239,7 +17239,7 @@ if.then:                                          ; preds = %land.lhs.true.i.i.i
   %19 = load i32, ptr %m_value.i, align 4
   %20 = and i32 %10, 1
   %spec.select = xor i32 %19, %20
-  %cmp.i16 = icmp eq i32 %spec.select, 0
+  %cmp.i16 = icmp eq i32 %19, %20
   br i1 %cmp.i16, label %for.inc, label %if.else
 
 lpad3.loopexit:                                   ; preds = %for.body59, %.noexc63

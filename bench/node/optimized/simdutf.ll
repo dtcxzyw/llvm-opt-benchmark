@@ -11182,7 +11182,7 @@ if.end8.i.i:                                      ; preds = %if.end.i.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcmPcDv8_xS6_PyS7_.exit.i: ; preds = %if.end8.i.i
   %shr.i.i = lshr i64 %3, 63
-  %8 = icmp eq <64 x i8> %4, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %8 = icmp eq <64 x i8> %unmaskedload.i, <i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61>
   %9 = bitcast <64 x i1> %8 to i64
   %shl12.i.i = shl i64 %9, 1
   %or13.i.i = or i64 %shl12.i.i, %next_bit6.0337.i
@@ -11252,7 +11252,7 @@ if.end10.i.i:                                     ; preds = %if.end.i127.i
   br i1 %cmp11.i.not.i, label %if.end13.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
 
 if.end13.i.i:                                     ; preds = %if.end10.i.i
-  %27 = icmp eq <64 x i8> %23, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %27 = icmp eq <64 x i8> %18, <i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61>
   %28 = bitcast <64 x i1> %27 to i64
   %shl14.i.i = shl i64 %28, 1
   %or15.i.i = or i64 %shl14.i.i, %next_bit6.0.lcssa.i
@@ -11333,7 +11333,7 @@ if.end8.i.i:                                      ; preds = %if.end.i.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcmPcDv8_xS6_PyS7_.exit.i: ; preds = %if.end8.i.i
   %shr.i.i = lshr i64 %3, 63
-  %8 = icmp eq <64 x i8> %4, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %8 = icmp eq <64 x i8> %unmaskedload.i, <i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61>
   %9 = bitcast <64 x i1> %8 to i64
   %shl12.i.i = shl i64 %9, 1
   %or13.i.i = or i64 %shl12.i.i, %next_bit6.0337.i
@@ -11403,7 +11403,7 @@ if.end10.i.i:                                     ; preds = %if.end.i127.i
   br i1 %cmp11.i.not.i, label %if.end13.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
 
 if.end13.i.i:                                     ; preds = %if.end10.i.i
-  %27 = icmp eq <64 x i8> %23, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %27 = icmp eq <64 x i8> %18, <i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61, i8 -61>
   %28 = bitcast <64 x i1> %27 to i64
   %shl14.i.i = shl i64 %28, 1
   %or15.i.i = or i64 %shl14.i.i, %next_bit6.0.lcssa.i

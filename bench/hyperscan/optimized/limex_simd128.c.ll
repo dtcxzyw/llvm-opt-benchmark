@@ -935,7 +935,7 @@ sw.epilog.i39.i:                                  ; preds = %sw.bb72.i.i, %if.en
   %82 = and i4 %81, 5
   %83 = xor i4 %82, 5
   %and.i929.i = zext nneg i4 %83 to i32
-  %tobool.i565.not.i = icmp eq i4 %83, 0
+  %tobool.i565.not.i = icmp eq i4 %82, 5
   br i1 %tobool.i565.not.i, label %if.end87.i.i, label %if.end25.i573.i
 
 if.end25.i573.i:                                  ; preds = %sw.epilog.i39.i
@@ -1441,7 +1441,7 @@ sw.epilog.i160.i:                                 ; preds = %sw.bb72.i173.i, %if
   %166 = and i4 %165, 5
   %167 = xor i4 %166, 5
   %and.i936.i = zext nneg i4 %167 to i32
-  %tobool.i510.not.i = icmp eq i4 %167, 0
+  %tobool.i510.not.i = icmp eq i4 %166, 5
   br i1 %tobool.i510.not.i, label %if.end87.i163.i, label %if.end25.i515.i
 
 if.end25.i515.i:                                  ; preds = %sw.epilog.i160.i
@@ -1992,7 +1992,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb128.i.i, %if.e
   %253 = and i4 %252, 5
   %254 = xor i4 %253, 5
   %and.i922.i = zext nneg i4 %254 to i32
-  %tobool.i642.not.i = icmp eq i4 %254, 0
+  %tobool.i642.not.i = icmp eq i4 %253, 5
   br i1 %tobool.i642.not.i, label %if.end143.i.i, label %if.end25.i650.i
 
 if.end25.i650.i:                                  ; preds = %sw.epilog.i.i
@@ -3485,7 +3485,7 @@ sw.epilog.i39:                                    ; preds = %sw.bb72.i, %if.end.
   %47 = and i4 %46, 5
   %48 = xor i4 %47, 5
   %and.i929 = zext nneg i4 %48 to i32
-  %tobool.i565.not = icmp eq i4 %48, 0
+  %tobool.i565.not = icmp eq i4 %47, 5
   br i1 %tobool.i565.not, label %if.end87.i, label %if.end.i570
 
 if.end.i570:                                      ; preds = %sw.epilog.i39
@@ -3965,7 +3965,7 @@ sw.epilog.i160:                                   ; preds = %sw.bb72.i173, %if.e
   %131 = and i4 %130, 5
   %132 = xor i4 %131, 5
   %and.i936 = zext nneg i4 %132 to i32
-  %tobool.i510.not = icmp eq i4 %132, 0
+  %tobool.i510.not = icmp eq i4 %131, 5
   br i1 %tobool.i510.not, label %if.end87.i163, label %if.end.i514
 
 if.end.i514:                                      ; preds = %sw.epilog.i160
@@ -4481,7 +4481,7 @@ sw.epilog.i:                                      ; preds = %sw.bb128.i, %if.end
   %218 = and i4 %217, 5
   %219 = xor i4 %218, 5
   %and.i922 = zext nneg i4 %219 to i32
-  %tobool.i642.not = icmp eq i4 %219, 0
+  %tobool.i642.not = icmp eq i4 %218, 5
   br i1 %tobool.i642.not, label %if.end143.i, label %if.end.i647
 
 if.end.i647:                                      ; preds = %sw.epilog.i
@@ -5576,7 +5576,7 @@ sw.epilog.i39:                                    ; preds = %sw.bb72.i, %if.end.
   %47 = and i4 %46, 5
   %48 = xor i4 %47, 5
   %and.i929 = zext nneg i4 %48 to i32
-  %tobool.i565.not = icmp eq i4 %48, 0
+  %tobool.i565.not = icmp eq i4 %47, 5
   br i1 %tobool.i565.not, label %if.end87.i, label %if.end25.i573
 
 if.end25.i573:                                    ; preds = %sw.epilog.i39
@@ -6038,7 +6038,7 @@ sw.epilog.i160:                                   ; preds = %sw.bb72.i173, %if.e
   %127 = and i4 %126, 5
   %128 = xor i4 %127, 5
   %and.i936 = zext nneg i4 %128 to i32
-  %tobool.i510.not = icmp eq i4 %128, 0
+  %tobool.i510.not = icmp eq i4 %127, 5
   br i1 %tobool.i510.not, label %if.end87.i163, label %if.end25.i515
 
 if.end25.i515:                                    ; preds = %sw.epilog.i160
@@ -6536,7 +6536,7 @@ sw.epilog.i:                                      ; preds = %sw.bb128.i, %if.end
   %210 = and i4 %209, 5
   %211 = xor i4 %210, 5
   %and.i922 = zext nneg i4 %211 to i32
-  %tobool.i642.not = icmp eq i4 %211, 0
+  %tobool.i642.not = icmp eq i4 %210, 5
   br i1 %tobool.i642.not, label %if.end143.i, label %if.end25.i650
 
 if.end25.i650:                                    ; preds = %sw.epilog.i
@@ -7632,7 +7632,7 @@ do.end83:                                         ; preds = %do.body8, %sw.bb72
   %42 = and i4 %41, 5
   %43 = xor i4 %42, 5
   %and.i = zext nneg i4 %43 to i32
-  %tobool.i303.not = icmp eq i4 %43, 0
+  %tobool.i303.not = icmp eq i4 %42, 5
   br i1 %tobool.i303.not, label %if.end87, label %if.end25.i
 
 if.end25.i:                                       ; preds = %do.end83

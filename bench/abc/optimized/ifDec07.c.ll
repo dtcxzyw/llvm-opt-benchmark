@@ -2357,15 +2357,15 @@ Abc_Tt6FirstBit.exit221.i:                        ; preds = %141, %138
   %.025.i220.i = phi i32 [ %.5.i219.i, %141 ], [ -1, %138 ]
   %157 = zext nneg i32 %.025.i220.i to i64
   %158 = shl nuw i64 1, %157
-  %159 = xor i64 %158, %139
-  %160 = icmp eq i64 %159, 0
-  br i1 %160, label %Abc_Tt6FirstBit.exit234.i, label %161
+  %159 = icmp eq i64 %158, %139
+  br i1 %159, label %Abc_Tt6FirstBit.exit234.i, label %160
 
-161:                                              ; preds = %Abc_Tt6FirstBit.exit221.i
-  %162 = and i64 %159, 4294967295
+160:                                              ; preds = %Abc_Tt6FirstBit.exit221.i
+  %161 = xor i64 %158, %139
+  %162 = and i64 %161, 4294967295
   %163 = icmp eq i64 %162, 0
   %164 = lshr i64 %158, 32
-  %spec.select.i222.i = select i1 %163, i64 %164, i64 %159
+  %spec.select.i222.i = select i1 %163, i64 %164, i64 %161
   %spec.select27.i223.i = select i1 %163, i32 32, i32 0
   %165 = and i64 %spec.select.i222.i, 65535
   %166 = icmp eq i64 %165, 0
@@ -2397,8 +2397,8 @@ Abc_Tt6FirstBit.exit221.i:                        ; preds = %141, %138
   %.5.i232.i = add nuw nsw i32 %183, %.4.i231.i
   br label %Abc_Tt6FirstBit.exit234.i
 
-Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstBit.exit221.i
-  %.025.i233.i = phi i32 [ %.5.i232.i, %161 ], [ -1, %Abc_Tt6FirstBit.exit221.i ]
+Abc_Tt6FirstBit.exit234.i:                        ; preds = %160, %Abc_Tt6FirstBit.exit221.i
+  %.025.i233.i = phi i32 [ %.5.i232.i, %160 ], [ -1, %Abc_Tt6FirstBit.exit221.i ]
   %184 = sext i32 %.025.i233.i to i64
   %185 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %184
   %186 = load i64, ptr %185, align 8

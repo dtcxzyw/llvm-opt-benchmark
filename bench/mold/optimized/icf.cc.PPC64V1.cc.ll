@@ -6103,7 +6103,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %8, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14enable_segmentERPS7_PSt6atomicISD_Emm.exit
 
@@ -6373,7 +6373,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %8, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE14enable_segmentERPS8_PSt6atomicISE_Emm.exit
 
@@ -9713,7 +9713,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %0, 63
   %3 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %3
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i) #13
@@ -9769,7 +9769,7 @@ if.end:                                           ; preds = %if.then, %_ZN3tbb6d
   br i1 %cmp.i.i8, label %if.then.i.i15, label %if.end.i.i9
 
 if.then.i.i15:                                    ; preds = %if.end
-  %cmp.i.i.i.i.i16 = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i16 = icmp eq i64 %0, 63
   %12 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i17 = select i1 %cmp.i.i.i.i.i16, i64 16, i64 %12
   %call.i.i.i.i.i.i18 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i17) #13
@@ -9874,7 +9874,7 @@ if.end:                                           ; preds = %entry
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %10, 63
   %my_segment_table.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %10, 63
   %11 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %11
   %shl.i.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
@@ -10014,11 +10014,11 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   br i1 %cmp.not22.i, label %do.cond.i, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %do.body.i
-  %next_node.025.i78 = inttoptr i64 %32 to ptr
-  %my_order_key.i.i79 = getelementptr inbounds i8, ptr %next_node.025.i78, i64 8
-  %33 = load i64, ptr %my_order_key.i.i79, align 8
-  %cmp4.i80 = icmp ult i64 %33, %and.i48
-  br i1 %cmp4.i80, label %while.body.i, label %land.lhs.true.i
+  %next_node.025.i79 = inttoptr i64 %32 to ptr
+  %my_order_key.i.i80 = getelementptr inbounds i8, ptr %next_node.025.i79, i64 8
+  %33 = load i64, ptr %my_order_key.i.i80, align 8
+  %cmp4.i81 = icmp ult i64 %33, %and.i48
+  br i1 %cmp4.i81, label %while.body.i, label %land.lhs.true.i
 
 land.rhs.i:                                       ; preds = %while.body.i
   %next_node.025.i = inttoptr i64 %35 to ptr
@@ -10028,15 +10028,15 @@ land.rhs.i:                                       ; preds = %while.body.i
   br i1 %cmp4.i, label %while.body.i, label %land.lhs.true.i, !llvm.loop !250
 
 while.body.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
-  %next_node.025.i81 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i78, %land.rhs.i.preheader ]
-  %35 = load atomic i64, ptr %next_node.025.i81 acquire, align 8
+  %next_node.025.i82 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i79, %land.rhs.i.preheader ]
+  %35 = load atomic i64, ptr %next_node.025.i82 acquire, align 8
   %cmp.not.i = icmp eq i64 %35, 0
   br i1 %cmp.not.i, label %do.cond.i, label %land.rhs.i, !llvm.loop !250
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.rhs.i.preheader
   %next_node.0.in24.i.lcssa = phi i64 [ %32, %land.rhs.i.preheader ], [ %35, %land.rhs.i ]
-  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i81, %land.rhs.i ]
-  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i78, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
+  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i82, %land.rhs.i ]
+  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i79, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
   %.lcssa = phi i64 [ %33, %land.rhs.i.preheader ], [ %34, %land.rhs.i ]
   %cmp8.i = icmp eq i64 %.lcssa, %and.i48
   br i1 %cmp8.i, label %if.then.i, label %land.lhs.true.split.i
@@ -10052,7 +10052,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_NS5_10LeafHasherIS7_EENS5_6LeafEqIS7_EENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
 
 do.cond.i:                                        ; preds = %while.body.i, %do.body.i
-  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i81, %while.body.i ]
+  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i82, %while.body.i ]
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   %38 = cmpxchg ptr %prev_node.1.lcssa.i, i64 0, i64 %31 seq_cst seq_cst, align 8
   %39 = extractvalue { i64, i1 } %38, 1
@@ -10075,7 +10075,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %cmp.i.i54, label %if.then.i.i61, label %if.end.i.i55
 
 if.then.i.i61:                                    ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_NS5_10LeafHasherIS7_EENS5_6LeafEqIS7_EENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
-  %cmp.i.i.i.i.i62 = icmp eq i64 %xor.i.i.i.i.i50, 0
+  %cmp.i.i.i.i.i62 = icmp eq i64 %40, 63
   %43 = shl i64 8, %xor.i.i.i.i.i50
   %mul.i.i.i.i.i.i63 = select i1 %cmp.i.i.i.i.i62, i64 16, i64 %43
   %call.i.i.i.i.i.i64 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i63) #13
@@ -11022,7 +11022,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_NS5_10LeafHasherIS7_EENS5_6LeafEqIS7_EENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb0EEEE23split_order_key_regularEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i5.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i5.i.i.i.i.i = icmp eq i64 %30, 63
   %33 = shl i64 8, %xor.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i5.i.i.i.i.i, i64 16, i64 %33
   %call.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i.i.i.i.i.i.i) #13, !noalias !255
@@ -11078,7 +11078,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i.i8.i.i.i.i.i.i, label %if.then.i.i15.i.i.i.i.i.i, label %if.end.i.i9.i.i.i.i.i.i
 
 if.then.i.i15.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i
-  %cmp.i.i.i.i.i16.i.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i16.i.i.i.i.i.i = icmp eq i64 %30, 63
   %42 = shl i64 8, %xor.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i17.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i16.i.i.i.i.i.i, i64 16, i64 %42
   %call.i.i.i.i.i.i18.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i17.i.i.i.i.i.i) #13, !noalias !255
@@ -20376,7 +20376,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %0, 63
   %3 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %3
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i) #13
@@ -20432,7 +20432,7 @@ if.end:                                           ; preds = %if.then, %_ZN3tbb6d
   br i1 %cmp.i.i8, label %if.then.i.i15, label %if.end.i.i9
 
 if.then.i.i15:                                    ; preds = %if.end
-  %cmp.i.i.i.i.i16 = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i16 = icmp eq i64 %0, 63
   %12 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i17 = select i1 %cmp.i.i.i.i.i16, i64 16, i64 %12
   %call.i.i.i.i.i.i18 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i17) #13
@@ -20537,7 +20537,7 @@ if.end:                                           ; preds = %entry
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %10, 63
   %my_segment_table.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %10, 63
   %11 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %11
   %shl.i.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
@@ -20677,11 +20677,11 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   br i1 %cmp.not22.i, label %do.cond.i, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %do.body.i
-  %next_node.025.i78 = inttoptr i64 %32 to ptr
-  %my_order_key.i.i79 = getelementptr inbounds i8, ptr %next_node.025.i78, i64 8
-  %33 = load i64, ptr %my_order_key.i.i79, align 8
-  %cmp4.i80 = icmp ult i64 %33, %and.i48
-  br i1 %cmp4.i80, label %while.body.i, label %land.lhs.true.i
+  %next_node.025.i79 = inttoptr i64 %32 to ptr
+  %my_order_key.i.i80 = getelementptr inbounds i8, ptr %next_node.025.i79, i64 8
+  %33 = load i64, ptr %my_order_key.i.i80, align 8
+  %cmp4.i81 = icmp ult i64 %33, %and.i48
+  br i1 %cmp4.i81, label %while.body.i, label %land.lhs.true.i
 
 land.rhs.i:                                       ; preds = %while.body.i
   %next_node.025.i = inttoptr i64 %35 to ptr
@@ -20691,15 +20691,15 @@ land.rhs.i:                                       ; preds = %while.body.i
   br i1 %cmp4.i, label %while.body.i, label %land.lhs.true.i, !llvm.loop !321
 
 while.body.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
-  %next_node.025.i81 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i78, %land.rhs.i.preheader ]
-  %35 = load atomic i64, ptr %next_node.025.i81 acquire, align 8
+  %next_node.025.i82 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i79, %land.rhs.i.preheader ]
+  %35 = load atomic i64, ptr %next_node.025.i82 acquire, align 8
   %cmp.not.i = icmp eq i64 %35, 0
   br i1 %cmp.not.i, label %do.cond.i, label %land.rhs.i, !llvm.loop !321
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.rhs.i.preheader
   %next_node.0.in24.i.lcssa = phi i64 [ %32, %land.rhs.i.preheader ], [ %35, %land.rhs.i ]
-  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i81, %land.rhs.i ]
-  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i78, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
+  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i82, %land.rhs.i ]
+  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i79, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
   %.lcssa = phi i64 [ %33, %land.rhs.i.preheader ], [ %34, %land.rhs.i ]
   %cmp8.i = icmp eq i64 %.lcssa, %and.i48
   br i1 %cmp8.i, label %if.then.i, label %land.lhs.true.split.i
@@ -20715,7 +20715,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_7PPC64V1EEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
 
 do.cond.i:                                        ; preds = %while.body.i, %do.body.i
-  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i81, %while.body.i ]
+  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i82, %while.body.i ]
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   %38 = cmpxchg ptr %prev_node.1.lcssa.i, i64 0, i64 %31 seq_cst seq_cst, align 8
   %39 = extractvalue { i64, i1 } %38, 1
@@ -20738,7 +20738,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %cmp.i.i54, label %if.then.i.i61, label %if.end.i.i55
 
 if.then.i.i61:                                    ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_7PPC64V1EEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
-  %cmp.i.i.i.i.i62 = icmp eq i64 %xor.i.i.i.i.i50, 0
+  %cmp.i.i.i.i.i62 = icmp eq i64 %40, 63
   %43 = shl i64 8, %xor.i.i.i.i.i50
   %mul.i.i.i.i.i.i63 = select i1 %cmp.i.i.i.i.i62, i64 16, i64 %43
   %call.i.i.i.i.i.i64 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i63) #13
@@ -21550,7 +21550,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %8, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableISt8functionIFvvEENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE14enable_segmentERPS5_PSt6atomicISB_Emm.exit
 
@@ -22899,7 +22899,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE23split_order_key_regularEm.exit.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i5.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i5.i.i.i.i.i = icmp eq i64 %19, 63
   %22 = shl i64 8, %xor.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i5.i.i.i.i.i, i64 16, i64 %22
   %call.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i.i.i.i.i.i.i) #13, !noalias !345
@@ -22955,7 +22955,7 @@ if.end.i4.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i.i8.i.i.i.i.i.i, label %if.then.i.i15.i.i.i.i.i.i, label %if.end.i.i9.i.i.i.i.i.i
 
 if.then.i.i15.i.i.i.i.i.i:                        ; preds = %if.end.i4.i.i.i.i.i
-  %cmp.i.i.i.i.i16.i.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i16.i.i.i.i.i.i = icmp eq i64 %19, 63
   %31 = shl i64 8, %xor.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i17.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i16.i.i.i.i.i.i, i64 16, i64 %31
   %call.i.i.i.i.i.i18.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i17.i.i.i.i.i.i) #13, !noalias !345
@@ -23162,7 +23162,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %8, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_7PPC64V1EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE14enable_segmentERPS8_PSt6atomicISE_Emm.exit
 
@@ -23583,7 +23583,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %0, 63
   %3 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %3
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i) #13
@@ -23639,7 +23639,7 @@ if.end:                                           ; preds = %if.then, %_ZN3tbb6d
   br i1 %cmp.i.i8, label %if.then.i.i15, label %if.end.i.i9
 
 if.then.i.i15:                                    ; preds = %if.end
-  %cmp.i.i.i.i.i16 = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i16 = icmp eq i64 %0, 63
   %12 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i17 = select i1 %cmp.i.i.i.i.i16, i64 16, i64 %12
   %call.i.i.i.i.i.i18 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i17) #13
@@ -23744,7 +23744,7 @@ if.end:                                           ; preds = %entry
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %10, 63
   %my_segment_table.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
-  %cmp.i.i.i.i.i = icmp eq i64 %xor.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %10, 63
   %11 = shl i64 8, %xor.i.i.i.i.i
   %mul.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 %11
   %shl.i.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
@@ -23884,11 +23884,11 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   br i1 %cmp.not22.i, label %do.cond.i, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %do.body.i
-  %next_node.025.i78 = inttoptr i64 %32 to ptr
-  %my_order_key.i.i79 = getelementptr inbounds i8, ptr %next_node.025.i78, i64 8
-  %33 = load i64, ptr %my_order_key.i.i79, align 8
-  %cmp4.i80 = icmp ult i64 %33, %and.i48
-  br i1 %cmp4.i80, label %while.body.i, label %land.lhs.true.i
+  %next_node.025.i79 = inttoptr i64 %32 to ptr
+  %my_order_key.i.i80 = getelementptr inbounds i8, ptr %next_node.025.i79, i64 8
+  %33 = load i64, ptr %my_order_key.i.i80, align 8
+  %cmp4.i81 = icmp ult i64 %33, %and.i48
+  br i1 %cmp4.i81, label %while.body.i, label %land.lhs.true.i
 
 land.rhs.i:                                       ; preds = %while.body.i
   %next_node.025.i = inttoptr i64 %35 to ptr
@@ -23898,15 +23898,15 @@ land.rhs.i:                                       ; preds = %while.body.i
   br i1 %cmp4.i, label %while.body.i, label %land.lhs.true.i, !llvm.loop !362
 
 while.body.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
-  %next_node.025.i81 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i78, %land.rhs.i.preheader ]
-  %35 = load atomic i64, ptr %next_node.025.i81 acquire, align 8
+  %next_node.025.i82 = phi ptr [ %next_node.025.i, %land.rhs.i ], [ %next_node.025.i79, %land.rhs.i.preheader ]
+  %35 = load atomic i64, ptr %next_node.025.i82 acquire, align 8
   %cmp.not.i = icmp eq i64 %35, 0
   br i1 %cmp.not.i, label %do.cond.i, label %land.rhs.i, !llvm.loop !362
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.rhs.i.preheader
   %next_node.0.in24.i.lcssa = phi i64 [ %32, %land.rhs.i.preheader ], [ %35, %land.rhs.i ]
-  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i81, %land.rhs.i ]
-  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i78, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
+  %prev_node.123.i.lcssa = phi ptr [ %prev_node.0.i, %land.rhs.i.preheader ], [ %next_node.025.i82, %land.rhs.i ]
+  %next_node.025.i.lcssa = phi ptr [ %next_node.025.i79, %land.rhs.i.preheader ], [ %next_node.025.i, %land.rhs.i ]
   %.lcssa = phi i64 [ %33, %land.rhs.i.preheader ], [ %34, %land.rhs.i ]
   %cmp8.i = icmp eq i64 %.lcssa, %and.i48
   br i1 %cmp8.i, label %if.then.i, label %land.lhs.true.split.i
@@ -23922,7 +23922,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
 
 do.cond.i:                                        ; preds = %while.body.i, %do.body.i
-  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i81, %while.body.i ]
+  %prev_node.1.lcssa.i = phi ptr [ %prev_node.0.i, %do.body.i ], [ %next_node.025.i82, %while.body.i ]
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   %38 = cmpxchg ptr %prev_node.1.lcssa.i, i64 0, i64 %31 seq_cst seq_cst, align 8
   %39 = extractvalue { i64, i1 } %38, 1
@@ -23945,7 +23945,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %cmp.i.i54, label %if.then.i.i61, label %if.end.i.i55
 
 if.then.i.i61:                                    ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_7PPC64V1EEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm.exit
-  %cmp.i.i.i.i.i62 = icmp eq i64 %xor.i.i.i.i.i50, 0
+  %cmp.i.i.i.i.i62 = icmp eq i64 %40, 63
   %43 = shl i64 8, %xor.i.i.i.i.i50
   %mul.i.i.i.i.i.i63 = select i1 %cmp.i.i.i.i.i62, i64 16, i64 %43
   %call.i.i.i.i.i.i64 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i.i63) #13

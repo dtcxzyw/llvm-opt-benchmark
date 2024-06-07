@@ -415,30 +415,30 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %152, %362
   %171 = icmp ugt ptr %170, %168
   br i1 %171, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %162, %173
-  %.03141.i = phi ptr [ %174, %173 ], [ %168, %162 ]
-  %.03240.i = phi ptr [ %175, %173 ], [ %169, %162 ]
+.lr.ph.i:                                         ; preds = %162, %172
+  %.03141.i = phi ptr [ %173, %172 ], [ %168, %162 ]
+  %.03240.i = phi ptr [ %174, %172 ], [ %169, %162 ]
   %.032.val.i = load i64, ptr %.03240.i, align 1
   %.031.val.i = load i64, ptr %.03141.i, align 1
-  %172 = xor i64 %.031.val.i, %.032.val.i
-  %.not.i = icmp eq i64 %172, 0
-  br i1 %.not.i, label %173, label %177
+  %.not.i = icmp eq i64 %.032.val.i, %.031.val.i
+  br i1 %.not.i, label %172, label %176
 
-173:                                              ; preds = %.lr.ph.i
-  %174 = getelementptr inbounds i8, ptr %.03141.i, i64 8
-  %175 = getelementptr inbounds i8, ptr %.03240.i, i64 8
-  %176 = icmp ult ptr %174, %170
-  br i1 %176, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+172:                                              ; preds = %.lr.ph.i
+  %173 = getelementptr inbounds i8, ptr %.03141.i, i64 8
+  %174 = getelementptr inbounds i8, ptr %.03240.i, i64 8
+  %175 = icmp ult ptr %173, %170
+  br i1 %175, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
-177:                                              ; preds = %.lr.ph.i
-  %178 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %172, i1 true)
+176:                                              ; preds = %.lr.ph.i
+  %177 = xor i64 %.031.val.i, %.032.val.i
+  %178 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %177, i1 true)
   %179 = lshr i64 %178, 3
   %180 = getelementptr inbounds i8, ptr %.03141.i, i64 %179
   br label %_ZL9LZ4_countPKhS0_S0_.exit
 
-._crit_edge.i:                                    ; preds = %173, %162
-  %.032.lcssa.i = phi ptr [ %169, %162 ], [ %175, %173 ]
-  %.031.lcssa.i = phi ptr [ %168, %162 ], [ %174, %173 ]
+._crit_edge.i:                                    ; preds = %172, %162
+  %.032.lcssa.i = phi ptr [ %169, %162 ], [ %174, %172 ]
+  %.031.lcssa.i = phi ptr [ %168, %162 ], [ %173, %172 ]
   %181 = getelementptr inbounds i8, ptr %spec.select, i64 -3
   %182 = icmp ult ptr %.031.lcssa.i, %181
   br i1 %182, label %183, label %188
@@ -486,8 +486,8 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %152, %362
   %spec.select.i = getelementptr inbounds i8, ptr %.2.i, i64 %spec.select.idx.i
   br label %_ZL9LZ4_countPKhS0_S0_.exit
 
-_ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
-  %.3.sink.i = phi ptr [ %180, %177 ], [ %.2.i, %196 ], [ %spec.select.i, %198 ]
+_ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %176, %196, %198
+  %.3.sink.i = phi ptr [ %180, %176 ], [ %.2.i, %196 ], [ %spec.select.i, %198 ]
   %202 = ptrtoint ptr %.3.sink.i to i64
   %203 = ptrtoint ptr %168 to i64
   %204 = sub i64 %202, %203
@@ -502,30 +502,30 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
   %210 = icmp ugt ptr %.ptr438, %spec.select
   br i1 %210, label %.lr.ph.i310, label %._crit_edge.i295
 
-.lr.ph.i310:                                      ; preds = %209, %212
-  %.03141.i311 = phi ptr [ %213, %212 ], [ %207, %209 ]
-  %.03240.i312 = phi ptr [ %214, %212 ], [ %1, %209 ]
+.lr.ph.i310:                                      ; preds = %209, %211
+  %.03141.i311 = phi ptr [ %212, %211 ], [ %207, %209 ]
+  %.03240.i312 = phi ptr [ %213, %211 ], [ %1, %209 ]
   %.032.val.i313 = load i64, ptr %.03240.i312, align 1
   %.031.val.i314 = load i64, ptr %.03141.i311, align 1
-  %211 = xor i64 %.031.val.i314, %.032.val.i313
-  %.not.i315 = icmp eq i64 %211, 0
-  br i1 %.not.i315, label %212, label %216
+  %.not.i315 = icmp eq i64 %.032.val.i313, %.031.val.i314
+  br i1 %.not.i315, label %211, label %215
 
-212:                                              ; preds = %.lr.ph.i310
-  %213 = getelementptr inbounds i8, ptr %.03141.i311, i64 8
-  %214 = getelementptr inbounds i8, ptr %.03240.i312, i64 8
-  %215 = icmp ult ptr %213, %.ptr438
-  br i1 %215, label %.lr.ph.i310, label %._crit_edge.i295, !llvm.loop !10
+211:                                              ; preds = %.lr.ph.i310
+  %212 = getelementptr inbounds i8, ptr %.03141.i311, i64 8
+  %213 = getelementptr inbounds i8, ptr %.03240.i312, i64 8
+  %214 = icmp ult ptr %212, %.ptr438
+  br i1 %214, label %.lr.ph.i310, label %._crit_edge.i295, !llvm.loop !10
 
-216:                                              ; preds = %.lr.ph.i310
-  %217 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %211, i1 true)
+215:                                              ; preds = %.lr.ph.i310
+  %216 = xor i64 %.031.val.i314, %.032.val.i313
+  %217 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %216, i1 true)
   %218 = lshr i64 %217, 3
   %219 = getelementptr inbounds i8, ptr %.03141.i311, i64 %218
   br label %_ZL9LZ4_countPKhS0_S0_.exit316
 
-._crit_edge.i295:                                 ; preds = %212, %209
-  %.032.lcssa.i296 = phi ptr [ %1, %209 ], [ %214, %212 ]
-  %.031.lcssa.i297 = phi ptr [ %207, %209 ], [ %213, %212 ]
+._crit_edge.i295:                                 ; preds = %211, %209
+  %.032.lcssa.i296 = phi ptr [ %1, %209 ], [ %213, %211 ]
+  %.031.lcssa.i297 = phi ptr [ %207, %209 ], [ %212, %211 ]
   %220 = icmp ult ptr %.031.lcssa.i297, %65
   br i1 %220, label %221, label %226
 
@@ -571,8 +571,8 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
   %spec.select.i305 = getelementptr inbounds i8, ptr %.2.i301, i64 %spec.select.idx.i304
   br label %_ZL9LZ4_countPKhS0_S0_.exit316
 
-_ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %216, %233, %235
-  %.3.sink.i302 = phi ptr [ %219, %216 ], [ %.2.i301, %233 ], [ %spec.select.i305, %235 ]
+_ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %215, %233, %235
+  %.3.sink.i302 = phi ptr [ %219, %215 ], [ %.2.i301, %233 ], [ %spec.select.i305, %235 ]
   %239 = ptrtoint ptr %.3.sink.i302 to i64
   %240 = ptrtoint ptr %spec.select to i64
   %241 = sub i64 %239, %240
@@ -588,30 +588,30 @@ _ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %216, %233, %235
   %248 = icmp ugt ptr %.ptr438, %246
   br i1 %248, label %.lr.ph.i332, label %._crit_edge.i317
 
-.lr.ph.i332:                                      ; preds = %245, %250
-  %.03141.i333 = phi ptr [ %251, %250 ], [ %246, %245 ]
-  %.03240.i334 = phi ptr [ %252, %250 ], [ %247, %245 ]
+.lr.ph.i332:                                      ; preds = %245, %249
+  %.03141.i333 = phi ptr [ %250, %249 ], [ %246, %245 ]
+  %.03240.i334 = phi ptr [ %251, %249 ], [ %247, %245 ]
   %.032.val.i335 = load i64, ptr %.03240.i334, align 1
   %.031.val.i336 = load i64, ptr %.03141.i333, align 1
-  %249 = xor i64 %.031.val.i336, %.032.val.i335
-  %.not.i337 = icmp eq i64 %249, 0
-  br i1 %.not.i337, label %250, label %254
+  %.not.i337 = icmp eq i64 %.032.val.i335, %.031.val.i336
+  br i1 %.not.i337, label %249, label %253
 
-250:                                              ; preds = %.lr.ph.i332
-  %251 = getelementptr inbounds i8, ptr %.03141.i333, i64 8
-  %252 = getelementptr inbounds i8, ptr %.03240.i334, i64 8
-  %253 = icmp ult ptr %251, %.ptr438
-  br i1 %253, label %.lr.ph.i332, label %._crit_edge.i317, !llvm.loop !10
+249:                                              ; preds = %.lr.ph.i332
+  %250 = getelementptr inbounds i8, ptr %.03141.i333, i64 8
+  %251 = getelementptr inbounds i8, ptr %.03240.i334, i64 8
+  %252 = icmp ult ptr %250, %.ptr438
+  br i1 %252, label %.lr.ph.i332, label %._crit_edge.i317, !llvm.loop !10
 
-254:                                              ; preds = %.lr.ph.i332
-  %255 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %249, i1 true)
+253:                                              ; preds = %.lr.ph.i332
+  %254 = xor i64 %.031.val.i336, %.032.val.i335
+  %255 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %254, i1 true)
   %256 = lshr i64 %255, 3
   %257 = getelementptr inbounds i8, ptr %.03141.i333, i64 %256
   br label %_ZL9LZ4_countPKhS0_S0_.exit338
 
-._crit_edge.i317:                                 ; preds = %250, %245
-  %.032.lcssa.i318 = phi ptr [ %247, %245 ], [ %252, %250 ]
-  %.031.lcssa.i319 = phi ptr [ %246, %245 ], [ %251, %250 ]
+._crit_edge.i317:                                 ; preds = %249, %245
+  %.032.lcssa.i318 = phi ptr [ %247, %245 ], [ %251, %249 ]
+  %.031.lcssa.i319 = phi ptr [ %246, %245 ], [ %250, %249 ]
   %258 = icmp ult ptr %.031.lcssa.i319, %65
   br i1 %258, label %259, label %264
 
@@ -657,8 +657,8 @@ _ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %216, %233, %235
   %spec.select.i327 = getelementptr inbounds i8, ptr %.2.i323, i64 %spec.select.idx.i326
   br label %_ZL9LZ4_countPKhS0_S0_.exit338
 
-_ZL9LZ4_countPKhS0_S0_.exit338:                   ; preds = %254, %271, %273
-  %.3.sink.i324 = phi ptr [ %257, %254 ], [ %.2.i323, %271 ], [ %spec.select.i327, %273 ]
+_ZL9LZ4_countPKhS0_S0_.exit338:                   ; preds = %253, %271, %273
+  %.3.sink.i324 = phi ptr [ %257, %253 ], [ %.2.i323, %271 ], [ %spec.select.i327, %273 ]
   %277 = ptrtoint ptr %.3.sink.i324 to i64
   %278 = ptrtoint ptr %246 to i64
   %279 = sub i64 %277, %278
@@ -2299,30 +2299,30 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %107, %223
   %118 = icmp ugt ptr %.ptr291, %116
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %_ZL12LZ4_wildCopyPvPKvS_.exit, %120
-  %.03141.i = phi ptr [ %121, %120 ], [ %116, %_ZL12LZ4_wildCopyPvPKvS_.exit ]
-  %.03240.i = phi ptr [ %122, %120 ], [ %117, %_ZL12LZ4_wildCopyPvPKvS_.exit ]
+.lr.ph.i:                                         ; preds = %_ZL12LZ4_wildCopyPvPKvS_.exit, %119
+  %.03141.i = phi ptr [ %120, %119 ], [ %116, %_ZL12LZ4_wildCopyPvPKvS_.exit ]
+  %.03240.i = phi ptr [ %121, %119 ], [ %117, %_ZL12LZ4_wildCopyPvPKvS_.exit ]
   %.032.val.i = load i64, ptr %.03240.i, align 1
   %.031.val.i = load i64, ptr %.03141.i, align 1
-  %119 = xor i64 %.031.val.i, %.032.val.i
-  %.not.i = icmp eq i64 %119, 0
-  br i1 %.not.i, label %120, label %124
+  %.not.i = icmp eq i64 %.032.val.i, %.031.val.i
+  br i1 %.not.i, label %119, label %123
 
-120:                                              ; preds = %.lr.ph.i
-  %121 = getelementptr inbounds i8, ptr %.03141.i, i64 8
-  %122 = getelementptr inbounds i8, ptr %.03240.i, i64 8
-  %123 = icmp ult ptr %121, %.ptr291
-  br i1 %123, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+119:                                              ; preds = %.lr.ph.i
+  %120 = getelementptr inbounds i8, ptr %.03141.i, i64 8
+  %121 = getelementptr inbounds i8, ptr %.03240.i, i64 8
+  %122 = icmp ult ptr %120, %.ptr291
+  br i1 %122, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
-124:                                              ; preds = %.lr.ph.i
-  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %119, i1 true)
+123:                                              ; preds = %.lr.ph.i
+  %124 = xor i64 %.031.val.i, %.032.val.i
+  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %124, i1 true)
   %126 = lshr i64 %125, 3
   %127 = getelementptr inbounds i8, ptr %.03141.i, i64 %126
   br label %_ZL9LZ4_countPKhS0_S0_.exit
 
-._crit_edge.i:                                    ; preds = %120, %_ZL12LZ4_wildCopyPvPKvS_.exit
-  %.032.lcssa.i = phi ptr [ %117, %_ZL12LZ4_wildCopyPvPKvS_.exit ], [ %122, %120 ]
-  %.031.lcssa.i = phi ptr [ %116, %_ZL12LZ4_wildCopyPvPKvS_.exit ], [ %121, %120 ]
+._crit_edge.i:                                    ; preds = %119, %_ZL12LZ4_wildCopyPvPKvS_.exit
+  %.032.lcssa.i = phi ptr [ %117, %_ZL12LZ4_wildCopyPvPKvS_.exit ], [ %121, %119 ]
+  %.031.lcssa.i = phi ptr [ %116, %_ZL12LZ4_wildCopyPvPKvS_.exit ], [ %120, %119 ]
   %128 = icmp ult ptr %.031.lcssa.i, %40
   br i1 %128, label %129, label %134
 
@@ -2368,8 +2368,8 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %107, %223
   %spec.select.i = getelementptr inbounds i8, ptr %.2.i, i64 %spec.select.idx.i
   br label %_ZL9LZ4_countPKhS0_S0_.exit
 
-_ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %124, %141, %143
-  %.3.sink.i = phi ptr [ %127, %124 ], [ %.2.i, %141 ], [ %spec.select.i, %143 ]
+_ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %123, %141, %143
+  %.3.sink.i = phi ptr [ %127, %123 ], [ %.2.i, %141 ], [ %spec.select.i, %143 ]
   %147 = ptrtoint ptr %.3.sink.i to i64
   %148 = ptrtoint ptr %116 to i64
   %149 = sub i64 %147, %148

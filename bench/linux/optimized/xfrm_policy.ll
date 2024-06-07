@@ -10648,12 +10648,12 @@ define internal i32 @xfrm_pol_bin_cmp(ptr nocapture noundef readonly %0, ptr noc
   %10 = load i8, ptr %9, align 2
   %11 = getelementptr inbounds i8, ptr %4, i64 14
   %12 = load i8, ptr %11, align 2
-  %13 = xor i8 %12, %10
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %17, label %15
+  %13 = icmp eq i8 %12, %10
+  br i1 %13, label %17, label %14
 
-15:                                               ; preds = %8
-  %16 = zext i8 %13 to i32
+14:                                               ; preds = %8
+  %15 = xor i8 %12, %10
+  %16 = zext i8 %15 to i32
   br label %41
 
 17:                                               ; preds = %8
@@ -10661,12 +10661,12 @@ define internal i32 @xfrm_pol_bin_cmp(ptr nocapture noundef readonly %0, ptr noc
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds i8, ptr %4, i64 15
   %21 = load i8, ptr %20, align 1
-  %22 = xor i8 %21, %19
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %26, label %24
+  %22 = icmp eq i8 %21, %19
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %17
-  %25 = zext i8 %22 to i32
+23:                                               ; preds = %17
+  %24 = xor i8 %21, %19
+  %25 = zext i8 %24 to i32
   br label %41
 
 26:                                               ; preds = %17
@@ -10674,12 +10674,12 @@ define internal i32 @xfrm_pol_bin_cmp(ptr nocapture noundef readonly %0, ptr noc
   %28 = load i16, ptr %27, align 4
   %29 = getelementptr inbounds i8, ptr %4, i64 12
   %30 = load i16, ptr %29, align 4
-  %31 = xor i16 %30, %28
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %35, label %33
+  %31 = icmp eq i16 %30, %28
+  br i1 %31, label %35, label %32
 
-33:                                               ; preds = %26
-  %34 = zext i16 %31 to i32
+32:                                               ; preds = %26
+  %33 = xor i16 %30, %28
+  %34 = zext i16 %33 to i32
   br label %41
 
 35:                                               ; preds = %26
@@ -10690,8 +10690,8 @@ define internal i32 @xfrm_pol_bin_cmp(ptr nocapture noundef readonly %0, ptr noc
   %40 = xor i32 %39, %37
   br label %41
 
-41:                                               ; preds = %35, %33, %24, %15, %2
-  %42 = phi i32 [ %16, %15 ], [ %25, %24 ], [ %34, %33 ], [ %40, %35 ], [ -1, %2 ]
+41:                                               ; preds = %35, %32, %23, %14, %2
+  %42 = phi i32 [ %16, %14 ], [ %25, %23 ], [ %34, %32 ], [ %40, %35 ], [ -1, %2 ]
   ret i32 %42
 }
 

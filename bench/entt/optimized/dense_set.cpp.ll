@@ -33203,7 +33203,7 @@ invoke.cont365:                                   ; preds = %cleanup.cont361
   store i8 %frombool373, ptr %gtest_ar_370, align 8, !tbaa !41
   %message_.i1659 = getelementptr inbounds i8, ptr %gtest_ar_370, i64 8
   store ptr null, ptr %message_.i1659, align 8, !tbaa !49
-  %tobool.i1660.not = icmp eq i8 %frombool373, 0
+  %tobool.i1660.not = icmp eq i8 %218, 1
   br i1 %tobool.i1660.not, label %if.else381, label %cleanup.cont405
 
 ehcleanup362:                                     ; preds = %ehcleanup355, %lpad334
@@ -34580,7 +34580,7 @@ invoke.cont737:                                   ; preds = %cleanup.cont732
   store i8 %frombool747, ptr %gtest_ar_743, align 8, !tbaa !41
   %message_.i1954 = getelementptr inbounds i8, ptr %gtest_ar_743, i64 8
   store ptr null, ptr %message_.i1954, align 8, !tbaa !49
-  %tobool.i1955.not = icmp eq i8 %frombool747, 0
+  %tobool.i1955.not = icmp eq i8 %380, 1
   br i1 %tobool.i1955.not, label %if.else755, label %cleanup.cont779
 
 ehcleanup733:                                     ; preds = %ehcleanup726, %lpad705
@@ -39678,8 +39678,8 @@ cleanup.cont221:                                  ; preds = %_ZNKSt14default_del
   store i64 %and.i.i.i692, ptr %ref.tmp224, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp229) #22
   store i32 1, ptr %ref.tmp229, align 4, !tbaa !58
-  %cmp.i.i694.not = icmp eq i64 %and.i.i.i692, 0
-  br i1 %cmp.i.i694.not, label %if.end.i.i695, label %if.then.i.i696
+  %cmp.i.i694.not.not = icmp eq i64 %136, 0
+  br i1 %cmp.i.i694.not.not, label %if.then.i.i696, label %if.end.i.i695
 
 if.then.i.i696:                                   ; preds = %cleanup.cont221
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar223)
@@ -42302,7 +42302,7 @@ invoke.cont365:                                   ; preds = %cleanup.cont361
   store i8 %frombool373, ptr %gtest_ar_370, align 8, !tbaa !41
   %message_.i1508 = getelementptr inbounds i8, ptr %gtest_ar_370, i64 8
   store ptr null, ptr %message_.i1508, align 8, !tbaa !49
-  %tobool.i1509.not = icmp eq i8 %frombool373, 0
+  %tobool.i1509.not = icmp eq i8 %216, 1
   br i1 %tobool.i1509.not, label %if.else381, label %cleanup.cont405
 
 ehcleanup362:                                     ; preds = %ehcleanup355, %lpad334
@@ -43679,7 +43679,7 @@ invoke.cont737:                                   ; preds = %cleanup.cont732
   store i8 %frombool747, ptr %gtest_ar_743, align 8, !tbaa !41
   %message_.i1803 = getelementptr inbounds i8, ptr %gtest_ar_743, i64 8
   store ptr null, ptr %message_.i1803, align 8, !tbaa !49
-  %tobool.i1804.not = icmp eq i8 %frombool747, 0
+  %tobool.i1804.not = icmp eq i8 %380, 1
   br i1 %tobool.i1804.not, label %if.else755, label %cleanup.cont779
 
 ehcleanup733:                                     ; preds = %ehcleanup726, %lpad705
@@ -48666,8 +48666,8 @@ cleanup.cont221:                                  ; preds = %_ZNKSt14default_del
   store i64 %and.i.i.i689, ptr %ref.tmp224, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp229) #22
   store i32 1, ptr %ref.tmp229, align 4, !tbaa !58
-  %cmp.i.i691.not = icmp eq i64 %and.i.i.i689, 0
-  br i1 %cmp.i.i691.not, label %if.end.i.i692, label %if.then.i.i693
+  %cmp.i.i691.not.not = icmp eq i64 %136, 0
+  br i1 %cmp.i.i691.not.not, label %if.then.i.i693, label %if.end.i.i692
 
 if.then.i.i693:                                   ; preds = %cleanup.cont221
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar223)

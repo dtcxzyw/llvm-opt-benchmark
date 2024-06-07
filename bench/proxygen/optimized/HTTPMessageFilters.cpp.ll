@@ -807,13 +807,13 @@ if.then.i.i:                                      ; preds = %invoke.cont8
   %cmp.i.i.i = icmp eq i32 %4, 0
   %storage_.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %6, ptr %storage_.i.i3.i.i, align 8
-  br i1 %cmp.i.i.i, label %invoke.cont11, label %sw.bb.i47.i.i.i
+  br i1 %cmp.i.i.i, label %invoke.cont11, label %if.else.i.i.i
 
-sw.bb.i47.i.i.i:                                  ; preds = %if.then.i.i
+if.else.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %prev_, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %sw.bb.i47.i.i.i, %if.then.i.i, %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i
+invoke.cont11:                                    ; preds = %if.else.i.i.i, %if.then.i.i, %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.end

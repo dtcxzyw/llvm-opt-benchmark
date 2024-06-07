@@ -9805,7 +9805,7 @@ define dso_local i64 @bf_mul_log2_radix(i64 noundef %0, i32 noundef %1, i32 noun
   br i1 %.not39, label %20, label %15
 
 15:                                               ; preds = %8
-  %.not40 = icmp eq i32 %5, 0
+  %.not40 = icmp eq i32 %.0, %3
   %16 = add nsw i32 %.0.i, -1
   %narrow = select i1 %.not40, i32 0, i32 %16
   %17 = sext i32 %narrow to i64
@@ -23528,7 +23528,7 @@ bf_cmpu.exit:                                     ; preds = %28, %17, %41
   %.0141 = select i1 %43, ptr %1, ptr %2
   %.0140 = select i1 %43, ptr %2, ptr %1
   %44 = icmp eq i32 %.0.i, 0
-  %45 = icmp ne i32 %12, 0
+  %45 = icmp ne i32 %8, %11
   %or.cond = select i1 %44, i1 %45, i1 false
   %46 = icmp slt i64 %14, 9223372036854775806
   %or.cond258 = and i1 %or.cond, %46
@@ -24196,7 +24196,7 @@ get_bits.exit192:                                 ; preds = %375, %382
   %398 = load i64, ptr %397, align 8
   %399 = or i64 %398, %.0142.lcssa
   store i64 %399, ptr %397, align 8
-  %400 = icmp eq i32 %12, 0
+  %400 = icmp eq i32 %8, %11
   %401 = icmp ne i64 %.1150.lcssa, 0
   %or.cond5 = select i1 %400, i1 %401, i1 false
   br i1 %or.cond5, label %402, label %418

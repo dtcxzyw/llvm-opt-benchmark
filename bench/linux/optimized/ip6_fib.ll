@@ -978,9 +978,9 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %81, label %88, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %53, %59, %72, %.thread
-  %.lcssa139 = phi i32 [ 0, %.thread ], [ %51, %72 ], [ %51, %59 ], [ %51, %53 ], [ %124, %38 ]
-  %.lcssa136 = phi ptr [ %0, %.thread ], [ %50, %72 ], [ %50, %59 ], [ %50, %53 ], [ %128, %38 ]
-  %.lcssa127 = phi ptr [ %33, %.thread ], [ %48, %72 ], [ %48, %59 ], [ %48, %53 ], [ %41, %38 ]
+  %.lcssa141 = phi i32 [ 0, %.thread ], [ %51, %72 ], [ %51, %59 ], [ %51, %53 ], [ %124, %38 ]
+  %.lcssa138 = phi ptr [ %0, %.thread ], [ %50, %72 ], [ %50, %59 ], [ %50, %53 ], [ %128, %38 ]
+  %.lcssa129 = phi ptr [ %33, %.thread ], [ %48, %72 ], [ %48, %59 ], [ %48, %53 ], [ %41, %38 ]
   br i1 %28, label %82, label %153
 
 82:                                               ; preds = %._crit_edge
@@ -1123,7 +1123,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread56
 
 153:                                              ; preds = %86, %._crit_edge
-  %154 = load ptr, ptr %.lcssa136, align 8
+  %154 = load ptr, ptr %.lcssa138, align 8
   br label %156
 
 155:                                              ; preds = %156
@@ -1134,14 +1134,14 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %158 = phi i64 [ 0, %153 ], [ 1, %155 ]
   %159 = getelementptr i64, ptr %23, i64 %158
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr i64, ptr %.lcssa127, i64 %158
+  %161 = getelementptr i64, ptr %.lcssa129, i64 %158
   %162 = load i64, ptr %161, align 8
-  %163 = xor i64 %162, %160
-  %164 = icmp eq i64 %163, 0
-  br i1 %164, label %155, label %165
+  %163 = icmp eq i64 %162, %160
+  br i1 %163, label %155, label %164
 
-165:                                              ; preds = %156
-  %166 = tail call i64 @llvm.bswap.i64(i64 %163)
+164:                                              ; preds = %156
+  %165 = xor i64 %162, %160
+  %166 = tail call i64 @llvm.bswap.i64(i64 %165)
   %167 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %166) #17, !srcloc !35
   %168 = trunc i64 %167 to i32
   %169 = trunc nuw nsw i64 %158 to i32
@@ -1150,8 +1150,8 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %172 = sub i32 %171, %168
   br label %.loopexit105
 
-.loopexit105:                                     ; preds = %155, %165
-  %173 = phi i32 [ %172, %165 ], [ 128, %155 ]
+.loopexit105:                                     ; preds = %155, %164
+  %173 = phi i32 [ %172, %164 ], [ 128, %155 ]
   %174 = icmp slt i32 %173, %25
   %175 = load ptr, ptr @fib6_node_kmem, align 8
   %176 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %175, i32 noundef 2336) #13
@@ -1159,7 +1159,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %174, label %178, label %245
 
 178:                                              ; preds = %.loopexit105
-  br i1 %177, label %179, label %.thread194
+  br i1 %177, label %179, label %.thread198
 
 179:                                              ; preds = %178
   %180 = load ptr, ptr @fib6_node_kmem, align 8
@@ -1167,7 +1167,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %182 = icmp eq ptr %181, null
   br i1 %182, label %.thread64, label %196
 
-.thread194:                                       ; preds = %178
+.thread198:                                       ; preds = %178
   %183 = getelementptr inbounds i8, ptr %22, i64 1896
   %184 = load ptr, ptr %183, align 8
   %185 = load i32, ptr %184, align 4
@@ -1178,7 +1178,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %205
 
-190:                                              ; preds = %.thread194
+190:                                              ; preds = %.thread198
   %191 = load ptr, ptr @fib6_node_kmem, align 8
   tail call void @kmem_cache_free(ptr noundef %191, ptr noundef nonnull %176) #13
   %192 = getelementptr inbounds i8, ptr %22, i64 1896
@@ -1202,7 +1202,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %204, ptr %202, align 4
   br label %.thread64
 
-205:                                              ; preds = %.thread194
+205:                                              ; preds = %.thread198
   %206 = getelementptr inbounds i8, ptr %22, i64 1896
   %207 = load ptr, ptr %206, align 8
   %208 = load i32, ptr %207, align 4
@@ -1212,7 +1212,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %211 = getelementptr inbounds i8, ptr %176, i64 32
   store i16 %210, ptr %211, align 8
   store volatile ptr %154, ptr %176, align 8
-  %212 = getelementptr inbounds i8, ptr %.lcssa136, i64 24
+  %212 = getelementptr inbounds i8, ptr %.lcssa138, i64 24
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %176, i64 24
   store ptr %213, ptr %214, align 8
@@ -1233,7 +1233,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %224
 
 224:                                              ; preds = %222, %218
-  %225 = icmp eq i32 %.lcssa139, 0
+  %225 = icmp eq i32 %.lcssa141, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13
   %226 = select i1 %225, i64 8, i64 16
   %227 = getelementptr inbounds i8, ptr %154, i64 %226
@@ -1243,7 +1243,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i16 %228, ptr %229, align 8
   store volatile ptr %176, ptr %188, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
-  store volatile ptr %176, ptr %.lcssa136, align 8
+  store volatile ptr %176, ptr %.lcssa138, align 8
   %230 = and i32 %173, 31
   %231 = xor i32 %230, 7
   %232 = shl nuw i32 1, %231
@@ -1261,7 +1261,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store volatile ptr %188, ptr %240, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !38
   %241 = getelementptr inbounds i8, ptr %176, i64 8
-  store volatile ptr %.lcssa136, ptr %241, align 8
+  store volatile ptr %.lcssa138, ptr %241, align 8
   br label %.thread56
 
 242:                                              ; preds = %224
@@ -1269,7 +1269,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store volatile ptr %188, ptr %243, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !39
   %244 = getelementptr inbounds i8, ptr %176, i64 16
-  store volatile ptr %.lcssa136, ptr %244, align 8
+  store volatile ptr %.lcssa138, ptr %244, align 8
   br label %.thread56
 
 245:                                              ; preds = %.loopexit105
@@ -1290,16 +1290,16 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %255 = shl nuw i32 1, %254
   %256 = ashr i32 %25, 5
   %257 = sext i32 %256 to i64
-  %258 = getelementptr i32, ptr %.lcssa127, i64 %257
+  %258 = getelementptr i32, ptr %.lcssa129, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, %255
   %261 = icmp eq i32 %260, 0
   %262 = select i1 %261, i64 8, i64 16
   %263 = getelementptr inbounds i8, ptr %176, i64 %262
-  store volatile ptr %.lcssa136, ptr %263, align 8
+  store volatile ptr %.lcssa138, ptr %263, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
-  store volatile ptr %176, ptr %.lcssa136, align 8
-  %264 = icmp eq i32 %.lcssa139, 0
+  store volatile ptr %176, ptr %.lcssa138, align 8
+  %264 = icmp eq i32 %.lcssa141, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13
   br i1 %264, label %267, label %265
 
@@ -1387,11 +1387,11 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %317 = getelementptr inbounds i8, ptr %1, i64 40
   br label %318
 
-318:                                              ; preds = %.thread196, %310
-  %319 = phi ptr [ %276, %310 ], [ %434, %.thread196 ]
-  %320 = phi ptr [ %275, %310 ], [ %433, %.thread196 ]
-  %321 = phi ptr [ null, %310 ], [ %432, %.thread196 ]
-  %322 = phi i16 [ %308, %310 ], [ %431, %.thread196 ]
+318:                                              ; preds = %.thread200, %310
+  %319 = phi ptr [ %276, %310 ], [ %434, %.thread200 ]
+  %320 = phi ptr [ %275, %310 ], [ %433, %.thread200 ]
+  %321 = phi ptr [ null, %310 ], [ %432, %.thread200 ]
+  %322 = phi i16 [ %308, %310 ], [ %431, %.thread200 ]
   %323 = getelementptr inbounds i8, ptr %319, i64 128
   %324 = load i32, ptr %323, align 8
   %325 = icmp eq i32 %324, %312
@@ -1439,7 +1439,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 350:                                              ; preds = %.thr_comm66, %345
   %351 = icmp eq ptr %321, null
   %352 = select i1 %351, ptr %320, ptr %321
-  br label %.thread196
+  br label %.thread200
 
 353:                                              ; preds = %334
   %354 = getelementptr inbounds i8, ptr %319, i64 160
@@ -1540,7 +1540,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread76
 
 413:                                              ; preds = %358, %365, %360
-  br i1 %301, label %414, label %.thread196
+  br i1 %301, label %414, label %.thread200
 
 414:                                              ; preds = %413
   %415 = getelementptr inbounds i8, ptr %319, i64 84
@@ -1548,28 +1548,28 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %417 = and i32 %416, 262144
   %418 = icmp ne i32 %417, 0
   %419 = or i1 %356, %418
-  br i1 %419, label %.thread196, label %420
+  br i1 %419, label %.thread200, label %420
 
 420:                                              ; preds = %414
   %421 = getelementptr inbounds i8, ptr %319, i64 182
   %422 = load i8, ptr %421, align 2
   %423 = icmp eq i8 %422, 0
-  br i1 %423, label %.thread196, label %424
+  br i1 %423, label %.thread200, label %424
 
 424:                                              ; preds = %420
   %425 = load i32, ptr %317, align 8
   %426 = add i32 %425, 1
   store i32 %426, ptr %317, align 8
-  %.pre191 = load i32, ptr %323, align 8
+  %.pre195 = load i32, ptr %323, align 8
   br label %427
 
 427:                                              ; preds = %424, %318
-  %428 = phi i32 [ %.pre191, %424 ], [ %324, %318 ]
+  %428 = phi i32 [ %.pre195, %424 ], [ %324, %318 ]
   %429 = phi i16 [ %335, %424 ], [ %322, %318 ]
   %430 = icmp ugt i32 %428, %312
-  br i1 %430, label %436, label %.thread196
+  br i1 %430, label %436, label %.thread200
 
-.thread196:                                       ; preds = %414, %413, %420, %427, %350
+.thread200:                                       ; preds = %414, %413, %420, %427, %350
   %431 = phi i16 [ %335, %350 ], [ %429, %427 ], [ %335, %420 ], [ %335, %413 ], [ %335, %414 ]
   %432 = phi ptr [ %352, %350 ], [ %321, %427 ], [ %321, %420 ], [ %321, %413 ], [ %321, %414 ]
   %433 = getelementptr inbounds i8, ptr %319, i64 8
@@ -1577,11 +1577,11 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %435 = icmp eq ptr %434, null
   br i1 %435, label %436, label %318, !llvm.loop !41
 
-436:                                              ; preds = %.thread196, %427
-  %437 = phi ptr [ %432, %.thread196 ], [ %321, %427 ]
-  %438 = phi ptr [ %433, %.thread196 ], [ %320, %427 ]
-  %439 = phi ptr [ null, %.thread196 ], [ %319, %427 ]
-  %440 = phi i16 [ %431, %.thread196 ], [ %429, %427 ]
+436:                                              ; preds = %.thread200, %427
+  %437 = phi ptr [ %432, %.thread200 ], [ %321, %427 ]
+  %438 = phi ptr [ %433, %.thread200 ], [ %320, %427 ]
+  %439 = phi ptr [ null, %.thread200 ], [ %319, %427 ]
+  %440 = phi i16 [ %431, %.thread200 ], [ %429, %427 ]
   %441 = icmp eq ptr %437, null
   br i1 %441, label %.thread74, label %442
 
@@ -1681,7 +1681,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %501, label %.loopexit104..loopexit103_crit_edge, label %.preheader102
 
 .loopexit104..loopexit103_crit_edge:              ; preds = %.loopexit104
-  %.pre192 = load i32, ptr %459, align 8
+  %.pre196 = load i32, ptr %459, align 8
   br label %.loopexit103
 
 .preheader102:                                    ; preds = %.loopexit104, %512
@@ -1710,7 +1710,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %516, label %.loopexit103, label %.preheader102, !llvm.loop !45
 
 .loopexit103:                                     ; preds = %512, %.loopexit104..loopexit103_crit_edge
-  %517 = phi i32 [ %.pre192, %.loopexit104..loopexit103_crit_edge ], [ %508, %512 ]
+  %517 = phi i32 [ %.pre196, %.loopexit104..loopexit103_crit_edge ], [ %508, %512 ]
   %518 = phi i32 [ 0, %.loopexit104..loopexit103_crit_edge ], [ %513, %512 ]
   %519 = phi ptr [ %500, %.loopexit104..loopexit103_crit_edge ], [ %515, %512 ]
   %520 = icmp eq i32 %518, %517
@@ -1794,11 +1794,11 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %566, label %.loopexit101.loopexit, label %.preheader100, !llvm.loop !48
 
 .loopexit101.loopexit:                            ; preds = %.preheader100
-  %.pre193 = load ptr, ptr %552, align 8
+  %.pre197 = load ptr, ptr %552, align 8
   br label %.loopexit101
 
 .loopexit101:                                     ; preds = %.loopexit101.loopexit, %551
-  %567 = phi ptr [ %553, %551 ], [ %.pre193, %.loopexit101.loopexit ]
+  %567 = phi ptr [ %553, %551 ], [ %.pre197, %.loopexit101.loopexit ]
   %568 = phi ptr [ %556, %551 ], [ %565, %.loopexit101.loopexit ]
   store i32 0, ptr %459, align 8
   %569 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2148,10 +2148,10 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %762 = icmp ult i8 %761, 2
   call void @llvm.assume(i1 %762)
   %763 = icmp eq i8 %761, 0
-  br i1 %763, label %.lr.ph159, label %._crit_edge160, !prof !6
+  br i1 %763, label %.lr.ph161, label %._crit_edge162, !prof !6
 
-.lr.ph159:                                        ; preds = %753, %.lr.ph159
-  %764 = phi { i8, i32 } [ %769, %.lr.ph159 ], [ %760, %753 ]
+.lr.ph161:                                        ; preds = %753, %.lr.ph161
+  %764 = phi { i8, i32 } [ %769, %.lr.ph161 ], [ %760, %753 ]
   %765 = extractvalue { i8, i32 } %764, 1
   %766 = icmp eq i32 %765, 2147483647
   %767 = add i32 %765, 1
@@ -2161,25 +2161,25 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %771 = icmp ult i8 %770, 2
   call void @llvm.assume(i1 %771)
   %772 = icmp eq i8 %770, 0
-  br i1 %772, label %.lr.ph159, label %._crit_edge160, !prof !7, !llvm.loop !8
+  br i1 %772, label %.lr.ph161, label %._crit_edge162, !prof !7, !llvm.loop !8
 
-._crit_edge160:                                   ; preds = %.lr.ph159, %753
-  %.lcssa = phi i32 [ %759, %753 ], [ %768, %.lr.ph159 ]
+._crit_edge162:                                   ; preds = %.lr.ph161, %753
+  %.lcssa = phi i32 [ %759, %753 ], [ %768, %.lr.ph161 ]
   %773 = getelementptr inbounds i8, ptr %1, i64 16
   %774 = load ptr, ptr %773, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !31
   %775 = icmp eq ptr %774, null
   br i1 %775, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge160, %.preheader
-  %776 = phi ptr [ %778, %.preheader ], [ %774, %._crit_edge160 ]
+.preheader:                                       ; preds = %._crit_edge162, %.preheader
+  %776 = phi ptr [ %778, %.preheader ], [ %774, %._crit_edge162 ]
   %777 = getelementptr inbounds i8, ptr %776, i64 36
   store volatile i32 %.lcssa, ptr %777, align 4
   %778 = load ptr, ptr %776, align 8
   %779 = icmp eq ptr %778, null
   br i1 %779, label %.loopexit, label %.preheader, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge160
+.loopexit:                                        ; preds = %.preheader, %._crit_edge162
   %780 = load ptr, ptr %21, align 8
   %781 = getelementptr inbounds i8, ptr %780, i64 1904
   %782 = getelementptr inbounds i8, ptr %780, i64 1912

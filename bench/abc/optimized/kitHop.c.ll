@@ -424,12 +424,12 @@ Gia_ManAppendAnd.exit.i.us:                       ; preds = %247, %245
   br label %Gia_ManAppendAnd2.exit.us
 
 253:                                              ; preds = %51
-  %.not18.i.us = icmp eq i32 %47, 0
+  %.not18.i.us = icmp eq i32 %46, %45
   %254 = select i1 %.not18.i.us, i32 0, i32 %38
   br label %Gia_ManAppendAnd2.exit.us
 
 255:                                              ; preds = %49
-  %.not19.i.us = icmp eq i32 %38, 0
+  %.not19.i.us = icmp eq i32 %37, %36
   %256 = select i1 %.not19.i.us, i32 0, i32 %47
   br label %Gia_ManAppendAnd2.exit.us
 

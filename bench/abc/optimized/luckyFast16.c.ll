@@ -329,20 +329,20 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
   %20 = load i64, ptr %7, align 8
   %21 = and i64 %20, %17
   %22 = shl i64 %21, %9
-  %23 = xor i64 %22, %19
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %11, label %25, !llvm.loop !8
+  %23 = icmp eq i64 %19, %22
+  br i1 %23, label %11, label %24, !llvm.loop !8
 
-25:                                               ; preds = %14
-  %26 = getelementptr inbounds i64, ptr %0, i64 %15
-  %27 = trunc i64 %15 to i32
-  %28 = mul nsw i32 %27, 100
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds i64, ptr %0, i64 %15
+  %26 = trunc i64 %15 to i32
+  %27 = xor i64 %22, %19
+  %28 = mul nsw i32 %26, 100
   %29 = add nuw nsw i32 %28, 20
   %30 = icmp eq i32 %1, 4
   br i1 %30, label %firstShiftWithOneBit.exit, label %31
 
-31:                                               ; preds = %25
-  %32 = icmp ugt i64 %23, 4294967295
+31:                                               ; preds = %24
+  %32 = icmp ugt i64 %27, 4294967295
   %spec.select28.i = select i1 %32, i32 32, i32 0
   %33 = icmp eq i32 %1, 3
   br i1 %33, label %34, label %37
@@ -353,8 +353,8 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
   br label %firstShiftWithOneBit.exit
 
 37:                                               ; preds = %31
-  %38 = lshr i64 %23, 32
-  %spec.select.i = select i1 %32, i64 %38, i64 %23
+  %38 = lshr i64 %27, 32
+  %spec.select.i = select i1 %32, i64 %38, i64 %27
   %39 = icmp ugt i64 %spec.select.i, 65535
   %40 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %39, i32 %40, i32 %spec.select28.i
@@ -390,11 +390,11 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
   %54 = lshr i32 %.lhs.trunc31.i, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %25, %34, %42, %48, %50
-  %.021.i = phi i32 [ %36, %34 ], [ %.zext.i, %42 ], [ %49, %48 ], [ %54, %50 ], [ 0, %25 ]
+firstShiftWithOneBit.exit:                        ; preds = %24, %34, %42, %48, %50
+  %.021.i = phi i32 [ %36, %34 ], [ %.zext.i, %42 ], [ %49, %48 ], [ %54, %50 ], [ 0, %24 ]
   %55 = sub nuw i32 %29, %.021.i
   store i32 %55, ptr %3, align 4
-  %56 = load i64, ptr %26, align 8
+  %56 = load i64, ptr %25, align 8
   %57 = and i64 %56, %18
   %58 = and i64 %56, %20
   %59 = shl i64 %58, %9
@@ -440,20 +440,20 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
   %24 = load i64, ptr %10, align 16
   %25 = and i64 %24, %20
   %26 = shl i64 %25, %12
-  %27 = xor i64 %26, %23
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %14, label %29, !llvm.loop !9
+  %27 = icmp eq i64 %23, %26
+  br i1 %27, label %14, label %28, !llvm.loop !9
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds i64, ptr %0, i64 %18
-  %31 = trunc i64 %18 to i32
-  %32 = mul nsw i32 %31, 100
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds i64, ptr %0, i64 %18
+  %30 = trunc i64 %18 to i32
+  %31 = xor i64 %26, %23
+  %32 = mul nsw i32 %30, 100
   %33 = add nuw nsw i32 %32, 20
   %34 = icmp eq i32 %1, 4
   br i1 %34, label %firstShiftWithOneBit.exit, label %35
 
-35:                                               ; preds = %29
-  %36 = icmp ugt i64 %27, 4294967295
+35:                                               ; preds = %28
+  %36 = icmp ugt i64 %31, 4294967295
   %spec.select28.i = select i1 %36, i32 32, i32 0
   %37 = icmp eq i32 %1, 3
   br i1 %37, label %38, label %41
@@ -464,8 +464,8 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
   br label %firstShiftWithOneBit.exit
 
 41:                                               ; preds = %35
-  %42 = lshr i64 %27, 32
-  %spec.select.i = select i1 %36, i64 %42, i64 %27
+  %42 = lshr i64 %31, 32
+  %spec.select.i = select i1 %36, i64 %42, i64 %31
   %43 = icmp ugt i64 %spec.select.i, 65535
   %44 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %43, i32 %44, i32 %spec.select28.i
@@ -501,11 +501,11 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
   %58 = lshr i32 %.lhs.trunc31.i, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %29, %38, %46, %52, %54
-  %.021.i = phi i32 [ %40, %38 ], [ %.zext.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %29 ]
+firstShiftWithOneBit.exit:                        ; preds = %28, %38, %46, %52, %54
+  %.021.i = phi i32 [ %40, %38 ], [ %.zext.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %28 ]
   %59 = sub nuw i32 %33, %.021.i
   store i32 %59, ptr %3, align 4
-  %60 = load i64, ptr %30, align 8
+  %60 = load i64, ptr %29, align 8
   %61 = and i64 %60, %21
   %62 = shl i64 %61, %9
   %63 = and i64 %60, %24
@@ -553,20 +553,20 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
   %27 = load i64, ptr %13, align 8
   %28 = and i64 %27, %23
   %29 = shl i64 %28, %15
-  %30 = xor i64 %29, %26
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %17, label %32, !llvm.loop !10
+  %30 = icmp eq i64 %26, %29
+  br i1 %30, label %17, label %31, !llvm.loop !10
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds i64, ptr %0, i64 %21
-  %34 = trunc i64 %21 to i32
-  %35 = mul nsw i32 %34, 100
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds i64, ptr %0, i64 %21
+  %33 = trunc i64 %21 to i32
+  %34 = xor i64 %29, %26
+  %35 = mul nsw i32 %33, 100
   %36 = add nuw nsw i32 %35, 20
   %37 = icmp eq i32 %1, 4
   br i1 %37, label %firstShiftWithOneBit.exit, label %38
 
-38:                                               ; preds = %32
-  %39 = icmp ugt i64 %30, 4294967295
+38:                                               ; preds = %31
+  %39 = icmp ugt i64 %34, 4294967295
   %spec.select28.i = select i1 %39, i32 32, i32 0
   %40 = icmp eq i32 %1, 3
   br i1 %40, label %41, label %44
@@ -577,8 +577,8 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
   br label %firstShiftWithOneBit.exit
 
 44:                                               ; preds = %38
-  %45 = lshr i64 %30, 32
-  %spec.select.i = select i1 %39, i64 %45, i64 %30
+  %45 = lshr i64 %34, 32
+  %spec.select.i = select i1 %39, i64 %45, i64 %34
   %46 = icmp ugt i64 %spec.select.i, 65535
   %47 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %46, i32 %47, i32 %spec.select28.i
@@ -614,11 +614,11 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
   %61 = lshr i32 %.lhs.trunc31.i, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %55, %57
-  %.021.i = phi i32 [ %43, %41 ], [ %.zext.i, %49 ], [ %56, %55 ], [ %61, %57 ], [ 0, %32 ]
+firstShiftWithOneBit.exit:                        ; preds = %31, %41, %49, %55, %57
+  %.021.i = phi i32 [ %43, %41 ], [ %.zext.i, %49 ], [ %56, %55 ], [ %61, %57 ], [ 0, %31 ]
   %62 = sub nuw i32 %36, %.021.i
   store i32 %62, ptr %5, align 4
-  %63 = load i64, ptr %33, align 8
+  %63 = load i64, ptr %32, align 8
   %64 = and i64 %63, %24
   %65 = shl i64 %64, %11
   %66 = and i64 %63, %27
@@ -638,8 +638,8 @@ firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %55, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
-  %.not45 = icmp slt i32 %2, %3
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not46 = icmp slt i32 %2, %3
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = sext i32 %1 to i64
@@ -665,20 +665,20 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
   %25 = shl i64 %24, %13
   %26 = and i64 %16, %23
   %27 = shl i64 %26, %18
-  %28 = xor i64 %27, %25
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %66, label %30
+  %28 = icmp eq i64 %25, %27
+  br i1 %28, label %66, label %29
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
-  %32 = trunc nsw i64 %indvars.iv to i32
-  %33 = mul nsw i32 %32, 100
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %31 = trunc nsw i64 %indvars.iv to i32
+  %32 = xor i64 %27, %25
+  %33 = mul nsw i32 %31, 100
   %34 = add nsw i32 %33, 20
   %35 = icmp eq i32 %1, 4
   br i1 %35, label %firstShiftWithOneBit.exit, label %36
 
-36:                                               ; preds = %30
-  %37 = icmp ugt i64 %28, 4294967295
+36:                                               ; preds = %29
+  %37 = icmp ugt i64 %32, 4294967295
   %spec.select28.i = select i1 %37, i32 32, i32 0
   %38 = icmp eq i32 %1, 3
   br i1 %38, label %39, label %42
@@ -689,8 +689,8 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
   br label %firstShiftWithOneBit.exit
 
 42:                                               ; preds = %36
-  %43 = lshr i64 %28, 32
-  %spec.select.i = select i1 %37, i64 %43, i64 %28
+  %43 = lshr i64 %32, 32
+  %spec.select.i = select i1 %37, i64 %43, i64 %32
   %44 = icmp ugt i64 %spec.select.i, 65535
   %45 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %44, i32 %45, i32 %spec.select28.i
@@ -726,11 +726,11 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
   %59 = lshr i32 %.lhs.trunc31.i, 2
   br label %firstShiftWithOneBit.exit
 
-firstShiftWithOneBit.exit:                        ; preds = %30, %39, %47, %53, %55
-  %.021.i = phi i32 [ %41, %39 ], [ %.zext.i, %47 ], [ %54, %53 ], [ %59, %55 ], [ 0, %30 ]
+firstShiftWithOneBit.exit:                        ; preds = %29, %39, %47, %53, %55
+  %.021.i = phi i32 [ %41, %39 ], [ %.zext.i, %47 ], [ %54, %53 ], [ %59, %55 ], [ 0, %29 ]
   %60 = sub nsw i32 %34, %.021.i
   store i32 %60, ptr %6, align 4
-  %61 = load i64, ptr %31, align 8
+  %61 = load i64, ptr %30, align 8
   %62 = and i64 %61, %11
   %63 = shl i64 %62, %13
   %64 = and i64 %61, %16
@@ -783,19 +783,19 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
   %25 = load i64, ptr %12, align 8
   %26 = and i64 %25, %22
   %27 = shl i64 %26, %14
-  %28 = xor i64 %27, %24
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %16, label %30, !llvm.loop !8
+  %28 = icmp eq i64 %24, %27
+  br i1 %28, label %16, label %29, !llvm.loop !8
 
-30:                                               ; preds = %19
-  %31 = trunc i64 %20 to i32
-  %32 = mul nsw i32 %31, 100
+29:                                               ; preds = %19
+  %30 = trunc i64 %20 to i32
+  %31 = xor i64 %27, %24
+  %32 = mul nsw i32 %30, 100
   %33 = add nuw nsw i32 %32, 20
   %34 = icmp eq i32 %1, 4
   br i1 %34, label %firstShiftWithOneBit.exit.i, label %35
 
-35:                                               ; preds = %30
-  %36 = icmp ugt i64 %28, 4294967295
+35:                                               ; preds = %29
+  %36 = icmp ugt i64 %31, 4294967295
   %spec.select28.i.i = select i1 %36, i32 32, i32 0
   %37 = icmp eq i32 %1, 3
   br i1 %37, label %38, label %41
@@ -806,8 +806,8 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
   br label %firstShiftWithOneBit.exit.i
 
 41:                                               ; preds = %35
-  %42 = lshr i64 %28, 32
-  %spec.select.i.i = select i1 %36, i64 %42, i64 %28
+  %42 = lshr i64 %31, 32
+  %spec.select.i.i = select i1 %36, i64 %42, i64 %31
   %43 = icmp ugt i64 %spec.select.i.i, 65535
   %44 = or disjoint i32 %spec.select28.i.i, 16
   %.1.i.i = select i1 %43, i32 %44, i32 %spec.select28.i.i
@@ -843,8 +843,8 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
   %58 = lshr i32 %.lhs.trunc31.i.i, 2
   br label %firstShiftWithOneBit.exit.i
 
-firstShiftWithOneBit.exit.i:                      ; preds = %54, %52, %46, %38, %30
-  %.021.i.i = phi i32 [ %40, %38 ], [ %.zext.i.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %30 ]
+firstShiftWithOneBit.exit.i:                      ; preds = %54, %52, %46, %38, %29
+  %.021.i.i = phi i32 [ %40, %38 ], [ %.zext.i.i, %46 ], [ %53, %52 ], [ %58, %54 ], [ 0, %29 ]
   %59 = sub nuw i32 %33, %.021.i.i
   %60 = icmp ult i64 %24, %27
   %..i = select i1 %60, i32 0, i32 3

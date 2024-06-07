@@ -10122,8 +10122,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %27 = icmp slt <16 x i8> %26, zeroinitializer
   %28 = bitcast <16 x i1> %27 to i16
   %29 = and i16 %28, 16383
-  %30 = xor i16 %29, 16383
-  %cmp.i63.not = icmp eq i16 %30, 0
+  %cmp.i63.not = icmp eq i16 %29, 16383
   br i1 %cmp.i63.not, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit
@@ -10132,15 +10131,15 @@ if.then11:                                        ; preds = %_ZN5folly3f146detai
   br label %do.body
 
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, %if.then11
-  %31 = phi i64 [ %and.i62, %if.then11 ], [ %and.i74, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
+  %30 = phi i64 [ %and.i62, %if.then11 ], [ %and.i74, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then11 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i66 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %31, i32 2
-  %32 = load i8, ptr %outboundOverflowCount_.i66, align 1, !tbaa !220
-  %cmp.not.i67 = icmp eq i8 %32, -1
+  %outboundOverflowCount_.i66 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %30, i32 2
+  %31 = load i8, ptr %outboundOverflowCount_.i66, align 1, !tbaa !220
+  %cmp.not.i67 = icmp eq i8 %31, -1
   br i1 %cmp.not.i67, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, label %if.then.i68
 
 if.then.i68:                                      ; preds = %do.body
-  %inc.i69 = add nuw i8 %32, 1
+  %inc.i69 = add nuw i8 %31, 1
   store i8 %inc.i69, ptr %outboundOverflowCount_.i66, align 1, !tbaa !220
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit
 
@@ -10148,29 +10147,29 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowC
   %add = add i64 %add.i65, %index.0
   %and.i74 = and i64 %add, %sub.i61
   %add.ptr16 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %and.i74
-  %33 = load <16 x i8>, ptr %add.ptr16, align 16
-  %34 = icmp slt <16 x i8> %33, zeroinitializer
-  %35 = bitcast <16 x i1> %34 to i16
-  %36 = and i16 %35, 16383
-  %37 = xor i16 %36, 16383
-  %cmp.i76.not = icmp eq i16 %37, 0
+  %32 = load <16 x i8>, ptr %add.ptr16, align 16
+  %33 = icmp slt <16 x i8> %32, zeroinitializer
+  %34 = bitcast <16 x i1> %33 to i16
+  %35 = and i16 %34, 16383
+  %cmp.i76.not = icmp eq i16 %35, 16383
   br i1 %cmp.i76.not, label %do.body, label %do.end, !llvm.loop !329
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit
-  %38 = extractelement <16 x i8> %33, i64 14
+  %36 = extractelement <16 x i8> %32, i64 14
   %control_.i = getelementptr inbounds i8, ptr %add.ptr16, i64 14
-  %add.i77 = add i8 %38, 16
+  %add.i77 = add i8 %36, 16
   store i8 %add.i77, ptr %control_.i, align 2, !tbaa !210
   br label %if.end21
 
 if.end21:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit
-  %firstEmpty.sroa.0.0.in = phi i16 [ %30, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %37, %do.end ]
+  %firstEmpty.sroa.0.0.in.in = phi i16 [ %29, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %35, %do.end ]
   %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %add.ptr16, %do.end ]
-  %39 = tail call i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true), !range !330
-  %conv = zext nneg i16 %39 to i64
+  %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
+  %37 = tail call i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true), !range !330
+  %conv = zext nneg i16 %37 to i64
   %arrayidx.i.i.i79 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
-  %40 = load i8, ptr %arrayidx.i.i.i79, align 1, !tbaa !28
-  %cmp.i80 = icmp eq i8 %40, 0
+  %38 = load i8, ptr %arrayidx.i.i.i79, align 1, !tbaa !28
+  %cmp.i80 = icmp eq i8 %38, 0
   br i1 %cmp.i80, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE6setTagEmm.exit, label %if.then.i81
 
 if.then.i81:                                      ; preds = %if.end21
@@ -12486,8 +12485,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %16 = icmp slt <16 x i8> %15, zeroinitializer
   %17 = bitcast <16 x i1> %16 to i16
   %18 = and i16 %17, 16383
-  %19 = xor i16 %18, 16383
-  %cmp.i61.not = icmp eq i16 %19, 0
+  %cmp.i61.not = icmp eq i16 %18, 16383
   br i1 %cmp.i61.not, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit
@@ -12496,15 +12494,15 @@ if.then11:                                        ; preds = %_ZN5folly3f146detai
   br label %do.body
 
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, %if.then11
-  %20 = phi i64 [ %and.i60, %if.then11 ], [ %and.i72, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
+  %19 = phi i64 [ %and.i60, %if.then11 ], [ %and.i72, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then11 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i64 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %20, i32 2
-  %21 = load i8, ptr %outboundOverflowCount_.i64, align 1, !tbaa !220
-  %cmp.not.i65 = icmp eq i8 %21, -1
+  %outboundOverflowCount_.i64 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %19, i32 2
+  %20 = load i8, ptr %outboundOverflowCount_.i64, align 1, !tbaa !220
+  %cmp.not.i65 = icmp eq i8 %20, -1
   br i1 %cmp.not.i65, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, label %if.then.i66
 
 if.then.i66:                                      ; preds = %do.body
-  %inc.i67 = add nuw i8 %21, 1
+  %inc.i67 = add nuw i8 %20, 1
   store i8 %inc.i67, ptr %outboundOverflowCount_.i64, align 1, !tbaa !220
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit
 
@@ -12512,29 +12510,29 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowC
   %add = add i64 %add.i63, %index.0
   %and.i72 = and i64 %add, %sub.i59
   %add.ptr16 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %and.i72
-  %22 = load <16 x i8>, ptr %add.ptr16, align 16
-  %23 = icmp slt <16 x i8> %22, zeroinitializer
-  %24 = bitcast <16 x i1> %23 to i16
-  %25 = and i16 %24, 16383
-  %26 = xor i16 %25, 16383
-  %cmp.i74.not = icmp eq i16 %26, 0
+  %21 = load <16 x i8>, ptr %add.ptr16, align 16
+  %22 = icmp slt <16 x i8> %21, zeroinitializer
+  %23 = bitcast <16 x i1> %22 to i16
+  %24 = and i16 %23, 16383
+  %cmp.i74.not = icmp eq i16 %24, 16383
   br i1 %cmp.i74.not, label %do.body, label %do.end, !llvm.loop !380
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit
-  %27 = extractelement <16 x i8> %22, i64 14
+  %25 = extractelement <16 x i8> %21, i64 14
   %control_.i = getelementptr inbounds i8, ptr %add.ptr16, i64 14
-  %add.i75 = add i8 %27, 16
+  %add.i75 = add i8 %25, 16
   store i8 %add.i75, ptr %control_.i, align 2, !tbaa !210
   br label %if.end21
 
 if.end21:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit
-  %firstEmpty.sroa.0.0.in = phi i16 [ %19, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %26, %do.end ]
+  %firstEmpty.sroa.0.0.in.in = phi i16 [ %18, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %24, %do.end ]
   %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16reserveForInsertEm.exit ], [ %add.ptr16, %do.end ]
-  %28 = tail call i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true), !range !330
-  %conv = zext nneg i16 %28 to i64
+  %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
+  %26 = tail call i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true), !range !330
+  %conv = zext nneg i16 %26 to i64
   %arrayidx.i.i.i77 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
-  %29 = load i8, ptr %arrayidx.i.i.i77, align 1, !tbaa !28
-  %cmp.i78 = icmp eq i8 %29, 0
+  %27 = load i8, ptr %arrayidx.i.i.i77, align 1, !tbaa !28
+  %cmp.i78 = icmp eq i8 %27, 0
   br i1 %cmp.i78, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE6setTagEmm.exit, label %if.then.i79
 
 if.then.i79:                                      ; preds = %if.end21

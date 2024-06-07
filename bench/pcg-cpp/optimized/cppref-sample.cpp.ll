@@ -364,8 +364,7 @@ invoke.cont63:                                    ; preds = %for.end62
 
 if.then.i:                                        ; preds = %invoke.cont63
   %cmp.i.i.i = icmp eq i64 %rng_checkpoint.sroa.0.0.copyload, 0
-  %19 = xor i64 %18, %rng_checkpoint.sroa.2.0.copyload
-  %cmp2.not16.i.i.i = icmp eq i64 %19, 0
+  %cmp2.not16.i.i.i = icmp eq i64 %rng_checkpoint.sroa.2.0.copyload, %18
   br i1 %cmp2.not16.i.i.i, label %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.then.i
@@ -373,14 +372,14 @@ while.body.preheader.i.i.i:                       ; preds = %if.then.i
   br label %while.body.i.i.i15
 
 while.body.i.i.i15:                               ; preds = %while.body.i.i.i15, %while.body.preheader.i.i.i
-  %20 = phi i64 [ %22, %while.body.i.i.i15 ], [ %19, %while.body.preheader.i.i.i ]
   %distance.021.i.i.i = phi i64 [ %distance.1.i.i.i, %while.body.i.i.i15 ], [ 0, %while.body.preheader.i.i.i ]
   %the_bit.020.i.i.i = phi i64 [ %shl.i.i.i, %while.body.i.i.i15 ], [ %cond.i.i.i, %while.body.preheader.i.i.i ]
   %cur_state.addr.019.i.i.i = phi i64 [ %cur_state.addr.1.i.i.i, %while.body.i.i.i15 ], [ %rng_checkpoint.sroa.2.0.copyload, %while.body.preheader.i.i.i ]
   %cur_mult.addr.018.i.i.i = phi i64 [ %mul8.i.i.i, %while.body.i.i.i15 ], [ 6364136223846793005, %while.body.preheader.i.i.i ]
   %cur_plus.addr.017.i.i.i = phi i64 [ %mul7.i.i.i18, %while.body.i.i.i15 ], [ %rng_checkpoint.sroa.0.0.copyload, %while.body.preheader.i.i.i ]
-  %21 = and i64 %the_bit.020.i.i.i, %20
-  %cmp5.not.i.i.i = icmp eq i64 %21, 0
+  %19 = xor i64 %cur_state.addr.019.i.i.i, %18
+  %20 = and i64 %19, %the_bit.020.i.i.i
+  %cmp5.not.i.i.i = icmp eq i64 %20, 0
   %mul.i.i.i16 = mul i64 %cur_mult.addr.018.i.i.i, %cur_state.addr.019.i.i.i
   %add.i.i.i17 = add i64 %mul.i.i.i16, %cur_plus.addr.017.i.i.i
   %cur_state.addr.1.i.i.i = select i1 %cmp5.not.i.i.i, i64 %cur_state.addr.019.i.i.i, i64 %add.i.i.i17
@@ -390,8 +389,7 @@ while.body.i.i.i15:                               ; preds = %while.body.i.i.i15,
   %add6.i.i.i = add i64 %cur_mult.addr.018.i.i.i, 1
   %mul7.i.i.i18 = mul i64 %add6.i.i.i, %cur_plus.addr.017.i.i.i
   %mul8.i.i.i = mul i64 %cur_mult.addr.018.i.i.i, %cur_mult.addr.018.i.i.i
-  %22 = xor i64 %cur_state.addr.1.i.i.i, %18
-  %cmp2.not.i.i.i = icmp eq i64 %22, 0
+  %cmp2.not.i.i.i = icmp eq i64 %cur_state.addr.1.i.i.i, %18
   br i1 %cmp2.not.i.i.i, label %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i, label %while.body.i.i.i15, !llvm.loop !11
 
 _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i: ; preds = %while.body.i.i.i15, %if.then.i
@@ -405,39 +403,37 @@ if.else.i:                                        ; preds = %invoke.cont63
   %add.i = add i64 %mul.i, %17
   %mul10.i = mul i64 %rng_checkpoint.sroa.2.0.copyload, 6364136223846793004
   %add11.i = add i64 %mul10.i, %rng_checkpoint.sroa.0.0.copyload
-  %23 = xor i64 %17, %rng_checkpoint.sroa.0.0.copyload
-  %24 = and i64 %23, 3
-  %cmp13.not.i = icmp eq i64 %24, 0
+  %21 = xor i64 %17, %rng_checkpoint.sroa.0.0.copyload
+  %22 = and i64 %21, 3
+  %cmp13.not.i = icmp eq i64 %22, 0
   %sub15.i = sub i64 0, %add11.i
   %spec.select.i = select i1 %cmp13.not.i, i64 %add11.i, i64 %sub15.i
-  %25 = xor i64 %spec.select.i, %add.i
-  %cmp2.not16.i.i = icmp eq i64 %25, 0
+  %cmp2.not16.i.i = icmp eq i64 %spec.select.i, %add.i
   br i1 %cmp2.not16.i.i, label %invoke.cont65, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.else.i, %while.body.i.i
-  %26 = phi i64 [ %28, %while.body.i.i ], [ %25, %if.else.i ]
   %distance.021.i.i = phi i64 [ %distance.1.i.i, %while.body.i.i ], [ 0, %if.else.i ]
   %the_bit.020.i.i = phi i64 [ %shl.i.i, %while.body.i.i ], [ 4, %if.else.i ]
   %cur_state.addr.019.i.i = phi i64 [ %cur_state.addr.1.i.i, %while.body.i.i ], [ %spec.select.i, %if.else.i ]
   %cur_mult.addr.018.i.i = phi i64 [ %mul8.i.i, %while.body.i.i ], [ 6364136223846793005, %if.else.i ]
-  %27 = and i64 %the_bit.020.i.i, %26
-  %cmp5.not.i.i = icmp eq i64 %27, 0
+  %23 = xor i64 %cur_state.addr.019.i.i, %add.i
+  %24 = and i64 %23, %the_bit.020.i.i
+  %cmp5.not.i.i = icmp eq i64 %24, 0
   %mul.i.i = select i1 %cmp5.not.i.i, i64 1, i64 %cur_mult.addr.018.i.i
   %cur_state.addr.1.i.i = mul i64 %mul.i.i, %cur_state.addr.019.i.i
   %or.i.i = select i1 %cmp5.not.i.i, i64 0, i64 %the_bit.020.i.i
   %distance.1.i.i = or i64 %or.i.i, %distance.021.i.i
   %shl.i.i = shl i64 %the_bit.020.i.i, 1
   %mul8.i.i = mul i64 %cur_mult.addr.018.i.i, %cur_mult.addr.018.i.i
-  %28 = xor i64 %cur_state.addr.1.i.i, %add.i
-  %cmp2.not.i.i = icmp eq i64 %28, 0
+  %cmp2.not.i.i = icmp eq i64 %cur_state.addr.1.i.i, %add.i
   br i1 %cmp2.not.i.i, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmmmmm.exit.loopexit.i, label %while.body.i.i, !llvm.loop !11
 
 _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmmmmm.exit.loopexit.i: ; preds = %while.body.i.i
-  %29 = lshr exact i64 %distance.1.i.i, 2
+  %25 = lshr exact i64 %distance.1.i.i, 2
   br label %invoke.cont65
 
 invoke.cont65:                                    ; preds = %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmmmmm.exit.loopexit.i, %if.else.i, %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i
-  %retval.0.i = phi i64 [ %cond10.i.i.i, %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i ], [ 0, %if.else.i ], [ %29, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmmmmm.exit.loopexit.i ]
+  %retval.0.i = phi i64 [ %cond10.i.i.i, %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit.i ], [ 0, %if.else.i ], [ %25, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmmmmm.exit.loopexit.i ]
   %call68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call64, i64 noundef %retval.0.i)
           to label %invoke.cont67 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp
 
@@ -446,15 +442,15 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %invoke.cont69 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont69:                                    ; preds = %invoke.cont67
-  %30 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %hist, ptr noundef %30)
+  %26 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %hist, ptr noundef %26)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont69
-  %31 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #17
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #17
   unreachable
 
 _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %invoke.cont69
@@ -462,10 +458,10 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %invoke.cont69
           to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit unwind label %terminate.lpad.i.i20
 
 terminate.lpad.i.i20:                             ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #17
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #17
   unreachable
 
 _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit
@@ -482,10 +478,10 @@ ehcleanup72:                                      ; preds = %lpad.loopexit30, %l
           to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit22 unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %ehcleanup72
-  %35 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #17
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #17
   unreachable
 
 _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit22: ; preds = %ehcleanup72

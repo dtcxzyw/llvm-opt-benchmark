@@ -3103,14 +3103,14 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds i64, ptr %.val43, i64 %indvars.iv.i
   %75 = load i64, ptr %74, align 8
-  %76 = xor i64 %75, %73
-  %.not.i.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i, label %Abc_TtCountOnes2.exit.i, label %77
+  %.not.i.i = icmp eq i64 %73, %75
+  br i1 %.not.i.i, label %Abc_TtCountOnes2.exit.i, label %76
 
-77:                                               ; preds = %.lr.ph.i
-  %78 = lshr i64 %76, 1
+76:                                               ; preds = %.lr.ph.i
+  %77 = xor i64 %75, %73
+  %78 = lshr i64 %77, 1
   %79 = and i64 %78, 6148914691236517205
-  %80 = sub i64 %76, %79
+  %80 = sub i64 %77, %79
   %81 = and i64 %80, 3689348814741910323
   %82 = lshr i64 %80, 2
   %83 = and i64 %82, 3689348814741910323
@@ -3128,8 +3128,8 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
   %95 = and i32 %94, 255
   br label %Abc_TtCountOnes2.exit.i
 
-Abc_TtCountOnes2.exit.i:                          ; preds = %77, %.lr.ph.i
-  %96 = phi i32 [ %95, %77 ], [ 0, %.lr.ph.i ]
+Abc_TtCountOnes2.exit.i:                          ; preds = %76, %.lr.ph.i
+  %96 = phi i32 [ %95, %76 ], [ 0, %.lr.ph.i ]
   %97 = add nuw nsw i32 %96, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

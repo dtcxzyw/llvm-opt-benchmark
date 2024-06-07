@@ -3169,7 +3169,7 @@ entry:
   %5 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !186
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !186
-  %cmp.i.i.i.i.i.i = icmp eq i64 %4, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %3, 288230376151711744
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i.i
   %7 = fcmp uno float %value, 0.000000e+00
   br label %while.body.i.i.i.i.i
@@ -3264,7 +3264,7 @@ entry:
   %mul.i22.i.i.i.i.i = mul i64 %2, -7046029288634856825
   %conv.i23.i.i.i.i.i = and i64 %1, 4294967295
   %mul.i24.i.i.i.i.i = mul i64 %conv.i23.i.i.i.i.i, -4417276706812531889
-  %3 = xor i64 %mul.i22.i.i.i.i.i, %mul.i24.i.i.i.i.i
+  %3 = xor i64 %mul.i24.i.i.i.i.i, %mul.i22.i.i.i.i.i
   %4 = xor i64 %3, 576460752303423488
   %xor27.i.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %hash_table_.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -3272,7 +3272,7 @@ entry:
   %5 = load ptr, ptr %entries_.i.i.i, align 8, !noalias !204
   %capacity_mask_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %capacity_mask_.i.i.i, align 8, !noalias !204
-  %cmp.i.i.i.i.i = icmp eq i64 %4, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %3, 576460752303423488
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i
   %7 = fcmp uno double %value, 0.000000e+00
   br label %while.body.i.i.i.i
@@ -3892,7 +3892,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !351
   %mul.i27.i.i.i.i.i.i = mul i64 %value.coerce1, -7046029288634856825
   %mul.i28.i.i.i.i.i.i = mul i64 %value.coerce0, -4417276706812531889
-  %3 = xor i64 %mul.i28.i.i.i.i.i.i, %mul.i27.i.i.i.i.i.i
+  %3 = xor i64 %mul.i27.i.i.i.i.i.i, %mul.i28.i.i.i.i.i.i
   %4 = xor i64 %3, 1152921504606846976
   %xor42.i.i.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %hash_table_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -3900,7 +3900,7 @@ entry:
   %5 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !352
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !352
-  %cmp.i.i.i.i.i.i = icmp eq i64 %4, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %3, 1152921504606846976
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
 
@@ -4002,7 +4002,7 @@ entry:
   %6 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !374
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !374
-  %cmp.i.i.i.i.i.i = icmp eq i64 %5, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %4, 576460752303423488
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
 
@@ -20557,7 +20557,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %for
   %11 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !1426
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !1426
-  %cmp.i.i.i.i.i.i = icmp eq i64 %10, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %9, 288230376151711744
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i.i
   %13 = fcmp uno float %7, 0.000000e+00
   br label %while.body.i.i.i.i.i
@@ -20685,7 +20685,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %for
   %13 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !1450
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %14 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !1450
-  %cmp.i.i.i.i.i.i = icmp eq i64 %12, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %11, 576460752303423488
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i.i
   %15 = fcmp uno double %7, 0.000000e+00
   br label %while.body.i.i.i.i.i
@@ -23315,7 +23315,7 @@ do.body:                                          ; preds = %for.cond.preheader,
   %9 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !1906
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !1906
-  %cmp.i.i.i.i.i.i = icmp eq i64 %8, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %7, 1152921504606846976
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
 
@@ -23559,7 +23559,7 @@ do.body:                                          ; preds = %for.cond.preheader,
   %8 = load ptr, ptr %entries_.i.i.i.i, align 8, !noalias !1954
   %capacity_mask_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %capacity_mask_.i.i.i.i, align 8, !noalias !1954
-  %cmp.i.i.i.i.i.i = icmp eq i64 %7, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %6, 576460752303423488
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
 

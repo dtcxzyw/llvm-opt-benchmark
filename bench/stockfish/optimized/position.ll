@@ -880,7 +880,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 211:                                              ; preds = %185
   %212 = getelementptr inbounds [2 x i64], ptr %202, i64 0, i64 %198
   %213 = load i64, ptr %212, align 8
-  %214 = icmp eq i32 %194, 0
+  %214 = icmp eq i32 %193, 1
   %215 = select i1 %214, i32 8, i32 -8
   %216 = add nsw i32 %215, %197
   %217 = zext nneg i32 %216 to i64
@@ -3963,7 +3963,7 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
 
 84:                                               ; preds = %60
   %85 = icmp eq i16 %15, -32768
-  %86 = icmp eq i32 %8, 0
+  %86 = icmp eq i32 %7, 1
   %.neg = select i1 %86, i32 -8, i32 8
   %87 = select i1 %85, i32 %.neg, i32 0
   %.0 = add nsw i32 %87, %12

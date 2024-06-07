@@ -3241,11 +3241,11 @@ if.then:                                          ; preds = %for.body
 if.then.i:                                        ; preds = %if.then
   %pMatch.val.i = load i64, ptr %add.ptr42, align 1
   %pIn.val.i = load i64, ptr %add.ptr47, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i111 = lshr i64 %13, 3
   br label %ZSTD_count.exit
@@ -3261,11 +3261,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %14, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -3440,11 +3440,11 @@ entry:
 if.then.i:                                        ; preds = %entry
   %pMatch.val.i = load i64, ptr %match, align 1
   %pIn.val.i = load i64, ptr %ip, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i = lshr i64 %0, 3
   br label %ZSTD_count.exit
@@ -3460,11 +3460,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %1, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -3545,12 +3545,12 @@ do.end14:                                         ; preds = %ZSTD_count.exit
 if.then.i54:                                      ; preds = %do.end14
   %pMatch.val.i55 = load i64, ptr %iStart, align 1
   %pIn.val.i56 = load i64, ptr %add.ptr15, align 1
-  %xor.i57 = xor i64 %pIn.val.i56, %pMatch.val.i55
-  %tobool.not.i58 = icmp eq i64 %xor.i57, 0
-  br i1 %tobool.not.i58, label %while.cond.i61, label %if.then2.i59
+  %tobool.not.i57 = icmp eq i64 %pMatch.val.i55, %pIn.val.i56
+  br i1 %tobool.not.i57, label %while.cond.i61, label %if.then2.i58
 
-if.then2.i59:                                     ; preds = %if.then.i54
-  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i57, i1 true)
+if.then2.i58:                                     ; preds = %if.then.i54
+  %xor.i59 = xor i64 %pIn.val.i56, %pMatch.val.i55
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i59, i1 true)
   %shr.i.i60 = lshr i64 %4, 3
   br label %ZSTD_count.exit78
 
@@ -3565,12 +3565,12 @@ while.cond.i61:                                   ; preds = %if.then.i54, %while
 while.body.i67:                                   ; preds = %while.cond.i61
   %pMatch.addr.0.val.i68 = load i64, ptr %pMatch.addr.0.i65, align 1
   %pIn.addr.0.val.i69 = load i64, ptr %pIn.addr.0.i64, align 1
-  %xor11.i70 = xor i64 %pIn.addr.0.val.i69, %pMatch.addr.0.val.i68
-  %tobool12.not.i71 = icmp eq i64 %xor11.i70, 0
-  br i1 %tobool12.not.i71, label %while.cond.i61, label %if.end16.i72, !llvm.loop !21
+  %tobool12.not.i70 = icmp eq i64 %pMatch.addr.0.val.i68, %pIn.addr.0.val.i69
+  br i1 %tobool12.not.i70, label %while.cond.i61, label %if.end16.i71, !llvm.loop !21
 
-if.end16.i72:                                     ; preds = %while.body.i67
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i70, i1 true)
+if.end16.i71:                                     ; preds = %while.body.i67
+  %xor11.i72 = xor i64 %pIn.addr.0.val.i69, %pMatch.addr.0.val.i68
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i72, i1 true)
   %shr.i35.i73 = lshr i64 %5, 3
   %add.ptr18.i74 = getelementptr inbounds i8, ptr %pIn.addr.0.i64, i64 %shr.i35.i73
   %sub.ptr.lhs.cast.i75 = ptrtoint ptr %add.ptr18.i74 to i64
@@ -3635,8 +3635,8 @@ if.end56.i30:                                     ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i34 = sub i64 %sub.ptr.lhs.cast57.i32, %sub.ptr.rhs.cast58.i33
   br label %ZSTD_count.exit78
 
-ZSTD_count.exit78:                                ; preds = %if.then2.i59, %if.end16.i72, %if.end56.i30
-  %retval.0.i35 = phi i64 [ %shr.i.i60, %if.then2.i59 ], [ %sub.ptr.sub.i77, %if.end16.i72 ], [ %sub.ptr.sub59.i34, %if.end56.i30 ]
+ZSTD_count.exit78:                                ; preds = %if.then2.i58, %if.end16.i71, %if.end56.i30
+  %retval.0.i35 = phi i64 [ %shr.i.i60, %if.then2.i58 ], [ %sub.ptr.sub.i77, %if.end16.i71 ], [ %sub.ptr.sub59.i34, %if.end56.i30 ]
   %add = add i64 %retval.0.i35, %retval.0.i
   br label %return
 
@@ -4626,11 +4626,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr153.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i339 = lshr i64 %18, 3
   br label %ZSTD_count.exit
@@ -4646,11 +4646,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %19, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -4810,12 +4810,12 @@ if.then278.i:                                     ; preds = %ZSTD_insertAndFindF
 if.then.i391:                                     ; preds = %if.then278.i
   %pMatch.val.i392 = load i64, ptr %add.ptr280.i, align 1
   %pIn.val.i393 = load i64, ptr %ip, align 1
-  %xor.i394 = xor i64 %pIn.val.i393, %pMatch.val.i392
-  %tobool.not.i395 = icmp eq i64 %xor.i394, 0
-  br i1 %tobool.not.i395, label %while.cond.i398, label %if.then2.i396
+  %tobool.not.i394 = icmp eq i64 %pMatch.val.i392, %pIn.val.i393
+  br i1 %tobool.not.i394, label %while.cond.i398, label %if.then2.i395
 
-if.then2.i396:                                    ; preds = %if.then.i391
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i394, i1 true)
+if.then2.i395:                                    ; preds = %if.then.i391
+  %xor.i396 = xor i64 %pIn.val.i393, %pMatch.val.i392
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i396, i1 true)
   %shr.i.i397 = lshr i64 %33, 3
   br label %ZSTD_count.exit415
 
@@ -4830,12 +4830,12 @@ while.cond.i398:                                  ; preds = %if.then.i391, %whil
 while.body.i404:                                  ; preds = %while.cond.i398
   %pMatch.addr.0.val.i405 = load i64, ptr %pMatch.addr.0.i402, align 1
   %pIn.addr.0.val.i406 = load i64, ptr %pIn.addr.0.i401, align 1
-  %xor11.i407 = xor i64 %pIn.addr.0.val.i406, %pMatch.addr.0.val.i405
-  %tobool12.not.i408 = icmp eq i64 %xor11.i407, 0
-  br i1 %tobool12.not.i408, label %while.cond.i398, label %if.end16.i409, !llvm.loop !21
+  %tobool12.not.i407 = icmp eq i64 %pMatch.addr.0.val.i405, %pIn.addr.0.val.i406
+  br i1 %tobool12.not.i407, label %while.cond.i398, label %if.end16.i408, !llvm.loop !21
 
-if.end16.i409:                                    ; preds = %while.body.i404
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i407, i1 true)
+if.end16.i408:                                    ; preds = %while.body.i404
+  %xor11.i409 = xor i64 %pIn.addr.0.val.i406, %pMatch.addr.0.val.i405
+  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i409, i1 true)
   %shr.i35.i410 = lshr i64 %34, 3
   %add.ptr18.i411 = getelementptr inbounds i8, ptr %pIn.addr.0.i401, i64 %shr.i35.i410
   %sub.ptr.lhs.cast.i412 = ptrtoint ptr %add.ptr18.i411 to i64
@@ -4898,8 +4898,8 @@ if.end56.i367:                                    ; preds = %land.lhs.true50.i37
   %sub.ptr.sub59.i371 = sub i64 %sub.ptr.lhs.cast57.i369, %sub.ptr.lhs.cast.i.i
   br label %ZSTD_count.exit415
 
-ZSTD_count.exit415:                               ; preds = %if.then2.i396, %if.end16.i409, %if.end56.i367
-  %retval.0.i372 = phi i64 [ %shr.i.i397, %if.then2.i396 ], [ %sub.ptr.sub.i414, %if.end16.i409 ], [ %sub.ptr.sub59.i371, %if.end56.i367 ]
+ZSTD_count.exit415:                               ; preds = %if.then2.i395, %if.end16.i408, %if.end56.i367
+  %retval.0.i372 = phi i64 [ %shr.i.i397, %if.then2.i395 ], [ %sub.ptr.sub.i414, %if.end16.i408 ], [ %sub.ptr.sub59.i371, %if.end56.i367 ]
   %cmp289.i = icmp ugt i64 %retval.0.i372, 2
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
@@ -4959,12 +4959,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i456:                                     ; preds = %for.body320.i
   %pMatch.val.i457 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i458 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i459 = xor i64 %pIn.val.i458, %pMatch.val.i457
-  %tobool.not.i460 = icmp eq i64 %xor.i459, 0
-  br i1 %tobool.not.i460, label %while.cond.i463, label %if.then2.i461
+  %tobool.not.i459 = icmp eq i64 %pMatch.val.i457, %pIn.val.i458
+  br i1 %tobool.not.i459, label %while.cond.i463, label %if.then2.i460
 
-if.then2.i461:                                    ; preds = %if.then.i456
-  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i459, i1 true)
+if.then2.i460:                                    ; preds = %if.then.i456
+  %xor.i461 = xor i64 %pIn.val.i458, %pMatch.val.i457
+  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i461, i1 true)
   %shr.i.i462 = lshr i64 %37, 3
   br label %ZSTD_count.exit480
 
@@ -4979,12 +4979,12 @@ while.cond.i463:                                  ; preds = %if.then.i456, %whil
 while.body.i469:                                  ; preds = %while.cond.i463
   %pMatch.addr.0.val.i470 = load i64, ptr %pMatch.addr.0.i467, align 1
   %pIn.addr.0.val.i471 = load i64, ptr %pIn.addr.0.i466, align 1
-  %xor11.i472 = xor i64 %pIn.addr.0.val.i471, %pMatch.addr.0.val.i470
-  %tobool12.not.i473 = icmp eq i64 %xor11.i472, 0
-  br i1 %tobool12.not.i473, label %while.cond.i463, label %if.end16.i474, !llvm.loop !21
+  %tobool12.not.i472 = icmp eq i64 %pMatch.addr.0.val.i470, %pIn.addr.0.val.i471
+  br i1 %tobool12.not.i472, label %while.cond.i463, label %if.end16.i473, !llvm.loop !21
 
-if.end16.i474:                                    ; preds = %while.body.i469
-  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i472, i1 true)
+if.end16.i473:                                    ; preds = %while.body.i469
+  %xor11.i474 = xor i64 %pIn.addr.0.val.i471, %pMatch.addr.0.val.i470
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i474, i1 true)
   %shr.i35.i475 = lshr i64 %38, 3
   %add.ptr18.i476 = getelementptr inbounds i8, ptr %pIn.addr.0.i466, i64 %shr.i35.i475
   %sub.ptr.lhs.cast.i477 = ptrtoint ptr %add.ptr18.i476 to i64
@@ -5047,8 +5047,8 @@ if.end56.i432:                                    ; preds = %land.lhs.true50.i43
   %sub.ptr.sub59.i436 = sub i64 %sub.ptr.lhs.cast57.i434, %sub.ptr.rhs.cast58.i435
   br label %ZSTD_count.exit480
 
-ZSTD_count.exit480:                               ; preds = %if.then2.i461, %if.end16.i474, %if.end56.i432
-  %retval.0.i437 = phi i64 [ %shr.i.i462, %if.then2.i461 ], [ %sub.ptr.sub.i479, %if.end16.i474 ], [ %sub.ptr.sub59.i436, %if.end56.i432 ]
+ZSTD_count.exit480:                               ; preds = %if.then2.i460, %if.end16.i473, %if.end56.i432
+  %retval.0.i437 = phi i64 [ %shr.i.i462, %if.then2.i460 ], [ %sub.ptr.sub.i479, %if.end16.i473 ], [ %sub.ptr.sub59.i436, %if.end56.i432 ]
   %add353.i = add i64 %retval.0.i437, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3497
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -5279,11 +5279,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr153.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i337 = lshr i64 %18, 3
   br label %ZSTD_count.exit
@@ -5299,11 +5299,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %19, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -5439,12 +5439,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i380:                                     ; preds = %for.body320.i
   %pMatch.val.i381 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i382 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i383 = xor i64 %pIn.val.i382, %pMatch.val.i381
-  %tobool.not.i384 = icmp eq i64 %xor.i383, 0
-  br i1 %tobool.not.i384, label %while.cond.i387, label %if.then2.i385
+  %tobool.not.i383 = icmp eq i64 %pMatch.val.i381, %pIn.val.i382
+  br i1 %tobool.not.i383, label %while.cond.i387, label %if.then2.i384
 
-if.then2.i385:                                    ; preds = %if.then.i380
-  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i383, i1 true)
+if.then2.i384:                                    ; preds = %if.then.i380
+  %xor.i385 = xor i64 %pIn.val.i382, %pMatch.val.i381
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i385, i1 true)
   %shr.i.i386 = lshr i64 %25, 3
   br label %ZSTD_count.exit404
 
@@ -5459,12 +5459,12 @@ while.cond.i387:                                  ; preds = %if.then.i380, %whil
 while.body.i393:                                  ; preds = %while.cond.i387
   %pMatch.addr.0.val.i394 = load i64, ptr %pMatch.addr.0.i391, align 1
   %pIn.addr.0.val.i395 = load i64, ptr %pIn.addr.0.i390, align 1
-  %xor11.i396 = xor i64 %pIn.addr.0.val.i395, %pMatch.addr.0.val.i394
-  %tobool12.not.i397 = icmp eq i64 %xor11.i396, 0
-  br i1 %tobool12.not.i397, label %while.cond.i387, label %if.end16.i398, !llvm.loop !21
+  %tobool12.not.i396 = icmp eq i64 %pMatch.addr.0.val.i394, %pIn.addr.0.val.i395
+  br i1 %tobool12.not.i396, label %while.cond.i387, label %if.end16.i397, !llvm.loop !21
 
-if.end16.i398:                                    ; preds = %while.body.i393
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i396, i1 true)
+if.end16.i397:                                    ; preds = %while.body.i393
+  %xor11.i398 = xor i64 %pIn.addr.0.val.i395, %pMatch.addr.0.val.i394
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i398, i1 true)
   %shr.i35.i399 = lshr i64 %26, 3
   %add.ptr18.i400 = getelementptr inbounds i8, ptr %pIn.addr.0.i390, i64 %shr.i35.i399
   %sub.ptr.lhs.cast.i401 = ptrtoint ptr %add.ptr18.i400 to i64
@@ -5527,8 +5527,8 @@ if.end56.i356:                                    ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i360 = sub i64 %sub.ptr.lhs.cast57.i358, %sub.ptr.rhs.cast58.i359
   br label %ZSTD_count.exit404
 
-ZSTD_count.exit404:                               ; preds = %if.then2.i385, %if.end16.i398, %if.end56.i356
-  %retval.0.i361 = phi i64 [ %shr.i.i386, %if.then2.i385 ], [ %sub.ptr.sub.i403, %if.end16.i398 ], [ %sub.ptr.sub59.i360, %if.end56.i356 ]
+ZSTD_count.exit404:                               ; preds = %if.then2.i384, %if.end16.i397, %if.end56.i356
+  %retval.0.i361 = phi i64 [ %shr.i.i386, %if.then2.i384 ], [ %sub.ptr.sub.i403, %if.end16.i397 ], [ %sub.ptr.sub59.i360, %if.end56.i356 ]
   %add353.i = add i64 %retval.0.i361, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3419
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -5754,11 +5754,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr153.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i336 = lshr i64 %18, 3
   br label %ZSTD_count.exit
@@ -5774,11 +5774,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %19, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -5914,12 +5914,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i379:                                     ; preds = %for.body320.i
   %pMatch.val.i380 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i381 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i382 = xor i64 %pIn.val.i381, %pMatch.val.i380
-  %tobool.not.i383 = icmp eq i64 %xor.i382, 0
-  br i1 %tobool.not.i383, label %while.cond.i386, label %if.then2.i384
+  %tobool.not.i382 = icmp eq i64 %pMatch.val.i380, %pIn.val.i381
+  br i1 %tobool.not.i382, label %while.cond.i386, label %if.then2.i383
 
-if.then2.i384:                                    ; preds = %if.then.i379
-  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i382, i1 true)
+if.then2.i383:                                    ; preds = %if.then.i379
+  %xor.i384 = xor i64 %pIn.val.i381, %pMatch.val.i380
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i384, i1 true)
   %shr.i.i385 = lshr i64 %25, 3
   br label %ZSTD_count.exit403
 
@@ -5934,12 +5934,12 @@ while.cond.i386:                                  ; preds = %if.then.i379, %whil
 while.body.i392:                                  ; preds = %while.cond.i386
   %pMatch.addr.0.val.i393 = load i64, ptr %pMatch.addr.0.i390, align 1
   %pIn.addr.0.val.i394 = load i64, ptr %pIn.addr.0.i389, align 1
-  %xor11.i395 = xor i64 %pIn.addr.0.val.i394, %pMatch.addr.0.val.i393
-  %tobool12.not.i396 = icmp eq i64 %xor11.i395, 0
-  br i1 %tobool12.not.i396, label %while.cond.i386, label %if.end16.i397, !llvm.loop !21
+  %tobool12.not.i395 = icmp eq i64 %pMatch.addr.0.val.i393, %pIn.addr.0.val.i394
+  br i1 %tobool12.not.i395, label %while.cond.i386, label %if.end16.i396, !llvm.loop !21
 
-if.end16.i397:                                    ; preds = %while.body.i392
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i395, i1 true)
+if.end16.i396:                                    ; preds = %while.body.i392
+  %xor11.i397 = xor i64 %pIn.addr.0.val.i394, %pMatch.addr.0.val.i393
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i397, i1 true)
   %shr.i35.i398 = lshr i64 %26, 3
   %add.ptr18.i399 = getelementptr inbounds i8, ptr %pIn.addr.0.i389, i64 %shr.i35.i398
   %sub.ptr.lhs.cast.i400 = ptrtoint ptr %add.ptr18.i399 to i64
@@ -6002,8 +6002,8 @@ if.end56.i355:                                    ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i359 = sub i64 %sub.ptr.lhs.cast57.i357, %sub.ptr.rhs.cast58.i358
   br label %ZSTD_count.exit403
 
-ZSTD_count.exit403:                               ; preds = %if.then2.i384, %if.end16.i397, %if.end56.i355
-  %retval.0.i360 = phi i64 [ %shr.i.i385, %if.then2.i384 ], [ %sub.ptr.sub.i402, %if.end16.i397 ], [ %sub.ptr.sub59.i359, %if.end56.i355 ]
+ZSTD_count.exit403:                               ; preds = %if.then2.i383, %if.end16.i396, %if.end56.i355
+  %retval.0.i360 = phi i64 [ %shr.i.i385, %if.then2.i383 ], [ %sub.ptr.sub.i402, %if.end16.i396 ], [ %sub.ptr.sub59.i359, %if.end56.i355 ]
   %add353.i = add i64 %retval.0.i360, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3418
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -6229,11 +6229,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr153.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i336 = lshr i64 %18, 3
   br label %ZSTD_count.exit
@@ -6249,11 +6249,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %19, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -6389,12 +6389,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i379:                                     ; preds = %for.body320.i
   %pMatch.val.i380 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i381 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i382 = xor i64 %pIn.val.i381, %pMatch.val.i380
-  %tobool.not.i383 = icmp eq i64 %xor.i382, 0
-  br i1 %tobool.not.i383, label %while.cond.i386, label %if.then2.i384
+  %tobool.not.i382 = icmp eq i64 %pMatch.val.i380, %pIn.val.i381
+  br i1 %tobool.not.i382, label %while.cond.i386, label %if.then2.i383
 
-if.then2.i384:                                    ; preds = %if.then.i379
-  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i382, i1 true)
+if.then2.i383:                                    ; preds = %if.then.i379
+  %xor.i384 = xor i64 %pIn.val.i381, %pMatch.val.i380
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i384, i1 true)
   %shr.i.i385 = lshr i64 %25, 3
   br label %ZSTD_count.exit403
 
@@ -6409,12 +6409,12 @@ while.cond.i386:                                  ; preds = %if.then.i379, %whil
 while.body.i392:                                  ; preds = %while.cond.i386
   %pMatch.addr.0.val.i393 = load i64, ptr %pMatch.addr.0.i390, align 1
   %pIn.addr.0.val.i394 = load i64, ptr %pIn.addr.0.i389, align 1
-  %xor11.i395 = xor i64 %pIn.addr.0.val.i394, %pMatch.addr.0.val.i393
-  %tobool12.not.i396 = icmp eq i64 %xor11.i395, 0
-  br i1 %tobool12.not.i396, label %while.cond.i386, label %if.end16.i397, !llvm.loop !21
+  %tobool12.not.i395 = icmp eq i64 %pMatch.addr.0.val.i393, %pIn.addr.0.val.i394
+  br i1 %tobool12.not.i395, label %while.cond.i386, label %if.end16.i396, !llvm.loop !21
 
-if.end16.i397:                                    ; preds = %while.body.i392
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i395, i1 true)
+if.end16.i396:                                    ; preds = %while.body.i392
+  %xor11.i397 = xor i64 %pIn.addr.0.val.i394, %pMatch.addr.0.val.i393
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i397, i1 true)
   %shr.i35.i398 = lshr i64 %26, 3
   %add.ptr18.i399 = getelementptr inbounds i8, ptr %pIn.addr.0.i389, i64 %shr.i35.i398
   %sub.ptr.lhs.cast.i400 = ptrtoint ptr %add.ptr18.i399 to i64
@@ -6477,8 +6477,8 @@ if.end56.i355:                                    ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i359 = sub i64 %sub.ptr.lhs.cast57.i357, %sub.ptr.rhs.cast58.i358
   br label %ZSTD_count.exit403
 
-ZSTD_count.exit403:                               ; preds = %if.then2.i384, %if.end16.i397, %if.end56.i355
-  %retval.0.i360 = phi i64 [ %shr.i.i385, %if.then2.i384 ], [ %sub.ptr.sub.i402, %if.end16.i397 ], [ %sub.ptr.sub59.i359, %if.end56.i355 ]
+ZSTD_count.exit403:                               ; preds = %if.then2.i383, %if.end16.i396, %if.end56.i355
+  %retval.0.i360 = phi i64 [ %shr.i.i385, %if.then2.i383 ], [ %sub.ptr.sub.i402, %if.end16.i396 ], [ %sub.ptr.sub59.i359, %if.end56.i355 ]
   %add353.i = add i64 %retval.0.i360, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3418
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -6712,11 +6712,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr195.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i341 = lshr i64 %19, 3
   br label %ZSTD_count.exit
@@ -6732,11 +6732,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %20, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -6924,12 +6924,12 @@ if.then278.i:                                     ; preds = %lor.lhs.false275.i
 if.then.i399:                                     ; preds = %if.then278.i
   %pMatch.val.i400 = load i64, ptr %add.ptr280.i, align 1
   %pIn.val.i401 = load i64, ptr %ip, align 1
-  %xor.i402 = xor i64 %pIn.val.i401, %pMatch.val.i400
-  %tobool.not.i403 = icmp eq i64 %xor.i402, 0
-  br i1 %tobool.not.i403, label %while.cond.i406, label %if.then2.i404
+  %tobool.not.i402 = icmp eq i64 %pMatch.val.i400, %pIn.val.i401
+  br i1 %tobool.not.i402, label %while.cond.i406, label %if.then2.i403
 
-if.then2.i404:                                    ; preds = %if.then.i399
-  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i402, i1 true)
+if.then2.i403:                                    ; preds = %if.then.i399
+  %xor.i404 = xor i64 %pIn.val.i401, %pMatch.val.i400
+  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i404, i1 true)
   %shr.i.i405 = lshr i64 %35, 3
   br label %if.end287.i
 
@@ -6944,12 +6944,12 @@ while.cond.i406:                                  ; preds = %if.then.i399, %whil
 while.body.i412:                                  ; preds = %while.cond.i406
   %pMatch.addr.0.val.i413 = load i64, ptr %pMatch.addr.0.i410, align 1
   %pIn.addr.0.val.i414 = load i64, ptr %pIn.addr.0.i409, align 1
-  %xor11.i415 = xor i64 %pIn.addr.0.val.i414, %pMatch.addr.0.val.i413
-  %tobool12.not.i416 = icmp eq i64 %xor11.i415, 0
-  br i1 %tobool12.not.i416, label %while.cond.i406, label %if.end16.i417, !llvm.loop !21
+  %tobool12.not.i415 = icmp eq i64 %pMatch.addr.0.val.i413, %pIn.addr.0.val.i414
+  br i1 %tobool12.not.i415, label %while.cond.i406, label %if.end16.i416, !llvm.loop !21
 
-if.end16.i417:                                    ; preds = %while.body.i412
-  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i415, i1 true)
+if.end16.i416:                                    ; preds = %while.body.i412
+  %xor11.i417 = xor i64 %pIn.addr.0.val.i414, %pMatch.addr.0.val.i413
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i417, i1 true)
   %shr.i35.i418 = lshr i64 %36, 3
   %add.ptr18.i419 = getelementptr inbounds i8, ptr %pIn.addr.0.i409, i64 %shr.i35.i418
   %sub.ptr.lhs.cast.i420 = ptrtoint ptr %add.ptr18.i419 to i64
@@ -7017,8 +7017,8 @@ if.else282.i:                                     ; preds = %lor.lhs.false275.i
   %call286.i = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %ip, ptr noundef %add.ptr285.i, ptr noundef %iHighLimit, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %add.ptr15.i)
   br label %if.end287.i
 
-if.end287.i:                                      ; preds = %if.end56.i375, %if.end16.i417, %if.then2.i404, %if.else282.i
-  %mlen.i.0 = phi i64 [ %call286.i, %if.else282.i ], [ %shr.i.i405, %if.then2.i404 ], [ %sub.ptr.sub.i422, %if.end16.i417 ], [ %sub.ptr.sub59.i379, %if.end56.i375 ]
+if.end287.i:                                      ; preds = %if.end56.i375, %if.end16.i416, %if.then2.i403, %if.else282.i
+  %mlen.i.0 = phi i64 [ %call286.i, %if.else282.i ], [ %shr.i.i405, %if.then2.i403 ], [ %sub.ptr.sub.i422, %if.end16.i416 ], [ %sub.ptr.sub59.i379, %if.end56.i375 ]
   %cmp289.i = icmp ugt i64 %mlen.i.0, 2
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
@@ -7083,12 +7083,12 @@ if.then343.i:                                     ; preds = %for.body320.i
 if.then.i464:                                     ; preds = %if.then343.i
   %pMatch.val.i465 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i466 = load i64, ptr %add.ptr357.i, align 1
-  %xor.i467 = xor i64 %pIn.val.i466, %pMatch.val.i465
-  %tobool.not.i468 = icmp eq i64 %xor.i467, 0
-  br i1 %tobool.not.i468, label %while.cond.i471, label %if.then2.i469
+  %tobool.not.i467 = icmp eq i64 %pMatch.val.i465, %pIn.val.i466
+  br i1 %tobool.not.i467, label %while.cond.i471, label %if.then2.i468
 
-if.then2.i469:                                    ; preds = %if.then.i464
-  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i467, i1 true)
+if.then2.i468:                                    ; preds = %if.then.i464
+  %xor.i469 = xor i64 %pIn.val.i466, %pMatch.val.i465
+  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i469, i1 true)
   %shr.i.i470 = lshr i64 %39, 3
   br label %ZSTD_count.exit488
 
@@ -7103,12 +7103,12 @@ while.cond.i471:                                  ; preds = %if.then.i464, %whil
 while.body.i477:                                  ; preds = %while.cond.i471
   %pMatch.addr.0.val.i478 = load i64, ptr %pMatch.addr.0.i475, align 1
   %pIn.addr.0.val.i479 = load i64, ptr %pIn.addr.0.i474, align 1
-  %xor11.i480 = xor i64 %pIn.addr.0.val.i479, %pMatch.addr.0.val.i478
-  %tobool12.not.i481 = icmp eq i64 %xor11.i480, 0
-  br i1 %tobool12.not.i481, label %while.cond.i471, label %if.end16.i482, !llvm.loop !21
+  %tobool12.not.i480 = icmp eq i64 %pMatch.addr.0.val.i478, %pIn.addr.0.val.i479
+  br i1 %tobool12.not.i480, label %while.cond.i471, label %if.end16.i481, !llvm.loop !21
 
-if.end16.i482:                                    ; preds = %while.body.i477
-  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i480, i1 true)
+if.end16.i481:                                    ; preds = %while.body.i477
+  %xor11.i482 = xor i64 %pIn.addr.0.val.i479, %pMatch.addr.0.val.i478
+  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i482, i1 true)
   %shr.i35.i483 = lshr i64 %40, 3
   %add.ptr18.i484 = getelementptr inbounds i8, ptr %pIn.addr.0.i474, i64 %shr.i35.i483
   %sub.ptr.lhs.cast.i485 = ptrtoint ptr %add.ptr18.i484 to i64
@@ -7171,8 +7171,8 @@ if.end56.i440:                                    ; preds = %land.lhs.true50.i44
   %sub.ptr.sub59.i444 = sub i64 %sub.ptr.lhs.cast57.i442, %sub.ptr.rhs.cast58.i443
   br label %ZSTD_count.exit488
 
-ZSTD_count.exit488:                               ; preds = %if.then2.i469, %if.end16.i482, %if.end56.i440
-  %retval.0.i445 = phi i64 [ %shr.i.i470, %if.then2.i469 ], [ %sub.ptr.sub.i487, %if.end16.i482 ], [ %sub.ptr.sub59.i444, %if.end56.i440 ]
+ZSTD_count.exit488:                               ; preds = %if.then2.i468, %if.end16.i481, %if.end56.i440
+  %retval.0.i445 = phi i64 [ %shr.i.i470, %if.then2.i468 ], [ %sub.ptr.sub.i487, %if.end16.i481 ], [ %sub.ptr.sub59.i444, %if.end56.i440 ]
   %add353.i = add i64 %retval.0.i445, %cond331.i
   br label %if.end370.i
 
@@ -7425,11 +7425,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr195.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i339 = lshr i64 %19, 3
   br label %ZSTD_count.exit
@@ -7445,11 +7445,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %20, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -7612,12 +7612,12 @@ if.then343.i:                                     ; preds = %for.body320.i
 if.then.i388:                                     ; preds = %if.then343.i
   %pMatch.val.i389 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i390 = load i64, ptr %add.ptr357.i, align 1
-  %xor.i391 = xor i64 %pIn.val.i390, %pMatch.val.i389
-  %tobool.not.i392 = icmp eq i64 %xor.i391, 0
-  br i1 %tobool.not.i392, label %while.cond.i395, label %if.then2.i393
+  %tobool.not.i391 = icmp eq i64 %pMatch.val.i389, %pIn.val.i390
+  br i1 %tobool.not.i391, label %while.cond.i395, label %if.then2.i392
 
-if.then2.i393:                                    ; preds = %if.then.i388
-  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i391, i1 true)
+if.then2.i392:                                    ; preds = %if.then.i388
+  %xor.i393 = xor i64 %pIn.val.i390, %pMatch.val.i389
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i393, i1 true)
   %shr.i.i394 = lshr i64 %27, 3
   br label %ZSTD_count.exit412
 
@@ -7632,12 +7632,12 @@ while.cond.i395:                                  ; preds = %if.then.i388, %whil
 while.body.i401:                                  ; preds = %while.cond.i395
   %pMatch.addr.0.val.i402 = load i64, ptr %pMatch.addr.0.i399, align 1
   %pIn.addr.0.val.i403 = load i64, ptr %pIn.addr.0.i398, align 1
-  %xor11.i404 = xor i64 %pIn.addr.0.val.i403, %pMatch.addr.0.val.i402
-  %tobool12.not.i405 = icmp eq i64 %xor11.i404, 0
-  br i1 %tobool12.not.i405, label %while.cond.i395, label %if.end16.i406, !llvm.loop !21
+  %tobool12.not.i404 = icmp eq i64 %pMatch.addr.0.val.i402, %pIn.addr.0.val.i403
+  br i1 %tobool12.not.i404, label %while.cond.i395, label %if.end16.i405, !llvm.loop !21
 
-if.end16.i406:                                    ; preds = %while.body.i401
-  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i404, i1 true)
+if.end16.i405:                                    ; preds = %while.body.i401
+  %xor11.i406 = xor i64 %pIn.addr.0.val.i403, %pMatch.addr.0.val.i402
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i406, i1 true)
   %shr.i35.i407 = lshr i64 %28, 3
   %add.ptr18.i408 = getelementptr inbounds i8, ptr %pIn.addr.0.i398, i64 %shr.i35.i407
   %sub.ptr.lhs.cast.i409 = ptrtoint ptr %add.ptr18.i408 to i64
@@ -7700,8 +7700,8 @@ if.end56.i364:                                    ; preds = %land.lhs.true50.i37
   %sub.ptr.sub59.i368 = sub i64 %sub.ptr.lhs.cast57.i366, %sub.ptr.rhs.cast58.i367
   br label %ZSTD_count.exit412
 
-ZSTD_count.exit412:                               ; preds = %if.then2.i393, %if.end16.i406, %if.end56.i364
-  %retval.0.i369 = phi i64 [ %shr.i.i394, %if.then2.i393 ], [ %sub.ptr.sub.i411, %if.end16.i406 ], [ %sub.ptr.sub59.i368, %if.end56.i364 ]
+ZSTD_count.exit412:                               ; preds = %if.then2.i392, %if.end16.i405, %if.end56.i364
+  %retval.0.i369 = phi i64 [ %shr.i.i394, %if.then2.i392 ], [ %sub.ptr.sub.i411, %if.end16.i405 ], [ %sub.ptr.sub59.i368, %if.end56.i364 ]
   %add353.i = add i64 %retval.0.i369, %cond331.i
   br label %if.end370.i
 
@@ -7949,11 +7949,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr195.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i338 = lshr i64 %19, 3
   br label %ZSTD_count.exit
@@ -7969,11 +7969,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %20, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -8136,12 +8136,12 @@ if.then343.i:                                     ; preds = %for.body320.i
 if.then.i387:                                     ; preds = %if.then343.i
   %pMatch.val.i388 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i389 = load i64, ptr %add.ptr357.i, align 1
-  %xor.i390 = xor i64 %pIn.val.i389, %pMatch.val.i388
-  %tobool.not.i391 = icmp eq i64 %xor.i390, 0
-  br i1 %tobool.not.i391, label %while.cond.i394, label %if.then2.i392
+  %tobool.not.i390 = icmp eq i64 %pMatch.val.i388, %pIn.val.i389
+  br i1 %tobool.not.i390, label %while.cond.i394, label %if.then2.i391
 
-if.then2.i392:                                    ; preds = %if.then.i387
-  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i390, i1 true)
+if.then2.i391:                                    ; preds = %if.then.i387
+  %xor.i392 = xor i64 %pIn.val.i389, %pMatch.val.i388
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i392, i1 true)
   %shr.i.i393 = lshr i64 %27, 3
   br label %ZSTD_count.exit411
 
@@ -8156,12 +8156,12 @@ while.cond.i394:                                  ; preds = %if.then.i387, %whil
 while.body.i400:                                  ; preds = %while.cond.i394
   %pMatch.addr.0.val.i401 = load i64, ptr %pMatch.addr.0.i398, align 1
   %pIn.addr.0.val.i402 = load i64, ptr %pIn.addr.0.i397, align 1
-  %xor11.i403 = xor i64 %pIn.addr.0.val.i402, %pMatch.addr.0.val.i401
-  %tobool12.not.i404 = icmp eq i64 %xor11.i403, 0
-  br i1 %tobool12.not.i404, label %while.cond.i394, label %if.end16.i405, !llvm.loop !21
+  %tobool12.not.i403 = icmp eq i64 %pMatch.addr.0.val.i401, %pIn.addr.0.val.i402
+  br i1 %tobool12.not.i403, label %while.cond.i394, label %if.end16.i404, !llvm.loop !21
 
-if.end16.i405:                                    ; preds = %while.body.i400
-  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i403, i1 true)
+if.end16.i404:                                    ; preds = %while.body.i400
+  %xor11.i405 = xor i64 %pIn.addr.0.val.i402, %pMatch.addr.0.val.i401
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i405, i1 true)
   %shr.i35.i406 = lshr i64 %28, 3
   %add.ptr18.i407 = getelementptr inbounds i8, ptr %pIn.addr.0.i397, i64 %shr.i35.i406
   %sub.ptr.lhs.cast.i408 = ptrtoint ptr %add.ptr18.i407 to i64
@@ -8224,8 +8224,8 @@ if.end56.i363:                                    ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i367 = sub i64 %sub.ptr.lhs.cast57.i365, %sub.ptr.rhs.cast58.i366
   br label %ZSTD_count.exit411
 
-ZSTD_count.exit411:                               ; preds = %if.then2.i392, %if.end16.i405, %if.end56.i363
-  %retval.0.i368 = phi i64 [ %shr.i.i393, %if.then2.i392 ], [ %sub.ptr.sub.i410, %if.end16.i405 ], [ %sub.ptr.sub59.i367, %if.end56.i363 ]
+ZSTD_count.exit411:                               ; preds = %if.then2.i391, %if.end16.i404, %if.end56.i363
+  %retval.0.i368 = phi i64 [ %shr.i.i393, %if.then2.i391 ], [ %sub.ptr.sub.i410, %if.end16.i404 ], [ %sub.ptr.sub59.i367, %if.end56.i363 ]
   %add353.i = add i64 %retval.0.i368, %cond331.i
   br label %if.end370.i
 
@@ -8473,11 +8473,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr195.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i338 = lshr i64 %19, 3
   br label %ZSTD_count.exit
@@ -8493,11 +8493,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %20, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -8660,12 +8660,12 @@ if.then343.i:                                     ; preds = %for.body320.i
 if.then.i387:                                     ; preds = %if.then343.i
   %pMatch.val.i388 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i389 = load i64, ptr %add.ptr357.i, align 1
-  %xor.i390 = xor i64 %pIn.val.i389, %pMatch.val.i388
-  %tobool.not.i391 = icmp eq i64 %xor.i390, 0
-  br i1 %tobool.not.i391, label %while.cond.i394, label %if.then2.i392
+  %tobool.not.i390 = icmp eq i64 %pMatch.val.i388, %pIn.val.i389
+  br i1 %tobool.not.i390, label %while.cond.i394, label %if.then2.i391
 
-if.then2.i392:                                    ; preds = %if.then.i387
-  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i390, i1 true)
+if.then2.i391:                                    ; preds = %if.then.i387
+  %xor.i392 = xor i64 %pIn.val.i389, %pMatch.val.i388
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i392, i1 true)
   %shr.i.i393 = lshr i64 %27, 3
   br label %ZSTD_count.exit411
 
@@ -8680,12 +8680,12 @@ while.cond.i394:                                  ; preds = %if.then.i387, %whil
 while.body.i400:                                  ; preds = %while.cond.i394
   %pMatch.addr.0.val.i401 = load i64, ptr %pMatch.addr.0.i398, align 1
   %pIn.addr.0.val.i402 = load i64, ptr %pIn.addr.0.i397, align 1
-  %xor11.i403 = xor i64 %pIn.addr.0.val.i402, %pMatch.addr.0.val.i401
-  %tobool12.not.i404 = icmp eq i64 %xor11.i403, 0
-  br i1 %tobool12.not.i404, label %while.cond.i394, label %if.end16.i405, !llvm.loop !21
+  %tobool12.not.i403 = icmp eq i64 %pMatch.addr.0.val.i401, %pIn.addr.0.val.i402
+  br i1 %tobool12.not.i403, label %while.cond.i394, label %if.end16.i404, !llvm.loop !21
 
-if.end16.i405:                                    ; preds = %while.body.i400
-  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i403, i1 true)
+if.end16.i404:                                    ; preds = %while.body.i400
+  %xor11.i405 = xor i64 %pIn.addr.0.val.i402, %pMatch.addr.0.val.i401
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i405, i1 true)
   %shr.i35.i406 = lshr i64 %28, 3
   %add.ptr18.i407 = getelementptr inbounds i8, ptr %pIn.addr.0.i397, i64 %shr.i35.i406
   %sub.ptr.lhs.cast.i408 = ptrtoint ptr %add.ptr18.i407 to i64
@@ -8748,8 +8748,8 @@ if.end56.i363:                                    ; preds = %land.lhs.true50.i36
   %sub.ptr.sub59.i367 = sub i64 %sub.ptr.lhs.cast57.i365, %sub.ptr.rhs.cast58.i366
   br label %ZSTD_count.exit411
 
-ZSTD_count.exit411:                               ; preds = %if.then2.i392, %if.end16.i405, %if.end56.i363
-  %retval.0.i368 = phi i64 [ %shr.i.i393, %if.then2.i392 ], [ %sub.ptr.sub.i410, %if.end16.i405 ], [ %sub.ptr.sub59.i367, %if.end56.i363 ]
+ZSTD_count.exit411:                               ; preds = %if.then2.i391, %if.end16.i404, %if.end56.i363
+  %retval.0.i368 = phi i64 [ %shr.i.i393, %if.then2.i391 ], [ %sub.ptr.sub.i410, %if.end16.i404 ], [ %sub.ptr.sub59.i367, %if.end56.i363 ]
   %add353.i = add i64 %retval.0.i368, %cond331.i
   br label %if.end370.i
 
@@ -9023,11 +9023,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr223.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i343 = lshr i64 %25, 3
   br label %ZSTD_count.exit
@@ -9043,11 +9043,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %26, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -9231,12 +9231,12 @@ if.then278.i:                                     ; preds = %ZSTD_insertAndFindF
 if.then.i401:                                     ; preds = %if.then278.i
   %pMatch.val.i402 = load i64, ptr %add.ptr280.i, align 1
   %pIn.val.i403 = load i64, ptr %ip, align 1
-  %xor.i404 = xor i64 %pIn.val.i403, %pMatch.val.i402
-  %tobool.not.i405 = icmp eq i64 %xor.i404, 0
-  br i1 %tobool.not.i405, label %while.cond.i408, label %if.then2.i406
+  %tobool.not.i404 = icmp eq i64 %pMatch.val.i402, %pIn.val.i403
+  br i1 %tobool.not.i404, label %while.cond.i408, label %if.then2.i405
 
-if.then2.i406:                                    ; preds = %if.then.i401
-  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i404, i1 true)
+if.then2.i405:                                    ; preds = %if.then.i401
+  %xor.i406 = xor i64 %pIn.val.i403, %pMatch.val.i402
+  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i406, i1 true)
   %shr.i.i407 = lshr i64 %41, 3
   br label %ZSTD_count.exit425
 
@@ -9251,12 +9251,12 @@ while.cond.i408:                                  ; preds = %if.then.i401, %whil
 while.body.i414:                                  ; preds = %while.cond.i408
   %pMatch.addr.0.val.i415 = load i64, ptr %pMatch.addr.0.i412, align 1
   %pIn.addr.0.val.i416 = load i64, ptr %pIn.addr.0.i411, align 1
-  %xor11.i417 = xor i64 %pIn.addr.0.val.i416, %pMatch.addr.0.val.i415
-  %tobool12.not.i418 = icmp eq i64 %xor11.i417, 0
-  br i1 %tobool12.not.i418, label %while.cond.i408, label %if.end16.i419, !llvm.loop !21
+  %tobool12.not.i417 = icmp eq i64 %pMatch.addr.0.val.i415, %pIn.addr.0.val.i416
+  br i1 %tobool12.not.i417, label %while.cond.i408, label %if.end16.i418, !llvm.loop !21
 
-if.end16.i419:                                    ; preds = %while.body.i414
-  %42 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i417, i1 true)
+if.end16.i418:                                    ; preds = %while.body.i414
+  %xor11.i419 = xor i64 %pIn.addr.0.val.i416, %pMatch.addr.0.val.i415
+  %42 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i419, i1 true)
   %shr.i35.i420 = lshr i64 %42, 3
   %add.ptr18.i421 = getelementptr inbounds i8, ptr %pIn.addr.0.i411, i64 %shr.i35.i420
   %sub.ptr.lhs.cast.i422 = ptrtoint ptr %add.ptr18.i421 to i64
@@ -9319,8 +9319,8 @@ if.end56.i377:                                    ; preds = %land.lhs.true50.i38
   %sub.ptr.sub59.i381 = sub i64 %sub.ptr.lhs.cast57.i379, %sub.ptr.lhs.cast.i.i
   br label %ZSTD_count.exit425
 
-ZSTD_count.exit425:                               ; preds = %if.then2.i406, %if.end16.i419, %if.end56.i377
-  %retval.0.i382 = phi i64 [ %shr.i.i407, %if.then2.i406 ], [ %sub.ptr.sub.i424, %if.end16.i419 ], [ %sub.ptr.sub59.i381, %if.end56.i377 ]
+ZSTD_count.exit425:                               ; preds = %if.then2.i405, %if.end16.i418, %if.end56.i377
+  %retval.0.i382 = phi i64 [ %shr.i.i407, %if.then2.i405 ], [ %sub.ptr.sub.i424, %if.end16.i418 ], [ %sub.ptr.sub59.i381, %if.end56.i377 ]
   %cmp289.i = icmp ugt i64 %retval.0.i382, 2
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
@@ -9385,12 +9385,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i466:                                     ; preds = %for.body320.i
   %pMatch.val.i467 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i468 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i469 = xor i64 %pIn.val.i468, %pMatch.val.i467
-  %tobool.not.i470 = icmp eq i64 %xor.i469, 0
-  br i1 %tobool.not.i470, label %while.cond.i473, label %if.then2.i471
+  %tobool.not.i469 = icmp eq i64 %pMatch.val.i467, %pIn.val.i468
+  br i1 %tobool.not.i469, label %while.cond.i473, label %if.then2.i470
 
-if.then2.i471:                                    ; preds = %if.then.i466
-  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i469, i1 true)
+if.then2.i470:                                    ; preds = %if.then.i466
+  %xor.i471 = xor i64 %pIn.val.i468, %pMatch.val.i467
+  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i471, i1 true)
   %shr.i.i472 = lshr i64 %45, 3
   br label %ZSTD_count.exit490
 
@@ -9405,12 +9405,12 @@ while.cond.i473:                                  ; preds = %if.then.i466, %whil
 while.body.i479:                                  ; preds = %while.cond.i473
   %pMatch.addr.0.val.i480 = load i64, ptr %pMatch.addr.0.i477, align 1
   %pIn.addr.0.val.i481 = load i64, ptr %pIn.addr.0.i476, align 1
-  %xor11.i482 = xor i64 %pIn.addr.0.val.i481, %pMatch.addr.0.val.i480
-  %tobool12.not.i483 = icmp eq i64 %xor11.i482, 0
-  br i1 %tobool12.not.i483, label %while.cond.i473, label %if.end16.i484, !llvm.loop !21
+  %tobool12.not.i482 = icmp eq i64 %pMatch.addr.0.val.i480, %pIn.addr.0.val.i481
+  br i1 %tobool12.not.i482, label %while.cond.i473, label %if.end16.i483, !llvm.loop !21
 
-if.end16.i484:                                    ; preds = %while.body.i479
-  %46 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i482, i1 true)
+if.end16.i483:                                    ; preds = %while.body.i479
+  %xor11.i484 = xor i64 %pIn.addr.0.val.i481, %pMatch.addr.0.val.i480
+  %46 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i484, i1 true)
   %shr.i35.i485 = lshr i64 %46, 3
   %add.ptr18.i486 = getelementptr inbounds i8, ptr %pIn.addr.0.i476, i64 %shr.i35.i485
   %sub.ptr.lhs.cast.i487 = ptrtoint ptr %add.ptr18.i486 to i64
@@ -9473,8 +9473,8 @@ if.end56.i442:                                    ; preds = %land.lhs.true50.i44
   %sub.ptr.sub59.i446 = sub i64 %sub.ptr.lhs.cast57.i444, %sub.ptr.rhs.cast58.i445
   br label %ZSTD_count.exit490
 
-ZSTD_count.exit490:                               ; preds = %if.then2.i471, %if.end16.i484, %if.end56.i442
-  %retval.0.i447 = phi i64 [ %shr.i.i472, %if.then2.i471 ], [ %sub.ptr.sub.i489, %if.end16.i484 ], [ %sub.ptr.sub59.i446, %if.end56.i442 ]
+ZSTD_count.exit490:                               ; preds = %if.then2.i470, %if.end16.i483, %if.end56.i442
+  %retval.0.i447 = phi i64 [ %shr.i.i472, %if.then2.i470 ], [ %sub.ptr.sub.i489, %if.end16.i483 ], [ %sub.ptr.sub59.i446, %if.end56.i442 ]
   %add353.i = add i64 %retval.0.i447, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3521
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -9842,11 +9842,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr223.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i341 = lshr i64 %25, 3
   br label %ZSTD_count.exit
@@ -9862,11 +9862,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %26, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -10029,12 +10029,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i390:                                     ; preds = %for.body320.i
   %pMatch.val.i391 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i392 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i393 = xor i64 %pIn.val.i392, %pMatch.val.i391
-  %tobool.not.i394 = icmp eq i64 %xor.i393, 0
-  br i1 %tobool.not.i394, label %while.cond.i397, label %if.then2.i395
+  %tobool.not.i393 = icmp eq i64 %pMatch.val.i391, %pIn.val.i392
+  br i1 %tobool.not.i393, label %while.cond.i397, label %if.then2.i394
 
-if.then2.i395:                                    ; preds = %if.then.i390
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i393, i1 true)
+if.then2.i394:                                    ; preds = %if.then.i390
+  %xor.i395 = xor i64 %pIn.val.i392, %pMatch.val.i391
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i395, i1 true)
   %shr.i.i396 = lshr i64 %33, 3
   br label %ZSTD_count.exit414
 
@@ -10049,12 +10049,12 @@ while.cond.i397:                                  ; preds = %if.then.i390, %whil
 while.body.i403:                                  ; preds = %while.cond.i397
   %pMatch.addr.0.val.i404 = load i64, ptr %pMatch.addr.0.i401, align 1
   %pIn.addr.0.val.i405 = load i64, ptr %pIn.addr.0.i400, align 1
-  %xor11.i406 = xor i64 %pIn.addr.0.val.i405, %pMatch.addr.0.val.i404
-  %tobool12.not.i407 = icmp eq i64 %xor11.i406, 0
-  br i1 %tobool12.not.i407, label %while.cond.i397, label %if.end16.i408, !llvm.loop !21
+  %tobool12.not.i406 = icmp eq i64 %pMatch.addr.0.val.i404, %pIn.addr.0.val.i405
+  br i1 %tobool12.not.i406, label %while.cond.i397, label %if.end16.i407, !llvm.loop !21
 
-if.end16.i408:                                    ; preds = %while.body.i403
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i406, i1 true)
+if.end16.i407:                                    ; preds = %while.body.i403
+  %xor11.i408 = xor i64 %pIn.addr.0.val.i405, %pMatch.addr.0.val.i404
+  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i408, i1 true)
   %shr.i35.i409 = lshr i64 %34, 3
   %add.ptr18.i410 = getelementptr inbounds i8, ptr %pIn.addr.0.i400, i64 %shr.i35.i409
   %sub.ptr.lhs.cast.i411 = ptrtoint ptr %add.ptr18.i410 to i64
@@ -10117,8 +10117,8 @@ if.end56.i366:                                    ; preds = %land.lhs.true50.i37
   %sub.ptr.sub59.i370 = sub i64 %sub.ptr.lhs.cast57.i368, %sub.ptr.rhs.cast58.i369
   br label %ZSTD_count.exit414
 
-ZSTD_count.exit414:                               ; preds = %if.then2.i395, %if.end16.i408, %if.end56.i366
-  %retval.0.i371 = phi i64 [ %shr.i.i396, %if.then2.i395 ], [ %sub.ptr.sub.i413, %if.end16.i408 ], [ %sub.ptr.sub59.i370, %if.end56.i366 ]
+ZSTD_count.exit414:                               ; preds = %if.then2.i394, %if.end16.i407, %if.end56.i366
+  %retval.0.i371 = phi i64 [ %shr.i.i396, %if.then2.i394 ], [ %sub.ptr.sub.i413, %if.end16.i407 ], [ %sub.ptr.sub59.i370, %if.end56.i366 ]
   %add353.i = add i64 %retval.0.i371, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3443
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -10481,11 +10481,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr223.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i340 = lshr i64 %25, 3
   br label %ZSTD_count.exit
@@ -10501,11 +10501,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %26, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -10668,12 +10668,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i389:                                     ; preds = %for.body320.i
   %pMatch.val.i390 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i391 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i392 = xor i64 %pIn.val.i391, %pMatch.val.i390
-  %tobool.not.i393 = icmp eq i64 %xor.i392, 0
-  br i1 %tobool.not.i393, label %while.cond.i396, label %if.then2.i394
+  %tobool.not.i392 = icmp eq i64 %pMatch.val.i390, %pIn.val.i391
+  br i1 %tobool.not.i392, label %while.cond.i396, label %if.then2.i393
 
-if.then2.i394:                                    ; preds = %if.then.i389
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i392, i1 true)
+if.then2.i393:                                    ; preds = %if.then.i389
+  %xor.i394 = xor i64 %pIn.val.i391, %pMatch.val.i390
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i394, i1 true)
   %shr.i.i395 = lshr i64 %33, 3
   br label %ZSTD_count.exit413
 
@@ -10688,12 +10688,12 @@ while.cond.i396:                                  ; preds = %if.then.i389, %whil
 while.body.i402:                                  ; preds = %while.cond.i396
   %pMatch.addr.0.val.i403 = load i64, ptr %pMatch.addr.0.i400, align 1
   %pIn.addr.0.val.i404 = load i64, ptr %pIn.addr.0.i399, align 1
-  %xor11.i405 = xor i64 %pIn.addr.0.val.i404, %pMatch.addr.0.val.i403
-  %tobool12.not.i406 = icmp eq i64 %xor11.i405, 0
-  br i1 %tobool12.not.i406, label %while.cond.i396, label %if.end16.i407, !llvm.loop !21
+  %tobool12.not.i405 = icmp eq i64 %pMatch.addr.0.val.i403, %pIn.addr.0.val.i404
+  br i1 %tobool12.not.i405, label %while.cond.i396, label %if.end16.i406, !llvm.loop !21
 
-if.end16.i407:                                    ; preds = %while.body.i402
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i405, i1 true)
+if.end16.i406:                                    ; preds = %while.body.i402
+  %xor11.i407 = xor i64 %pIn.addr.0.val.i404, %pMatch.addr.0.val.i403
+  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i407, i1 true)
   %shr.i35.i408 = lshr i64 %34, 3
   %add.ptr18.i409 = getelementptr inbounds i8, ptr %pIn.addr.0.i399, i64 %shr.i35.i408
   %sub.ptr.lhs.cast.i410 = ptrtoint ptr %add.ptr18.i409 to i64
@@ -10756,8 +10756,8 @@ if.end56.i365:                                    ; preds = %land.lhs.true50.i37
   %sub.ptr.sub59.i369 = sub i64 %sub.ptr.lhs.cast57.i367, %sub.ptr.rhs.cast58.i368
   br label %ZSTD_count.exit413
 
-ZSTD_count.exit413:                               ; preds = %if.then2.i394, %if.end16.i407, %if.end56.i365
-  %retval.0.i370 = phi i64 [ %shr.i.i395, %if.then2.i394 ], [ %sub.ptr.sub.i412, %if.end16.i407 ], [ %sub.ptr.sub59.i369, %if.end56.i365 ]
+ZSTD_count.exit413:                               ; preds = %if.then2.i393, %if.end16.i406, %if.end56.i365
+  %retval.0.i370 = phi i64 [ %shr.i.i395, %if.then2.i393 ], [ %sub.ptr.sub.i412, %if.end16.i406 ], [ %sub.ptr.sub59.i369, %if.end56.i365 ]
   %add353.i = add i64 %retval.0.i370, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3442
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i
@@ -11120,11 +11120,11 @@ if.then151.i:                                     ; preds = %if.then.i18
 if.then.i:                                        ; preds = %if.then151.i
   %pMatch.val.i = load i64, ptr %add.ptr158.i, align 1
   %pIn.val.i = load i64, ptr %add.ptr223.i, align 1
-  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %tobool.not.i = icmp eq i64 %xor.i, 0
+  %tobool.not.i = icmp eq i64 %pMatch.val.i, %pIn.val.i
   br i1 %tobool.not.i, label %while.cond.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
+  %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %shr.i.i340 = lshr i64 %25, 3
   br label %ZSTD_count.exit
@@ -11140,11 +11140,11 @@ while.cond.i:                                     ; preds = %if.then.i, %while.b
 while.body.i:                                     ; preds = %while.cond.i
   %pMatch.addr.0.val.i = load i64, ptr %pMatch.addr.0.i, align 1
   %pIn.addr.0.val.i = load i64, ptr %pIn.addr.0.i, align 1
-  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
-  %tobool12.not.i = icmp eq i64 %xor11.i, 0
+  %tobool12.not.i = icmp eq i64 %pMatch.addr.0.val.i, %pIn.addr.0.val.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end16.i, !llvm.loop !21
 
 if.end16.i:                                       ; preds = %while.body.i
+  %xor11.i = xor i64 %pIn.addr.0.val.i, %pMatch.addr.0.val.i
   %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %26, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.0.i, i64 %shr.i35.i
@@ -11307,12 +11307,12 @@ for.body320.i:                                    ; preds = %for.body320.i.lr.ph
 if.then.i389:                                     ; preds = %for.body320.i
   %pMatch.val.i390 = load i64, ptr %add.ptr351.i, align 1
   %pIn.val.i391 = load i64, ptr %add.ptr350.i, align 1
-  %xor.i392 = xor i64 %pIn.val.i391, %pMatch.val.i390
-  %tobool.not.i393 = icmp eq i64 %xor.i392, 0
-  br i1 %tobool.not.i393, label %while.cond.i396, label %if.then2.i394
+  %tobool.not.i392 = icmp eq i64 %pMatch.val.i390, %pIn.val.i391
+  br i1 %tobool.not.i392, label %while.cond.i396, label %if.then2.i393
 
-if.then2.i394:                                    ; preds = %if.then.i389
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i392, i1 true)
+if.then2.i393:                                    ; preds = %if.then.i389
+  %xor.i394 = xor i64 %pIn.val.i391, %pMatch.val.i390
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i394, i1 true)
   %shr.i.i395 = lshr i64 %33, 3
   br label %ZSTD_count.exit413
 
@@ -11327,12 +11327,12 @@ while.cond.i396:                                  ; preds = %if.then.i389, %whil
 while.body.i402:                                  ; preds = %while.cond.i396
   %pMatch.addr.0.val.i403 = load i64, ptr %pMatch.addr.0.i400, align 1
   %pIn.addr.0.val.i404 = load i64, ptr %pIn.addr.0.i399, align 1
-  %xor11.i405 = xor i64 %pIn.addr.0.val.i404, %pMatch.addr.0.val.i403
-  %tobool12.not.i406 = icmp eq i64 %xor11.i405, 0
-  br i1 %tobool12.not.i406, label %while.cond.i396, label %if.end16.i407, !llvm.loop !21
+  %tobool12.not.i405 = icmp eq i64 %pMatch.addr.0.val.i403, %pIn.addr.0.val.i404
+  br i1 %tobool12.not.i405, label %while.cond.i396, label %if.end16.i406, !llvm.loop !21
 
-if.end16.i407:                                    ; preds = %while.body.i402
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i405, i1 true)
+if.end16.i406:                                    ; preds = %while.body.i402
+  %xor11.i407 = xor i64 %pIn.addr.0.val.i404, %pMatch.addr.0.val.i403
+  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i407, i1 true)
   %shr.i35.i408 = lshr i64 %34, 3
   %add.ptr18.i409 = getelementptr inbounds i8, ptr %pIn.addr.0.i399, i64 %shr.i35.i408
   %sub.ptr.lhs.cast.i410 = ptrtoint ptr %add.ptr18.i409 to i64
@@ -11395,8 +11395,8 @@ if.end56.i365:                                    ; preds = %land.lhs.true50.i37
   %sub.ptr.sub59.i369 = sub i64 %sub.ptr.lhs.cast57.i367, %sub.ptr.rhs.cast58.i368
   br label %ZSTD_count.exit413
 
-ZSTD_count.exit413:                               ; preds = %if.then2.i394, %if.end16.i407, %if.end56.i365
-  %retval.0.i370 = phi i64 [ %shr.i.i395, %if.then2.i394 ], [ %sub.ptr.sub.i412, %if.end16.i407 ], [ %sub.ptr.sub59.i369, %if.end56.i365 ]
+ZSTD_count.exit413:                               ; preds = %if.then2.i393, %if.end16.i406, %if.end56.i365
+  %retval.0.i370 = phi i64 [ %shr.i.i395, %if.then2.i393 ], [ %sub.ptr.sub.i412, %if.end16.i406 ], [ %sub.ptr.sub59.i369, %if.end56.i365 ]
   %add353.i = add i64 %retval.0.i370, %cond331.i
   %cmp371.i = icmp ugt i64 %add353.i, %bestLength.i.3442
   br i1 %cmp371.i, label %if.then373.i, label %if.end407.i

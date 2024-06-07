@@ -6729,7 +6729,7 @@ if.end195:                                        ; preds = %if.end188, %do.end1
   br label %do.body197
 
 for.cond230.preheader:                            ; preds = %for.inc
-  %cmp232280.not = icmp eq i32 %xor, 0
+  %cmp232280.not = icmp eq i32 %77, 65535
   br i1 %cmp232280.not, label %if.end278, label %do.body235.lr.ph
 
 do.body235.lr.ph:                                 ; preds = %for.cond230.preheader
@@ -7086,12 +7086,12 @@ if.end426:                                        ; preds = %if.then421, %while.
 
 do.body437.preheader:                             ; preds = %if.end426, %do.end397
   %.ph = phi i32 [ %.pre321.pre, %do.end397 ], [ %shr428, %if.end426 ]
-  %.ph341 = phi i32 [ 0, %do.end397 ], [ %sub430, %if.end426 ]
+  %.ph343 = phi i32 [ 0, %do.end397 ], [ %sub430, %if.end426 ]
   br label %do.body437
 
 do.body437:                                       ; preds = %do.body437.preheader, %for.inc468
   %129 = phi i32 [ %140, %for.inc468 ], [ %.ph, %do.body437.preheader ]
-  %130 = phi i32 [ %141, %for.inc468 ], [ %.ph341, %do.body437.preheader ]
+  %130 = phi i32 [ %141, %for.inc468 ], [ %.ph343, %do.body437.preheader ]
   %i367.0290 = phi i32 [ %dec469, %for.inc468 ], [ 2, %do.body437.preheader ]
   %z.0289 = phi i32 [ %xor470, %for.inc468 ], [ 0, %do.body437.preheader ]
   %and439 = and i32 %z.0289, 65535

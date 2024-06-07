@@ -3313,19 +3313,19 @@ define internal noundef range(i32 -22, 1) i32 @unix_shutdown(ptr nocapture nound
   %40 = and i32 %39, 2
   %41 = lshr i32 %7, 1
   %42 = or disjoint i32 %41, %40
-  %43 = xor i32 %42, 2
-  %44 = getelementptr inbounds i8, ptr %14, i64 864
-  tail call void @_raw_spin_lock(ptr noundef %44) #19
-  %45 = getelementptr inbounds i8, ptr %14, i64 620
-  %46 = load i8, ptr %45, align 4
-  %47 = trunc nuw nsw i32 %43 to i8
-  %48 = or i8 %46, %47
-  store volatile i8 %48, ptr %45, align 4
-  tail call void @_raw_spin_unlock(ptr noundef %44) #19
+  %43 = getelementptr inbounds i8, ptr %14, i64 864
+  tail call void @_raw_spin_lock(ptr noundef %43) #19
+  %44 = getelementptr inbounds i8, ptr %14, i64 620
+  %45 = load i8, ptr %44, align 4
+  %46 = trunc nuw nsw i32 %42 to i8
+  %47 = xor i8 %46, 2
+  %48 = or i8 %45, %47
+  store volatile i8 %48, ptr %44, align 4
+  tail call void @_raw_spin_unlock(ptr noundef %43) #19
   %49 = getelementptr inbounds i8, ptr %14, i64 672
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull %14) #19
-  %51 = icmp eq i32 %43, 3
+  %51 = icmp eq i32 %42, 1
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %38

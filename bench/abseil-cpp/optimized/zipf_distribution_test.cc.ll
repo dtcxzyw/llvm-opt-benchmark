@@ -4251,11 +4251,11 @@ while.body.i.i:                                   ; preds = %_ZN4absl15random_in
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %xor.i.i14.i.i.i.i.i.i, 0
+  %cmp.i.i.i = icmp eq i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %while.body.i.i
+  %xor.i.i14.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i)
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i, i1 true)
@@ -11195,7 +11195,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
   %__begin0.0.idx564 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
-  %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont399 ]
   %gen.sroa.0.0562 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %__begin0.0.ptr565 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx564
   %6 = load i32, ptr %__begin0.0.ptr565, align 8
@@ -12810,12 +12810,12 @@ for.body335:                                      ; preds = %_ZN7testing15Assert
   %i.0561 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit504 ]
   %sample_max.0560 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit504 ]
   %sample_min.0559 = phi i32 [ %197, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit504 ]
-  %gen.sroa.3.1558 = phi i64 [ %gen.sroa.3.0563, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit504 ]
+  %gen.sroa.3.1558 = phi i64 [ %gen.sroa.3.0563, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit504 ]
   %gen.sroa.0.1557 = phi i64 [ %gen.sroa.0.0562, %_ZN7testing15AssertionResultD2Ev.exit451 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit504 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body335
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1558, %for.body335 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1558, %for.body335 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1557, %for.body335 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -12827,11 +12827,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i517 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i517 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i517, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -12846,9 +12846,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i518, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !271
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i512, align 8
@@ -16213,7 +16215,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
   %__begin0.0.idx563 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
-  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont404 ]
   %gen.sroa.0.0561 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %__begin0.0.ptr564 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx563
   %6 = load i8, ptr %__begin0.0.ptr564, align 8
@@ -17828,12 +17830,12 @@ for.body336:                                      ; preds = %_ZN7testing15Assert
   %i.0560 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_max.0559 = phi i8 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_min.0558 = phi i8 [ %197, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit503 ]
-  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
+  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %gen.sroa.0.1556 = phi i64 [ %gen.sroa.0.0561, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body336
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1556, %for.body336 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -17845,11 +17847,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i516 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i516 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i516, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -17864,9 +17866,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i517, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !415
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i511, align 8
@@ -22646,7 +22650,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
   %__begin0.0.idx563 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
-  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont404 ]
   %gen.sroa.0.0561 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %__begin0.0.ptr564 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx563
   %6 = load i16, ptr %__begin0.0.ptr564, align 8
@@ -24261,12 +24265,12 @@ for.body336:                                      ; preds = %_ZN7testing15Assert
   %i.0560 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_max.0559 = phi i16 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_min.0558 = phi i16 [ %197, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit503 ]
-  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
+  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %gen.sroa.0.1556 = phi i64 [ %gen.sroa.0.0561, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body336
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1556, %for.body336 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -24278,11 +24282,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i516 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i516 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i516, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -24297,9 +24301,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i517, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !562
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i511, align 8
@@ -27140,7 +27146,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
   %__begin0.0.idx565 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
-  %gen.sroa.3.0564 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %gen.sroa.3.0564 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont399 ]
   %gen.sroa.0.0563 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %__begin0.0.ptr566 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx565
   %6 = load i64, ptr %__begin0.0.ptr566, align 8
@@ -28755,12 +28761,12 @@ for.body335:                                      ; preds = %_ZN7testing15Assert
   %i.0562 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %sample_max.0561 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %sample_min.0560 = phi i64 [ %197, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit505 ]
-  %gen.sroa.3.1559 = phi i64 [ %gen.sroa.3.0564, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit505 ]
+  %gen.sroa.3.1559 = phi i64 [ %gen.sroa.3.0564, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %gen.sroa.0.1558 = phi i64 [ %gen.sroa.0.0563, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body335
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1559, %for.body335 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1559, %for.body335 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1558, %for.body335 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -28772,11 +28778,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i518 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i518 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i518, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -28791,9 +28797,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i519, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !690
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i513, align 8
@@ -31633,7 +31641,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
   %__begin0.0.idx563 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
-  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont404 ]
   %gen.sroa.0.0561 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %__begin0.0.ptr564 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx563
   %6 = load i8, ptr %__begin0.0.ptr564, align 8
@@ -33248,12 +33256,12 @@ for.body336:                                      ; preds = %_ZN7testing15Assert
   %i.0560 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_max.0559 = phi i8 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_min.0558 = phi i8 [ %197, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit503 ]
-  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
+  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %gen.sroa.0.1556 = phi i64 [ %gen.sroa.0.0561, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body336
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1556, %for.body336 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -33265,11 +33273,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i516 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i516 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i516, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -33284,9 +33292,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i517, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIhE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIhE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIhE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIhE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !818
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i511, align 8
@@ -36117,7 +36127,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
   %__begin0.0.idx563 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
-  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %gen.sroa.3.0562 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont404 ]
   %gen.sroa.0.0561 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %__begin0.0.ptr564 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx563
   %6 = load i16, ptr %__begin0.0.ptr564, align 8
@@ -37732,12 +37742,12 @@ for.body336:                                      ; preds = %_ZN7testing15Assert
   %i.0560 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_max.0559 = phi i16 [ 0, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %sample_min.0558 = phi i16 [ %197, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit503 ]
-  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
+  %gen.sroa.3.1557 = phi i64 [ %gen.sroa.3.0562, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   %gen.sroa.0.1556 = phi i64 [ %gen.sroa.0.0561, %_ZN7testing15AssertionResultD2Ev.exit450 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit503 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body336
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1557, %for.body336 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1556, %for.body336 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -37749,11 +37759,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i516 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i516 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i516, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -37768,9 +37778,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i517, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !946
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i511, align 8
@@ -40601,7 +40613,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
   %__begin0.0.idx565 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
-  %gen.sroa.3.0564 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %gen.sroa.3.0564 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont399 ]
   %gen.sroa.0.0563 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %__begin0.0.ptr566 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx565
   %6 = load i32, ptr %__begin0.0.ptr566, align 8
@@ -42216,12 +42228,12 @@ for.body335:                                      ; preds = %_ZN7testing15Assert
   %i.0562 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %sample_max.0561 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %sample_min.0560 = phi i32 [ %197, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit505 ]
-  %gen.sroa.3.1559 = phi i64 [ %gen.sroa.3.0564, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit505 ]
+  %gen.sroa.3.1559 = phi i64 [ %gen.sroa.3.0564, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   %gen.sroa.0.1558 = phi i64 [ %gen.sroa.0.0563, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit505 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body335
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1559, %for.body335 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1559, %for.body335 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1558, %for.body335 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -42233,11 +42245,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i518 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i518 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i518, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -42252,9 +42264,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i519, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !1074
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i513, align 8
@@ -45085,7 +45099,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont393
   %__begin0.0.idx566 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont393 ]
-  %gen.sroa.3.0565 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont393 ]
+  %gen.sroa.3.0565 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %invoke.cont393 ]
   %gen.sroa.0.0564 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont393 ]
   %__begin0.0.ptr567 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx566
   %6 = load i64, ptr %__begin0.0.ptr567, align 8
@@ -46700,12 +46714,12 @@ for.body330:                                      ; preds = %invoke.cont325, %_Z
   %i.0563 = phi i32 [ 0, %invoke.cont325 ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit506 ]
   %sample_max.0562 = phi i64 [ 0, %invoke.cont325 ], [ %spec.select, %_ZN7testing15AssertionResultD2Ev.exit506 ]
   %sample_min.0561 = phi i64 [ %197, %invoke.cont325 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit506 ]
-  %gen.sroa.3.1560 = phi i64 [ %gen.sroa.3.0565, %invoke.cont325 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit506 ]
+  %gen.sroa.3.1560 = phi i64 [ %gen.sroa.3.0565, %invoke.cont325 ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZN7testing15AssertionResultD2Ev.exit506 ]
   %gen.sroa.0.1559 = phi i64 [ %gen.sroa.0.0564, %invoke.cont325 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit506 ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.backedge, %for.body330
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1560, %for.body330 ], [ %.narrow.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.3.1560, %for.body330 ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be, %while.body.i.i.i.backedge ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = phi i64 [ %gen.sroa.0.1559, %for.body330 ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
@@ -46717,11 +46731,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %198 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %198 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i519 = icmp eq i64 %xor.i.i14.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i519 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i519, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %while.body.i.i.i
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
@@ -46736,9 +46750,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %cmp.i.i.i520, label %while.body.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 while.body.i.i.i.backedge:                        ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.lcssa, %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit.i ]
   br label %while.body.i.i.i, !llvm.loop !1202
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %while.body.i.i.i
+  %.narrow.i.i.i.i.i.i.i.i.i.lcssa = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %while.body.i.i.i ]
   %retval.0.i.i.i38.i = phi double [ %201, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ 0.000000e+00, %while.body.i.i.i ]
   %202 = fadd double %retval.0.i.i.i38.i, 0.000000e+00
   %203 = load double, ptr %hxm_.i514, align 8

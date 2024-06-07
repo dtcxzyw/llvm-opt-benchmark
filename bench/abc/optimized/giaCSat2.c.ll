@@ -891,8 +891,8 @@ Cbs2_VarIsJust.exit.thread:                       ; preds = %.lr.ph103, %51, %Cb
   %85 = load i32, ptr %11, align 4
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %11, align 4
-  %87 = icmp eq i32 %72, 0
-  %88 = icmp eq i32 %84, 0
+  %87 = icmp eq i32 %71, %69
+  %88 = icmp eq i32 %83, %80
   %or.cond.i = select i1 %87, i1 true, i1 %88
   br i1 %or.cond.i, label %Cbs2_ManPropagateTwo.exit.thread, label %89
 
@@ -1146,8 +1146,8 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
   %37 = getelementptr inbounds i8, ptr %.val100, i64 %7
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 1
-  %40 = icmp eq i32 %24, 0
-  %41 = icmp eq i32 %36, 0
+  %40 = icmp eq i32 %23, %21
+  %41 = icmp eq i32 %35, %32
   %or.cond = select i1 %40, i1 true, i1 %41
   br i1 %39, label %42, label %138
 
@@ -1155,7 +1155,7 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
   br i1 %or.cond, label %43, label %53
 
 43:                                               ; preds = %42
-  %44 = icmp ne i32 %36, 0
+  %44 = icmp ne i32 %35, %32
   %or.cond3 = select i1 %40, i1 %44, i1 false
   br i1 %or.cond3, label %45, label %47
 
@@ -1164,7 +1164,7 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
   br label %172
 
 47:                                               ; preds = %43
-  %48 = icmp ne i32 %24, 0
+  %48 = icmp ne i32 %23, %21
   %or.cond5 = select i1 %48, i1 %41, i1 false
   br i1 %or.cond5, label %49, label %51
 
@@ -1688,8 +1688,8 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %128, %.lr.ph100, %C
   %168 = load i32, ptr %18, align 8
   %169 = add nsw i32 %168, 1
   store i32 %169, ptr %18, align 8
-  %170 = icmp eq i32 %155, 0
-  %171 = icmp eq i32 %167, 0
+  %170 = icmp eq i32 %154, %152
+  %171 = icmp eq i32 %166, %163
   %or.cond.i = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i, label %172, label %200
 

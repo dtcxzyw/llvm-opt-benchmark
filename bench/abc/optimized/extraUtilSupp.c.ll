@@ -269,7 +269,7 @@ Vec_WrdPush.exit.us.us:                           ; preds = %Vec_WrdGrow.exit.i.
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %49, !llvm.loop !7
 
 ._crit_edge.us.us.us:                             ; preds = %49
-  %.not47.us.us.us = icmp eq i32 %.138.us.us.us, 0
+  %.not47.us.us.us = icmp eq i32 %.03758.us.us.us, %spec.select.us.us.us
   %53 = shl nuw i64 1, %indvars.iv79
   %54 = select i1 %.not47.us.us.us, i64 0, i64 %53
   %.143.us.us.us = or i64 %54, %.04259.us.us.us

@@ -2139,7 +2139,7 @@ Abc_Clock.exit196:                                ; preds = %159, %178
   %212 = and i64 %211, 1
   %sext.us = sub nsw i64 0, %212
   %.0151.us = xor i64 %211, %sext.us
-  %213 = icmp eq i64 %.0151.us, 0
+  %213 = icmp eq i64 %211, %sext.us
   br i1 %213, label %Bdc_SpfdHashLookup.exit208.us, label %214
 
 214:                                              ; preds = %198

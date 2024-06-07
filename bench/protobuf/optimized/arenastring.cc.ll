@@ -564,7 +564,7 @@ entry:
   %xor.i.i = xor i64 %1, 2
   %and.i.i = and i64 %xor.i.i, 3
   %tobool.not.i.i = icmp ne i64 %and.i.i, 0
-  %isnull1.i = icmp eq i64 %xor.i.i, 0
+  %isnull1.i = icmp eq ptr %0, inttoptr (i64 2 to ptr)
   %isnull.i = or i1 %isnull1.i, %tobool.not.i.i
   br i1 %isnull.i, label %_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv.exit, label %delete.notnull.i
 
@@ -612,7 +612,7 @@ entry:
   %xor.i = xor i64 %1, 2
   %and.i = and i64 %xor.i, 3
   %tobool.not.i = icmp ne i64 %and.i, 0
-  %isnull1 = icmp eq i64 %xor.i, 0
+  %isnull1 = icmp eq ptr %0, inttoptr (i64 2 to ptr)
   %isnull = or i1 %isnull1, %tobool.not.i
   br i1 %isnull, label %delete.end, label %delete.notnull
 

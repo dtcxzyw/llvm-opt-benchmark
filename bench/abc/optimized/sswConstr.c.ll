@@ -3485,42 +3485,42 @@ Ssw_ObjChild0Fra.exit:                            ; preds = %129
   %142 = load ptr, ptr %11, align 8
   %143 = getelementptr i8, ptr %142, i64 48
   %.val136 = load ptr, ptr %143, align 8
-  %144 = ptrtoint ptr %.val136 to i64
-  %145 = xor i64 %144, 1
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %171, label %Ssw_ObjChild0Fra.exit175
+  %144 = icmp eq ptr %.val136, inttoptr (i64 1 to ptr)
+  br i1 %144, label %171, label %Ssw_ObjChild0Fra.exit175
 
 Ssw_ObjChild0Fra.exit.thread:                     ; preds = %129
-  %147 = inttoptr i64 %141 to ptr
+  %145 = inttoptr i64 %141 to ptr
   %.val6.i = load i32, ptr %58, align 8
   %.val7.i = load ptr, ptr %59, align 8
-  %148 = getelementptr i8, ptr %147, i64 36
-  %.val8.i = load i32, ptr %148, align 4
-  %149 = mul nsw i32 %.val8.i, %.val6.i
-  %150 = add nsw i32 %149, %.0116224
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %.val7.i, i64 %151
-  %153 = load ptr, ptr %152, align 8
-  %154 = and i64 %140, 1
-  %155 = ptrtoint ptr %153 to i64
-  %156 = xor i64 %154, %155
-  %157 = inttoptr i64 %156 to ptr
-  %158 = load ptr, ptr %11, align 8
-  %159 = getelementptr i8, ptr %158, i64 48
-  %.val136195 = load ptr, ptr %159, align 8
-  %160 = ptrtoint ptr %.val136195 to i64
-  %161 = xor i64 %160, 1
-  %162 = inttoptr i64 %161 to ptr
-  %163 = icmp eq ptr %157, %162
-  br i1 %163, label %171, label %Ssw_ObjChild0Fra.exit175.thread
+  %146 = getelementptr i8, ptr %145, i64 36
+  %.val8.i = load i32, ptr %146, align 4
+  %147 = mul nsw i32 %.val8.i, %.val6.i
+  %148 = add nsw i32 %147, %.0116224
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds ptr, ptr %.val7.i, i64 %149
+  %151 = load ptr, ptr %150, align 8
+  %152 = and i64 %140, 1
+  %153 = ptrtoint ptr %151 to i64
+  %154 = xor i64 %152, %153
+  %155 = inttoptr i64 %154 to ptr
+  %156 = load ptr, ptr %11, align 8
+  %157 = getelementptr i8, ptr %156, i64 48
+  %.val136195 = load ptr, ptr %157, align 8
+  %158 = ptrtoint ptr %.val136195 to i64
+  %159 = xor i64 %158, 1
+  %160 = inttoptr i64 %159 to ptr
+  %161 = icmp eq ptr %155, %160
+  br i1 %161, label %171, label %Ssw_ObjChild0Fra.exit175.thread
 
 Ssw_ObjChild0Fra.exit175:                         ; preds = %Ssw_ObjChild0Fra.exit
-  %164 = inttoptr i64 %145 to ptr
+  %162 = ptrtoint ptr %.val136 to i64
+  %163 = xor i64 %162, 1
+  %164 = inttoptr i64 %163 to ptr
   %165 = icmp eq ptr %.val136, null
   br i1 %165, label %167, label %Ssw_ObjChild0Fra.exit180
 
 Ssw_ObjChild0Fra.exit175.thread:                  ; preds = %Ssw_ObjChild0Fra.exit.thread
-  %166 = icmp eq ptr %.val136195, %157
+  %166 = icmp eq ptr %.val136195, %155
   br i1 %166, label %167, label %Ssw_ObjChild0Fra.exit180
 
 167:                                              ; preds = %Ssw_ObjChild0Fra.exit175.thread, %Ssw_ObjChild0Fra.exit175
@@ -3528,8 +3528,8 @@ Ssw_ObjChild0Fra.exit175.thread:                  ; preds = %Ssw_ObjChild0Fra.ex
   br label %171
 
 Ssw_ObjChild0Fra.exit180:                         ; preds = %Ssw_ObjChild0Fra.exit175.thread, %Ssw_ObjChild0Fra.exit175
-  %168 = phi ptr [ %164, %Ssw_ObjChild0Fra.exit175 ], [ %162, %Ssw_ObjChild0Fra.exit175.thread ]
-  %169 = phi ptr [ null, %Ssw_ObjChild0Fra.exit175 ], [ %157, %Ssw_ObjChild0Fra.exit175.thread ]
+  %168 = phi ptr [ %164, %Ssw_ObjChild0Fra.exit175 ], [ %160, %Ssw_ObjChild0Fra.exit175.thread ]
+  %169 = phi ptr [ null, %Ssw_ObjChild0Fra.exit175 ], [ %155, %Ssw_ObjChild0Fra.exit175.thread ]
   %170 = call i32 @Ssw_NodesAreConstrained(ptr noundef nonnull %0, ptr noundef %169, ptr noundef %168) #10
   br label %171
 

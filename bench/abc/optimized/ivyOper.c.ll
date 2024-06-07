@@ -446,7 +446,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId
   br i1 %.not.i85, label %Ivy_ObjCreateGhost.exit90, label %36
 
 36:                                               ; preds = %Ivy_ObjCreateGhost.exit
-  %.not.i.i86 = icmp eq i64 %31, 0
+  %.not.i.i86 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %.not.i.i86, label %Ivy_ObjFaninId1.exit.i88, label %37
 
 37:                                               ; preds = %36
@@ -489,11 +489,11 @@ Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.
   store i32 %58, ptr %12, align 8
   store ptr %52, ptr %16, align 8
   store ptr %55, ptr %17, align 8
-  %.not.i91 = icmp eq i64 %54, 0
+  %.not.i91 = icmp eq ptr %46, inttoptr (i64 1 to ptr)
   br i1 %.not.i91, label %Ivy_ObjCreateGhost.exit96, label %59
 
 59:                                               ; preds = %49
-  %.not.i.i92 = icmp eq i64 %51, 0
+  %.not.i.i92 = icmp eq ptr %29, inttoptr (i64 1 to ptr)
   br i1 %.not.i.i92, label %Ivy_ObjFaninId1.exit.i94, label %60
 
 60:                                               ; preds = %59
@@ -536,7 +536,7 @@ Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId
   store i32 %79, ptr %12, align 8
   store ptr %1, ptr %16, align 8
   store ptr %7, ptr %17, align 8
-  %.not.i97 = icmp eq i64 %6, 0
+  %.not.i97 = icmp eq ptr %2, inttoptr (i64 1 to ptr)
   br i1 %.not.i97, label %Ivy_ObjCreateGhost.exit102, label %80
 
 80:                                               ; preds = %73
@@ -573,11 +573,11 @@ Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId
   store i32 %95, ptr %12, align 8
   store ptr %32, ptr %16, align 8
   store ptr %92, ptr %17, align 8
-  %.not.i103 = icmp eq i64 %91, 0
+  %.not.i103 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
   br i1 %.not.i103, label %Ivy_ObjCreateGhost.exit108, label %96
 
 96:                                               ; preds = %Ivy_ObjCreateGhost.exit102
-  %.not.i.i104 = icmp eq i64 %31, 0
+  %.not.i.i104 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %.not.i.i104, label %Ivy_ObjFaninId1.exit.i106, label %97
 
 97:                                               ; preds = %96
@@ -619,11 +619,11 @@ Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.
   store i32 %117, ptr %12, align 8
   store ptr %111, ptr %16, align 8
   store ptr %114, ptr %17, align 8
-  %.not.i109 = icmp eq i64 %113, 0
+  %.not.i109 = icmp eq ptr %105, inttoptr (i64 1 to ptr)
   br i1 %.not.i109, label %Ivy_ObjCreateGhost.exit114, label %118
 
 118:                                              ; preds = %108
-  %.not.i.i110 = icmp eq i64 %110, 0
+  %.not.i.i110 = icmp eq ptr %89, inttoptr (i64 1 to ptr)
   br i1 %.not.i.i110, label %Ivy_ObjFaninId1.exit.i112, label %119
 
 119:                                              ; preds = %118

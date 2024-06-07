@@ -2732,20 +2732,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %14 = trunc i32 %agg.tmp.sroa.0.0.copyload to i8
   %15 = and i8 %14, 1
-  %16 = xor i8 %13, %15
-  switch i8 %16, label %if.then19 [
-    i8 0, label %return
-    i8 1, label %for.inc
-  ]
+  %cmp.i13 = icmp eq i8 %13, %15
+  br i1 %cmp.i13, label %return, label %if.else
 
-if.then19:                                        ; preds = %for.body
+if.else:                                          ; preds = %for.body
+  %16 = xor i8 %13, %15
+  %cmp.i.i.not = icmp eq i8 %16, 1
+  br i1 %cmp.i.i.not, label %for.inc, label %if.then19
+
+if.then19:                                        ; preds = %if.else
   %xor.i = xor i32 %agg.tmp.sroa.0.0.copyload, 1
   tail call void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 %xor.i, i32 noundef -1)
   %.pre25 = load i32, ptr %sz.i9, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %if.then19
-  %17 = phi i32 [ %10, %for.body ], [ %.pre25, %if.then19 ]
+for.inc:                                          ; preds = %if.then19, %if.else
+  %17 = phi i32 [ %.pre25, %if.then19 ], [ %10, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %18

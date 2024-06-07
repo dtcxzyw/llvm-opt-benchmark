@@ -76076,11 +76076,11 @@ default.unreachable:                              ; preds = %14
   unreachable
 
 15:                                               ; preds = %14
-  %16 = icmp eq i64 %11, 1
+  %16 = icmp eq i64 %10, -9223372036854775807
   br i1 %16, label %19, label %"_ZN85_$LT$ra_ap_rustc_abi..FieldsShape$LT$FieldIdx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf1859337a4d70a4E.exit.thread20"
 
 17:                                               ; preds = %14
-  %18 = icmp eq i64 %11, 2
+  %18 = icmp eq i64 %10, -9223372036854775806
   br i1 %18, label %23, label %"_ZN85_$LT$ra_ap_rustc_abi..FieldsShape$LT$FieldIdx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf1859337a4d70a4E.exit.thread20"
 
 19:                                               ; preds = %15

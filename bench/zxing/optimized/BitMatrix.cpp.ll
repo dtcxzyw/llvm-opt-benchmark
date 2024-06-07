@@ -1461,12 +1461,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %.0.copyload.i = load i64, ptr %.048, align 1
   %36 = getelementptr inbounds i8, ptr %.048, i64 1
   %.0.copyload.i42 = load i64, ptr %36, align 1
-  %37 = xor i64 %.0.copyload.i42, %.0.copyload.i
-  %.not40 = icmp eq i64 %37, 0
-  br i1 %.not40, label %46, label %38
+  %.not40 = icmp eq i64 %.0.copyload.i, %.0.copyload.i42
+  br i1 %.not40, label %46, label %37
 
-38:                                               ; preds = %.lr.ph
-  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %37, i1 true)
+37:                                               ; preds = %.lr.ph
+  %38 = xor i64 %.0.copyload.i42, %.0.copyload.i
+  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %38, i1 false)
   %.lhs.trunc = trunc nuw nsw i64 %39 to i32
   %.zext = lshr i32 %.lhs.trunc, 3
   %40 = add nuw nsw i32 %.zext, 1
@@ -1482,10 +1482,10 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %48 = add i16 %47, 8
   br label %49
 
-49:                                               ; preds = %46, %38
-  %.sink61 = phi i64 [ 8, %46 ], [ %45, %38 ]
-  %.sink = phi i16 [ %48, %46 ], [ %44, %38 ]
-  %.234 = phi ptr [ %.13347, %46 ], [ %41, %38 ]
+49:                                               ; preds = %46, %37
+  %.sink61 = phi i64 [ 8, %46 ], [ %45, %37 ]
+  %.sink = phi i16 [ %48, %46 ], [ %44, %37 ]
+  %.234 = phi ptr [ %.13347, %46 ], [ %41, %37 ]
   %50 = getelementptr inbounds i8, ptr %.048, i64 %.sink61
   store i16 %.sink, ptr %.13347, align 2
   %51 = icmp ult ptr %50, %33

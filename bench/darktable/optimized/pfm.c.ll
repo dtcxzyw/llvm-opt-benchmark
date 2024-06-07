@@ -38,12 +38,15 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %24 = load i32, ptr %19, align 4, !tbaa !11
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, i32 noundef %23, i32 noundef %24) #14
   %26 = and i64 %22, 15
-  %27 = xor i64 %26, 15
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit, label %.preheader6
+  %27 = icmp eq i64 %26, 15
+  br i1 %27, label %.loopexit, label %.preheader6.preheader
 
-.preheader6:                                      ; preds = %16, %.preheader6
-  %29 = phi i64 [ %30, %.preheader6 ], [ %27, %16 ]
+.preheader6.preheader:                            ; preds = %16
+  %28 = xor i64 %26, 15
+  br label %.preheader6
+
+.preheader6:                                      ; preds = %.preheader6.preheader, %.preheader6
+  %29 = phi i64 [ %30, %.preheader6 ], [ %28, %.preheader6.preheader ]
   %30 = add nsw i64 %29, -1
   %31 = tail call i32 @fputc(i32 48, ptr nonnull %14)
   %32 = icmp ugt i64 %29, 1

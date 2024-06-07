@@ -1666,7 +1666,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %63, %59
 111:                                              ; preds = %110
   store i32 0, ptr %102, align 4
   store i32 0, ptr %103, align 4
-  %.not372 = icmp eq i32 %18, 0
+  %.not372 = icmp eq i32 %17, 31
   br i1 %.not372, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %162, %111

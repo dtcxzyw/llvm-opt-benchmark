@@ -511,7 +511,7 @@ if.then.i251:                                     ; preds = %if.then36.i
   %arrayidx3.i256 = getelementptr inbounds i8, ptr %in_next.1, i64 4
   %v.i495.0.copyload = load i64, ptr %arrayidx3.i256, align 1
   %xor.i258 = xor i64 %v.i495.0.copyload, %v.i497.0.copyload
-  %cmp5.i259.not = icmp eq i64 %xor.i258, 0
+  %cmp5.i259.not = icmp eq i64 %v.i497.0.copyload, %v.i495.0.copyload
   br i1 %cmp5.i259.not, label %if.end.i260, label %word_differs.i247
 
 if.end.i260:                                      ; preds = %if.then.i251
@@ -520,7 +520,7 @@ if.end.i260:                                      ; preds = %if.then.i251
   %arrayidx12.i266 = getelementptr inbounds i8, ptr %in_next.1, i64 12
   %v.i491.0.copyload = load i64, ptr %arrayidx12.i266, align 1
   %xor14.i268 = xor i64 %v.i491.0.copyload, %v.i493.0.copyload
-  %cmp15.i269.not = icmp eq i64 %xor14.i268, 0
+  %cmp15.i269.not = icmp eq i64 %v.i493.0.copyload, %v.i491.0.copyload
   br i1 %cmp15.i269.not, label %if.end18.i270, label %word_differs.i247
 
 if.end18.i270:                                    ; preds = %if.end.i260
@@ -529,7 +529,7 @@ if.end18.i270:                                    ; preds = %if.end.i260
   %arrayidx24.i276 = getelementptr inbounds i8, ptr %in_next.1, i64 20
   %v.i487.0.copyload = load i64, ptr %arrayidx24.i276, align 1
   %xor26.i278 = xor i64 %v.i487.0.copyload, %v.i489.0.copyload
-  %cmp27.i279.not = icmp eq i64 %xor26.i278, 0
+  %cmp27.i279.not = icmp eq i64 %v.i489.0.copyload, %v.i487.0.copyload
   br i1 %cmp27.i279.not, label %if.end30.i280, label %word_differs.i247
 
 if.end30.i280:                                    ; preds = %if.end18.i270
@@ -538,7 +538,7 @@ if.end30.i280:                                    ; preds = %if.end18.i270
   %arrayidx36.i286 = getelementptr inbounds i8, ptr %in_next.1, i64 28
   %v.i483.0.copyload = load i64, ptr %arrayidx36.i286, align 1
   %xor38.i288 = xor i64 %v.i483.0.copyload, %v.i485.0.copyload
-  %cmp39.i289.not = icmp eq i64 %xor38.i288, 0
+  %cmp39.i289.not = icmp eq i64 %v.i485.0.copyload, %v.i483.0.copyload
   br i1 %cmp39.i289.not, label %while.cond.i217.preheader, label %word_differs.i247
 
 while.cond.i217.preheader:                        ; preds = %if.end30.i280, %if.then36.i
@@ -566,9 +566,8 @@ while.body.i235:                                  ; preds = %while.cond.i217
   %v.i501.0.copyload = load i64, ptr %arrayidx49.i237, align 1
   %arrayidx52.i240 = getelementptr inbounds i8, ptr %in_next.1, i64 %idxprom48.i236
   %v.i499.0.copyload = load i64, ptr %arrayidx52.i240, align 1
-  %xor54.i242 = xor i64 %v.i499.0.copyload, %v.i501.0.copyload
-  %cmp55.i243.not = icmp eq i64 %xor54.i242, 0
-  br i1 %cmp55.i243.not, label %while.cond.i217, label %word_differs.i247
+  %cmp55.i243.not = icmp eq i64 %v.i501.0.copyload, %v.i499.0.copyload
+  br i1 %cmp55.i243.not, label %while.cond.i217, label %word_differs.i247.loopexit
 
 land.rhs.i227:                                    ; preds = %land.rhs.i227.preheader, %while.body71.i225
   %indvars.iv367 = phi i64 [ %11, %land.rhs.i227.preheader ], [ %indvars.iv.next368, %while.body71.i225 ]
@@ -584,9 +583,13 @@ while.body71.i225:                                ; preds = %land.rhs.i227
   %cmp61.i222 = icmp ult i64 %indvars.iv.next368, %12
   br i1 %cmp61.i222, label %land.rhs.i227, label %lz_extend.exit296
 
-word_differs.i247:                                ; preds = %while.body.i235, %if.end30.i280, %if.end18.i270, %if.end.i260, %if.then.i251
-  %v_word.i210.0 = phi i64 [ %xor.i258, %if.then.i251 ], [ %xor14.i268, %if.end.i260 ], [ %xor26.i278, %if.end18.i270 ], [ %xor38.i288, %if.end30.i280 ], [ %xor54.i242, %while.body.i235 ]
-  %len.i209.3 = phi i32 [ 4, %if.then.i251 ], [ 12, %if.end.i260 ], [ 20, %if.end18.i270 ], [ 28, %if.end30.i280 ], [ %len.i209.1, %while.body.i235 ]
+word_differs.i247.loopexit:                       ; preds = %while.body.i235
+  %xor54.i242.le = xor i64 %v.i499.0.copyload, %v.i501.0.copyload
+  br label %word_differs.i247
+
+word_differs.i247:                                ; preds = %word_differs.i247.loopexit, %if.end30.i280, %if.end18.i270, %if.end.i260, %if.then.i251
+  %v_word.i210.0 = phi i64 [ %xor.i258, %if.then.i251 ], [ %xor14.i268, %if.end.i260 ], [ %xor26.i278, %if.end18.i270 ], [ %xor38.i288, %if.end30.i280 ], [ %xor54.i242.le, %word_differs.i247.loopexit ]
+  %len.i209.3 = phi i32 [ 4, %if.then.i251 ], [ 12, %if.end.i260 ], [ 20, %if.end18.i270 ], [ 28, %if.end30.i280 ], [ %len.i209.1, %word_differs.i247.loopexit ]
   %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i210.0, i1 true)
   %cast.i528 = trunc nuw nsw i64 %15 to i32
   %shr.i249 = lshr i32 %cast.i528, 3
@@ -632,7 +635,7 @@ if.then.i193:                                     ; preds = %if.then60.i
   %arrayidx3.i196 = getelementptr inbounds i8, ptr %in_next.1, i64 4
   %v.i515.0.copyload = load i64, ptr %arrayidx3.i196, align 1
   %xor.i = xor i64 %v.i515.0.copyload, %v.i517.0.copyload
-  %cmp5.i.not = icmp eq i64 %xor.i, 0
+  %cmp5.i.not = icmp eq i64 %v.i517.0.copyload, %v.i515.0.copyload
   br i1 %cmp5.i.not, label %if.end.i197, label %word_differs.i
 
 if.end.i197:                                      ; preds = %if.then.i193
@@ -641,7 +644,7 @@ if.end.i197:                                      ; preds = %if.then.i193
   %arrayidx12.i = getelementptr inbounds i8, ptr %in_next.1, i64 12
   %v.i511.0.copyload = load i64, ptr %arrayidx12.i, align 1
   %xor14.i = xor i64 %v.i511.0.copyload, %v.i513.0.copyload
-  %cmp15.i.not = icmp eq i64 %xor14.i, 0
+  %cmp15.i.not = icmp eq i64 %v.i513.0.copyload, %v.i511.0.copyload
   br i1 %cmp15.i.not, label %if.end18.i, label %word_differs.i
 
 if.end18.i:                                       ; preds = %if.end.i197
@@ -650,7 +653,7 @@ if.end18.i:                                       ; preds = %if.end.i197
   %arrayidx24.i202 = getelementptr inbounds i8, ptr %in_next.1, i64 20
   %v.i507.0.copyload = load i64, ptr %arrayidx24.i202, align 1
   %xor26.i = xor i64 %v.i507.0.copyload, %v.i509.0.copyload
-  %cmp27.i.not = icmp eq i64 %xor26.i, 0
+  %cmp27.i.not = icmp eq i64 %v.i509.0.copyload, %v.i507.0.copyload
   br i1 %cmp27.i.not, label %if.end30.i, label %word_differs.i
 
 if.end30.i:                                       ; preds = %if.end18.i
@@ -659,7 +662,7 @@ if.end30.i:                                       ; preds = %if.end18.i
   %arrayidx36.i = getelementptr inbounds i8, ptr %in_next.1, i64 28
   %v.i503.0.copyload = load i64, ptr %arrayidx36.i, align 1
   %xor38.i = xor i64 %v.i503.0.copyload, %v.i505.0.copyload
-  %cmp39.i.not = icmp eq i64 %xor38.i, 0
+  %cmp39.i.not = icmp eq i64 %v.i505.0.copyload, %v.i503.0.copyload
   br i1 %cmp39.i.not, label %while.cond.i.preheader, label %word_differs.i
 
 while.cond.i.preheader:                           ; preds = %if.end30.i, %if.then60.i
@@ -687,9 +690,8 @@ while.body.i:                                     ; preds = %while.cond.i
   %v.i521.0.copyload = load i64, ptr %arrayidx49.i, align 1
   %arrayidx52.i = getelementptr inbounds i8, ptr %in_next.1, i64 %idxprom48.i
   %v.i519.0.copyload = load i64, ptr %arrayidx52.i, align 1
-  %xor54.i = xor i64 %v.i519.0.copyload, %v.i521.0.copyload
-  %cmp55.i.not = icmp eq i64 %xor54.i, 0
-  br i1 %cmp55.i.not, label %while.cond.i, label %word_differs.i
+  %cmp55.i.not = icmp eq i64 %v.i521.0.copyload, %v.i519.0.copyload
+  br i1 %cmp55.i.not, label %while.cond.i, label %word_differs.i.loopexit
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %while.body71.i
   %indvars.iv372 = phi i64 [ %17, %land.rhs.i.preheader ], [ %indvars.iv.next373, %while.body71.i ]
@@ -705,9 +707,13 @@ while.body71.i:                                   ; preds = %land.rhs.i
   %cmp61.i = icmp ult i64 %indvars.iv.next373, %18
   br i1 %cmp61.i, label %land.rhs.i, label %lz_extend.exit
 
-word_differs.i:                                   ; preds = %while.body.i, %if.end30.i, %if.end18.i, %if.end.i197, %if.then.i193
-  %v_word.i.0 = phi i64 [ %xor.i, %if.then.i193 ], [ %xor14.i, %if.end.i197 ], [ %xor26.i, %if.end18.i ], [ %xor38.i, %if.end30.i ], [ %xor54.i, %while.body.i ]
-  %len.i183.3 = phi i32 [ 4, %if.then.i193 ], [ 12, %if.end.i197 ], [ 20, %if.end18.i ], [ 28, %if.end30.i ], [ %len.i183.1, %while.body.i ]
+word_differs.i.loopexit:                          ; preds = %while.body.i
+  %xor54.i.le = xor i64 %v.i519.0.copyload, %v.i521.0.copyload
+  br label %word_differs.i
+
+word_differs.i:                                   ; preds = %word_differs.i.loopexit, %if.end30.i, %if.end18.i, %if.end.i197, %if.then.i193
+  %v_word.i.0 = phi i64 [ %xor.i, %if.then.i193 ], [ %xor14.i, %if.end.i197 ], [ %xor26.i, %if.end18.i ], [ %xor38.i, %if.end30.i ], [ %xor54.i.le, %word_differs.i.loopexit ]
+  %len.i183.3 = phi i32 [ 4, %if.then.i193 ], [ 12, %if.end.i197 ], [ 20, %if.end18.i ], [ 28, %if.end30.i ], [ %len.i183.1, %word_differs.i.loopexit ]
   %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.0, i1 true)
   %cast.i = trunc nuw nsw i64 %21 to i32
   %shr.i192 = lshr i32 %cast.i, 3
@@ -748,7 +754,7 @@ if.then.i344:                                     ; preds = %if.then78.i
   %arrayidx3.i349 = getelementptr inbounds i8, ptr %in_next.1, i64 4
   %v.i475.0.copyload = load i64, ptr %arrayidx3.i349, align 1
   %xor.i351 = xor i64 %v.i475.0.copyload, %v.i477.0.copyload
-  %cmp5.i352.not = icmp eq i64 %xor.i351, 0
+  %cmp5.i352.not = icmp eq i64 %v.i477.0.copyload, %v.i475.0.copyload
   br i1 %cmp5.i352.not, label %if.end.i353, label %word_differs.i340
 
 if.end.i353:                                      ; preds = %if.then.i344
@@ -757,7 +763,7 @@ if.end.i353:                                      ; preds = %if.then.i344
   %arrayidx12.i359 = getelementptr inbounds i8, ptr %in_next.1, i64 12
   %v.i471.0.copyload = load i64, ptr %arrayidx12.i359, align 1
   %xor14.i361 = xor i64 %v.i471.0.copyload, %v.i473.0.copyload
-  %cmp15.i362.not = icmp eq i64 %xor14.i361, 0
+  %cmp15.i362.not = icmp eq i64 %v.i473.0.copyload, %v.i471.0.copyload
   br i1 %cmp15.i362.not, label %if.end18.i363, label %word_differs.i340
 
 if.end18.i363:                                    ; preds = %if.end.i353
@@ -766,7 +772,7 @@ if.end18.i363:                                    ; preds = %if.end.i353
   %arrayidx24.i369 = getelementptr inbounds i8, ptr %in_next.1, i64 20
   %v.i467.0.copyload = load i64, ptr %arrayidx24.i369, align 1
   %xor26.i371 = xor i64 %v.i467.0.copyload, %v.i469.0.copyload
-  %cmp27.i372.not = icmp eq i64 %xor26.i371, 0
+  %cmp27.i372.not = icmp eq i64 %v.i469.0.copyload, %v.i467.0.copyload
   br i1 %cmp27.i372.not, label %if.end30.i373, label %word_differs.i340
 
 if.end30.i373:                                    ; preds = %if.end18.i363
@@ -775,7 +781,7 @@ if.end30.i373:                                    ; preds = %if.end18.i363
   %arrayidx36.i379 = getelementptr inbounds i8, ptr %in_next.1, i64 28
   %v.i463.0.copyload = load i64, ptr %arrayidx36.i379, align 1
   %xor38.i380 = xor i64 %v.i463.0.copyload, %v.i465.0.copyload
-  %cmp39.i381.not = icmp eq i64 %xor38.i380, 0
+  %cmp39.i381.not = icmp eq i64 %v.i465.0.copyload, %v.i463.0.copyload
   br i1 %cmp39.i381.not, label %while.cond.i310.preheader, label %word_differs.i340
 
 while.cond.i310.preheader:                        ; preds = %if.end30.i373, %if.then78.i
@@ -803,9 +809,8 @@ while.body.i328:                                  ; preds = %while.cond.i310
   %v.i481.0.copyload = load i64, ptr %arrayidx49.i330, align 1
   %arrayidx52.i333 = getelementptr inbounds i8, ptr %in_next.1, i64 %idxprom48.i329
   %v.i479.0.copyload = load i64, ptr %arrayidx52.i333, align 1
-  %xor54.i335 = xor i64 %v.i479.0.copyload, %v.i481.0.copyload
-  %cmp55.i336.not = icmp eq i64 %xor54.i335, 0
-  br i1 %cmp55.i336.not, label %while.cond.i310, label %word_differs.i340
+  %cmp55.i336.not = icmp eq i64 %v.i481.0.copyload, %v.i479.0.copyload
+  br i1 %cmp55.i336.not, label %while.cond.i310, label %word_differs.i340.loopexit
 
 land.rhs.i320:                                    ; preds = %land.rhs.i320.preheader, %while.body71.i318
   %indvars.iv = phi i64 [ %24, %land.rhs.i320.preheader ], [ %indvars.iv.next, %while.body71.i318 ]
@@ -821,9 +826,13 @@ while.body71.i318:                                ; preds = %land.rhs.i320
   %cmp61.i315 = icmp ult i64 %indvars.iv.next, %25
   br i1 %cmp61.i315, label %land.rhs.i320, label %ht_matchfinder_longest_match.exit
 
-word_differs.i340:                                ; preds = %while.body.i328, %if.end30.i373, %if.end18.i363, %if.end.i353, %if.then.i344
-  %v_word.i303.0 = phi i64 [ %xor.i351, %if.then.i344 ], [ %xor14.i361, %if.end.i353 ], [ %xor26.i371, %if.end18.i363 ], [ %xor38.i380, %if.end30.i373 ], [ %xor54.i335, %while.body.i328 ]
-  %len.i302.3 = phi i32 [ 4, %if.then.i344 ], [ 12, %if.end.i353 ], [ 20, %if.end18.i363 ], [ 28, %if.end30.i373 ], [ %len.i302.1, %while.body.i328 ]
+word_differs.i340.loopexit:                       ; preds = %while.body.i328
+  %xor54.i335.le = xor i64 %v.i479.0.copyload, %v.i481.0.copyload
+  br label %word_differs.i340
+
+word_differs.i340:                                ; preds = %word_differs.i340.loopexit, %if.end30.i373, %if.end18.i363, %if.end.i353, %if.then.i344
+  %v_word.i303.0 = phi i64 [ %xor.i351, %if.then.i344 ], [ %xor14.i361, %if.end.i353 ], [ %xor26.i371, %if.end18.i363 ], [ %xor38.i380, %if.end30.i373 ], [ %xor54.i335.le, %word_differs.i340.loopexit ]
+  %len.i302.3 = phi i32 [ 4, %if.then.i344 ], [ 12, %if.end.i353 ], [ 20, %if.end18.i363 ], [ 28, %if.end30.i373 ], [ %len.i302.1, %word_differs.i340.loopexit ]
   %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i303.0, i1 true)
   %cast.i530 = trunc nuw nsw i64 %28 to i32
   %shr.i342 = lshr i32 %cast.i530, 3
@@ -1299,7 +1308,7 @@ if.then.i238.i:                                   ; preds = %if.then71.i
   %arrayidx3.i243.i = getelementptr inbounds i8, ptr %in_next.1, i64 4
   %v.i297.i.0.copyload = load i64, ptr %arrayidx3.i243.i, align 1
   %xor.i245.i = xor i64 %v.i297.i.0.copyload, %v.i299.i.0.copyload
-  %cmp5.i246.i.not = icmp eq i64 %xor.i245.i, 0
+  %cmp5.i246.i.not = icmp eq i64 %v.i299.i.0.copyload, %v.i297.i.0.copyload
   br i1 %cmp5.i246.i.not, label %if.end.i247.i, label %word_differs.i234.i
 
 if.end.i247.i:                                    ; preds = %if.then.i238.i
@@ -1308,7 +1317,7 @@ if.end.i247.i:                                    ; preds = %if.then.i238.i
   %arrayidx12.i253.i = getelementptr inbounds i8, ptr %in_next.1, i64 12
   %v.i293.i.0.copyload = load i64, ptr %arrayidx12.i253.i, align 1
   %xor14.i255.i = xor i64 %v.i293.i.0.copyload, %v.i295.i.0.copyload
-  %cmp15.i256.i.not = icmp eq i64 %xor14.i255.i, 0
+  %cmp15.i256.i.not = icmp eq i64 %v.i295.i.0.copyload, %v.i293.i.0.copyload
   br i1 %cmp15.i256.i.not, label %if.end18.i257.i, label %word_differs.i234.i
 
 if.end18.i257.i:                                  ; preds = %if.end.i247.i
@@ -1317,7 +1326,7 @@ if.end18.i257.i:                                  ; preds = %if.end.i247.i
   %arrayidx24.i263.i = getelementptr inbounds i8, ptr %in_next.1, i64 20
   %v.i289.i.0.copyload = load i64, ptr %arrayidx24.i263.i, align 1
   %xor26.i265.i = xor i64 %v.i289.i.0.copyload, %v.i291.i.0.copyload
-  %cmp27.i266.i.not = icmp eq i64 %xor26.i265.i, 0
+  %cmp27.i266.i.not = icmp eq i64 %v.i291.i.0.copyload, %v.i289.i.0.copyload
   br i1 %cmp27.i266.i.not, label %if.end30.i267.i, label %word_differs.i234.i
 
 if.end30.i267.i:                                  ; preds = %if.end18.i257.i
@@ -1326,7 +1335,7 @@ if.end30.i267.i:                                  ; preds = %if.end18.i257.i
   %arrayidx36.i273.i = getelementptr inbounds i8, ptr %in_next.1, i64 28
   %v.i285.i.0.copyload = load i64, ptr %arrayidx36.i273.i, align 1
   %xor38.i275.i = xor i64 %v.i285.i.0.copyload, %v.i287.i.0.copyload
-  %cmp39.i276.i.not = icmp eq i64 %xor38.i275.i, 0
+  %cmp39.i276.i.not = icmp eq i64 %v.i287.i.0.copyload, %v.i285.i.0.copyload
   br i1 %cmp39.i276.i.not, label %while.cond.i204.i.preheader, label %word_differs.i234.i
 
 while.cond.i204.i.preheader:                      ; preds = %if.end30.i267.i, %if.then71.i
@@ -1354,9 +1363,8 @@ while.body.i222.i:                                ; preds = %while.cond.i204.i
   %v.i303.i.0.copyload = load i64, ptr %arrayidx49.i224.i, align 1
   %arrayidx52.i227.i = getelementptr inbounds i8, ptr %in_next.1, i64 %idxprom48.i223.i
   %v.i301.i.0.copyload = load i64, ptr %arrayidx52.i227.i, align 1
-  %xor54.i229.i = xor i64 %v.i301.i.0.copyload, %v.i303.i.0.copyload
-  %cmp55.i230.i.not = icmp eq i64 %xor54.i229.i, 0
-  br i1 %cmp55.i230.i.not, label %while.cond.i204.i, label %word_differs.i234.i
+  %cmp55.i230.i.not = icmp eq i64 %v.i303.i.0.copyload, %v.i301.i.0.copyload
+  br i1 %cmp55.i230.i.not, label %while.cond.i204.i, label %word_differs.i234.i.loopexit
 
 land.rhs.i214.i:                                  ; preds = %land.rhs.i214.i.preheader, %while.body71.i212.i
   %indvars.iv = phi i64 [ %20, %land.rhs.i214.i.preheader ], [ %indvars.iv.next, %while.body71.i212.i ]
@@ -1372,9 +1380,13 @@ while.body71.i212.i:                              ; preds = %land.rhs.i214.i
   %cmp61.i209.i = icmp ult i64 %indvars.iv.next, %21
   br i1 %cmp61.i209.i, label %land.rhs.i214.i, label %lz_extend.exit283.i
 
-word_differs.i234.i:                              ; preds = %while.body.i222.i, %if.end30.i267.i, %if.end18.i257.i, %if.end.i247.i, %if.then.i238.i
-  %v_word.i197.i.0 = phi i64 [ %xor.i245.i, %if.then.i238.i ], [ %xor14.i255.i, %if.end.i247.i ], [ %xor26.i265.i, %if.end18.i257.i ], [ %xor38.i275.i, %if.end30.i267.i ], [ %xor54.i229.i, %while.body.i222.i ]
-  %len.i196.i.3 = phi i32 [ 4, %if.then.i238.i ], [ 12, %if.end.i247.i ], [ 20, %if.end18.i257.i ], [ 28, %if.end30.i267.i ], [ %len.i196.i.1, %while.body.i222.i ]
+word_differs.i234.i.loopexit:                     ; preds = %while.body.i222.i
+  %xor54.i229.i.le = xor i64 %v.i301.i.0.copyload, %v.i303.i.0.copyload
+  br label %word_differs.i234.i
+
+word_differs.i234.i:                              ; preds = %word_differs.i234.i.loopexit, %if.end30.i267.i, %if.end18.i257.i, %if.end.i247.i, %if.then.i238.i
+  %v_word.i197.i.0 = phi i64 [ %xor.i245.i, %if.then.i238.i ], [ %xor14.i255.i, %if.end.i247.i ], [ %xor26.i265.i, %if.end18.i257.i ], [ %xor38.i275.i, %if.end30.i267.i ], [ %xor54.i229.i.le, %word_differs.i234.i.loopexit ]
+  %len.i196.i.3 = phi i32 [ 4, %if.then.i238.i ], [ 12, %if.end.i247.i ], [ 20, %if.end18.i257.i ], [ 28, %if.end30.i267.i ], [ %len.i196.i.1, %word_differs.i234.i.loopexit ]
   %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i.0, i1 true)
   %cast.i328.i = trunc nuw nsw i64 %24 to i32
   %shr.i236.i = lshr i32 %cast.i328.i, 3
@@ -1470,7 +1482,7 @@ if.then.i.i:                                      ; preds = %if.then129.i
   %v.i319.i.0.copyload = load i64, ptr %arrayidx.i.i, align 1
   %v.i317.i.0.copyload = load i64, ptr %arrayidx3.i.i106, align 1
   %xor.i.i = xor i64 %v.i317.i.0.copyload, %v.i319.i.0.copyload
-  %cmp5.i.i.not = icmp eq i64 %xor.i.i, 0
+  %cmp5.i.i.not = icmp eq i64 %v.i319.i.0.copyload, %v.i317.i.0.copyload
   br i1 %cmp5.i.i.not, label %if.end.i.i, label %word_differs.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -1478,7 +1490,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %v.i315.i.0.copyload = load i64, ptr %arrayidx9.i.i, align 1
   %v.i313.i.0.copyload = load i64, ptr %arrayidx12.i.i, align 1
   %xor14.i.i = xor i64 %v.i313.i.0.copyload, %v.i315.i.0.copyload
-  %cmp15.i.i.not = icmp eq i64 %xor14.i.i, 0
+  %cmp15.i.i.not = icmp eq i64 %v.i315.i.0.copyload, %v.i313.i.0.copyload
   br i1 %cmp15.i.i.not, label %if.end18.i.i, label %word_differs.i.i
 
 if.end18.i.i:                                     ; preds = %if.end.i.i
@@ -1486,7 +1498,7 @@ if.end18.i.i:                                     ; preds = %if.end.i.i
   %v.i311.i.0.copyload = load i64, ptr %arrayidx21.i.i, align 1
   %v.i309.i.0.copyload = load i64, ptr %arrayidx24.i.i, align 1
   %xor26.i.i = xor i64 %v.i309.i.0.copyload, %v.i311.i.0.copyload
-  %cmp27.i.i.not = icmp eq i64 %xor26.i.i, 0
+  %cmp27.i.i.not = icmp eq i64 %v.i311.i.0.copyload, %v.i309.i.0.copyload
   br i1 %cmp27.i.i.not, label %if.end30.i.i, label %word_differs.i.i
 
 if.end30.i.i:                                     ; preds = %if.end18.i.i
@@ -1494,7 +1506,7 @@ if.end30.i.i:                                     ; preds = %if.end18.i.i
   %v.i307.i.0.copyload = load i64, ptr %arrayidx33.i.i, align 1
   %v.i305.i.0.copyload = load i64, ptr %arrayidx36.i.i, align 1
   %xor38.i.i = xor i64 %v.i305.i.0.copyload, %v.i307.i.0.copyload
-  %cmp39.i.i.not = icmp eq i64 %xor38.i.i, 0
+  %cmp39.i.i.not = icmp eq i64 %v.i307.i.0.copyload, %v.i305.i.0.copyload
   br i1 %cmp39.i.i.not, label %while.cond.i.i.preheader, label %word_differs.i.i
 
 while.cond.i.i.preheader:                         ; preds = %if.end30.i.i, %if.then129.i
@@ -1521,9 +1533,8 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %v.i323.i.0.copyload = load i64, ptr %arrayidx49.i.i, align 1
   %arrayidx52.i.i = getelementptr inbounds i8, ptr %in_next.1, i64 %idxprom48.i.i
   %v.i321.i.0.copyload = load i64, ptr %arrayidx52.i.i, align 1
-  %xor54.i.i = xor i64 %v.i321.i.0.copyload, %v.i323.i.0.copyload
-  %cmp55.i.i.not = icmp eq i64 %xor54.i.i, 0
-  br i1 %cmp55.i.i.not, label %while.cond.i.i, label %word_differs.i.i
+  %cmp55.i.i.not = icmp eq i64 %v.i323.i.0.copyload, %v.i321.i.0.copyload
+  br i1 %cmp55.i.i.not, label %while.cond.i.i, label %word_differs.i.i.loopexit
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body71.i.i
   %indvars.iv399 = phi i64 [ %29, %land.rhs.i.i.preheader ], [ %indvars.iv.next400, %while.body71.i.i ]
@@ -1539,9 +1550,13 @@ while.body71.i.i:                                 ; preds = %land.rhs.i.i
   %cmp61.i.i = icmp ult i64 %indvars.iv.next400, %27
   br i1 %cmp61.i.i, label %land.rhs.i.i, label %lz_extend.exit.i
 
-word_differs.i.i:                                 ; preds = %while.body.i.i, %if.end30.i.i, %if.end18.i.i, %if.end.i.i, %if.then.i.i
-  %v_word.i.i.0 = phi i64 [ %xor.i.i, %if.then.i.i ], [ %xor14.i.i, %if.end.i.i ], [ %xor26.i.i, %if.end18.i.i ], [ %xor38.i.i, %if.end30.i.i ], [ %xor54.i.i, %while.body.i.i ]
-  %len.i.i.3 = phi i32 [ 4, %if.then.i.i ], [ 12, %if.end.i.i ], [ 20, %if.end18.i.i ], [ 28, %if.end30.i.i ], [ %len.i.i.1, %while.body.i.i ]
+word_differs.i.i.loopexit:                        ; preds = %while.body.i.i
+  %xor54.i.i.le = xor i64 %v.i321.i.0.copyload, %v.i323.i.0.copyload
+  br label %word_differs.i.i
+
+word_differs.i.i:                                 ; preds = %word_differs.i.i.loopexit, %if.end30.i.i, %if.end18.i.i, %if.end.i.i, %if.then.i.i
+  %v_word.i.i.0 = phi i64 [ %xor.i.i, %if.then.i.i ], [ %xor14.i.i, %if.end.i.i ], [ %xor26.i.i, %if.end18.i.i ], [ %xor38.i.i, %if.end30.i.i ], [ %xor54.i.i.le, %word_differs.i.i.loopexit ]
+  %len.i.i.3 = phi i32 [ 4, %if.then.i.i ], [ 12, %if.end.i.i ], [ 20, %if.end18.i.i ], [ 28, %if.end30.i.i ], [ %len.i.i.1, %word_differs.i.i.loopexit ]
   %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i.0, i1 true)
   %cast.i.i = trunc nuw nsw i64 %32 to i32
   %shr.i190.i = lshr i32 %cast.i.i, 3
@@ -2258,7 +2273,7 @@ if.then.i238.i1224.i:                             ; preds = %if.then71.i1169.i
   %arrayidx3.i243.i1228.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 4
   %v.i297.i892.i.0.copyload = load i64, ptr %arrayidx3.i243.i1228.i, align 1
   %xor.i245.i1229.i = xor i64 %v.i297.i892.i.0.copyload, %v.i299.i890.i.0.copyload
-  %cmp5.i246.i1230.i.not = icmp eq i64 %xor.i245.i1229.i, 0
+  %cmp5.i246.i1230.i.not = icmp eq i64 %v.i299.i890.i.0.copyload, %v.i297.i892.i.0.copyload
   br i1 %cmp5.i246.i1230.i.not, label %if.end.i247.i1231.i, label %word_differs.i234.i1220.i
 
 if.end.i247.i1231.i:                              ; preds = %if.then.i238.i1224.i
@@ -2267,7 +2282,7 @@ if.end.i247.i1231.i:                              ; preds = %if.then.i238.i1224.
   %arrayidx12.i253.i1236.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 12
   %v.i293.i896.i.0.copyload = load i64, ptr %arrayidx12.i253.i1236.i, align 1
   %xor14.i255.i1237.i = xor i64 %v.i293.i896.i.0.copyload, %v.i295.i894.i.0.copyload
-  %cmp15.i256.i1238.i.not = icmp eq i64 %xor14.i255.i1237.i, 0
+  %cmp15.i256.i1238.i.not = icmp eq i64 %v.i295.i894.i.0.copyload, %v.i293.i896.i.0.copyload
   br i1 %cmp15.i256.i1238.i.not, label %if.end18.i257.i1239.i, label %word_differs.i234.i1220.i
 
 if.end18.i257.i1239.i:                            ; preds = %if.end.i247.i1231.i
@@ -2276,7 +2291,7 @@ if.end18.i257.i1239.i:                            ; preds = %if.end.i247.i1231.i
   %arrayidx24.i263.i1244.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 20
   %v.i289.i900.i.0.copyload = load i64, ptr %arrayidx24.i263.i1244.i, align 1
   %xor26.i265.i1245.i = xor i64 %v.i289.i900.i.0.copyload, %v.i291.i898.i.0.copyload
-  %cmp27.i266.i1246.i.not = icmp eq i64 %xor26.i265.i1245.i, 0
+  %cmp27.i266.i1246.i.not = icmp eq i64 %v.i291.i898.i.0.copyload, %v.i289.i900.i.0.copyload
   br i1 %cmp27.i266.i1246.i.not, label %if.end30.i267.i1247.i, label %word_differs.i234.i1220.i
 
 if.end30.i267.i1247.i:                            ; preds = %if.end18.i257.i1239.i
@@ -2285,7 +2300,7 @@ if.end30.i267.i1247.i:                            ; preds = %if.end18.i257.i1239
   %arrayidx36.i273.i1252.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 28
   %v.i285.i904.i.0.copyload = load i64, ptr %arrayidx36.i273.i1252.i, align 1
   %xor38.i275.i1253.i = xor i64 %v.i285.i904.i.0.copyload, %v.i287.i902.i.0.copyload
-  %cmp39.i276.i1254.i.not = icmp eq i64 %xor38.i275.i1253.i, 0
+  %cmp39.i276.i1254.i.not = icmp eq i64 %v.i287.i902.i.0.copyload, %v.i285.i904.i.0.copyload
   br i1 %cmp39.i276.i1254.i.not, label %while.cond.i204.i1176.i.preheader, label %word_differs.i234.i1220.i
 
 while.cond.i204.i1176.i.preheader:                ; preds = %if.end30.i267.i1247.i, %if.then71.i1169.i
@@ -2313,9 +2328,8 @@ while.body.i222.i1210.i:                          ; preds = %while.cond.i204.i11
   %v.i303.i886.i.0.copyload = load i64, ptr %arrayidx49.i224.i1212.i, align 1
   %arrayidx52.i227.i1214.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 %idxprom48.i223.i1211.i
   %v.i301.i888.i.0.copyload = load i64, ptr %arrayidx52.i227.i1214.i, align 1
-  %xor54.i229.i1215.i = xor i64 %v.i301.i888.i.0.copyload, %v.i303.i886.i.0.copyload
-  %cmp55.i230.i1216.i.not = icmp eq i64 %xor54.i229.i1215.i, 0
-  br i1 %cmp55.i230.i1216.i.not, label %while.cond.i204.i1176.i, label %word_differs.i234.i1220.i
+  %cmp55.i230.i1216.i.not = icmp eq i64 %v.i303.i886.i.0.copyload, %v.i301.i888.i.0.copyload
+  br i1 %cmp55.i230.i1216.i.not, label %while.cond.i204.i1176.i, label %word_differs.i234.i1220.i.loopexit
 
 land.rhs.i214.i1202.i:                            ; preds = %land.rhs.i214.i1202.i.preheader, %while.body71.i212.i1200.i
   %indvars.iv = phi i64 [ %25, %land.rhs.i214.i1202.i.preheader ], [ %indvars.iv.next, %while.body71.i212.i1200.i ]
@@ -2331,9 +2345,13 @@ while.body71.i212.i1200.i:                        ; preds = %land.rhs.i214.i1202
   %cmp61.i209.i1181.i = icmp ult i64 %indvars.iv.next, %26
   br i1 %cmp61.i209.i1181.i, label %land.rhs.i214.i1202.i, label %lz_extend.exit283.i1184.i
 
-word_differs.i234.i1220.i:                        ; preds = %while.body.i222.i1210.i, %if.end30.i267.i1247.i, %if.end18.i257.i1239.i, %if.end.i247.i1231.i, %if.then.i238.i1224.i
-  %v_word.i197.i911.i.0 = phi i64 [ %xor.i245.i1229.i, %if.then.i238.i1224.i ], [ %xor14.i255.i1237.i, %if.end.i247.i1231.i ], [ %xor26.i265.i1245.i, %if.end18.i257.i1239.i ], [ %xor38.i275.i1253.i, %if.end30.i267.i1247.i ], [ %xor54.i229.i1215.i, %while.body.i222.i1210.i ]
-  %len.i196.i910.i.3 = phi i32 [ 4, %if.then.i238.i1224.i ], [ 12, %if.end.i247.i1231.i ], [ 20, %if.end18.i257.i1239.i ], [ 28, %if.end30.i267.i1247.i ], [ %len.i196.i910.i.1, %while.body.i222.i1210.i ]
+word_differs.i234.i1220.i.loopexit:               ; preds = %while.body.i222.i1210.i
+  %xor54.i229.i1215.i.le = xor i64 %v.i301.i888.i.0.copyload, %v.i303.i886.i.0.copyload
+  br label %word_differs.i234.i1220.i
+
+word_differs.i234.i1220.i:                        ; preds = %word_differs.i234.i1220.i.loopexit, %if.end30.i267.i1247.i, %if.end18.i257.i1239.i, %if.end.i247.i1231.i, %if.then.i238.i1224.i
+  %v_word.i197.i911.i.0 = phi i64 [ %xor.i245.i1229.i, %if.then.i238.i1224.i ], [ %xor14.i255.i1237.i, %if.end.i247.i1231.i ], [ %xor26.i265.i1245.i, %if.end18.i257.i1239.i ], [ %xor38.i275.i1253.i, %if.end30.i267.i1247.i ], [ %xor54.i229.i1215.i.le, %word_differs.i234.i1220.i.loopexit ]
+  %len.i196.i910.i.3 = phi i32 [ 4, %if.then.i238.i1224.i ], [ 12, %if.end.i247.i1231.i ], [ 20, %if.end18.i257.i1239.i ], [ 28, %if.end30.i267.i1247.i ], [ %len.i196.i910.i.1, %word_differs.i234.i1220.i.loopexit ]
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i911.i.0, i1 true)
   %cast.i328.i1221.i = trunc nuw nsw i64 %29 to i32
   %shr.i236.i1222.i = lshr i32 %cast.i328.i1221.i, 3
@@ -2429,7 +2447,7 @@ if.then.i.i1103.i:                                ; preds = %if.then129.i1045.i
   %v.i319.i870.i.0.copyload = load i64, ptr %arrayidx.i.i1105.i, align 1
   %v.i317.i872.i.0.copyload = load i64, ptr %arrayidx3.i.i1107.i, align 1
   %xor.i.i1108.i = xor i64 %v.i317.i872.i.0.copyload, %v.i319.i870.i.0.copyload
-  %cmp5.i.i1109.i.not = icmp eq i64 %xor.i.i1108.i, 0
+  %cmp5.i.i1109.i.not = icmp eq i64 %v.i319.i870.i.0.copyload, %v.i317.i872.i.0.copyload
   br i1 %cmp5.i.i1109.i.not, label %if.end.i.i1110.i, label %word_differs.i.i1099.i
 
 if.end.i.i1110.i:                                 ; preds = %if.then.i.i1103.i
@@ -2437,7 +2455,7 @@ if.end.i.i1110.i:                                 ; preds = %if.then.i.i1103.i
   %v.i315.i874.i.0.copyload = load i64, ptr %arrayidx9.i.i1113.i, align 1
   %v.i313.i876.i.0.copyload = load i64, ptr %arrayidx12.i.i1115.i, align 1
   %xor14.i.i1116.i = xor i64 %v.i313.i876.i.0.copyload, %v.i315.i874.i.0.copyload
-  %cmp15.i.i1117.i.not = icmp eq i64 %xor14.i.i1116.i, 0
+  %cmp15.i.i1117.i.not = icmp eq i64 %v.i315.i874.i.0.copyload, %v.i313.i876.i.0.copyload
   br i1 %cmp15.i.i1117.i.not, label %if.end18.i.i1118.i, label %word_differs.i.i1099.i
 
 if.end18.i.i1118.i:                               ; preds = %if.end.i.i1110.i
@@ -2445,7 +2463,7 @@ if.end18.i.i1118.i:                               ; preds = %if.end.i.i1110.i
   %v.i311.i878.i.0.copyload = load i64, ptr %arrayidx21.i.i1121.i, align 1
   %v.i309.i880.i.0.copyload = load i64, ptr %arrayidx24.i.i1123.i, align 1
   %xor26.i.i1124.i = xor i64 %v.i309.i880.i.0.copyload, %v.i311.i878.i.0.copyload
-  %cmp27.i.i1125.i.not = icmp eq i64 %xor26.i.i1124.i, 0
+  %cmp27.i.i1125.i.not = icmp eq i64 %v.i311.i878.i.0.copyload, %v.i309.i880.i.0.copyload
   br i1 %cmp27.i.i1125.i.not, label %if.end30.i.i1126.i, label %word_differs.i.i1099.i
 
 if.end30.i.i1126.i:                               ; preds = %if.end18.i.i1118.i
@@ -2453,7 +2471,7 @@ if.end30.i.i1126.i:                               ; preds = %if.end18.i.i1118.i
   %v.i307.i882.i.0.copyload = load i64, ptr %arrayidx33.i.i1129.i, align 1
   %v.i305.i884.i.0.copyload = load i64, ptr %arrayidx36.i.i1131.i, align 1
   %xor38.i.i1132.i = xor i64 %v.i305.i884.i.0.copyload, %v.i307.i882.i.0.copyload
-  %cmp39.i.i1133.i.not = icmp eq i64 %xor38.i.i1132.i, 0
+  %cmp39.i.i1133.i.not = icmp eq i64 %v.i307.i882.i.0.copyload, %v.i305.i884.i.0.copyload
   br i1 %cmp39.i.i1133.i.not, label %while.cond.i.i1052.i.preheader, label %word_differs.i.i1099.i
 
 while.cond.i.i1052.i.preheader:                   ; preds = %if.end30.i.i1126.i, %if.then129.i1045.i
@@ -2480,9 +2498,8 @@ while.body.i.i1089.i:                             ; preds = %while.cond.i.i1052.
   %v.i323.i866.i.0.copyload = load i64, ptr %arrayidx49.i.i1091.i, align 1
   %arrayidx52.i.i1093.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 %idxprom48.i.i1090.i
   %v.i321.i868.i.0.copyload = load i64, ptr %arrayidx52.i.i1093.i, align 1
-  %xor54.i.i1094.i = xor i64 %v.i321.i868.i.0.copyload, %v.i323.i866.i.0.copyload
-  %cmp55.i.i1095.i.not = icmp eq i64 %xor54.i.i1094.i, 0
-  br i1 %cmp55.i.i1095.i.not, label %while.cond.i.i1052.i, label %word_differs.i.i1099.i
+  %cmp55.i.i1095.i.not = icmp eq i64 %v.i323.i866.i.0.copyload, %v.i321.i868.i.0.copyload
+  br i1 %cmp55.i.i1095.i.not, label %while.cond.i.i1052.i, label %word_differs.i.i1099.i.loopexit
 
 land.rhs.i.i1081.i:                               ; preds = %land.rhs.i.i1081.i.preheader, %while.body71.i.i1079.i
   %indvars.iv1115 = phi i64 [ %34, %land.rhs.i.i1081.i.preheader ], [ %indvars.iv.next1116, %while.body71.i.i1079.i ]
@@ -2498,9 +2515,13 @@ while.body71.i.i1079.i:                           ; preds = %land.rhs.i.i1081.i
   %cmp61.i.i1057.i = icmp ult i64 %indvars.iv.next1116, %32
   br i1 %cmp61.i.i1057.i, label %land.rhs.i.i1081.i, label %lz_extend.exit.i1060.i
 
-word_differs.i.i1099.i:                           ; preds = %while.body.i.i1089.i, %if.end30.i.i1126.i, %if.end18.i.i1118.i, %if.end.i.i1110.i, %if.then.i.i1103.i
-  %v_word.i.i918.i.0 = phi i64 [ %xor.i.i1108.i, %if.then.i.i1103.i ], [ %xor14.i.i1116.i, %if.end.i.i1110.i ], [ %xor26.i.i1124.i, %if.end18.i.i1118.i ], [ %xor38.i.i1132.i, %if.end30.i.i1126.i ], [ %xor54.i.i1094.i, %while.body.i.i1089.i ]
-  %len.i.i917.i.3 = phi i32 [ 4, %if.then.i.i1103.i ], [ 12, %if.end.i.i1110.i ], [ 20, %if.end18.i.i1118.i ], [ 28, %if.end30.i.i1126.i ], [ %len.i.i917.i.1, %while.body.i.i1089.i ]
+word_differs.i.i1099.i.loopexit:                  ; preds = %while.body.i.i1089.i
+  %xor54.i.i1094.i.le = xor i64 %v.i321.i868.i.0.copyload, %v.i323.i866.i.0.copyload
+  br label %word_differs.i.i1099.i
+
+word_differs.i.i1099.i:                           ; preds = %word_differs.i.i1099.i.loopexit, %if.end30.i.i1126.i, %if.end18.i.i1118.i, %if.end.i.i1110.i, %if.then.i.i1103.i
+  %v_word.i.i918.i.0 = phi i64 [ %xor.i.i1108.i, %if.then.i.i1103.i ], [ %xor14.i.i1116.i, %if.end.i.i1110.i ], [ %xor26.i.i1124.i, %if.end18.i.i1118.i ], [ %xor38.i.i1132.i, %if.end30.i.i1126.i ], [ %xor54.i.i1094.i.le, %word_differs.i.i1099.i.loopexit ]
+  %len.i.i917.i.3 = phi i32 [ 4, %if.then.i.i1103.i ], [ 12, %if.end.i.i1110.i ], [ 20, %if.end18.i.i1118.i ], [ 28, %if.end30.i.i1126.i ], [ %len.i.i917.i.1, %word_differs.i.i1099.i.loopexit ]
   %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i918.i.0, i1 true)
   %cast.i.i1100.i = trunc nuw nsw i64 %37 to i32
   %shr.i190.i1101.i = lshr i32 %cast.i.i1100.i, 3
@@ -2875,7 +2896,7 @@ if.then.i238.i810.i:                              ; preds = %if.then71.i755.i
   %arrayidx3.i243.i814.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 4
   %v.i297.i478.i.0.copyload = load i64, ptr %arrayidx3.i243.i814.i, align 1
   %xor.i245.i815.i = xor i64 %v.i297.i478.i.0.copyload, %v.i299.i476.i.0.copyload
-  %cmp5.i246.i816.i.not = icmp eq i64 %xor.i245.i815.i, 0
+  %cmp5.i246.i816.i.not = icmp eq i64 %v.i299.i476.i.0.copyload, %v.i297.i478.i.0.copyload
   br i1 %cmp5.i246.i816.i.not, label %if.end.i247.i817.i, label %word_differs.i234.i806.i
 
 if.end.i247.i817.i:                               ; preds = %if.then.i238.i810.i
@@ -2884,7 +2905,7 @@ if.end.i247.i817.i:                               ; preds = %if.then.i238.i810.i
   %arrayidx12.i253.i822.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 12
   %v.i293.i482.i.0.copyload = load i64, ptr %arrayidx12.i253.i822.i, align 1
   %xor14.i255.i823.i = xor i64 %v.i293.i482.i.0.copyload, %v.i295.i480.i.0.copyload
-  %cmp15.i256.i824.i.not = icmp eq i64 %xor14.i255.i823.i, 0
+  %cmp15.i256.i824.i.not = icmp eq i64 %v.i295.i480.i.0.copyload, %v.i293.i482.i.0.copyload
   br i1 %cmp15.i256.i824.i.not, label %if.end18.i257.i825.i, label %word_differs.i234.i806.i
 
 if.end18.i257.i825.i:                             ; preds = %if.end.i247.i817.i
@@ -2893,7 +2914,7 @@ if.end18.i257.i825.i:                             ; preds = %if.end.i247.i817.i
   %arrayidx24.i263.i830.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 20
   %v.i289.i486.i.0.copyload = load i64, ptr %arrayidx24.i263.i830.i, align 1
   %xor26.i265.i831.i = xor i64 %v.i289.i486.i.0.copyload, %v.i291.i484.i.0.copyload
-  %cmp27.i266.i832.i.not = icmp eq i64 %xor26.i265.i831.i, 0
+  %cmp27.i266.i832.i.not = icmp eq i64 %v.i291.i484.i.0.copyload, %v.i289.i486.i.0.copyload
   br i1 %cmp27.i266.i832.i.not, label %if.end30.i267.i833.i, label %word_differs.i234.i806.i
 
 if.end30.i267.i833.i:                             ; preds = %if.end18.i257.i825.i
@@ -2902,7 +2923,7 @@ if.end30.i267.i833.i:                             ; preds = %if.end18.i257.i825.
   %arrayidx36.i273.i838.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 28
   %v.i285.i490.i.0.copyload = load i64, ptr %arrayidx36.i273.i838.i, align 1
   %xor38.i275.i839.i = xor i64 %v.i285.i490.i.0.copyload, %v.i287.i488.i.0.copyload
-  %cmp39.i276.i840.i.not = icmp eq i64 %xor38.i275.i839.i, 0
+  %cmp39.i276.i840.i.not = icmp eq i64 %v.i287.i488.i.0.copyload, %v.i285.i490.i.0.copyload
   br i1 %cmp39.i276.i840.i.not, label %while.cond.i204.i762.i.preheader, label %word_differs.i234.i806.i
 
 while.cond.i204.i762.i.preheader:                 ; preds = %if.end30.i267.i833.i, %if.then71.i755.i
@@ -2930,9 +2951,8 @@ while.body.i222.i796.i:                           ; preds = %while.cond.i204.i76
   %v.i303.i472.i.0.copyload = load i64, ptr %arrayidx49.i224.i798.i, align 1
   %arrayidx52.i227.i800.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 %idxprom48.i223.i797.i
   %v.i301.i474.i.0.copyload = load i64, ptr %arrayidx52.i227.i800.i, align 1
-  %xor54.i229.i801.i = xor i64 %v.i301.i474.i.0.copyload, %v.i303.i472.i.0.copyload
-  %cmp55.i230.i802.i.not = icmp eq i64 %xor54.i229.i801.i, 0
-  br i1 %cmp55.i230.i802.i.not, label %while.cond.i204.i762.i, label %word_differs.i234.i806.i
+  %cmp55.i230.i802.i.not = icmp eq i64 %v.i303.i472.i.0.copyload, %v.i301.i474.i.0.copyload
+  br i1 %cmp55.i230.i802.i.not, label %while.cond.i204.i762.i, label %word_differs.i234.i806.i.loopexit
 
 land.rhs.i214.i788.i:                             ; preds = %land.rhs.i214.i788.i.preheader, %while.body71.i212.i786.i
   %indvars.iv1120 = phi i64 [ %69, %land.rhs.i214.i788.i.preheader ], [ %indvars.iv.next1121, %while.body71.i212.i786.i ]
@@ -2948,9 +2968,13 @@ while.body71.i212.i786.i:                         ; preds = %land.rhs.i214.i788.
   %cmp61.i209.i767.i = icmp ult i64 %indvars.iv.next1121, %70
   br i1 %cmp61.i209.i767.i, label %land.rhs.i214.i788.i, label %lz_extend.exit283.i770.i
 
-word_differs.i234.i806.i:                         ; preds = %while.body.i222.i796.i, %if.end30.i267.i833.i, %if.end18.i257.i825.i, %if.end.i247.i817.i, %if.then.i238.i810.i
-  %v_word.i197.i497.i.0 = phi i64 [ %xor.i245.i815.i, %if.then.i238.i810.i ], [ %xor14.i255.i823.i, %if.end.i247.i817.i ], [ %xor26.i265.i831.i, %if.end18.i257.i825.i ], [ %xor38.i275.i839.i, %if.end30.i267.i833.i ], [ %xor54.i229.i801.i, %while.body.i222.i796.i ]
-  %len.i196.i496.i.3 = phi i32 [ 4, %if.then.i238.i810.i ], [ 12, %if.end.i247.i817.i ], [ 20, %if.end18.i257.i825.i ], [ 28, %if.end30.i267.i833.i ], [ %len.i196.i496.i.1, %while.body.i222.i796.i ]
+word_differs.i234.i806.i.loopexit:                ; preds = %while.body.i222.i796.i
+  %xor54.i229.i801.i.le = xor i64 %v.i301.i474.i.0.copyload, %v.i303.i472.i.0.copyload
+  br label %word_differs.i234.i806.i
+
+word_differs.i234.i806.i:                         ; preds = %word_differs.i234.i806.i.loopexit, %if.end30.i267.i833.i, %if.end18.i257.i825.i, %if.end.i247.i817.i, %if.then.i238.i810.i
+  %v_word.i197.i497.i.0 = phi i64 [ %xor.i245.i815.i, %if.then.i238.i810.i ], [ %xor14.i255.i823.i, %if.end.i247.i817.i ], [ %xor26.i265.i831.i, %if.end18.i257.i825.i ], [ %xor38.i275.i839.i, %if.end30.i267.i833.i ], [ %xor54.i229.i801.i.le, %word_differs.i234.i806.i.loopexit ]
+  %len.i196.i496.i.3 = phi i32 [ 4, %if.then.i238.i810.i ], [ 12, %if.end.i247.i817.i ], [ 20, %if.end18.i257.i825.i ], [ 28, %if.end30.i267.i833.i ], [ %len.i196.i496.i.1, %word_differs.i234.i806.i.loopexit ]
   %73 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i497.i.0, i1 true)
   %cast.i328.i807.i = trunc nuw nsw i64 %73 to i32
   %shr.i236.i808.i = lshr i32 %cast.i328.i807.i, 3
@@ -3046,7 +3070,7 @@ if.then.i.i689.i:                                 ; preds = %if.then129.i631.i
   %v.i319.i456.i.0.copyload = load i64, ptr %arrayidx.i.i691.i, align 1
   %v.i317.i458.i.0.copyload = load i64, ptr %arrayidx3.i.i693.i, align 1
   %xor.i.i694.i = xor i64 %v.i317.i458.i.0.copyload, %v.i319.i456.i.0.copyload
-  %cmp5.i.i695.i.not = icmp eq i64 %xor.i.i694.i, 0
+  %cmp5.i.i695.i.not = icmp eq i64 %v.i319.i456.i.0.copyload, %v.i317.i458.i.0.copyload
   br i1 %cmp5.i.i695.i.not, label %if.end.i.i696.i, label %word_differs.i.i685.i
 
 if.end.i.i696.i:                                  ; preds = %if.then.i.i689.i
@@ -3054,7 +3078,7 @@ if.end.i.i696.i:                                  ; preds = %if.then.i.i689.i
   %v.i315.i460.i.0.copyload = load i64, ptr %arrayidx9.i.i699.i, align 1
   %v.i313.i462.i.0.copyload = load i64, ptr %arrayidx12.i.i701.i, align 1
   %xor14.i.i702.i = xor i64 %v.i313.i462.i.0.copyload, %v.i315.i460.i.0.copyload
-  %cmp15.i.i703.i.not = icmp eq i64 %xor14.i.i702.i, 0
+  %cmp15.i.i703.i.not = icmp eq i64 %v.i315.i460.i.0.copyload, %v.i313.i462.i.0.copyload
   br i1 %cmp15.i.i703.i.not, label %if.end18.i.i704.i, label %word_differs.i.i685.i
 
 if.end18.i.i704.i:                                ; preds = %if.end.i.i696.i
@@ -3062,7 +3086,7 @@ if.end18.i.i704.i:                                ; preds = %if.end.i.i696.i
   %v.i311.i464.i.0.copyload = load i64, ptr %arrayidx21.i.i707.i, align 1
   %v.i309.i466.i.0.copyload = load i64, ptr %arrayidx24.i.i709.i, align 1
   %xor26.i.i710.i = xor i64 %v.i309.i466.i.0.copyload, %v.i311.i464.i.0.copyload
-  %cmp27.i.i711.i.not = icmp eq i64 %xor26.i.i710.i, 0
+  %cmp27.i.i711.i.not = icmp eq i64 %v.i311.i464.i.0.copyload, %v.i309.i466.i.0.copyload
   br i1 %cmp27.i.i711.i.not, label %if.end30.i.i712.i, label %word_differs.i.i685.i
 
 if.end30.i.i712.i:                                ; preds = %if.end18.i.i704.i
@@ -3070,7 +3094,7 @@ if.end30.i.i712.i:                                ; preds = %if.end18.i.i704.i
   %v.i307.i468.i.0.copyload = load i64, ptr %arrayidx33.i.i715.i, align 1
   %v.i305.i470.i.0.copyload = load i64, ptr %arrayidx36.i.i717.i, align 1
   %xor38.i.i718.i = xor i64 %v.i305.i470.i.0.copyload, %v.i307.i468.i.0.copyload
-  %cmp39.i.i719.i.not = icmp eq i64 %xor38.i.i718.i, 0
+  %cmp39.i.i719.i.not = icmp eq i64 %v.i307.i468.i.0.copyload, %v.i305.i470.i.0.copyload
   br i1 %cmp39.i.i719.i.not, label %while.cond.i.i638.i.preheader, label %word_differs.i.i685.i
 
 while.cond.i.i638.i.preheader:                    ; preds = %if.end30.i.i712.i, %if.then129.i631.i
@@ -3097,9 +3121,8 @@ while.body.i.i675.i:                              ; preds = %while.cond.i.i638.i
   %v.i323.i452.i.0.copyload = load i64, ptr %arrayidx49.i.i677.i, align 1
   %arrayidx52.i.i679.i = getelementptr inbounds i8, ptr %in_next.i.21067, i64 %idxprom48.i.i676.i
   %v.i321.i454.i.0.copyload = load i64, ptr %arrayidx52.i.i679.i, align 1
-  %xor54.i.i680.i = xor i64 %v.i321.i454.i.0.copyload, %v.i323.i452.i.0.copyload
-  %cmp55.i.i681.i.not = icmp eq i64 %xor54.i.i680.i, 0
-  br i1 %cmp55.i.i681.i.not, label %while.cond.i.i638.i, label %word_differs.i.i685.i
+  %cmp55.i.i681.i.not = icmp eq i64 %v.i323.i452.i.0.copyload, %v.i321.i454.i.0.copyload
+  br i1 %cmp55.i.i681.i.not, label %while.cond.i.i638.i, label %word_differs.i.i685.i.loopexit
 
 land.rhs.i.i667.i:                                ; preds = %land.rhs.i.i667.i.preheader, %while.body71.i.i665.i
   %indvars.iv1125 = phi i64 [ %78, %land.rhs.i.i667.i.preheader ], [ %indvars.iv.next1126, %while.body71.i.i665.i ]
@@ -3115,9 +3138,13 @@ while.body71.i.i665.i:                            ; preds = %land.rhs.i.i667.i
   %cmp61.i.i643.i = icmp ult i64 %indvars.iv.next1126, %76
   br i1 %cmp61.i.i643.i, label %land.rhs.i.i667.i, label %lz_extend.exit.i646.i
 
-word_differs.i.i685.i:                            ; preds = %while.body.i.i675.i, %if.end30.i.i712.i, %if.end18.i.i704.i, %if.end.i.i696.i, %if.then.i.i689.i
-  %v_word.i.i504.i.0 = phi i64 [ %xor.i.i694.i, %if.then.i.i689.i ], [ %xor14.i.i702.i, %if.end.i.i696.i ], [ %xor26.i.i710.i, %if.end18.i.i704.i ], [ %xor38.i.i718.i, %if.end30.i.i712.i ], [ %xor54.i.i680.i, %while.body.i.i675.i ]
-  %len.i.i503.i.3 = phi i32 [ 4, %if.then.i.i689.i ], [ 12, %if.end.i.i696.i ], [ 20, %if.end18.i.i704.i ], [ 28, %if.end30.i.i712.i ], [ %len.i.i503.i.1, %while.body.i.i675.i ]
+word_differs.i.i685.i.loopexit:                   ; preds = %while.body.i.i675.i
+  %xor54.i.i680.i.le = xor i64 %v.i321.i454.i.0.copyload, %v.i323.i452.i.0.copyload
+  br label %word_differs.i.i685.i
+
+word_differs.i.i685.i:                            ; preds = %word_differs.i.i685.i.loopexit, %if.end30.i.i712.i, %if.end18.i.i704.i, %if.end.i.i696.i, %if.then.i.i689.i
+  %v_word.i.i504.i.0 = phi i64 [ %xor.i.i694.i, %if.then.i.i689.i ], [ %xor14.i.i702.i, %if.end.i.i696.i ], [ %xor26.i.i710.i, %if.end18.i.i704.i ], [ %xor38.i.i718.i, %if.end30.i.i712.i ], [ %xor54.i.i680.i.le, %word_differs.i.i685.i.loopexit ]
+  %len.i.i503.i.3 = phi i32 [ 4, %if.then.i.i689.i ], [ 12, %if.end.i.i696.i ], [ 20, %if.end18.i.i704.i ], [ 28, %if.end30.i.i712.i ], [ %len.i.i503.i.1, %word_differs.i.i685.i.loopexit ]
   %81 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i504.i.0, i1 true)
   %cast.i.i686.i = trunc nuw nsw i64 %81 to i32
   %shr.i190.i687.i = lshr i32 %cast.i.i686.i, 3
@@ -3843,7 +3870,7 @@ if.then.i238.i1224.i:                             ; preds = %if.then71.i1169.i
   %arrayidx3.i243.i1228.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 4
   %v.i297.i892.i.0.copyload = load i64, ptr %arrayidx3.i243.i1228.i, align 1
   %xor.i245.i1229.i = xor i64 %v.i297.i892.i.0.copyload, %v.i299.i890.i.0.copyload
-  %cmp5.i246.i1230.i.not = icmp eq i64 %xor.i245.i1229.i, 0
+  %cmp5.i246.i1230.i.not = icmp eq i64 %v.i299.i890.i.0.copyload, %v.i297.i892.i.0.copyload
   br i1 %cmp5.i246.i1230.i.not, label %if.end.i247.i1231.i, label %word_differs.i234.i1220.i
 
 if.end.i247.i1231.i:                              ; preds = %if.then.i238.i1224.i
@@ -3852,7 +3879,7 @@ if.end.i247.i1231.i:                              ; preds = %if.then.i238.i1224.
   %arrayidx12.i253.i1236.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 12
   %v.i293.i896.i.0.copyload = load i64, ptr %arrayidx12.i253.i1236.i, align 1
   %xor14.i255.i1237.i = xor i64 %v.i293.i896.i.0.copyload, %v.i295.i894.i.0.copyload
-  %cmp15.i256.i1238.i.not = icmp eq i64 %xor14.i255.i1237.i, 0
+  %cmp15.i256.i1238.i.not = icmp eq i64 %v.i295.i894.i.0.copyload, %v.i293.i896.i.0.copyload
   br i1 %cmp15.i256.i1238.i.not, label %if.end18.i257.i1239.i, label %word_differs.i234.i1220.i
 
 if.end18.i257.i1239.i:                            ; preds = %if.end.i247.i1231.i
@@ -3861,7 +3888,7 @@ if.end18.i257.i1239.i:                            ; preds = %if.end.i247.i1231.i
   %arrayidx24.i263.i1244.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 20
   %v.i289.i900.i.0.copyload = load i64, ptr %arrayidx24.i263.i1244.i, align 1
   %xor26.i265.i1245.i = xor i64 %v.i289.i900.i.0.copyload, %v.i291.i898.i.0.copyload
-  %cmp27.i266.i1246.i.not = icmp eq i64 %xor26.i265.i1245.i, 0
+  %cmp27.i266.i1246.i.not = icmp eq i64 %v.i291.i898.i.0.copyload, %v.i289.i900.i.0.copyload
   br i1 %cmp27.i266.i1246.i.not, label %if.end30.i267.i1247.i, label %word_differs.i234.i1220.i
 
 if.end30.i267.i1247.i:                            ; preds = %if.end18.i257.i1239.i
@@ -3870,7 +3897,7 @@ if.end30.i267.i1247.i:                            ; preds = %if.end18.i257.i1239
   %arrayidx36.i273.i1252.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 28
   %v.i285.i904.i.0.copyload = load i64, ptr %arrayidx36.i273.i1252.i, align 1
   %xor38.i275.i1253.i = xor i64 %v.i285.i904.i.0.copyload, %v.i287.i902.i.0.copyload
-  %cmp39.i276.i1254.i.not = icmp eq i64 %xor38.i275.i1253.i, 0
+  %cmp39.i276.i1254.i.not = icmp eq i64 %v.i287.i902.i.0.copyload, %v.i285.i904.i.0.copyload
   br i1 %cmp39.i276.i1254.i.not, label %while.cond.i204.i1176.i.preheader, label %word_differs.i234.i1220.i
 
 while.cond.i204.i1176.i.preheader:                ; preds = %if.end30.i267.i1247.i, %if.then71.i1169.i
@@ -3898,9 +3925,8 @@ while.body.i222.i1210.i:                          ; preds = %while.cond.i204.i11
   %v.i303.i886.i.0.copyload = load i64, ptr %arrayidx49.i224.i1212.i, align 1
   %arrayidx52.i227.i1214.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 %idxprom48.i223.i1211.i
   %v.i301.i888.i.0.copyload = load i64, ptr %arrayidx52.i227.i1214.i, align 1
-  %xor54.i229.i1215.i = xor i64 %v.i301.i888.i.0.copyload, %v.i303.i886.i.0.copyload
-  %cmp55.i230.i1216.i.not = icmp eq i64 %xor54.i229.i1215.i, 0
-  br i1 %cmp55.i230.i1216.i.not, label %while.cond.i204.i1176.i, label %word_differs.i234.i1220.i
+  %cmp55.i230.i1216.i.not = icmp eq i64 %v.i303.i886.i.0.copyload, %v.i301.i888.i.0.copyload
+  br i1 %cmp55.i230.i1216.i.not, label %while.cond.i204.i1176.i, label %word_differs.i234.i1220.i.loopexit
 
 land.rhs.i214.i1202.i:                            ; preds = %land.rhs.i214.i1202.i.preheader, %while.body71.i212.i1200.i
   %indvars.iv = phi i64 [ %25, %land.rhs.i214.i1202.i.preheader ], [ %indvars.iv.next, %while.body71.i212.i1200.i ]
@@ -3916,9 +3942,13 @@ while.body71.i212.i1200.i:                        ; preds = %land.rhs.i214.i1202
   %cmp61.i209.i1181.i = icmp ult i64 %indvars.iv.next, %26
   br i1 %cmp61.i209.i1181.i, label %land.rhs.i214.i1202.i, label %lz_extend.exit283.i1184.i
 
-word_differs.i234.i1220.i:                        ; preds = %while.body.i222.i1210.i, %if.end30.i267.i1247.i, %if.end18.i257.i1239.i, %if.end.i247.i1231.i, %if.then.i238.i1224.i
-  %v_word.i197.i911.i.0 = phi i64 [ %xor.i245.i1229.i, %if.then.i238.i1224.i ], [ %xor14.i255.i1237.i, %if.end.i247.i1231.i ], [ %xor26.i265.i1245.i, %if.end18.i257.i1239.i ], [ %xor38.i275.i1253.i, %if.end30.i267.i1247.i ], [ %xor54.i229.i1215.i, %while.body.i222.i1210.i ]
-  %len.i196.i910.i.3 = phi i32 [ 4, %if.then.i238.i1224.i ], [ 12, %if.end.i247.i1231.i ], [ 20, %if.end18.i257.i1239.i ], [ 28, %if.end30.i267.i1247.i ], [ %len.i196.i910.i.1, %while.body.i222.i1210.i ]
+word_differs.i234.i1220.i.loopexit:               ; preds = %while.body.i222.i1210.i
+  %xor54.i229.i1215.i.le = xor i64 %v.i301.i888.i.0.copyload, %v.i303.i886.i.0.copyload
+  br label %word_differs.i234.i1220.i
+
+word_differs.i234.i1220.i:                        ; preds = %word_differs.i234.i1220.i.loopexit, %if.end30.i267.i1247.i, %if.end18.i257.i1239.i, %if.end.i247.i1231.i, %if.then.i238.i1224.i
+  %v_word.i197.i911.i.0 = phi i64 [ %xor.i245.i1229.i, %if.then.i238.i1224.i ], [ %xor14.i255.i1237.i, %if.end.i247.i1231.i ], [ %xor26.i265.i1245.i, %if.end18.i257.i1239.i ], [ %xor38.i275.i1253.i, %if.end30.i267.i1247.i ], [ %xor54.i229.i1215.i.le, %word_differs.i234.i1220.i.loopexit ]
+  %len.i196.i910.i.3 = phi i32 [ 4, %if.then.i238.i1224.i ], [ 12, %if.end.i247.i1231.i ], [ 20, %if.end18.i257.i1239.i ], [ 28, %if.end30.i267.i1247.i ], [ %len.i196.i910.i.1, %word_differs.i234.i1220.i.loopexit ]
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i911.i.0, i1 true)
   %cast.i328.i1221.i = trunc nuw nsw i64 %29 to i32
   %shr.i236.i1222.i = lshr i32 %cast.i328.i1221.i, 3
@@ -4014,7 +4044,7 @@ if.then.i.i1103.i:                                ; preds = %if.then129.i1045.i
   %v.i319.i870.i.0.copyload = load i64, ptr %arrayidx.i.i1105.i, align 1
   %v.i317.i872.i.0.copyload = load i64, ptr %arrayidx3.i.i1107.i, align 1
   %xor.i.i1108.i = xor i64 %v.i317.i872.i.0.copyload, %v.i319.i870.i.0.copyload
-  %cmp5.i.i1109.i.not = icmp eq i64 %xor.i.i1108.i, 0
+  %cmp5.i.i1109.i.not = icmp eq i64 %v.i319.i870.i.0.copyload, %v.i317.i872.i.0.copyload
   br i1 %cmp5.i.i1109.i.not, label %if.end.i.i1110.i, label %word_differs.i.i1099.i
 
 if.end.i.i1110.i:                                 ; preds = %if.then.i.i1103.i
@@ -4022,7 +4052,7 @@ if.end.i.i1110.i:                                 ; preds = %if.then.i.i1103.i
   %v.i315.i874.i.0.copyload = load i64, ptr %arrayidx9.i.i1113.i, align 1
   %v.i313.i876.i.0.copyload = load i64, ptr %arrayidx12.i.i1115.i, align 1
   %xor14.i.i1116.i = xor i64 %v.i313.i876.i.0.copyload, %v.i315.i874.i.0.copyload
-  %cmp15.i.i1117.i.not = icmp eq i64 %xor14.i.i1116.i, 0
+  %cmp15.i.i1117.i.not = icmp eq i64 %v.i315.i874.i.0.copyload, %v.i313.i876.i.0.copyload
   br i1 %cmp15.i.i1117.i.not, label %if.end18.i.i1118.i, label %word_differs.i.i1099.i
 
 if.end18.i.i1118.i:                               ; preds = %if.end.i.i1110.i
@@ -4030,7 +4060,7 @@ if.end18.i.i1118.i:                               ; preds = %if.end.i.i1110.i
   %v.i311.i878.i.0.copyload = load i64, ptr %arrayidx21.i.i1121.i, align 1
   %v.i309.i880.i.0.copyload = load i64, ptr %arrayidx24.i.i1123.i, align 1
   %xor26.i.i1124.i = xor i64 %v.i309.i880.i.0.copyload, %v.i311.i878.i.0.copyload
-  %cmp27.i.i1125.i.not = icmp eq i64 %xor26.i.i1124.i, 0
+  %cmp27.i.i1125.i.not = icmp eq i64 %v.i311.i878.i.0.copyload, %v.i309.i880.i.0.copyload
   br i1 %cmp27.i.i1125.i.not, label %if.end30.i.i1126.i, label %word_differs.i.i1099.i
 
 if.end30.i.i1126.i:                               ; preds = %if.end18.i.i1118.i
@@ -4038,7 +4068,7 @@ if.end30.i.i1126.i:                               ; preds = %if.end18.i.i1118.i
   %v.i307.i882.i.0.copyload = load i64, ptr %arrayidx33.i.i1129.i, align 1
   %v.i305.i884.i.0.copyload = load i64, ptr %arrayidx36.i.i1131.i, align 1
   %xor38.i.i1132.i = xor i64 %v.i305.i884.i.0.copyload, %v.i307.i882.i.0.copyload
-  %cmp39.i.i1133.i.not = icmp eq i64 %xor38.i.i1132.i, 0
+  %cmp39.i.i1133.i.not = icmp eq i64 %v.i307.i882.i.0.copyload, %v.i305.i884.i.0.copyload
   br i1 %cmp39.i.i1133.i.not, label %while.cond.i.i1052.i.preheader, label %word_differs.i.i1099.i
 
 while.cond.i.i1052.i.preheader:                   ; preds = %if.end30.i.i1126.i, %if.then129.i1045.i
@@ -4065,9 +4095,8 @@ while.body.i.i1089.i:                             ; preds = %while.cond.i.i1052.
   %v.i323.i866.i.0.copyload = load i64, ptr %arrayidx49.i.i1091.i, align 1
   %arrayidx52.i.i1093.i = getelementptr inbounds i8, ptr %in_next.i.1, i64 %idxprom48.i.i1090.i
   %v.i321.i868.i.0.copyload = load i64, ptr %arrayidx52.i.i1093.i, align 1
-  %xor54.i.i1094.i = xor i64 %v.i321.i868.i.0.copyload, %v.i323.i866.i.0.copyload
-  %cmp55.i.i1095.i.not = icmp eq i64 %xor54.i.i1094.i, 0
-  br i1 %cmp55.i.i1095.i.not, label %while.cond.i.i1052.i, label %word_differs.i.i1099.i
+  %cmp55.i.i1095.i.not = icmp eq i64 %v.i323.i866.i.0.copyload, %v.i321.i868.i.0.copyload
+  br i1 %cmp55.i.i1095.i.not, label %while.cond.i.i1052.i, label %word_differs.i.i1099.i.loopexit
 
 land.rhs.i.i1081.i:                               ; preds = %land.rhs.i.i1081.i.preheader, %while.body71.i.i1079.i
   %indvars.iv1151 = phi i64 [ %34, %land.rhs.i.i1081.i.preheader ], [ %indvars.iv.next1152, %while.body71.i.i1079.i ]
@@ -4083,9 +4112,13 @@ while.body71.i.i1079.i:                           ; preds = %land.rhs.i.i1081.i
   %cmp61.i.i1057.i = icmp ult i64 %indvars.iv.next1152, %32
   br i1 %cmp61.i.i1057.i, label %land.rhs.i.i1081.i, label %lz_extend.exit.i1060.i
 
-word_differs.i.i1099.i:                           ; preds = %while.body.i.i1089.i, %if.end30.i.i1126.i, %if.end18.i.i1118.i, %if.end.i.i1110.i, %if.then.i.i1103.i
-  %v_word.i.i918.i.0 = phi i64 [ %xor.i.i1108.i, %if.then.i.i1103.i ], [ %xor14.i.i1116.i, %if.end.i.i1110.i ], [ %xor26.i.i1124.i, %if.end18.i.i1118.i ], [ %xor38.i.i1132.i, %if.end30.i.i1126.i ], [ %xor54.i.i1094.i, %while.body.i.i1089.i ]
-  %len.i.i917.i.3 = phi i32 [ 4, %if.then.i.i1103.i ], [ 12, %if.end.i.i1110.i ], [ 20, %if.end18.i.i1118.i ], [ 28, %if.end30.i.i1126.i ], [ %len.i.i917.i.1, %while.body.i.i1089.i ]
+word_differs.i.i1099.i.loopexit:                  ; preds = %while.body.i.i1089.i
+  %xor54.i.i1094.i.le = xor i64 %v.i321.i868.i.0.copyload, %v.i323.i866.i.0.copyload
+  br label %word_differs.i.i1099.i
+
+word_differs.i.i1099.i:                           ; preds = %word_differs.i.i1099.i.loopexit, %if.end30.i.i1126.i, %if.end18.i.i1118.i, %if.end.i.i1110.i, %if.then.i.i1103.i
+  %v_word.i.i918.i.0 = phi i64 [ %xor.i.i1108.i, %if.then.i.i1103.i ], [ %xor14.i.i1116.i, %if.end.i.i1110.i ], [ %xor26.i.i1124.i, %if.end18.i.i1118.i ], [ %xor38.i.i1132.i, %if.end30.i.i1126.i ], [ %xor54.i.i1094.i.le, %word_differs.i.i1099.i.loopexit ]
+  %len.i.i917.i.3 = phi i32 [ 4, %if.then.i.i1103.i ], [ 12, %if.end.i.i1110.i ], [ 20, %if.end18.i.i1118.i ], [ 28, %if.end30.i.i1126.i ], [ %len.i.i917.i.1, %word_differs.i.i1099.i.loopexit ]
   %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i918.i.0, i1 true)
   %cast.i.i1100.i = trunc nuw nsw i64 %37 to i32
   %shr.i190.i1101.i = lshr i32 %cast.i.i1100.i, 3
@@ -4460,7 +4493,7 @@ if.then.i238.i810.i:                              ; preds = %if.then71.i755.i
   %arrayidx3.i243.i814.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 4
   %v.i297.i478.i.0.copyload = load i64, ptr %arrayidx3.i243.i814.i, align 1
   %xor.i245.i815.i = xor i64 %v.i297.i478.i.0.copyload, %v.i299.i476.i.0.copyload
-  %cmp5.i246.i816.i.not = icmp eq i64 %xor.i245.i815.i, 0
+  %cmp5.i246.i816.i.not = icmp eq i64 %v.i299.i476.i.0.copyload, %v.i297.i478.i.0.copyload
   br i1 %cmp5.i246.i816.i.not, label %if.end.i247.i817.i, label %word_differs.i234.i806.i
 
 if.end.i247.i817.i:                               ; preds = %if.then.i238.i810.i
@@ -4469,7 +4502,7 @@ if.end.i247.i817.i:                               ; preds = %if.then.i238.i810.i
   %arrayidx12.i253.i822.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 12
   %v.i293.i482.i.0.copyload = load i64, ptr %arrayidx12.i253.i822.i, align 1
   %xor14.i255.i823.i = xor i64 %v.i293.i482.i.0.copyload, %v.i295.i480.i.0.copyload
-  %cmp15.i256.i824.i.not = icmp eq i64 %xor14.i255.i823.i, 0
+  %cmp15.i256.i824.i.not = icmp eq i64 %v.i295.i480.i.0.copyload, %v.i293.i482.i.0.copyload
   br i1 %cmp15.i256.i824.i.not, label %if.end18.i257.i825.i, label %word_differs.i234.i806.i
 
 if.end18.i257.i825.i:                             ; preds = %if.end.i247.i817.i
@@ -4478,7 +4511,7 @@ if.end18.i257.i825.i:                             ; preds = %if.end.i247.i817.i
   %arrayidx24.i263.i830.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 20
   %v.i289.i486.i.0.copyload = load i64, ptr %arrayidx24.i263.i830.i, align 1
   %xor26.i265.i831.i = xor i64 %v.i289.i486.i.0.copyload, %v.i291.i484.i.0.copyload
-  %cmp27.i266.i832.i.not = icmp eq i64 %xor26.i265.i831.i, 0
+  %cmp27.i266.i832.i.not = icmp eq i64 %v.i291.i484.i.0.copyload, %v.i289.i486.i.0.copyload
   br i1 %cmp27.i266.i832.i.not, label %if.end30.i267.i833.i, label %word_differs.i234.i806.i
 
 if.end30.i267.i833.i:                             ; preds = %if.end18.i257.i825.i
@@ -4487,7 +4520,7 @@ if.end30.i267.i833.i:                             ; preds = %if.end18.i257.i825.
   %arrayidx36.i273.i838.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 28
   %v.i285.i490.i.0.copyload = load i64, ptr %arrayidx36.i273.i838.i, align 1
   %xor38.i275.i839.i = xor i64 %v.i285.i490.i.0.copyload, %v.i287.i488.i.0.copyload
-  %cmp39.i276.i840.i.not = icmp eq i64 %xor38.i275.i839.i, 0
+  %cmp39.i276.i840.i.not = icmp eq i64 %v.i287.i488.i.0.copyload, %v.i285.i490.i.0.copyload
   br i1 %cmp39.i276.i840.i.not, label %while.cond.i204.i762.i.preheader, label %word_differs.i234.i806.i
 
 while.cond.i204.i762.i.preheader:                 ; preds = %if.end30.i267.i833.i, %if.then71.i755.i
@@ -4515,9 +4548,8 @@ while.body.i222.i796.i:                           ; preds = %while.cond.i204.i76
   %v.i303.i472.i.0.copyload = load i64, ptr %arrayidx49.i224.i798.i, align 1
   %arrayidx52.i227.i800.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 %idxprom48.i223.i797.i
   %v.i301.i474.i.0.copyload = load i64, ptr %arrayidx52.i227.i800.i, align 1
-  %xor54.i229.i801.i = xor i64 %v.i301.i474.i.0.copyload, %v.i303.i472.i.0.copyload
-  %cmp55.i230.i802.i.not = icmp eq i64 %xor54.i229.i801.i, 0
-  br i1 %cmp55.i230.i802.i.not, label %while.cond.i204.i762.i, label %word_differs.i234.i806.i
+  %cmp55.i230.i802.i.not = icmp eq i64 %v.i303.i472.i.0.copyload, %v.i301.i474.i.0.copyload
+  br i1 %cmp55.i230.i802.i.not, label %while.cond.i204.i762.i, label %word_differs.i234.i806.i.loopexit
 
 land.rhs.i214.i788.i:                             ; preds = %land.rhs.i214.i788.i.preheader, %while.body71.i212.i786.i
   %indvars.iv1156 = phi i64 [ %69, %land.rhs.i214.i788.i.preheader ], [ %indvars.iv.next1157, %while.body71.i212.i786.i ]
@@ -4533,9 +4565,13 @@ while.body71.i212.i786.i:                         ; preds = %land.rhs.i214.i788.
   %cmp61.i209.i767.i = icmp ult i64 %indvars.iv.next1157, %70
   br i1 %cmp61.i209.i767.i, label %land.rhs.i214.i788.i, label %lz_extend.exit283.i770.i
 
-word_differs.i234.i806.i:                         ; preds = %while.body.i222.i796.i, %if.end30.i267.i833.i, %if.end18.i257.i825.i, %if.end.i247.i817.i, %if.then.i238.i810.i
-  %v_word.i197.i497.i.0 = phi i64 [ %xor.i245.i815.i, %if.then.i238.i810.i ], [ %xor14.i255.i823.i, %if.end.i247.i817.i ], [ %xor26.i265.i831.i, %if.end18.i257.i825.i ], [ %xor38.i275.i839.i, %if.end30.i267.i833.i ], [ %xor54.i229.i801.i, %while.body.i222.i796.i ]
-  %len.i196.i496.i.3 = phi i32 [ 4, %if.then.i238.i810.i ], [ 12, %if.end.i247.i817.i ], [ 20, %if.end18.i257.i825.i ], [ 28, %if.end30.i267.i833.i ], [ %len.i196.i496.i.1, %while.body.i222.i796.i ]
+word_differs.i234.i806.i.loopexit:                ; preds = %while.body.i222.i796.i
+  %xor54.i229.i801.i.le = xor i64 %v.i301.i474.i.0.copyload, %v.i303.i472.i.0.copyload
+  br label %word_differs.i234.i806.i
+
+word_differs.i234.i806.i:                         ; preds = %word_differs.i234.i806.i.loopexit, %if.end30.i267.i833.i, %if.end18.i257.i825.i, %if.end.i247.i817.i, %if.then.i238.i810.i
+  %v_word.i197.i497.i.0 = phi i64 [ %xor.i245.i815.i, %if.then.i238.i810.i ], [ %xor14.i255.i823.i, %if.end.i247.i817.i ], [ %xor26.i265.i831.i, %if.end18.i257.i825.i ], [ %xor38.i275.i839.i, %if.end30.i267.i833.i ], [ %xor54.i229.i801.i.le, %word_differs.i234.i806.i.loopexit ]
+  %len.i196.i496.i.3 = phi i32 [ 4, %if.then.i238.i810.i ], [ 12, %if.end.i247.i817.i ], [ 20, %if.end18.i257.i825.i ], [ 28, %if.end30.i267.i833.i ], [ %len.i196.i496.i.1, %word_differs.i234.i806.i.loopexit ]
   %73 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i497.i.0, i1 true)
   %cast.i328.i807.i = trunc nuw nsw i64 %73 to i32
   %shr.i236.i808.i = lshr i32 %cast.i328.i807.i, 3
@@ -4631,7 +4667,7 @@ if.then.i.i689.i:                                 ; preds = %if.then129.i631.i
   %v.i319.i456.i.0.copyload = load i64, ptr %arrayidx.i.i691.i, align 1
   %v.i317.i458.i.0.copyload = load i64, ptr %arrayidx3.i.i693.i, align 1
   %xor.i.i694.i = xor i64 %v.i317.i458.i.0.copyload, %v.i319.i456.i.0.copyload
-  %cmp5.i.i695.i.not = icmp eq i64 %xor.i.i694.i, 0
+  %cmp5.i.i695.i.not = icmp eq i64 %v.i319.i456.i.0.copyload, %v.i317.i458.i.0.copyload
   br i1 %cmp5.i.i695.i.not, label %if.end.i.i696.i, label %word_differs.i.i685.i
 
 if.end.i.i696.i:                                  ; preds = %if.then.i.i689.i
@@ -4639,7 +4675,7 @@ if.end.i.i696.i:                                  ; preds = %if.then.i.i689.i
   %v.i315.i460.i.0.copyload = load i64, ptr %arrayidx9.i.i699.i, align 1
   %v.i313.i462.i.0.copyload = load i64, ptr %arrayidx12.i.i701.i, align 1
   %xor14.i.i702.i = xor i64 %v.i313.i462.i.0.copyload, %v.i315.i460.i.0.copyload
-  %cmp15.i.i703.i.not = icmp eq i64 %xor14.i.i702.i, 0
+  %cmp15.i.i703.i.not = icmp eq i64 %v.i315.i460.i.0.copyload, %v.i313.i462.i.0.copyload
   br i1 %cmp15.i.i703.i.not, label %if.end18.i.i704.i, label %word_differs.i.i685.i
 
 if.end18.i.i704.i:                                ; preds = %if.end.i.i696.i
@@ -4647,7 +4683,7 @@ if.end18.i.i704.i:                                ; preds = %if.end.i.i696.i
   %v.i311.i464.i.0.copyload = load i64, ptr %arrayidx21.i.i707.i, align 1
   %v.i309.i466.i.0.copyload = load i64, ptr %arrayidx24.i.i709.i, align 1
   %xor26.i.i710.i = xor i64 %v.i309.i466.i.0.copyload, %v.i311.i464.i.0.copyload
-  %cmp27.i.i711.i.not = icmp eq i64 %xor26.i.i710.i, 0
+  %cmp27.i.i711.i.not = icmp eq i64 %v.i311.i464.i.0.copyload, %v.i309.i466.i.0.copyload
   br i1 %cmp27.i.i711.i.not, label %if.end30.i.i712.i, label %word_differs.i.i685.i
 
 if.end30.i.i712.i:                                ; preds = %if.end18.i.i704.i
@@ -4655,7 +4691,7 @@ if.end30.i.i712.i:                                ; preds = %if.end18.i.i704.i
   %v.i307.i468.i.0.copyload = load i64, ptr %arrayidx33.i.i715.i, align 1
   %v.i305.i470.i.0.copyload = load i64, ptr %arrayidx36.i.i717.i, align 1
   %xor38.i.i718.i = xor i64 %v.i305.i470.i.0.copyload, %v.i307.i468.i.0.copyload
-  %cmp39.i.i719.i.not = icmp eq i64 %xor38.i.i718.i, 0
+  %cmp39.i.i719.i.not = icmp eq i64 %v.i307.i468.i.0.copyload, %v.i305.i470.i.0.copyload
   br i1 %cmp39.i.i719.i.not, label %while.cond.i.i638.i.preheader, label %word_differs.i.i685.i
 
 while.cond.i.i638.i.preheader:                    ; preds = %if.end30.i.i712.i, %if.then129.i631.i
@@ -4682,9 +4718,8 @@ while.body.i.i675.i:                              ; preds = %while.cond.i.i638.i
   %v.i323.i452.i.0.copyload = load i64, ptr %arrayidx49.i.i677.i, align 1
   %arrayidx52.i.i679.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 %idxprom48.i.i676.i
   %v.i321.i454.i.0.copyload = load i64, ptr %arrayidx52.i.i679.i, align 1
-  %xor54.i.i680.i = xor i64 %v.i321.i454.i.0.copyload, %v.i323.i452.i.0.copyload
-  %cmp55.i.i681.i.not = icmp eq i64 %xor54.i.i680.i, 0
-  br i1 %cmp55.i.i681.i.not, label %while.cond.i.i638.i, label %word_differs.i.i685.i
+  %cmp55.i.i681.i.not = icmp eq i64 %v.i323.i452.i.0.copyload, %v.i321.i454.i.0.copyload
+  br i1 %cmp55.i.i681.i.not, label %while.cond.i.i638.i, label %word_differs.i.i685.i.loopexit
 
 land.rhs.i.i667.i:                                ; preds = %land.rhs.i.i667.i.preheader, %while.body71.i.i665.i
   %indvars.iv1161 = phi i64 [ %78, %land.rhs.i.i667.i.preheader ], [ %indvars.iv.next1162, %while.body71.i.i665.i ]
@@ -4700,9 +4735,13 @@ while.body71.i.i665.i:                            ; preds = %land.rhs.i.i667.i
   %cmp61.i.i643.i = icmp ult i64 %indvars.iv.next1162, %76
   br i1 %cmp61.i.i643.i, label %land.rhs.i.i667.i, label %lz_extend.exit.i646.i
 
-word_differs.i.i685.i:                            ; preds = %while.body.i.i675.i, %if.end30.i.i712.i, %if.end18.i.i704.i, %if.end.i.i696.i, %if.then.i.i689.i
-  %v_word.i.i504.i.0 = phi i64 [ %xor.i.i694.i, %if.then.i.i689.i ], [ %xor14.i.i702.i, %if.end.i.i696.i ], [ %xor26.i.i710.i, %if.end18.i.i704.i ], [ %xor38.i.i718.i, %if.end30.i.i712.i ], [ %xor54.i.i680.i, %while.body.i.i675.i ]
-  %len.i.i503.i.3 = phi i32 [ 4, %if.then.i.i689.i ], [ 12, %if.end.i.i696.i ], [ 20, %if.end18.i.i704.i ], [ 28, %if.end30.i.i712.i ], [ %len.i.i503.i.1, %while.body.i.i675.i ]
+word_differs.i.i685.i.loopexit:                   ; preds = %while.body.i.i675.i
+  %xor54.i.i680.i.le = xor i64 %v.i321.i454.i.0.copyload, %v.i323.i452.i.0.copyload
+  br label %word_differs.i.i685.i
+
+word_differs.i.i685.i:                            ; preds = %word_differs.i.i685.i.loopexit, %if.end30.i.i712.i, %if.end18.i.i704.i, %if.end.i.i696.i, %if.then.i.i689.i
+  %v_word.i.i504.i.0 = phi i64 [ %xor.i.i694.i, %if.then.i.i689.i ], [ %xor14.i.i702.i, %if.end.i.i696.i ], [ %xor26.i.i710.i, %if.end18.i.i704.i ], [ %xor38.i.i718.i, %if.end30.i.i712.i ], [ %xor54.i.i680.i.le, %word_differs.i.i685.i.loopexit ]
+  %len.i.i503.i.3 = phi i32 [ 4, %if.then.i.i689.i ], [ 12, %if.end.i.i696.i ], [ 20, %if.end18.i.i704.i ], [ 28, %if.end30.i.i712.i ], [ %len.i.i503.i.1, %word_differs.i.i685.i.loopexit ]
   %81 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i504.i.0, i1 true)
   %cast.i.i686.i = trunc nuw nsw i64 %81 to i32
   %shr.i190.i687.i = lshr i32 %cast.i.i686.i, 3
@@ -4933,7 +4972,7 @@ if.then.i238.i.i:                                 ; preds = %if.then71.i.i
   %arrayidx3.i243.i.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 5
   %v.i297.i.i.0.copyload = load i64, ptr %arrayidx3.i243.i.i, align 1
   %xor.i245.i.i = xor i64 %v.i297.i.i.0.copyload, %v.i299.i.i.0.copyload
-  %cmp5.i246.i.i.not = icmp eq i64 %xor.i245.i.i, 0
+  %cmp5.i246.i.i.not = icmp eq i64 %v.i299.i.i.0.copyload, %v.i297.i.i.0.copyload
   br i1 %cmp5.i246.i.i.not, label %if.end.i247.i.i, label %word_differs.i234.i.i
 
 if.end.i247.i.i:                                  ; preds = %if.then.i238.i.i
@@ -4942,7 +4981,7 @@ if.end.i247.i.i:                                  ; preds = %if.then.i238.i.i
   %arrayidx12.i253.i.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 13
   %v.i293.i.i.0.copyload = load i64, ptr %arrayidx12.i253.i.i, align 1
   %xor14.i255.i.i = xor i64 %v.i293.i.i.0.copyload, %v.i295.i.i.0.copyload
-  %cmp15.i256.i.i.not = icmp eq i64 %xor14.i255.i.i, 0
+  %cmp15.i256.i.i.not = icmp eq i64 %v.i295.i.i.0.copyload, %v.i293.i.i.0.copyload
   br i1 %cmp15.i256.i.i.not, label %if.end18.i257.i.i, label %word_differs.i234.i.i
 
 if.end18.i257.i.i:                                ; preds = %if.end.i247.i.i
@@ -4951,7 +4990,7 @@ if.end18.i257.i.i:                                ; preds = %if.end.i247.i.i
   %arrayidx24.i263.i.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 21
   %v.i289.i.i.0.copyload = load i64, ptr %arrayidx24.i263.i.i, align 1
   %xor26.i265.i.i = xor i64 %v.i289.i.i.0.copyload, %v.i291.i.i.0.copyload
-  %cmp27.i266.i.i.not = icmp eq i64 %xor26.i265.i.i, 0
+  %cmp27.i266.i.i.not = icmp eq i64 %v.i291.i.i.0.copyload, %v.i289.i.i.0.copyload
   br i1 %cmp27.i266.i.i.not, label %if.end30.i267.i.i, label %word_differs.i234.i.i
 
 if.end30.i267.i.i:                                ; preds = %if.end18.i257.i.i
@@ -4960,7 +4999,7 @@ if.end30.i267.i.i:                                ; preds = %if.end18.i257.i.i
   %arrayidx36.i273.i.i = getelementptr inbounds i8, ptr %in_next.i.21099, i64 29
   %v.i285.i.i.0.copyload = load i64, ptr %arrayidx36.i273.i.i, align 1
   %xor38.i275.i.i = xor i64 %v.i285.i.i.0.copyload, %v.i287.i.i.0.copyload
-  %cmp39.i276.i.i.not = icmp eq i64 %xor38.i275.i.i, 0
+  %cmp39.i276.i.i.not = icmp eq i64 %v.i287.i.i.0.copyload, %v.i285.i.i.0.copyload
   br i1 %cmp39.i276.i.i.not, label %while.cond.i204.i.i.preheader, label %word_differs.i234.i.i
 
 while.cond.i204.i.i.preheader:                    ; preds = %if.end30.i267.i.i, %if.then71.i.i
@@ -4988,9 +5027,8 @@ while.body.i222.i.i:                              ; preds = %while.cond.i204.i.i
   %v.i303.i.i.0.copyload = load i64, ptr %arrayidx49.i224.i.i, align 1
   %arrayidx52.i227.i.i = getelementptr inbounds i8, ptr %incdec.ptr67.i, i64 %idxprom48.i223.i.i
   %v.i301.i.i.0.copyload = load i64, ptr %arrayidx52.i227.i.i, align 1
-  %xor54.i229.i.i = xor i64 %v.i301.i.i.0.copyload, %v.i303.i.i.0.copyload
-  %cmp55.i230.i.i.not = icmp eq i64 %xor54.i229.i.i, 0
-  br i1 %cmp55.i230.i.i.not, label %while.cond.i204.i.i, label %word_differs.i234.i.i
+  %cmp55.i230.i.i.not = icmp eq i64 %v.i303.i.i.0.copyload, %v.i301.i.i.0.copyload
+  br i1 %cmp55.i230.i.i.not, label %while.cond.i204.i.i, label %word_differs.i234.i.i.loopexit
 
 land.rhs.i214.i.i:                                ; preds = %land.rhs.i214.i.i.preheader, %while.body71.i212.i.i
   %indvars.iv1166 = phi i64 [ %101, %land.rhs.i214.i.i.preheader ], [ %indvars.iv.next1167, %while.body71.i212.i.i ]
@@ -5006,9 +5044,13 @@ while.body71.i212.i.i:                            ; preds = %land.rhs.i214.i.i
   %cmp61.i209.i.i = icmp ult i64 %indvars.iv.next1167, %102
   br i1 %cmp61.i209.i.i, label %land.rhs.i214.i.i, label %lz_extend.exit283.i.i
 
-word_differs.i234.i.i:                            ; preds = %while.body.i222.i.i, %if.end30.i267.i.i, %if.end18.i257.i.i, %if.end.i247.i.i, %if.then.i238.i.i
-  %v_word.i197.i.i.0 = phi i64 [ %xor.i245.i.i, %if.then.i238.i.i ], [ %xor14.i255.i.i, %if.end.i247.i.i ], [ %xor26.i265.i.i, %if.end18.i257.i.i ], [ %xor38.i275.i.i, %if.end30.i267.i.i ], [ %xor54.i229.i.i, %while.body.i222.i.i ]
-  %len.i196.i.i.3 = phi i32 [ 4, %if.then.i238.i.i ], [ 12, %if.end.i247.i.i ], [ 20, %if.end18.i257.i.i ], [ 28, %if.end30.i267.i.i ], [ %len.i196.i.i.1, %while.body.i222.i.i ]
+word_differs.i234.i.i.loopexit:                   ; preds = %while.body.i222.i.i
+  %xor54.i229.i.i.le = xor i64 %v.i301.i.i.0.copyload, %v.i303.i.i.0.copyload
+  br label %word_differs.i234.i.i
+
+word_differs.i234.i.i:                            ; preds = %word_differs.i234.i.i.loopexit, %if.end30.i267.i.i, %if.end18.i257.i.i, %if.end.i247.i.i, %if.then.i238.i.i
+  %v_word.i197.i.i.0 = phi i64 [ %xor.i245.i.i, %if.then.i238.i.i ], [ %xor14.i255.i.i, %if.end.i247.i.i ], [ %xor26.i265.i.i, %if.end18.i257.i.i ], [ %xor38.i275.i.i, %if.end30.i267.i.i ], [ %xor54.i229.i.i.le, %word_differs.i234.i.i.loopexit ]
+  %len.i196.i.i.3 = phi i32 [ 4, %if.then.i238.i.i ], [ 12, %if.end.i247.i.i ], [ 20, %if.end18.i257.i.i ], [ 28, %if.end30.i267.i.i ], [ %len.i196.i.i.1, %word_differs.i234.i.i.loopexit ]
   %105 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i197.i.i.0, i1 true)
   %cast.i328.i.i = trunc nuw nsw i64 %105 to i32
   %shr.i236.i.i = lshr i32 %cast.i328.i.i, 3
@@ -5104,7 +5146,7 @@ if.then.i.i.i:                                    ; preds = %if.then129.i.i
   %v.i319.i.i.0.copyload = load i64, ptr %arrayidx.i.i.i, align 1
   %v.i317.i.i.0.copyload = load i64, ptr %arrayidx3.i.i444.i, align 1
   %xor.i.i.i = xor i64 %v.i317.i.i.0.copyload, %v.i319.i.i.0.copyload
-  %cmp5.i.i.i.not = icmp eq i64 %xor.i.i.i, 0
+  %cmp5.i.i.i.not = icmp eq i64 %v.i319.i.i.0.copyload, %v.i317.i.i.0.copyload
   br i1 %cmp5.i.i.i.not, label %if.end.i.i.i, label %word_differs.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -5112,7 +5154,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   %v.i315.i.i.0.copyload = load i64, ptr %arrayidx9.i.i.i, align 1
   %v.i313.i.i.0.copyload = load i64, ptr %arrayidx12.i.i.i, align 1
   %xor14.i.i.i = xor i64 %v.i313.i.i.0.copyload, %v.i315.i.i.0.copyload
-  %cmp15.i.i.i.not = icmp eq i64 %xor14.i.i.i, 0
+  %cmp15.i.i.i.not = icmp eq i64 %v.i315.i.i.0.copyload, %v.i313.i.i.0.copyload
   br i1 %cmp15.i.i.i.not, label %if.end18.i.i.i, label %word_differs.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -5120,7 +5162,7 @@ if.end18.i.i.i:                                   ; preds = %if.end.i.i.i
   %v.i311.i.i.0.copyload = load i64, ptr %arrayidx21.i.i.i, align 1
   %v.i309.i.i.0.copyload = load i64, ptr %arrayidx24.i.i.i, align 1
   %xor26.i.i.i = xor i64 %v.i309.i.i.0.copyload, %v.i311.i.i.0.copyload
-  %cmp27.i.i.i.not = icmp eq i64 %xor26.i.i.i, 0
+  %cmp27.i.i.i.not = icmp eq i64 %v.i311.i.i.0.copyload, %v.i309.i.i.0.copyload
   br i1 %cmp27.i.i.i.not, label %if.end30.i.i.i, label %word_differs.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %if.end18.i.i.i
@@ -5128,7 +5170,7 @@ if.end30.i.i.i:                                   ; preds = %if.end18.i.i.i
   %v.i307.i.i.0.copyload = load i64, ptr %arrayidx33.i.i.i, align 1
   %v.i305.i.i.0.copyload = load i64, ptr %arrayidx36.i.i.i, align 1
   %xor38.i.i.i = xor i64 %v.i305.i.i.0.copyload, %v.i307.i.i.0.copyload
-  %cmp39.i.i.i.not = icmp eq i64 %xor38.i.i.i, 0
+  %cmp39.i.i.i.not = icmp eq i64 %v.i307.i.i.0.copyload, %v.i305.i.i.0.copyload
   br i1 %cmp39.i.i.i.not, label %while.cond.i.i.i.preheader, label %word_differs.i.i.i
 
 while.cond.i.i.i.preheader:                       ; preds = %if.end30.i.i.i, %if.then129.i.i
@@ -5155,9 +5197,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %v.i323.i.i.0.copyload = load i64, ptr %arrayidx49.i.i.i, align 1
   %arrayidx52.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr67.i, i64 %idxprom48.i.i.i
   %v.i321.i.i.0.copyload = load i64, ptr %arrayidx52.i.i.i, align 1
-  %xor54.i.i.i = xor i64 %v.i321.i.i.0.copyload, %v.i323.i.i.0.copyload
-  %cmp55.i.i.i.not = icmp eq i64 %xor54.i.i.i, 0
-  br i1 %cmp55.i.i.i.not, label %while.cond.i.i.i, label %word_differs.i.i.i
+  %cmp55.i.i.i.not = icmp eq i64 %v.i323.i.i.0.copyload, %v.i321.i.i.0.copyload
+  br i1 %cmp55.i.i.i.not, label %while.cond.i.i.i, label %word_differs.i.i.i.loopexit
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.preheader, %while.body71.i.i.i
   %indvars.iv1171 = phi i64 [ %110, %land.rhs.i.i.i.preheader ], [ %indvars.iv.next1172, %while.body71.i.i.i ]
@@ -5173,9 +5214,13 @@ while.body71.i.i.i:                               ; preds = %land.rhs.i.i.i
   %cmp61.i.i.i = icmp ult i64 %indvars.iv.next1172, %108
   br i1 %cmp61.i.i.i, label %land.rhs.i.i.i, label %lz_extend.exit.i.i
 
-word_differs.i.i.i:                               ; preds = %while.body.i.i.i, %if.end30.i.i.i, %if.end18.i.i.i, %if.end.i.i.i, %if.then.i.i.i
-  %v_word.i.i.i.0 = phi i64 [ %xor.i.i.i, %if.then.i.i.i ], [ %xor14.i.i.i, %if.end.i.i.i ], [ %xor26.i.i.i, %if.end18.i.i.i ], [ %xor38.i.i.i, %if.end30.i.i.i ], [ %xor54.i.i.i, %while.body.i.i.i ]
-  %len.i.i.i.3 = phi i32 [ 4, %if.then.i.i.i ], [ 12, %if.end.i.i.i ], [ 20, %if.end18.i.i.i ], [ 28, %if.end30.i.i.i ], [ %len.i.i.i.1, %while.body.i.i.i ]
+word_differs.i.i.i.loopexit:                      ; preds = %while.body.i.i.i
+  %xor54.i.i.i.le = xor i64 %v.i321.i.i.0.copyload, %v.i323.i.i.0.copyload
+  br label %word_differs.i.i.i
+
+word_differs.i.i.i:                               ; preds = %word_differs.i.i.i.loopexit, %if.end30.i.i.i, %if.end18.i.i.i, %if.end.i.i.i, %if.then.i.i.i
+  %v_word.i.i.i.0 = phi i64 [ %xor.i.i.i, %if.then.i.i.i ], [ %xor14.i.i.i, %if.end.i.i.i ], [ %xor26.i.i.i, %if.end18.i.i.i ], [ %xor38.i.i.i, %if.end30.i.i.i ], [ %xor54.i.i.i.le, %word_differs.i.i.i.loopexit ]
+  %len.i.i.i.3 = phi i32 [ 4, %if.then.i.i.i ], [ 12, %if.end.i.i.i ], [ 20, %if.end18.i.i.i ], [ 28, %if.end30.i.i.i ], [ %len.i.i.i.1, %word_differs.i.i.i.loopexit ]
   %113 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i.i.0, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %113 to i32
   %shr.i190.i.i = lshr i32 %cast.i.i.i, 3
@@ -5871,7 +5916,7 @@ if.then.i.i549:                                   ; preds = %if.then90.i488
   %arrayidx3.i.i553 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %idxprom.i.i550
   %v.i167.i347.0.copyload = load i64, ptr %arrayidx3.i.i553, align 1
   %xor.i.i554 = xor i64 %v.i167.i347.0.copyload, %v.i169.i345.0.copyload
-  %cmp5.i.i555.not = icmp eq i64 %xor.i.i554, 0
+  %cmp5.i.i555.not = icmp eq i64 %v.i169.i345.0.copyload, %v.i167.i347.0.copyload
   br i1 %cmp5.i.i555.not, label %if.end.i.i556, label %word_differs.i.i545
 
 if.end.i.i556:                                    ; preds = %if.then.i.i549
@@ -5882,7 +5927,7 @@ if.end.i.i556:                                    ; preds = %if.then.i.i549
   %arrayidx12.i.i561 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %idxprom8.i.i558
   %v.i163.i351.0.copyload = load i64, ptr %arrayidx12.i.i561, align 1
   %xor14.i.i562 = xor i64 %v.i163.i351.0.copyload, %v.i165.i349.0.copyload
-  %cmp15.i.i563.not = icmp eq i64 %xor14.i.i562, 0
+  %cmp15.i.i563.not = icmp eq i64 %v.i165.i349.0.copyload, %v.i163.i351.0.copyload
   br i1 %cmp15.i.i563.not, label %if.end18.i.i564, label %word_differs.i.i545
 
 if.end18.i.i564:                                  ; preds = %if.end.i.i556
@@ -5893,7 +5938,7 @@ if.end18.i.i564:                                  ; preds = %if.end.i.i556
   %arrayidx24.i.i569 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %idxprom20.i.i566
   %v.i159.i355.0.copyload = load i64, ptr %arrayidx24.i.i569, align 1
   %xor26.i.i570 = xor i64 %v.i159.i355.0.copyload, %v.i161.i353.0.copyload
-  %cmp27.i.i571.not = icmp eq i64 %xor26.i.i570, 0
+  %cmp27.i.i571.not = icmp eq i64 %v.i161.i353.0.copyload, %v.i159.i355.0.copyload
   br i1 %cmp27.i.i571.not, label %if.end30.i.i572, label %word_differs.i.i545
 
 if.end30.i.i572:                                  ; preds = %if.end18.i.i564
@@ -5904,7 +5949,7 @@ if.end30.i.i572:                                  ; preds = %if.end18.i.i564
   %arrayidx36.i.i577 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %idxprom32.i.i574
   %v.i155.i359.0.copyload = load i64, ptr %arrayidx36.i.i577, align 1
   %xor38.i.i578 = xor i64 %v.i155.i359.0.copyload, %v.i157.i357.0.copyload
-  %cmp39.i.i579.not = icmp eq i64 %xor38.i.i578, 0
+  %cmp39.i.i579.not = icmp eq i64 %v.i157.i357.0.copyload, %v.i155.i359.0.copyload
   br i1 %cmp39.i.i579.not, label %if.end42.i.i580, label %word_differs.i.i545
 
 if.end42.i.i580:                                  ; preds = %if.end30.i.i572
@@ -5935,9 +5980,8 @@ while.body.i.i535:                                ; preds = %while.cond.i.i496
   %v.i173.i341.0.copyload = load i64, ptr %arrayidx49.i.i537, align 1
   %arrayidx52.i.i539 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %idxprom48.i.i536
   %v.i171.i343.0.copyload = load i64, ptr %arrayidx52.i.i539, align 1
-  %xor54.i.i540 = xor i64 %v.i171.i343.0.copyload, %v.i173.i341.0.copyload
-  %cmp55.i.i541.not = icmp eq i64 %xor54.i.i540, 0
-  br i1 %cmp55.i.i541.not, label %while.cond.i.i496, label %word_differs.i.i545
+  %cmp55.i.i541.not = icmp eq i64 %v.i173.i341.0.copyload, %v.i171.i343.0.copyload
+  br i1 %cmp55.i.i541.not, label %while.cond.i.i496, label %word_differs.i.i545.loopexit
 
 land.rhs.i.i527:                                  ; preds = %land.rhs.i.i527.preheader, %while.body71.i.i525
   %indvars.iv = phi i64 [ %21, %land.rhs.i.i527.preheader ], [ %indvars.iv.next, %while.body71.i.i525 ]
@@ -5953,9 +5997,13 @@ while.body71.i.i525:                              ; preds = %land.rhs.i.i527
   %cmp61.i.i501 = icmp ult i64 %indvars.iv.next, %18
   br i1 %cmp61.i.i501, label %land.rhs.i.i527, label %lor.lhs.false.i523
 
-word_differs.i.i545:                              ; preds = %while.body.i.i535, %if.end30.i.i572, %if.end18.i.i564, %if.end.i.i556, %if.then.i.i549
-  %v_word.i.i366.0 = phi i64 [ %xor.i.i554, %if.then.i.i549 ], [ %xor14.i.i562, %if.end.i.i556 ], [ %xor26.i.i570, %if.end18.i.i564 ], [ %xor38.i.i578, %if.end30.i.i572 ], [ %xor54.i.i540, %while.body.i.i535 ]
-  %len.i.i365.3 = phi i32 [ %add.i489, %if.then.i.i549 ], [ %add.i.i557, %if.end.i.i556 ], [ %add19.i.i565, %if.end18.i.i564 ], [ %add31.i.i573, %if.end30.i.i572 ], [ %len.i.i365.1, %while.body.i.i535 ]
+word_differs.i.i545.loopexit:                     ; preds = %while.body.i.i535
+  %xor54.i.i540.le = xor i64 %v.i171.i343.0.copyload, %v.i173.i341.0.copyload
+  br label %word_differs.i.i545
+
+word_differs.i.i545:                              ; preds = %word_differs.i.i545.loopexit, %if.end30.i.i572, %if.end18.i.i564, %if.end.i.i556, %if.then.i.i549
+  %v_word.i.i366.0 = phi i64 [ %xor.i.i554, %if.then.i.i549 ], [ %xor14.i.i562, %if.end.i.i556 ], [ %xor26.i.i570, %if.end18.i.i564 ], [ %xor38.i.i578, %if.end30.i.i572 ], [ %xor54.i.i540.le, %word_differs.i.i545.loopexit ]
+  %len.i.i365.3 = phi i32 [ %add.i489, %if.then.i.i549 ], [ %add.i.i557, %if.end.i.i556 ], [ %add19.i.i565, %if.end18.i.i564 ], [ %add31.i.i573, %if.end30.i.i572 ], [ %len.i.i365.1, %word_differs.i.i545.loopexit ]
   %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i366.0, i1 true)
   %cast.i.i546 = trunc nuw nsw i64 %24 to i32
   %shr.i153.i547 = lshr i32 %cast.i.i546, 3
@@ -6257,7 +6305,7 @@ if.then.i.i:                                      ; preds = %if.then90.i
   %arrayidx3.i.i317 = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom.i.i
   %v.i167.i.0.copyload = load i64, ptr %arrayidx3.i.i317, align 1
   %xor.i.i = xor i64 %v.i167.i.0.copyload, %v.i169.i.0.copyload
-  %cmp5.i.i.not = icmp eq i64 %xor.i.i, 0
+  %cmp5.i.i.not = icmp eq i64 %v.i169.i.0.copyload, %v.i167.i.0.copyload
   br i1 %cmp5.i.i.not, label %if.end.i.i, label %word_differs.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -6268,7 +6316,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom8.i.i
   %v.i163.i.0.copyload = load i64, ptr %arrayidx12.i.i, align 1
   %xor14.i.i = xor i64 %v.i163.i.0.copyload, %v.i165.i.0.copyload
-  %cmp15.i.i.not = icmp eq i64 %xor14.i.i, 0
+  %cmp15.i.i.not = icmp eq i64 %v.i165.i.0.copyload, %v.i163.i.0.copyload
   br i1 %cmp15.i.i.not, label %if.end18.i.i, label %word_differs.i.i
 
 if.end18.i.i:                                     ; preds = %if.end.i.i
@@ -6279,7 +6327,7 @@ if.end18.i.i:                                     ; preds = %if.end.i.i
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom20.i.i
   %v.i159.i.0.copyload = load i64, ptr %arrayidx24.i.i, align 1
   %xor26.i.i = xor i64 %v.i159.i.0.copyload, %v.i161.i.0.copyload
-  %cmp27.i.i.not = icmp eq i64 %xor26.i.i, 0
+  %cmp27.i.i.not = icmp eq i64 %v.i161.i.0.copyload, %v.i159.i.0.copyload
   br i1 %cmp27.i.i.not, label %if.end30.i.i, label %word_differs.i.i
 
 if.end30.i.i:                                     ; preds = %if.end18.i.i
@@ -6290,7 +6338,7 @@ if.end30.i.i:                                     ; preds = %if.end18.i.i
   %arrayidx36.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom32.i.i
   %v.i155.i.0.copyload = load i64, ptr %arrayidx36.i.i, align 1
   %xor38.i.i = xor i64 %v.i155.i.0.copyload, %v.i157.i.0.copyload
-  %cmp39.i.i.not = icmp eq i64 %xor38.i.i, 0
+  %cmp39.i.i.not = icmp eq i64 %v.i157.i.0.copyload, %v.i155.i.0.copyload
   br i1 %cmp39.i.i.not, label %if.end42.i.i, label %word_differs.i.i
 
 if.end42.i.i:                                     ; preds = %if.end30.i.i
@@ -6321,9 +6369,8 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %v.i173.i.0.copyload = load i64, ptr %arrayidx49.i.i, align 1
   %arrayidx52.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom48.i.i
   %v.i171.i.0.copyload = load i64, ptr %arrayidx52.i.i, align 1
-  %xor54.i.i = xor i64 %v.i171.i.0.copyload, %v.i173.i.0.copyload
-  %cmp55.i.i.not = icmp eq i64 %xor54.i.i, 0
-  br i1 %cmp55.i.i.not, label %while.cond.i.i, label %word_differs.i.i
+  %cmp55.i.i.not = icmp eq i64 %v.i173.i.0.copyload, %v.i171.i.0.copyload
+  br i1 %cmp55.i.i.not, label %while.cond.i.i, label %word_differs.i.i.loopexit
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body71.i.i
   %indvars.iv675 = phi i64 [ %49, %land.rhs.i.i.preheader ], [ %indvars.iv.next676, %while.body71.i.i ]
@@ -6339,9 +6386,13 @@ while.body71.i.i:                                 ; preds = %land.rhs.i.i
   %cmp61.i.i = icmp ult i64 %indvars.iv.next676, %46
   br i1 %cmp61.i.i, label %land.rhs.i.i, label %if.then109.i
 
-word_differs.i.i:                                 ; preds = %while.body.i.i, %if.end30.i.i, %if.end18.i.i, %if.end.i.i, %if.then.i.i
-  %v_word.i.i.0 = phi i64 [ %xor.i.i, %if.then.i.i ], [ %xor14.i.i, %if.end.i.i ], [ %xor26.i.i, %if.end18.i.i ], [ %xor38.i.i, %if.end30.i.i ], [ %xor54.i.i, %while.body.i.i ]
-  %len.i.i.3 = phi i32 [ %add.i315, %if.then.i.i ], [ %add.i.i, %if.end.i.i ], [ %add19.i.i, %if.end18.i.i ], [ %add31.i.i, %if.end30.i.i ], [ %len.i.i.1, %while.body.i.i ]
+word_differs.i.i.loopexit:                        ; preds = %while.body.i.i
+  %xor54.i.i.le = xor i64 %v.i171.i.0.copyload, %v.i173.i.0.copyload
+  br label %word_differs.i.i
+
+word_differs.i.i:                                 ; preds = %word_differs.i.i.loopexit, %if.end30.i.i, %if.end18.i.i, %if.end.i.i, %if.then.i.i
+  %v_word.i.i.0 = phi i64 [ %xor.i.i, %if.then.i.i ], [ %xor14.i.i, %if.end.i.i ], [ %xor26.i.i, %if.end18.i.i ], [ %xor38.i.i, %if.end30.i.i ], [ %xor54.i.i.le, %word_differs.i.i.loopexit ]
+  %len.i.i.3 = phi i32 [ %add.i315, %if.then.i.i ], [ %add.i.i, %if.end.i.i ], [ %add19.i.i, %if.end18.i.i ], [ %add31.i.i, %if.end30.i.i ], [ %len.i.i.1, %word_differs.i.i.loopexit ]
   %52 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v_word.i.i.0, i1 true)
   %cast.i.i = trunc nuw nsw i64 %52 to i32
   %shr.i153.i = lshr i32 %cast.i.i, 3

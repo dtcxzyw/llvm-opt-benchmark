@@ -2264,24 +2264,24 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %48 = load i8, ptr %47, align 1
   %49 = trunc i32 %.sroa.05.0.copyload to i8
   %50 = and i8 %49, 1
-  %51 = xor i8 %48, %50
-  %.not = icmp eq i8 %51, 0
-  br i1 %.not, label %.loopexit, label %52
+  %.not = icmp eq i8 %48, %50
+  br i1 %.not, label %.loopexit, label %51
 
-52:                                               ; preds = %40
+51:                                               ; preds = %40
+  %52 = xor i8 %48, %50
   %.sroa.02.0.copyload.b = load i1, ptr @_ZN7MinisatL7l_FalseE.0, align 1
   %.sroa.02.0.copyload = zext i1 %.sroa.02.0.copyload.b to i8
-  %.not24 = icmp eq i8 %51, %.sroa.02.0.copyload
+  %.not24 = icmp eq i8 %52, %.sroa.02.0.copyload
   br i1 %.not24, label %55, label %53
 
-53:                                               ; preds = %52
+53:                                               ; preds = %51
   %54 = xor i32 %.sroa.05.0.copyload, 1
   tail call void @_ZN7Minisat6Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 %54, i32 noundef -1)
   %.pre23 = load i32, ptr %36, align 8
   br label %55
 
-55:                                               ; preds = %53, %52
-  %56 = phi i32 [ %.pre23, %53 ], [ %41, %52 ]
+55:                                               ; preds = %53, %51
+  %56 = phi i32 [ %.pre23, %53 ], [ %41, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57

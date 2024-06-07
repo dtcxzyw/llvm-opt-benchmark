@@ -823,7 +823,7 @@ if.then:                                          ; preds = %for.body
   %shr6.i.i = lshr i32 %mul.i5.i, 22
   %xor7.i.i = xor i32 %shr6.i.i, %mul.i5.i
   store i32 %xor7.i.i, ptr %arrayidx, align 4
-  %cmp.i = icmp eq i32 %xor7.i.i, 0
+  %cmp.i = icmp eq i32 %shr4.i.i, %add4.i
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then
@@ -851,7 +851,7 @@ if.end:                                           ; preds = %for.body, %if.then
   %shr6.i.i23 = lshr i32 %mul.i5.i22, 22
   %xor7.i.i24 = xor i32 %shr6.i.i23, %mul.i5.i22
   store i32 %xor7.i.i24, ptr %arrayidx3, align 4
-  %cmp.i25 = icmp eq i32 %xor7.i.i24, 0
+  %cmp.i25 = icmp eq i32 %shr4.i.i20, %add4.i17
   %5 = or i1 %cmp.i25, %tobool7.pre-phi
   %exitcond.not = icmp eq i64 %add4, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15

@@ -16654,19 +16654,19 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u
   ret i1 %.0.shrunk
 
 11:                                               ; preds = %10
-  %12 = icmp eq i64 %7, 1
+  %12 = icmp eq i64 %6, -9223372036854775807
   br i1 %12, label %19, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82ec428496f91afcE.exit"
 
 13:                                               ; preds = %10
-  %14 = icmp eq i64 %7, 2
+  %14 = icmp eq i64 %6, -9223372036854775806
   br i1 %14, label %24, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82ec428496f91afcE.exit"
 
 15:                                               ; preds = %10
-  %16 = icmp eq i64 %7, 3
+  %16 = icmp eq i64 %6, -9223372036854775805
   br i1 %16, label %53, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82ec428496f91afcE.exit"
 
 17:                                               ; preds = %10
-  %18 = icmp eq i64 %7, 4
+  %18 = icmp eq i64 %6, -9223372036854775804
   br i1 %18, label %64, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82ec428496f91afcE.exit"
 
 19:                                               ; preds = %11
@@ -30103,7 +30103,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$tree_sitter_cli..generate..rules..R
   ]
 
 93:                                               ; preds = %92
-  %94 = icmp eq i64 %22, 1
+  %94 = icmp eq i64 %21, -9223372036854775807
   br i1 %94, label %95, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i"
 
 95:                                               ; preds = %93

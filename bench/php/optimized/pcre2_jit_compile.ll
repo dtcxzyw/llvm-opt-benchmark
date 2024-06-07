@@ -65666,11 +65666,11 @@ sljit_has_cpu_feature.exit.i:                     ; preds = %get_cpu_features.ex
   %.05619.i = phi i32 [ 0, %.preheader4.i ], [ %.1.lcssa.i, %._crit_edge.i12 ]
   %400 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv34.i
   %401 = load i8, ptr %400, align 1
-  %spec.select.i = xor i8 %401, %398
-  %.not7812.i = icmp eq i8 %spec.select.i, 0
+  %.not7812.i = icmp eq i8 %401, %398
   br i1 %.not7812.i, label %._crit_edge.i12, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %399
+  %spec.select.i = xor i8 %401, %398
   %indvars.iv34.tr.i = trunc i64 %indvars.iv34.i to i32
   %402 = shl i32 %indvars.iv34.tr.i, 3
   br label %403

@@ -762,7 +762,7 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   %418 = xor i64 %410, %417
   %419 = inttoptr i64 %418 to ptr
   %420 = add nuw nsw i32 %.068109.i.i.i, 1
-  %.not129132.i.i.i = icmp eq i64 %418, 0
+  %.not129132.i.i.i = icmp eq i64 %410, %417
   %.not129.i.i.i = select i1 %.not89.i.i.i, i1 true, i1 %.not129132.i.i.i
   br i1 %.not129.i.i.i, label %.critedge2.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -798,7 +798,7 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   %435 = xor i64 %427, %434
   %436 = inttoptr i64 %435 to ptr
   %437 = add nuw nsw i32 %.169115.i.i.i, 1
-  %.not125133.i.i.i = icmp eq i64 %435, 0
+  %.not125133.i.i.i = icmp eq i64 %427, %434
   %.not125.i.i.i = select i1 %.not88.i.i.i, i1 true, i1 %.not125133.i.i.i
   br i1 %.not125.i.i.i, label %.thread.i.i.i, label %.lr.ph116.i.i.i, !llvm.loop !14
 
@@ -846,11 +846,11 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   store i32 %463, ptr %75, align 8
   store ptr %444, ptr %76, align 8
   store ptr %450, ptr %77, align 8
-  %.not.i.i.i.i = icmp eq i64 %449, 0
+  %.not.i.i.i.i = icmp eq i64 %448, %447
   br i1 %.not.i.i.i.i, label %Ivy_ObjCreateGhost.exit.i.i.i, label %464
 
 464:                                              ; preds = %460
-  %.not.i.i.i.i.i = icmp eq i64 %443, 0
+  %.not.i.i.i.i.i = icmp eq i64 %442, %441
   br i1 %.not.i.i.i.i.i, label %Ivy_ObjFaninId1.exit.i.i.i.i, label %465
 
 465:                                              ; preds = %464

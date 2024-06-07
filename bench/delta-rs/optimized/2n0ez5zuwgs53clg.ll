@@ -48251,43 +48251,40 @@ define hidden noundef i64 @"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..V
   %4 = shl i64 %0, 1
   %5 = ashr i64 %0, 63
   %6 = xor i64 %4, %5
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.loopexit.thread, label %.preheader23
+  %7 = icmp eq i64 %4, %5
+  br i1 %7, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.preheader23
-  %.not22.not = icmp ult i64 %.127, %2
-  br i1 %.not22.not, label %.preheader, label %11
-
-.loopexit.thread:                                 ; preds = %3
-  %.not2235 = icmp eq i64 %2, 0
-  br i1 %.not2235, label %11, label %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph, %3
+  %.0 = phi i64 [ 1, %3 ], [ %9, %.lr.ph ]
+  %.not22 = icmp ugt i64 %.0, %2
+  br i1 %.not22, label %11, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit
   %8 = icmp ugt i64 %6, 127
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph31, label %._crit_edge
 
-.preheader23:                                     ; preds = %3, %.preheader23
-  %.127 = phi i64 [ %9, %.preheader23 ], [ 0, %3 ]
-  %.01926 = phi i64 [ %10, %.preheader23 ], [ %6, %3 ]
-  %9 = add nuw nsw i64 %.127, 1
-  %10 = lshr i64 %.01926, 7
-  %.not = icmp ult i64 %.01926, 128
-  br i1 %.not, label %.loopexit, label %.preheader23
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.128 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
+  %.01927 = phi i64 [ %10, %.lr.ph ], [ %6, %3 ]
+  %9 = add nuw nsw i64 %.128, 1
+  %10 = lshr i64 %.01927, 7
+  %.not = icmp ult i64 %.01927, 128
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-11:                                               ; preds = %.loopexit.thread, %.loopexit
+11:                                               ; preds = %.loopexit
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e79218a0d5be9b9d93b20ccc6bc791ac.186, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.188) #55
   unreachable
 
-._crit_edge:                                      ; preds = %18, %.loopexit.thread, %.preheader
-  %.018.lcssa = phi i64 [ 0, %.preheader ], [ 0, %.loopexit.thread ], [ %22, %18 ]
-  %.017.lcssa = phi i64 [ %6, %.preheader ], [ 0, %.loopexit.thread ], [ %23, %18 ]
+._crit_edge:                                      ; preds = %18, %.preheader
+  %.018.lcssa = phi i64 [ 0, %.preheader ], [ %22, %18 ]
+  %.017.lcssa = phi i64 [ %6, %.preheader ], [ %23, %18 ]
   %12 = icmp ult i64 %.018.lcssa, %2
   br i1 %12, label %13, label %17, !prof !7910
 
-.lr.ph:                                           ; preds = %.preheader, %18
-  %.01729 = phi i64 [ %23, %18 ], [ %6, %.preheader ]
-  %.01828 = phi i64 [ %22, %18 ], [ 0, %.preheader ]
-  %exitcond.not = icmp eq i64 %.01828, %2
+.lr.ph31:                                         ; preds = %.preheader, %18
+  %.01730 = phi i64 [ %23, %18 ], [ %6, %.preheader ]
+  %.01829 = phi i64 [ %22, %18 ], [ 0, %.preheader ]
+  %exitcond.not = icmp eq i64 %.01829, %2
   br i1 %exitcond.not, label %25, label %18, !prof !7911
 
 13:                                               ; preds = %._crit_edge
@@ -48301,17 +48298,17 @@ define hidden noundef i64 @"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..V
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.018.lcssa, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.189) #55
   unreachable
 
-18:                                               ; preds = %.lr.ph
-  %19 = trunc i64 %.01729 to i8
-  %20 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.01828
+18:                                               ; preds = %.lr.ph31
+  %19 = trunc i64 %.01730 to i8
+  %20 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.01829
   %21 = or i8 %19, -128
   store i8 %21, ptr %20, align 1
-  %22 = add nuw nsw i64 %.01828, 1
-  %23 = lshr i64 %.01729, 7
-  %24 = icmp ugt i64 %.01729, 16383
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  %22 = add nuw nsw i64 %.01829, 1
+  %23 = lshr i64 %.01730, 7
+  %24 = icmp ugt i64 %.01730, 16383
+  br i1 %24, label %.lr.ph31, label %._crit_edge
 
-25:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph31
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %2, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.190) #55
   unreachable
 }
@@ -61921,59 +61918,59 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %5 = shl i64 %2, 1
   %6 = ashr i64 %2, 63
   %7 = xor i64 %5, %6
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread", label %.preheader23.i
+  %8 = icmp eq i64 %5, %6
+  br i1 %8, label %.preheader.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %.preheader23.i
-  %.not22.not.i = icmp ult i64 %.127.i, 10
-  br i1 %.not22.not.i, label %.preheader.i, label %12
+.loopexit.i:                                      ; preds = %.lr.ph.i
+  %.not22.i = icmp ugt i64 %.128.i, 9
+  br i1 %.not22.i, label %13, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %3, %.loopexit.i
   %9 = icmp ugt i64 %7, 127
-  br i1 %9, label %.lr.ph.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
+  br i1 %9, label %.lr.ph31.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
 
-.preheader23.i:                                   ; preds = %3, %.preheader23.i
-  %.127.i = phi i64 [ %10, %.preheader23.i ], [ 0, %3 ]
-  %.01926.i = phi i64 [ %11, %.preheader23.i ], [ %7, %3 ]
-  %10 = add nuw nsw i64 %.127.i, 1
-  %11 = lshr i64 %.01926.i, 7
-  %.not.i = icmp ult i64 %.01926.i, 128
-  br i1 %.not.i, label %.loopexit.i, label %.preheader23.i
+"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %.preheader.i
+  %10 = trunc nuw nsw i64 %7 to i8
+  store i8 %10, ptr %4, align 1, !alias.scope !9591
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
-12:                                               ; preds = %.loopexit.i
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.128.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %3 ]
+  %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
+  %11 = add nuw nsw i64 %.128.i, 1
+  %12 = lshr i64 %.01927.i, 7
+  %.not.i = icmp ult i64 %.01927.i, 128
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
+
+13:                                               ; preds = %.loopexit.i
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e79218a0d5be9b9d93b20ccc6bc791ac.186, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.188) #55, !noalias !9591
   unreachable
 
-"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc nuw nsw i64 %7 to i8
-  store i8 %13, ptr %4, align 1, !alias.scope !9591
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
-
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01828.i, 9
+  %14 = icmp ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9594
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %16
-  %.01729.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
-  %.01828.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
-  %exitcond.not.i = icmp eq i64 %.01828.i, 10
+.lr.ph31.i:                                       ; preds = %.preheader.i, %16
+  %.01730.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
+  %.01829.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
+  %exitcond.not.i = icmp eq i64 %.01829.i, 10
   br i1 %exitcond.not.i, label %23, label %16, !prof !7911
 
 15:                                               ; preds = %._crit_edge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.189) #55, !noalias !9591
   unreachable
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %.01729.i to i8
-  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01828.i
+16:                                               ; preds = %.lr.ph31.i
+  %17 = trunc i64 %.01730.i to i8
+  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !9591
-  %20 = add nuw nsw i64 %.01828.i, 1
-  %21 = lshr i64 %.01729.i, 7
-  %22 = icmp ugt i64 %.01729.i, 16383
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+  %20 = add nuw nsw i64 %.01829.i, 1
+  %21 = lshr i64 %.01730.i, 7
+  %22 = icmp ugt i64 %.01730.i, 16383
+  br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
-23:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph31.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.190) #55, !noalias !9591
   unreachable
 
@@ -61981,7 +61978,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !9591
-  %26 = add nuw nsw i64 %.01828.i, 2
+  %26 = add nuw nsw i64 %.01829.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit": ; preds = %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
@@ -62044,59 +62041,59 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %5 = shl i64 %2, 1
   %6 = ashr i64 %2, 63
   %7 = xor i64 %5, %6
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread", label %.preheader23.i
+  %8 = icmp eq i64 %5, %6
+  br i1 %8, label %.preheader.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %.preheader23.i
-  %.not22.not.i = icmp ult i64 %.127.i, 10
-  br i1 %.not22.not.i, label %.preheader.i, label %12
+.loopexit.i:                                      ; preds = %.lr.ph.i
+  %.not22.i = icmp ugt i64 %.128.i, 9
+  br i1 %.not22.i, label %13, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %3, %.loopexit.i
   %9 = icmp ugt i64 %7, 127
-  br i1 %9, label %.lr.ph.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
+  br i1 %9, label %.lr.ph31.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
 
-.preheader23.i:                                   ; preds = %3, %.preheader23.i
-  %.127.i = phi i64 [ %10, %.preheader23.i ], [ 0, %3 ]
-  %.01926.i = phi i64 [ %11, %.preheader23.i ], [ %7, %3 ]
-  %10 = add nuw nsw i64 %.127.i, 1
-  %11 = lshr i64 %.01926.i, 7
-  %.not.i = icmp ult i64 %.01926.i, 128
-  br i1 %.not.i, label %.loopexit.i, label %.preheader23.i
+"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %.preheader.i
+  %10 = trunc nuw nsw i64 %7 to i8
+  store i8 %10, ptr %4, align 1, !alias.scope !9618
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
-12:                                               ; preds = %.loopexit.i
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.128.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %3 ]
+  %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
+  %11 = add nuw nsw i64 %.128.i, 1
+  %12 = lshr i64 %.01927.i, 7
+  %.not.i = icmp ult i64 %.01927.i, 128
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
+
+13:                                               ; preds = %.loopexit.i
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e79218a0d5be9b9d93b20ccc6bc791ac.186, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.188) #55, !noalias !9618
   unreachable
 
-"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc nuw nsw i64 %7 to i8
-  store i8 %13, ptr %4, align 1, !alias.scope !9618
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
-
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01828.i, 9
+  %14 = icmp ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9594
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %16
-  %.01729.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
-  %.01828.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
-  %exitcond.not.i = icmp eq i64 %.01828.i, 10
+.lr.ph31.i:                                       ; preds = %.preheader.i, %16
+  %.01730.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
+  %.01829.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
+  %exitcond.not.i = icmp eq i64 %.01829.i, 10
   br i1 %exitcond.not.i, label %23, label %16, !prof !7911
 
 15:                                               ; preds = %._crit_edge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.189) #55, !noalias !9618
   unreachable
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %.01729.i to i8
-  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01828.i
+16:                                               ; preds = %.lr.ph31.i
+  %17 = trunc i64 %.01730.i to i8
+  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !9618
-  %20 = add nuw nsw i64 %.01828.i, 1
-  %21 = lshr i64 %.01729.i, 7
-  %22 = icmp ugt i64 %.01729.i, 16383
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+  %20 = add nuw nsw i64 %.01829.i, 1
+  %21 = lshr i64 %.01730.i, 7
+  %22 = icmp ugt i64 %.01730.i, 16383
+  br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
-23:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph31.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.190) #55, !noalias !9618
   unreachable
 
@@ -62104,7 +62101,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !9618
-  %26 = add nuw nsw i64 %.01828.i, 2
+  %26 = add nuw nsw i64 %.01829.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit": ; preds = %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
@@ -62350,59 +62347,59 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %5 = shl i64 %2, 1
   %6 = ashr i64 %2, 63
   %7 = xor i64 %5, %6
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread", label %.preheader23.i
+  %8 = icmp eq i64 %5, %6
+  br i1 %8, label %.preheader.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %.preheader23.i
-  %.not22.not.i = icmp ult i64 %.127.i, 10
-  br i1 %.not22.not.i, label %.preheader.i, label %12
+.loopexit.i:                                      ; preds = %.lr.ph.i
+  %.not22.i = icmp ugt i64 %.128.i, 9
+  br i1 %.not22.i, label %13, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %3, %.loopexit.i
   %9 = icmp ugt i64 %7, 127
-  br i1 %9, label %.lr.ph.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
+  br i1 %9, label %.lr.ph31.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
 
-.preheader23.i:                                   ; preds = %3, %.preheader23.i
-  %.127.i = phi i64 [ %10, %.preheader23.i ], [ 0, %3 ]
-  %.01926.i = phi i64 [ %11, %.preheader23.i ], [ %7, %3 ]
-  %10 = add nuw nsw i64 %.127.i, 1
-  %11 = lshr i64 %.01926.i, 7
-  %.not.i = icmp ult i64 %.01926.i, 128
-  br i1 %.not.i, label %.loopexit.i, label %.preheader23.i
+"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %.preheader.i
+  %10 = trunc nuw nsw i64 %7 to i8
+  store i8 %10, ptr %4, align 1, !alias.scope !9704
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
-12:                                               ; preds = %.loopexit.i
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.128.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %3 ]
+  %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
+  %11 = add nuw nsw i64 %.128.i, 1
+  %12 = lshr i64 %.01927.i, 7
+  %.not.i = icmp ult i64 %.01927.i, 128
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
+
+13:                                               ; preds = %.loopexit.i
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e79218a0d5be9b9d93b20ccc6bc791ac.186, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.188) #55, !noalias !9704
   unreachable
 
-"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc nuw nsw i64 %7 to i8
-  store i8 %13, ptr %4, align 1, !alias.scope !9704
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
-
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01828.i, 9
+  %14 = icmp ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9594
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %16
-  %.01729.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
-  %.01828.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
-  %exitcond.not.i = icmp eq i64 %.01828.i, 10
+.lr.ph31.i:                                       ; preds = %.preheader.i, %16
+  %.01730.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
+  %.01829.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
+  %exitcond.not.i = icmp eq i64 %.01829.i, 10
   br i1 %exitcond.not.i, label %23, label %16, !prof !7911
 
 15:                                               ; preds = %._crit_edge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.189) #55, !noalias !9704
   unreachable
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %.01729.i to i8
-  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01828.i
+16:                                               ; preds = %.lr.ph31.i
+  %17 = trunc i64 %.01730.i to i8
+  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !9704
-  %20 = add nuw nsw i64 %.01828.i, 1
-  %21 = lshr i64 %.01729.i, 7
-  %22 = icmp ugt i64 %.01729.i, 16383
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+  %20 = add nuw nsw i64 %.01829.i, 1
+  %21 = lshr i64 %.01730.i, 7
+  %22 = icmp ugt i64 %.01730.i, 16383
+  br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
-23:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph31.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.190) #55, !noalias !9704
   unreachable
 
@@ -62410,7 +62407,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !9704
-  %26 = add nuw nsw i64 %.01828.i, 2
+  %26 = add nuw nsw i64 %.01829.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit": ; preds = %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
@@ -62658,59 +62655,59 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %5 = shl i64 %2, 1
   %6 = ashr i64 %2, 63
   %7 = xor i64 %5, %6
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread", label %.preheader23.i
+  %8 = icmp eq i64 %5, %6
+  br i1 %8, label %.preheader.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %.preheader23.i
-  %.not22.not.i = icmp ult i64 %.127.i, 10
-  br i1 %.not22.not.i, label %.preheader.i, label %12
+.loopexit.i:                                      ; preds = %.lr.ph.i
+  %.not22.i = icmp ugt i64 %.128.i, 9
+  br i1 %.not22.i, label %13, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %3, %.loopexit.i
   %9 = icmp ugt i64 %7, 127
-  br i1 %9, label %.lr.ph.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
+  br i1 %9, label %.lr.ph31.i, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
 
-.preheader23.i:                                   ; preds = %3, %.preheader23.i
-  %.127.i = phi i64 [ %10, %.preheader23.i ], [ 0, %3 ]
-  %.01926.i = phi i64 [ %11, %.preheader23.i ], [ %7, %3 ]
-  %10 = add nuw nsw i64 %.127.i, 1
-  %11 = lshr i64 %.01926.i, 7
-  %.not.i = icmp ult i64 %.01926.i, 128
-  br i1 %.not.i, label %.loopexit.i, label %.preheader23.i
+"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %.preheader.i
+  %10 = trunc nuw nsw i64 %7 to i8
+  store i8 %10, ptr %4, align 1, !alias.scope !9796
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
-12:                                               ; preds = %.loopexit.i
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.128.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %3 ]
+  %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
+  %11 = add nuw nsw i64 %.128.i, 1
+  %12 = lshr i64 %.01927.i, 7
+  %.not.i = icmp ult i64 %.01927.i, 128
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
+
+13:                                               ; preds = %.loopexit.i
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e79218a0d5be9b9d93b20ccc6bc791ac.186, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.188) #55, !noalias !9796
   unreachable
 
-"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread": ; preds = %3, %.preheader.i
-  %13 = trunc nuw nsw i64 %7 to i8
-  store i8 %13, ptr %4, align 1, !alias.scope !9796
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
-
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01828.i, 9
+  %14 = icmp ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9594
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %16
-  %.01729.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
-  %.01828.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
-  %exitcond.not.i = icmp eq i64 %.01828.i, 10
+.lr.ph31.i:                                       ; preds = %.preheader.i, %16
+  %.01730.i = phi i64 [ %21, %16 ], [ %7, %.preheader.i ]
+  %.01829.i = phi i64 [ %20, %16 ], [ 0, %.preheader.i ]
+  %exitcond.not.i = icmp eq i64 %.01829.i, 10
   br i1 %exitcond.not.i, label %23, label %16, !prof !7911
 
 15:                                               ; preds = %._crit_edge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.189) #55, !noalias !9796
   unreachable
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %.01729.i to i8
-  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01828.i
+16:                                               ; preds = %.lr.ph31.i
+  %17 = trunc i64 %.01730.i to i8
+  %18 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !9796
-  %20 = add nuw nsw i64 %.01828.i, 1
-  %21 = lshr i64 %.01729.i, 7
-  %22 = icmp ugt i64 %.01729.i, 16383
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+  %20 = add nuw nsw i64 %.01829.i, 1
+  %21 = lshr i64 %.01730.i, 7
+  %22 = icmp ugt i64 %.01730.i, 16383
+  br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
-23:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph31.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.190) #55, !noalias !9796
   unreachable
 
@@ -62718,7 +62715,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !9796
-  %26 = add nuw nsw i64 %.01828.i, 2
+  %26 = add nuw nsw i64 %.01829.i, 2
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit": ; preds = %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit.thread"
@@ -105374,7 +105371,7 @@ default.unreachable:                              ; preds = %10
   unreachable
 
 12:                                               ; preds = %10
-  %13 = icmp eq i64 %7, 0
+  %13 = icmp eq i64 %6, -9223372036854775808
   tail call void @llvm.assume(i1 %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15792)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15795)
@@ -105396,7 +105393,7 @@ default.unreachable:                              ; preds = %10
   br i1 %26, label %"_ZN99_$LT$datafusion_expr..logical_plan..statement..TransactionStart$u20$as$u20$core..cmp..PartialEq$GT$2eq17h542283f98d955a03E.exit.sink.split", label %"_ZN99_$LT$datafusion_expr..logical_plan..statement..TransactionStart$u20$as$u20$core..cmp..PartialEq$GT$2eq17h542283f98d955a03E.exit"
 
 27:                                               ; preds = %10
-  %28 = icmp eq i64 %7, 1
+  %28 = icmp eq i64 %6, -9223372036854775807
   tail call void @llvm.assume(i1 %28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15797)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15800)
@@ -121598,7 +121595,7 @@ attributes #59 = { "function-inline-cost-multiplier"="4" }
 !9591 = !{!9592}
 !9592 = distinct !{!9592, !9593, !"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059: argument 0"}
 !9593 = distinct !{!9593, !"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059"}
-!9594 = !{!"branch_weights", i32 2144011614, i32 3472034}
+!9594 = !{!"branch_weights", i32 2145320067, i32 2163581}
 !9595 = !{!9596}
 !9596 = distinct !{!9596, !9597, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h8ea988c8d3bd8533E.llvm.7925137649769596059: argument 0"}
 !9597 = distinct !{!9597, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h8ea988c8d3bd8533E.llvm.7925137649769596059"}

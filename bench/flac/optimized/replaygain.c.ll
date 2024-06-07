@@ -434,8 +434,8 @@ if.end:                                           ; preds = %land.lhs.true14
   %call.fr = freeze i32 %call
   %lnot.ext = xor i32 %call.fr, 1
   store i32 %lnot.ext, ptr %error, align 4
-  %tobool22.not = icmp ne i32 %lnot.ext, 0
-  %spec.select = zext i1 %tobool22.not to i32
+  %tobool22.not.not = icmp eq i32 %call.fr, 0
+  %spec.select = zext i1 %tobool22.not.not to i32
   br label %9
 
 9:                                                ; preds = %if.end, %if.end.thread

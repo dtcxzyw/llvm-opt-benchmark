@@ -21281,8 +21281,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_strin
   %22 = icmp slt <16 x i8> %21, zeroinitializer
   %23 = bitcast <16 x i1> %22 to i16
   %24 = and i16 %23, 16383
-  %25 = xor i16 %24, 16383
-  %cmp.i35.not = icmp eq i16 %25, 0
+  %cmp.i35.not = icmp eq i16 %24, 16383
   br i1 %cmp.i35.not, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE16reserveForInsertEm.exit
@@ -21291,51 +21290,51 @@ if.then12:                                        ; preds = %_ZN5folly3f146detai
   br label %do.body
 
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit, %if.then12
-  %26 = phi i64 [ %19, %if.then12 ], [ %29, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
-  %27 = phi ptr [ %20, %if.then12 ], [ %30, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
+  %25 = phi i64 [ %19, %if.then12 ], [ %28, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
+  %26 = phi ptr [ %20, %if.then12 ], [ %29, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
   %chunk.0 = phi ptr [ %add.ptr, %if.then12 ], [ %add.ptr18, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then12 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit ]
   %outboundOverflowCount_.i38 = getelementptr inbounds i8, ptr %chunk.0, i64 15
-  %28 = load i8, ptr %outboundOverflowCount_.i38, align 1
-  %cmp.not.i39 = icmp eq i8 %28, -1
+  %27 = load i8, ptr %outboundOverflowCount_.i38, align 1
+  %cmp.not.i39 = icmp eq i8 %27, -1
   br i1 %cmp.not.i39, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit, label %if.then.i40
 
 if.then.i40:                                      ; preds = %do.body
-  %inc.i41 = add nuw i8 %28, 1
+  %inc.i41 = add nuw i8 %27, 1
   store i8 %inc.i41, ptr %outboundOverflowCount_.i38, align 1
   %.pre71 = load ptr, ptr %this, align 8
   %.pre72 = load i64, ptr %chunkMask_.i33, align 8
   br label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit
 
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit: ; preds = %do.body, %if.then.i40
-  %29 = phi i64 [ %26, %do.body ], [ %.pre72, %if.then.i40 ]
-  %30 = phi ptr [ %27, %do.body ], [ %.pre71, %if.then.i40 ]
+  %28 = phi i64 [ %25, %do.body ], [ %.pre72, %if.then.i40 ]
+  %29 = phi ptr [ %26, %do.body ], [ %.pre71, %if.then.i40 ]
   %add = add i64 %add.i37, %index.0
-  %and17 = and i64 %29, %add
-  %add.ptr18 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.183", ptr %30, i64 %and17
-  %31 = load <16 x i8>, ptr %add.ptr18, align 16
-  %32 = icmp slt <16 x i8> %31, zeroinitializer
-  %33 = bitcast <16 x i1> %32 to i16
-  %34 = and i16 %33, 16383
-  %35 = xor i16 %34, 16383
-  %cmp.i43.not = icmp eq i16 %35, 0
+  %and17 = and i64 %28, %add
+  %add.ptr18 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.183", ptr %29, i64 %and17
+  %30 = load <16 x i8>, ptr %add.ptr18, align 16
+  %31 = icmp slt <16 x i8> %30, zeroinitializer
+  %32 = bitcast <16 x i1> %31 to i16
+  %33 = and i16 %32, 16383
+  %cmp.i43.not = icmp eq i16 %33, 16383
   br i1 %cmp.i43.not, label %do.body, label %do.end, !llvm.loop !314
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE25incrOutboundOverflowCountEv.exit
-  %36 = extractelement <16 x i8> %31, i64 14
+  %34 = extractelement <16 x i8> %30, i64 14
   %control_.i = getelementptr inbounds i8, ptr %add.ptr18, i64 14
-  %add.i44 = add i8 %36, 16
+  %add.i44 = add i8 %34, 16
   store i8 %add.i44, ptr %control_.i, align 2
   br label %if.end23
 
 if.end23:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE16reserveForInsertEm.exit
-  %firstEmpty.sroa.0.0.in = phi i16 [ %25, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE16reserveForInsertEm.exit ], [ %35, %do.end ]
+  %firstEmpty.sroa.0.0.in.in = phi i16 [ %24, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE16reserveForInsertEm.exit ], [ %33, %do.end ]
   %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE16reserveForInsertEm.exit ], [ %add.ptr18, %do.end ]
-  %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
-  %conv = zext nneg i16 %37 to i64
+  %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
+  %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
+  %conv = zext nneg i16 %35 to i64
   %arrayidx.i.i.i46 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
-  %38 = load i8, ptr %arrayidx.i.i.i46, align 1
-  %cmp.i47 = icmp eq i8 %38, 0
+  %36 = load i8, ptr %arrayidx.i.i.i46, align 1
+  %cmp.i47 = icmp eq i8 %36, 0
   br i1 %cmp.i47, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEEE6setTagEmm.exit, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.end23

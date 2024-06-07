@@ -18344,7 +18344,7 @@ for.body5122:                                     ; preds = %for.cond5120.prehea
   %rem.i = urem i64 %xor.i.i, 6
   %arrayidx5124 = getelementptr inbounds [6 x i64], ptr %intArray15117, i64 0, i64 %i5119.013860
   store i64 %rem.i, ptr %arrayidx5124, align 8
-  %cmp.i.i10103 = icmp eq i64 %xor.i.i, 0
+  %cmp.i.i10103 = icmp eq i64 %add5.i.i, %shr.i.i10102
   %1883 = mul i64 %xor.i.i, 6364136223846793005
   %1884 = add i64 %1883, 1442695040888963407
   %add.i.i10104 = select i1 %cmp.i.i10103, i64 7039644732281083381, i64 %1884

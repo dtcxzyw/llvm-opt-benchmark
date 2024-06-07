@@ -5285,8 +5285,8 @@ for.body.i.i:                                     ; preds = %"_ZZN8facebook5velo
   %11 = lshr exact i64 %indvars.iv, 6
   %arrayidx.i66.i.i = getelementptr inbounds i64, ptr %bits, i64 %11
   %12 = load i64, ptr %arrayidx.i66.i.i, align 8
-  %tobool4.not.i69.i.i = icmp eq i64 %12, 0
-  br i1 %tobool4.not.i69.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i
+  %tobool4.not.i68.i.i = icmp eq i64 %12, 0
+  br i1 %tobool4.not.i68.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i
 
 while.body.i72.i.i:                               ; preds = %for.body.i.i, %if.end7.i75.i.i
   %needed.3 = phi i32 [ %dec.i.i94.i.i, %if.end7.i75.i.i ], [ %needed.2, %for.body.i.i ]

@@ -2853,7 +2853,7 @@ define internal fastcc i32 @decode_data(ptr noundef %0, i32 noundef %1, ptr noun
 
 72:                                               ; preds = %68, %67
   %.2 = phi i32 [ %71, %68 ], [ %.1, %67 ]
-  %.not90 = icmp eq i32 %17, 0
+  %.not90 = icmp eq i32 %16, 3
   br i1 %.not90, label %77, label %73
 
 73:                                               ; preds = %72
@@ -2984,18 +2984,17 @@ define internal fastcc i32 @cmd_setfilt(ptr noundef %0, ptr noundef %1) unnamed_
   %23 = add nuw nsw i32 %21, 20
   %24 = add nuw nsw i32 %21, 3
   %25 = and i32 %24, 2
-  %26 = xor i32 %25, 2
-  %.not37 = icmp eq i32 %26, 0
-  br i1 %.not37, label %.thread, label %27
+  %.not37.not = icmp eq i32 %25, 0
+  br i1 %.not37.not, label %26, label %.thread
 
-27:                                               ; preds = %19
-  %28 = load i32, ptr @hf_gryphon_setfilt_padding, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %23, i32 noundef %26, i32 noundef 0) #4
-  %30 = add nuw nsw i32 %26, %23
+26:                                               ; preds = %19
+  %27 = load i32, ptr @hf_gryphon_setfilt_padding, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0) #4
+  %29 = add nuw nsw i32 %21, 22
   br label %.thread
 
-.thread:                                          ; preds = %2, %27, %19
-  %.1 = phi i32 [ %30, %27 ], [ %23, %19 ], [ 20, %2 ]
+.thread:                                          ; preds = %2, %26, %19
+  %.1 = phi i32 [ %29, %26 ], [ %23, %19 ], [ 20, %2 ]
   ret i32 %.1
 }
 
@@ -3547,18 +3546,18 @@ define internal fastcc i32 @cmd_upload(ptr noundef %0, ptr noundef %1) unnamed_a
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 15, i32 noundef %8, i32 noundef 0) #4
   %11 = add i32 %3, 12
   %12 = and i32 %3, 3
-  %13 = xor i32 %12, 3
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %18, label %14
+  %.not = icmp eq i32 %12, 3
+  br i1 %.not, label %18, label %13
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
+  %14 = xor i32 %12, 3
   %15 = load i32, ptr @hf_gryphon_padding, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %11, i32 noundef %13, i32 noundef 0) #4
-  %17 = add i32 %13, %11
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %11, i32 noundef %14, i32 noundef 0) #4
+  %17 = add i32 %14, %11
   br label %18
 
-18:                                               ; preds = %14, %2
-  %.0 = phi i32 [ %17, %14 ], [ %11, %2 ]
+18:                                               ; preds = %13, %2
+  %.0 = phi i32 [ %17, %13 ], [ %11, %2 ]
   ret i32 %.0
 }
 
@@ -3722,7 +3721,7 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %43 = load i32, ptr @hf_gryphon_option_data, align 4
   %44 = add i32 %.05864, 2
   %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %19, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.0) #4
-  %.not = icmp eq i32 %16, 0
+  %.not = icmp eq i32 %15, 3
   br i1 %.not, label %50, label %46
 
 46:                                               ; preds = %40
@@ -4612,18 +4611,18 @@ define internal fastcc i32 @filter_block(ptr noundef %0, i32 noundef %1, ptr nou
   %59 = load i32, ptr %5, align 4
   %60 = add i32 %59, 3
   %61 = and i32 %60, 3
-  %62 = xor i32 %61, 3
-  %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %67, label %63
+  %.not = icmp eq i32 %61, 3
+  br i1 %.not, label %67, label %62
 
-63:                                               ; preds = %58
+62:                                               ; preds = %58
+  %63 = xor i32 %61, 3
   %64 = load i32, ptr @hf_gryphon_padding, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %.0, i32 noundef %62, i32 noundef 0) #4
-  %66 = add i32 %62, %.0
+  %65 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %.0, i32 noundef %63, i32 noundef 0) #4
+  %66 = add i32 %63, %.0
   br label %67
 
-67:                                               ; preds = %58, %63, %23, %35
-  %.1 = phi i32 [ %38, %35 ], [ %33, %23 ], [ %66, %63 ], [ %.0, %58 ]
+67:                                               ; preds = %58, %62, %23, %35
+  %.1 = phi i32 [ %38, %35 ], [ %33, %23 ], [ %66, %62 ], [ %.0, %58 ]
   ret i32 %.1
 }
 
@@ -5163,12 +5162,12 @@ define internal fastcc range(i32 17, 276) i32 @resp_filthan(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = and i32 %4, 3
-  %14 = xor i32 %13, 3
-  %.not30 = icmp eq i32 %14, 0
+  %.not30 = icmp eq i32 %13, 3
   br i1 %.not30, label %19, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %15 = phi i32 [ %14, %._crit_edge ], [ 3, %2 ]
+  %14 = phi i32 [ %13, %._crit_edge ], [ 0, %2 ]
+  %15 = xor i32 %14, 3
   %16 = load i32, ptr @hf_gryphon_filthan_padding, align 4
   %17 = add nuw nsw i32 %4, 17
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef %15, i32 noundef 0) #4
@@ -5706,12 +5705,12 @@ define internal fastcc range(i32 17, 276) i32 @resp_resphan(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = and i32 %4, 3
-  %14 = xor i32 %13, 3
-  %.not30 = icmp eq i32 %14, 0
+  %.not30 = icmp eq i32 %13, 3
   br i1 %.not30, label %19, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %15 = phi i32 [ %14, %._crit_edge ], [ 3, %2 ]
+  %14 = phi i32 [ %13, %._crit_edge ], [ 0, %2 ]
+  %15 = xor i32 %14, 3
   %16 = load i32, ptr @hf_gryphon_padding, align 4
   %17 = add nuw nsw i32 %4, 17
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef %15, i32 noundef 0) #4
@@ -5802,13 +5801,13 @@ define internal fastcc i32 @resp_status(ptr noundef %0, ptr noundef %1) unnamed_
 
 16:                                               ; preds = %.preheader
   %17 = and i32 %4, 3
-  %18 = xor i32 %17, 3
-  %.not32 = icmp eq i32 %18, 0
+  %.not32 = icmp eq i32 %17, 3
   br i1 %.not32, label %23, label %.thread
 
 .thread:                                          ; preds = %2, %16
-  %19 = phi i32 [ %18, %16 ], [ 3, %2 ]
+  %18 = phi i32 [ %17, %16 ], [ 0, %2 ]
   %.135 = phi i32 [ %9, %16 ], [ 17, %2 ]
+  %19 = xor i32 %18, 3
   %20 = load i32, ptr @hf_gryphon_padding, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %.135, i32 noundef %19, i32 noundef 0) #4
   %22 = add nuw nsw i32 %.135, %19

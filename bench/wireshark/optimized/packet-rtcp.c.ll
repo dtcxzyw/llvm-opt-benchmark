@@ -3584,8 +3584,8 @@ dissect_rtcp_app_mcpt.exit.i:                     ; preds = %974, %749, %.prehea
   %1000 = add nsw i32 %.1108119.i.i, -2
   %1001 = load i32, ptr %12, align 4
   %1002 = and i32 %1001, 3
+  %.not.i177.i = icmp eq i32 %1002, 2
   %1003 = xor i32 %1002, 2
-  %.not.i177.i = icmp eq i32 %1003, 0
   %1004 = sub nuw nsw i32 4, %1003
   %1005 = load i32, ptr %11, align 4
   switch i32 %1005, label %1048 [

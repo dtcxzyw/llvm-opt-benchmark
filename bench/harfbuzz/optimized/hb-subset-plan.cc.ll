@@ -54529,12 +54529,15 @@ _ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %for.body.i26
   %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = or disjoint i32 %mul.i31, %39
-  %add.i32 = xor i32 %40, 63
-  %cmp38.not = icmp eq i32 %add.i32, -1
-  br i1 %cmp38.not, label %for.cond, label %if.then39, !llvm.loop !403
+  %cmp38.not = icmp eq i32 %40, -64
+  br i1 %cmp38.not, label %for.cond, label %if.then39.loopexit43, !llvm.loop !403
 
-if.then39:                                        ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit, %for.cond.i
-  %retval.0.i2541 = phi i32 [ 0, %for.cond.i ], [ %add.i32, %_ZNK13hb_bit_page_t7get_maxEv.exit ]
+if.then39.loopexit43:                             ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit
+  %add.i32.le = xor i32 %40, 63
+  br label %if.then39
+
+if.then39:                                        ; preds = %for.cond.i, %if.then39.loopexit43
+  %retval.0.i2541 = phi i32 [ %add.i32.le, %if.then39.loopexit43 ], [ 0, %for.cond.i ]
   %arrayidx43 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %32, i64 %idxprom32
   %41 = load i32, ptr %arrayidx43, align 4
   %mul45 = shl i32 %41, 9

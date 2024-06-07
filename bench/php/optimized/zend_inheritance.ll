@@ -351,144 +351,142 @@ zend_type_permits_self.exit:                      ; preds = %67
 73:                                               ; preds = %71, %17
   %74 = and i32 %2, 524288
   %.not68 = icmp eq i32 %74, 0
-  br i1 %.not68, label %85, label %75
+  br i1 %.not68, label %83, label %75
 
 75:                                               ; preds = %73
   %76 = lshr i32 %5, 18
   %77 = and i32 %76, 2
-  %78 = xor i32 %77, 2
-  %79 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5)
-  %80 = icmp eq i32 %79, %78
+  %78 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5)
+  %79 = xor i32 %78, %77
+  %80 = icmp eq i32 %79, 2
   br i1 %80, label %.loopexit, label %81
 
 81:                                               ; preds = %75
-  %82 = icmp eq i32 %79, -1
-  %83 = icmp eq i32 %78, 0
-  %84 = select i1 %83, i32 2, i32 0
-  br i1 %82, label %132, label %.loopexit
+  %82 = icmp eq i32 %78, -1
+  br i1 %82, label %130, label %.loopexit
 
-85:                                               ; preds = %73
-  %86 = and i32 %2, 4194304
-  %.not69 = icmp eq i32 %86, 0
-  br i1 %.not69, label %92, label %87
+83:                                               ; preds = %73
+  %84 = and i32 %2, 4194304
+  %.not69 = icmp eq i32 %84, 0
+  br i1 %.not69, label %90, label %85
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
-  %89 = load i32, ptr %1, align 8
-  %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.zend_type, ptr %88, i64 %90
-  br label %94
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = load i32, ptr %1, align 8
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds %struct.zend_type, ptr %86, i64 %88
+  br label %92
 
-92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %8, i64 16
-  br label %94
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds i8, ptr %8, i64 16
+  br label %92
 
-94:                                               ; preds = %92, %87
-  %.055 = phi ptr [ %88, %87 ], [ %8, %92 ]
-  %.054 = phi ptr [ %91, %87 ], [ %93, %92 ]
-  %95 = icmp ne ptr %0, null
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 28
-  br label %98
+92:                                               ; preds = %90, %85
+  %.055 = phi ptr [ %86, %85 ], [ %8, %90 ]
+  %.054 = phi ptr [ %89, %85 ], [ %91, %90 ]
+  %93 = icmp ne ptr %0, null
+  %94 = getelementptr inbounds i8, ptr %0, i64 16
+  %95 = getelementptr inbounds i8, ptr %0, i64 28
+  br label %96
 
-98:                                               ; preds = %get_class_from_type.exit.thread89, %94
-  %.057 = phi i1 [ false, %94 ], [ %.158, %get_class_from_type.exit.thread89 ]
-  %.1 = phi ptr [ %.055, %94 ], [ %130, %get_class_from_type.exit.thread89 ]
-  %99 = getelementptr inbounds i8, ptr %.1, i64 8
-  %100 = load i32, ptr %99, align 8
-  %101 = and i32 %100, 524288
-  %.not70 = icmp eq i32 %101, 0
-  %102 = load ptr, ptr %.1, align 8
-  br i1 %.not70, label %105, label %103
+96:                                               ; preds = %get_class_from_type.exit.thread89, %92
+  %.057 = phi i1 [ false, %92 ], [ %.158, %get_class_from_type.exit.thread89 ]
+  %.1 = phi ptr [ %.055, %92 ], [ %128, %get_class_from_type.exit.thread89 ]
+  %97 = getelementptr inbounds i8, ptr %.1, i64 8
+  %98 = load i32, ptr %97, align 8
+  %99 = and i32 %98, 524288
+  %.not70 = icmp eq i32 %99, 0
+  %100 = load ptr, ptr %.1, align 8
+  br i1 %.not70, label %103, label %101
 
-103:                                              ; preds = %98
-  %104 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %102, i32 %100, ptr noundef %3, ptr %4, i32 %5)
-  br label %128
+101:                                              ; preds = %96
+  %102 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %100, i32 %98, ptr noundef %3, ptr %4, i32 %5)
+  br label %126
 
-105:                                              ; preds = %98
-  %106 = and i32 %100, 16777216
-  %.not.i74 = icmp eq i32 %106, 0
-  br i1 %.not.i74, label %get_class_from_type.exit.thread89, label %107
+103:                                              ; preds = %96
+  %104 = and i32 %98, 16777216
+  %.not.i74 = icmp eq i32 %104, 0
+  br i1 %.not.i74, label %get_class_from_type.exit.thread89, label %105
 
-107:                                              ; preds = %105
-  call void @llvm.assume(i1 %95)
-  %108 = getelementptr inbounds i8, ptr %102, i64 16
-  %109 = load i64, ptr %108, align 8
-  %110 = icmp eq i64 %109, 6
-  br i1 %110, label %111, label %119
+105:                                              ; preds = %103
+  call void @llvm.assume(i1 %93)
+  %106 = getelementptr inbounds i8, ptr %100, i64 16
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp eq i64 %107, 6
+  br i1 %108, label %109, label %117
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %102, i64 24
-  %113 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %112, i64 noundef 6, ptr noundef nonnull @.str.24, i64 noundef 6) #16
-  %.not.i.i80 = icmp eq i32 %113, 0
-  br i1 %.not.i.i80, label %114, label %thread-pre-split.i.i81
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds i8, ptr %100, i64 24
+  %111 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %110, i64 noundef 6, ptr noundef nonnull @.str.24, i64 noundef 6) #16
+  %.not.i.i80 = icmp eq i32 %111, 0
+  br i1 %.not.i.i80, label %112, label %thread-pre-split.i.i81
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %96, align 8
-  %.not17.i.i83 = icmp eq ptr %115, null
-  br i1 %.not17.i.i83, label %thread-pre-split.i.i81, label %116
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %94, align 8
+  %.not17.i.i83 = icmp eq ptr %113, null
+  br i1 %.not17.i.i83, label %thread-pre-split.i.i81, label %114
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr %97, align 4
-  %118 = and i32 %117, 131072
-  %.not18.i.i84 = icmp eq i32 %118, 0
+114:                                              ; preds = %112
+  %115 = load i32, ptr %95, align 4
+  %116 = and i32 %115, 131072
+  %.not18.i.i84 = icmp eq i32 %116, 0
   br i1 %.not18.i.i84, label %get_class_from_type.exit.thread, label %get_class_from_type.exit
 
-thread-pre-split.i.i81:                           ; preds = %114, %111
-  %.pr.i.i82 = load i64, ptr %108, align 8
-  br label %119
+thread-pre-split.i.i81:                           ; preds = %112, %109
+  %.pr.i.i82 = load i64, ptr %106, align 8
+  br label %117
 
-119:                                              ; preds = %thread-pre-split.i.i81, %107
-  %120 = phi i64 [ %.pr.i.i82, %thread-pre-split.i.i81 ], [ %109, %107 ]
-  %121 = icmp eq i64 %120, 4
-  br i1 %121, label %122, label %get_class_from_type.exit.thread
+117:                                              ; preds = %thread-pre-split.i.i81, %105
+  %118 = phi i64 [ %.pr.i.i82, %thread-pre-split.i.i81 ], [ %107, %105 ]
+  %119 = icmp eq i64 %118, 4
+  br i1 %119, label %120, label %get_class_from_type.exit.thread
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %102, i64 24
-  %124 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %123, i64 noundef 4, ptr noundef nonnull @.str.25, i64 noundef 4) #16
-  %.not19.i.i77 = icmp eq i32 %124, 0
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %100, i64 24
+  %122 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %121, i64 noundef 4, ptr noundef nonnull @.str.25, i64 noundef 4) #16
+  %.not19.i.i77 = icmp eq i32 %122, 0
   br i1 %.not19.i.i77, label %get_class_from_type.exit, label %get_class_from_type.exit.thread
 
-get_class_from_type.exit:                         ; preds = %116, %122
-  %.sink20.i.i79 = phi ptr [ %115, %116 ], [ %0, %122 ]
-  %125 = getelementptr inbounds i8, ptr %.sink20.i.i79, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %.not71 = icmp eq ptr %126, null
+get_class_from_type.exit:                         ; preds = %114, %120
+  %.sink20.i.i79 = phi ptr [ %113, %114 ], [ %0, %120 ]
+  %123 = getelementptr inbounds i8, ptr %.sink20.i.i79, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %.not71 = icmp eq ptr %124, null
   br i1 %.not71, label %get_class_from_type.exit.thread89, label %get_class_from_type.exit.thread
 
-get_class_from_type.exit.thread:                  ; preds = %119, %122, %116, %get_class_from_type.exit
-  %.0.i7688 = phi ptr [ %126, %get_class_from_type.exit ], [ %102, %119 ], [ %102, %122 ], [ %115, %116 ]
-  %127 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef nonnull %.0.i7688, ptr noundef %3, ptr %4, i32 %5)
-  br label %128
+get_class_from_type.exit.thread:                  ; preds = %117, %120, %114, %get_class_from_type.exit
+  %.0.i7688 = phi ptr [ %124, %get_class_from_type.exit ], [ %100, %117 ], [ %100, %120 ], [ %113, %114 ]
+  %125 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef nonnull %.0.i7688, ptr noundef %3, ptr %4, i32 %5)
+  br label %126
 
-128:                                              ; preds = %get_class_from_type.exit.thread, %103
-  %.052 = phi i32 [ %104, %103 ], [ %127, %get_class_from_type.exit.thread ]
+126:                                              ; preds = %get_class_from_type.exit.thread, %101
+  %.052 = phi i32 [ %102, %101 ], [ %125, %get_class_from_type.exit.thread ]
   switch i32 %.052, label %get_class_from_type.exit.thread89 [
     i32 0, label %.loopexit
-    i32 -1, label %129
+    i32 -1, label %127
   ]
 
-129:                                              ; preds = %128
+127:                                              ; preds = %126
   br label %get_class_from_type.exit.thread89
 
-get_class_from_type.exit.thread89:                ; preds = %105, %128, %129, %get_class_from_type.exit
-  %.158 = phi i1 [ true, %129 ], [ %.057, %get_class_from_type.exit ], [ %.057, %128 ], [ %.057, %105 ]
-  %130 = getelementptr inbounds i8, ptr %.1, i64 16
-  %131 = icmp ult ptr %130, %.054
-  br i1 %131, label %98, label %.loopexit92
+get_class_from_type.exit.thread89:                ; preds = %103, %126, %127, %get_class_from_type.exit
+  %.158 = phi i1 [ true, %127 ], [ %.057, %get_class_from_type.exit ], [ %.057, %126 ], [ %.057, %103 ]
+  %128 = getelementptr inbounds i8, ptr %.1, i64 16
+  %129 = icmp ult ptr %128, %.054
+  br i1 %129, label %96, label %.loopexit92
 
 .loopexit92:                                      ; preds = %get_class_from_type.exit.thread89
-  br i1 %.158, label %132, label %.loopexit
+  br i1 %.158, label %130, label %.loopexit
 
-132:                                              ; preds = %81, %.loopexit92
-  %133 = load ptr, ptr %8, align 8
-  %134 = load i32, ptr %9, align 8
-  call fastcc void @register_unresolved_classes(ptr noundef %0, ptr %133, i32 %134)
+130:                                              ; preds = %81, %.loopexit92
+  %131 = load ptr, ptr %8, align 8
+  %132 = load i32, ptr %9, align 8
+  call fastcc void @register_unresolved_classes(ptr noundef %0, ptr %131, i32 %132)
   call fastcc void @register_unresolved_classes(ptr noundef %3, ptr %4, i32 %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %128, %81, %.loopexit92, %75, %71, %6, %132, %72
-  %.0 = phi i32 [ 0, %72 ], [ -1, %132 ], [ 2, %6 ], [ 2, %71 ], [ %78, %75 ], [ 2, %.loopexit92 ], [ %84, %81 ], [ %.052, %128 ]
+.loopexit:                                        ; preds = %126, %81, %.loopexit92, %75, %71, %6, %130, %72
+  %.0 = phi i32 [ 0, %72 ], [ -1, %130 ], [ 2, %6 ], [ 2, %71 ], [ %78, %75 ], [ 2, %.loopexit92 ], [ %77, %81 ], [ %.052, %126 ]
   ret i32 %.0
 }
 

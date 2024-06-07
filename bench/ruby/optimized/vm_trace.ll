@@ -5549,6 +5549,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
   br i1 %.not3949, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %71
+  %.0.lcssa = phi i32 [ 0, %71 ], [ %77, %.lr.ph ]
   %72 = load ptr, ptr %4, align 8
   %.not.i4451 = icmp eq ptr %72, %4
   br i1 %.not.i4451, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit
@@ -5565,7 +5566,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8
   call void %79(ptr noundef %81) #4
-  %.not39 = icmp eq i32 %77, 0
+  %.not39 = icmp eq i32 %76, %.050
   br i1 %.not39, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_list_pop_.exit
@@ -5590,7 +5591,7 @@ ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_l
 ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit, %.preheader, %.thread
   %93 = phi ptr [ %.pre, %.thread ], [ %4, %.preheader ], [ %4, %ccan_list_pop_.exit ]
   %.0..0..0.13 = phi ptr [ %.0..0..0.13.pre, %.thread ], [ %11, %.preheader ], [ %11, %ccan_list_pop_.exit ]
-  %.1 = phi i32 [ %27, %.thread ], [ 0, %.preheader ], [ 0, %ccan_list_pop_.exit ]
+  %.1 = phi i32 [ %27, %.thread ], [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %ccan_list_pop_.exit ]
   %94 = load ptr, ptr %33, align 8
   %95 = getelementptr inbounds i8, ptr %.0..0..0.13, i64 24
   store ptr %94, ptr %95, align 8

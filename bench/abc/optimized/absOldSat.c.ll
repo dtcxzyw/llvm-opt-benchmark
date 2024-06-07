@@ -661,13 +661,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %.crited
   %.val93 = load ptr, ptr %107, align 8
   %108 = ptrtoint ptr %.val93 to i64
   %109 = trunc i64 %108 to i32
-  %110 = and i64 %108, -2
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %111, i64 24
-  %113 = load i64, ptr %112, align 8
-  %114 = trunc i64 %113 to i32
-  %115 = lshr i32 %114, 3
-  %116 = xor i32 %115, %109
+  %110 = and i32 %109, 1
+  %111 = and i64 %108, -2
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %114 = load i64, ptr %113, align 8
+  %115 = trunc i64 %114 to i32
+  %116 = lshr i32 %115, 3
   %117 = and i32 %116, 1
   %118 = getelementptr i8, ptr %99, i64 16
   %.val94 = load ptr, ptr %118, align 8
@@ -683,7 +683,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %.crited
   br i1 %.not.i125, label %Aig_ObjFaninId0.exit, label %127
 
 127:                                              ; preds = %106
-  %128 = getelementptr inbounds i8, ptr %111, i64 36
+  %128 = getelementptr inbounds i8, ptr %112, i64 36
   %129 = load i32, ptr %128, align 4
   br label %Aig_ObjFaninId0.exit
 
@@ -705,7 +705,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i32, ptr %.val85, i64 %138
   %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %117, 0
+  %141 = icmp ne i32 %110, %117
   %142 = xor i32 %126, %120
   %143 = and i32 %142, 1
   %144 = icmp ne i32 %143, 0
@@ -723,7 +723,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   br label %.sink.split
 
 152:                                              ; preds = %Aig_ObjFaninId1.exit
-  %153 = icmp eq i32 %117, 0
+  %153 = icmp eq i32 %110, %117
   %or.cond5 = select i1 %153, i1 %144, i1 false
   br i1 %or.cond5, label %154, label %156
 

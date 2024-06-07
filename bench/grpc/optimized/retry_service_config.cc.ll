@@ -811,16 +811,20 @@ invoke.cont67:                                    ; preds = %invoke.cont57
   br i1 %call.i.i104105, label %for.cond.preheader, label %if.then90.invoke
 
 for.cond.preheader:                               ; preds = %invoke.cont67
-  %sub = xor i64 %after_decimal.sroa.0.0, 3
-  %cmp74142.not = icmp eq i64 %sub, 0
-  br i1 %cmp74142.not, label %for.end, label %for.body
+  %cmp74142.not = icmp ugt i64 %sub.i, 2
+  br i1 %cmp74142.not, label %for.end, label %for.body.preheader
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.0144 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %decimal_multiplier.0143 = phi i32 [ %mul75, %for.body ], [ 1, %for.cond.preheader ]
+for.body.preheader:                               ; preds = %for.cond.preheader
+  %sub = xor i64 %after_decimal.sroa.0.0, 3
+  %umax = call i64 @llvm.umax.i64(i64 %sub, i64 1)
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %i.0144 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %decimal_multiplier.0143 = phi i32 [ %mul75, %for.body ], [ 1, %for.body.preheader ]
   %mul75 = mul i32 %decimal_multiplier.0143, 10
   %inc = add nuw nsw i64 %i.0144, 1
-  %exitcond.not = icmp eq i64 %inc, %sub
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -2944,11 +2948,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

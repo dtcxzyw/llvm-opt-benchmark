@@ -83021,7 +83021,7 @@ if.then5.i:                                       ; preds = %if.then.i7
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %16, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN7openvdb5v11_04tree4TreeINS8_8RootNodeINS8_12InternalNodeINSB_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELm128EEENS1_23cache_aligned_allocatorISJ_EENS1_17concurrent_vectorISJ_SL_EELm3EE14enable_segmentERPSJ_PSt6atomicISP_Emm.exit
 
@@ -161438,7 +161438,7 @@ if.then5.i:                                       ; preds = %if.then.i7
   %my_first_block.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load atomic i64, ptr %my_first_block.i.i monotonic, align 8
   %cmp.not.i.i = icmp ule i64 %16, %xor.i.i.i
-  %cmp4.i.i = icmp eq i64 %xor.i.i.i, 0
+  %cmp4.i.i = icmp eq i64 %0, 63
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %if.end9.sink.split.i.i, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN7openvdb5v11_04tree4TreeINS8_8RootNodeINS8_12InternalNodeINSB_INS8_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELm128EEENS1_23cache_aligned_allocatorISJ_EENS1_17concurrent_vectorISJ_SL_EELm3EE14enable_segmentERPSJ_PSt6atomicISP_Emm.exit
 

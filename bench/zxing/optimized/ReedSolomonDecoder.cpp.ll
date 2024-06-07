@@ -1133,18 +1133,18 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit48.us.i:     ; preds = %422, %420
 
 _ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i:     ; preds = %441, %437
   %.0.i.us.i = phi i32 [ %451, %441 ], [ 0, %437 ]
-  %452 = xor i32 %.0.i.us.i, 1
-  %453 = icmp eq i32 %.03249.us57.i, 0
-  %454 = icmp eq i32 %452, 0
-  %or.cond.i40.us.i = or i1 %453, %454
-  br i1 %or.cond.i40.us.i, label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i, label %455
+  %452 = icmp eq i32 %.03249.us57.i, 0
+  %453 = icmp eq i32 %.0.i.us.i, 1
+  %or.cond.i40.us.i = or i1 %452, %453
+  br i1 %or.cond.i40.us.i, label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i, label %454
 
-455:                                              ; preds = %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i
+454:                                              ; preds = %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i
+  %455 = xor i32 %.0.i.us.i, 1
   %456 = sext i32 %.03249.us57.i to i64
   %457 = getelementptr inbounds i16, ptr %469, i64 %456
   %458 = load i16, ptr %457, align 2, !noalias !13
   %459 = sext i16 %458 to i64
-  %460 = sext i32 %452 to i64
+  %460 = sext i32 %455 to i64
   %461 = getelementptr inbounds i16, ptr %469, i64 %460
   %462 = load i16, ptr %461, align 2, !noalias !13
   %463 = sext i16 %462 to i64
@@ -1154,8 +1154,8 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i:     ; preds = %441, %437
   %467 = sext i16 %466 to i32
   br label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i
 
-_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i:   ; preds = %455, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i, %.lr.ph.split.us64.i
-  %.1.us61.i = phi i32 [ %.03249.us57.i, %.lr.ph.split.us64.i ], [ %467, %455 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i ]
+_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i:   ; preds = %454, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i, %.lr.ph.split.us64.i
+  %.1.us61.i = phi i32 [ %.03249.us57.i, %.lr.ph.split.us64.i ], [ %467, %454 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count73.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us64.i, !llvm.loop !17

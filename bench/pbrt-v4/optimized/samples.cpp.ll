@@ -5572,7 +5572,7 @@ entry:
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %sub.i.i.i = xor i32 %13, 31
   %conv.i = sext i32 %11 to i64
-  %cmp.i1.i = icmp eq i32 %sub.i.i.i, 0
+  %cmp.i1.i = icmp eq i32 %13, 31
   br i1 %cmp.i1.i, label %_ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -5583,7 +5583,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not15.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
-  %sub.i.i = sub nsw i32 30, %13
+  %sub.i.i = sub nuw nsw i32 30, %13
   %idxprom.i.i = zext nneg i32 %sub.i.i to i64
   br label %for.body.i.i
 
@@ -5613,11 +5613,11 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.en
   %sh_prom7.i.i = zext nneg i32 %sub.i.i.i to i64
   %shl8.i.i = shl nuw nsw i64 %retval.sroa.0.0.insert.ext.i, %sh_prom7.i.i
   %or.i.i = or i64 %shl8.i.i, %retval.sroa.3.0.insert.ext.i
-  %xor10.i.i = xor i64 %delta.0.lcssa.i.i, %or.i.i
-  %tobool13.not19.i.i = icmp eq i64 %xor10.i.i, 0
+  %tobool13.not19.i.i = icmp eq i64 %delta.0.lcssa.i.i, %or.i.i
   br i1 %tobool13.not19.i.i, label %_ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %for.body14.lr.ph.i.i
 
 for.body14.lr.ph.i.i:                             ; preds = %for.end.i.i
+  %xor10.i.i = xor i64 %delta.0.lcssa.i.i, %or.i.i
   %sub18.i.i = sub nsw i32 30, %13
   %idxprom19.i.i = zext i32 %sub18.i.i to i64
   br label %for.body14.i.i

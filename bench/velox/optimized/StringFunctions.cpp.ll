@@ -6674,11 +6674,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %idxprom.i64 = sext i32 %div20 to i64
   %arrayidx.i65 = getelementptr inbounds i64, ptr %38, i64 %idxprom.i64
   %46 = load i64, ptr %arrayidx.i65, align 8
-  %cond.i67 = xor i64 %46, %not.i66
-  %tobool4.not.i68 = icmp eq i64 %cond.i67, 0
-  br i1 %tobool4.not.i68, label %_ZZN8facebook5velox4bits8testBitsIZNKS0_12SimpleVectorINS0_10StringViewEE7isAsciiIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EESt8optionalIbEE4typeERKNS0_17SelectivityVectorEPKiEUlS8_E_EEbPKmiibS8_ENKUliE_clEi.exit, label %while.cond.preheader.i69
+  %tobool4.not.i67 = icmp eq i64 %46, %not.i66
+  br i1 %tobool4.not.i67, label %_ZZN8facebook5velox4bits8testBitsIZNKS0_12SimpleVectorINS0_10StringViewEE7isAsciiIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EESt8optionalIbEE4typeERKNS0_17SelectivityVectorEPKiEUlS8_E_EEbPKmiibS8_ENKUliE_clEi.exit, label %while.cond.preheader.i68
 
-while.cond.preheader.i69:                         ; preds = %for.body
+while.cond.preheader.i68:                         ; preds = %for.body
+  %cond.i69 = xor i64 %46, %not.i66
   %mul.i70 = shl nsw i32 %div20, 6
   %47 = load ptr, ptr %43, align 8
   %tobool.not.i.i.i.i71 = icmp eq ptr %47, null
@@ -6688,8 +6688,8 @@ while.cond.preheader.i69:                         ; preds = %for.body
   %49 = load ptr, ptr %add.ptr.i.i.i.i73, align 8
   br label %while.body.i74
 
-while.body.i74:                                   ; preds = %if.end7.i87, %while.cond.preheader.i69
-  %word.07.i75 = phi i64 [ %cond.i67, %while.cond.preheader.i69 ], [ %and.i89, %if.end7.i87 ]
+while.body.i74:                                   ; preds = %if.end7.i87, %while.cond.preheader.i68
+  %word.07.i75 = phi i64 [ %cond.i69, %while.cond.preheader.i68 ], [ %and.i89, %if.end7.i87 ]
   %50 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.07.i75, i1 true)
   %cast.i76 = trunc nuw nsw i64 %50 to i32
   %add.i77 = or disjoint i32 %mul.i70, %cast.i76

@@ -339,13 +339,15 @@ for.body.i.i:                                     ; preds = %invoke.cont14, %for
   %__first1.addr.08.i.i.ptr = getelementptr inbounds i8, ptr @.str.11, i64 %__first1.addr.08.i.i.idx
   %8 = load i8, ptr %__first1.addr.08.i.i.ptr, align 1
   %9 = load i8, ptr %__first2.addr.09.i.i, align 1
-  %xor.i.i.i = xor i8 %9, %8
-  switch i8 %xor.i.i.i, label %if.then20 [
-    i8 0, label %for.inc.i.i
-    i8 32, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i
-  ]
+  %cmp.i.i.i = icmp eq i8 %8, %9
+  br i1 %cmp.i.i.i, label %for.inc.i.i, label %if.end.i.i.i
 
-_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %for.body.i.i
+if.end.i.i.i:                                     ; preds = %for.body.i.i
+  %xor.i.i.i = xor i8 %9, %8
+  %cmp6.not.i.i.i = icmp eq i8 %xor.i.i.i, 32
+  br i1 %cmp6.not.i.i.i, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, label %if.then20
+
+_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %if.end.i.i.i
   %or6.i.i.i = or i8 %9, %8
   %10 = add i8 %or6.i.i.i, -97
   %11 = icmp ult i8 %10, 26
@@ -357,7 +359,7 @@ for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCa
   %cmp.not.i.i4 = icmp eq i64 %__first1.addr.08.i.i.add, 12
   br i1 %cmp.not.i.i4, label %if.else, label %for.body.i.i, !llvm.loop !4
 
-if.then20:                                        ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %for.body.i.i, %invoke.cont14
+if.then20:                                        ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end.i.i.i, %invoke.cont14
   %err_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 31, ptr %err_.i, align 8
   %12 = load ptr, ptr %upstream_, align 8

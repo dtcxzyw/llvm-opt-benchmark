@@ -62005,7 +62005,7 @@ do.body.i.i.i.i:                                  ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i), !noalias !2129
   %mul.i27.i.i.i.i.i.i.i.i.i.i = mul i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, -7046029288634856825
   %mul.i28.i.i.i.i.i.i.i.i.i.i = mul i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, -4417276706812531889
-  %5 = xor i64 %mul.i28.i.i.i.i.i.i.i.i.i.i, %mul.i27.i.i.i.i.i.i.i.i.i.i
+  %5 = xor i64 %mul.i27.i.i.i.i.i.i.i.i.i.i, %mul.i28.i.i.i.i.i.i.i.i.i.i
   %6 = xor i64 %5, 1152921504606846976
   %xor42.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %6)
   %hash_table_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %visit_not_null.val.val.val.i.i.i.i, i64 8
@@ -62013,7 +62013,7 @@ do.body.i.i.i.i:                                  ; preds = %for.cond.preheader.
   %hash_table_.val.i.i.i.i.i.i.i = load i64, ptr %7, align 8, !noalias !2132
   %8 = getelementptr inbounds i8, ptr %visit_not_null.val.val.val.i.i.i.i, i64 32
   %hash_table_.val8.i.i.i.i.i.i.i = load ptr, ptr %8, align 8, !noalias !2132
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %6, 0
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 1152921504606846976
   %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i.i.i.i.i
 
@@ -62159,7 +62159,7 @@ do.body55.i.i.i.i:                                ; preds = %for.body52.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i138.i.i.i.i), !noalias !2156
   %mul.i27.i.i.i.i.i.i143.i.i.i.i = mul i64 %agg.tmp.sroa.2.0.copyload.i142.i.i.i.i, -7046029288634856825
   %mul.i28.i.i.i.i.i.i144.i.i.i.i = mul i64 %agg.tmp.sroa.0.0.copyload.i140.i.i.i.i, -4417276706812531889
-  %28 = xor i64 %mul.i28.i.i.i.i.i.i144.i.i.i.i, %mul.i27.i.i.i.i.i.i143.i.i.i.i
+  %28 = xor i64 %mul.i27.i.i.i.i.i.i143.i.i.i.i, %mul.i28.i.i.i.i.i.i144.i.i.i.i
   %29 = xor i64 %28, 1152921504606846976
   %xor42.i.i.i.i.i.i145.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %29)
   %hash_table_.i.i.i146.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -62167,7 +62167,7 @@ do.body55.i.i.i.i:                                ; preds = %for.body52.i.i.i.i
   %hash_table_.val.i.i.i147.i.i.i.i = load i64, ptr %30, align 8, !noalias !2159
   %31 = getelementptr inbounds i8, ptr %27, i64 32
   %hash_table_.val8.i.i.i148.i.i.i.i = load ptr, ptr %31, align 8, !noalias !2159
-  %cmp.i.i.i.i.i.i149.i.i.i.i = icmp eq i64 %29, 0
+  %cmp.i.i.i.i.i.i149.i.i.i.i = icmp eq i64 %28, 1152921504606846976
   %cond.i.i.i.i.i.i150.i.i.i.i = select i1 %cmp.i.i.i.i.i.i149.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i.i145.i.i.i.i
   br label %while.body.i.i.i.i.i151.i.i.i.i
 
@@ -83298,7 +83298,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !3457
   %mul.i27.i.i.i.i.i = mul i64 %agg.tmp.sroa.2.0.copyload, -7046029288634856825
   %mul.i28.i.i.i.i.i = mul i64 %agg.tmp.sroa.0.0.copyload, -4417276706812531889
-  %1 = xor i64 %mul.i28.i.i.i.i.i, %mul.i27.i.i.i.i.i
+  %1 = xor i64 %mul.i27.i.i.i.i.i, %mul.i28.i.i.i.i.i
   %2 = xor i64 %1, 1152921504606846976
   %xor42.i.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   %hash_table_.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -83306,7 +83306,7 @@ entry:
   %hash_table_.val.i.i = load i64, ptr %3, align 8, !noalias !3463
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %hash_table_.val8.i.i = load ptr, ptr %4, align 8, !noalias !3463
-  %cmp.i.i.i.i.i = icmp eq i64 %2, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %1, 1152921504606846976
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i
   br label %while.body.i.i.i.i
 
@@ -100035,7 +100035,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !4713
   %mul.i27.i.i.i.i.i = mul i64 %agg.tmp.sroa.2.0.copyload, -7046029288634856825
   %mul.i28.i.i.i.i.i = mul i64 %agg.tmp.sroa.0.0.copyload, -4417276706812531889
-  %1 = xor i64 %mul.i28.i.i.i.i.i, %mul.i27.i.i.i.i.i
+  %1 = xor i64 %mul.i27.i.i.i.i.i, %mul.i28.i.i.i.i.i
   %2 = xor i64 %1, 1152921504606846976
   %xor42.i.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   %hash_table_.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -100043,7 +100043,7 @@ entry:
   %hash_table_.val.i.i = load i64, ptr %3, align 8, !noalias !4719
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %hash_table_.val8.i.i = load ptr, ptr %4, align 8, !noalias !4719
-  %cmp.i.i.i.i.i = icmp eq i64 %2, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %1, 1152921504606846976
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i
   br label %while.body.i.i.i.i
 

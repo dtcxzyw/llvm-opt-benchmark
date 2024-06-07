@@ -7788,7 +7788,7 @@ sw.bb5:                                           ; preds = %entry
   %sub.i.i.i.i = xor i32 %12, 31
   %conv.i.i89 = sext i32 %3 to i64
   %p.sroa.2.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i, 32
-  %cmp.i1.i.i = icmp eq i32 %sub.i.i.i.i, 0
+  %cmp.i1.i.i = icmp eq i32 %12, 31
   br i1 %cmp.i1.i.i, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, label %if.end.i.i.i90
 
 if.end.i.i.i90:                                   ; preds = %sw.bb5
@@ -7799,7 +7799,7 @@ if.end.i.i.i90:                                   ; preds = %sw.bb5
   br i1 %tobool.not15.i.i.i, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end.i.i.i90
-  %sub.i.i.i = sub nsw i32 30, %12
+  %sub.i.i.i = sub nuw nsw i32 30, %12
   %idxprom.i.i.i = zext nneg i32 %sub.i.i.i to i64
   br label %for.body.i.i.i
 
@@ -7830,11 +7830,11 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.
   %sh_prom7.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
   %shl8.i.i.i = shl nuw nsw i64 %conv.i.i.i, %sh_prom7.i.i.i
   %or.i.i.i = or i64 %shl8.i.i.i, %p.sroa.2.0.extract.shift.i.i.i
-  %xor10.i.i.i = xor i64 %delta.0.lcssa.i.i.i, %or.i.i.i
-  %tobool13.not19.i.i.i = icmp eq i64 %xor10.i.i.i, 0
+  %tobool13.not19.i.i.i = icmp eq i64 %delta.0.lcssa.i.i.i, %or.i.i.i
   br i1 %tobool13.not19.i.i.i, label %_ZZN4pbrt7Sampler16StartPixelSampleENS_6Point2IiEEiiENKUlT_E_clIPNS_12SobolSamplerEEEDaS3_.exit, label %for.body14.lr.ph.i.i.i
 
 for.body14.lr.ph.i.i.i:                           ; preds = %for.end.i.i.i
+  %xor10.i.i.i = xor i64 %delta.0.lcssa.i.i.i, %or.i.i.i
   %sub18.i.i.i = sub nsw i32 30, %12
   %idxprom19.i.i.i = zext i32 %sub18.i.i.i to i64
   br label %for.body14.i.i.i

@@ -282,16 +282,16 @@ define internal fastcc void @control_payload(ptr noundef %0, ptr noundef %1, i32
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %5
   %.tr62 = phi i32 [ %2, %5 ], [ %.tr62.be, %tailrecurse.backedge ]
   %.tr63 = phi i8 [ %3, %5 ], [ %.tr63.be, %tailrecurse.backedge ]
-  switch i8 %.tr63, label %313 [
+  switch i8 %.tr63, label %312 [
     i8 0, label %dissect_payload_kink_ap_req.exit
     i8 14, label %6
     i8 15, label %47
     i8 16, label %88
     i8 17, label %123
     i8 18, label %150
-    i8 19, label %188
-    i8 20, label %230
-    i8 21, label %292
+    i8 19, label %187
+    i8 20, label %229
+    i8 21, label %291
   ]
 
 6:                                                ; preds = %tailrecurse
@@ -356,9 +356,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %46 = add i32 %.0.i, %.tr62
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %45, %86, %121, %148, %186, %228, %290, %dissect_payload_kink_error.exit, %330
-  %.tr62.be = phi i32 [ %46, %45 ], [ %87, %86 ], [ %122, %121 ], [ %149, %148 ], [ %187, %186 ], [ %229, %228 ], [ %291, %290 ], [ %312, %dissect_payload_kink_error.exit ], [ %331, %330 ]
-  %.tr63.be = phi i8 [ %12, %45 ], [ %53, %86 ], [ %94, %121 ], [ %131, %148 ], [ %156, %186 ], [ %194, %228 ], [ %237, %290 ], [ %298, %dissect_payload_kink_error.exit ], [ %319, %330 ]
+tailrecurse.backedge:                             ; preds = %45, %86, %121, %148, %185, %227, %289, %dissect_payload_kink_error.exit, %329
+  %.tr62.be = phi i32 [ %46, %45 ], [ %87, %86 ], [ %122, %121 ], [ %149, %148 ], [ %186, %185 ], [ %228, %227 ], [ %290, %289 ], [ %311, %dissect_payload_kink_error.exit ], [ %330, %329 ]
+  %.tr63.be = phi i8 [ %12, %45 ], [ %53, %86 ], [ %94, %121 ], [ %131, %148 ], [ %156, %185 ], [ %193, %227 ], [ %236, %289 ], [ %297, %dissect_payload_kink_error.exit ], [ %318, %329 ]
   br label %tailrecurse
 
 47:                                               ; preds = %tailrecurse
@@ -535,241 +535,241 @@ tailrecurse.backedge:                             ; preds = %45, %86, %121, %148
   %171 = load i32, ptr @hf_kink_princ_name, align 4
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %171, ptr noundef %1, i32 noundef %170, i32 noundef %167, i32 noundef 0) #5
   %173 = and i32 %167, 3
-  %174 = xor i32 %173, 2
-  %.not.i46 = icmp eq i32 %174, 0
-  %175 = add nuw nsw i32 %167, 4
-  %176 = sub nuw nsw i32 %175, %174
-  %.pn.i = select i1 %.not.i46, i32 %167, i32 %176
+  %.not.i46 = icmp eq i32 %173, 2
+  %174 = xor i32 %173, -3
+  %.neg65 = add nsw i32 %174, %167
+  %175 = add nsw i32 %.neg65, 5
+  %.pn.i = select i1 %.not.i46, i32 %167, i32 %175
   %.0.i47 = add i32 %.pn.i, %170
-  %177 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0.i47) #5
-  %178 = load i32, ptr @hf_kink_tgt_length, align 4
-  %179 = zext i16 %177 to i32
-  %180 = tail call ptr @proto_tree_add_uint(ptr noundef %155, i32 noundef %178, ptr noundef %1, i32 noundef %.0.i47, i32 noundef 2, i32 noundef %179) #5
-  %181 = add i32 %.0.i47, 2
-  %182 = load i32, ptr @hf_kink_tgt, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %182, ptr noundef %1, i32 noundef %181, i32 noundef %179, i32 noundef 0) #5
-  %184 = and i32 %153, 3
-  %.not64.i = icmp eq i32 %184, 0
+  %176 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0.i47) #5
+  %177 = load i32, ptr @hf_kink_tgt_length, align 4
+  %178 = zext i16 %176 to i32
+  %179 = tail call ptr @proto_tree_add_uint(ptr noundef %155, i32 noundef %177, ptr noundef %1, i32 noundef %.0.i47, i32 noundef 2, i32 noundef %178) #5
+  %180 = add i32 %.0.i47, 2
+  %181 = load i32, ptr @hf_kink_tgt, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %181, ptr noundef %1, i32 noundef %180, i32 noundef %178, i32 noundef 0) #5
+  %183 = and i32 %153, 3
+  %.not64.i = icmp eq i32 %183, 0
   %reass.sub.i48 = and i32 %153, 65532
-  %185 = add nuw nsw i32 %reass.sub.i48, 4
-  %.061.i = select i1 %.not64.i, i32 %153, i32 %185
+  %184 = add nuw nsw i32 %reass.sub.i48, 4
+  %.061.i = select i1 %.not64.i, i32 %153, i32 %184
   %.not65.i = icmp eq i32 %.061.i, 0
-  br i1 %.not65.i, label %dissect_payload_kink_ap_req.exit, label %186
+  br i1 %.not65.i, label %dissect_payload_kink_ap_req.exit, label %185
 
-186:                                              ; preds = %150
-  %187 = add i32 %.061.i, %.tr62
+185:                                              ; preds = %150
+  %186 = add i32 %.061.i, %.tr62
   br label %tailrecurse.backedge
 
-188:                                              ; preds = %tailrecurse
-  %189 = add i32 %.tr62, 2
-  %190 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %189) #5
-  %191 = zext i16 %190 to i32
-  %192 = load i32, ptr @ett_payload_kink_isakmp, align 4
-  %193 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %191, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.77) #5
-  %194 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
-  %195 = load i32, ptr @hf_kink_next_payload, align 4
-  %196 = zext i8 %194 to i32
-  %197 = tail call ptr @proto_tree_add_uint(ptr noundef %193, i32 noundef %195, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %196) #5
-  %198 = add i32 %.tr62, 1
-  %199 = load i32, ptr @hf_kink_reserved8, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %199, ptr noundef %1, i32 noundef %198, i32 noundef 1, i32 noundef 0) #5
-  %201 = load i32, ptr @hf_kink_payload_length, align 4
-  %202 = tail call ptr @proto_tree_add_uint(ptr noundef %193, i32 noundef %201, ptr noundef %1, i32 noundef %189, i32 noundef 2, i32 noundef %191) #5
-  %203 = icmp ult i16 %190, 9
-  br i1 %203, label %204, label %206
+187:                                              ; preds = %tailrecurse
+  %188 = add i32 %.tr62, 2
+  %189 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %188) #5
+  %190 = zext i16 %189 to i32
+  %191 = load i32, ptr @ett_payload_kink_isakmp, align 4
+  %192 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %190, i32 noundef %191, ptr noundef null, ptr noundef nonnull @.str.77) #5
+  %193 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
+  %194 = load i32, ptr @hf_kink_next_payload, align 4
+  %195 = zext i8 %193 to i32
+  %196 = tail call ptr @proto_tree_add_uint(ptr noundef %192, i32 noundef %194, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %195) #5
+  %197 = add i32 %.tr62, 1
+  %198 = load i32, ptr @hf_kink_reserved8, align 4
+  %199 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %198, ptr noundef %1, i32 noundef %197, i32 noundef 1, i32 noundef 0) #5
+  %200 = load i32, ptr @hf_kink_payload_length, align 4
+  %201 = tail call ptr @proto_tree_add_uint(ptr noundef %192, i32 noundef %200, ptr noundef %1, i32 noundef %188, i32 noundef 2, i32 noundef %190) #5
+  %202 = icmp ult i16 %189, 9
+  br i1 %202, label %203, label %205
 
-204:                                              ; preds = %188
-  %205 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %202, ptr noundef nonnull @ei_kink_payload_length_small) #5
-  br label %206
+203:                                              ; preds = %187
+  %204 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %201, ptr noundef nonnull @ei_kink_payload_length_small) #5
+  br label %205
 
-206:                                              ; preds = %204, %188
-  %207 = add i32 %.tr62, 4
-  %208 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %207) #5
-  %209 = load i32, ptr @hf_kink_inner_next_pload, align 4
-  %210 = zext i8 %208 to i32
-  %211 = tail call ptr @proto_tree_add_uint(ptr noundef %193, i32 noundef %209, ptr noundef %1, i32 noundef %207, i32 noundef 1, i32 noundef %210) #5
-  %212 = add i32 %.tr62, 5
-  %213 = load i32, ptr @hf_kink_qmversion, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %213, ptr noundef %1, i32 noundef %212, i32 noundef 1, i32 noundef 0) #5
-  %215 = add i32 %.tr62, 6
-  %216 = load i32, ptr @hf_kink_reserved16, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %216, ptr noundef %1, i32 noundef %215, i32 noundef 2, i32 noundef 0) #5
-  %218 = icmp ugt i16 %190, 8
-  br i1 %218, label %219, label %225
+205:                                              ; preds = %203, %187
+  %206 = add i32 %.tr62, 4
+  %207 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %206) #5
+  %208 = load i32, ptr @hf_kink_inner_next_pload, align 4
+  %209 = zext i8 %207 to i32
+  %210 = tail call ptr @proto_tree_add_uint(ptr noundef %192, i32 noundef %208, ptr noundef %1, i32 noundef %206, i32 noundef 1, i32 noundef %209) #5
+  %211 = add i32 %.tr62, 5
+  %212 = load i32, ptr @hf_kink_qmversion, align 4
+  %213 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %212, ptr noundef %1, i32 noundef %211, i32 noundef 1, i32 noundef 0) #5
+  %214 = add i32 %.tr62, 6
+  %215 = load i32, ptr @hf_kink_reserved16, align 4
+  %216 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %215, ptr noundef %1, i32 noundef %214, i32 noundef 2, i32 noundef 0) #5
+  %217 = icmp ugt i16 %189, 8
+  br i1 %217, label %218, label %224
 
-219:                                              ; preds = %206
-  %220 = add i32 %.tr62, 8
-  %221 = add nsw i32 %191, -8
-  %222 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %220) #5
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %222, i32 %221)
-  %223 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %220) #5
-  %.072.i = tail call i32 @llvm.smin.i32(i32 %223, i32 %221)
-  %224 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %220, i32 noundef %spec.select.i, i32 noundef %.072.i) #5
-  tail call void @isakmp_dissect_payloads(ptr noundef %224, ptr noundef %193, i32 noundef 1, i8 noundef zeroext %208, i32 noundef 0, i32 noundef %221, ptr noundef %0) #5
-  br label %225
+218:                                              ; preds = %205
+  %219 = add i32 %.tr62, 8
+  %220 = add nsw i32 %190, -8
+  %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %219) #5
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %221, i32 %220)
+  %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %219) #5
+  %.072.i = tail call i32 @llvm.smin.i32(i32 %222, i32 %220)
+  %223 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %219, i32 noundef %spec.select.i, i32 noundef %.072.i) #5
+  tail call void @isakmp_dissect_payloads(ptr noundef %223, ptr noundef %192, i32 noundef 1, i8 noundef zeroext %207, i32 noundef 0, i32 noundef %220, ptr noundef %0) #5
+  br label %224
 
-225:                                              ; preds = %219, %206
-  %226 = and i32 %191, 3
-  %.not.i49 = icmp eq i32 %226, 0
-  %reass.sub.i50 = and i32 %191, 65532
-  %227 = add nuw nsw i32 %reass.sub.i50, 4
-  %.0.i51 = select i1 %.not.i49, i32 %191, i32 %227
+224:                                              ; preds = %218, %205
+  %225 = and i32 %190, 3
+  %.not.i49 = icmp eq i32 %225, 0
+  %reass.sub.i50 = and i32 %190, 65532
+  %226 = add nuw nsw i32 %reass.sub.i50, 4
+  %.0.i51 = select i1 %.not.i49, i32 %190, i32 %226
   %.not79.i = icmp eq i32 %.0.i51, 0
-  br i1 %.not79.i, label %dissect_payload_kink_ap_req.exit, label %228
+  br i1 %.not79.i, label %dissect_payload_kink_ap_req.exit, label %227
 
-228:                                              ; preds = %225
-  %229 = add i32 %.0.i51, %.tr62
+227:                                              ; preds = %224
+  %228 = add i32 %.0.i51, %.tr62
   br label %tailrecurse.backedge
 
-230:                                              ; preds = %tailrecurse
-  %231 = add i32 %.tr62, 2
-  %232 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %231) #5
-  %233 = zext i16 %232 to i32
-  %234 = add nsw i32 %233, -4
-  %235 = load i32, ptr @ett_payload_kink_encrypt, align 4
-  %236 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %233, i32 noundef %235, ptr noundef null, ptr noundef nonnull @.str.78) #5
-  %237 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
-  %238 = load i32, ptr @hf_kink_next_payload, align 4
-  %239 = zext i8 %237 to i32
-  %240 = tail call ptr @proto_tree_add_uint(ptr noundef %236, i32 noundef %238, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %239) #5
-  %241 = add i32 %.tr62, 1
-  %242 = load i32, ptr @hf_kink_reserved8, align 4
-  %243 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %242, ptr noundef %1, i32 noundef %241, i32 noundef 1, i32 noundef 0) #5
-  %244 = load i32, ptr @hf_kink_payload_length, align 4
-  %245 = tail call ptr @proto_tree_add_uint(ptr noundef %236, i32 noundef %244, ptr noundef %1, i32 noundef %231, i32 noundef 2, i32 noundef %233) #5
-  %246 = icmp ult i16 %232, 9
-  br i1 %246, label %247, label %249
+229:                                              ; preds = %tailrecurse
+  %230 = add i32 %.tr62, 2
+  %231 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %230) #5
+  %232 = zext i16 %231 to i32
+  %233 = add nsw i32 %232, -4
+  %234 = load i32, ptr @ett_payload_kink_encrypt, align 4
+  %235 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %232, i32 noundef %234, ptr noundef null, ptr noundef nonnull @.str.78) #5
+  %236 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
+  %237 = load i32, ptr @hf_kink_next_payload, align 4
+  %238 = zext i8 %236 to i32
+  %239 = tail call ptr @proto_tree_add_uint(ptr noundef %235, i32 noundef %237, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %238) #5
+  %240 = add i32 %.tr62, 1
+  %241 = load i32, ptr @hf_kink_reserved8, align 4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %241, ptr noundef %1, i32 noundef %240, i32 noundef 1, i32 noundef 0) #5
+  %243 = load i32, ptr @hf_kink_payload_length, align 4
+  %244 = tail call ptr @proto_tree_add_uint(ptr noundef %235, i32 noundef %243, ptr noundef %1, i32 noundef %230, i32 noundef 2, i32 noundef %232) #5
+  %245 = icmp ult i16 %231, 9
+  br i1 %245, label %246, label %248
 
-247:                                              ; preds = %230
-  %248 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %245, ptr noundef nonnull @ei_kink_payload_length_small) #5
-  br label %249
+246:                                              ; preds = %229
+  %247 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %244, ptr noundef nonnull @ei_kink_payload_length_small) #5
+  br label %248
 
-249:                                              ; preds = %247, %230
-  %250 = add i32 %.tr62, 4
-  %251 = load i32, ptr @keytype, align 4
-  %.not.i52 = icmp eq i32 %251, 0
-  br i1 %.not.i52, label %272, label %252
+248:                                              ; preds = %246, %229
+  %249 = add i32 %.tr62, 4
+  %250 = load i32, ptr @keytype, align 4
+  %.not.i52 = icmp eq i32 %250, 0
+  br i1 %.not.i52, label %271, label %251
 
-252:                                              ; preds = %249
-  %253 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %250) #5
-  %254 = icmp slt i32 %253, %234
-  br i1 %254, label %255, label %257
+251:                                              ; preds = %248
+  %252 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %249) #5
+  %253 = icmp slt i32 %252, %233
+  br i1 %253, label %254, label %256
 
-255:                                              ; preds = %252
-  %256 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %250) #5
-  br label %257
+254:                                              ; preds = %251
+  %255 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %249) #5
+  br label %256
 
-257:                                              ; preds = %255, %252
-  %258 = phi i32 [ %256, %255 ], [ %234, %252 ]
-  %259 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %250, i32 noundef %258, i32 noundef %234) #5
-  %260 = load i32, ptr @keytype, align 4
-  %261 = tail call ptr @decrypt_krb5_data(ptr noundef %4, ptr noundef %0, i32 noundef 0, ptr noundef %259, i32 noundef %260, ptr noundef null) #5
-  %.not81.i = icmp eq ptr %261, null
-  br i1 %.not81.i, label %287, label %262
+256:                                              ; preds = %254, %251
+  %257 = phi i32 [ %255, %254 ], [ %233, %251 ]
+  %258 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %249, i32 noundef %257, i32 noundef %233) #5
+  %259 = load i32, ptr @keytype, align 4
+  %260 = tail call ptr @decrypt_krb5_data(ptr noundef %4, ptr noundef %0, i32 noundef 0, ptr noundef %258, i32 noundef %259, ptr noundef null) #5
+  %.not81.i = icmp eq ptr %260, null
+  br i1 %.not81.i, label %286, label %261
 
-262:                                              ; preds = %257
-  %263 = tail call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %261, i32 noundef %234, i32 noundef %234) #5
-  tail call void @add_new_data_source(ptr noundef %0, ptr noundef %263, ptr noundef nonnull @.str.83) #5
-  %264 = load i32, ptr @ett_decrypt_kink_encrypt, align 4
-  %265 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %263, i32 noundef 0, i32 noundef %234, i32 noundef %264, ptr noundef null, ptr noundef nonnull @.str.84) #5
-  %266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %263, i32 noundef 0) #5
-  %267 = load i32, ptr @hf_kink_next_payload, align 4
-  %268 = zext i8 %266 to i32
-  %269 = tail call ptr @proto_tree_add_uint(ptr noundef %265, i32 noundef %267, ptr noundef %263, i32 noundef 0, i32 noundef 1, i32 noundef %268) #5
-  %270 = load i32, ptr @hf_kink_reserved24, align 4
-  %271 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %270, ptr noundef %263, i32 noundef 1, i32 noundef 3, i32 noundef 0) #5
-  tail call fastcc void @control_payload(ptr noundef %0, ptr noundef %263, i32 noundef 4, i8 noundef zeroext %266, ptr noundef %265)
-  br label %287
+261:                                              ; preds = %256
+  %262 = tail call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %260, i32 noundef %233, i32 noundef %233) #5
+  tail call void @add_new_data_source(ptr noundef %0, ptr noundef %262, ptr noundef nonnull @.str.83) #5
+  %263 = load i32, ptr @ett_decrypt_kink_encrypt, align 4
+  %264 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %262, i32 noundef 0, i32 noundef %233, i32 noundef %263, ptr noundef null, ptr noundef nonnull @.str.84) #5
+  %265 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %262, i32 noundef 0) #5
+  %266 = load i32, ptr @hf_kink_next_payload, align 4
+  %267 = zext i8 %265 to i32
+  %268 = tail call ptr @proto_tree_add_uint(ptr noundef %264, i32 noundef %266, ptr noundef %262, i32 noundef 0, i32 noundef 1, i32 noundef %267) #5
+  %269 = load i32, ptr @hf_kink_reserved24, align 4
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %264, i32 noundef %269, ptr noundef %262, i32 noundef 1, i32 noundef 3, i32 noundef 0) #5
+  tail call fastcc void @control_payload(ptr noundef %0, ptr noundef %262, i32 noundef 4, i8 noundef zeroext %265, ptr noundef %264)
+  br label %286
 
-272:                                              ; preds = %249
-  %273 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %250) #5
-  %274 = load i32, ptr @hf_kink_inner_next_pload, align 4
-  %275 = zext i8 %273 to i32
-  %276 = tail call ptr @proto_tree_add_uint(ptr noundef %236, i32 noundef %274, ptr noundef %1, i32 noundef %250, i32 noundef 1, i32 noundef %275) #5
-  %277 = add i32 %.tr62, 5
-  %278 = load i32, ptr @hf_kink_reserved24, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %278, ptr noundef %1, i32 noundef %277, i32 noundef 3, i32 noundef 0) #5
-  %280 = icmp ugt i16 %232, 8
-  br i1 %280, label %281, label %287
+271:                                              ; preds = %248
+  %272 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %249) #5
+  %273 = load i32, ptr @hf_kink_inner_next_pload, align 4
+  %274 = zext i8 %272 to i32
+  %275 = tail call ptr @proto_tree_add_uint(ptr noundef %235, i32 noundef %273, ptr noundef %1, i32 noundef %249, i32 noundef 1, i32 noundef %274) #5
+  %276 = add i32 %.tr62, 5
+  %277 = load i32, ptr @hf_kink_reserved24, align 4
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %277, ptr noundef %1, i32 noundef %276, i32 noundef 3, i32 noundef 0) #5
+  %279 = icmp ugt i16 %231, 8
+  br i1 %279, label %280, label %286
 
-281:                                              ; preds = %272
-  %282 = add i32 %.tr62, 8
-  %283 = add i16 %232, -8
-  %284 = load i32, ptr @hf_kink_payload, align 4
-  %285 = zext i16 %283 to i32
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %284, ptr noundef %1, i32 noundef %282, i32 noundef %285, i32 noundef 0) #5
-  br label %287
+280:                                              ; preds = %271
+  %281 = add i32 %.tr62, 8
+  %282 = add i16 %231, -8
+  %283 = load i32, ptr @hf_kink_payload, align 4
+  %284 = zext i16 %282 to i32
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %283, ptr noundef %1, i32 noundef %281, i32 noundef %284, i32 noundef 0) #5
+  br label %286
 
-287:                                              ; preds = %281, %272, %262, %257
-  %288 = and i32 %233, 3
-  %.not82.i = icmp eq i32 %288, 0
-  %reass.sub.i53 = and i32 %233, 65532
-  %289 = add nuw nsw i32 %reass.sub.i53, 4
-  %.0.i54 = select i1 %.not82.i, i32 %233, i32 %289
+286:                                              ; preds = %280, %271, %261, %256
+  %287 = and i32 %232, 3
+  %.not82.i = icmp eq i32 %287, 0
+  %reass.sub.i53 = and i32 %232, 65532
+  %288 = add nuw nsw i32 %reass.sub.i53, 4
+  %.0.i54 = select i1 %.not82.i, i32 %232, i32 %288
   %.not83.i = icmp eq i32 %.0.i54, 0
-  br i1 %.not83.i, label %dissect_payload_kink_ap_req.exit, label %290
+  br i1 %.not83.i, label %dissect_payload_kink_ap_req.exit, label %289
 
-290:                                              ; preds = %287
-  %291 = add i32 %.0.i54, %.tr62
+289:                                              ; preds = %286
+  %290 = add i32 %.0.i54, %.tr62
   br label %tailrecurse.backedge
 
-292:                                              ; preds = %tailrecurse
-  %293 = add i32 %.tr62, 2
-  %294 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %293) #5
-  %295 = zext i16 %294 to i32
-  %296 = load i32, ptr @ett_payload_kink_error, align 4
-  %297 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %295, i32 noundef %296, ptr noundef null, ptr noundef nonnull @.str.79) #5
-  %298 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
-  %299 = load i32, ptr @hf_kink_next_payload, align 4
-  %300 = zext i8 %298 to i32
-  %301 = tail call ptr @proto_tree_add_uint(ptr noundef %297, i32 noundef %299, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %300) #5
-  %302 = add i32 %.tr62, 1
-  %303 = load i32, ptr @hf_kink_reserved8, align 4
-  %304 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %303, ptr noundef %1, i32 noundef %302, i32 noundef 1, i32 noundef 0) #5
-  %305 = load i32, ptr @hf_kink_payload_length, align 4
-  %306 = tail call ptr @proto_tree_add_uint(ptr noundef %297, i32 noundef %305, ptr noundef %1, i32 noundef %293, i32 noundef 2, i32 noundef %295) #5
-  %.not.i55 = icmp eq i16 %294, 8
-  br i1 %.not.i55, label %dissect_payload_kink_error.exit, label %307
+291:                                              ; preds = %tailrecurse
+  %292 = add i32 %.tr62, 2
+  %293 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %292) #5
+  %294 = zext i16 %293 to i32
+  %295 = load i32, ptr @ett_payload_kink_error, align 4
+  %296 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %294, i32 noundef %295, ptr noundef null, ptr noundef nonnull @.str.79) #5
+  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
+  %298 = load i32, ptr @hf_kink_next_payload, align 4
+  %299 = zext i8 %297 to i32
+  %300 = tail call ptr @proto_tree_add_uint(ptr noundef %296, i32 noundef %298, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %299) #5
+  %301 = add i32 %.tr62, 1
+  %302 = load i32, ptr @hf_kink_reserved8, align 4
+  %303 = tail call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %302, ptr noundef %1, i32 noundef %301, i32 noundef 1, i32 noundef 0) #5
+  %304 = load i32, ptr @hf_kink_payload_length, align 4
+  %305 = tail call ptr @proto_tree_add_uint(ptr noundef %296, i32 noundef %304, ptr noundef %1, i32 noundef %292, i32 noundef 2, i32 noundef %294) #5
+  %.not.i55 = icmp eq i16 %293, 8
+  br i1 %.not.i55, label %dissect_payload_kink_error.exit, label %306
 
-307:                                              ; preds = %292
-  %308 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %306, ptr noundef nonnull @ei_kink_payload_length_mismatch) #5
+306:                                              ; preds = %291
+  %307 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %305, ptr noundef nonnull @ei_kink_payload_length_mismatch) #5
   br label %dissect_payload_kink_error.exit
 
-dissect_payload_kink_error.exit:                  ; preds = %292, %307
-  %309 = add i32 %.tr62, 4
-  %310 = load i32, ptr @hf_kink_error_code, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %310, ptr noundef %1, i32 noundef %309, i32 noundef 4, i32 noundef 0) #5
-  %312 = add i32 %.tr62, 8
+dissect_payload_kink_error.exit:                  ; preds = %291, %306
+  %308 = add i32 %.tr62, 4
+  %309 = load i32, ptr @hf_kink_error_code, align 4
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %309, ptr noundef %1, i32 noundef %308, i32 noundef 4, i32 noundef 0) #5
+  %311 = add i32 %.tr62, 8
   br label %tailrecurse.backedge
 
-313:                                              ; preds = %tailrecurse
-  %314 = add i32 %.tr62, 2
-  %315 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %314) #5
-  %316 = zext i16 %315 to i32
-  %317 = load i32, ptr @ett_payload_not_defined, align 4
-  %318 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %316, i32 noundef %317, ptr noundef null, ptr noundef nonnull @.str.85) #5
-  %319 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
-  %320 = load i32, ptr @hf_kink_next_payload, align 4
-  %321 = zext i8 %319 to i32
-  %322 = tail call ptr @proto_tree_add_uint(ptr noundef %318, i32 noundef %320, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %321) #5
-  %323 = add i32 %.tr62, 1
-  %324 = load i32, ptr @hf_kink_reserved8, align 4
-  %325 = tail call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %324, ptr noundef %1, i32 noundef %323, i32 noundef 1, i32 noundef 0) #5
-  %326 = load i32, ptr @hf_kink_payload_length, align 4
-  %327 = tail call ptr @proto_tree_add_uint(ptr noundef %318, i32 noundef %326, ptr noundef %1, i32 noundef %314, i32 noundef 2, i32 noundef %316) #5
-  %328 = and i32 %316, 3
-  %.not.i56 = icmp eq i32 %328, 0
-  %reass.sub.i57 = and i32 %316, 65532
-  %329 = add nuw nsw i32 %reass.sub.i57, 4
-  %.0.i58 = select i1 %.not.i56, i32 %316, i32 %329
+312:                                              ; preds = %tailrecurse
+  %313 = add i32 %.tr62, 2
+  %314 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %313) #5
+  %315 = zext i16 %314 to i32
+  %316 = load i32, ptr @ett_payload_not_defined, align 4
+  %317 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %.tr62, i32 noundef %315, i32 noundef %316, ptr noundef null, ptr noundef nonnull @.str.85) #5
+  %318 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.tr62) #5
+  %319 = load i32, ptr @hf_kink_next_payload, align 4
+  %320 = zext i8 %318 to i32
+  %321 = tail call ptr @proto_tree_add_uint(ptr noundef %317, i32 noundef %319, ptr noundef %1, i32 noundef %.tr62, i32 noundef 1, i32 noundef %320) #5
+  %322 = add i32 %.tr62, 1
+  %323 = load i32, ptr @hf_kink_reserved8, align 4
+  %324 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %323, ptr noundef %1, i32 noundef %322, i32 noundef 1, i32 noundef 0) #5
+  %325 = load i32, ptr @hf_kink_payload_length, align 4
+  %326 = tail call ptr @proto_tree_add_uint(ptr noundef %317, i32 noundef %325, ptr noundef %1, i32 noundef %313, i32 noundef 2, i32 noundef %315) #5
+  %327 = and i32 %315, 3
+  %.not.i56 = icmp eq i32 %327, 0
+  %reass.sub.i57 = and i32 %315, 65532
+  %328 = add nuw nsw i32 %reass.sub.i57, 4
+  %.0.i58 = select i1 %.not.i56, i32 %315, i32 %328
   %.not33.i = icmp eq i32 %.0.i58, 0
-  br i1 %.not33.i, label %dissect_payload_kink_ap_req.exit, label %330
+  br i1 %.not33.i, label %dissect_payload_kink_ap_req.exit, label %329
 
-330:                                              ; preds = %313
-  %331 = add i32 %.0.i58, %.tr62
+329:                                              ; preds = %312
+  %330 = add i32 %.0.i58, %.tr62
   br label %tailrecurse.backedge
 
-dissect_payload_kink_ap_req.exit:                 ; preds = %313, %287, %225, %150, %123, %118, %83, %42, %tailrecurse
+dissect_payload_kink_ap_req.exit:                 ; preds = %312, %286, %224, %150, %123, %118, %83, %42, %tailrecurse
   ret void
 }
 

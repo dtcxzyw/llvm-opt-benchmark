@@ -412,8 +412,8 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
   br i1 %116, label %show_regs_if_on_stack.exit, label %117
 
 117:                                              ; preds = %107
-  %.not = icmp eq i8 %112, 0
-  br i1 %.not, label %118, label %133
+  %.not.not = icmp eq i8 %111, 0
+  br i1 %.not.not, label %133, label %118
 
 118:                                              ; preds = %117
   %119 = load ptr, ptr %59, align 8

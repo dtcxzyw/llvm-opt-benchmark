@@ -530,8 +530,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8
-  %40 = trunc i64 %35 to i32
-  %41 = xor i32 %39, %40
+  %40 = and i32 %39, 1
+  %41 = trunc i64 %35 to i32
   %42 = and i32 %41, 1
   %.val53 = load ptr, ptr %31, align 8
   %43 = ptrtoint ptr %.val53 to i64
@@ -542,7 +542,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %48 = trunc i64 %43 to i32
   %49 = ashr i32 %39, 1
   %50 = ashr i32 %47, 1
-  %51 = icmp ne i32 %42, 0
+  %51 = icmp ne i32 %40, %42
   %52 = xor i32 %47, %48
   %53 = and i32 %52, 1
   %54 = icmp ne i32 %53, 0
@@ -556,7 +556,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 59:                                               ; preds = %26
-  %60 = icmp eq i32 %42, 0
+  %60 = icmp eq i32 %40, %42
   %or.cond3 = select i1 %60, i1 %54, i1 false
   br i1 %or.cond3, label %61, label %63
 

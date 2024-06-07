@@ -1928,7 +1928,7 @@ define internal fastcc i32 @Gia_ManAppendMux2(ptr noundef %0, i32 noundef %1, i3
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %.not19.i = icmp eq i32 %5, 0
+  %.not19.i = icmp eq i32 %1, 1
   %11 = select i1 %.not19.i, i32 0, i32 %3
   br label %Gia_ManAppendAnd2.exit.thread
 
@@ -2008,7 +2008,7 @@ Gia_ManAppendAnd2.exit12:                         ; preds = %Gia_ManAppendAnd2.e
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %.not19.i16 = icmp eq i32 %43, 0
+  %.not19.i16 = icmp eq i32 %.0.i2227, 1
   %46 = select i1 %.not19.i16, i32 0, i32 %42
   br label %Gia_ManAppendAnd2.exit17
 
@@ -2017,7 +2017,7 @@ Gia_ManAppendAnd2.exit12:                         ; preds = %Gia_ManAppendAnd2.e
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %.not18.i15 = icmp eq i32 %42, 0
+  %.not18.i15 = icmp eq i32 %.0.i928, 1
   %50 = select i1 %.not18.i15, i32 0, i32 %43
   br label %Gia_ManAppendAnd2.exit17
 

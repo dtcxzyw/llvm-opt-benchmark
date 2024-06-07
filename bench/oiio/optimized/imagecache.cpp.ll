@@ -27372,8 +27372,8 @@ land.end:                                         ; preds = %if.then5
   %9 = xor i8 %8, 1
   %10 = zext nneg i8 %9 to i32
   store i32 %10, ptr %data, align 4
-  %cmp = icmp eq i8 %9, 0
-  br i1 %cmp, label %if.then8, label %return
+  %cmp.not = icmp eq i8 %8, 0
+  br i1 %cmp.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %land.end.thread, %land.end
   %m_errormessage = getelementptr inbounds i8, ptr %this, i64 25216

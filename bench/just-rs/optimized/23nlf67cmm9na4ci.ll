@@ -11722,8 +11722,8 @@ define noundef zeroext i1 @"_ZN53_$LT$just..ast..Ast$u20$as$u20$core..fmt..Displ
   %32 = load i64, ptr %31, align 8, !range !1605, !noundef !12
   %33 = xor i64 %32, -9223372036854775808
   %34 = icmp ugt i64 %33, 6
-  %35 = icmp eq i64 %33, 5
-  %36 = or i1 %34, %35
+  %35 = icmp eq i64 %32, -9223372036854775803
+  %36 = or i1 %35, %34
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %30

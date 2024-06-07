@@ -2608,28 +2608,21 @@ if.end.i:                                         ; preds = %sw.bb89
   br i1 %cmp114.i.i, label %while.body.i.preheader.i, label %while.end.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
+  %add.ptr.i.idx = shl nsw i64 %7, 5
   %sub.ptr.div.i = and i64 %7, 576460752303423487
   %70 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i, i1 true)
   %sub.i.i = shl nuw nsw i64 %70, 1
   %mul.i189 = xor i64 %sub.i.i, 126
-  %cmp2.i16.i = icmp eq i64 %mul.i189, 0
-  br i1 %cmp2.i16.i, label %if.then.i.i, label %if.end.i.i.preheader
-
-if.end.i.i.preheader:                             ; preds = %while.body.i.preheader.i
-  %add.ptr.i.idx = shl nsw i64 %7, 5
   br label %if.end.i.i
 
 while.body.i.i:                                   ; preds = %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i"
   %cmp2.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.end.i.i, !llvm.loop !23
 
-if.then.i.i:                                      ; preds = %while.body.i.i, %while.body.i.preheader.i
-  %sub.ptr.rhs.cast118.i.lcssa.i = phi i64 [ %sub.ptr.rhs.cast.i, %while.body.i.preheader.i ], [ %sub.ptr.rhs.cast.i.i, %while.body.i.i ]
-  %__first.addr.0117.i.lcssa.i = phi ptr [ %6, %while.body.i.preheader.i ], [ %__first.addr.0.call.i.i, %while.body.i.i ]
-  %__last.addr.0116.i.lcssa.i = phi ptr [ %add.ptr.i, %while.body.i.preheader.i ], [ %call.__last.addr.0.i.i, %while.body.i.i ]
+if.then.i.i:                                      ; preds = %while.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast118.i.lcssa.i
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
   %cmp.i.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i.i, 2
   br i1 %cmp.i.i.i.i, label %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i", label %if.end.i.i.i.i
@@ -2641,23 +2634,23 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.end.i.i.i.i
   %__parent.0.i.i.i.i = phi i64 [ %div9.i.i.i.i, %if.end.i.i.i.i ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0117.i.lcssa.i, i64 %__parent.0.i.i.i.i
-  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0117.i.lcssa.i, i64 noundef %__parent.0.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i.i, i32 %retval.0.i)
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i.i, i64 %__parent.0.i.i.i.i
+  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0.call.i.i, i64 noundef %__parent.0.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i.i, i32 %retval.0.i)
   %cmp7.i.i.i.i = icmp eq i64 %__parent.0.i.i.i.i, 0
   %dec.i.i.i.i = add nsw i64 %__parent.0.i.i.i.i, -1
   br i1 %cmp7.i.i.i.i, label %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i", label %while.body.i.i.i.i, !llvm.loop !24
 
 "_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i": ; preds = %while.body.i.i.i.i, %if.then.i.i
-  %cmp14.i.i.i = icmp ult ptr %add.ptr.i.i, %__last.addr.0116.i.lcssa.i
+  %cmp14.i.i.i = icmp ult ptr %add.ptr.i.i, %call.__last.addr.0.i.i
   br i1 %cmp14.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_T0_.exit.i.i"
 
 for.body.lr.ph.i.i.i:                             ; preds = %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i"
-  %71 = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 12
-  %72 = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 24
-  %bounds.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 8
-  %pMax.i106.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 20
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 16
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa.i, i64 28
+  %71 = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 12
+  %72 = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 24
+  %bounds.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 8
+  %pMax.i106.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 20
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 16
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i, i64 28
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
@@ -2718,29 +2711,29 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i
 if.then.i.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa.i, i64 32, i1 false)
-  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef nonnull %__first.addr.0117.i.lcssa.i, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %agg.tmp.i.i.i.i, i32 %retval.0.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i.i, i64 32, i1 false)
+  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef nonnull %__first.addr.0.call.i.i, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %agg.tmp.i.i.i.i, i32 %retval.0.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i.i.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.015.i.i.i, i64 32
-  %cmp.i.i.i191 = icmp ult ptr %incdec.ptr.i.i.i, %__last.addr.0116.i.lcssa.i
+  %cmp.i.i.i191 = icmp ult ptr %incdec.ptr.i.i.i, %call.__last.addr.0.i.i
   br i1 %cmp.i.i.i191, label %for.body.i.i.i, label %"_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_T0_.exit.i.i", !llvm.loop !25
 
 "_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_T0_.exit.i.i": ; preds = %for.inc.i.i.i, %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i.i186)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i186, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i186, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i186, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i.i186)
   br label %sw.epilog
 
-if.end.i.i:                                       ; preds = %if.end.i.i.preheader, %while.body.i.i
-  %__depth_limit.addr.0115.i20.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %if.end.i.i.preheader ]
-  %__last.addr.0116.i19.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %if.end.i.i.preheader ]
-  %__first.addr.0117.i18.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %if.end.i.i.preheader ]
-  %sub.ptr.sub119.i17.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %if.end.i.i.preheader ]
+if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.preheader.i
+  %__depth_limit.addr.0115.i20.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %while.body.i.preheader.i ]
+  %__last.addr.0116.i19.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %while.body.i.preheader.i ]
+  %__first.addr.0117.i18.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %while.body.i.preheader.i ]
+  %sub.ptr.sub119.i17.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %while.body.i.preheader.i ]
   %dec.i.i = add nsw i64 %__depth_limit.addr.0115.i20.i, -1
   %div.i100101.i.i = lshr i64 %sub.ptr.sub119.i17.i, 6
   %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0117.i18.i, i64 %div.i100101.i.i
@@ -4482,20 +4475,16 @@ while.body.i.preheader:                           ; preds = %if.end
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
   %sub.i = shl nuw nsw i64 %0, 1
   %mul = xor i64 %sub.i, 126
-  %cmp2.i16 = icmp eq i64 %mul, 0
-  br i1 %cmp2.i16, label %if.then.i, label %if.end.i
+  br label %if.end.i
 
 while.body.i:                                     ; preds = %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i"
   %cmp2.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.i, label %if.then.i, label %if.end.i, !llvm.loop !49
 
-if.then.i:                                        ; preds = %while.body.i, %while.body.i.preheader
-  %sub.ptr.rhs.cast118.i.lcssa = phi i64 [ %sub.ptr.rhs.cast, %while.body.i.preheader ], [ %sub.ptr.rhs.cast.i, %while.body.i ]
-  %__first.addr.0117.i.lcssa = phi ptr [ %__first, %while.body.i.preheader ], [ %__first.addr.0.call.i, %while.body.i ]
-  %__last.addr.0116.i.lcssa = phi ptr [ %__last, %while.body.i.preheader ], [ %call.__last.addr.0.i, %while.body.i ]
+if.then.i:                                        ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %__nth, i64 32
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast118.i.lcssa
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
   %cmp.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i, 2
   br i1 %cmp.i.i.i, label %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_RT0_.exit.i.i", label %if.end.i.i.i
@@ -4507,23 +4496,23 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0117.i.lcssa, i64 %__parent.0.i.i.i
-  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0117.i.lcssa, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i, i32 %__comp.coerce)
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i, i64 %__parent.0.i.i.i
+  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0.call.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i, i32 %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp7.i.i.i, label %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !50
 
 "_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_RT0_.exit.i.i": ; preds = %while.body.i.i.i, %if.then.i
-  %cmp14.i.i = icmp ult ptr %add.ptr.i, %__last.addr.0116.i.lcssa
+  %cmp14.i.i = icmp ult ptr %add.ptr.i, %call.__last.addr.0.i
   br i1 %cmp14.i.i, label %for.body.lr.ph.i.i, label %"_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_T0_.exit.i"
 
 for.body.lr.ph.i.i:                               ; preds = %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_RT0_.exit.i.i"
-  %1 = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 12
-  %2 = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 24
-  %bounds.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 8
-  %pMax.i106.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 20
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 16
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0117.i.lcssa, i64 28
+  %1 = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 12
+  %2 = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 24
+  %bounds.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 8
+  %pMax.i106.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 20
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 16
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.call.i, i64 28
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -4584,20 +4573,20 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i:   ; preds = %for.body.i.i
 if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa, i64 32, i1 false)
-  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef nonnull %__first.addr.0117.i.lcssa, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %agg.tmp.i.i.i, i32 %__comp.coerce)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__i.015.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i, i64 32, i1 false)
+  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef nonnull %__first.addr.0.call.i, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %agg.tmp.i.i.i, i32 %__comp.coerce)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i.i"
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.015.i.i, i64 32
-  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__last.addr.0116.i.lcssa
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %call.__last.addr.0.i
   br i1 %cmp.i.i, label %for.body.i.i, label %"_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_T0_.exit.i", !llvm.loop !51
 
 "_ZSt13__heap_selectIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_T0_.exit.i": ; preds = %for.inc.i.i, %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_RT0_.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0117.i.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %__nth, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.call.i, ptr noundef nonnull align 8 dereferenceable(32) %__nth, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__nth, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i)
   br label %return

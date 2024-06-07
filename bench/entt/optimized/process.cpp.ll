@@ -1016,8 +1016,8 @@ sw.bb3:                                           ; preds = %entry
   store i8 %frombool.i.i.i, ptr %gtest_ar_.i.i.i, align 8, !tbaa !22
   %message_.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar_.i.i.i, i64 8
   store ptr null, ptr %message_.i.i.i.i, align 8, !tbaa !36
-  %tobool.i.not.i.i.i = icmp eq i8 %frombool.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i, label %sw.epilog.thread17
+  %tobool.i.not.i.i.i.not = icmp eq i8 %2, 0
+  br i1 %tobool.i.not.i.i.i.not, label %sw.epilog.thread17, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i.i.i) #15
@@ -1558,8 +1558,8 @@ sw.bb3:                                           ; preds = %entry
   store i8 %frombool.i.i.i, ptr %gtest_ar_.i.i.i, align 8, !tbaa !22
   %message_.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar_.i.i.i, i64 8
   store ptr null, ptr %message_.i.i.i.i, align 8, !tbaa !36
-  %tobool.i.not.i.i.i = icmp eq i8 %frombool.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i, label %sw.epilog.thread17
+  %tobool.i.not.i.i.i.not = icmp eq i8 %2, 0
+  br i1 %tobool.i.not.i.i.i.not, label %sw.epilog.thread17, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i.i.i) #15

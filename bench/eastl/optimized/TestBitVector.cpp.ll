@@ -17349,7 +17349,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %invoke.cont745
   %rem11.i.i.i.i.i.i1721 = and i64 %sub6.i.i.i.i.i.i1718, 63
   %sub12.i.i.i.i.i.i1722 = xor i64 %rem11.i.i.i.i.i.i1721, 63
   %add.ptr10.sink.i.i.i.i.i.i1726 = getelementptr inbounds i64, ptr %444, i64 %idx.neg.i.i.i.i.i.i1720
-  %cmp.i.i.i1735 = icmp eq i64 %sub12.i.i.i.i.i.i1722, 0
+  %cmp.i.i.i1735 = icmp eq i64 %rem11.i.i.i.i.i.i1721, 63
   %spec.select3534.idx = select i1 %cmp.i.i.i1735, i64 -8, i64 0
   %spec.select3534 = getelementptr inbounds i8, ptr %add.ptr10.sink.i.i.i.i.i.i1726, i64 %spec.select3534.idx
   %447 = sub nsw i64 62, %rem11.i.i.i.i.i.i1721
@@ -18927,7 +18927,7 @@ if.else.i.i.i.i.i.i.i2894:                        ; preds = %_ZN5eastl6vectorIm1
   %rem11.i.i.i.i.i.i2869 = and i64 %sub6.i.i.i.i.i.i2866, 63
   %sub12.i.i.i.i.i.i2870 = xor i64 %rem11.i.i.i.i.i.i2869, 63
   %add.ptr10.sink.i.i.i.i.i.i2874 = getelementptr inbounds i64, ptr %661, i64 %idx.neg.i.i.i.i.i.i2868
-  %cmp.i.i.i2885 = icmp eq i64 %sub12.i.i.i.i.i.i2870, 0
+  %cmp.i.i.i2885 = icmp eq i64 %rem11.i.i.i.i.i.i2869, 63
   %spec.select3539.idx = select i1 %cmp.i.i.i2885, i64 -8, i64 0
   %spec.select3539 = getelementptr inbounds i8, ptr %add.ptr10.sink.i.i.i.i.i.i2874, i64 %spec.select3539.idx
   %664 = sub nsw i64 62, %rem11.i.i.i.i.i.i2869
@@ -19037,19 +19037,22 @@ invoke.cont1178.thread:                           ; preds = %invoke.cont1171
   %div76.i.i.i.i.i.i2963 = lshr i64 %sub6.i.i.i.i.i.i2962, 6
   %idx.neg.i.i.i.i.i.i2964 = sub nsw i64 0, %div76.i.i.i.i.i.i2963
   %rem11.i.i.i.i.i.i2965 = and i64 %sub6.i.i.i.i.i.i2962, 63
-  %sub12.i.i.i.i.i.i2966 = xor i64 %rem11.i.i.i.i.i.i2965, 63
   %add.ptr10.sink.i.i.i.i.i.i29703499 = getelementptr inbounds i64, ptr %676, i64 %idx.neg.i.i.i.i.i.i2964
   %680 = load ptr, ptr %bv0678, align 8
   %cmp.i.i.i29913500 = icmp eq ptr %680, %add.ptr10.sink.i.i.i.i.i.i29703499
-  %cmp7.i.i.i29923501 = icmp eq i64 %sub12.i.i.i.i.i.i2966, 0
+  %cmp7.i.i.i29923501 = icmp eq i64 %rem11.i.i.i.i.i.i2965, 63
   %681 = and i1 %cmp7.i.i.i29923501, %cmp.i.i.i29913500
-  br i1 %681, label %invoke.cont1180, label %_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE3endEv.exit.i.i
+  br i1 %681, label %invoke.cont1180, label %if.else.i.i.i.i.i.i.i3000
 
-_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE3endEv.exit.i.i: ; preds = %invoke.cont1178.thread, %invoke.cont1178
-  %add.ptr10.sink.i.i.i.i.i.i29703499.sink = phi ptr [ %add.ptr10.sink.i.i.i.i.i.i2970, %invoke.cont1178 ], [ %add.ptr10.sink.i.i.i.i.i.i29703499, %invoke.cont1178.thread ]
-  %.sink3918 = phi ptr [ %678, %invoke.cont1178 ], [ %680, %invoke.cont1178.thread ]
-  %storemerge.i.i.i.i.i.i296935023511 = phi i64 [ %rem.i.i.i.i.i.i2974, %invoke.cont1178 ], [ %sub12.i.i.i.i.i.i2966, %invoke.cont1178.thread ]
-  %div7.i.i.i.pn.i.i.i.i3006 = phi i64 [ %div7.i.i.i.i.i.i2973, %invoke.cont1178 ], [ %idx.neg.i.i.i.i.i.i2964, %invoke.cont1178.thread ]
+if.else.i.i.i.i.i.i.i3000:                        ; preds = %invoke.cont1178.thread
+  %sub12.i.i.i.i.i.i2966 = xor i64 %rem11.i.i.i.i.i.i2965, 63
+  br label %_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE3endEv.exit.i.i
+
+_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE3endEv.exit.i.i: ; preds = %invoke.cont1178, %if.else.i.i.i.i.i.i.i3000
+  %add.ptr10.sink.i.i.i.i.i.i29703499.sink = phi ptr [ %add.ptr10.sink.i.i.i.i.i.i29703499, %if.else.i.i.i.i.i.i.i3000 ], [ %add.ptr10.sink.i.i.i.i.i.i2970, %invoke.cont1178 ]
+  %.sink3918 = phi ptr [ %680, %if.else.i.i.i.i.i.i.i3000 ], [ %678, %invoke.cont1178 ]
+  %storemerge.i.i.i.i.i.i296935023511 = phi i64 [ %sub12.i.i.i.i.i.i2966, %if.else.i.i.i.i.i.i.i3000 ], [ %rem.i.i.i.i.i.i2974, %invoke.cont1178 ]
+  %div7.i.i.i.pn.i.i.i.i3006 = phi i64 [ %idx.neg.i.i.i.i.i.i2964, %if.else.i.i.i.i.i.i.i3000 ], [ %div7.i.i.i.i.i.i2973, %invoke.cont1178 ]
   %add.ptr10.sink.i.i.i.i.i.i.i3008 = getelementptr inbounds i64, ptr %676, i64 %div7.i.i.i.pn.i.i.i.i3006
   invoke void @_ZN5eastl8MoveBitsImEEvNS_18bitvector_iteratorIT_EES3_S3_(ptr %add.ptr10.sink.i.i.i.i.i.i29703499.sink, i64 %storemerge.i.i.i.i.i.i296935023511, ptr %add.ptr10.sink.i.i.i.i.i.i.i3008, i64 %storemerge.i.i.i.i.i.i296935023511, ptr %.sink3918, i64 0)
           to label %.noexc3014 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

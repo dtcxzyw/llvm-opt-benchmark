@@ -5405,7 +5405,7 @@ switch.lookup:                                    ; preds = %.split13.i, %.split
 
 24:                                               ; preds = %switch.lookup
   %25 = xor i32 %20, %.01417
-  %26 = icmp eq i32 %25, 0
+  %26 = icmp eq i32 %20, %.01417
   br i1 %26, label %.loopexit, label %.split13.i
 }
 

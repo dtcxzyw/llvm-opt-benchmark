@@ -7265,32 +7265,32 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   %99 = load i64, ptr %98, align 8
   %100 = zext nneg i32 %96 to i64
   %101 = lshr i64 %99, %100
-  %102 = xor i64 %101, %74
-  %103 = and i64 %102, %77
-  %.not83 = icmp eq i64 %103, 0
-  br i1 %.not83, label %104, label %106
+  %102 = and i64 %101, %77
+  %.not83 = icmp eq i64 %78, %102
+  br i1 %.not83, label %103, label %105
 
-104:                                              ; preds = %.lr.ph
-  %105 = shl i32 %.06895, 1
+103:                                              ; preds = %.lr.ph
+  %104 = shl i32 %.06895, 1
   br label %.loopexit
 
-106:                                              ; preds = %.lr.ph
-  %.not84 = icmp eq i64 %103, %77
+105:                                              ; preds = %.lr.ph
+  %106 = xor i64 %102, %77
+  %.not84 = icmp eq i64 %106, %78
   br i1 %.not84, label %107, label %110
 
-107:                                              ; preds = %106
+107:                                              ; preds = %105
   %108 = shl i32 %.06895, 1
   %109 = or disjoint i32 %108, 1
   br label %.loopexit
 
-110:                                              ; preds = %106
+110:                                              ; preds = %105
   %111 = add i32 %.06895, 1
   %112 = zext i32 %111 to i64
   %113 = icmp ugt i64 %90, %112
   br i1 %113, label %.lr.ph, label %.loopexit, !llvm.loop !75
 
-.loopexit:                                        ; preds = %110, %45, %8, %.lr.ph108, %.split.us.loopexit, %.critedge, %.preheader89, %.preheader, %79, %62, %107, %104
-  %.0 = phi i32 [ %109, %107 ], [ %105, %104 ], [ -2, %62 ], [ -1, %79 ], [ -3, %.preheader ], [ -3, %.preheader89 ], [ %23, %.critedge ], [ 1, %.lr.ph108 ], [ %61, %.split.us.loopexit ], [ -1, %8 ], [ -3, %45 ], [ -3, %110 ]
+.loopexit:                                        ; preds = %110, %45, %8, %.lr.ph108, %.split.us.loopexit, %.critedge, %.preheader89, %.preheader, %79, %62, %107, %103
+  %.0 = phi i32 [ %109, %107 ], [ %104, %103 ], [ -2, %62 ], [ -1, %79 ], [ -3, %.preheader ], [ -3, %.preheader89 ], [ %23, %.critedge ], [ 1, %.lr.ph108 ], [ %61, %.split.us.loopexit ], [ -1, %8 ], [ -3, %45 ], [ -3, %110 ]
   ret i32 %.0
 }
 

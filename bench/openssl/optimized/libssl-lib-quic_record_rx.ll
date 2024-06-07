@@ -784,11 +784,11 @@ if.end.i7.i.i.i:                                  ; preds = %ossl_list_rxe_inser
   %cmp.i.not.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %hpr_removed.val.i.i.i.i = load i64, ptr %hpr_removed.i.i.i.i, align 8
   %and.i78.i.i.i.i = and i64 %hpr_removed.val.i.i.i.i, %shl.i.i.i.i.i
-  %cmp.i79.i.i.i.i = icmp eq i64 %and.i78.i.i.i.i, 0
+  %cmp.i79.not.i.i.i.i = icmp eq i64 %and.i78.i.i.i.i, 0
+  %conv.i.i.i.i = zext i1 %cmp.i79.not.i.i.i.i to i32
   %7 = load i64, ptr %short_conn_id_len.i.i.i.i, align 8
-  %conv8.i.i.i.i = zext i1 %cmp.i79.i.i.i.i to i32
   %hdr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 104
-  %call9.i.i.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt.i.i.i, i64 noundef %7, i32 noundef %conv8.i.i.i.i, i32 noundef 0, ptr noundef nonnull %hdr.i.i.i.i, ptr noundef nonnull %ptrs.i.i.i.i) #12
+  %call9.i.i.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt.i.i.i, i64 noundef %7, i32 noundef %conv.i.i.i.i, i32 noundef 0, ptr noundef nonnull %hdr.i.i.i.i, ptr noundef nonnull %ptrs.i.i.i.i) #12
   %tobool10.not.i.i.i.i = icmp eq i32 %call9.i.i.i.i, 0
   %.pre23.i.i.i = load ptr, ptr %pkt.i.i.i, align 8
   br i1 %tobool10.not.i.i.i.i, label %PACKET_forward.exit140.i.i.i.i, label %if.end12.i.i.i.i
@@ -1027,7 +1027,7 @@ if.end77.i.i.i.i:                                 ; preds = %if.end74.i.i.i.i, %
   %i.1.i.i.i.i = phi i64 [ %29, %if.end74.i.i.i.i ], [ 0, %sw.epilog.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %orig_pkt.i.i.i.i, i64 16, i1 false)
   %call79.i.i.i.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef %retval.0.i95.i.i.i.i, i32 noundef 1) #12
-  br i1 %cmp.i79.i.i.i.i, label %if.then81.i.i.i.i, label %if.end94.i.i.i.i
+  br i1 %cmp.i79.not.i.i.i.i, label %if.then81.i.i.i.i, label %if.end94.i.i.i.i
 
 if.then81.i.i.i.i:                                ; preds = %if.end77.i.i.i.i
   %call82.i.i.i.i = call i32 @ossl_quic_hdr_protector_decrypt(ptr noundef %call79.i.i.i.i, ptr noundef nonnull %ptrs.i.i.i.i) #12
@@ -1178,7 +1178,7 @@ qrx_get_cipher_ctx_idx.exit.i.i:                  ; preds = %if.end8.i.i.i
   %and21.i.i.i = and i64 %54, 1
   %xor23.i.i.i = xor i64 %and21.i.i.i, %conv128.i.i.i.i
   %sub.i.i.i = sub i64 %54, %xor23.i.i.i
-  %tobool32.not.i.i = icmp eq i64 %xor23.i.i.i, 0
+  %tobool32.not.i.i = icmp eq i64 %and21.i.i.i, %conv128.i.i.i.i
   br i1 %tobool32.not.i.i, label %if.end36.i.i, label %land.lhs.true.i5.i
 
 land.lhs.true.i5.i:                               ; preds = %qrx_get_cipher_ctx_idx.exit.i.i

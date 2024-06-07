@@ -3657,7 +3657,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %68 = trunc i64 %.val109 to i32
   %69 = lshr i32 %68, 29
   %70 = and i32 %69, 1
-  %71 = xor i32 %70, %67
+  %71 = xor i32 %69, %67
   %72 = load ptr, ptr %4, align 8
   %73 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %72)
   %74 = load i64, ptr %73, align 4
@@ -3793,7 +3793,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %153 = ashr exact i64 %sext131, 32
   %154 = getelementptr inbounds i32, ptr %48, i64 %153
   store i32 %147, ptr %154, align 4
-  %155 = icmp eq i32 %71, 0
+  %155 = icmp eq i32 %70, %67
   %156 = and i32 %.1136, 1
   %157 = select i1 %155, i32 %156, i32 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

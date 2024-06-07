@@ -3807,11 +3807,11 @@ for.inc.i.i:                                      ; preds = %if.then.i.i894, %fo
 
 _ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i: ; preds = %for.inc.i.i
   %167 = and i32 %usedColors.1.i.i, 7
-  %168 = xor i32 %167, 7
-  %tobool.not.i896 = icmp eq i32 %168, 0
+  %tobool.not.i896 = icmp eq i32 %167, 7
   br i1 %tobool.not.i896, label %if.end18.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i
+  %168 = xor i32 %167, 7
   %idxprom14.i = zext nneg i32 %168 to i64
   %arrayidx15.i = getelementptr inbounds [8 x i32], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 0, i64 %idxprom14.i
   %169 = load i32, ptr %arrayidx15.i, align 4
@@ -3907,8 +3907,7 @@ for.inc.i66.i:                                    ; preds = %if.then.i62.i, %for
 
 _ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i: ; preds = %for.inc.i66.i
   %185 = and i32 %usedColors.1.i67.i, 7
-  %186 = xor i32 %185, 7
-  %tobool36.not.i = icmp eq i32 %186, 0
+  %tobool36.not.i = icmp eq i32 %185, 7
   br i1 %tobool36.not.i, label %do.body.preheader.i, label %if.then37.i
 
 do.body.preheader.i:                              ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i
@@ -3917,6 +3916,7 @@ do.body.preheader.i:                              ; preds = %_ZN7msdfgenL20verte
   br label %do.body.i
 
 if.then37.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i
+  %186 = xor i32 %185, 7
   %idxprom38.i = zext nneg i32 %186 to i64
   %arrayidx39.i = getelementptr inbounds [8 x i32], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 0, i64 %idxprom38.i
   %187 = load i32, ptr %arrayidx39.i, align 4

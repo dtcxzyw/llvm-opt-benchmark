@@ -623,96 +623,96 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %80 = add i64 %.0.sroa.speculated.i.i, %75
   %81 = getelementptr inbounds i8, ptr %0, i64 %76
   %82 = add i64 %.3, 12
-  %.not30.i = icmp ugt i64 %82, %80
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i50
+  %.not29.i = icmp ugt i64 %82, %80
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i50
 
-._crit_edge.i:                                    ; preds = %119, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit
-  %.4 = phi i64 [ %75, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %85, %119 ]
-  %.021.lcssa.i = phi ptr [ %81, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %120, %119 ]
+._crit_edge.i:                                    ; preds = %118, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit
+  %.4 = phi i64 [ %75, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %85, %118 ]
+  %.021.lcssa.i = phi ptr [ %81, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %119, %118 ]
   %83 = sub i64 %80, %.4
   %84 = icmp ugt i64 %83, 3
-  br i1 %84, label %90, label %94
+  br i1 %84, label %89, label %92
 
-.lr.ph.i50:                                       ; preds = %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit, %119
-  %85 = phi i64 [ %121, %119 ], [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
-  %.02131.i = phi ptr [ %120, %119 ], [ %81, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
-  %86 = phi i64 [ %85, %119 ], [ %75, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+.lr.ph.i50:                                       ; preds = %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit, %118
+  %85 = phi i64 [ %120, %118 ], [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+  %.02130.i = phi ptr [ %119, %118 ], [ %81, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+  %86 = phi i64 [ %85, %118 ], [ %75, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %.0.copyload.i51 = load i64, ptr %87, align 1, !alias.scope !111, !noalias !116
-  %.0.copyload8.i = load i64, ptr %.02131.i, align 1, !alias.scope !114, !noalias !118
-  %88 = xor i64 %.0.copyload8.i, %.0.copyload.i51
-  %89 = icmp eq i64 %88, 0
-  br i1 %89, label %119, label %122
+  %.0.copyload8.i = load i64, ptr %.02130.i, align 1, !alias.scope !114, !noalias !118
+  %88 = icmp eq i64 %.0.copyload.i51, %.0.copyload8.i
+  br i1 %88, label %118, label %121
 
-90:                                               ; preds = %._crit_edge.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 %.4
-  %.0.copyload10.i = load i32, ptr %91, align 1, !alias.scope !111, !noalias !116
+89:                                               ; preds = %._crit_edge.i
+  %90 = getelementptr inbounds i8, ptr %0, i64 %.4
+  %.0.copyload10.i = load i32, ptr %90, align 1, !alias.scope !111, !noalias !116
   %.0.copyload12.i = load i32, ptr %.021.lcssa.i, align 1, !alias.scope !114, !noalias !118
-  %92 = xor i32 %.0.copyload12.i, %.0.copyload10.i
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %96, label %99
+  %91 = icmp eq i32 %.0.copyload10.i, %.0.copyload12.i
+  br i1 %91, label %94, label %97
 
-94:                                               ; preds = %96, %._crit_edge.i
-  %.5 = phi i64 [ %97, %96 ], [ %.4, %._crit_edge.i ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %96 ], [ %83, %._crit_edge.i ]
-  %.1.i = phi ptr [ %98, %96 ], [ %.021.lcssa.i, %._crit_edge.i ]
-  %95 = icmp ugt i64 %.pre-phi.i, 1
-  br i1 %95, label %104, label %107
+92:                                               ; preds = %94, %._crit_edge.i
+  %.5 = phi i64 [ %95, %94 ], [ %.4, %._crit_edge.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %94 ], [ %83, %._crit_edge.i ]
+  %.1.i = phi ptr [ %96, %94 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %93 = icmp ugt i64 %.pre-phi.i, 1
+  br i1 %93, label %103, label %106
 
-96:                                               ; preds = %90
-  %97 = add i64 %.4, 4
-  %98 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 4
-  %.pre.i = sub i64 %80, %97
-  br label %94
+94:                                               ; preds = %89
+  %95 = add i64 %.4, 4
+  %96 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 4
+  %.pre.i = sub i64 %80, %95
+  br label %92
 
-99:                                               ; preds = %90
-  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %92, i1 true)
-  %101 = lshr i32 %100, 3
-  %102 = zext nneg i32 %101 to i64
-  %103 = add i64 %.4, %102
+97:                                               ; preds = %89
+  %98 = xor i32 %.0.copyload12.i, %.0.copyload10.i
+  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %98, i1 false)
+  %100 = lshr i32 %99, 3
+  %101 = zext nneg i32 %100 to i64
+  %102 = add i64 %.4, %101
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-104:                                              ; preds = %94
-  %105 = getelementptr inbounds i8, ptr %0, i64 %.5
-  %.0.copyload14.i = load i16, ptr %105, align 1, !alias.scope !111, !noalias !116
+103:                                              ; preds = %92
+  %104 = getelementptr inbounds i8, ptr %0, i64 %.5
+  %.0.copyload14.i = load i16, ptr %104, align 1, !alias.scope !111, !noalias !116
   %.0.copyload16.i = load i16, ptr %.1.i, align 1, !alias.scope !114, !noalias !118
-  %106 = icmp eq i16 %.0.copyload14.i, %.0.copyload16.i
-  br i1 %106, label %110, label %107
+  %105 = icmp eq i16 %.0.copyload14.i, %.0.copyload16.i
+  br i1 %105, label %109, label %106
 
-107:                                              ; preds = %110, %104, %94
-  %108 = phi i64 [ %111, %110 ], [ %.5, %104 ], [ %.5, %94 ]
-  %.2.i = phi ptr [ %112, %110 ], [ %.1.i, %104 ], [ %.1.i, %94 ]
-  %109 = icmp ult i64 %108, %80
-  br i1 %109, label %113, label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
+106:                                              ; preds = %109, %103, %92
+  %107 = phi i64 [ %110, %109 ], [ %.5, %103 ], [ %.5, %92 ]
+  %.2.i = phi ptr [ %111, %109 ], [ %.1.i, %103 ], [ %.1.i, %92 ]
+  %108 = icmp ult i64 %107, %80
+  br i1 %108, label %112, label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-110:                                              ; preds = %104
-  %111 = add i64 %.5, 2
-  %112 = getelementptr inbounds i8, ptr %.1.i, i64 2
-  br label %107
+109:                                              ; preds = %103
+  %110 = add i64 %.5, 2
+  %111 = getelementptr inbounds i8, ptr %.1.i, i64 2
+  br label %106
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %0, i64 %108
-  %115 = load i8, ptr %114, align 1, !alias.scope !111, !noalias !116, !noundef !9
-  %116 = load i8, ptr %.2.i, align 1, !alias.scope !114, !noalias !118, !noundef !9
-  %117 = icmp eq i8 %115, %116
-  %118 = zext i1 %117 to i64
-  %spec.select = add nuw i64 %108, %118
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds i8, ptr %0, i64 %107
+  %114 = load i8, ptr %113, align 1, !alias.scope !111, !noalias !116, !noundef !9
+  %115 = load i8, ptr %.2.i, align 1, !alias.scope !114, !noalias !118, !noundef !9
+  %116 = icmp eq i8 %114, %115
+  %117 = zext i1 %116 to i64
+  %spec.select = add nuw i64 %107, %117
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-119:                                              ; preds = %.lr.ph.i50
-  %120 = getelementptr inbounds i8, ptr %.02131.i, i64 8
-  %121 = add i64 %85, 8
-  %.not.i = icmp ugt i64 %121, %80
+118:                                              ; preds = %.lr.ph.i50
+  %119 = getelementptr inbounds i8, ptr %.02130.i, i64 8
+  %120 = add i64 %85, 8
+  %.not.i = icmp ugt i64 %120, %80
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i50
 
-122:                                              ; preds = %.lr.ph.i50
-  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 true)
+121:                                              ; preds = %.lr.ph.i50
+  %122 = xor i64 %.0.copyload8.i, %.0.copyload.i51
+  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %122, i1 false)
   %124 = lshr i64 %123, 3
   %125 = add i64 %124, %86
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds = %113, %99, %122, %107
-  %.7 = phi i64 [ %108, %107 ], [ %125, %122 ], [ %103, %99 ], [ %spec.select, %113 ]
+_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds = %112, %97, %121, %106
+  %.7 = phi i64 [ %107, %106 ], [ %125, %121 ], [ %102, %97 ], [ %spec.select, %112 ]
   %.0.i = sub i64 %.7, %75
   %126 = add i64 %.7, -2
   %127 = getelementptr inbounds i8, ptr %0, i64 %126
@@ -1013,96 +1013,96 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
   %81 = add i64 %.0.sroa.speculated.i.i, %76
   %82 = getelementptr inbounds i8, ptr %0, i64 %77
   %83 = add i64 %.3, 12
-  %.not30.i = icmp ugt i64 %83, %81
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i50
+  %.not29.i = icmp ugt i64 %83, %81
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i50
 
-._crit_edge.i:                                    ; preds = %120, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit
-  %.4 = phi i64 [ %76, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %86, %120 ]
-  %.021.lcssa.i = phi ptr [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %121, %120 ]
+._crit_edge.i:                                    ; preds = %119, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit
+  %.4 = phi i64 [ %76, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %86, %119 ]
+  %.021.lcssa.i = phi ptr [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ], [ %120, %119 ]
   %84 = sub i64 %81, %.4
   %85 = icmp ugt i64 %84, 3
-  br i1 %85, label %91, label %95
+  br i1 %85, label %90, label %93
 
-.lr.ph.i50:                                       ; preds = %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit, %120
-  %86 = phi i64 [ %122, %120 ], [ %83, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
-  %.02131.i = phi ptr [ %121, %120 ], [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
-  %87 = phi i64 [ %86, %120 ], [ %76, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+.lr.ph.i50:                                       ; preds = %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit, %119
+  %86 = phi i64 [ %121, %119 ], [ %83, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+  %.02130.i = phi ptr [ %120, %119 ], [ %82, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
+  %87 = phi i64 [ %86, %119 ], [ %76, %_ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit ]
   %88 = getelementptr inbounds i8, ptr %0, i64 %87
   %.0.copyload.i51 = load i64, ptr %88, align 1, !alias.scope !162, !noalias !167
-  %.0.copyload8.i = load i64, ptr %.02131.i, align 1, !alias.scope !165, !noalias !169
-  %89 = xor i64 %.0.copyload8.i, %.0.copyload.i51
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %120, label %123
+  %.0.copyload8.i = load i64, ptr %.02130.i, align 1, !alias.scope !165, !noalias !169
+  %89 = icmp eq i64 %.0.copyload.i51, %.0.copyload8.i
+  br i1 %89, label %119, label %122
 
-91:                                               ; preds = %._crit_edge.i
-  %92 = getelementptr inbounds i8, ptr %0, i64 %.4
-  %.0.copyload10.i = load i32, ptr %92, align 1, !alias.scope !162, !noalias !167
+90:                                               ; preds = %._crit_edge.i
+  %91 = getelementptr inbounds i8, ptr %0, i64 %.4
+  %.0.copyload10.i = load i32, ptr %91, align 1, !alias.scope !162, !noalias !167
   %.0.copyload12.i = load i32, ptr %.021.lcssa.i, align 1, !alias.scope !165, !noalias !169
-  %93 = xor i32 %.0.copyload12.i, %.0.copyload10.i
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %97, label %100
+  %92 = icmp eq i32 %.0.copyload10.i, %.0.copyload12.i
+  br i1 %92, label %95, label %98
 
-95:                                               ; preds = %97, %._crit_edge.i
-  %.5 = phi i64 [ %98, %97 ], [ %.4, %._crit_edge.i ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %97 ], [ %84, %._crit_edge.i ]
-  %.1.i = phi ptr [ %99, %97 ], [ %.021.lcssa.i, %._crit_edge.i ]
-  %96 = icmp ugt i64 %.pre-phi.i, 1
-  br i1 %96, label %105, label %108
+93:                                               ; preds = %95, %._crit_edge.i
+  %.5 = phi i64 [ %96, %95 ], [ %.4, %._crit_edge.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %95 ], [ %84, %._crit_edge.i ]
+  %.1.i = phi ptr [ %97, %95 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %94 = icmp ugt i64 %.pre-phi.i, 1
+  br i1 %94, label %104, label %107
 
-97:                                               ; preds = %91
-  %98 = add i64 %.4, 4
-  %99 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 4
-  %.pre.i = sub i64 %81, %98
-  br label %95
+95:                                               ; preds = %90
+  %96 = add i64 %.4, 4
+  %97 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 4
+  %.pre.i = sub i64 %81, %96
+  br label %93
 
-100:                                              ; preds = %91
-  %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %93, i1 true)
-  %102 = lshr i32 %101, 3
-  %103 = zext nneg i32 %102 to i64
-  %104 = add i64 %.4, %103
+98:                                               ; preds = %90
+  %99 = xor i32 %.0.copyload12.i, %.0.copyload10.i
+  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %99, i1 false)
+  %101 = lshr i32 %100, 3
+  %102 = zext nneg i32 %101 to i64
+  %103 = add i64 %.4, %102
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-105:                                              ; preds = %95
-  %106 = getelementptr inbounds i8, ptr %0, i64 %.5
-  %.0.copyload14.i = load i16, ptr %106, align 1, !alias.scope !162, !noalias !167
+104:                                              ; preds = %93
+  %105 = getelementptr inbounds i8, ptr %0, i64 %.5
+  %.0.copyload14.i = load i16, ptr %105, align 1, !alias.scope !162, !noalias !167
   %.0.copyload16.i = load i16, ptr %.1.i, align 1, !alias.scope !165, !noalias !169
-  %107 = icmp eq i16 %.0.copyload14.i, %.0.copyload16.i
-  br i1 %107, label %111, label %108
+  %106 = icmp eq i16 %.0.copyload14.i, %.0.copyload16.i
+  br i1 %106, label %110, label %107
 
-108:                                              ; preds = %111, %105, %95
-  %109 = phi i64 [ %112, %111 ], [ %.5, %105 ], [ %.5, %95 ]
-  %.2.i = phi ptr [ %113, %111 ], [ %.1.i, %105 ], [ %.1.i, %95 ]
-  %110 = icmp ult i64 %109, %81
-  br i1 %110, label %114, label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
+107:                                              ; preds = %110, %104, %93
+  %108 = phi i64 [ %111, %110 ], [ %.5, %104 ], [ %.5, %93 ]
+  %.2.i = phi ptr [ %112, %110 ], [ %.1.i, %104 ], [ %.1.i, %93 ]
+  %109 = icmp ult i64 %108, %81
+  br i1 %109, label %113, label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-111:                                              ; preds = %105
-  %112 = add i64 %.5, 2
-  %113 = getelementptr inbounds i8, ptr %.1.i, i64 2
-  br label %108
+110:                                              ; preds = %104
+  %111 = add i64 %.5, 2
+  %112 = getelementptr inbounds i8, ptr %.1.i, i64 2
+  br label %107
 
-114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %0, i64 %109
-  %116 = load i8, ptr %115, align 1, !alias.scope !162, !noalias !167, !noundef !9
-  %117 = load i8, ptr %.2.i, align 1, !alias.scope !165, !noalias !169, !noundef !9
-  %118 = icmp eq i8 %116, %117
-  %119 = zext i1 %118 to i64
-  %spec.select = add nuw i64 %109, %119
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds i8, ptr %0, i64 %108
+  %115 = load i8, ptr %114, align 1, !alias.scope !162, !noalias !167, !noundef !9
+  %116 = load i8, ptr %.2.i, align 1, !alias.scope !165, !noalias !169, !noundef !9
+  %117 = icmp eq i8 %115, %116
+  %118 = zext i1 %117 to i64
+  %spec.select = add nuw i64 %108, %118
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-120:                                              ; preds = %.lr.ph.i50
-  %121 = getelementptr inbounds i8, ptr %.02131.i, i64 8
-  %122 = add i64 %86, 8
-  %.not.i = icmp ugt i64 %122, %81
+119:                                              ; preds = %.lr.ph.i50
+  %120 = getelementptr inbounds i8, ptr %.02130.i, i64 8
+  %121 = add i64 %86, 8
+  %.not.i = icmp ugt i64 %121, %81
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i50
 
-123:                                              ; preds = %.lr.ph.i50
-  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %89, i1 true)
+122:                                              ; preds = %.lr.ph.i50
+  %123 = xor i64 %.0.copyload8.i, %.0.copyload.i51
+  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %123, i1 false)
   %125 = lshr i64 %124, 3
   %126 = add i64 %125, %87
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
 
-_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds = %114, %100, %123, %108
-  %.7 = phi i64 [ %109, %108 ], [ %126, %123 ], [ %104, %100 ], [ %spec.select, %114 ]
+_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds = %113, %98, %122, %107
+  %.7 = phi i64 [ %108, %107 ], [ %126, %122 ], [ %103, %98 ], [ %spec.select, %113 ]
   %.0.i = sub i64 %.7, %76
   %127 = add i64 %.7, -2
   %128 = getelementptr inbounds i8, ptr %0, i64 %127

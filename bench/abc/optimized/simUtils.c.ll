@@ -146,7 +146,7 @@ define void @Sim_UtilInfoDetectDiffs(ptr nocapture noundef readonly %0, ptr noca
   %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %9
-  %.not = icmp eq i32 %12, 0
+  %.not = icmp eq i32 %9, %11
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7

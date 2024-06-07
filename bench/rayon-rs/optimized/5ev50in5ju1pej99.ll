@@ -2479,12 +2479,12 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10rayon_core8registry14XorShift64S
   %67 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 32)
   %68 = xor i64 %64, %66
   %69 = xor i64 %68, %67
-  %70 = xor i64 %69, %65
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %._crit_edge.i, label %72
+  %70 = icmp eq i64 %69, %65
+  br i1 %70, label %._crit_edge.i, label %71
 
-72:                                               ; preds = %._crit_edge.i
-  ret i64 %70
+71:                                               ; preds = %._crit_edge.i
+  %72 = xor i64 %69, %65
+  ret i64 %72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

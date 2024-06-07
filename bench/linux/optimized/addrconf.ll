@@ -7746,12 +7746,12 @@ define internal fastcc i32 @ipv6_get_saddr_eval(ptr noundef %0, ptr noundef %1, 
   %140 = load i64, ptr %139, align 8
   %141 = getelementptr i64, ptr %134, i64 %138
   %142 = load i64, ptr %141, align 8
-  %143 = xor i64 %142, %140
-  %144 = icmp eq i64 %143, 0
-  br i1 %144, label %135, label %145
+  %143 = icmp eq i64 %142, %140
+  br i1 %143, label %135, label %144
 
-145:                                              ; preds = %136
-  %146 = tail call i64 @llvm.bswap.i64(i64 %143)
+144:                                              ; preds = %136
+  %145 = xor i64 %142, %140
+  %146 = tail call i64 @llvm.bswap.i64(i64 %145)
   %147 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %146) #24, !srcloc !111
   %148 = trunc i64 %147 to i32
   %149 = trunc nuw nsw i64 %138 to i32
@@ -7760,8 +7760,8 @@ define internal fastcc i32 @ipv6_get_saddr_eval(ptr noundef %0, ptr noundef %1, 
   %152 = sub i32 %151, %148
   br label %.loopexit
 
-.loopexit:                                        ; preds = %135, %145
-  %153 = phi i32 [ %152, %145 ], [ 128, %135 ]
+.loopexit:                                        ; preds = %135, %144
+  %153 = phi i32 [ %152, %144 ], [ 128, %135 ]
   %154 = getelementptr inbounds i8, ptr %133, i64 16
   %155 = load i32, ptr %154, align 8
   %156 = tail call i32 @llvm.umin.i32(i32 %153, i32 %155)

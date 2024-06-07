@@ -229,7 +229,7 @@ define void @Fra_BmcFilterImplications(ptr noundef %0, ptr nocapture noundef rea
 
 9:                                                ; preds = %.lr.ph71, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next, %.loopexit ]
-  %10 = phi ptr [ %4, %.lr.ph71 ], [ %116, %.loopexit ]
+  %10 = phi ptr [ %4, %.lr.ph71 ], [ %118, %.loopexit ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val53 = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i32, ptr %.val53, i64 %indvars.iv
@@ -274,9 +274,9 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %38 = getelementptr inbounds i8, ptr %29, i64 24
   br label %39
 
-39:                                               ; preds = %.lr.ph, %109
-  %40 = phi i32 [ %31, %.lr.ph ], [ %110, %109 ]
-  %.04468 = phi i32 [ %30, %.lr.ph ], [ %111, %109 ]
+39:                                               ; preds = %.lr.ph, %111
+  %40 = phi i32 [ %31, %.lr.ph ], [ %112, %111 ]
+  %.04468 = phi i32 [ %30, %.lr.ph ], [ %113, %111 ]
   %.val48 = load i32, ptr %33, align 4
   %.val49 = load ptr, ptr %34, align 8
   %41 = getelementptr i8, ptr %.val49, i64 64
@@ -337,72 +337,74 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %80 = trunc i64 %79 to i32
   %81 = lshr i32 %80, 3
   %82 = ptrtoint ptr %67 to i64
-  %83 = xor i64 %82, %57
-  %84 = trunc i64 %83 to i32
-  %85 = xor i32 %81, %84
-  %86 = and i32 %85, 1
-  %87 = load i64, ptr %38, align 8
-  %88 = trunc i64 %87 to i32
-  %89 = lshr i32 %88, 3
-  %90 = ptrtoint ptr %78 to i64
-  %91 = xor i64 %90, %68
-  %92 = trunc i64 %91 to i32
-  %93 = xor i32 %89, %92
-  %94 = and i32 %93, 1
-  %95 = and i64 %82, -2
-  %96 = inttoptr i64 %95 to ptr
-  %97 = and i64 %90, -2
+  %83 = trunc i64 %82 to i32
+  %84 = xor i32 %81, %83
+  %85 = and i32 %84, 1
+  %86 = trunc i64 %57 to i32
+  %87 = and i32 %86, 1
+  %88 = xor i32 %85, %87
+  %89 = load i64, ptr %38, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = lshr i32 %90, 3
+  %92 = ptrtoint ptr %78 to i64
+  %93 = xor i64 %92, %68
+  %94 = trunc i64 %93 to i32
+  %95 = xor i32 %91, %94
+  %96 = and i32 %95, 1
+  %97 = and i64 %82, -2
   %98 = inttoptr i64 %97 to ptr
-  %99 = icmp eq ptr %96, %98
-  br i1 %99, label %100, label %107
+  %99 = and i64 %92, -2
+  %100 = inttoptr i64 %99 to ptr
+  %101 = icmp eq ptr %98, %100
+  br i1 %101, label %102, label %109
 
-100:                                              ; preds = %39
-  %101 = icmp eq i32 %86, %94
-  br i1 %101, label %109, label %102
+102:                                              ; preds = %39
+  %103 = icmp eq i32 %88, %96
+  br i1 %103, label %111, label %104
 
-102:                                              ; preds = %100
-  %103 = getelementptr i8, ptr %96, i64 24
-  %.val62 = load i64, ptr %103, align 8
-  %104 = and i64 %.val62, 7
-  %105 = icmp eq i64 %104, 1
-  %106 = icmp ne i32 %86, 0
-  %or.cond = select i1 %105, i1 %106, i1 false
-  br i1 %or.cond, label %109, label %.loopexit.sink.split
+104:                                              ; preds = %102
+  %105 = getelementptr i8, ptr %98, i64 24
+  %.val62 = load i64, ptr %105, align 8
+  %106 = and i64 %.val62, 7
+  %107 = icmp eq i64 %106, 1
+  %108 = icmp ne i32 %85, %87
+  %or.cond = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond, label %111, label %.loopexit.sink.split
 
-107:                                              ; preds = %39
-  %108 = tail call i32 @Fra_NodesAreImp(ptr noundef %0, ptr noundef %96, ptr noundef %98, i32 noundef %86, i32 noundef %94) #15
-  %.not = icmp eq i32 %108, 1
+109:                                              ; preds = %39
+  %110 = tail call i32 @Fra_NodesAreImp(ptr noundef %0, ptr noundef %98, ptr noundef %100, i32 noundef %88, i32 noundef %96) #15
+  %.not = icmp eq i32 %110, 1
   br i1 %.not, label %._crit_edge, label %.loopexit.sink.split
 
-._crit_edge:                                      ; preds = %107
+._crit_edge:                                      ; preds = %109
   %.pre = load i32, ptr %8, align 8
-  br label %109
+  br label %111
 
-109:                                              ; preds = %._crit_edge, %102, %100
-  %110 = phi i32 [ %.pre, %._crit_edge ], [ %40, %102 ], [ %40, %100 ]
-  %111 = add nsw i32 %.04468, 1
-  %112 = icmp slt i32 %111, %110
-  br i1 %112, label %39, label %.loopexit, !llvm.loop !6
+111:                                              ; preds = %._crit_edge, %104, %102
+  %112 = phi i32 [ %.pre, %._crit_edge ], [ %40, %104 ], [ %40, %102 ]
+  %113 = add nsw i32 %.04468, 1
+  %114 = icmp slt i32 %113, %112
+  br i1 %114, label %39, label %.loopexit, !llvm.loop !6
 
-.loopexit.sink.split:                             ; preds = %107, %102
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr i8, ptr %113, i64 8
-  %.val63 = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv
-  store i32 0, ptr %115, align 4
+.loopexit.sink.split:                             ; preds = %109, %104
+  %115 = load ptr, ptr %3, align 8
+  %116 = getelementptr i8, ptr %115, i64 8
+  %.val63 = load ptr, ptr %116, align 8
+  %117 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv
+  store i32 0, ptr %117, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %109, %.loopexit.sink.split, %Aig_ManObj.exit67, %9
+.loopexit:                                        ; preds = %111, %.loopexit.sink.split, %Aig_ManObj.exit67, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr i8, ptr %116, i64 4
-  %.val52 = load i32, ptr %117, align 4
-  %118 = sext i32 %.val52 to i64
-  %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %9, label %.critedge, !llvm.loop !7
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr i8, ptr %118, i64 4
+  %.val52 = load i32, ptr %119, align 4
+  %120 = sext i32 %.val52 to i64
+  %121 = icmp slt i64 %indvars.iv.next, %120
+  br i1 %121, label %9, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.loopexit, %2
-  %.lcssa = phi ptr [ %4, %2 ], [ %116, %.loopexit ]
+  %.lcssa = phi ptr [ %4, %2 ], [ %118, %.loopexit ]
   tail call void @Fra_ImpCompactArray(ptr noundef nonnull %.lcssa) #15
   ret void
 }

@@ -114,7 +114,7 @@ archive_handle_type_name.exit:                    ; preds = %4
 state_name.exit.i:                                ; preds = %31, %30, %29, %28, %27, %26, %.lr.ph.i
   %.0.i.i = phi ptr [ @.str.16, %31 ], [ @.str.15, %30 ], [ @.str.14, %29 ], [ @.str.13, %28 ], [ @.str.12, %27 ], [ @.str.11, %26 ], [ @.str.10, %.lr.ph.i ]
   %32 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %.0.i.i) #9
-  %.not10.i = icmp eq i32 %25, 0
+  %.not10.i = icmp eq i32 %24, %.012.i
   br i1 %.not10.i, label %34, label %33
 
 33:                                               ; preds = %state_name.exit.i
@@ -170,7 +170,7 @@ write_all_states.exit:                            ; preds = %34, %21
 state_name.exit.i24:                              ; preds = %46, %45, %44, %43, %42, %41, %.lr.ph.i22
   %.0.i.i25 = phi ptr [ @.str.16, %46 ], [ @.str.15, %45 ], [ @.str.14, %44 ], [ @.str.13, %43 ], [ @.str.12, %42 ], [ @.str.11, %41 ], [ @.str.10, %.lr.ph.i22 ]
   %47 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %.0.i.i25) #9
-  %.not10.i26 = icmp eq i32 %40, 0
+  %.not10.i26 = icmp eq i32 %39, %.012.i23
   br i1 %.not10.i26, label %49, label %48
 
 48:                                               ; preds = %state_name.exit.i24

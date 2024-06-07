@@ -448,7 +448,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %.val269.lobit = lshr i64 %.val269, 63
   %197 = trunc nuw nsw i64 %.val269.lobit to i32
   %198 = xor i32 %196, %197
-  %.not231 = icmp eq i32 %198, 0
+  %.not231 = icmp eq i32 %196, %197
   br i1 %.not231, label %Gia_ObjIsHead.exit.thread, label %199
 
 199:                                              ; preds = %195
@@ -678,7 +678,7 @@ Gia_ObjIsHead.exit:                               ; preds = %190
   %304 = trunc nuw nsw i64 %.lobit389 to i32
   %305 = xor i32 %297, %304
   %306 = icmp ne i32 %301, %305
-  %307 = icmp ne i32 %301, 0
+  %307 = icmp ne i32 %294, %300
   %or.cond = and i1 %307, %306
   %308 = icmp ne i32 %305, 1
   %or.cond9 = and i1 %308, %or.cond
@@ -914,7 +914,7 @@ Vec_IntPush.exit337:                              ; preds = %.Vec_IntGrow.exit10
   %417 = trunc nuw nsw i64 %.lobit387 to i32
   %418 = xor i32 %410, %417
   %419 = icmp ne i32 %414, %418
-  %420 = icmp ne i32 %414, 0
+  %420 = icmp ne i32 %408, %413
   %or.cond11 = and i1 %420, %419
   %421 = icmp ne i32 %418, 1
   %or.cond13 = and i1 %421, %or.cond11

@@ -318,7 +318,6 @@ if.end.i.i20:                                     ; preds = %if.end.i18
   %name_flags.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 8
   %13 = load i32, ptr %name_flags.i, align 8
   %and.i.i21 = and i32 %13, 1
-  %spec.select.i.i = xor i32 %and.i.i21, 1
   %and3.i.i = and i32 %13, 3840
   switch i32 %and3.i.i, label %return [
     i32 256, label %sw.epilog.i.i
@@ -330,8 +329,8 @@ sw.bb4.i.i:                                       ; preds = %if.end.i.i20
   br label %sw.epilog.i.i
 
 sw.bb5.i.i:                                       ; preds = %if.end.i.i20
-  %tobool6.not.i.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %tobool6.not.i.i, label %if.else.i.i, label %if.then7.i.i
+  %tobool6.not.i.not.i = icmp eq i32 %and.i.i21, 0
+  br i1 %tobool6.not.i.not.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %sw.bb5.i.i
   %14 = load i64, ptr %12, align 8
@@ -350,10 +349,10 @@ sw.epilog.i.i:                                    ; preds = %sw.bb4.i.i, %if.end
   %.sink.i.i = phi i64 [ 128, %sw.bb4.i.i ], [ 120, %if.end.i.i20 ]
   %pvfy_flags.i.i = getelementptr inbounds i8, ptr %cctx, i64 %.sink.i.i
   %pflags.0.i.i = load ptr, ptr %pvfy_flags.i.i, align 8
-  %tobool12.not.i.i23 = icmp eq i32 %spec.select.i.i, 0
+  %tobool12.not.i.not.i = icmp eq i32 %and.i.i21, 0
   %16 = load i32, ptr %pflags.0.i.i, align 4
   %17 = trunc i64 %11 to i32
-  br i1 %tobool12.not.i.i23, label %if.else16.i.i, label %if.then13.i.i
+  br i1 %tobool12.not.i.not.i, label %if.then13.i.i, label %if.else16.i.i
 
 if.then13.i.i:                                    ; preds = %sw.epilog.i.i
   %conv15.i.i = or i32 %16, %17
@@ -2454,7 +2453,6 @@ if.end.i.i:                                       ; preds = %if.end14.i
   %name_flags.i.le = getelementptr inbounds i8, ptr %.us-phi, i64 12
   %13 = load i32, ptr %name_flags.i.le, align 4
   %and.i.i = and i32 %13, 1
-  %spec.select.i.i = xor i32 %and.i.i, %onoff.0
   %and3.i.i = and i32 %13, 3840
   switch i32 %and3.i.i, label %return [
     i32 256, label %sw.epilog.i.i
@@ -2466,7 +2464,7 @@ sw.bb4.i.i:                                       ; preds = %if.end.i.i
   br label %sw.epilog.i.i
 
 sw.bb5.i.i:                                       ; preds = %if.end.i.i
-  %tobool6.not.i.i = icmp eq i32 %spec.select.i.i, 0
+  %tobool6.not.i.i = icmp eq i32 %and.i.i, %onoff.0
   br i1 %tobool6.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %sw.bb5.i.i
@@ -2486,7 +2484,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb4.i.i, %if.end
   %.sink.i.i = phi i64 [ 128, %sw.bb4.i.i ], [ 120, %if.end.i.i ]
   %pvfy_flags.i.i = getelementptr inbounds i8, ptr %usr, i64 %.sink.i.i
   %pflags.0.i.i = load ptr, ptr %pvfy_flags.i.i, align 8
-  %tobool12.not.i.i = icmp eq i32 %spec.select.i.i, 0
+  %tobool12.not.i.i = icmp eq i32 %and.i.i, %onoff.0
   %16 = load i32, ptr %pflags.0.i.i, align 4
   %17 = trunc i64 %11 to i32
   br i1 %tobool12.not.i.i, label %if.else16.i.i, label %if.then13.i.i

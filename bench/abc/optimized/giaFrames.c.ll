@@ -4639,7 +4639,7 @@ Gia_ManAppendCi.exit282:                          ; preds = %.Vec_IntGrow.exit10
   br i1 %319, label %320, label %322
 
 320:                                              ; preds = %318
-  %.not19.i = icmp eq i32 %307, 0
+  %.not19.i = icmp eq i32 %306, %303
   %321 = select i1 %.not19.i, i32 0, i32 %316
   br label %Gia_ManAppendAnd2.exit
 
@@ -4648,7 +4648,7 @@ Gia_ManAppendCi.exit282:                          ; preds = %.Vec_IntGrow.exit10
   br i1 %323, label %324, label %326
 
 324:                                              ; preds = %322
-  %.not18.i = icmp eq i32 %316, 0
+  %.not18.i = icmp eq i32 %315, %312
   %325 = select i1 %.not18.i, i32 0, i32 %307
   br label %Gia_ManAppendAnd2.exit
 
@@ -4808,7 +4808,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %320, %324, %326, %3
   br i1 %390, label %391, label %393
 
 391:                                              ; preds = %389
-  %.not19.i291 = icmp eq i32 %377, 0
+  %.not19.i291 = icmp eq i32 %376, 1
   %392 = select i1 %.not19.i291, i32 0, i32 %387
   br label %Gia_ManAppendAnd2.exit292
 
@@ -4817,7 +4817,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %320, %324, %326, %3
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %393
-  %.not18.i290 = icmp eq i32 %387, 0
+  %.not18.i290 = icmp eq i32 %386, 1
   %396 = select i1 %.not18.i290, i32 0, i32 %377
   br label %Gia_ManAppendAnd2.exit292
 

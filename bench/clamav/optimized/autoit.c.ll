@@ -792,7 +792,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.loopexit266.i
 
 134:                                              ; preds = %127
-  %.not152.i = icmp eq i32 %131, 0
+  %.not152.i = icmp eq i32 %130, 17834
   br i1 %.not152.i, label %135, label %139
 
 135:                                              ; preds = %134
@@ -1840,7 +1840,7 @@ ea05.exit:                                        ; preds = %544, %546, %551
 
 u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._crit_edge.i.i, %609
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.459, ptr noundef nonnull %3) #13
-  %643 = icmp eq i32 %595, 19
+  %643 = icmp eq i32 %594, 44463
   br i1 %643, label %644, label %646
 
 644:                                              ; preds = %u2a.exit.i
@@ -2012,7 +2012,7 @@ u2a.exit354.i:                                    ; preds = %.lr.ph45.i348.i, %.
   br label %ea06.exit
 
 724:                                              ; preds = %717
-  %.not266.i = icmp eq i32 %721, 0
+  %.not266.i = icmp eq i32 %720, 34748
   br i1 %.not266.i, label %725, label %729
 
 725:                                              ; preds = %724

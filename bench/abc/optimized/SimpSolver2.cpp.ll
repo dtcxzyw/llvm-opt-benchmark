@@ -2388,9 +2388,9 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %39 = getelementptr inbounds i8, ptr %0, i64 632
   br label %40
 
-40:                                               ; preds = %.lr.ph, %54
-  %41 = phi i32 [ %37, %.lr.ph ], [ %55, %54 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
+40:                                               ; preds = %.lr.ph, %56
+  %41 = phi i32 [ %37, %.lr.ph ], [ %57, %56 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %42, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %43, align 4
@@ -2401,32 +2401,34 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %48 = load i8, ptr %47, align 1
   %49 = trunc i32 %.sroa.03.0.copyload to i8
   %50 = and i8 %49, 1
-  %51 = xor i8 %48, %50
-  switch i8 %51, label %52 [
-    i8 0, label %.loopexit
-    i8 1, label %54
-  ]
+  %51 = icmp eq i8 %48, %50
+  br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %40
-  %53 = xor i32 %.sroa.03.0.copyload, 1
-  tail call void @_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %53, i32 noundef -1)
+  %53 = xor i8 %48, %50
+  %.not = icmp eq i8 %53, 1
+  br i1 %.not, label %56, label %54
+
+54:                                               ; preds = %52
+  %55 = xor i32 %.sroa.03.0.copyload, 1
+  tail call void @_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %55, i32 noundef -1)
   %.pre20 = load i32, ptr %36, align 8
-  br label %54
+  br label %56
 
-54:                                               ; preds = %40, %52
-  %55 = phi i32 [ %41, %40 ], [ %.pre20, %52 ]
+56:                                               ; preds = %54, %52
+  %57 = phi i32 [ %.pre20, %54 ], [ %41, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %40, label %._crit_edge, !llvm.loop !17
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next, %58
+  br i1 %59, label %40, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %54, %_ZN6Gluco23vecIiE4pushERKi.exit
-  %58 = tail call noundef i32 @_ZN6Gluco26Solver9propagateEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %59 = icmp ne i32 %58, -1
+._crit_edge:                                      ; preds = %56, %_ZN6Gluco23vecIiE4pushERKi.exit
+  %60 = tail call noundef i32 @_ZN6Gluco26Solver9propagateEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
+  %61 = icmp ne i32 %60, -1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %._crit_edge
-  %.0 = phi i1 [ %59, %._crit_edge ], [ false, %40 ]
+  %.0 = phi i1 [ %61, %._crit_edge ], [ false, %40 ]
   tail call void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef 0)
   ret i1 %.0
 }

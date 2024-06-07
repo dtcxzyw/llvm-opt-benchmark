@@ -3578,7 +3578,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   %44 = ashr exact i32 %43, 24
   %45 = xor i32 %44, -128
   %46 = add nuw nsw i32 %5, 2
-  %47 = icmp eq i32 %45, 32
+  %47 = icmp eq i32 %43, -1610612736
   br i1 %47, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %41, %38, %33, %28, %23, %19, %14, %8, %2

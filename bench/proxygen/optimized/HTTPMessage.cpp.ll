@@ -7038,8 +7038,8 @@ while.body.i.us:                                  ; preds = %"_ZZNK8proxygen11HT
 invoke.cont.i.i.us:                               ; preds = %if.end.i.us
   %7 = load ptr, ptr %tokens.i.i, align 8
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i16.not.i.i.us = icmp eq ptr %7, %8
-  br i1 %cmp.i16.not.i.i.us, label %cleanup.i.i.us, label %for.body.lr.ph.i.i.us
+  %cmp.i17.not.i.i.us = icmp eq ptr %7, %8
+  br i1 %cmp.i17.not.i.i.us, label %cleanup.i.i.us, label %for.body.lr.ph.i.i.us
 
 for.body.lr.ph.i.i.us:                            ; preds = %invoke.cont.i.i.us
   %call.i.i.i.i.us.i.i.us = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %token) #22
@@ -7047,9 +7047,9 @@ for.body.lr.ph.i.i.us:                            ; preds = %invoke.cont.i.i.us
   br i1 %cmp.i8.i.i.i.us.i.i.us, label %for.body.us.us.i.i.us, label %for.body.us.i.i.us
 
 for.body.us.i.i.us:                               ; preds = %for.body.lr.ph.i.i.us, %for.inc.us.i.i.us
-  %__begin2.sroa.0.017.us.i.i.us = phi ptr [ %incdec.ptr.i.us.i.i.us, %for.inc.us.i.i.us ], [ %7, %for.body.lr.ph.i.i.us ]
-  %t.sroa.0.0.copyload.us.i.i.us = load ptr, ptr %__begin2.sroa.0.017.us.i.i.us, align 8
-  %t.sroa.5.0..sroa_idx.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us.i.i.us, i64 8
+  %__begin2.sroa.0.018.us.i.i.us = phi ptr [ %incdec.ptr.i.us.i.i.us, %for.inc.us.i.i.us ], [ %7, %for.body.lr.ph.i.i.us ]
+  %t.sroa.0.0.copyload.us.i.i.us = load ptr, ptr %__begin2.sroa.0.018.us.i.i.us, align 8
+  %t.sroa.5.0..sroa_idx.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.us.i.i.us, i64 8
   %t.sroa.5.0.copyload.us.i.i.us = load ptr, ptr %t.sroa.5.0..sroa_idx.us.i.i.us, align 8
   %sp.coerce016.i.us.i.i.us = ptrtoint ptr %t.sroa.0.0.copyload.us.i.i.us to i64
   %sp.coerce115.i.us.i.i.us = ptrtoint ptr %t.sroa.5.0.copyload.us.i.i.us to i64
@@ -7109,14 +7109,14 @@ land.rhs.i.i.us.i.i.us:                           ; preds = %invoke.cont7.us.i.i
   br i1 %cmp.i.i.i.us.i.i.us, label %cleanup.i.i.us, label %for.inc.us.i.i.us
 
 for.inc.us.i.i.us:                                ; preds = %land.rhs.i.i.us.i.i.us, %invoke.cont7.us.i.i.us
-  %incdec.ptr.i.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us.i.i.us, i64 16
+  %incdec.ptr.i.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.us.i.i.us, i64 16
   %cmp.i.us.not.i.i.us = icmp eq ptr %incdec.ptr.i.us.i.i.us, %8
   br i1 %cmp.i.us.not.i.i.us, label %cleanup.i.i.us, label %for.body.us.i.i.us
 
 for.body.us.us.i.i.us:                            ; preds = %for.body.lr.ph.i.i.us, %invoke.cont7.us.us.i.i.us
-  %__begin2.sroa.0.017.us.us.i.i.us = phi ptr [ %incdec.ptr.i.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ %7, %for.body.lr.ph.i.i.us ]
-  %t.sroa.0.0.copyload.us.us.i.i.us = load ptr, ptr %__begin2.sroa.0.017.us.us.i.i.us, align 8
-  %t.sroa.5.0..sroa_idx.us.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us.us.i.i.us, i64 8
+  %__begin2.sroa.0.018.us.us.i.i.us = phi ptr [ %incdec.ptr.i.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ %7, %for.body.lr.ph.i.i.us ]
+  %t.sroa.0.0.copyload.us.us.i.i.us = load ptr, ptr %__begin2.sroa.0.018.us.us.i.i.us, align 8
+  %t.sroa.5.0..sroa_idx.us.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.us.us.i.i.us, i64 8
   %t.sroa.5.0.copyload.us.us.i.i.us = load ptr, ptr %t.sroa.5.0..sroa_idx.us.us.i.i.us, align 8
   %sp.coerce016.i.us.us.i.i.us = ptrtoint ptr %t.sroa.0.0.copyload.us.us.i.i.us to i64
   %sp.coerce115.i.us.us.i.i.us = ptrtoint ptr %t.sroa.5.0.copyload.us.us.i.i.us to i64
@@ -7165,23 +7165,23 @@ land.rhs4.i.us.us.i.i.us:                         ; preds = %for.cond2.i.us.us.i
 invoke.cont7.us.us.i.i.us:                        ; preds = %land.rhs4.i.us.us.i.i.us, %for.cond2.i.us.us.i.i.us
   %sp.sroa.7.0.lcssa.i.us.us.i.i.us = phi ptr [ %scevgep18.i.us.us.i.i.us, %for.cond2.i.us.us.i.i.us ], [ %sp.sroa.7.0.i.us.us.i.i.us, %land.rhs4.i.us.us.i.i.us ]
   %cmp.i.i3.us.us.i.i.us = icmp eq ptr %sp.sroa.7.0.lcssa.i.us.us.i.i.us, %sp.sroa.0.0.lcssa.i.us.us.i.i.us
-  %incdec.ptr.i.us.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us.us.i.i.us, i64 16
+  %incdec.ptr.i.us.us.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.us.us.i.i.us, i64 16
   %cmp.i.us.us.not.i.i.us = icmp eq ptr %incdec.ptr.i.us.us.i.i.us, %8
   %or.cond = select i1 %cmp.i.i3.us.us.i.i.us, i1 true, i1 %cmp.i.us.us.not.i.i.us
   br i1 %or.cond, label %cleanup.i.i.us, label %for.body.us.us.i.i.us
 
 cleanup.i.i.us:                                   ; preds = %land.rhs.i.i.us.i.i.us, %for.inc.us.i.i.us, %invoke.cont7.us.us.i.i.us, %invoke.cont.i.i.us
-  %cmp.i15.i.i.us = phi i1 [ false, %invoke.cont.i.i.us ], [ %cmp.i.i3.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ false, %for.inc.us.i.i.us ], [ true, %land.rhs.i.i.us.i.i.us ]
-  %tobool.not.i.i.i7.i.i.us = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i7.i.i.us, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us", label %if.then.i.i.i8.i.i.us
+  %cmp.i16.i.i.us = phi i1 [ false, %invoke.cont.i.i.us ], [ %cmp.i.i3.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ false, %for.inc.us.i.i.us ], [ true, %land.rhs.i.i.us.i.i.us ]
+  %tobool.not.i.i.i8.i.i.us = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i.i8.i.i.us, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us", label %if.then.i.i.i9.i.i.us
 
-if.then.i.i.i8.i.i.us:                            ; preds = %cleanup.i.i.us
+if.then.i.i.i9.i.i.us:                            ; preds = %cleanup.i.i.us
   call void @_ZdlPv(ptr noundef nonnull %7) #34
   br label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us"
 
-"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us": ; preds = %if.then.i.i.i8.i.i.us, %cleanup.i.i.us
+"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us": ; preds = %if.then.i.i.i9.i.i.us, %cleanup.i.i.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tokens.i.i)
-  br i1 %cmp.i15.i.i.us, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %while.body.i.us
+  br i1 %cmp.i16.i.i.us, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %while.body.i.us
 
 lpad.i.i.split.us:                                ; preds = %if.end.i.us
   %17 = landingpad { ptr, i32 }
@@ -7221,17 +7221,17 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %wh
 invoke.cont.i.i:                                  ; preds = %if.end.i
   %22 = load ptr, ptr %tokens.i.i, align 8
   %23 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i16.not.i.i = icmp eq ptr %22, %23
-  br i1 %cmp.i16.not.i.i, label %cleanup.i.i, label %for.body.lr.ph.i.i
+  %cmp.i17.not.i.i = icmp eq ptr %22, %23
+  br i1 %cmp.i17.not.i.i, label %cleanup.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont.i.i
   %call.i.i.i.i.us.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %token) #22
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i, %for.inc.i.i
-  %__begin2.sroa.0.017.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %22, %for.body.lr.ph.i.i ]
-  %t.sroa.0.0.copyload.i.i = load ptr, ptr %__begin2.sroa.0.017.i.i, align 8
-  %t.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i, i64 8
+  %__begin2.sroa.0.018.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %22, %for.body.lr.ph.i.i ]
+  %t.sroa.0.0.copyload.i.i = load ptr, ptr %__begin2.sroa.0.018.i.i, align 8
+  %t.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i.i, i64 8
   %t.sroa.5.0.copyload.i.i = load ptr, ptr %t.sroa.5.0..sroa_idx.i.i, align 8
   %sp.coerce016.i.i.i = ptrtoint ptr %t.sroa.0.0.copyload.i.i to i64
   %sp.coerce115.i.i.i = ptrtoint ptr %t.sroa.5.0.copyload.i.i to i64
@@ -7309,47 +7309,49 @@ if.end.i.i.i:                                     ; preds = %invoke.cont7.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i, %for.inc.i.i.i.i
   %__first2.addr.09.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.inc.i.i.i.i ], [ %token, %if.end.i.i.i ]
-  %__first1.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i6.i.i, %for.inc.i.i.i.i ], [ %sp.sroa.0.0.lcssa.i.i.i, %if.end.i.i.i ]
+  %__first1.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i7.i.i, %for.inc.i.i.i.i ], [ %sp.sroa.0.0.lcssa.i.i.i, %if.end.i.i.i ]
   %30 = load i8, ptr %__first1.addr.08.i.i.i.i, align 1
   %31 = load i8, ptr %__first2.addr.09.i.i.i.i, align 1
-  %xor.i.i.i.i.i = xor i8 %31, %30
-  switch i8 %xor.i.i.i.i.i, label %for.inc.i.i [
-    i8 0, label %for.inc.i.i.i.i
-    i8 32, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i
-  ]
+  %cmp.i.i.i6.i.i = icmp eq i8 %30, %31
+  br i1 %cmp.i.i.i6.i.i, label %for.inc.i.i.i.i, label %if.end.i.i.i.i.i
 
-_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
+if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
+  %xor.i.i.i.i.i = xor i8 %31, %30
+  %cmp6.not.i.i.i.i.i = icmp eq i8 %xor.i.i.i.i.i, 32
+  br i1 %cmp6.not.i.i.i.i.i, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i, label %for.inc.i.i
+
+_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
   %or6.i.i.i.i.i = or i8 %31, %30
   %32 = add i8 %or6.i.i.i.i.i, -97
   %33 = icmp ult i8 %32, 26
   br i1 %33, label %for.inc.i.i.i.i, label %for.inc.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %__first1.addr.08.i.i.i.i, i64 1
+  %incdec.ptr.i.i7.i.i = getelementptr inbounds i8, ptr %__first1.addr.08.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.09.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i6.i.i, %sp.sroa.7.0.lcssa.i.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i7.i.i, %sp.sroa.7.0.lcssa.i.i.i
   br i1 %cmp.not.i.i.i.i, label %cleanup.i.i, label %for.body.i.i.i.i, !llvm.loop !114
 
-for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i, %for.body.i.i.i.i, %invoke.cont7.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i, i64 16
+for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i.i, %if.end.i.i.i.i.i, %invoke.cont7.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i.i, i64 16
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %23
   br i1 %cmp.i.not.i.i, label %cleanup.i.i, label %for.body.i.i
 
 cleanup.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i.i, %for.inc.i.i.i.i, %invoke.cont.i.i
-  %cmp.i15.i.i = phi i1 [ false, %invoke.cont.i.i ], [ true, %for.inc.i.i.i.i ], [ false, %for.inc.i.i ], [ true, %if.end.i.i.i ]
-  %tobool.not.i.i.i7.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i7.i.i, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i", label %if.then.i.i.i8.i.i
+  %cmp.i16.i.i = phi i1 [ false, %invoke.cont.i.i ], [ true, %for.inc.i.i.i.i ], [ false, %for.inc.i.i ], [ true, %if.end.i.i.i ]
+  %tobool.not.i.i.i8.i.i = icmp eq ptr %22, null
+  br i1 %tobool.not.i.i.i8.i.i, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i", label %if.then.i.i.i9.i.i
 
-if.then.i.i.i8.i.i:                               ; preds = %cleanup.i.i
+if.then.i.i.i9.i.i:                               ; preds = %cleanup.i.i
   call void @_ZdlPv(ptr noundef nonnull %22) #34
   br label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i"
 
-"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i": ; preds = %if.then.i.i.i8.i.i, %cleanup.i.i
+"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i": ; preds = %if.then.i.i.i9.i.i, %cleanup.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tokens.i.i)
-  br i1 %cmp.i15.i.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %while.body.i
+  br i1 %cmp.i16.i.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %while.body.i
 
 "_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit": ; preds = %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i", %while.body.i, %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us", %while.body.i.us, %while.body.lr.ph.i, %entry
-  %retval.0.i = phi i1 [ false, %entry ], [ false, %while.body.lr.ph.i ], [ %cmp.i15.i.i.us, %while.body.i.us ], [ %cmp.i15.i.i.us, %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us" ], [ %cmp.i15.i.i, %while.body.i ], [ %cmp.i15.i.i, %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ]
+  %retval.0.i = phi i1 [ false, %entry ], [ false, %while.body.lr.ph.i ], [ %cmp.i16.i.i.us, %while.body.i.us ], [ %cmp.i16.i.i.us, %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us" ], [ %cmp.i16.i.i, %while.body.i ], [ %cmp.i16.i.i, %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ]
   ret i1 %retval.0.i
 }
 
@@ -10090,13 +10092,15 @@ for.body.i.i:                                     ; preds = %if.end, %for.inc.i.
   %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %name.coerce0, %if.end ]
   %21 = load i8, ptr %__first1.addr.08.i.i, align 1
   %22 = load i8, ptr %__first2.addr.09.i.i, align 1
-  %xor.i.i.i = xor i8 %22, %21
-  switch i8 %xor.i.i.i, label %if.end25 [
-    i8 0, label %for.inc.i.i
-    i8 32, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i
-  ]
+  %cmp.i.i.i = icmp eq i8 %21, %22
+  br i1 %cmp.i.i.i, label %for.inc.i.i, label %if.end.i.i.i
 
-_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %for.body.i.i
+if.end.i.i.i:                                     ; preds = %for.body.i.i
+  %xor.i.i.i = xor i8 %22, %21
+  %cmp6.not.i.i.i = icmp eq i8 %xor.i.i.i, 32
+  br i1 %cmp6.not.i.i.i, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, label %if.end25
+
+_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %if.end.i.i.i
   %or6.i.i.i = or i8 %22, %21
   %23 = add i8 %or6.i.i.i, -97
   %24 = icmp ult i8 %23, 26
@@ -10117,7 +10121,7 @@ if.then19.loopexit:                               ; preds = %for.inc.i.i
   store ptr %.value.i, ptr %func.coerce, align 8
   br i1 %cmp.not.i24.not, label %if.end25, label %return
 
-if.end25:                                         ; preds = %for.body.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end, %if.then19.loopexit
+if.end25:                                         ; preds = %if.end.i.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end, %if.then19.loopexit
   %incdec.ptr = getelementptr inbounds i8, ptr %call858, i64 1
   %27 = load i64, ptr %length_, align 8
   %28 = load ptr, ptr %this, align 8

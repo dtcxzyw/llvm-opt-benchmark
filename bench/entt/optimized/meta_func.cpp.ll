@@ -6305,8 +6305,8 @@ invoke.cont799:                                   ; preds = %cleanup.cont791
   store ptr null, ptr %message_.i2030, align 8, !tbaa !57
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp795) #25
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp795) #25
-  %tobool.i2031.not = icmp eq i8 %frombool802, 0
-  br i1 %tobool.i2031.not, label %if.else811, label %cleanup831
+  %tobool.i2031.not.not = icmp eq i8 %530, 0
+  br i1 %tobool.i2031.not.not, label %cleanup831, label %if.else811
 
 lpad796:                                          ; preds = %cleanup.cont791
   %531 = landingpad { ptr, i32 }
@@ -11248,8 +11248,8 @@ invoke.cont611:                                   ; preds = %cleanup.cont603
   store ptr null, ptr %message_.i1699, align 8, !tbaa !57
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp607) #25
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp607) #25
-  %tobool.i1700.not = icmp eq i8 %frombool614, 0
-  br i1 %tobool.i1700.not, label %if.else623, label %cleanup643
+  %tobool.i1700.not.not = icmp eq i8 %484, 0
+  br i1 %tobool.i1700.not.not, label %cleanup643, label %if.else623
 
 lpad608:                                          ; preds = %cleanup.cont603
   %485 = landingpad { ptr, i32 }
@@ -15395,8 +15395,8 @@ invoke.cont560:                                   ; preds = %cleanup.cont552
   store ptr null, ptr %message_.i1638, align 8, !tbaa !57
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp556) #25
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp556) #25
-  %tobool.i1639.not = icmp eq i8 %frombool563, 0
-  br i1 %tobool.i1639.not, label %if.else572, label %cleanup592
+  %tobool.i1639.not.not = icmp eq i8 %472, 0
+  br i1 %tobool.i1639.not.not, label %cleanup592, label %if.else572
 
 lpad557:                                          ; preds = %cleanup.cont552
   %473 = landingpad { ptr, i32 }
@@ -19540,8 +19540,8 @@ invoke.cont611:                                   ; preds = %cleanup.cont603
   store ptr null, ptr %message_.i1730, align 8, !tbaa !57
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp607) #25
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp607) #25
-  %tobool.i1731.not = icmp eq i8 %frombool614, 0
-  br i1 %tobool.i1731.not, label %if.else623, label %cleanup643
+  %tobool.i1731.not.not = icmp eq i8 %495, 0
+  br i1 %tobool.i1731.not.not, label %cleanup643, label %if.else623
 
 lpad608:                                          ; preds = %cleanup.cont603
   %496 = landingpad { ptr, i32 }
@@ -23514,8 +23514,8 @@ invoke.cont559:                                   ; preds = %cleanup.cont551
   store ptr null, ptr %message_.i1651, align 8, !tbaa !57
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp555) #25
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp555) #25
-  %tobool.i1652.not = icmp eq i8 %frombool562, 0
-  br i1 %tobool.i1652.not, label %if.else571, label %cleanup591
+  %tobool.i1652.not.not = icmp eq i8 %477, 0
+  br i1 %tobool.i1652.not.not, label %cleanup591, label %if.else571
 
 lpad556:                                          ; preds = %cleanup.cont551
   %478 = landingpad { ptr, i32 }
