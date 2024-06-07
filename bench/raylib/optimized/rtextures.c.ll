@@ -24627,8 +24627,12 @@ declare void @rlPopMatrix() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i1 @ColorIsEqual(i32 %0, i32 %1) local_unnamed_addr #6 {
-  %or.cond = icmp eq i32 %1, %0
-  ret i1 %or.cond
+  %3 = xor i32 %1, %0
+  %4 = and i32 %3, 65535
+  %or.cond8 = icmp eq i32 %4, 0
+  %or.cond = icmp eq i32 %0, %1
+  %spec.select = select i1 %or.cond8, i1 %or.cond, i1 false
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

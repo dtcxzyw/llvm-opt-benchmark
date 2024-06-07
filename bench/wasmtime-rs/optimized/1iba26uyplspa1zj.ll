@@ -25779,7 +25779,7 @@ _ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit: ;
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   %17 = icmp eq i64 %15, 1
-  br i1 %17, label %18, label %32
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit
   %19 = getelementptr inbounds i8, ptr %10, i64 104
@@ -25796,17 +25796,16 @@ _ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit: ;
   %25 = load ptr, ptr %24, align 8, !alias.scope !3411, !noalias !3414, !nonnull !13, !noundef !13
   %26 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }], ptr %25, i64 0, i64 %16, i32 1
   %27 = load i64, ptr %26, align 8, !range !1243, !noalias !3409, !noundef !13
-  %28 = xor i64 %27, -9223372036854775808
-  %29 = icmp ugt i64 %28, 4
-  %30 = icmp eq i64 %28, 3
-  %31 = or i1 %29, %30
-  br i1 %31, label %33, label %34
+  %28 = icmp sgt i64 %27, -9223372036854775804
+  %29 = icmp eq i64 %27, -9223372036854775805
+  %30 = or i1 %28, %29
+  br i1 %30, label %32, label %33
 
-32:                                               ; preds = %_ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit
+31:                                               ; preds = %_ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit
   store ptr null, ptr %0, align 8, !alias.scope !3406, !noalias !3416
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-33:                                               ; preds = %23
+32:                                               ; preds = %23
   store ptr %26, ptr %0, align 8, !alias.scope !3406, !noalias !3416
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3406, !noalias !3416
@@ -25816,11 +25815,11 @@ _ZN8wasmtime7runtime9component8instance7Exports4root17h5a4e4139c5583a86E.exit: ;
   store ptr %13, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3406, !noalias !3416
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-34:                                               ; preds = %23
+33:                                               ; preds = %23
   store ptr null, ptr %0, align 8, !alias.scope !3406, !noalias !3416
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit: ; preds = %32, %33, %34
+_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit: ; preds = %31, %32, %33
   ret void
 }
 
@@ -26129,7 +26128,7 @@ define void @_ZN8wasmtime7runtime9component8instance14ExportInstance8instance17h
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = icmp eq i64 %11, 1
-  br i1 %13, label %14, label %28
+  br i1 %13, label %14, label %27
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %5, i64 16
@@ -26146,17 +26145,16 @@ define void @_ZN8wasmtime7runtime9component8instance14ExportInstance8instance17h
   %21 = load ptr, ptr %20, align 8, !alias.scope !3480, !noalias !3483, !nonnull !13, !noundef !13
   %22 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }], ptr %21, i64 0, i64 %12, i32 1
   %23 = load i64, ptr %22, align 8, !range !1243, !noalias !3478, !noundef !13
-  %24 = xor i64 %23, -9223372036854775808
-  %25 = icmp ugt i64 %24, 4
-  %26 = icmp eq i64 %24, 3
-  %27 = or i1 %25, %26
-  br i1 %27, label %29, label %30
+  %24 = icmp sgt i64 %23, -9223372036854775804
+  %25 = icmp eq i64 %23, -9223372036854775805
+  %26 = or i1 %24, %25
+  br i1 %26, label %28, label %29
 
-28:                                               ; preds = %4
+27:                                               ; preds = %4
   store ptr null, ptr %0, align 8, !alias.scope !3475, !noalias !3485
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-29:                                               ; preds = %19
+28:                                               ; preds = %19
   store ptr %22, ptr %0, align 8, !alias.scope !3475, !noalias !3485
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x ptr> %7, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3475, !noalias !3485
@@ -26164,11 +26162,11 @@ define void @_ZN8wasmtime7runtime9component8instance14ExportInstance8instance17h
   store ptr %9, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3475, !noalias !3485
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-30:                                               ; preds = %19
+29:                                               ; preds = %19
   store ptr null, ptr %0, align 8, !alias.scope !3475, !noalias !3485
   br label %_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit
 
-_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit: ; preds = %28, %29, %30
+_ZN8wasmtime7runtime9component8instance14ExportInstance13into_instance17he27399f59b37e73cE.exit: ; preds = %27, %28, %29
   ret void
 }
 
@@ -26179,7 +26177,7 @@ define void @_ZN8wasmtime7runtime9component8instance14ExportInstance13into_insta
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = icmp eq i64 %7, 1
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -26196,33 +26194,32 @@ define void @_ZN8wasmtime7runtime9component8instance14ExportInstance13into_insta
   %17 = load ptr, ptr %16, align 8, !alias.scope !3487, !noalias !3490, !nonnull !13, !noundef !13
   %18 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }], ptr %17, i64 0, i64 %8, i32 1
   %19 = load i64, ptr %18, align 8, !range !1243, !noundef !13
-  %20 = xor i64 %19, -9223372036854775808
-  %21 = icmp ugt i64 %20, 4
-  %22 = icmp eq i64 %20, 3
-  %23 = or i1 %21, %22
-  br i1 %23, label %25, label %30
+  %20 = icmp sgt i64 %19, -9223372036854775804
+  %21 = icmp eq i64 %19, -9223372036854775805
+  %22 = or i1 %20, %21
+  br i1 %22, label %24, label %29
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
   store ptr null, ptr %0, align 8
-  br label %31
+  br label %30
 
-25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !nonnull !13, !align !147, !noundef !13
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = load ptr, ptr %26, align 8, !nonnull !13, !align !147, !noundef !13
   store ptr %18, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load <2 x ptr>, ptr %26, align 8
-  store <2 x ptr> %29, ptr %.sroa.4.0..sroa_idx, align 8
+  %28 = load <2 x ptr>, ptr %25, align 8
+  store <2 x ptr> %28, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %28, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %31
+  store ptr %27, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %30
 
-30:                                               ; preds = %15
+29:                                               ; preds = %15
   store ptr null, ptr %0, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %25, %30, %24
+30:                                               ; preds = %24, %29, %23
   ret void
 }
 

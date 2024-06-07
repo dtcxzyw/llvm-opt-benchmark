@@ -2656,9 +2656,9 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %10 = getelementptr i8, ptr %0, i64 160
   br label %11
 
-11:                                               ; preds = %.lr.ph, %112
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %12 = phi ptr [ %4, %.lr.ph ], [ %113, %112 ]
+11:                                               ; preds = %.lr.ph, %111
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
+  %12 = phi ptr [ %4, %.lr.ph ], [ %112, %111 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 11624
   %14 = getelementptr inbounds [222 x ptr], ptr %13, i64 0, i64 %3
   %15 = load ptr, ptr %14, align 8
@@ -2706,12 +2706,12 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   store i32 %49, ptr %50, align 8
   %51 = load i32, ptr %37, align 8
   %52 = icmp eq i32 %51, -1
-  br i1 %52, label %112, label %53
+  br i1 %52, label %111, label %53
 
 53:                                               ; preds = %11
   %54 = load i32, ptr %43, align 8
   %55 = icmp eq i32 %54, -1
-  br i1 %55, label %112, label %56
+  br i1 %55, label %111, label %56
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %19, align 4
@@ -2723,95 +2723,95 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 1
   %65 = xor i32 %64, %54
-  %66 = icmp eq i32 %61, 0
-  %67 = icmp eq i32 %65, 0
+  %66 = icmp eq i32 %60, %51
+  %67 = icmp eq i32 %64, %54
+  %or.cond = select i1 %66, i1 true, i1 %67
   %68 = xor i32 %65, %61
   %69 = icmp eq i32 %68, 1
-  %70 = or i1 %67, %69
-  %or.cond62 = select i1 %66, i1 true, i1 %70
-  br i1 %or.cond62, label %.thread, label %71
+  %or.cond62 = select i1 %or.cond, i1 true, i1 %69
+  br i1 %or.cond62, label %.thread, label %70
 
-71:                                               ; preds = %56
-  %72 = icmp eq i32 %61, 1
-  %73 = icmp eq i32 %61, %65
-  %or.cond49 = select i1 %72, i1 true, i1 %73
-  br i1 %or.cond49, label %95, label %74
+70:                                               ; preds = %56
+  %71 = icmp eq i32 %61, 1
+  %72 = icmp eq i32 %61, %65
+  %or.cond49 = select i1 %71, i1 true, i1 %72
+  br i1 %or.cond49, label %94, label %73
 
-74:                                               ; preds = %71
-  %75 = icmp eq i32 %65, 1
-  br i1 %75, label %95, label %76
+73:                                               ; preds = %70
+  %74 = icmp eq i32 %65, 1
+  br i1 %74, label %94, label %75
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   %.val54 = load ptr, ptr %9, align 8
-  %77 = ashr i32 %51, 1
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %78
-  %80 = and i32 %61, 1
-  %81 = ptrtoint ptr %79 to i64
-  %82 = zext nneg i32 %80 to i64
-  %83 = xor i64 %81, %82
-  %84 = inttoptr i64 %83 to ptr
-  %85 = ashr i32 %54, 1
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %86
-  %88 = and i32 %65, 1
-  %89 = ptrtoint ptr %87 to i64
-  %90 = zext nneg i32 %88 to i64
-  %91 = xor i64 %89, %90
-  %92 = inttoptr i64 %91 to ptr
-  %93 = tail call i32 @Gia_ManHashLookup(ptr noundef %0, ptr noundef %84, ptr noundef %92) #20
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %.thread59, label %95
+  %76 = ashr i32 %51, 1
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %77
+  %79 = and i32 %61, 1
+  %80 = ptrtoint ptr %78 to i64
+  %81 = zext nneg i32 %79 to i64
+  %82 = xor i64 %80, %81
+  %83 = inttoptr i64 %82 to ptr
+  %84 = ashr i32 %54, 1
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %85
+  %87 = and i32 %65, 1
+  %88 = ptrtoint ptr %86 to i64
+  %89 = zext nneg i32 %87 to i64
+  %90 = xor i64 %88, %89
+  %91 = inttoptr i64 %90 to ptr
+  %92 = tail call i32 @Gia_ManHashLookup(ptr noundef %0, ptr noundef %83, ptr noundef %91) #20
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %.thread59, label %94
 
-.thread59:                                        ; preds = %76
+.thread59:                                        ; preds = %75
   store i32 -1, ptr %28, align 8
-  br label %112
+  br label %111
 
 .thread:                                          ; preds = %56
   store i32 0, ptr %28, align 8
-  br label %97
+  br label %96
 
-95:                                               ; preds = %76, %74, %71
-  %.0 = phi i32 [ %93, %76 ], [ %65, %71 ], [ %61, %74 ]
+94:                                               ; preds = %75, %73, %70
+  %.0 = phi i32 [ %92, %75 ], [ %65, %70 ], [ %61, %73 ]
   store i32 %.0, ptr %28, align 8
-  %96 = icmp sgt i32 %.0, -1
-  br i1 %96, label %97, label %112
+  %95 = icmp sgt i32 %.0, -1
+  br i1 %95, label %96, label %111
 
-97:                                               ; preds = %.thread, %95
-  %.058 = phi i32 [ 0, %.thread ], [ %.0, %95 ]
+96:                                               ; preds = %.thread, %94
+  %.058 = phi i32 [ 0, %.thread ], [ %.0, %94 ]
   %.val52 = load ptr, ptr %9, align 8
-  %98 = lshr i32 %.058, 1
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %99
-  %101 = ptrtoint ptr %100 to i64
-  %102 = and i64 %101, -2
+  %97 = lshr i32 %.058, 1
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %98
+  %100 = ptrtoint ptr %99 to i64
+  %101 = and i64 %100, -2
   %.val56 = load ptr, ptr %10, align 8
-  %103 = ptrtoint ptr %.val52 to i64
-  %104 = sub i64 %102, %103
-  %105 = sdiv exact i64 %104, 12
-  %106 = trunc i64 %105 to i32
-  %107 = add nsw i32 %106, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %107)
-  %108 = getelementptr i8, ptr %.val56, i64 8
-  %.val.i.i.i = load ptr, ptr %108, align 8
-  %sext.i = shl i64 %105, 32
-  %109 = ashr exact i64 %sext.i, 32
-  %110 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %109
-  %111 = load i32, ptr %110, align 4
-  store i32 %111, ptr %50, align 8
-  br label %112
+  %102 = ptrtoint ptr %.val52 to i64
+  %103 = sub i64 %101, %102
+  %104 = sdiv exact i64 %103, 12
+  %105 = trunc i64 %104 to i32
+  %106 = add nsw i32 %105, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %106)
+  %107 = getelementptr i8, ptr %.val56, i64 8
+  %.val.i.i.i = load ptr, ptr %107, align 8
+  %sext.i = shl i64 %104, 32
+  %108 = ashr exact i64 %sext.i, 32
+  %109 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %108
+  %110 = load i32, ptr %109, align 4
+  store i32 %110, ptr %50, align 8
+  br label %111
 
-112:                                              ; preds = %.thread59, %95, %97, %11, %53
+111:                                              ; preds = %.thread59, %94, %96, %11, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load ptr, ptr @s_DarLib, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 10732
-  %115 = getelementptr inbounds [222 x i32], ptr %114, i64 0, i64 %3
-  %116 = load i32, ptr %115, align 4
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %11, label %._crit_edge, !llvm.loop !43
+  %112 = load ptr, ptr @s_DarLib, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 10732
+  %114 = getelementptr inbounds [222 x i32], ptr %113, i64 0, i64 %3
+  %115 = load i32, ptr %114, align 4
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next, %116
+  br i1 %117, label %11, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %112, %2
+._crit_edge:                                      ; preds = %111, %2
   ret void
 }
 

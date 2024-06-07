@@ -21090,18 +21090,17 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromI
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !222, !noundef !12
-  %3 = xor i64 %2, -9223372036854775808
-  %4 = icmp ugt i64 %3, 3
-  %cond1 = icmp eq i64 %3, 1
-  %cond = or i1 %4, %cond1
-  br i1 %cond, label %6, label %5
+  %3 = icmp sgt i64 %2, -9223372036854775805
+  %cond1 = icmp eq i64 %2, -9223372036854775807
+  %cond = or i1 %3, %cond1
+  br i1 %cond, label %5, label %4
 
-5:                                                ; preds = %1, %6
+4:                                                ; preds = %1, %5
   ret void
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr83drop_in_place$LT$hayagriva..csl..rendering..names..NameDisambiguationProperties$GT$17hc3cba4041660ca66E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-  br label %5
+  br label %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -22472,17 +22471,16 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Sm
 define hidden void @"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !222, !alias.scope !5701, !noundef !12
-  %4 = xor i64 %3, -9223372036854775808
-  %5 = icmp ugt i64 %4, 3
-  %cond1.i = icmp eq i64 %4, 1
-  %cond.i = or i1 %5, %cond1.i
-  br i1 %cond.i, label %6, label %"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255.exit"
+  %4 = icmp sgt i64 %3, -9223372036854775805
+  %cond1.i = icmp eq i64 %3, -9223372036854775807
+  %cond.i = or i1 %4, %cond1.i
+  br i1 %cond.i, label %5, label %"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255.exit"
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr83drop_in_place$LT$hayagriva..csl..rendering..names..NameDisambiguationProperties$GT$17hc3cba4041660ca66E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   br label %"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255.exit"
 
-"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255.exit": ; preds = %1, %6
+"_ZN4core3ptr54drop_in_place$LT$hayagriva..csl..DisambiguateState$GT$17hefdb31b084f958feE.llvm.11057974413330164255.exit": ; preds = %1, %5
   ret void
 }
 
@@ -44448,19 +44446,18 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b
   %26 = getelementptr inbounds { ptr, { i64, [6 x i64] } }, ptr %.sroa.03.1, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -56
   %28 = load i64, ptr %27, align 8, !range !222, !alias.scope !11480, !noalias !11485, !noundef !12
-  %29 = xor i64 %28, -9223372036854775808
-  %30 = icmp ugt i64 %29, 3
-  %cond1.i.i.i = icmp eq i64 %29, 1
-  %cond.i.i.i = or i1 %30, %cond1.i.i.i
-  br i1 %cond.i.i.i, label %31, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit"
+  %29 = icmp sgt i64 %28, -9223372036854775805
+  %cond1.i.i.i = icmp eq i64 %28, -9223372036854775807
+  %cond.i.i.i = or i1 %29, %cond1.i.i.i
+  br i1 %cond.i.i.i, label %30, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit"
 
-31:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit"
+30:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit"
   tail call void @"_ZN4core3ptr83drop_in_place$LT$hayagriva..csl..rendering..names..NameDisambiguationProperties$GT$17hc3cba4041660ca66E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27), !noalias !11485
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit"
 
-"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit", %31
-  %32 = icmp eq i64 %22, 0
-  br i1 %32, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.thread", label %12
+"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit", %30
+  %31 = icmp eq i64 %22, 0
+  br i1 %31, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.thread", label %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -47745,62 +47742,61 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h952089a
   %33 = getelementptr inbounds { ptr, { i64, [6 x i64] } }, ptr %.sroa.03.1.i, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -56
   %35 = load i64, ptr %34, align 8, !range !222, !alias.scope !12104, !noalias !12109, !noundef !12
-  %36 = xor i64 %35, -9223372036854775808
-  %37 = icmp ugt i64 %36, 3
-  %cond1.i.i.i.i = icmp eq i64 %36, 1
-  %cond.i.i.i.i = or i1 %37, %cond1.i.i.i.i
-  br i1 %cond.i.i.i.i, label %38, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i"
+  %36 = icmp sgt i64 %35, -9223372036854775805
+  %cond1.i.i.i.i = icmp eq i64 %35, -9223372036854775807
+  %cond.i.i.i.i = or i1 %36, %cond1.i.i.i.i
+  br i1 %cond.i.i.i.i, label %37, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i"
 
-38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.i"
+37:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.i"
   tail call void @"_ZN4core3ptr83drop_in_place$LT$hayagriva..csl..rendering..names..NameDisambiguationProperties$GT$17hc3cba4041660ca66E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %34), !noalias !12109
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i"
 
-"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i": ; preds = %38, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.i"
-  %39 = icmp eq i64 %29, 0
-  br i1 %39, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit, label %19
+"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i": ; preds = %37, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3783d194511a2b49E.llvm.11057974413330164255.exit.i"
+  %38 = icmp eq i64 %29, 0
+  br i1 %38, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit, label %19
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit: ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E.llvm.11057974413330164255.exit.i", %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12112)
-  %40 = add i64 %6, 1
-  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %40)
-  %42 = extractvalue { i64, i1 } %41, 1
-  %43 = xor i1 %42, true
-  tail call void @llvm.assume(i1 %43)
-  %44 = extractvalue { i64, i1 } %41, 0
-  %45 = add i64 %3, -1
-  %46 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %44, i64 %45)
-  %47 = extractvalue { i64, i1 } %46, 1
-  %48 = xor i1 %47, true
-  tail call void @llvm.assume(i1 %48)
-  %49 = extractvalue { i64, i1 } %46, 0
-  %50 = sub i64 0, %3
-  %51 = and i64 %49, %50
-  %52 = add i64 %6, 17
-  %53 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %51, i64 %52)
-  %54 = extractvalue { i64, i1 } %53, 0
-  %55 = extractvalue { i64, i1 } %53, 1
-  %56 = sub nuw i64 -9223372036854775808, %3
-  %57 = icmp ule i64 %54, %56
-  %58 = xor i1 %55, true
-  tail call void @llvm.assume(i1 %58)
+  %39 = add i64 %6, 1
+  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %39)
+  %41 = extractvalue { i64, i1 } %40, 1
+  %42 = xor i1 %41, true
+  tail call void @llvm.assume(i1 %42)
+  %43 = extractvalue { i64, i1 } %40, 0
+  %44 = add i64 %3, -1
+  %45 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %43, i64 %44)
+  %46 = extractvalue { i64, i1 } %45, 1
+  %47 = xor i1 %46, true
+  tail call void @llvm.assume(i1 %47)
+  %48 = extractvalue { i64, i1 } %45, 0
+  %49 = sub i64 0, %3
+  %50 = and i64 %48, %49
+  %51 = add i64 %6, 17
+  %52 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %51)
+  %53 = extractvalue { i64, i1 } %52, 0
+  %54 = extractvalue { i64, i1 } %52, 1
+  %55 = sub nuw i64 -9223372036854775808, %3
+  %56 = icmp ule i64 %53, %55
+  %57 = xor i1 %54, true
   tail call void @llvm.assume(i1 %57)
-  %59 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %56)
+  %58 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %58)
+  %59 = icmp ne i64 %3, 0
   tail call void @llvm.assume(i1 %59)
-  %60 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %60)
-  %61 = icmp eq i64 %54, 0
-  br i1 %61, label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h49d0984f20b8f25aE.llvm.11057974413330164255.exit, label %62
+  %60 = icmp eq i64 %53, 0
+  br i1 %60, label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h49d0984f20b8f25aE.llvm.11057974413330164255.exit, label %61
 
-62:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit
-  %63 = load ptr, ptr %0, align 8, !alias.scope !12112, !nonnull !12, !noundef !12
-  %64 = sub nsw i64 0, %51
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  %66 = icmp sgt i64 %45, -1
-  tail call void @llvm.assume(i1 %66)
-  tail call void @__rust_dealloc(ptr noundef nonnull %65, i64 noundef %54, i64 noundef %3) #78, !noalias !12112
+61:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit
+  %62 = load ptr, ptr %0, align 8, !alias.scope !12112, !nonnull !12, !noundef !12
+  %63 = sub nsw i64 0, %50
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  %65 = icmp sgt i64 %44, -1
+  tail call void @llvm.assume(i1 %65)
+  tail call void @__rust_dealloc(ptr noundef nonnull %64, i64 noundef %53, i64 noundef %3) #78, !noalias !12112
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h49d0984f20b8f25aE.llvm.11057974413330164255.exit
 
-_ZN9hashbrown3raw13RawTableInner12free_buckets17h49d0984f20b8f25aE.llvm.11057974413330164255.exit: ; preds = %62, %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit, %4
+_ZN9hashbrown3raw13RawTableInner12free_buckets17h49d0984f20b8f25aE.llvm.11057974413330164255.exit: ; preds = %61, %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbf782c840b151d61E.llvm.11057974413330164255.exit, %4
   ret void
 }
 
@@ -50613,17 +50609,16 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h1b0cd13b67f040a8E
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !noundef !12
   %3 = getelementptr inbounds i8, ptr %2, i64 -56
   %4 = load i64, ptr %3, align 8, !range !222, !alias.scope !12494, !noundef !12
-  %5 = xor i64 %4, -9223372036854775808
-  %6 = icmp ugt i64 %5, 3
-  %cond1.i.i = icmp eq i64 %5, 1
-  %cond.i.i = or i1 %6, %cond1.i.i
-  br i1 %cond.i.i, label %7, label %"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255.exit"
+  %5 = icmp sgt i64 %4, -9223372036854775805
+  %cond1.i.i = icmp eq i64 %4, -9223372036854775807
+  %cond.i.i = or i1 %5, %cond1.i.i
+  br i1 %cond.i.i, label %6, label %"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255.exit"
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr83drop_in_place$LT$hayagriva..csl..rendering..names..NameDisambiguationProperties$GT$17hc3cba4041660ca66E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
   br label %"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255.exit": ; preds = %1, %7
+"_ZN4core3ptr95drop_in_place$LT$$LP$$BP$const$u20$hayagriva..Entry$C$hayagriva..csl..DisambiguateState$RP$$GT$17h9920812ccdab1e9cE.llvm.11057974413330164255.exit": ; preds = %1, %6
   ret void
 }
 

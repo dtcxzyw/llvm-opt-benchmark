@@ -7205,7 +7205,8 @@ select.unfold:                                    ; preds = %52, %45, %29, %24, 
   br i1 %130, label %146, label %131
 
 131:                                              ; preds = %126, %115
-  %132 = xor i32 %.7, 1
+  %.not182 = icmp eq i32 %.lobit172, %113
+  %132 = zext i1 %.not182 to i32
   br label %146
 
 133:                                              ; preds = %107

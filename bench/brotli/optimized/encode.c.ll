@@ -2759,7 +2759,7 @@ if.end57.i.thread:                                ; preds = %sw.bb.i375, %sw.bb1
   %is_prepared_.i.i = getelementptr inbounds i8, ptr %s, i64 1704
   store i32 0, ptr %is_prepared_.i.i, align 8
   store i32 1, ptr %is_setup_.i, align 8
-  %is_prepared_.i3721490 = getelementptr inbounds i8, ptr %s, i64 1704
+  %is_prepared_.i3721491 = getelementptr inbounds i8, ptr %s, i64 1704
   br label %if.then60.i
 
 if.end57.i:                                       ; preds = %if.end141
@@ -2770,7 +2770,7 @@ if.end57.i:                                       ; preds = %if.end141
   br i1 %tobool59.i.not, label %if.then60.i, label %HasherSetup.exit
 
 if.then60.i:                                      ; preds = %if.end57.i.thread, %if.end57.i
-  %is_prepared_.i3721493 = phi ptr [ %is_prepared_.i3721490, %if.end57.i.thread ], [ %is_prepared_.i372, %if.end57.i ]
+  %is_prepared_.i3721494 = phi ptr [ %is_prepared_.i3721491, %if.end57.i.thread ], [ %is_prepared_.i372, %if.end57.i ]
   %params62.i = getelementptr inbounds i8, ptr %s, i64 1688
   %66 = load i32, ptr %params62.i, align 8
   switch i32 %66, label %sw.epilog91.i [
@@ -2917,11 +2917,11 @@ for.body.i1218:                                   ; preds = %for.body.i1218, %sw
   br i1 %exitcond.not.i1220, label %sw.epilog91.i, label %for.body.i1218, !llvm.loop !50
 
 sw.epilog91.i:                                    ; preds = %for.body.i1218, %for.body.i1207, %for.body.i1198, %if.else.i1205, %for.cond.preheader.i1206, %if.else.i1197, %for.cond.preheader.i, %if.then60.i, %sw.bb86.i, %sw.bb84.i, %sw.bb82.i, %sw.bb80.i, %sw.bb78.i, %sw.bb76.i, %sw.bb74.i, %sw.bb72.i, %sw.bb70.i, %sw.bb68.i
-  store i32 1, ptr %is_prepared_.i3721493, align 8
+  store i32 1, ptr %is_prepared_.i3721494, align 8
   br label %HasherSetup.exit
 
 HasherSetup.exit:                                 ; preds = %sw.epilog91.i, %if.end57.i
-  %is_prepared_.i3721492 = phi ptr [ %is_prepared_.i3721493, %sw.epilog91.i ], [ %is_prepared_.i372, %if.end57.i ]
+  %is_prepared_.i3721493 = phi ptr [ %is_prepared_.i3721494, %sw.epilog91.i ], [ %is_prepared_.i372, %if.end57.i ]
   %params1.i = getelementptr inbounds i8, ptr %s, i64 1688
   %73 = load i32, ptr %params1.i, align 8
   switch i32 %73, label %InitOrStitchToPreviousBlock.exit [
@@ -4083,11 +4083,11 @@ for.body.i1750:                                   ; preds = %if.end24.i, %if.end
   %limit.addr.i.01447 = phi i64 [ %sub.i1755, %if.end.i1753 ], [ %sub29.i, %if.end24.i ]
   %t.i13.i.0.copyload = load i64, ptr %s2.addr.i.01448, align 1
   %t.i.i.0.copyload = load i64, ptr %s1.addr.i.01449, align 1
-  %xor.i = xor i64 %t.i.i.0.copyload, %t.i13.i.0.copyload
-  %cmp2.i1752.not = icmp eq i64 %xor.i, 0
+  %cmp2.i1752.not = icmp eq i64 %t.i13.i.0.copyload, %t.i.i.0.copyload
   br i1 %cmp2.i1752.not, label %if.end.i1753, label %if.then.i1756
 
 if.then.i1756:                                    ; preds = %for.body.i1750
+  %xor.i = xor i64 %t.i.i.0.copyload, %t.i13.i.0.copyload
   %236 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %s1.addr.i.01449 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %arrayidx26.i1704 to i64
@@ -4187,13 +4187,13 @@ if.end75.i:                                       ; preds = %if.then68.i, %if.th
   br i1 %cmp10.i, label %if.then19.i, label %lor.lhs.false.i
 
 StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.then19.i
-  %node_right.i.01464.lcssa1498.sink = phi i64 [ %node_right.i.01464, %if.then41.i ], [ %node_right.i.0.lcssa, %if.then19.i ]
+  %node_right.i.01464.lcssa1500.sink = phi i64 [ %node_right.i.01464, %if.then41.i ], [ %node_right.i.0.lcssa, %if.then19.i ]
   %.sink = phi i32 [ %242, %if.then41.i ], [ %234, %if.then19.i ]
-  %arrayidx47.i = getelementptr inbounds i32, ptr %232, i64 %node_right.i.01464.lcssa1498.sink
+  %arrayidx47.i = getelementptr inbounds i32, ptr %232, i64 %node_right.i.01464.lcssa1500.sink
   store i32 %.sink, ptr %arrayidx47.i, align 4
   %inc.i581 = add nuw nsw i64 %i.i565.01474, 1
-  %exitcond1483.not = icmp eq i64 %inc.i581, %cond.i.i576
-  br i1 %exitcond1483.not, label %InitOrStitchToPreviousBlock.exit, label %for.body.i579, !llvm.loop !70
+  %exitcond1484.not = icmp eq i64 %inc.i581, %cond.i.i576
+  br i1 %exitcond1484.not, label %InitOrStitchToPreviousBlock.exit, label %for.body.i579, !llvm.loop !70
 
 InitOrStitchToPreviousBlock.exit:                 ; preds = %StoreAndFindMatchesH10.exit, %if.then.i572, %HasherSetup.exit, %sw.bb24.i, %sw.bb16.i, %if.then.i505, %sw.bb14.i, %if.then.i490, %sw.bb12.i, %if.then.i475, %sw.bb10.i, %if.then.i460, %sw.bb8.i, %if.then.i446, %sw.bb6.i, %if.then.i431, %sw.bb4.i, %if.then.i416, %sw.bb2.i, %if.then.i401, %sw.bb.i, %if.then.i389, %PrepareHROLLING.exit, %PrepareHROLLING_FAST.exit1320, %PrepareHROLLING_FAST.exit
   %last_flush_pos_ = getelementptr inbounds i8, ptr %s, i64 1512
@@ -4331,7 +4331,7 @@ if.then253:                                       ; preds = %land.lhs.true249
   br i1 %tobool255.not, label %return.sink.split, label %if.then256
 
 if.then256:                                       ; preds = %if.then253
-  store i32 0, ptr %is_prepared_.i3721492, align 8
+  store i32 0, ptr %is_prepared_.i3721493, align 8
   br label %return.sink.split
 
 if.end259:                                        ; preds = %land.lhs.true249, %land.lhs.true245, %land.end
@@ -4417,19 +4417,19 @@ CombineLengthCodes.exit:                          ; preds = %if.then263, %if.els
   %add270 = add i64 %281, %280
   store i64 %add270, ptr %num_literals_269, align 8
   store i64 0, ptr %last_insert_len_260, align 8
-  %.pre1484.pre = load i64, ptr %0, align 8
-  %.pre1485.pre = load i64, ptr %last_flush_pos_, align 8
+  %.pre1485.pre = load i64, ptr %0, align 8
+  %.pre1486.pre = load i64, ptr %last_flush_pos_, align 8
   br label %if.end272
 
 if.end272:                                        ; preds = %CombineLengthCodes.exit, %if.end259
-  %.pre1485 = phi i64 [ %.pre1485.pre, %CombineLengthCodes.exit ], [ %263, %if.end259 ]
-  %.pre1484 = phi i64 [ %.pre1484.pre, %CombineLengthCodes.exit ], [ %262, %if.end259 ]
-  %cmp277 = icmp ne i64 %.pre1484, %.pre1485
-  %or.cond1501.not = select i1 %tobool52, i1 true, i1 %cmp277
-  br i1 %or.cond1501.not, label %if.end280, label %return.sink.split
+  %.pre1486 = phi i64 [ %.pre1486.pre, %CombineLengthCodes.exit ], [ %263, %if.end259 ]
+  %.pre1485 = phi i64 [ %.pre1485.pre, %CombineLengthCodes.exit ], [ %262, %if.end259 ]
+  %cmp277 = icmp ne i64 %.pre1485, %.pre1486
+  %or.cond1503.not = select i1 %tobool52, i1 true, i1 %cmp277
+  br i1 %or.cond1503.not, label %if.end280, label %return.sink.split
 
 if.end280:                                        ; preds = %if.end272
-  %sub283 = sub i64 %.pre1484, %.pre1485
+  %sub283 = sub i64 %.pre1485, %.pre1486
   %mul286 = shl i64 %sub283, 1
   %add287 = add i64 %mul286, 503
   %conv288 = and i64 %add287, 4294967295
@@ -4640,8 +4640,8 @@ ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit53.i.i
   br i1 %cmp18.i.i1380, label %if.then2.i, label %ShannonEntropy.exit.i.i.if.end3.i_crit_edge
 
 ShannonEntropy.exit.i.i.if.end3.i_crit_edge:      ; preds = %ShannonEntropy.exit.i.i
-  %.pre1486 = load i8, ptr %arrayidx300, align 1
-  %.pre1487 = load i8, ptr %284, align 1
+  %.pre1487 = load i8, ptr %arrayidx300, align 1
+  %.pre1488 = load i8, ptr %284, align 1
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %ShannonEntropy.exit.i.i, %if.end.i1369
@@ -4652,8 +4652,8 @@ if.then2.i:                                       ; preds = %ShannonEntropy.exit
   br label %WriteMetaBlockInternal.exit
 
 if.end3.i:                                        ; preds = %ShannonEntropy.exit.i.i.if.end3.i_crit_edge, %if.then2.i.i, %if.end.i.i
-  %311 = phi i8 [ %.pre1487, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv294, %if.then2.i.i ], [ %conv294, %if.end.i.i ]
-  %312 = phi i8 [ %.pre1486, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv299, %if.then2.i.i ], [ %conv299, %if.end.i.i ]
+  %311 = phi i8 [ %.pre1488, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv294, %if.then2.i.i ], [ %conv294, %if.end.i.i ]
+  %312 = phi i8 [ %.pre1487, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv299, %if.then2.i.i ], [ %conv299, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
   %313 = load i64, ptr %storage_ix290, align 8
   %314 = load i32, ptr %quality, align 4
@@ -4829,7 +4829,7 @@ UpdateLastProcessedPos.exit1411:                  ; preds = %WrapPosition.exit.i
   br i1 %cmp.i1401.not, label %if.then322, label %if.end324
 
 if.then322:                                       ; preds = %UpdateLastProcessedPos.exit1411
-  store i32 0, ptr %is_prepared_.i3721492, align 8
+  store i32 0, ptr %is_prepared_.i3721493, align 8
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then322, %UpdateLastProcessedPos.exit1411

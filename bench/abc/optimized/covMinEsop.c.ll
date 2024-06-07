@@ -121,7 +121,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   %50 = getelementptr inbounds [1 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i
   %51 = load i32, ptr %50, align 4
   %52 = xor i32 %51, %49
-  %53 = icmp eq i32 %52, 0
+  %53 = icmp eq i32 %49, %51
   br i1 %53, label %.loopexit.i.i, label %54
 
 54:                                               ; preds = %47
@@ -256,7 +256,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   %105 = getelementptr inbounds [1 x i32], ptr %101, i64 0, i64 %indvars.iv.i175.i
   %106 = load i32, ptr %105, align 4
   %107 = xor i32 %106, %104
-  %108 = icmp eq i32 %107, 0
+  %108 = icmp eq i32 %104, %106
   br i1 %108, label %.loopexit.i187.i, label %109
 
 109:                                              ; preds = %102
@@ -396,7 +396,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   %161 = getelementptr inbounds [1 x i32], ptr %157, i64 0, i64 %indvars.iv.i203.i
   %162 = load i32, ptr %161, align 4
   %163 = xor i32 %162, %160
-  %164 = icmp eq i32 %163, 0
+  %164 = icmp eq i32 %160, %162
   br i1 %164, label %.loopexit.i215.i, label %165
 
 165:                                              ; preds = %158
@@ -1009,7 +1009,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %15 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %indvars.iv47
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, %14
-  %18 = icmp eq i32 %17, 0
+  %18 = icmp eq i32 %14, %16
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %.lr.ph.split.us.split.us
@@ -1038,7 +1038,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %29 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = xor i32 %30, %28
-  %32 = icmp eq i32 %31, 0
+  %32 = icmp eq i32 %28, %30
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %.lr.ph.split.split

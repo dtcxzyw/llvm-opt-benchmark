@@ -272,18 +272,18 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 .preheader70.lr.ph.split.us:                      ; preds = %.preheader70.lr.ph
   %35 = icmp eq i32 %33, 0
-  %spec.select130 = select i1 %35, i32 0, i32 %1
+  %spec.select133 = select i1 %35, i32 0, i32 %1
   br label %.loopexit
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %119
   %36 = phi ptr [ %116, %119 ], [ %31, %.preheader70.lr.ph ]
-  %.val5881 = phi i32 [ %.val59, %119 ], [ %33, %.preheader70.lr.ph ]
-  %.04983 = phi i32 [ %120, %119 ], [ 0, %.preheader70.lr.ph ]
-  %37 = icmp sgt i32 %.val5881, 0
+  %.val5882 = phi i32 [ %.val59, %119 ], [ %33, %.preheader70.lr.ph ]
+  %.04984 = phi i32 [ %120, %119 ], [ 0, %.preheader70.lr.ph ]
+  %37 = icmp sgt i32 %.val5882, 0
   br i1 %37, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader70
-  %38 = icmp ne i32 %.04983, 10
+  %38 = icmp ne i32 %.04984, 10
   %.not68 = or i1 %23, %38
   br label %39
 
@@ -412,19 +412,19 @@ Saig_ManRetimeNodeFwd.exit:                       ; preds = %69, %90
   %103 = getelementptr inbounds i8, ptr %99, i64 32
   store i32 %.val75.i, ptr %103, align 8
   %104 = ptrtoint ptr %99 to i64
-  %105 = xor i64 %94, %104
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge, label %107
+  %105 = icmp eq i64 %94, %104
+  br i1 %105, label %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge, label %106
 
 Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge: ; preds = %Saig_ManRetimeNodeFwd.exit
   %.pre = load ptr, ptr %22, align 8
   br label %Saig_ManRetimeNodeFwd.exit.thread
 
-107:                                              ; preds = %Saig_ManRetimeNodeFwd.exit
-  %108 = trunc nuw nsw i64 %indvars.iv to i32
-  %109 = inttoptr i64 %105 to ptr
+106:                                              ; preds = %Saig_ManRetimeNodeFwd.exit
+  %107 = trunc nuw nsw i64 %indvars.iv to i32
+  %108 = xor i64 %94, %104
+  %109 = inttoptr i64 %108 to ptr
   tail call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %109, i32 noundef 0) #3
-  %.pre116 = load ptr, ptr %22, align 8
+  %.pre118 = load ptr, ptr %22, align 8
   br label %.critedge
 
 Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge, %67, %Saig_ObjIsLo.exit.i, %Saig_ObjIsLo.exit80.i, %51, %62, %46, %39
@@ -441,35 +441,35 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
   %115 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader70, %107
-  %116 = phi ptr [ %.pre116, %107 ], [ %36, %.preheader70 ], [ %110, %.critedge.loopexit ]
-  %.078 = phi i32 [ %108, %107 ], [ 0, %.preheader70 ], [ %115, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader70, %106
+  %116 = phi ptr [ %.pre118, %106 ], [ %36, %.preheader70 ], [ %110, %.critedge.loopexit ]
+  %.078 = phi i32 [ %107, %106 ], [ 0, %.preheader70 ], [ %115, %.critedge.loopexit ]
   %117 = getelementptr i8, ptr %116, i64 4
   %.val59 = load i32, ptr %117, align 4
   %118 = icmp eq i32 %.078, %.val59
   br i1 %118, label %.loopexit, label %119
 
 119:                                              ; preds = %.critedge
-  %120 = add nuw nsw i32 %.04983, 1
+  %120 = add nuw nsw i32 %.04984, 1
   %exitcond.not = icmp eq i32 %120, %1
   br i1 %exitcond.not, label %.loopexit, label %.preheader70, !llvm.loop !6
 
 .preheaderthread-pre-split:                       ; preds = %179
-  %.val6188.pr = load i32, ptr %7, align 8
+  %.val6189.pr = load i32, ptr %7, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
-  %.val6188 = phi i32 [ %.val6188.pr, %.preheaderthread-pre-split ], [ %15, %.preheader.lr.ph ]
-  %.15092 = phi i32 [ %180, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
-  %121 = icmp sgt i32 %.val6188, 0
-  br i1 %121, label %.lr.ph90, label %.critedge2
+  %.val6189 = phi i32 [ %.val6189.pr, %.preheaderthread-pre-split ], [ %15, %.preheader.lr.ph ]
+  %.15093 = phi i32 [ %180, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+  %121 = icmp sgt i32 %.val6189, 0
+  br i1 %121, label %.lr.ph91, label %.critedge2
 
-.lr.ph90:                                         ; preds = %.preheader, %Saig_ManRetimeNodeBwd.exit.thread
-  %.val61117 = phi i32 [ %.val61, %Saig_ManRetimeNodeBwd.exit.thread ], [ %.val6188, %.preheader ]
-  %.189 = phi i32 [ %174, %Saig_ManRetimeNodeBwd.exit.thread ], [ 0, %.preheader ]
+.lr.ph91:                                         ; preds = %.preheader, %Saig_ManRetimeNodeBwd.exit.thread
+  %.val61119 = phi i32 [ %.val61, %Saig_ManRetimeNodeBwd.exit.thread ], [ %.val6189, %.preheader ]
+  %.190 = phi i32 [ %174, %Saig_ManRetimeNodeBwd.exit.thread ], [ 0, %.preheader ]
   %122 = load ptr, ptr %8, align 8
   %.val = load i32, ptr %9, align 4
-  %123 = add nsw i32 %.val, %.189
+  %123 = add nsw i32 %.val, %.190
   %124 = getelementptr i8, ptr %122, i64 8
   %.val56 = load ptr, ptr %124, align 8
   %125 = sext i32 %123 to i64
@@ -498,7 +498,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
   %narrow.i.i = icmp ult i32 %141, -2
   br i1 %narrow.i.i, label %Saig_ManRetimeNodeBwd.exit.thread, label %Saig_ManRetimeNodeBwd.exit
 
-Saig_ManRetimeNodeBwd.exit:                       ; preds = %.lr.ph90
+Saig_ManRetimeNodeBwd.exit:                       ; preds = %.lr.ph91
   %142 = getelementptr i8, ptr %137, i64 8
   %.val.i62 = load ptr, ptr %142, align 8
   %143 = ptrtoint ptr %.val.i62 to i64
@@ -551,14 +551,14 @@ Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge: ; preds 
   tail call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %127, ptr noundef nonnull %171, i32 noundef 0) #3
   br label %.critedge2
 
-Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge, %.lr.ph90
-  %.val61 = phi i32 [ %.val61.pre, %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge ], [ %.val61117, %.lr.ph90 ]
-  %174 = add nuw nsw i32 %.189, 1
+Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge, %.lr.ph91
+  %.val61 = phi i32 [ %.val61.pre, %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge ], [ %.val61119, %.lr.ph91 ]
+  %174 = add nuw nsw i32 %.190, 1
   %175 = icmp slt i32 %174, %.val61
-  br i1 %175, label %.lr.ph90, label %.critedge2, !llvm.loop !8
+  br i1 %175, label %.lr.ph91, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %Saig_ManRetimeNodeBwd.exit.thread, %.preheader, %173
-  %.173 = phi i32 [ %.189, %173 ], [ 0, %.preheader ], [ %174, %Saig_ManRetimeNodeBwd.exit.thread ]
+  %.173 = phi i32 [ %.190, %173 ], [ 0, %.preheader ], [ %174, %Saig_ManRetimeNodeBwd.exit.thread ]
   %176 = load ptr, ptr %14, align 8
   %177 = getelementptr i8, ptr %176, i64 4
   %.val60 = load i32, ptr %177, align 4
@@ -566,12 +566,12 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   br i1 %178, label %.loopexit, label %179
 
 179:                                              ; preds = %.critedge2
-  %180 = add nuw nsw i32 %.15092, 1
-  %exitcond114.not = icmp eq i32 %180, %1
-  br i1 %exitcond114.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !9
+  %180 = add nuw nsw i32 %.15093, 1
+  %exitcond116.not = icmp eq i32 %180, %1
+  br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.2 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select130, %.preheader70.lr.ph.split.us ], [ %.15092, %.critedge2 ], [ %1, %179 ], [ %.04983, %.critedge ], [ %1, %119 ]
+  %.2 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.15093, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
   store i32 0, ptr %5, align 8
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3

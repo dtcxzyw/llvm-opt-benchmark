@@ -352,11 +352,11 @@ define void @_ZN7RSCoder6EncodeEPhiS0_(ptr nocapture noundef nonnull readonly al
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr %14, align 4
   %27 = xor i32 %26, %25
-  %.fr = freeze i32 %27
-  %28 = icmp eq i32 %.fr, 0
-  %29 = sext i32 %.fr to i64
+  %28 = icmp eq i32 %26, %25
+  %.fr.us = freeze i1 %28
+  %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds [256 x i32], ptr %17, i64 0, i64 %29
-  br i1 %28, label %_ZN7RSCoder6gfMultEii.exit.us.us, label %.lr.ph31.split.us37
+  br i1 %.fr.us, label %_ZN7RSCoder6gfMultEii.exit.us.us, label %.lr.ph31.split.us37
 
 31:                                               ; preds = %._crit_edge.us
   %32 = load i32, ptr %21, align 4
@@ -404,7 +404,7 @@ _ZN7RSCoder6gfMultEii.exit.us35:                  ; preds = %44, %.lr.ph31.split
   br i1 %56, label %.lr.ph31.split.us37, label %._crit_edge.us, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit.us35, %_ZN7RSCoder6gfMultEii.exit.us.us
-  %or.cond.i24.us = or i1 %28, %19
+  %or.cond.i24.us = or i1 %.fr.us, %19
   br i1 %or.cond.i24.us, label %_ZN7RSCoder6gfMultEii.exit25.us, label %31
 
 _ZN7RSCoder6gfMultEii.exit.us.us:                 ; preds = %.lr.ph31.us, %_ZN7RSCoder6gfMultEii.exit.us.us
@@ -438,13 +438,13 @@ _ZN7RSCoder6gfMultEii.exit.us.us:                 ; preds = %.lr.ph31.us, %_ZN7R
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = load i32, ptr %14, align 4
-  %66 = xor i32 %65, %64
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %_ZN7RSCoder6gfMultEii.exit25, label %68
+  %66 = icmp eq i32 %65, %64
+  br i1 %66, label %_ZN7RSCoder6gfMultEii.exit25, label %67
 
-68:                                               ; preds = %.lr.ph33.split.split
+67:                                               ; preds = %.lr.ph33.split.split
+  %68 = xor i32 %65, %64
   %69 = load i32, ptr %21, align 4
-  %70 = sext i32 %66 to i64
+  %70 = sext i32 %68 to i64
   %71 = getelementptr inbounds [256 x i32], ptr %17, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, %69
@@ -453,8 +453,8 @@ _ZN7RSCoder6gfMultEii.exit.us.us:                 ; preds = %.lr.ph31.us, %_ZN7R
   %76 = load i32, ptr %75, align 4
   br label %_ZN7RSCoder6gfMultEii.exit25
 
-_ZN7RSCoder6gfMultEii.exit25:                     ; preds = %.lr.ph33.split.split, %68
-  %77 = phi i32 [ %76, %68 ], [ 0, %.lr.ph33.split.split ]
+_ZN7RSCoder6gfMultEii.exit25:                     ; preds = %.lr.ph33.split.split, %67
+  %77 = phi i32 [ %76, %67 ], [ 0, %.lr.ph33.split.split ]
   store i32 %77, ptr %5, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -699,7 +699,7 @@ _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %97
   br i1 %exitcond178.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !18
 
 ._crit_edge133:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit86
-  %110 = icmp eq i32 %109, 0
+  %110 = icmp eq i32 %108, %.069130
   br i1 %110, label %._crit_edge133.thread, label %152
 
 ._crit_edge133.thread:                            ; preds = %.preheader94, %._crit_edge133

@@ -1567,8 +1567,8 @@ entry:
   %0 = load ptr, ptr %encodings, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %encodings, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not13 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not13, label %return, label %for.body.lr.ph
+  %cmp.i.not14 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not14, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i2.i = ptrtoint ptr %encoding.coerce1 to i64
@@ -1577,9 +1577,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.014 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %__begin2.sroa.0.014, align 8
-  %agg.tmp.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %__begin2.sroa.0.014, i64 8
+  %__begin2.sroa.0.015 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %__begin2.sroa.0.015, align 8
+  %agg.tmp.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.first.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -1596,13 +1596,15 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.inc.
   %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %agg.tmp.sroa.0.0.copyload, %if.end.i ]
   %2 = load i8, ptr %__first1.addr.08.i.i, align 1
   %3 = load i8, ptr %__first2.addr.09.i.i, align 1
-  %xor.i.i.i = xor i8 %3, %2
-  switch i8 %xor.i.i.i, label %for.inc [
-    i8 0, label %for.inc.i.i
-    i8 32, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i
-  ]
+  %cmp.i.i.i = icmp eq i8 %2, %3
+  br i1 %cmp.i.i.i, label %for.inc.i.i, label %if.end.i.i.i
 
-_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %for.body.i.i
+if.end.i.i.i:                                     ; preds = %for.body.i.i
+  %xor.i.i.i = xor i8 %3, %2
+  %cmp6.not.i.i.i = icmp eq i8 %xor.i.i.i, 32
+  br i1 %cmp6.not.i.i.i, label %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, label %for.inc
+
+_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i:   ; preds = %if.end.i.i.i
   %or6.i.i.i = or i8 %3, %2
   %4 = add i8 %or6.i.i.i, -97
   %5 = icmp ult i8 %4, 26
@@ -1615,24 +1617,24 @@ for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp.not.i.i, label %if.then, label %for.body.i.i, !llvm.loop !75
 
 if.then:                                          ; preds = %if.end.i, %for.inc.i.i
-  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.014, i64 16
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 16
   %6 = load ptr, ptr %second, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.014, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 24
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %6, %7
   br i1 %cmp.i.not5.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.inc.i
   %qvalue.07.i = phi double [ %qvalue.1.i, %for.inc.i ], [ 1.000000e+00, %if.then ]
-  %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i4, %for.inc.i ], [ %6, %if.then ]
+  %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i5, %for.inc.i ], [ %6, %if.then ]
   %ref.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %__begin2.sroa.0.06.i, align 8
   %ref.tmp.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %ref.tmp.sroa.2.0.copyload.i.i = load ptr, ptr %ref.tmp.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.2.0.copyload.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.0.0.copyload.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 1
-  br i1 %cmp.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %for.inc.i
+  %cmp.i.i.i4 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 1
+  br i1 %cmp.i.i.i4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %for.inc.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i
   %lhsc.i = load i8, ptr %ref.tmp.sroa.0.0.copyload.i.i, align 1
@@ -1644,13 +1646,13 @@ if.then.i:                                        ; preds = %_ZNSt11char_traitsI
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %second.i, align 8
   %agg.tmp.sroa.2.0.second.sroa_idx.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 24
   %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0.second.sroa_idx.i, align 8
-  %call6.i5 = invoke noundef double @_ZN5folly2toIdEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
+  %call6.i6 = invoke noundef double @_ZN5folly2toIdEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
           to label %for.inc.i unwind label %lpad
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %for.body.i
-  %qvalue.1.i = phi double [ %qvalue.07.i, %for.body.i ], [ %qvalue.07.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %call6.i5, %if.then.i ]
-  %incdec.ptr.i.i4 = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 32
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i4, %7
+  %qvalue.1.i = phi double [ %qvalue.07.i, %for.body.i ], [ %qvalue.07.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %call6.i6, %if.then.i ]
+  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 32
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i5, %7
   br i1 %cmp.i.not.i, label %invoke.cont.loopexit, label %for.body.i
 
 invoke.cont.loopexit:                             ; preds = %for.inc.i
@@ -1671,8 +1673,8 @@ catch:                                            ; preds = %lpad
   tail call void @__cxa_end_catch()
   br label %return
 
-for.inc:                                          ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %for.body.i.i, %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.014, i64 40
+for.inc:                                          ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end.i.i.i, %for.body
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 

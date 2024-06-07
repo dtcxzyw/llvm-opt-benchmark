@@ -7249,8 +7249,8 @@ land.lhs.true33:                                  ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond77.not, label %if.then49, label %land.rhs, !llvm.loop !25
+  %exitcond70.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond70.not, label %if.then49, label %land.rhs, !llvm.loop !25
 
 if.end44:                                         ; preds = %land.lhs.true33
   %6 = trunc nuw nsw i64 %indvars.iv to i32
@@ -7318,12 +7318,16 @@ if.end50:                                         ; preds = %if.end44, %EvictSes
   store ptr null, ptr %heap, align 8
   %call.i.i = call ptr @ClientSessionToSession(ptr noundef nonnull %call)
   %call1.i.i = call ptr @ClientSessionToSession(ptr noundef nonnull %arrayidx4758)
-  %cmp.i.i = icmp eq ptr %call.i.i, null
-  %cmp2.i.i = icmp eq ptr %call1.i.i, null
-  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
-  %cmp4.i.i = icmp eq ptr %call.i.i, %call1.i.i
-  %or.cond9.i.i = select i1 %or.cond.i.i, i1 true, i1 %cmp4.i.i
-  br i1 %or.cond9.i.i, label %if.end78.thread, label %if.end.i.i
+  %cmp.i.i = icmp ne ptr %call.i.i, null
+  %cmp2.i.i = icmp ne ptr %call1.i.i, null
+  %or.cond.i.i.not65 = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
+  %cmp4.i.i = icmp ne ptr %call.i.i, %call1.i.i
+  %or.cond9.i.i.not = select i1 %or.cond.i.i.not65, i1 %cmp4.i.i, i1 false
+  br i1 %or.cond9.i.i.not, label %if.end.i.i, label %if.end78.thread
+
+if.end78.thread:                                  ; preds = %if.end50
+  %call7972 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #20
+  br label %return
 
 if.end.i.i:                                       ; preds = %if.end50
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
@@ -7337,10 +7341,6 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
   %cacheRow.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 4
   store i32 -1, ptr %cacheRow.i.i, align 4
   br label %if.then56
-
-if.end78.thread:                                  ; preds = %if.end50
-  %call7969 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #20
-  br label %return
 
 if.then56:                                        ; preds = %if.then7.i.i, %if.end.i.i
   br i1 %tobool42.not4754, label %if.then58, label %if.end69
@@ -7376,8 +7376,9 @@ if.then74:                                        ; preds = %if.end69
 
 if.end78:                                         ; preds = %if.end69, %if.then74
   %call79 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #20
-  %cmp83.not = icmp eq ptr %clientCacheEntry, null
-  br i1 %cmp83.not, label %return, label %if.then85
+  %cmp83 = icmp ne ptr %clientCacheEntry, null
+  %or.cond = and i1 %cmp83, %or.cond9.i.i.not
+  br i1 %or.cond, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.end78
   %serverID = getelementptr inbounds i8, ptr %call, i64 204
@@ -7391,8 +7392,8 @@ if.then90:                                        ; preds = %if.then85
   store ptr %call87, ptr %clientCacheEntry, align 8
   br label %return
 
-return:                                           ; preds = %if.end78, %if.then90, %if.then85, %if.end78.thread, %HashObject.exit, %if.end16, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.end ], [ %call.i, %HashObject.exit ], [ -106, %if.end16 ], [ 1, %if.end78.thread ], [ 0, %if.then85 ], [ 0, %if.then90 ], [ 0, %if.end78 ]
+return:                                           ; preds = %if.end78.thread, %if.end78, %if.then90, %if.then85, %HashObject.exit, %if.end16, %if.end, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.end ], [ %call.i, %HashObject.exit ], [ -106, %if.end16 ], [ 0, %if.then85 ], [ 0, %if.then90 ], [ 0, %if.end78 ], [ 1, %if.end78.thread ]
   ret i32 %retval.0
 }
 

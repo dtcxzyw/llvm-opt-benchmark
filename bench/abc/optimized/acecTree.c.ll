@@ -2199,7 +2199,7 @@ define void @Acec_TreePhases_rec(ptr nocapture noundef readnone %0, ptr nocaptur
   %36 = and i32 %35, 1
   %37 = xor i32 %36, %4
   %38 = xor i32 %37, %30
-  %.not.i = icmp eq i32 %37, 0
+  %.not.i = icmp eq i32 %36, %4
   br i1 %.not.i, label %Acec_SignSetBit2.exit, label %39
 
 39:                                               ; preds = %34
@@ -2232,7 +2232,7 @@ Acec_SignSetBit2.exit:                            ; preds = %39, %34, %21
   %53 = xor i32 %52, %.0
   %54 = xor i32 %53, %.168
   tail call void @Acec_TreePhases_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %44, i32 noundef %53, ptr noundef %5)
-  %.not.i59 = icmp eq i32 %53, 0
+  %.not.i59 = icmp eq i32 %52, %.0
   br i1 %.not.i59, label %Acec_SignSetBit2.exit61, label %55
 
 55:                                               ; preds = %46

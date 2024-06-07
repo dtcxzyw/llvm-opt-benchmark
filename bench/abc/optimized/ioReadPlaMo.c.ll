@@ -1726,19 +1726,19 @@ define noalias noundef ptr @Mop_ManFindDist1Pairs(ptr nocapture noundef readonly
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8
-  %37 = xor i64 %36, %34
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %48, label %39
+  %37 = icmp eq i64 %34, %36
+  br i1 %37, label %48, label %38
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = lshr i64 %37, 1
-  %41 = xor i64 %40, %37
+38:                                               ; preds = %.lr.ph.i
+  %39 = xor i64 %36, %34
+  %40 = lshr i64 %39, 1
+  %41 = xor i64 %40, %39
   %42 = and i64 %41, 6148914691236517205
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %43, label %Mop_ManCheckDist1.exit.thread
 
-43:                                               ; preds = %39
-  %44 = and i64 %37, 6148914691236517205
+43:                                               ; preds = %38
+  %44 = and i64 %39, 6148914691236517205
   %45 = and i64 %44, %40
   %46 = icmp ne i64 %45, 0
   %or.cond.i = and i1 %46, %.not21.i
@@ -1904,9 +1904,9 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %.val39.pre = load i32, ptr %7, align 4
   br label %Mop_ManCheckDist1.exit.thread
 
-Mop_ManCheckDist1.exit.thread:                    ; preds = %39, %43, %.lr.ph.split, %Mop_ManCheckDist1.exit.thread69, %Vec_IntPushTwo.exit, %Mop_ManCheckDist1.exit
-  %.val4062 = phi i32 [ %.val4063, %.lr.ph.split ], [ %.val4063, %Mop_ManCheckDist1.exit.thread69 ], [ %.val39.pre, %Vec_IntPushTwo.exit ], [ %.val4063, %Mop_ManCheckDist1.exit ], [ %.val4063, %43 ], [ %.val4063, %39 ]
-  %.val39 = phi i32 [ %.val3959, %.lr.ph.split ], [ %.val3959, %Mop_ManCheckDist1.exit.thread69 ], [ %.val39.pre, %Vec_IntPushTwo.exit ], [ %.val3959, %Mop_ManCheckDist1.exit ], [ %.val3959, %43 ], [ %.val3959, %39 ]
+Mop_ManCheckDist1.exit.thread:                    ; preds = %38, %43, %.lr.ph.split, %Mop_ManCheckDist1.exit.thread69, %Vec_IntPushTwo.exit, %Mop_ManCheckDist1.exit
+  %.val4062 = phi i32 [ %.val4063, %.lr.ph.split ], [ %.val4063, %Mop_ManCheckDist1.exit.thread69 ], [ %.val39.pre, %Vec_IntPushTwo.exit ], [ %.val4063, %Mop_ManCheckDist1.exit ], [ %.val4063, %43 ], [ %.val4063, %38 ]
+  %.val39 = phi i32 [ %.val3959, %.lr.ph.split ], [ %.val3959, %Mop_ManCheckDist1.exit.thread69 ], [ %.val39.pre, %Vec_IntPushTwo.exit ], [ %.val3959, %Mop_ManCheckDist1.exit ], [ %.val3959, %43 ], [ %.val3959, %38 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %114 = trunc nuw i64 %indvars.iv.next53 to i32
   %115 = icmp sgt i32 %.val39, %114
@@ -2573,19 +2573,19 @@ define i32 @Mop_ManMergeDist1Pairs2(ptr nocapture noundef readonly %0, ptr nocap
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8
-  %35 = xor i64 %34, %32
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %46, label %37
+  %35 = icmp eq i64 %32, %34
+  br i1 %35, label %46, label %36
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = lshr i64 %35, 1
-  %39 = xor i64 %38, %35
+36:                                               ; preds = %.lr.ph.i
+  %37 = xor i64 %34, %32
+  %38 = lshr i64 %37, 1
+  %39 = xor i64 %38, %37
   %40 = and i64 %39, 6148914691236517205
   %.not.i = icmp eq i64 %40, 0
   br i1 %.not.i, label %41, label %Mop_ManCheckDist1.exit.thread
 
-41:                                               ; preds = %37
-  %42 = and i64 %35, 6148914691236517205
+41:                                               ; preds = %36
+  %42 = and i64 %37, 6148914691236517205
   %43 = and i64 %42, %38
   %44 = icmp ne i64 %43, 0
   %or.cond.i = and i1 %44, %.not21.i
@@ -2837,14 +2837,14 @@ Vec_IntGrow.exit.i119:                            ; preds = %135, %133
   br label %Mop_ManCheckDist1.exit.thread.sink.split
 
 Mop_ManCheckDist1.exit.thread.sink.split:         ; preds = %147, %Vec_IntGrow.exit.i119, %.Vec_IntGrow.exit10_crit_edge.i114, %100, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink199 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %101, %100 ], [ %90, %Vec_IntGrow.exit.i ], [ %.pre.i116, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %148, %147 ], [ %137, %Vec_IntGrow.exit.i119 ]
+  %.sink201 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %101, %100 ], [ %90, %Vec_IntGrow.exit.i ], [ %.pre.i116, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %148, %147 ], [ %137, %Vec_IntGrow.exit.i119 ]
   %.sink = phi i32 [ %24, %.Vec_IntGrow.exit10_crit_edge.i ], [ %24, %100 ], [ %24, %Vec_IntGrow.exit.i ], [ %14, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %14, %147 ], [ %14, %Vec_IntGrow.exit.i119 ]
   %indvars.iv173.sink = phi i64 [ %indvars.iv170, %.Vec_IntGrow.exit10_crit_edge.i ], [ %indvars.iv170, %100 ], [ %indvars.iv170, %Vec_IntGrow.exit.i ], [ %indvars.iv173, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %indvars.iv173, %147 ], [ %indvars.iv173, %Vec_IntGrow.exit.i119 ]
   %149 = load i32, ptr %11, align 4
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %11, align 4
   %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds i32, ptr %.sink199, i64 %151
+  %152 = getelementptr inbounds i32, ptr %.sink201, i64 %151
   store i32 %.sink, ptr %152, align 4
   %.val96 = load ptr, ptr %6, align 8
   %153 = getelementptr inbounds i32, ptr %.val96, i64 %indvars.iv173.sink
@@ -2852,8 +2852,8 @@ Mop_ManCheckDist1.exit.thread.sink.split:         ; preds = %147, %Vec_IntGrow.e
   %154 = add nsw i32 %.175144, 1
   br label %Mop_ManCheckDist1.exit.thread
 
-Mop_ManCheckDist1.exit.thread:                    ; preds = %37, %41, %.lr.ph.i108, %Mop_ManCheckDist1.exit.thread.sink.split, %25, %.lr.ph147, %Mop_ManCheckDist1.exit
-  %.276 = phi i32 [ %.175144, %Mop_ManCheckDist1.exit ], [ %.175144, %.lr.ph147 ], [ %.175144, %25 ], [ %154, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.175144, %.lr.ph.i108 ], [ %.175144, %41 ], [ %.175144, %37 ]
+Mop_ManCheckDist1.exit.thread:                    ; preds = %36, %41, %.lr.ph.i108, %Mop_ManCheckDist1.exit.thread.sink.split, %25, %.lr.ph147, %Mop_ManCheckDist1.exit
+  %.276 = phi i32 [ %.175144, %Mop_ManCheckDist1.exit ], [ %.175144, %.lr.ph147 ], [ %.175144, %25 ], [ %154, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.175144, %.lr.ph.i108 ], [ %.175144, %41 ], [ %.175144, %36 ]
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %.val92 = load i32, ptr %4, align 4
   %155 = trunc nuw i64 %indvars.iv.next171 to i32

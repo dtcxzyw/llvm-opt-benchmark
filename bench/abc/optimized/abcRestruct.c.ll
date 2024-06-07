@@ -1800,21 +1800,21 @@ define void @Abc_NodeEdgeDsdPermute(ptr nocapture noundef readonly %0, ptr nocap
   %54 = and i32 %47, 1
   %55 = ptrtoint ptr %52 to i64
   %56 = zext nneg i32 %54 to i64
-  %57 = xor i64 %55, %56
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %.thread.us, label %59
+  %57 = icmp eq i64 %56, %55
+  br i1 %57, label %.thread.us, label %58
 
-59:                                               ; preds = %53
+58:                                               ; preds = %53
+  %59 = xor i64 %55, %56
   %60 = load ptr, ptr %1, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 256
   %62 = load ptr, ptr %61, align 8
-  %63 = xor i64 %57, 1
+  %63 = xor i64 %59, 1
   %64 = inttoptr i64 %63 to ptr
   %65 = tail call ptr @Abc_AigAndLookup(ptr noundef %62, ptr noundef %44, ptr noundef %64) #19
   %.not76.us = icmp eq ptr %65, null
   br i1 %.not76.us, label %.thread.us, label %66
 
-66:                                               ; preds = %59
+66:                                               ; preds = %58
   %67 = ptrtoint ptr %65 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
@@ -1835,7 +1835,7 @@ define void @Abc_NodeEdgeDsdPermute(ptr nocapture noundef readonly %0, ptr nocap
   %.not95.us = icmp eq i32 %76, %78
   br i1 %.not95.us, label %.thread.us, label %.split.us
 
-.thread.us:                                       ; preds = %66, %59, %53, %.lr.ph.split.us
+.thread.us:                                       ; preds = %66, %58, %53, %.lr.ph.split.us
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
   %79 = icmp sgt i64 %indvars.iv118, 0
   br i1 %79, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !18
@@ -1860,7 +1860,7 @@ define void @Abc_NodeEdgeDsdPermute(ptr nocapture noundef readonly %0, ptr nocap
   %90 = zext nneg i32 %88 to i64
   %91 = xor i64 %89, %90
   %92 = inttoptr i64 %91 to ptr
-  %93 = icmp eq i64 %91, 0
+  %93 = icmp eq i64 %90, %89
   br i1 %93, label %.thread, label %94
 
 94:                                               ; preds = %87
@@ -2295,33 +2295,33 @@ Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %96, %84, %79
   %144 = and i32 %127, 1
   %145 = ptrtoint ptr %136 to i64
   %146 = zext nneg i32 %144 to i64
-  %147 = xor i64 %145, %146
-  %148 = icmp ne ptr %142, null
-  %149 = icmp ne i64 %147, 0
-  %or.cond = select i1 %148, i1 %149, i1 false
-  br i1 %or.cond, label %150, label %.thread
+  %147 = icmp ne ptr %142, null
+  %148 = icmp ne i64 %146, %145
+  %or.cond = select i1 %147, i1 %148, i1 false
+  br i1 %or.cond, label %149, label %.thread
 
-150:                                              ; preds = %143
-  %151 = load ptr, ptr %1, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 256
-  %153 = load ptr, ptr %152, align 8
-  %154 = ptrtoint ptr %142 to i64
-  %155 = xor i64 %154, 1
-  %156 = inttoptr i64 %155 to ptr
-  %157 = xor i64 %147, 1
+149:                                              ; preds = %143
+  %150 = load ptr, ptr %1, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 256
+  %152 = load ptr, ptr %151, align 8
+  %153 = ptrtoint ptr %142 to i64
+  %154 = xor i64 %153, 1
+  %155 = inttoptr i64 %154 to ptr
+  %156 = xor i64 %146, %145
+  %157 = xor i64 %156, 1
   %158 = inttoptr i64 %157 to ptr
-  %159 = tail call ptr @Abc_AigAndLookup(ptr noundef %153, ptr noundef %156, ptr noundef %158) #19
+  %159 = tail call ptr @Abc_AigAndLookup(ptr noundef %152, ptr noundef %155, ptr noundef %158) #19
   %.not437 = icmp eq ptr %159, null
   br i1 %.not437, label %.thread, label %160
 
-160:                                              ; preds = %150
+160:                                              ; preds = %149
   %161 = ptrtoint ptr %159 to i64
   %162 = xor i64 %161, 1
   %163 = inttoptr i64 %162 to ptr
   br label %.thread
 
-.thread:                                          ; preds = %117, %160, %150, %143
-  %.0369 = phi ptr [ null, %143 ], [ %163, %160 ], [ null, %150 ], [ null, %117 ]
+.thread:                                          ; preds = %117, %160, %149, %143
+  %.0369 = phi ptr [ null, %143 ], [ %163, %160 ], [ null, %149 ], [ null, %117 ]
   %164 = load i32, ptr %113, align 8
   %165 = load i32, ptr %114, align 4
   %166 = icmp eq i32 %164, %165
@@ -2564,7 +2564,7 @@ Vec_IntFree.exit489:                              ; preds = %Abc_NodeEdgeDsdPush
   %300 = inttoptr i64 %299 to ptr
   store i32 0, ptr %7, align 4
   %301 = icmp ne ptr %294, null
-  %302 = icmp ne i64 %299, 0
+  %302 = icmp ne i64 %298, %297
   %or.cond3 = select i1 %301, i1 %302, i1 false
   br i1 %or.cond3, label %303, label %.thread544
 
@@ -3387,7 +3387,7 @@ Vec_IntFree.exit521:                              ; preds = %Abc_NodeEdgeDsdPush
   %780 = icmp ne ptr %767, null
   %781 = icmp ne ptr %772, null
   %or.cond7 = select i1 %780, i1 %781, i1 false
-  %782 = icmp ne i64 %778, 0
+  %782 = icmp ne i64 %777, %776
   %or.cond9 = select i1 %or.cond7, i1 %782, i1 false
   br i1 %or.cond9, label %783, label %.thread606
 

@@ -84230,12 +84230,12 @@ invoke.cont32:                                    ; preds = %invoke.cont32.lr.ph
   %conv.i21.i.i.i.i.i = zext i32 %ret.0.copyload.i.i.i.i.cast.i.i to i64
   %mul.i22.i.i.i.i.i = mul i64 %conv.i21.i.i.i.i.i, -7046029288634856825
   %mul.i24.i.i.i.i.i = mul i64 %conv.i21.i.i.i.i.i, -4417276706812531889
-  %30 = xor i64 %mul.i22.i.i.i.i.i, %mul.i24.i.i.i.i.i
+  %30 = xor i64 %mul.i24.i.i.i.i.i, %mul.i22.i.i.i.i.i
   %31 = xor i64 %30, 288230376151711744
   %xor27.i.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %31)
   %32 = load ptr, ptr %entries_.i.i.i, align 8, !noalias !2741
   %33 = load i64, ptr %capacity_mask_.i.i.i, align 8, !noalias !2741
-  %cmp.i.i.i.i.i = icmp eq i64 %31, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %30, 288230376151711744
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i
   %34 = fcmp uno float %29, 0.000000e+00
   br label %while.body.i.i.i.i
@@ -84469,12 +84469,12 @@ do.body57:                                        ; preds = %do.body57.lr.ph, %f
   %conv.i21.i.i.i.i.i100 = zext i32 %ret.0.copyload.i.i.i.i.cast.i.i99 to i64
   %mul.i22.i.i.i.i.i101 = mul i64 %conv.i21.i.i.i.i.i100, -7046029288634856825
   %mul.i24.i.i.i.i.i102 = mul i64 %conv.i21.i.i.i.i.i100, -4417276706812531889
-  %65 = xor i64 %mul.i22.i.i.i.i.i101, %mul.i24.i.i.i.i.i102
+  %65 = xor i64 %mul.i24.i.i.i.i.i102, %mul.i22.i.i.i.i.i101
   %66 = xor i64 %65, 288230376151711744
   %xor27.i.i.i.i.i103 = call noundef i64 @llvm.bswap.i64(i64 %66)
   %67 = load ptr, ptr %entries_.i.i.i105, align 8, !noalias !2760
   %68 = load i64, ptr %capacity_mask_.i.i.i106, align 8, !noalias !2760
-  %cmp.i.i.i.i.i107 = icmp eq i64 %66, 0
+  %cmp.i.i.i.i.i107 = icmp eq i64 %65, 288230376151711744
   %cond.i.i.i.i.i108 = select i1 %cmp.i.i.i.i.i107, i64 42, i64 %xor27.i.i.i.i.i103
   %69 = fcmp uno float %64, 0.000000e+00
   br label %while.body.i.i.i.i109
@@ -88527,12 +88527,12 @@ invoke.cont32:                                    ; preds = %invoke.cont32.lr.ph
   %mul.i22.i.i.i.i.i = mul i64 %31, -7046029288634856825
   %conv.i23.i.i.i.i.i = and i64 %30, 4294967295
   %mul.i24.i.i.i.i.i = mul i64 %conv.i23.i.i.i.i.i, -4417276706812531889
-  %32 = xor i64 %mul.i22.i.i.i.i.i, %mul.i24.i.i.i.i.i
+  %32 = xor i64 %mul.i24.i.i.i.i.i, %mul.i22.i.i.i.i.i
   %33 = xor i64 %32, 576460752303423488
   %xor27.i.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %33)
   %34 = load ptr, ptr %entries_.i.i.i, align 8, !noalias !2970
   %35 = load i64, ptr %capacity_mask_.i.i.i, align 8, !noalias !2970
-  %cmp.i.i.i.i.i = icmp eq i64 %33, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %32, 576460752303423488
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i
   %36 = fcmp uno double %29, 0.000000e+00
   br label %while.body.i.i.i.i
@@ -88767,12 +88767,12 @@ do.body57:                                        ; preds = %do.body57.lr.ph, %f
   %mul.i22.i.i.i.i.i99 = mul i64 %68, -7046029288634856825
   %conv.i23.i.i.i.i.i100 = and i64 %67, 4294967295
   %mul.i24.i.i.i.i.i101 = mul i64 %conv.i23.i.i.i.i.i100, -4417276706812531889
-  %69 = xor i64 %mul.i22.i.i.i.i.i99, %mul.i24.i.i.i.i.i101
+  %69 = xor i64 %mul.i24.i.i.i.i.i101, %mul.i22.i.i.i.i.i99
   %70 = xor i64 %69, 576460752303423488
   %xor27.i.i.i.i.i102 = call noundef i64 @llvm.bswap.i64(i64 %70)
   %71 = load ptr, ptr %entries_.i.i.i104, align 8, !noalias !2989
   %72 = load i64, ptr %capacity_mask_.i.i.i105, align 8, !noalias !2989
-  %cmp.i.i.i.i.i106 = icmp eq i64 %70, 0
+  %cmp.i.i.i.i.i106 = icmp eq i64 %69, 576460752303423488
   %cond.i.i.i.i.i107 = select i1 %cmp.i.i.i.i.i106, i64 42, i64 %xor27.i.i.i.i.i102
   %73 = fcmp uno double %66, 0.000000e+00
   br label %while.body.i.i.i.i108
@@ -137381,7 +137381,7 @@ invoke.cont32:                                    ; preds = %do.body28
   %xor42.i.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %29)
   %30 = load ptr, ptr %entries_.i.i.i, align 8, !noalias !4447
   %31 = load i64, ptr %capacity_mask_.i.i.i, align 8, !noalias !4447
-  %cmp.i.i.i.i.i = icmp eq i64 %29, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %28, 1152921504606846976
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor42.i.i.i.i.i
   br label %while.body.i.i.i.i
 
@@ -137617,7 +137617,7 @@ do.body57:                                        ; preds = %do.body57.lr.ph, %f
   %xor42.i.i.i.i.i101 = call noundef i64 @llvm.bswap.i64(i64 %59)
   %60 = load ptr, ptr %entries_.i.i.i103, align 8, !noalias !4466
   %61 = load i64, ptr %capacity_mask_.i.i.i104, align 8, !noalias !4466
-  %cmp.i.i.i.i.i105 = icmp eq i64 %59, 0
+  %cmp.i.i.i.i.i105 = icmp eq i64 %58, 1152921504606846976
   %cond.i.i.i.i.i106 = select i1 %cmp.i.i.i.i.i105, i64 42, i64 %xor42.i.i.i.i.i101
   br label %while.body.i.i.i.i107
 
@@ -144131,12 +144131,12 @@ invoke.cont32:                                    ; preds = %do.body28
   %mul.i22.i.i.i.i.i = mul i64 %26, -7046029288634856825
   %conv.i23.i.i.i.i.i = and i64 %call.i29, 4294967295
   %mul.i24.i.i.i.i.i = mul i64 %conv.i23.i.i.i.i.i, -4417276706812531889
-  %27 = xor i64 %mul.i22.i.i.i.i.i, %mul.i24.i.i.i.i.i
+  %27 = xor i64 %mul.i24.i.i.i.i.i, %mul.i22.i.i.i.i.i
   %28 = xor i64 %27, 576460752303423488
   %xor27.i.i.i.i.i = call noundef i64 @llvm.bswap.i64(i64 %28)
   %29 = load ptr, ptr %entries_.i.i.i, align 8, !noalias !4646
   %30 = load i64, ptr %capacity_mask_.i.i.i, align 8, !noalias !4646
-  %cmp.i.i.i.i.i = icmp eq i64 %28, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %27, 576460752303423488
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 42, i64 %xor27.i.i.i.i.i
   br label %while.body.i.i.i.i
 
@@ -144361,12 +144361,12 @@ do.body57:                                        ; preds = %do.body57.lr.ph, %f
   %mul.i22.i.i.i.i.i95 = mul i64 %56, -7046029288634856825
   %conv.i23.i.i.i.i.i96 = and i64 %call.i, 4294967295
   %mul.i24.i.i.i.i.i97 = mul i64 %conv.i23.i.i.i.i.i96, -4417276706812531889
-  %57 = xor i64 %mul.i22.i.i.i.i.i95, %mul.i24.i.i.i.i.i97
+  %57 = xor i64 %mul.i24.i.i.i.i.i97, %mul.i22.i.i.i.i.i95
   %58 = xor i64 %57, 576460752303423488
   %xor27.i.i.i.i.i98 = call noundef i64 @llvm.bswap.i64(i64 %58)
   %59 = load ptr, ptr %entries_.i.i.i100, align 8, !noalias !4665
   %60 = load i64, ptr %capacity_mask_.i.i.i101, align 8, !noalias !4665
-  %cmp.i.i.i.i.i102 = icmp eq i64 %58, 0
+  %cmp.i.i.i.i.i102 = icmp eq i64 %57, 576460752303423488
   %cond.i.i.i.i.i103 = select i1 %cmp.i.i.i.i.i102, i64 42, i64 %xor27.i.i.i.i.i98
   br label %while.body.i.i.i.i104
 

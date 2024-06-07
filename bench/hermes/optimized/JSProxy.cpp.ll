@@ -76,7 +76,6 @@ $_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE
 @.str.11 = private unnamed_addr constant [53 x i8] c" is not extensible (getOwnPropertyDescriptor target)\00", align 1
 @.str.12 = private unnamed_addr constant [61 x i8] c" is not undefined or Object (Proxy getOwnPropertyDescriptor)\00", align 1
 @.str.13 = private unnamed_addr constant [71 x i8] c"getOwnPropertyDescriptor target is not extensible and has no property \00", align 1
-@.str.14 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.15 = private unnamed_addr constant [78 x i8] c"getOwnPropertyDescriptor trap result is not configurable but target property \00", align 1
 @.str.16 = private unnamed_addr constant [33 x i8] c" is configurable or non-existent\00", align 1
 @.str.17 = private unnamed_addr constant [41 x i8] c"defineProperty proxy trap returned false\00", align 1
@@ -1724,34 +1723,29 @@ land.lhs.true19:                                  ; preds = %if.end
 
 if.then26:                                        ; preds = %land.lhs.true19
   %bf.clear34 = and i16 %desc.0.val, 1
-  %6 = shl nuw nsw i16 %bf.clear34, 2
-  %7 = xor i16 %6, 4
-  %cmp.i.i54 = icmp eq i16 %7, 0
-  br i1 %cmp.i.i54, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103, label %if.end.i.i.thread
+  %cmp.i.i54.not.not = icmp eq i16 %bf.clear34, 0
+  br i1 %cmp.i.i54.not.not, label %if.end.i.i.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
 
 if.end.i.i.thread:                                ; preds = %if.then26
-  %call.i.i50 = zext nneg i16 %7 to i64
-  %tobool36.not = icmp eq i16 %bf.clear34, 0
-  %cond = select i1 %tobool36.not, ptr @.str.28, ptr @.str.14
   %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 16
-  store ptr %cond, ptr %rightChild_.i.i.i, align 8, !alias.scope !6
+  store ptr @.str.28, ptr %rightChild_.i.i.i, align 8, !alias.scope !6
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103:  ; preds = %if.then26, %if.end.i.i.thread
   %newLeft.sroa.0.0.i.i86 = phi ptr [ %ref.tmp30, %if.end.i.i.thread ], [ @.str.27, %if.then26 ]
   %newLeftKind.0.i.i85 = phi i32 [ 2, %if.end.i.i.thread ], [ 3, %if.then26 ]
-  %8 = phi i32 [ 3, %if.end.i.i.thread ], [ 1, %if.then26 ]
-  %9 = phi i64 [ %call.i.i50, %if.end.i.i.thread ], [ 0, %if.then26 ]
+  %6 = phi i32 [ 3, %if.end.i.i.thread ], [ 1, %if.then26 ]
+  %7 = phi i64 [ 4, %if.end.i.i.thread ], [ 0, %if.then26 ]
   store ptr @.str.27, ptr %ref.tmp30, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
-  store i32 3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %ref.tmp30, i64 24
-  store i32 %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp30, i64 32
-  store i64 15, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %ref.tmp30, i64 40
-  store i64 %9, ptr %13, align 8
-  %add.i.i.i78 = add nuw nsw i64 %9, 15
+  %8 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
+  store i32 3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %ref.tmp30, i64 24
+  store i32 %6, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %ref.tmp30, i64 32
+  store i64 15, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %ref.tmp30, i64 40
+  store i64 %7, ptr %11, align 8
+  %add.i.i.i78 = add nuw nsw i64 %7, 15
   store ptr %newLeft.sroa.0.0.i.i86, ptr %ref.tmp29, align 8, !alias.scope !11
   %leftKind_.i22.i.i92 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store i32 %newLeftKind.0.i.i85, ptr %leftKind_.i22.i.i92, align 8, !alias.scope !11
@@ -1763,28 +1757,23 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103:  ; preds = %if.then26, %if.end.
   store i64 %add.i.i.i78, ptr %leftSize_.i24.i.i95, align 8, !alias.scope !11
   %rightSize_.i25.i.i96 = getelementptr inbounds i8, ptr %ref.tmp29, i64 40
   store i64 34, ptr %rightSize_.i25.i.i96, align 8, !alias.scope !11
-  %14 = and i16 %current.0.val, 2
-  %15 = shl nuw nsw i16 %14, 1
-  %16 = xor i16 %15, 4
-  %cmp.i.i108 = icmp eq i16 %16, 0
-  br i1 %cmp.i.i108, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread
+  %12 = and i16 %current.0.val, 2
+  %cmp.i.i108.not.not = icmp eq i16 %12, 0
+  br i1 %cmp.i.i108.not.not, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread: ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
-  %call.i.i104 = zext nneg i16 %16 to i64
-  %tobool42.not = icmp eq i16 %14, 0
-  %cond43 = select i1 %tobool42.not, ptr @.str.28, ptr @.str.14
-  %add.i.i.i124 = add nuw nsw i64 %9, 49
+  %add.i.i.i124 = or disjoint i64 %7, 49
   store ptr %ref.tmp29, ptr %ref.tmp28, align 8, !alias.scope !16
   %leftKind_.i22.i.i138 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store i32 2, ptr %leftKind_.i22.i.i138, align 8, !alias.scope !16
   %rightChild_.i.i.i139 = getelementptr inbounds i8, ptr %ref.tmp28, i64 16
-  store ptr %cond43, ptr %rightChild_.i.i.i139, align 8, !alias.scope !16
+  store ptr @.str.28, ptr %rightChild_.i.i.i139, align 8, !alias.scope !16
   %rightKind_.i23.i.i140 = getelementptr inbounds i8, ptr %ref.tmp28, i64 24
   store i32 3, ptr %rightKind_.i23.i.i140, align 8, !alias.scope !16
   %leftSize_.i24.i.i141 = getelementptr inbounds i8, ptr %ref.tmp28, i64 32
   store i64 %add.i.i.i124, ptr %leftSize_.i24.i.i141, align 8, !alias.scope !16
   %rightSize_.i25.i.i142 = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
-  store i64 %call.i.i104, ptr %rightSize_.i25.i.i142, align 8, !alias.scope !16
+  store i64 4, ptr %rightSize_.i25.i.i142, align 8, !alias.scope !16
   br label %if.end8.i.i167
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149:  ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
@@ -1820,17 +1809,17 @@ if.then4.i.i190:                                  ; preds = %_ZN6hermes2vmplERKN
   br label %return.sink.split
 
 if.end8.i.i167:                                   ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149
-  %17 = phi i32 [ 2, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread ], [ %.pre, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149 ]
+  %13 = phi i32 [ 2, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread ], [ %.pre, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149 ]
   %leftSize_.i.i.i168 = getelementptr inbounds i8, ptr %ref.tmp28, i64 32
-  %18 = load i64, ptr %leftSize_.i.i.i168, align 8, !noalias !21
+  %14 = load i64, ptr %leftSize_.i.i.i168, align 8, !noalias !21
   %rightSize_.i.i.i169 = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
-  %19 = load i64, ptr %rightSize_.i.i.i169, align 8, !noalias !21
-  %add.i.i.i170 = add i64 %19, %18
+  %15 = load i64, ptr %rightSize_.i.i.i169, align 8, !noalias !21
+  %add.i.i.i170 = add i64 %15, %14
   %rightKind_.i.i.i174 = getelementptr inbounds i8, ptr %ref.tmp28, i64 24
-  %20 = load i32, ptr %rightKind_.i.i.i174, align 8, !noalias !21
-  %cmp.i17.i.i175 = icmp eq i32 %20, 1
+  %16 = load i32, ptr %rightKind_.i.i.i174, align 8, !noalias !21
+  %cmp.i17.i.i175 = icmp eq i32 %16, 1
   %newLeft.sroa.0.0.copyload.i.i176 = load ptr, ptr %ref.tmp28, align 8, !noalias !21
-  %newLeftKind.0.i.i177 = select i1 %cmp.i17.i.i175, i32 %17, i32 2
+  %newLeftKind.0.i.i177 = select i1 %cmp.i17.i.i175, i32 %13, i32 2
   %newLeft.sroa.0.0.i.i178 = select i1 %cmp.i17.i.i175, ptr %newLeft.sroa.0.0.copyload.i.i176, ptr %ref.tmp28
   store ptr %newLeft.sroa.0.0.i.i178, ptr %ref.tmp27, align 8, !alias.scope !21
   %leftKind_.i22.i.i184 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
@@ -1846,21 +1835,21 @@ if.end8.i.i167:                                   ; preds = %_ZN6hermes2vmplERKN
   br label %return.sink.split
 
 if.end47:                                         ; preds = %if.end, %land.lhs.true19, %entry
-  %21 = and i16 %desc.0.val, 192
-  %.not18 = icmp eq i16 %21, 0
-  %22 = and i16 %desc.0.val, 256
-  %tobool62.not.not = icmp eq i16 %22, 0
-  %23 = and i16 %desc.0.val, 272
-  %24 = icmp ne i16 %23, 0
-  %25 = and i16 %desc.0.val, 464
-  %brmerge.not = icmp eq i16 %25, 0
+  %17 = and i16 %desc.0.val, 192
+  %.not18 = icmp eq i16 %17, 0
+  %18 = and i16 %desc.0.val, 256
+  %tobool62.not.not = icmp eq i16 %18, 0
+  %19 = and i16 %desc.0.val, 272
+  %20 = icmp ne i16 %19, 0
+  %21 = and i16 %desc.0.val, 464
+  %brmerge.not = icmp eq i16 %21, 0
   br i1 %brmerge.not, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.end47
-  %26 = and i16 %current.0.val, 16
-  %tobool79.not = icmp eq i16 %26, 0
-  %27 = xor i1 %24, %tobool79.not
-  %or.cond36 = and i1 %tobool.not, %27
+  %22 = and i16 %current.0.val, 16
+  %tobool79.not = icmp eq i16 %22, 0
+  %23 = xor i1 %20, %tobool79.not
+  %or.cond36 = and i1 %tobool.not, %23
   br i1 %or.cond36, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387, label %if.end109
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387:  ; preds = %if.end75
@@ -1889,8 +1878,8 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387:  ; preds = %if.end75
   store i64 %add.i.i.i270, ptr %leftSize_.i24.i.i287, align 8, !alias.scope !36
   %rightSize_.i25.i.i288 = getelementptr inbounds i8, ptr %ref.tmp96, i64 40
   store i64 23, ptr %rightSize_.i25.i.i288, align 8, !alias.scope !36
-  %call.i.i296 = select i1 %24, i64 5, i64 9
-  %cond105 = select i1 %24, ptr @.str.31, ptr @.str.32
+  %call.i.i296 = select i1 %20, i64 5, i64 9
+  %cond105 = select i1 %20, ptr @.str.31, ptr @.str.32
   %add.i.i.i316 = add nuw nsw i64 %call.i.i204, 38
   store ptr %ref.tmp96, ptr %ref.tmp95, align 8, !alias.scope !41
   %leftKind_.i22.i.i330 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
@@ -1918,17 +1907,17 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387:  ; preds = %if.end75
   br label %return.sink.split
 
 if.end109:                                        ; preds = %if.end75
-  %brmerge37.demorgan = and i1 %24, %tobool79.not
+  %brmerge37.demorgan = and i1 %20, %tobool79.not
   br i1 %brmerge37.demorgan, label %land.lhs.true113, label %if.end157
 
 land.lhs.true113:                                 ; preds = %if.end109
-  %28 = and i16 %current.0.val, 12
-  %or.cond38 = icmp eq i16 %28, 0
+  %24 = and i16 %current.0.val, 12
+  %or.cond38 = icmp eq i16 %24, 0
   br i1 %or.cond38, label %if.then123, label %return
 
 if.then123:                                       ; preds = %land.lhs.true113
-  %29 = and i16 %desc.0.val, 18
-  %or.cond39.not = icmp eq i16 %29, 18
+  %25 = and i16 %desc.0.val, 18
+  %or.cond39.not = icmp eq i16 %25, 18
   br i1 %or.cond39.not, label %if.then135, label %if.end138
 
 if.then135:                                       ; preds = %if.then123
@@ -1939,8 +1928,8 @@ if.then135:                                       ; preds = %if.then123
   %rightSize_.i5.i391 = getelementptr inbounds i8, ptr %ref.tmp136, i64 40
   store i64 0, ptr %rightSize_.i5.i391, align 8
   store ptr @.str.35, ptr %ref.tmp136, align 8
-  %30 = getelementptr inbounds i8, ptr %ref.tmp136, i64 8
-  store i32 3, ptr %30, align 8
+  %26 = getelementptr inbounds i8, ptr %ref.tmp136, i64 8
+  store i32 3, ptr %26, align 8
   br label %return.sink.split
 
 if.end138:                                        ; preds = %if.then123
@@ -1960,8 +1949,8 @@ if.then153:                                       ; preds = %land.lhs.true144
   %rightSize_.i5.i400 = getelementptr inbounds i8, ptr %ref.tmp154, i64 40
   store i64 0, ptr %rightSize_.i5.i400, align 8
   store ptr @.str.36, ptr %ref.tmp154, align 8
-  %31 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
-  store i32 3, ptr %31, align 8
+  %27 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
+  store i32 3, ptr %27, align 8
   br label %return.sink.split
 
 if.end157:                                        ; preds = %if.end109
@@ -1973,19 +1962,19 @@ if.end157:                                        ; preds = %if.end109
 if.then166:                                       ; preds = %if.end157
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %descValueOrAccessor.coerce, align 8
   %and.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
-  %32 = inttoptr i64 %and.i.i to ptr
+  %28 = inttoptr i64 %and.i.i to ptr
   %retval.sroa.0.0.copyload.i.i405 = load i64, ptr %currentValueOrAccessor.coerce, align 8
   %and.i.i406 = and i64 %retval.sroa.0.0.copyload.i.i405, 281474976710655
-  %33 = inttoptr i64 %and.i.i406 to ptr
-  %setter = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load i32, ptr %setter, align 4
-  %cmp.i.i407.not = icmp eq i32 %34, 0
+  %29 = inttoptr i64 %and.i.i406 to ptr
+  %setter = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load i32, ptr %setter, align 4
+  %cmp.i.i407.not = icmp eq i32 %30, 0
   br i1 %cmp.i.i407.not, label %if.end185, label %land.lhs.true178
 
 land.lhs.true178:                                 ; preds = %if.then166
-  %setter180 = getelementptr inbounds i8, ptr %33, i64 8
+  %setter180 = getelementptr inbounds i8, ptr %29, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %setter180, align 4
-  %cmp.i.i.i408.not = icmp eq i32 %34, %agg.tmp.sroa.0.0.copyload.i.i
+  %cmp.i.i.i408.not = icmp eq i32 %30, %agg.tmp.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i408.not, label %if.end185, label %if.then182
 
 if.then182:                                       ; preds = %land.lhs.true178
@@ -1996,20 +1985,20 @@ if.then182:                                       ; preds = %land.lhs.true178
   %rightSize_.i5.i412 = getelementptr inbounds i8, ptr %ref.tmp183, i64 40
   store i64 0, ptr %rightSize_.i5.i412, align 8
   store ptr @.str.37, ptr %ref.tmp183, align 8
-  %35 = getelementptr inbounds i8, ptr %ref.tmp183, i64 8
-  store i32 3, ptr %35, align 8
+  %31 = getelementptr inbounds i8, ptr %ref.tmp183, i64 8
+  store i32 3, ptr %31, align 8
   br label %return.sink.split
 
 if.end185:                                        ; preds = %land.lhs.true178, %if.then166
-  %getter = getelementptr inbounds i8, ptr %32, i64 4
-  %36 = load i32, ptr %getter, align 4
-  %cmp.i.i417.not = icmp eq i32 %36, 0
+  %getter = getelementptr inbounds i8, ptr %28, i64 4
+  %32 = load i32, ptr %getter, align 4
+  %cmp.i.i417.not = icmp eq i32 %32, 0
   br i1 %cmp.i.i417.not, label %return, label %land.lhs.true187
 
 land.lhs.true187:                                 ; preds = %if.end185
-  %getter189 = getelementptr inbounds i8, ptr %33, i64 4
+  %getter189 = getelementptr inbounds i8, ptr %29, i64 4
   %agg.tmp.sroa.0.0.copyload.i.i418 = load i32, ptr %getter189, align 4
-  %cmp.i.i.i419.not = icmp eq i32 %36, %agg.tmp.sroa.0.0.copyload.i.i418
+  %cmp.i.i.i419.not = icmp eq i32 %32, %agg.tmp.sroa.0.0.copyload.i.i418
   br i1 %cmp.i.i.i419.not, label %return, label %if.then191
 
 if.then191:                                       ; preds = %land.lhs.true187
@@ -2020,8 +2009,8 @@ if.then191:                                       ; preds = %land.lhs.true187
   %rightSize_.i5.i423 = getelementptr inbounds i8, ptr %ref.tmp192, i64 40
   store i64 0, ptr %rightSize_.i5.i423, align 8
   store ptr @.str.38, ptr %ref.tmp192, align 8
-  %37 = getelementptr inbounds i8, ptr %ref.tmp192, i64 8
-  store i32 3, ptr %37, align 8
+  %33 = getelementptr inbounds i8, ptr %ref.tmp192, i64 8
+  store i32 3, ptr %33, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end8.i.i167, %if.then4.i.i190, %if.then.i.i191, %if.then13, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387, %if.then135, %if.then153, %if.then182, %if.then191

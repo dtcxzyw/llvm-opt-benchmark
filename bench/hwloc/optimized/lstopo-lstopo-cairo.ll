@@ -737,7 +737,7 @@ x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
   %382 = load i32, ptr %152, align 8
   %383 = xor i32 %382, 1
   store i32 %383, ptr %152, align 8
-  %.not319 = icmp eq i32 %383, 0
+  %.not319 = icmp eq i32 %382, 1
   %384 = select i1 %.not319, ptr @.str.6, ptr @.str.5
   %385 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %384)
   store i32 1, ptr %151, align 4
@@ -752,7 +752,7 @@ x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
   %388 = load i32, ptr %210, align 8
   %389 = xor i32 %388, 1
   store i32 %389, ptr %210, align 8
-  %.not318 = icmp eq i32 %389, 0
+  %.not318 = icmp eq i32 %388, 1
   %390 = select i1 %.not318, ptr @.str.6, ptr @.str.5
   %391 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %390)
   store i32 1, ptr %150, align 8
@@ -764,7 +764,7 @@ x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
   %393 = load i32, ptr %209, align 4
   %394 = xor i32 %393, 1
   store i32 %394, ptr %209, align 4
-  %.not317 = icmp eq i32 %394, 0
+  %.not317 = icmp eq i32 %393, 1
   %395 = select i1 %.not317, ptr @.str.6, ptr @.str.5
   %396 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %395)
   store i32 1, ptr %150, align 8
@@ -799,7 +799,7 @@ switch.lookup:                                    ; preds = %397
   %404 = load i32, ptr %207, align 4
   %405 = xor i32 %404, 1
   store i32 %405, ptr %207, align 4
-  %.not312 = icmp eq i32 %405, 0
+  %.not312 = icmp eq i32 %404, 1
   %406 = select i1 %.not312, ptr @.str.6, ptr @.str.5
   %407 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %406)
   store i32 1, ptr %150, align 8
@@ -810,7 +810,7 @@ switch.lookup:                                    ; preds = %397
   %409 = load i32, ptr %206, align 8
   %410 = xor i32 %409, 1
   store i32 %410, ptr %206, align 8
-  %.not311 = icmp eq i32 %410, 0
+  %.not311 = icmp eq i32 %409, 1
   %411 = select i1 %.not311, ptr @.str.6, ptr @.str.5
   %412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %411)
   store i32 1, ptr %150, align 8
@@ -821,7 +821,7 @@ switch.lookup:                                    ; preds = %397
   %414 = load i32, ptr %205, align 8
   %415 = xor i32 %414, 1
   store i32 %415, ptr %205, align 8
-  %.not310 = icmp eq i32 %415, 0
+  %.not310 = icmp eq i32 %414, 1
   %416 = select i1 %.not310, ptr @.str.6, ptr @.str.5
   %417 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %416)
   store i32 1, ptr %150, align 8
