@@ -36248,259 +36248,244 @@ declare void @glfwRestoreWindow(ptr noundef) local_unnamed_addr #2
 define void @SetWindowState(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   %3 = and i32 %2, 64
-  %4 = and i32 %0, 64
-  %.not = icmp eq i32 %3, %4
-  %.not45 = icmp eq i32 %4, 0
-  %or.cond = or i1 %.not45, %.not
-  br i1 %or.cond, label %8, label %5
+  %4 = xor i32 %3, 64
+  %5 = and i32 %4, %0
+  %or.cond = icmp eq i32 %5, 0
+  br i1 %or.cond, label %9, label %6
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @glfwSwapInterval(i32 noundef 1) #55
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %7 = or i32 %6, 64
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %8
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %8 = or i32 %7, 64
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %9
 
-8:                                                ; preds = %5, %1
-  %9 = phi i32 [ %7, %5 ], [ %2, %1 ]
-  %10 = and i32 %9, 32768
-  %11 = and i32 %0, 32768
-  %.not46 = icmp eq i32 %10, %11
-  %.not47 = icmp eq i32 %11, 0
-  %or.cond75 = or i1 %.not47, %.not46
-  br i1 %or.cond75, label %13, label %12
+9:                                                ; preds = %6, %1
+  %10 = phi i32 [ %8, %6 ], [ %2, %1 ]
+  %11 = and i32 %10, 32768
+  %12 = xor i32 %11, 32768
+  %13 = and i32 %12, %0
+  %or.cond75 = icmp eq i32 %13, 0
+  br i1 %or.cond75, label %15, label %14
 
-12:                                               ; preds = %8
+14:                                               ; preds = %9
   tail call void @ToggleBorderlessWindowed()
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %8
-  %14 = phi i32 [ %.pre, %12 ], [ %9, %8 ]
-  %15 = xor i32 %14, %0
-  %16 = and i32 %15, 2
-  %.not48 = icmp eq i32 %16, 0
-  br i1 %.not48, label %18, label %17
+15:                                               ; preds = %14, %9
+  %16 = phi i32 [ %.pre, %14 ], [ %10, %9 ]
+  %17 = xor i32 %16, %0
+  %18 = and i32 %17, 2
+  %.not48 = icmp eq i32 %18, 0
+  br i1 %.not48, label %20, label %19
 
-17:                                               ; preds = %13
+19:                                               ; preds = %15
   tail call void @ToggleFullscreen()
   %.pre89 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %18
+  br label %20
 
-18:                                               ; preds = %17, %13
-  %19 = phi i32 [ %.pre89, %17 ], [ %14, %13 ]
-  %20 = and i32 %19, 4
-  %21 = and i32 %0, 4
-  %.not49 = icmp eq i32 %20, %21
-  %.not50 = icmp eq i32 %21, 0
-  %or.cond76 = or i1 %.not50, %.not49
-  br i1 %or.cond76, label %26, label %22
+20:                                               ; preds = %19, %15
+  %21 = phi i32 [ %.pre89, %19 ], [ %16, %15 ]
+  %22 = and i32 %21, 4
+  %23 = xor i32 %22, 4
+  %24 = and i32 %23, %0
+  %or.cond76 = icmp eq i32 %24, 0
+  br i1 %or.cond76, label %29, label %25
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowAttrib(ptr noundef %23, i32 noundef 131075, i32 noundef 1) #55
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %25 = or i32 %24, 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %26
+25:                                               ; preds = %20
+  %26 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwSetWindowAttrib(ptr noundef %26, i32 noundef 131075, i32 noundef 1) #55
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %28 = or i32 %27, 4
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %29
 
-26:                                               ; preds = %22, %18
-  %27 = phi i32 [ %25, %22 ], [ %19, %18 ]
-  %28 = and i32 %27, 8
-  %29 = and i32 %0, 8
-  %.not51 = icmp eq i32 %28, %29
-  %.not52 = icmp eq i32 %29, 0
-  %or.cond77 = or i1 %.not52, %.not51
-  br i1 %or.cond77, label %34, label %30
+29:                                               ; preds = %25, %20
+  %30 = phi i32 [ %28, %25 ], [ %21, %20 ]
+  %31 = and i32 %30, 8
+  %32 = xor i32 %31, 8
+  %33 = and i32 %32, %0
+  %or.cond77 = icmp eq i32 %33, 0
+  br i1 %or.cond77, label %38, label %34
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowAttrib(ptr noundef %31, i32 noundef 131077, i32 noundef 0) #55
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %33 = or i32 %32, 8
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %34
+34:                                               ; preds = %29
+  %35 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwSetWindowAttrib(ptr noundef %35, i32 noundef 131077, i32 noundef 0) #55
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %37 = or i32 %36, 8
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %38
 
-34:                                               ; preds = %30, %26
-  %35 = phi i32 [ %33, %30 ], [ %27, %26 ]
-  %36 = and i32 %35, 128
-  %37 = and i32 %0, 128
-  %.not53 = icmp eq i32 %36, %37
-  %.not54 = icmp eq i32 %37, 0
-  %or.cond78 = or i1 %.not54, %.not53
-  br i1 %or.cond78, label %42, label %38
+38:                                               ; preds = %34, %29
+  %39 = phi i32 [ %37, %34 ], [ %30, %29 ]
+  %40 = and i32 %39, 128
+  %41 = xor i32 %40, 128
+  %42 = and i32 %41, %0
+  %or.cond78 = icmp eq i32 %42, 0
+  br i1 %or.cond78, label %47, label %43
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwHideWindow(ptr noundef %39) #55
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %41 = or i32 %40, 128
-  store i32 %41, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %42
+43:                                               ; preds = %38
+  %44 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwHideWindow(ptr noundef %44) #55
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %46 = or i32 %45, 128
+  store i32 %46, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %47
 
-42:                                               ; preds = %38, %34
-  %43 = phi i32 [ %41, %38 ], [ %35, %34 ]
-  %44 = and i32 %43, 512
-  %45 = and i32 %0, 512
-  %.not55 = icmp eq i32 %44, %45
-  %.not56 = icmp eq i32 %45, 0
-  %or.cond79 = or i1 %.not56, %.not55
-  br i1 %or.cond79, label %48, label %46
+47:                                               ; preds = %43, %38
+  %48 = phi i32 [ %46, %43 ], [ %39, %38 ]
+  %49 = and i32 %48, 512
+  %50 = xor i32 %49, 512
+  %51 = and i32 %50, %0
+  %or.cond79 = icmp eq i32 %51, 0
+  br i1 %or.cond79, label %54, label %52
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwIconifyWindow(ptr noundef %47) #55
-  %.pre90 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %48
-
-48:                                               ; preds = %46, %42
-  %49 = phi i32 [ %.pre90, %46 ], [ %43, %42 ]
-  %50 = and i32 %49, 1024
-  %51 = and i32 %0, 1024
-  %.not57 = icmp eq i32 %50, %51
-  %.not58 = icmp eq i32 %51, 0
-  %or.cond80 = or i1 %.not58, %.not57
-  br i1 %or.cond80, label %MaximizeWindow.exit, label %52
-
-52:                                               ; preds = %48
+52:                                               ; preds = %47
   %53 = load ptr, ptr @platform.0, align 8
-  %54 = tail call i32 @glfwGetWindowAttrib(ptr noundef %53, i32 noundef 131075) #55
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %56, label %.MaximizeWindow.exit_crit_edge
+  tail call void @glfwIconifyWindow(ptr noundef %53) #55
+  %.pre90 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %54
 
-.MaximizeWindow.exit_crit_edge:                   ; preds = %52
+54:                                               ; preds = %52, %47
+  %55 = phi i32 [ %.pre90, %52 ], [ %48, %47 ]
+  %56 = and i32 %55, 1024
+  %57 = xor i32 %56, 1024
+  %58 = and i32 %57, %0
+  %or.cond80 = icmp eq i32 %58, 0
+  br i1 %or.cond80, label %MaximizeWindow.exit, label %59
+
+59:                                               ; preds = %54
+  %60 = load ptr, ptr @platform.0, align 8
+  %61 = tail call i32 @glfwGetWindowAttrib(ptr noundef %60, i32 noundef 131075) #55
+  %62 = icmp eq i32 %61, 1
+  br i1 %62, label %63, label %.MaximizeWindow.exit_crit_edge
+
+.MaximizeWindow.exit_crit_edge:                   ; preds = %59
   %.pre91 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwMaximizeWindow(ptr noundef %57) #55
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %59 = or i32 %58, 1024
-  store i32 %59, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwMaximizeWindow(ptr noundef %64) #55
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %66 = or i32 %65, 1024
+  store i32 %66, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %MaximizeWindow.exit
 
-MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exit_crit_edge, %56, %48
-  %60 = phi i32 [ %.pre91, %.MaximizeWindow.exit_crit_edge ], [ %59, %56 ], [ %49, %48 ]
-  %61 = and i32 %60, 2048
-  %62 = and i32 %0, 2048
-  %.not59 = icmp eq i32 %61, %62
-  %.not60 = icmp eq i32 %62, 0
-  %or.cond81 = or i1 %.not60, %.not59
-  br i1 %or.cond81, label %67, label %63
+MaximizeWindow.exit:                              ; preds = %.MaximizeWindow.exit_crit_edge, %63, %54
+  %67 = phi i32 [ %.pre91, %.MaximizeWindow.exit_crit_edge ], [ %66, %63 ], [ %55, %54 ]
+  %68 = and i32 %67, 2048
+  %69 = xor i32 %68, 2048
+  %70 = and i32 %69, %0
+  %or.cond81 = icmp eq i32 %70, 0
+  br i1 %or.cond81, label %75, label %71
 
-63:                                               ; preds = %MaximizeWindow.exit
-  %64 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowAttrib(ptr noundef %64, i32 noundef 131084, i32 noundef 0) #55
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %66 = or i32 %65, 2048
-  store i32 %66, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %67
-
-67:                                               ; preds = %63, %MaximizeWindow.exit
-  %68 = phi i32 [ %66, %63 ], [ %60, %MaximizeWindow.exit ]
-  %69 = and i32 %68, 4096
-  %70 = and i32 %0, 4096
-  %.not61 = icmp eq i32 %69, %70
-  %.not62 = icmp eq i32 %70, 0
-  %or.cond82 = or i1 %.not62, %.not61
-  br i1 %or.cond82, label %75, label %71
-
-71:                                               ; preds = %67
+71:                                               ; preds = %MaximizeWindow.exit
   %72 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowAttrib(ptr noundef %72, i32 noundef 131079, i32 noundef 1) #55
+  tail call void @glfwSetWindowAttrib(ptr noundef %72, i32 noundef 131084, i32 noundef 0) #55
   %73 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %74 = or i32 %73, 4096
+  %74 = or i32 %73, 2048
   store i32 %74, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %75
 
-75:                                               ; preds = %71, %67
-  %76 = phi i32 [ %74, %71 ], [ %68, %67 ]
-  %77 = and i32 %76, 256
-  %78 = and i32 %0, 256
-  %.not63 = icmp eq i32 %77, %78
-  %.not64 = icmp eq i32 %78, 0
-  %or.cond83 = or i1 %.not64, %.not63
-  br i1 %or.cond83, label %81, label %79
+75:                                               ; preds = %71, %MaximizeWindow.exit
+  %76 = phi i32 [ %74, %71 ], [ %67, %MaximizeWindow.exit ]
+  %77 = and i32 %76, 4096
+  %78 = xor i32 %77, 4096
+  %79 = and i32 %78, %0
+  %or.cond82 = icmp eq i32 %79, 0
+  br i1 %or.cond82, label %84, label %80
 
-79:                                               ; preds = %75
-  %80 = or i32 %76, 256
-  store i32 %80, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %81
+80:                                               ; preds = %75
+  %81 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwSetWindowAttrib(ptr noundef %81, i32 noundef 131079, i32 noundef 1) #55
+  %82 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %83 = or i32 %82, 4096
+  store i32 %83, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %84
 
-81:                                               ; preds = %79, %75
-  %82 = phi i32 [ %80, %79 ], [ %76, %75 ]
-  %83 = and i32 %82, 16
-  %84 = and i32 %0, 16
-  %.not65 = icmp eq i32 %83, %84
-  %.not66 = icmp eq i32 %84, 0
-  %or.cond84 = or i1 %.not66, %.not65
-  br i1 %or.cond84, label %86, label %85
+84:                                               ; preds = %80, %75
+  %85 = phi i32 [ %83, %80 ], [ %76, %75 ]
+  %86 = and i32 %85, 256
+  %87 = xor i32 %86, 256
+  %88 = and i32 %87, %0
+  %or.cond83 = icmp eq i32 %88, 0
+  br i1 %or.cond83, label %91, label %89
 
-85:                                               ; preds = %81
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #55
-  %.pre92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %86
-
-86:                                               ; preds = %85, %81
-  %87 = phi i32 [ %.pre92, %85 ], [ %82, %81 ]
-  %88 = and i32 %87, 8192
-  %89 = and i32 %0, 8192
-  %.not67 = icmp eq i32 %88, %89
-  %.not68 = icmp eq i32 %89, 0
-  %or.cond85 = or i1 %.not68, %.not67
-  br i1 %or.cond85, label %91, label %90
-
-90:                                               ; preds = %86
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #55
-  %.pre93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+89:                                               ; preds = %84
+  %90 = or i32 %85, 256
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
   br label %91
 
-91:                                               ; preds = %90, %86
-  %92 = phi i32 [ %.pre93, %90 ], [ %87, %86 ]
-  %93 = and i32 %92, 16384
-  %94 = and i32 %0, 16384
-  %.not69 = icmp eq i32 %93, %94
-  %.not70 = icmp eq i32 %94, 0
-  %or.cond86 = or i1 %.not70, %.not69
-  br i1 %or.cond86, label %99, label %95
+91:                                               ; preds = %89, %84
+  %92 = phi i32 [ %90, %89 ], [ %85, %84 ]
+  %93 = and i32 %92, 16
+  %94 = xor i32 %93, 16
+  %95 = and i32 %94, %0
+  %or.cond84 = icmp eq i32 %95, 0
+  br i1 %or.cond84, label %97, label %96
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @platform.0, align 8
-  tail call void @glfwSetWindowAttrib(ptr noundef %96, i32 noundef 131085, i32 noundef 1) #55
-  %97 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %98 = or i32 %97, 16384
-  store i32 %98, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %99
+96:                                               ; preds = %91
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.113) #55
+  %.pre92 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %97
 
-99:                                               ; preds = %95, %91
-  %100 = phi i32 [ %98, %95 ], [ %92, %91 ]
-  %101 = and i32 %100, 32
-  %102 = and i32 %0, 32
-  %.not71 = icmp eq i32 %101, %102
-  %.not72 = icmp eq i32 %102, 0
-  %or.cond87 = or i1 %.not72, %.not71
-  br i1 %or.cond87, label %104, label %103
+97:                                               ; preds = %96, %91
+  %98 = phi i32 [ %.pre92, %96 ], [ %92, %91 ]
+  %99 = and i32 %98, 8192
+  %100 = xor i32 %99, 8192
+  %101 = and i32 %100, %0
+  %or.cond85 = icmp eq i32 %101, 0
+  br i1 %or.cond85, label %103, label %102
 
-103:                                              ; preds = %99
+102:                                              ; preds = %97
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.114) #55
+  %.pre93 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %103
+
+103:                                              ; preds = %102, %97
+  %104 = phi i32 [ %.pre93, %102 ], [ %98, %97 ]
+  %105 = and i32 %104, 16384
+  %106 = xor i32 %105, 16384
+  %107 = and i32 %106, %0
+  %or.cond86 = icmp eq i32 %107, 0
+  br i1 %or.cond86, label %112, label %108
+
+108:                                              ; preds = %103
+  %109 = load ptr, ptr @platform.0, align 8
+  tail call void @glfwSetWindowAttrib(ptr noundef %109, i32 noundef 131085, i32 noundef 1) #55
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %111 = or i32 %110, 16384
+  store i32 %111, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  br label %112
+
+112:                                              ; preds = %108, %103
+  %113 = phi i32 [ %111, %108 ], [ %104, %103 ]
+  %114 = and i32 %113, 32
+  %115 = xor i32 %114, 32
+  %116 = and i32 %115, %0
+  %or.cond87 = icmp eq i32 %116, 0
+  br i1 %or.cond87, label %118, label %117
+
+117:                                              ; preds = %112
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.115) #55
   %.pre94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  br label %104
+  br label %118
 
-104:                                              ; preds = %103, %99
-  %105 = phi i32 [ %.pre94, %103 ], [ %100, %99 ]
-  %106 = and i32 %105, 65536
-  %107 = and i32 %0, 65536
-  %.not73 = icmp eq i32 %106, %107
-  %.not74 = icmp eq i32 %107, 0
-  %or.cond88 = or i1 %.not74, %.not73
-  br i1 %or.cond88, label %109, label %108
+118:                                              ; preds = %117, %112
+  %119 = phi i32 [ %.pre94, %117 ], [ %113, %112 ]
+  %120 = and i32 %119, 65536
+  %121 = xor i32 %120, 65536
+  %122 = and i32 %121, %0
+  %or.cond88 = icmp eq i32 %122, 0
+  br i1 %or.cond88, label %124, label %123
 
-108:                                              ; preds = %104
+123:                                              ; preds = %118
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.116) #55
-  br label %109
+  br label %124
 
-109:                                              ; preds = %108, %104
+124:                                              ; preds = %123, %118
   ret void
 }
 

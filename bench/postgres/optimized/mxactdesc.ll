@@ -31,74 +31,75 @@ define dso_local void @multixact_desc(ptr noundef %0, ptr nocapture noundef read
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
-  %or.cond = icmp ult i8 %8, 32
-  br i1 %or.cond, label %9, label %10
+  %9 = and i8 %8, -16
+  %10 = and i8 %8, 16
+  %or.cond = icmp eq i8 %10, %9
+  br i1 %or.cond, label %11, label %12
 
-9:                                                ; preds = %2
+11:                                               ; preds = %2
   %.0.copyload = load i64, ptr %6, align 1
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef %.0.copyload) #3
   br label %.loopexit
 
-10:                                               ; preds = %2
-  %11 = and i8 %8, -16
-  switch i8 %11, label %.loopexit [
-    i8 32, label %12
-    i8 48, label %31
+12:                                               ; preds = %2
+  switch i8 %9, label %.loopexit [
+    i8 32, label %13
+    i8 48, label %32
   ]
 
-12:                                               ; preds = %10
-  %13 = load i32, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  %17 = load i32, ptr %16, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %13, i32 noundef %15, i32 noundef %17) #3
-  %18 = load i32, ptr %16, align 4
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.loopexit
+13:                                               ; preds = %12
+  %14 = load i32, ptr %6, align 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = load i32, ptr %17, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %14, i32 noundef %16, i32 noundef %18) #3
+  %19 = load i32, ptr %17, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
-  br label %21
+.lr.ph:                                           ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %6, i64 12
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %out_member.exit
+22:                                               ; preds = %.lr.ph, %out_member.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %out_member.exit ]
-  %22 = getelementptr [0 x %struct.MultiXactMember], ptr %20, i64 0, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %23) #3
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp ult i32 %25, 6
-  br i1 %26, label %switch.lookup, label %out_member.exit
+  %23 = getelementptr [0 x %struct.MultiXactMember], ptr %21, i64 0, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %24) #3
+  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp ult i32 %26, 6
+  br i1 %27, label %switch.lookup, label %out_member.exit
 
-switch.lookup:                                    ; preds = %21
-  %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.multixact_desc, i64 0, i64 %27
+switch.lookup:                                    ; preds = %22
+  %28 = zext nneg i32 %26 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.multixact_desc, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %out_member.exit
 
-out_member.exit:                                  ; preds = %21, %switch.lookup
-  %.str.14.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.14, %21 ]
+out_member.exit:                                  ; preds = %22, %switch.lookup
+  %.str.14.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.14, %22 ]
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.str.14.sink.i) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %16, align 4
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %21, label %.loopexit, !llvm.loop !5
+  %29 = load i32, ptr %17, align 4
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %22, label %.loopexit, !llvm.loop !5
 
-31:                                               ; preds = %10
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 12
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  %39 = load i32, ptr %38, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39) #3
+32:                                               ; preds = %12
+  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %6, i64 12
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = load i32, ptr %39, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef %40) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %out_member.exit, %12, %10, %31, %9
+.loopexit:                                        ; preds = %out_member.exit, %13, %12, %32, %11
   ret void
 }
 

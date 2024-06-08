@@ -420,10 +420,11 @@ if.end:                                           ; preds = %entry
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 1
   %and3 = and i32 %conv, 254
-  %or.cond = icmp ugt i8 %0, 3
-  %1 = and i32 %conv, 252
-  %2 = icmp ne i32 %1, 4
-  %or.cond2 = and i1 %or.cond, %2
+  %1 = and i32 %conv, 2
+  %or.cond = icmp ne i32 %1, %and3
+  %2 = and i32 %conv, 252
+  %3 = icmp ne i32 %2, 4
+  %or.cond2 = and i1 %or.cond, %3
   br i1 %or.cond2, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end
@@ -562,10 +563,10 @@ if.then94:                                        ; preds = %if.then91
   br label %err
 
 if.else96:                                        ; preds = %if.then88
-  %3 = load ptr, ptr %group, align 8
-  %field_div = getelementptr inbounds i8, ptr %3, i64 264
-  %4 = load ptr, ptr %field_div, align 8
-  %call97 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %call52, ptr noundef %call51, ptr noundef %call50, ptr noundef nonnull %ctx.addr.0) #3
+  %4 = load ptr, ptr %group, align 8
+  %field_div = getelementptr inbounds i8, ptr %4, i64 264
+  %5 = load ptr, ptr %field_div, align 8
+  %call97 = tail call i32 %5(ptr noundef nonnull %group, ptr noundef nonnull %call52, ptr noundef %call51, ptr noundef %call50, ptr noundef nonnull %ctx.addr.0) #3
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %err, label %if.end100
 

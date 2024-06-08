@@ -4286,13 +4286,13 @@ define hidden void @dissect_spc_extcopy(ptr noundef %0, ptr nocapture readnone %
   %114 = add i32 %.0283, 28
   %115 = load i32, ptr @ett_scsi_xcopy_dev_params, align 4
   %116 = tail call ptr @proto_tree_add_subtree(ptr noundef %72, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef %115, ptr noundef null, ptr noundef nonnull @.str.39) #10
-  %117 = and i8 %80, 27
-  %or.cond10 = icmp eq i8 %117, 0
+  %117 = and i8 %80, 4
+  %or.cond10 = icmp eq i8 %117, %81
   %118 = and i8 %80, 29
   %119 = icmp eq i8 %118, 5
   %or.cond16 = or i1 %or.cond10, %119
   %120 = icmp eq i8 %81, 14
-  %or.cond19 = select i1 %or.cond16, i1 true, i1 %120
+  %or.cond19 = or i1 %120, %or.cond16
   br i1 %or.cond19, label %121, label %127
 
 121:                                              ; preds = %113

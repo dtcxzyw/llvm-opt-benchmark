@@ -546,18 +546,18 @@ if.then8:                                         ; preds = %sw.bb
 sw.bb12:                                          ; preds = %if.else
   %5 = trunc i64 %spec.select to i8
   %conv14 = and i8 %5, 63
-  %6 = and i8 %5, 61
-  %or.cond = icmp eq i8 %6, 0
+  %6 = and i8 %5, 2
+  %or.cond = icmp eq i8 %6, %conv14
   br i1 %or.cond, label %if.then21, label %if.end41
 
 if.then21:                                        ; preds = %sw.bb12
-  %7 = lshr exact i8 %conv14, 1
+  %7 = lshr i8 %conv14, 1
   %div = zext nneg i8 %7 to i32
   %status = getelementptr inbounds i8, ptr %opaque, i64 4392
   %8 = load i16, ptr %status, align 8
   %conv23 = zext i16 %8 to i64
   %mul = shl i32 %conv, 1
-  %add = or disjoint i32 %mul, %div
+  %add = add nuw i32 %mul, %div
   %sh_prom = zext nneg i32 %add to i64
   %shl = shl nuw i64 1, %sh_prom
   %and24 = and i64 %shl, %conv23
@@ -565,7 +565,7 @@ if.then21:                                        ; preds = %sw.bb12
   br i1 %tobool25.not, label %if.end41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then21
-  %add28 = or disjoint i32 %div, 4
+  %add28 = add nuw nsw i32 %div, 4
   %sh_prom29 = zext nneg i32 %add28 to i64
   %shl30 = shl nuw nsw i64 1, %sh_prom29
   %ctrl = getelementptr inbounds i8, ptr %opaque, i64 4387

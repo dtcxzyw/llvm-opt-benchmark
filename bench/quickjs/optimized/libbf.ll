@@ -14434,8 +14434,8 @@ bf_delete.exit:                                   ; preds = %238, %235, %bf_set_
 define internal fastcc range(i32 20, 33) i32 @bf_set_overflow(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = and i32 %3, 7
   %6 = icmp eq i64 %2, 4611686018427387903
-  %7 = and i32 %3, 3
-  %8 = icmp eq i32 %7, 0
+  %7 = and i32 %3, 4
+  %8 = icmp eq i32 %7, %5
   %or.cond3 = or i1 %6, %8
   %9 = icmp eq i32 %5, 5
   %or.cond5 = or i1 %9, %or.cond3
