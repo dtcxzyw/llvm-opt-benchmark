@@ -60646,9 +60646,9 @@ default.unreachable.i:                            ; preds = %46
 188:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   %189 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ad7839be901c6fdE"(i64 noundef %176, i1 noundef zeroext false)
-          to label %switch.hole_check unwind label %.thread91
+          to label %switch.lookup unwind label %.thread91
 
-switch.hole_check:                                ; preds = %188
+switch.lookup:                                    ; preds = %188
   %190 = extractvalue { i64, ptr } %189, 0
   %191 = extractvalue { i64, ptr } %189, 1
   %192 = icmp ne ptr %191, null
@@ -60663,10 +60663,6 @@ switch.hole_check:                                ; preds = %188
   %193 = zext nneg i8 %187 to i64
   %194 = add nsw i64 %193, -2
   %195 = call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 63)
-  %switch.maskindex = trunc i64 %195 to i8
-  %switch.shifted = lshr i8 -103, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN11ide_assists8handlers21number_representation23reformat_number_literal17hb833af38bd92765dE.llvm.15125219604780613101, i64 0, i64 %195
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !15350)
@@ -60692,10 +60688,10 @@ switch.hole_check:                                ; preds = %188
           cleanup
   br label %.thread
 
-200:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i", %switch.hole_check
-  %.sroa.522.0.copyload.i = phi i64 [ 0, %switch.hole_check ], [ %253, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
-  %.sroa.4.0.i = phi ptr [ %198, %switch.hole_check ], [ %.sroa.4.4.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
-  %.sroa.10.0.i = phi i64 [ 0, %switch.hole_check ], [ %242, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
+200:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i", %switch.lookup
+  %.sroa.522.0.copyload.i = phi i64 [ 0, %switch.lookup ], [ %253, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
+  %.sroa.4.0.i = phi ptr [ %198, %switch.lookup ], [ %.sroa.4.4.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
+  %.sroa.10.0.i = phi i64 [ 0, %switch.lookup ], [ %242, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7033c7e40dc1c20fE.exit.i" ]
   br label %201
 
 201:                                              ; preds = %239, %200

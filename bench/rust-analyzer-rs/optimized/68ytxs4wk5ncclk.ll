@@ -79026,7 +79026,7 @@ define hidden noundef i16 @"_ZN8chalk_ir15TyKind$LT$I$GT$13compute_flags17h67b6c
     i8 4, label %switch.lookup
     i8 5, label %116
     i8 6, label %116
-    i8 7, label %switch.hole_check
+    i8 7, label %switch.lookup129
     i8 8, label %82
     i8 9, label %82
     i8 10, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
@@ -79037,7 +79037,7 @@ define hidden noundef i16 @"_ZN8chalk_ir15TyKind$LT$I$GT$13compute_flags17h67b6c
     i8 15, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
     i8 16, label %29
     i8 17, label %30
-    i8 18, label %switch.hole_check132
+    i8 18, label %switch.lookup130
     i8 19, label %43
     i8 20, label %47
     i8 21, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
@@ -79075,15 +79075,11 @@ switch.lookup:                                    ; preds = %1
   %19 = or i16 %15, %switch.masked
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
-switch.hole_check:                                ; preds = %1
+switch.lookup129:                                 ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %20, align 8, !alias.scope !20222, !nonnull !14, !noundef !14
   %21 = getelementptr inbounds i8, ptr %.val, i64 8
   %22 = load i32, ptr %21, align 8, !range !3223, !noundef !14
-  %switch.maskindex = trunc nuw nsw i32 %22 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %23 = zext nneg i32 %22 to i64
   %switch.gep = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %23
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -79100,18 +79096,14 @@ switch.hole_check:                                ; preds = %1
 30:                                               ; preds = %1
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
-switch.hole_check132:                             ; preds = %1
+switch.lookup130:                                 ; preds = %1
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %.val59 = load ptr, ptr %31, align 8, !alias.scope !20222, !nonnull !14, !noundef !14
   %32 = getelementptr inbounds i8, ptr %.val59, i64 8
   %33 = load i32, ptr %32, align 8, !range !3223, !noundef !14
-  %switch.maskindex134 = trunc nuw nsw i32 %33 to i8
-  %switch.shifted135 = lshr i8 95, %switch.maskindex134
-  %switch.lobit136 = trunc i8 %switch.shifted135 to i1
-  tail call void @llvm.assume(i1 %switch.lobit136)
   %34 = zext nneg i32 %33 to i64
-  %switch.gep137 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %34
-  %switch.load138 = load i16, ptr %switch.gep137, align 2
+  %switch.gep131 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %34
+  %switch.load132 = load i16, ptr %switch.gep131, align 2
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20231)
@@ -79157,7 +79149,7 @@ switch.hole_check132:                             ; preds = %1
   %.val7.i = load ptr, ptr %59, align 8, !nonnull !14, !noundef !14
   switch i64 %.val.i, label %default.unreachable118 [
     i64 0, label %60
-    i64 1, label %switch.hole_check140
+    i64 1, label %switch.lookup133
     i64 2, label %66
   ]
 
@@ -79166,16 +79158,12 @@ switch.hole_check132:                             ; preds = %1
   %62 = load i16, ptr %61, align 8, !noundef !14
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i"
 
-switch.hole_check140:                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
+switch.lookup133:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
   %63 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %64 = load i32, ptr %63, align 8, !range !3223, !noundef !14
-  %switch.maskindex142 = trunc nuw nsw i32 %64 to i8
-  %switch.shifted143 = lshr i8 95, %switch.maskindex142
-  %switch.lobit144 = trunc i8 %switch.shifted143 to i1
-  tail call void @llvm.assume(i1 %switch.lobit144)
   %65 = zext nneg i32 %64 to i64
-  %switch.gep145 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %65
-  %switch.load146 = load i16, ptr %switch.gep145, align 2
+  %switch.gep134 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %65
+  %switch.load135 = load i16, ptr %switch.gep134, align 2
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i"
 
 66:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
@@ -79202,8 +79190,8 @@ switch.hole_check140:                             ; preds = %"_ZN91_$LT$core..sl
   %78 = or i16 %71, -32736
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i"
 
-"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i": ; preds = %switch.hole_check140, %77, %75, %66, %66, %60
-  %.0.i8.i = phi i16 [ %78, %77 ], [ %76, %75 ], [ %71, %66 ], [ %71, %66 ], [ %62, %60 ], [ %switch.load146, %switch.hole_check140 ]
+"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i": ; preds = %switch.lookup133, %77, %75, %66, %66, %60
+  %.0.i8.i = phi i16 [ %78, %77 ], [ %76, %75 ], [ %71, %66 ], [ %71, %66 ], [ %62, %60 ], [ %switch.load135, %switch.lookup133 ]
   %79 = or i16 %.0.i8.i, %.07.i
   %80 = icmp eq ptr %58, %56
   br i1 %80, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
@@ -79237,7 +79225,7 @@ switch.hole_check140:                             ; preds = %"_ZN91_$LT$core..sl
   %.val7.i77 = load ptr, ptr %94, align 8, !nonnull !14, !noundef !14
   switch i64 %.val.i76, label %default.unreachable118 [
     i64 0, label %95
-    i64 1, label %switch.hole_check148
+    i64 1, label %switch.lookup136
     i64 2, label %101
   ]
 
@@ -79246,16 +79234,12 @@ switch.hole_check140:                             ; preds = %"_ZN91_$LT$core..sl
   %97 = load i16, ptr %96, align 8, !noundef !14
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78"
 
-switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i73"
+switch.lookup136:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i73"
   %98 = getelementptr inbounds i8, ptr %.val7.i77, i64 8
   %99 = load i32, ptr %98, align 8, !range !3223, !noundef !14
-  %switch.maskindex150 = trunc nuw nsw i32 %99 to i8
-  %switch.shifted151 = lshr i8 95, %switch.maskindex150
-  %switch.lobit152 = trunc i8 %switch.shifted151 to i1
-  tail call void @llvm.assume(i1 %switch.lobit152)
   %100 = zext nneg i32 %99 to i64
-  %switch.gep153 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %100
-  %switch.load154 = load i16, ptr %switch.gep153, align 2
+  %switch.gep137 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %100
+  %switch.load138 = load i16, ptr %switch.gep137, align 2
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78"
 
 101:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i73"
@@ -79282,14 +79266,14 @@ switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..sl
   %113 = or i16 %106, -32736
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78"
 
-"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78": ; preds = %switch.hole_check148, %112, %110, %101, %101, %95
-  %.0.i8.i79 = phi i16 [ %113, %112 ], [ %111, %110 ], [ %106, %101 ], [ %106, %101 ], [ %97, %95 ], [ %switch.load154, %switch.hole_check148 ]
+"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78": ; preds = %switch.lookup136, %112, %110, %101, %101, %95
+  %.0.i8.i79 = phi i16 [ %113, %112 ], [ %111, %110 ], [ %106, %101 ], [ %106, %101 ], [ %97, %95 ], [ %switch.load138, %switch.lookup136 ]
   %114 = or i16 %.0.i8.i79, %.07.i74
   %115 = icmp eq ptr %93, %91
   br i1 %115, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i73"
 
-"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i", %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78", %82, %47, %1, %1, %1, %1, %1, %._crit_edge, %116, %switch.lookup, %81, %43, %30, %29, %switch.hole_check
-  %.0 = phi i16 [ 1, %81 ], [ %46, %43 ], [ %120, %._crit_edge ], [ 8, %30 ], [ 1024, %29 ], [ %28, %switch.hole_check ], [ %119, %116 ], [ %19, %switch.lookup ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %47 ], [ 0, %82 ], [ %114, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78" ], [ %79, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i" ]
+"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i", %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78", %82, %47, %1, %1, %1, %1, %1, %._crit_edge, %116, %switch.lookup, %81, %43, %30, %29, %switch.lookup129
+  %.0 = phi i16 [ 1, %81 ], [ %46, %43 ], [ %120, %._crit_edge ], [ 8, %30 ], [ 1024, %29 ], [ %28, %switch.lookup129 ], [ %119, %116 ], [ %19, %switch.lookup ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %47 ], [ 0, %82 ], [ %114, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i78" ], [ %79, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i" ]
   ret i16 %.0
 
 116:                                              ; preds = %1, %1
@@ -79299,14 +79283,14 @@ switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..sl
   %119 = load i16, ptr %118, align 8, !noundef !14
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
-._crit_edge:                                      ; preds = %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95", %switch.hole_check132
-  %.057.lcssa = phi i16 [ 0, %switch.hole_check132 ], [ %.1, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ]
-  %120 = or i16 %.057.lcssa, %switch.load138
+._crit_edge:                                      ; preds = %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95", %switch.lookup130
+  %.057.lcssa = phi i16 [ 0, %switch.lookup130 ], [ %.1, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ]
+  %120 = or i16 %.057.lcssa, %switch.load132
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
-.lr.ph:                                           ; preds = %switch.hole_check132, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95"
-  %.057114 = phi i16 [ %.1, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ], [ 0, %switch.hole_check132 ]
-  %.sroa.0.0113 = phi ptr [ %121, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ], [ %38, %switch.hole_check132 ]
+.lr.ph:                                           ; preds = %switch.lookup130, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95"
+  %.057114 = phi i16 [ %.1, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ], [ 0, %switch.lookup130 ]
+  %.sroa.0.0113 = phi ptr [ %121, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95" ], [ %38, %switch.lookup130 ]
   %121 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 40
   %122 = load i64, ptr %.sroa.0.0113, align 8, !range !3353, !noundef !14
   %123 = add nsw i64 %122, -2
@@ -79317,8 +79301,8 @@ switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..sl
   switch i64 %125, label %.loopexit [
     i64 0, label %127
     i64 1, label %160
-    i64 2, label %switch.hole_check164
-    i64 3, label %switch.hole_check172
+    i64 2, label %switch.lookup142
+    i64 3, label %switch.lookup145
   ]
 
 127:                                              ; preds = %.lr.ph
@@ -79344,7 +79328,7 @@ switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..sl
   %.val7.i90 = load ptr, ptr %138, align 8, !nonnull !14, !noundef !14
   switch i64 %.val.i89, label %default.unreachable118 [
     i64 0, label %139
-    i64 1, label %switch.hole_check156
+    i64 1, label %switch.lookup139
     i64 2, label %145
   ]
 
@@ -79353,16 +79337,12 @@ switch.hole_check148:                             ; preds = %"_ZN91_$LT$core..sl
   %141 = load i16, ptr %140, align 8, !noundef !14
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91"
 
-switch.hole_check156:                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i86"
+switch.lookup139:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i86"
   %142 = getelementptr inbounds i8, ptr %.val7.i90, i64 8
   %143 = load i32, ptr %142, align 8, !range !3223, !noundef !14
-  %switch.maskindex158 = trunc nuw nsw i32 %143 to i8
-  %switch.shifted159 = lshr i8 95, %switch.maskindex158
-  %switch.lobit160 = trunc i8 %switch.shifted159 to i1
-  tail call void @llvm.assume(i1 %switch.lobit160)
   %144 = zext nneg i32 %143 to i64
-  %switch.gep161 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %144
-  %switch.load162 = load i16, ptr %switch.gep161, align 2
+  %switch.gep140 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %144
+  %switch.load141 = load i16, ptr %switch.gep140, align 2
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91"
 
 145:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i86"
@@ -79389,8 +79369,8 @@ switch.hole_check156:                             ; preds = %"_ZN91_$LT$core..sl
   %157 = or i16 %150, -32736
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91"
 
-"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91": ; preds = %switch.hole_check156, %156, %154, %145, %145, %139
-  %.0.i8.i92 = phi i16 [ %157, %156 ], [ %155, %154 ], [ %150, %145 ], [ %150, %145 ], [ %141, %139 ], [ %switch.load162, %switch.hole_check156 ]
+"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91": ; preds = %switch.lookup139, %156, %154, %145, %145, %139
+  %.0.i8.i92 = phi i16 [ %157, %156 ], [ %155, %154 ], [ %150, %145 ], [ %150, %145 ], [ %141, %139 ], [ %switch.load141, %switch.lookup139 ]
   %158 = or i16 %.0.i8.i92, %.07.i87
   %159 = icmp eq ptr %137, %135
   br i1 %159, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i86"
@@ -79404,49 +79384,37 @@ switch.hole_check156:                             ; preds = %"_ZN91_$LT$core..sl
   %166 = or i16 %161, %165
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95"
 
-switch.hole_check164:                             ; preds = %.lr.ph
+switch.lookup142:                                 ; preds = %.lr.ph
   %167 = getelementptr inbounds i8, ptr %.val64, i64 8
   %168 = load i32, ptr %167, align 8, !range !3223, !noundef !14
-  %switch.maskindex166 = trunc nuw nsw i32 %168 to i8
-  %switch.shifted167 = lshr i8 95, %switch.maskindex166
-  %switch.lobit168 = trunc i8 %switch.shifted167 to i1
-  tail call void @llvm.assume(i1 %switch.lobit168)
   %169 = zext nneg i32 %168 to i64
-  %switch.gep169 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %169
-  %switch.load170 = load i16, ptr %switch.gep169, align 2
+  %switch.gep143 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %169
+  %switch.load144 = load i16, ptr %switch.gep143, align 2
   %170 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 16
   %.val61 = load ptr, ptr %170, align 8, !alias.scope !20222, !nonnull !14, !noundef !14
   %171 = getelementptr inbounds i8, ptr %.val61, i64 8
   %172 = load i32, ptr %171, align 8, !range !3223, !noundef !14
-  %switch.maskindex182 = trunc nuw nsw i32 %172 to i8
-  %switch.shifted183 = lshr i8 95, %switch.maskindex182
-  %switch.lobit184 = trunc i8 %switch.shifted183 to i1
-  tail call void @llvm.assume(i1 %switch.lobit184)
   %173 = zext nneg i32 %172 to i64
-  %switch.gep185 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %173
-  %switch.load186 = load i16, ptr %switch.gep185, align 2
-  %174 = or i16 %switch.load170, %switch.load186
+  %switch.gep149 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %173
+  %switch.load150 = load i16, ptr %switch.gep149, align 2
+  %174 = or i16 %switch.load144, %switch.load150
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95"
 
-switch.hole_check172:                             ; preds = %.lr.ph
+switch.lookup145:                                 ; preds = %.lr.ph
   %175 = getelementptr inbounds i8, ptr %.val64, i64 40
   %176 = load i16, ptr %175, align 8, !noundef !14
   %177 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 16
   %.val62 = load ptr, ptr %177, align 8, !alias.scope !20222, !nonnull !14, !noundef !14
   %178 = getelementptr inbounds i8, ptr %.val62, i64 8
   %179 = load i32, ptr %178, align 8, !range !3223, !noundef !14
-  %switch.maskindex174 = trunc nuw nsw i32 %179 to i8
-  %switch.shifted175 = lshr i8 95, %switch.maskindex174
-  %switch.lobit176 = trunc i8 %switch.shifted175 to i1
-  tail call void @llvm.assume(i1 %switch.lobit176)
   %180 = zext nneg i32 %179 to i64
-  %switch.gep177 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %180
-  %switch.load178 = load i16, ptr %switch.gep177, align 2
-  %181 = or i16 %176, %switch.load178
+  %switch.gep146 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %180
+  %switch.load147 = load i16, ptr %switch.gep146, align 2
+  %181 = or i16 %176, %switch.load147
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95"
 
-"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91", %127, %switch.hole_check172, %switch.hole_check164, %160
-  %.pn = phi i16 [ %181, %switch.hole_check172 ], [ %174, %switch.hole_check164 ], [ %166, %160 ], [ 0, %127 ], [ %158, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91" ]
+"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit95": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91", %127, %switch.lookup145, %switch.lookup142, %160
+  %.pn = phi i16 [ %181, %switch.lookup145 ], [ %174, %switch.lookup142 ], [ %166, %160 ], [ 0, %127 ], [ %158, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i91" ]
   %.1 = or i16 %.pn, %.057114
   %182 = icmp eq ptr %121, %41
   br i1 %182, label %._crit_edge, label %.lr.ph
@@ -79482,7 +79450,7 @@ define internal fastcc noundef i16 @"_ZN8chalk_ir16AliasTy$LT$I$GT$13compute_fla
   %.val7.i = load ptr, ptr %13, align 8, !nonnull !14, !noundef !14
   switch i64 %.val.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i.unreachabledefault" [
     i64 0, label %14
-    i64 1, label %switch.hole_check
+    i64 1, label %switch.lookup
     i64 2, label %20
   ]
 
@@ -79497,13 +79465,9 @@ default.unreachable:                              ; preds = %20, %45, %"_ZN91_$L
   %16 = load i16, ptr %15, align 8, !noundef !14
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i"
 
-switch.hole_check:                                ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
+switch.lookup:                                    ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
   %17 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %18 = load i32, ptr %17, align 8, !range !3223, !noundef !14
-  %switch.maskindex = trunc nuw nsw i32 %18 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %19 = zext nneg i32 %18 to i64
   %switch.gep = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %19
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -79533,8 +79497,8 @@ switch.hole_check:                                ; preds = %"_ZN91_$LT$core..sl
   %32 = or i16 %25, -32736
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i"
 
-"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i": ; preds = %switch.hole_check, %31, %29, %20, %20, %14
-  %.0.i8.i = phi i16 [ %32, %31 ], [ %30, %29 ], [ %25, %20 ], [ %25, %20 ], [ %16, %14 ], [ %switch.load, %switch.hole_check ]
+"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i": ; preds = %switch.lookup, %31, %29, %20, %20, %14
+  %.0.i8.i = phi i16 [ %32, %31 ], [ %30, %29 ], [ %25, %20 ], [ %25, %20 ], [ %16, %14 ], [ %switch.load, %switch.lookup ]
   %33 = or i16 %.0.i8.i, %.07.i
   %34 = icmp eq ptr %12, %9
   br i1 %34, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit.loopexit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
@@ -79555,7 +79519,7 @@ switch.hole_check:                                ; preds = %"_ZN91_$LT$core..sl
   %.val7.i14 = load ptr, ptr %38, align 8, !nonnull !14, !noundef !14
   switch i64 %.val.i13, label %default.unreachable [
     i64 0, label %39
-    i64 1, label %switch.hole_check7
+    i64 1, label %switch.lookup7
     i64 2, label %45
   ]
 
@@ -79564,16 +79528,12 @@ switch.hole_check:                                ; preds = %"_ZN91_$LT$core..sl
   %41 = load i16, ptr %40, align 8, !noundef !14
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i15"
 
-switch.hole_check7:                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
+switch.lookup7:                                   ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
   %42 = getelementptr inbounds i8, ptr %.val7.i14, i64 8
   %43 = load i32, ptr %42, align 8, !range !3223, !noundef !14
-  %switch.maskindex8 = trunc nuw nsw i32 %43 to i8
-  %switch.shifted9 = lshr i8 95, %switch.maskindex8
-  %switch.lobit10 = trunc i8 %switch.shifted9 to i1
-  tail call void @llvm.assume(i1 %switch.lobit10)
   %44 = zext nneg i32 %43 to i64
-  %switch.gep11 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %44
-  %switch.load12 = load i16, ptr %switch.gep11, align 2
+  %switch.gep8 = getelementptr inbounds [7 x i16], ptr @"switch.table._ZN8chalk_ir16AliasTy$LT$I$GT$13compute_flags17h36d9494dc92b2dd9E.227", i64 0, i64 %44
+  %switch.load9 = load i16, ptr %switch.gep8, align 2
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i15"
 
 45:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
@@ -79600,8 +79560,8 @@ switch.hole_check7:                               ; preds = %"_ZN91_$LT$core..sl
   %57 = or i16 %50, -32736
   br label %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i15"
 
-"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i15": ; preds = %switch.hole_check7, %56, %54, %45, %45, %39
-  %.0.i8.i16 = phi i16 [ %57, %56 ], [ %55, %54 ], [ %50, %45 ], [ %50, %45 ], [ %41, %39 ], [ %switch.load12, %switch.hole_check7 ]
+"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i15": ; preds = %switch.lookup7, %56, %54, %45, %45, %39
+  %.0.i8.i16 = phi i16 [ %57, %56 ], [ %55, %54 ], [ %50, %45 ], [ %50, %45 ], [ %41, %39 ], [ %switch.load9, %switch.lookup7 ]
   %58 = or i16 %.0.i8.i16, %.07.i11
   %59 = icmp eq ptr %37, %9
   br i1 %59, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit19.loopexit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
@@ -88163,14 +88123,10 @@ define hidden void @"_ZN8chalk_ir16Binders$LT$T$GT$7map_ref17hf84ce72cc94c5fc0E"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN8chalk_ir17Lifetime$LT$I$GT$11needs_shift17h4132134777889eccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
-switch.hole_check:
+switch.lookup:
   %1 = load ptr, ptr %0, align 8, !alias.scope !22360, !nonnull !14, !noundef !14
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8, !range !3223, !noundef !14
-  %switch.maskindex = trunc nuw nsw i32 %3 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %switch.cast = trunc nuw nsw i32 %3 to i7
   %switch.downshift = lshr i7 33, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1

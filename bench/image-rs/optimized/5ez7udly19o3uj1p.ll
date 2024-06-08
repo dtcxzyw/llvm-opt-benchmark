@@ -13395,8 +13395,6 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   %95 = getelementptr inbounds i8, ptr %17, i64 8
   %96 = getelementptr inbounds i8, ptr %13, i64 8
   %97 = getelementptr inbounds i8, ptr %13, i64 16
-  %switch.shifted = lshr i8 93, %66
-  %switch.lobit = trunc i8 %switch.shifted to i1
   %switch.cast = zext i8 %66 to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 1127008025379073, %switch.shiftamt
@@ -13501,7 +13499,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2135.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2135, i64 24, i1 false)
   br label %293
 
-138:                                              ; preds = %.preheader, %switch.hole_check
+138:                                              ; preds = %.preheader, %switch.lookup
   call void @llvm.experimental.noalias.scope.decl(metadata !1893)
   call void @llvm.experimental.noalias.scope.decl(metadata !1896)
   %139 = load i32, ptr %88, align 8, !range !1899, !alias.scope !1900, !noalias !1901, !noundef !19
@@ -13689,7 +13687,7 @@ common.resume:                                    ; preds = %234, %179, %184
   %.val.i291 = load ptr, ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !1893, !noalias !1910, !nonnull !19, !noundef !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !1914
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !1914
-  br i1 %trunc.i.i, label %switch.hole_check, label %190
+  br i1 %trunc.i.i, label %switch.lookup, label %190
 
 190:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
@@ -13709,8 +13707,7 @@ common.resume:                                    ; preds = %234, %179, %184
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.109) #21
   unreachable
 
-switch.hole_check:                                ; preds = %189
-  call void @llvm.assume(i1 %switch.lobit)
+switch.lookup:                                    ; preds = %189
   call void @_ZN3png5adam711expand_pass17h661828706526dbc1E(ptr noalias noundef nonnull align 1 %2, i64 noundef %3, i32 noundef %84, ptr noalias noundef nonnull readonly align 1 %.val.i291, i64 noundef %163, i8 noundef %.sroa.11.0.ph.i, i32 noundef %.sroa.1355.0.ph.i, i8 noundef %98)
   br label %138
 
@@ -14188,8 +14185,6 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   %95 = getelementptr inbounds i8, ptr %17, i64 8
   %96 = getelementptr inbounds i8, ptr %13, i64 8
   %97 = getelementptr inbounds i8, ptr %13, i64 16
-  %switch.shifted = lshr i8 93, %66
-  %switch.lobit = trunc i8 %switch.shifted to i1
   %switch.cast = zext i8 %66 to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 1127008025379073, %switch.shiftamt
@@ -14294,7 +14289,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2135.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2135, i64 24, i1 false)
   br label %293
 
-138:                                              ; preds = %.preheader, %switch.hole_check
+138:                                              ; preds = %.preheader, %switch.lookup
   call void @llvm.experimental.noalias.scope.decl(metadata !2009)
   call void @llvm.experimental.noalias.scope.decl(metadata !2012)
   %139 = load i32, ptr %88, align 8, !range !1899, !alias.scope !2015, !noalias !2016, !noundef !19
@@ -14482,7 +14477,7 @@ common.resume:                                    ; preds = %234, %179, %184
   %.val.i291 = load ptr, ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !2009, !noalias !2025, !nonnull !19, !noundef !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !2029
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !2029
-  br i1 %trunc.i.i, label %switch.hole_check, label %190
+  br i1 %trunc.i.i, label %switch.lookup, label %190
 
 190:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
@@ -14502,8 +14497,7 @@ common.resume:                                    ; preds = %234, %179, %184
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.109) #21
   unreachable
 
-switch.hole_check:                                ; preds = %189
-  call void @llvm.assume(i1 %switch.lobit)
+switch.lookup:                                    ; preds = %189
   call void @_ZN3png5adam711expand_pass17h661828706526dbc1E(ptr noalias noundef nonnull align 1 %2, i64 noundef %3, i32 noundef %84, ptr noalias noundef nonnull readonly align 1 %.val.i291, i64 noundef %163, i8 noundef %.sroa.11.0.ph.i, i32 noundef %.sroa.1355.0.ph.i, i8 noundef %98)
   br label %138
 
@@ -16848,14 +16842,11 @@ define hidden void @"_ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb89276fb60154
   %35 = getelementptr inbounds i8, ptr %4, i64 400
   %36 = load i32, ptr %35, align 8, !noundef !19
   %37 = invoke { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17hedf4f00eea400eafE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %4)
-          to label %switch.hole_check unwind label %24
+          to label %switch.lookup unwind label %24
 
-switch.hole_check:                                ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17h8fec02fd59af926fE.exit119"
+switch.lookup:                                    ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17h8fec02fd59af926fE.exit119"
   %38 = extractvalue { i8, i8 } %37, 0
   %39 = extractvalue { i8, i8 } %37, 1
-  %switch.shifted = lshr i8 93, %38
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %40 = sext i8 %38 to i64
   %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -16870,12 +16861,12 @@ switch.hole_check:                                ; preds = %"_ZN3png7decoder15R
   %49 = extractvalue { i64, i1 } %48, 1
   br i1 %49, label %51, label %50
 
-50:                                               ; preds = %switch.hole_check
+50:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$21read_until_image_data17h12c124f270183907E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(712) %4)
           to label %53 unwind label %24
 
-51:                                               ; preds = %switch.hole_check
+51:                                               ; preds = %switch.lookup
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %52, align 8
   br label %.thread138
@@ -17036,14 +17027,11 @@ define hidden void @"_ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9
   %35 = getelementptr inbounds i8, ptr %4, i64 400
   %36 = load i32, ptr %35, align 8, !noundef !19
   %37 = invoke { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17h7d00cfa2b8a26d49E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %4)
-          to label %switch.hole_check unwind label %24
+          to label %switch.lookup unwind label %24
 
-switch.hole_check:                                ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E.exit119"
+switch.lookup:                                    ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E.exit119"
   %38 = extractvalue { i8, i8 } %37, 0
   %39 = extractvalue { i8, i8 } %37, 1
-  %switch.shifted = lshr i8 93, %38
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %40 = sext i8 %38 to i64
   %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -17058,12 +17046,12 @@ switch.hole_check:                                ; preds = %"_ZN3png7decoder15R
   %49 = extractvalue { i64, i1 } %48, 1
   br i1 %49, label %51, label %50
 
-50:                                               ; preds = %switch.hole_check
+50:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$21read_until_image_data17h63303fd1889cbbb2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(688) %4)
           to label %53 unwind label %24
 
-51:                                               ; preds = %switch.hole_check
+51:                                               ; preds = %switch.lookup
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %52, align 8
   br label %.thread138
@@ -25869,11 +25857,8 @@ switch.lookup:
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-switch.hole_check:
+switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2096, !noundef !19
-  %switch.shifted = lshr i8 93, %2
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8

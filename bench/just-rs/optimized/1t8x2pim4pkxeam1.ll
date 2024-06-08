@@ -528,15 +528,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1a7e3f89fdd1c4a5d945b914e4a08314.2.llvm.9118937971122011336 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE" = private unnamed_addr constant [31 x i64] [i64 6, i64 6, i64 7, i64 6, i64 7, i64 7, i64 6, i64 6, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 9, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 6, i64 7, i64 7, i64 9, i64 7, i64 8, i64 5, i64 6, i64 6], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE.58" = private unnamed_addr constant [31 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.100, ptr @anon.33818b486a90266c1f1c95bf072e35a3.101, ptr @anon.33818b486a90266c1f1c95bf072e35a3.102, ptr @anon.33818b486a90266c1f1c95bf072e35a3.103, ptr @anon.33818b486a90266c1f1c95bf072e35a3.104, ptr @anon.33818b486a90266c1f1c95bf072e35a3.105, ptr @anon.33818b486a90266c1f1c95bf072e35a3.106, ptr @anon.33818b486a90266c1f1c95bf072e35a3.107, ptr @anon.33818b486a90266c1f1c95bf072e35a3.108, ptr @anon.33818b486a90266c1f1c95bf072e35a3.109, ptr @anon.33818b486a90266c1f1c95bf072e35a3.110, ptr @anon.33818b486a90266c1f1c95bf072e35a3.111, ptr @anon.33818b486a90266c1f1c95bf072e35a3.112, ptr @anon.33818b486a90266c1f1c95bf072e35a3.113, ptr @anon.33818b486a90266c1f1c95bf072e35a3.114, ptr @anon.33818b486a90266c1f1c95bf072e35a3.115, ptr @anon.33818b486a90266c1f1c95bf072e35a3.116, ptr @anon.33818b486a90266c1f1c95bf072e35a3.117, ptr @anon.33818b486a90266c1f1c95bf072e35a3.118, ptr @anon.33818b486a90266c1f1c95bf072e35a3.119, ptr @anon.33818b486a90266c1f1c95bf072e35a3.120, ptr @anon.33818b486a90266c1f1c95bf072e35a3.121, ptr @anon.33818b486a90266c1f1c95bf072e35a3.122, ptr @anon.33818b486a90266c1f1c95bf072e35a3.123, ptr @anon.33818b486a90266c1f1c95bf072e35a3.124, ptr @anon.33818b486a90266c1f1c95bf072e35a3.125, ptr @anon.33818b486a90266c1f1c95bf072e35a3.126, ptr @anon.33818b486a90266c1f1c95bf072e35a3.127, ptr @anon.33818b486a90266c1f1c95bf072e35a3.128, ptr @anon.33818b486a90266c1f1c95bf072e35a3.129, ptr @anon.33818b486a90266c1f1c95bf072e35a3.130], align 8
+@"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h55912e390203e4abE" = private unnamed_addr constant [256 x i64] [i64 11, i64 12, i64 10, i64 15, i64 7, i64 9, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 5, i64 6, i64 5, i64 5, i64 3, i64 5, i64 5, i64 7, i64 5, i64 6, i64 6, i64 6, i64 6, i64 6, i64 7, i64 5, i64 6, i64 5, i64 6, i64 7, i64 6, i64 6, i64 6, i64 6, i64 6, i64 7, i64 5, i64 6, i64 6, i64 5, i64 6, i64 5, i64 4, i64 6, i64 7, i64 12, i64 6, i64 6, i64 9, i64 5, i64 12, i64 6, i64 5, i64 6, i64 8, i64 6, i64 6, i64 6, i64 7, i64 6, i64 6, i64 5, i64 5, i64 6, i64 6, i64 7, i64 7, i64 12, i64 6, i64 6, i64 7, i64 5, i64 5, i64 6, i64 6, i64 7, i64 7, i64 4, i64 6, i64 5, i64 6, i64 9, i64 7, i64 7, i64 9, i64 8, i64 6, i64 7, i64 7, i64 7, i64 7, i64 7, i64 8, i64 6, i64 8, i64 8, i64 6, i64 8, i64 12, i64 8, i64 10, i64 11, i64 15, i64 15, i64 10, i64 12, i64 12, i64 10, i64 13, i64 8, i64 11, i64 9, i64 12, i64 10, i64 7, i64 7, i64 8, i64 9, i64 12, i64 9, i64 12, i64 9, i64 12, i64 8, i64 11, i64 6, i64 7, i64 7, i64 7, i64 6, i64 9, i64 6, i64 9, i64 11, i64 9, i64 6, i64 11], align 8
+@"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h55912e390203e4abE.59" = private unnamed_addr constant [256 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.257, ptr @anon.33818b486a90266c1f1c95bf072e35a3.258, ptr @anon.33818b486a90266c1f1c95bf072e35a3.259, ptr @anon.33818b486a90266c1f1c95bf072e35a3.260, ptr @anon.33818b486a90266c1f1c95bf072e35a3.261, ptr @anon.33818b486a90266c1f1c95bf072e35a3.262, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.132, ptr @anon.33818b486a90266c1f1c95bf072e35a3.133, ptr @anon.33818b486a90266c1f1c95bf072e35a3.134, ptr @anon.33818b486a90266c1f1c95bf072e35a3.135, ptr @anon.33818b486a90266c1f1c95bf072e35a3.136, ptr @anon.33818b486a90266c1f1c95bf072e35a3.137, ptr @anon.33818b486a90266c1f1c95bf072e35a3.138, ptr @anon.33818b486a90266c1f1c95bf072e35a3.139, ptr @anon.33818b486a90266c1f1c95bf072e35a3.140, ptr @anon.33818b486a90266c1f1c95bf072e35a3.141, ptr @anon.33818b486a90266c1f1c95bf072e35a3.142, ptr @anon.33818b486a90266c1f1c95bf072e35a3.143, ptr @anon.33818b486a90266c1f1c95bf072e35a3.144, ptr @anon.33818b486a90266c1f1c95bf072e35a3.145, ptr @anon.33818b486a90266c1f1c95bf072e35a3.146, ptr @anon.33818b486a90266c1f1c95bf072e35a3.147, ptr @anon.33818b486a90266c1f1c95bf072e35a3.148, ptr @anon.33818b486a90266c1f1c95bf072e35a3.149, ptr @anon.33818b486a90266c1f1c95bf072e35a3.150, ptr @anon.33818b486a90266c1f1c95bf072e35a3.151, ptr @anon.33818b486a90266c1f1c95bf072e35a3.152, ptr @anon.33818b486a90266c1f1c95bf072e35a3.153, ptr @anon.33818b486a90266c1f1c95bf072e35a3.154, ptr @anon.33818b486a90266c1f1c95bf072e35a3.155, ptr @anon.33818b486a90266c1f1c95bf072e35a3.156, ptr @anon.33818b486a90266c1f1c95bf072e35a3.157, ptr @anon.33818b486a90266c1f1c95bf072e35a3.158, ptr @anon.33818b486a90266c1f1c95bf072e35a3.159, ptr @anon.33818b486a90266c1f1c95bf072e35a3.160, ptr @anon.33818b486a90266c1f1c95bf072e35a3.161, ptr @anon.33818b486a90266c1f1c95bf072e35a3.162, ptr @anon.33818b486a90266c1f1c95bf072e35a3.163, ptr @anon.33818b486a90266c1f1c95bf072e35a3.164, ptr @anon.33818b486a90266c1f1c95bf072e35a3.165, ptr @anon.33818b486a90266c1f1c95bf072e35a3.166, ptr @anon.33818b486a90266c1f1c95bf072e35a3.167, ptr @anon.33818b486a90266c1f1c95bf072e35a3.168, ptr @anon.33818b486a90266c1f1c95bf072e35a3.169, ptr @anon.33818b486a90266c1f1c95bf072e35a3.170, ptr @anon.33818b486a90266c1f1c95bf072e35a3.171, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.172, ptr @anon.33818b486a90266c1f1c95bf072e35a3.173, ptr @anon.33818b486a90266c1f1c95bf072e35a3.174, ptr @anon.33818b486a90266c1f1c95bf072e35a3.175, ptr @anon.33818b486a90266c1f1c95bf072e35a3.176, ptr @anon.33818b486a90266c1f1c95bf072e35a3.177, ptr @anon.33818b486a90266c1f1c95bf072e35a3.178, ptr @anon.33818b486a90266c1f1c95bf072e35a3.179, ptr @anon.33818b486a90266c1f1c95bf072e35a3.180, ptr @anon.33818b486a90266c1f1c95bf072e35a3.181, ptr @anon.33818b486a90266c1f1c95bf072e35a3.182, ptr @anon.33818b486a90266c1f1c95bf072e35a3.183, ptr @anon.33818b486a90266c1f1c95bf072e35a3.184, ptr @anon.33818b486a90266c1f1c95bf072e35a3.185, ptr @anon.33818b486a90266c1f1c95bf072e35a3.186, ptr @anon.33818b486a90266c1f1c95bf072e35a3.187, ptr @anon.33818b486a90266c1f1c95bf072e35a3.131, ptr @anon.33818b486a90266c1f1c95bf072e35a3.188, ptr @anon.33818b486a90266c1f1c95bf072e35a3.189, ptr @anon.33818b486a90266c1f1c95bf072e35a3.190, ptr @anon.33818b486a90266c1f1c95bf072e35a3.191, ptr @anon.33818b486a90266c1f1c95bf072e35a3.192, ptr @anon.33818b486a90266c1f1c95bf072e35a3.193, ptr @anon.33818b486a90266c1f1c95bf072e35a3.194, ptr @anon.33818b486a90266c1f1c95bf072e35a3.195, ptr @anon.33818b486a90266c1f1c95bf072e35a3.196, ptr @anon.33818b486a90266c1f1c95bf072e35a3.197, ptr @anon.33818b486a90266c1f1c95bf072e35a3.198, ptr @anon.33818b486a90266c1f1c95bf072e35a3.199, ptr @anon.33818b486a90266c1f1c95bf072e35a3.200, ptr @anon.33818b486a90266c1f1c95bf072e35a3.201, ptr @anon.33818b486a90266c1f1c95bf072e35a3.202, ptr @anon.33818b486a90266c1f1c95bf072e35a3.203, ptr @anon.33818b486a90266c1f1c95bf072e35a3.204, ptr @anon.33818b486a90266c1f1c95bf072e35a3.205, ptr @anon.33818b486a90266c1f1c95bf072e35a3.206, ptr @anon.33818b486a90266c1f1c95bf072e35a3.207, ptr @anon.33818b486a90266c1f1c95bf072e35a3.208, ptr @anon.33818b486a90266c1f1c95bf072e35a3.209, ptr @anon.33818b486a90266c1f1c95bf072e35a3.210, ptr @anon.33818b486a90266c1f1c95bf072e35a3.211, ptr @anon.33818b486a90266c1f1c95bf072e35a3.212, ptr @anon.33818b486a90266c1f1c95bf072e35a3.213, ptr @anon.33818b486a90266c1f1c95bf072e35a3.214, ptr @anon.33818b486a90266c1f1c95bf072e35a3.215, ptr @anon.33818b486a90266c1f1c95bf072e35a3.216, ptr @anon.33818b486a90266c1f1c95bf072e35a3.217, ptr @anon.33818b486a90266c1f1c95bf072e35a3.218, ptr @anon.33818b486a90266c1f1c95bf072e35a3.219, ptr @anon.33818b486a90266c1f1c95bf072e35a3.220, ptr @anon.33818b486a90266c1f1c95bf072e35a3.221, ptr @anon.33818b486a90266c1f1c95bf072e35a3.222, ptr @anon.33818b486a90266c1f1c95bf072e35a3.223, ptr @anon.33818b486a90266c1f1c95bf072e35a3.224, ptr @anon.33818b486a90266c1f1c95bf072e35a3.225, ptr @anon.33818b486a90266c1f1c95bf072e35a3.226, ptr @anon.33818b486a90266c1f1c95bf072e35a3.227, ptr @anon.33818b486a90266c1f1c95bf072e35a3.228, ptr @anon.33818b486a90266c1f1c95bf072e35a3.229, ptr @anon.33818b486a90266c1f1c95bf072e35a3.230, ptr @anon.33818b486a90266c1f1c95bf072e35a3.231, ptr @anon.33818b486a90266c1f1c95bf072e35a3.232, ptr @anon.33818b486a90266c1f1c95bf072e35a3.233, ptr @anon.33818b486a90266c1f1c95bf072e35a3.234, ptr @anon.33818b486a90266c1f1c95bf072e35a3.235, ptr @anon.33818b486a90266c1f1c95bf072e35a3.236, ptr @anon.33818b486a90266c1f1c95bf072e35a3.237, ptr @anon.33818b486a90266c1f1c95bf072e35a3.238, ptr @anon.33818b486a90266c1f1c95bf072e35a3.239, ptr @anon.33818b486a90266c1f1c95bf072e35a3.240, ptr @anon.33818b486a90266c1f1c95bf072e35a3.241, ptr @anon.33818b486a90266c1f1c95bf072e35a3.242, ptr @anon.33818b486a90266c1f1c95bf072e35a3.243, ptr @anon.33818b486a90266c1f1c95bf072e35a3.244, ptr @anon.33818b486a90266c1f1c95bf072e35a3.245, ptr @anon.33818b486a90266c1f1c95bf072e35a3.246, ptr @anon.33818b486a90266c1f1c95bf072e35a3.247, ptr @anon.33818b486a90266c1f1c95bf072e35a3.248, ptr @anon.33818b486a90266c1f1c95bf072e35a3.249, ptr @anon.33818b486a90266c1f1c95bf072e35a3.250, ptr @anon.33818b486a90266c1f1c95bf072e35a3.251, ptr @anon.33818b486a90266c1f1c95bf072e35a3.252, ptr @anon.33818b486a90266c1f1c95bf072e35a3.253, ptr @anon.33818b486a90266c1f1c95bf072e35a3.254, ptr @anon.33818b486a90266c1f1c95bf072e35a3.255, ptr @anon.33818b486a90266c1f1c95bf072e35a3.256], align 8
 @switch.table._ZN4just5thunk5Thunk4name17h6eaa8d2afa9a41c7E = private unnamed_addr constant [6 x i64] [i64 16, i64 24, i64 32, i64 32, i64 16, i64 40], align 8
 @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 2, i64 2, i64 -1, i64 3], align 8
-@"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.59" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 1, i64 2, i64 2, i64 3], align 8
+@"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.60" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 1, i64 2, i64 2, i64 3], align 8
 @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E" = private unnamed_addr constant [3 x i64] [i64 5, i64 7, i64 5], align 8
-@"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.60" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.440, ptr @anon.33818b486a90266c1f1c95bf072e35a3.441, ptr @anon.33818b486a90266c1f1c95bf072e35a3.442], align 8
+@"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.440, ptr @anon.33818b486a90266c1f1c95bf072e35a3.441, ptr @anon.33818b486a90266c1f1c95bf072e35a3.442], align 8
 @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E" = private unnamed_addr constant [3 x i64] [i64 8, i64 4, i64 4], align 8
-@"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.61" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.479, ptr @anon.33818b486a90266c1f1c95bf072e35a3.480, ptr @anon.33818b486a90266c1f1c95bf072e35a3.481], align 8
+@"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.62" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.479, ptr @anon.33818b486a90266c1f1c95bf072e35a3.480, ptr @anon.33818b486a90266c1f1c95bf072e35a3.481], align 8
 @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E" = private unnamed_addr constant [3 x i64] [i64 8, i64 11, i64 11], align 8
-@"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.62" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.445, ptr @anon.33818b486a90266c1f1c95bf072e35a3.501, ptr @anon.33818b486a90266c1f1c95bf072e35a3.502], align 8
+@"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.63" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.445, ptr @anon.33818b486a90266c1f1c95bf072e35a3.501, ptr @anon.33818b486a90266c1f1c95bf072e35a3.502], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8566a30f0b3fc0abE.llvm.17757648456425634998"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
@@ -1747,7 +1749,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.60", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !330
   ret i1 %6
@@ -9693,544 +9695,18 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h55912e390203e4abE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
-  %3 = load i32, ptr %0, align 4, !range !251, !noundef !9
-  %trunc = trunc nuw i32 %3 to i8
-  switch i8 %trunc, label %4 [
-    i8 0, label %136
-    i8 1, label %5
-    i8 2, label %6
-    i8 3, label %7
-    i8 4, label %8
-    i8 5, label %9
-    i8 6, label %10
-    i8 7, label %11
-    i8 8, label %12
-    i8 9, label %13
-    i8 10, label %14
-    i8 11, label %15
-    i8 12, label %16
-    i8 13, label %17
-    i8 14, label %18
-    i8 15, label %19
-    i8 16, label %20
-    i8 17, label %21
-    i8 18, label %22
-    i8 19, label %23
-    i8 20, label %24
-    i8 21, label %25
-    i8 22, label %26
-    i8 23, label %27
-    i8 24, label %28
-    i8 25, label %29
-    i8 26, label %30
-    i8 27, label %31
-    i8 28, label %32
-    i8 29, label %33
-    i8 30, label %34
-    i8 31, label %35
-    i8 32, label %36
-    i8 33, label %37
-    i8 34, label %38
-    i8 35, label %39
-    i8 36, label %40
-    i8 37, label %41
-    i8 38, label %42
-    i8 39, label %43
-    i8 40, label %44
-    i8 42, label %45
-    i8 43, label %46
-    i8 44, label %47
-    i8 45, label %48
-    i8 46, label %49
-    i8 47, label %50
-    i8 48, label %51
-    i8 49, label %52
-    i8 50, label %53
-    i8 51, label %54
-    i8 52, label %55
-    i8 53, label %56
-    i8 54, label %57
-    i8 55, label %58
-    i8 56, label %59
-    i8 57, label %60
-    i8 59, label %61
-    i8 60, label %62
-    i8 61, label %63
-    i8 62, label %64
-    i8 63, label %65
-    i8 64, label %66
-    i8 65, label %67
-    i8 66, label %68
-    i8 67, label %69
-    i8 68, label %70
-    i8 69, label %71
-    i8 70, label %72
-    i8 71, label %73
-    i8 72, label %74
-    i8 73, label %75
-    i8 74, label %76
-    i8 75, label %77
-    i8 76, label %78
-    i8 77, label %79
-    i8 78, label %80
-    i8 79, label %81
-    i8 80, label %82
-    i8 81, label %83
-    i8 82, label %84
-    i8 83, label %85
-    i8 84, label %86
-    i8 85, label %87
-    i8 86, label %88
-    i8 87, label %89
-    i8 88, label %90
-    i8 89, label %91
-    i8 90, label %92
-    i8 91, label %93
-    i8 92, label %94
-    i8 93, label %95
-    i8 94, label %96
-    i8 95, label %97
-    i8 96, label %98
-    i8 97, label %99
-    i8 98, label %100
-    i8 99, label %101
-    i8 100, label %102
-    i8 101, label %103
-    i8 102, label %104
-    i8 103, label %105
-    i8 104, label %106
-    i8 105, label %107
-    i8 106, label %108
-    i8 107, label %109
-    i8 108, label %110
-    i8 109, label %111
-    i8 110, label %112
-    i8 111, label %113
-    i8 112, label %114
-    i8 113, label %115
-    i8 114, label %116
-    i8 115, label %117
-    i8 116, label %118
-    i8 117, label %119
-    i8 118, label %120
-    i8 119, label %121
-    i8 120, label %122
-    i8 121, label %123
-    i8 122, label %124
-    i8 123, label %125
-    i8 124, label %126
-    i8 125, label %127
-    i8 126, label %128
-    i8 127, label %129
-    i8 -128, label %130
-    i8 -127, label %131
-    i8 -126, label %132
-    i8 -125, label %133
-    i8 -124, label %134
-    i8 -123, label %135
-  ]
-
-4:                                                ; preds = %2
-  unreachable
-
-5:                                                ; preds = %2
-  br label %136
-
-6:                                                ; preds = %2
-  br label %136
-
-7:                                                ; preds = %2
-  br label %136
-
-8:                                                ; preds = %2
-  br label %136
-
-9:                                                ; preds = %2
-  br label %136
-
-10:                                               ; preds = %2
-  br label %136
-
-11:                                               ; preds = %2
-  br label %136
-
-12:                                               ; preds = %2
-  br label %136
-
-13:                                               ; preds = %2
-  br label %136
-
-14:                                               ; preds = %2
-  br label %136
-
-15:                                               ; preds = %2
-  br label %136
-
-16:                                               ; preds = %2
-  br label %136
-
-17:                                               ; preds = %2
-  br label %136
-
-18:                                               ; preds = %2
-  br label %136
-
-19:                                               ; preds = %2
-  br label %136
-
-20:                                               ; preds = %2
-  br label %136
-
-21:                                               ; preds = %2
-  br label %136
-
-22:                                               ; preds = %2
-  br label %136
-
-23:                                               ; preds = %2
-  br label %136
-
-24:                                               ; preds = %2
-  br label %136
-
-25:                                               ; preds = %2
-  br label %136
-
-26:                                               ; preds = %2
-  br label %136
-
-27:                                               ; preds = %2
-  br label %136
-
-28:                                               ; preds = %2
-  br label %136
-
-29:                                               ; preds = %2
-  br label %136
-
-30:                                               ; preds = %2
-  br label %136
-
-31:                                               ; preds = %2
-  br label %136
-
-32:                                               ; preds = %2
-  br label %136
-
-33:                                               ; preds = %2
-  br label %136
-
-34:                                               ; preds = %2
-  br label %136
-
-35:                                               ; preds = %2
-  br label %136
-
-36:                                               ; preds = %2
-  br label %136
-
-37:                                               ; preds = %2
-  br label %136
-
-38:                                               ; preds = %2
-  br label %136
-
-39:                                               ; preds = %2
-  br label %136
-
-40:                                               ; preds = %2
-  br label %136
-
-41:                                               ; preds = %2
-  br label %136
-
-42:                                               ; preds = %2
-  br label %136
-
-43:                                               ; preds = %2
-  br label %136
-
-44:                                               ; preds = %2
-  br label %136
-
-45:                                               ; preds = %2
-  br label %136
-
-46:                                               ; preds = %2
-  br label %136
-
-47:                                               ; preds = %2
-  br label %136
-
-48:                                               ; preds = %2
-  br label %136
-
-49:                                               ; preds = %2
-  br label %136
-
-50:                                               ; preds = %2
-  br label %136
-
-51:                                               ; preds = %2
-  br label %136
-
-52:                                               ; preds = %2
-  br label %136
-
-53:                                               ; preds = %2
-  br label %136
-
-54:                                               ; preds = %2
-  br label %136
-
-55:                                               ; preds = %2
-  br label %136
-
-56:                                               ; preds = %2
-  br label %136
-
-57:                                               ; preds = %2
-  br label %136
-
-58:                                               ; preds = %2
-  br label %136
-
-59:                                               ; preds = %2
-  br label %136
-
-60:                                               ; preds = %2
-  br label %136
-
-61:                                               ; preds = %2
-  br label %136
-
-62:                                               ; preds = %2
-  br label %136
-
-63:                                               ; preds = %2
-  br label %136
-
-64:                                               ; preds = %2
-  br label %136
-
-65:                                               ; preds = %2
-  br label %136
-
-66:                                               ; preds = %2
-  br label %136
-
-67:                                               ; preds = %2
-  br label %136
-
-68:                                               ; preds = %2
-  br label %136
-
-69:                                               ; preds = %2
-  br label %136
-
-70:                                               ; preds = %2
-  br label %136
-
-71:                                               ; preds = %2
-  br label %136
-
-72:                                               ; preds = %2
-  br label %136
-
-73:                                               ; preds = %2
-  br label %136
-
-74:                                               ; preds = %2
-  br label %136
-
-75:                                               ; preds = %2
-  br label %136
-
-76:                                               ; preds = %2
-  br label %136
-
-77:                                               ; preds = %2
-  br label %136
-
-78:                                               ; preds = %2
-  br label %136
-
-79:                                               ; preds = %2
-  br label %136
-
-80:                                               ; preds = %2
-  br label %136
-
-81:                                               ; preds = %2
-  br label %136
-
-82:                                               ; preds = %2
-  br label %136
-
-83:                                               ; preds = %2
-  br label %136
-
-84:                                               ; preds = %2
-  br label %136
-
-85:                                               ; preds = %2
-  br label %136
-
-86:                                               ; preds = %2
-  br label %136
-
-87:                                               ; preds = %2
-  br label %136
-
-88:                                               ; preds = %2
-  br label %136
-
-89:                                               ; preds = %2
-  br label %136
-
-90:                                               ; preds = %2
-  br label %136
-
-91:                                               ; preds = %2
-  br label %136
-
-92:                                               ; preds = %2
-  br label %136
-
-93:                                               ; preds = %2
-  br label %136
-
-94:                                               ; preds = %2
-  br label %136
-
-95:                                               ; preds = %2
-  br label %136
-
-96:                                               ; preds = %2
-  br label %136
-
-97:                                               ; preds = %2
-  br label %136
-
-98:                                               ; preds = %2
-  br label %136
-
-99:                                               ; preds = %2
-  br label %136
-
-100:                                              ; preds = %2
-  br label %136
-
-101:                                              ; preds = %2
-  br label %136
-
-102:                                              ; preds = %2
-  br label %136
-
-103:                                              ; preds = %2
-  br label %136
-
-104:                                              ; preds = %2
-  br label %136
-
-105:                                              ; preds = %2
-  br label %136
-
-106:                                              ; preds = %2
-  br label %136
-
-107:                                              ; preds = %2
-  br label %136
-
-108:                                              ; preds = %2
-  br label %136
-
-109:                                              ; preds = %2
-  br label %136
-
-110:                                              ; preds = %2
-  br label %136
-
-111:                                              ; preds = %2
-  br label %136
-
-112:                                              ; preds = %2
-  br label %136
-
-113:                                              ; preds = %2
-  br label %136
-
-114:                                              ; preds = %2
-  br label %136
-
-115:                                              ; preds = %2
-  br label %136
-
-116:                                              ; preds = %2
-  br label %136
-
-117:                                              ; preds = %2
-  br label %136
-
-118:                                              ; preds = %2
-  br label %136
-
-119:                                              ; preds = %2
-  br label %136
-
-120:                                              ; preds = %2
-  br label %136
-
-121:                                              ; preds = %2
-  br label %136
-
-122:                                              ; preds = %2
-  br label %136
-
-123:                                              ; preds = %2
-  br label %136
-
-124:                                              ; preds = %2
-  br label %136
-
-125:                                              ; preds = %2
-  br label %136
-
-126:                                              ; preds = %2
-  br label %136
-
-127:                                              ; preds = %2
-  br label %136
-
-128:                                              ; preds = %2
-  br label %136
-
-129:                                              ; preds = %2
-  br label %136
-
-130:                                              ; preds = %2
-  br label %136
-
-131:                                              ; preds = %2
-  br label %136
-
-132:                                              ; preds = %2
-  br label %136
-
-133:                                              ; preds = %2
-  br label %136
-
-134:                                              ; preds = %2
-  br label %136
-
-135:                                              ; preds = %2
-  br label %136
-
-136:                                              ; preds = %2, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.133.0 = phi i64 [ 9, %135 ], [ 7, %134 ], [ 15, %133 ], [ 10, %132 ], [ 12, %131 ], [ 11, %130 ], [ 11, %129 ], [ 6, %128 ], [ 9, %127 ], [ 11, %126 ], [ 9, %125 ], [ 6, %124 ], [ 9, %123 ], [ 6, %122 ], [ 7, %121 ], [ 7, %120 ], [ 7, %119 ], [ 6, %118 ], [ 11, %117 ], [ 8, %116 ], [ 12, %115 ], [ 9, %114 ], [ 12, %113 ], [ 9, %112 ], [ 12, %111 ], [ 9, %110 ], [ 8, %109 ], [ 7, %108 ], [ 7, %107 ], [ 10, %106 ], [ 12, %105 ], [ 9, %104 ], [ 11, %103 ], [ 8, %102 ], [ 13, %101 ], [ 10, %100 ], [ 12, %99 ], [ 12, %98 ], [ 10, %97 ], [ 15, %96 ], [ 15, %95 ], [ 11, %94 ], [ 10, %93 ], [ 8, %92 ], [ 12, %91 ], [ 8, %90 ], [ 6, %89 ], [ 8, %88 ], [ 8, %87 ], [ 6, %86 ], [ 8, %85 ], [ 7, %84 ], [ 7, %83 ], [ 7, %82 ], [ 7, %81 ], [ 7, %80 ], [ 6, %79 ], [ 8, %78 ], [ 9, %77 ], [ 7, %76 ], [ 7, %75 ], [ 9, %74 ], [ 6, %73 ], [ 5, %72 ], [ 6, %71 ], [ 4, %70 ], [ 7, %69 ], [ 7, %68 ], [ 6, %67 ], [ 6, %66 ], [ 5, %65 ], [ 5, %64 ], [ 7, %63 ], [ 6, %62 ], [ 6, %61 ], [ 7, %60 ], [ 7, %59 ], [ 6, %58 ], [ 6, %57 ], [ 5, %56 ], [ 5, %55 ], [ 6, %54 ], [ 6, %53 ], [ 7, %52 ], [ 6, %51 ], [ 6, %50 ], [ 6, %49 ], [ 8, %48 ], [ 6, %47 ], [ 5, %46 ], [ 6, %45 ], [ 5, %44 ], [ 9, %43 ], [ 6, %42 ], [ 6, %41 ], [ 12, %40 ], [ 7, %39 ], [ 6, %38 ], [ 4, %37 ], [ 5, %36 ], [ 6, %35 ], [ 5, %34 ], [ 6, %33 ], [ 6, %32 ], [ 5, %31 ], [ 7, %30 ], [ 6, %29 ], [ 6, %28 ], [ 6, %27 ], [ 6, %26 ], [ 6, %25 ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 6, %21 ], [ 5, %20 ], [ 7, %19 ], [ 6, %18 ], [ 6, %17 ], [ 6, %16 ], [ 6, %15 ], [ 6, %14 ], [ 5, %13 ], [ 7, %12 ], [ 5, %11 ], [ 5, %10 ], [ 3, %9 ], [ 5, %8 ], [ 5, %7 ], [ 6, %6 ], [ 5, %5 ], [ 12, %2 ]
-  %.sroa.0.0 = phi ptr [ @anon.33818b486a90266c1f1c95bf072e35a3.262, %135 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.261, %134 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.260, %133 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.259, %132 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.258, %131 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.257, %130 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.256, %129 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.255, %128 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.254, %127 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.253, %126 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.252, %125 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.251, %124 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.250, %123 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.249, %122 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.248, %121 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.247, %120 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.246, %119 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.245, %118 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.244, %117 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.243, %116 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.242, %115 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.241, %114 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.240, %113 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.239, %112 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.238, %111 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.237, %110 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.236, %109 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.235, %108 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.234, %107 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.233, %106 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.232, %105 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.231, %104 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.230, %103 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.229, %102 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.228, %101 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.227, %100 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.226, %99 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.225, %98 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.224, %97 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.223, %96 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.222, %95 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.221, %94 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.220, %93 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.219, %92 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.218, %91 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.217, %90 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.216, %89 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.215, %88 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.214, %87 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.213, %86 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.212, %85 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.211, %84 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.210, %83 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.209, %82 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.208, %81 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.207, %80 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.206, %79 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.205, %78 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.204, %77 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.203, %76 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.202, %75 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.201, %74 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.200, %73 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.199, %72 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.198, %71 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.197, %70 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.196, %69 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.195, %68 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.194, %67 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.193, %66 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.192, %65 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.191, %64 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.190, %63 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.189, %62 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.188, %61 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.187, %60 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.186, %59 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.185, %58 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.184, %57 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.183, %56 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.182, %55 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.181, %54 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.180, %53 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.179, %52 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.178, %51 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.177, %50 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.176, %49 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.175, %48 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.174, %47 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.173, %46 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.172, %45 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.171, %44 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.170, %43 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.169, %42 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.168, %41 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.167, %40 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.166, %39 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.165, %38 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.164, %37 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.163, %36 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.162, %35 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.161, %34 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.160, %33 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.159, %32 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.158, %31 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.157, %30 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.156, %29 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.155, %28 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.154, %27 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.153, %26 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.152, %25 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.151, %24 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.150, %23 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.149, %22 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.148, %21 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.147, %20 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.146, %19 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.145, %18 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.144, %17 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.143, %16 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.142, %15 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.141, %14 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.140, %13 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.139, %12 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.138, %11 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.137, %10 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.136, %9 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.135, %8 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.134, %7 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.133, %6 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.132, %5 ], [ @anon.33818b486a90266c1f1c95bf072e35a3.131, %2 ]
-  %137 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.133.0)
-  ret i1 %137
+switch.lookup:
+  %2 = load i32, ptr %0, align 4, !range !251, !noundef !9
+  %trunc = trunc nuw i32 %2 to i8
+  %switch.tableidx = xor i8 %trunc, -128
+  %3 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [256 x i64], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h55912e390203e4abE", i64 0, i64 %3
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds [256 x ptr], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h55912e390203e4abE.59", i64 0, i64 %4
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -13439,7 +12915,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %67 = getelementptr inbounds i8, ptr %43, i64 %47
   %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep153 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.59", i64 0, i64 %3
+  %switch.gep153 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.60", i64 0, i64 %3
   %switch.load154 = load i64, ptr %switch.gep153, align 8
   %68 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %67, ptr %68, align 8
@@ -15302,7 +14778,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.60", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -16103,7 +15579,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.61", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.62", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -16215,7 +15691,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.62", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.63", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

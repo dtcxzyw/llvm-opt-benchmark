@@ -587,13 +587,9 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7032b93a31f8337E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 {
-switch.hole_check:
+switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !15, !align !63, !noundef !15
   %.val = load i8, ptr %2, align 1, !range !64, !noundef !15
-  %switch.maskindex = zext nneg i8 %.val to i16
-  %switch.shifted = lshr i16 1919, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7032b93a31f8337E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8

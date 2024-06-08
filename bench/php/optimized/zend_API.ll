@@ -583,11 +583,8 @@ zend_get_type_by_const.exit:                      ; preds = %8, %8, %zend_get_ty
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @zend_get_type_by_const(i32 noundef %0) local_unnamed_addr #4 {
-switch.hole_check:
+switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %switch.shifted = lshr i32 440831, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %1 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.zend_get_type_by_const, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8

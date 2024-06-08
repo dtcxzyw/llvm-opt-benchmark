@@ -1438,18 +1438,21 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E = private unnamed_addr constant [10 x i8] c"\04\05\0C\0D\0F\0E\02\03\07\06", align 1
 @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC6invert17hff1f08ea409a4c7bE = private unnamed_addr constant [16 x i8] c"\01\00\03\02\05\04\07\06\09\08\0B\0A\0D\0C\0F\0E", align 1
 @"switch.table._ZN137_$LT$cranelift_codegen..isa..x64..inst..args..FcmpImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..condcodes..FloatCC$GT$$GT$4from17h110582d0790c8fa6E" = private unnamed_addr constant [14 x i8] c"\07\03\00\04\07\07\01\02\07\07\07\07\06\05", align 1
+@"switch.table._ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$20available_in_any_isa17h6fb63b6d959bb2d2E" = private unnamed_addr constant [256 x i8] c"\02\03\01\01\01\02\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\03\01\01\01\01\01\00\03\03\03\03\00\00\00\01\00\01\00\01\00\01\00\01\00\01\00\00\01\02\02\01\01\01\01\01\01\03\02\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\01\00\01\00\01\03\03\00\01\00\01\00\01\01\01\01\01\01\01\00\01\00\01\01\01\00\01\00\01\00\01\03\00\01\00\01\00\01\00\01\00\01\01\01\01\00\00\01\01\00\01\00\01\00\01\00\01\00\01\02\02\02\01\01\03\01\01\01\01\01\01\01\01\01\02\01\01\01\01\03\01\01\01\03\01\01\01\04\03\01\03\03\03\01\03\02\01\03\01\03\01\03\03\03\01\03\01\03\03\01\03\03\03\03\03\03\03\03\03\03\03\03\03\01\01", align 1
 @"switch.table._ZN17cranelift_codegen3isa3x644inst131_$LT$impl$u20$cranelift_codegen..machinst..MachInst$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7is_term17hc62a5629790a2964E" = private unnamed_addr constant [9 x i8] c"\02\02\00\01\00\03\00\04\05", align 1
 @switch.table._ZN17cranelift_codegen8verifier8Verifier14verify_bitcast17hc74eab17e1c0de94E = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 8, i32 32, i32 64], align 4
 @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.114 = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 0, i32 32, i32 64], align 4
 @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.118 = private unnamed_addr constant [4 x i64] [i64 -256, i64 -65536, i64 -4294967296, i64 0], align 8
 @"switch.table._ZN86_$LT$cranelift_codegen..ir..extfunc..ArgumentExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h615cc8cd7ac02e02E" = private unnamed_addr constant [3 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.40, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.945, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.946], align 8
 @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E = private unnamed_addr constant [36 x i64] [i64 1, i64 1, i64 1, i64 1, i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1], align 8
+@switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE = private unnamed_addr constant [256 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1079, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1080, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1081, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1082, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.544, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.247, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1083, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1084, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1085, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1086, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1087, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1088, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1089, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1090, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1091, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1092, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1093, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1094, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1095, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1096, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1097, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1098, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1099, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1100, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1101, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1102, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1103, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1104, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1105, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1106, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1107, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1108, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1109, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1110, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1111, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1112, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1113, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1114, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1115, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1116, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1117, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1118, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1119, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1120, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1121, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1122, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1123, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1124, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1125, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1126, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1127, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1128, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1129, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1130, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1131, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1132, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1133, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1134, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.957, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.611, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.958, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.959, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.960, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.961, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.962, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.963, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.964, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.587, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.965, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.966, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.967, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.968, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.969, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.970, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.971, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.972, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.973, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.974, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.975, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.976, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.977, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.978, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.979, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.980, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.981, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.982, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.983, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.984, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.985, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.986, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.987, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.988, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.989, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.990, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.991, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.992, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.993, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.994, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.995, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.996, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.997, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.998, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.999, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1000, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1001, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1002, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1003, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1004, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1005, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1006, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1007, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1008, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1009, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1010, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1011, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1012, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1013, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1014, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1015, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1016, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1017, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1018, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1019, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.507, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1020, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1021, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1022, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1023, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1024, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1025, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1026, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1027, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1028, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1029, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1030, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1031, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1032, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.521, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1033, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1034, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1035, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1036, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1037, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1038, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1039, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1040, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1041, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1042, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1043, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1044, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1045, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1046, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1047, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1048, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1049, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1050, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1051, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1052, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1053, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1054, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1055, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1056, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1057, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1058, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1059, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1060, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1061, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1062, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1063, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1064, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1065, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1066, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1067, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1068, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1069, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1070, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1071, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1072, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1073, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1074, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1075, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1076, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1077, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1078], align 8
+@switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.119 = private unnamed_addr constant [256 x i64] [i64 6, i64 3, i64 3, i64 3, i64 5, i64 6, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 3, i64 4, i64 4, i64 9, i64 4, i64 4, i64 4, i64 5, i64 5, i64 7, i64 7, i64 10, i64 7, i64 16, i64 5, i64 7, i64 7, i64 7, i64 8, i64 10, i64 11, i64 10, i64 11, i64 13, i64 13, i64 7, i64 7, i64 8, i64 7, i64 8, i64 13, i64 12, i64 12, i64 16, i64 16, i64 11, i64 14, i64 14, i64 6, i64 7, i64 10, i64 10, i64 11, i64 12, i64 5, i64 14, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 8, i64 9, i64 4, i64 5, i64 14, i64 6, i64 16, i64 6, i64 4, i64 13, i64 11, i64 20, i64 9, i64 5, i64 7, i64 10, i64 10, i64 11, i64 4, i64 4, i64 4, i64 4, i64 9, i64 8, i64 8, i64 8, i64 8, i64 4, i64 5, i64 6, i64 6, i64 7, i64 7, i64 7, i64 8, i64 7, i64 7, i64 8, i64 8, i64 8, i64 9, i64 9, i64 9, i64 9, i64 10, i64 11, i64 10, i64 18, i64 19, i64 18, i64 12, i64 12, i64 9, i64 14, i64 14, i64 17, i64 17, i64 18, i64 6, i64 8, i64 8, i64 6, i64 7, i64 4, i64 3, i64 6, i64 20, i64 9, i64 10, i64 9, i64 9, i64 10, i64 4, i64 8, i64 4, i64 4, i64 4, i64 4, i64 4, i64 6, i64 6, i64 15, i64 12, i64 4, i64 4, i64 4, i64 4, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 9, i64 8, i64 10, i64 13, i64 13, i64 13, i64 13, i64 13, i64 13, i64 18, i64 8, i64 11, i64 4, i64 3, i64 4, i64 4, i64 8, i64 7, i64 8, i64 8, i64 7, i64 8, i64 4, i64 4, i64 8, i64 8, i64 4, i64 4, i64 4, i64 8, i64 8, i64 8], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E" = private unnamed_addr constant [3 x i64] [i64 4, i64 5, i64 14], align 8
-@"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.119" = private unnamed_addr constant [3 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1328, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1329, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1330], align 8
+@"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.120" = private unnamed_addr constant [3 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1328, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1329, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1330], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E" = private unnamed_addr constant [4 x i64] [i64 4, i64 6, i64 5, i64 4], align 8
-@"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.120" = private unnamed_addr constant [4 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1328, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1332, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1333, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1334], align 8
+@"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.121" = private unnamed_addr constant [4 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1328, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1332, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1333, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1334], align 8
 @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E" = private unnamed_addr constant [7 x i64] [i64 11, i64 4, i64 4, i64 8, i64 16, i64 13, i64 10], align 8
-@"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.121" = private unnamed_addr constant [7 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1336, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1337, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1338, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1339, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1340, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1341, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1342], align 8
+@"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.122" = private unnamed_addr constant [7 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1336, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1337, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1338, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1339, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1340, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1341, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.1342], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h16a06373fd7f46afE.llvm.17911367524062806024"(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
@@ -18464,7 +18467,7 @@ define hidden void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelif
     i8 27, label %5
     i8 28, label %5
     i8 29, label %5
-    i8 30, label %26
+    i8 30, label %switch.lookup
     i8 31, label %5
     i8 32, label %5
     i8 33, label %5
@@ -18473,36 +18476,36 @@ define hidden void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelif
     i8 36, label %5
     i8 37, label %5
     i8 38, label %5
-    i8 39, label %26
-    i8 40, label %26
-    i8 41, label %26
-    i8 42, label %32
+    i8 39, label %switch.lookup
+    i8 40, label %switch.lookup
+    i8 41, label %switch.lookup
+    i8 42, label %28
     i8 43, label %16
     i8 44, label %17
-    i8 45, label %32
-    i8 46, label %32
-    i8 47, label %32
+    i8 45, label %28
+    i8 46, label %28
+    i8 47, label %28
     i8 48, label %18
-    i8 49, label %32
+    i8 49, label %28
     i8 50, label %19
     i8 51, label %20
-    i8 52, label %32
-    i8 53, label %32
-    i8 54, label %32
-    i8 55, label %44
+    i8 52, label %28
+    i8 53, label %28
+    i8 54, label %28
+    i8 55, label %40
     i8 56, label %21
-    i8 57, label %44
-    i8 58, label %26
-    i8 59, label %26
+    i8 57, label %40
+    i8 58, label %switch.lookup
+    i8 59, label %switch.lookup
     i8 60, label %22
-    i8 61, label %44
-    i8 62, label %26
+    i8 61, label %40
+    i8 62, label %switch.lookup
     i8 63, label %23
-    i8 64, label %26
+    i8 64, label %switch.lookup
     i8 65, label %24
-    i8 66, label %26
-    i8 67, label %26
-    i8 68, label %32
+    i8 66, label %switch.lookup
+    i8 67, label %switch.lookup
+    i8 68, label %28
     i8 69, label %5
     i8 70, label %5
     i8 71, label %5
@@ -18539,7 +18542,7 @@ define hidden void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelif
     i8 102, label %5
   ]
 
-default.unreachable16:                            ; preds = %44, %32, %26, %8, %2
+default.unreachable16:                            ; preds = %40, %28, %8, %2
   unreachable
 
 5:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -18604,500 +18607,305 @@ default.unreachable16:                            ; preds = %44, %32, %26, %8, %
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
 16:                                               ; preds = %2
-  br label %32
+  br label %28
 
 17:                                               ; preds = %2
-  br label %32
+  br label %28
 
 18:                                               ; preds = %2
-  br label %32
+  br label %28
 
 19:                                               ; preds = %2
-  br label %32
+  br label %28
 
 20:                                               ; preds = %2
-  br label %32
+  br label %28
 
 21:                                               ; preds = %2
-  br label %44
+  br label %40
 
 22:                                               ; preds = %2
-  br label %26
+  br label %switch.lookup
 
 23:                                               ; preds = %2
-  br label %26
+  br label %switch.lookup
 
 24:                                               ; preds = %2
-  br label %26
+  br label %switch.lookup
 
 25:                                               ; preds = %2
-  br label %26
+  br label %switch.lookup
 
-_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit: ; preds = %49, %48, %47, %46, %43, %42, %36, %13, %12, %11, %10, %50, %15, %14, %"_ZN17cranelift_codegen3isa3x644inst4args88_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..AluRmROpcode$GT$14available_from17h9fbab48fcc52fa0aE.exit", %5
+_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit: ; preds = %45, %44, %43, %42, %39, %38, %32, %13, %12, %11, %10, %switch.lookup, %15, %14, %"_ZN17cranelift_codegen3isa3x644inst4args88_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..AluRmROpcode$GT$14available_from17h9fbab48fcc52fa0aE.exit", %5
   ret void
 
-26:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %25, %24, %23, %22
+switch.lookup:                                    ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %25, %24, %23, %22
   %.sink = phi i64 [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 2, %22 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.sink
-  %.0.val = load i8, ptr %27, align 1, !range !1796, !noundef !4
-  switch i8 %.0.val, label %default.unreachable16 [
-    i8 0, label %50
-    i8 1, label %28
-    i8 2, label %50
-    i8 3, label %28
-    i8 4, label %50
-    i8 5, label %28
-    i8 6, label %50
-    i8 7, label %28
-    i8 8, label %29
-    i8 9, label %29
-    i8 10, label %50
-    i8 11, label %28
-    i8 12, label %50
-    i8 13, label %28
-    i8 14, label %50
-    i8 15, label %28
-    i8 16, label %28
-    i8 17, label %28
-    i8 18, label %28
-    i8 19, label %28
-    i8 20, label %28
-    i8 21, label %28
-    i8 22, label %50
-    i8 23, label %28
-    i8 24, label %50
-    i8 25, label %28
-    i8 26, label %28
-    i8 27, label %28
-    i8 28, label %50
-    i8 29, label %28
-    i8 30, label %50
-    i8 31, label %28
-    i8 32, label %50
-    i8 33, label %28
-    i8 34, label %29
-    i8 35, label %50
-    i8 36, label %28
-    i8 37, label %50
-    i8 38, label %28
-    i8 39, label %50
-    i8 40, label %28
-    i8 41, label %50
-    i8 42, label %28
-    i8 43, label %50
-    i8 44, label %28
-    i8 45, label %28
-    i8 46, label %28
-    i8 47, label %28
-    i8 48, label %50
-    i8 49, label %50
-    i8 50, label %28
-    i8 51, label %28
-    i8 52, label %50
-    i8 53, label %28
-    i8 54, label %50
-    i8 55, label %28
-    i8 56, label %50
-    i8 57, label %28
-    i8 58, label %50
-    i8 59, label %28
-    i8 60, label %50
-    i8 61, label %28
-    i8 62, label %30
-    i8 63, label %30
-    i8 64, label %30
-    i8 65, label %28
-    i8 66, label %28
-    i8 67, label %29
-    i8 68, label %28
-    i8 69, label %28
-    i8 70, label %28
-    i8 71, label %28
-    i8 72, label %28
-    i8 73, label %28
-    i8 74, label %28
-    i8 75, label %28
-    i8 76, label %28
-    i8 77, label %30
-    i8 78, label %28
-    i8 79, label %28
-    i8 80, label %28
-    i8 81, label %28
-    i8 82, label %29
-    i8 83, label %28
-    i8 84, label %28
-    i8 85, label %28
-    i8 86, label %29
-    i8 87, label %28
-    i8 88, label %28
-    i8 89, label %28
-    i8 90, label %31
-    i8 91, label %29
-    i8 92, label %28
-    i8 93, label %29
-    i8 94, label %29
-    i8 95, label %29
-    i8 96, label %28
-    i8 97, label %29
-    i8 98, label %30
-    i8 99, label %28
-    i8 100, label %29
-    i8 101, label %28
-    i8 102, label %29
-    i8 103, label %28
-    i8 104, label %29
-    i8 105, label %29
-    i8 106, label %29
-    i8 107, label %28
-    i8 108, label %29
-    i8 109, label %28
-    i8 110, label %29
-    i8 111, label %29
-    i8 112, label %28
-    i8 113, label %29
-    i8 114, label %29
-    i8 115, label %29
-    i8 116, label %29
-    i8 117, label %29
-    i8 118, label %29
-    i8 119, label %29
-    i8 120, label %29
-    i8 121, label %29
-    i8 122, label %29
-    i8 123, label %29
-    i8 124, label %29
-    i8 125, label %29
-    i8 126, label %28
-    i8 127, label %28
-    i8 -128, label %30
-    i8 -127, label %29
-    i8 -126, label %28
-    i8 -125, label %28
-    i8 -124, label %28
-    i8 -123, label %30
-    i8 -122, label %28
-    i8 -121, label %28
-    i8 -120, label %28
-    i8 -119, label %28
-    i8 -118, label %28
-    i8 -117, label %28
-    i8 -116, label %28
-    i8 -115, label %28
-    i8 -114, label %28
-    i8 -113, label %28
-    i8 -112, label %28
-    i8 -111, label %28
-    i8 -110, label %28
-    i8 -109, label %28
-    i8 -108, label %28
-    i8 -107, label %28
-    i8 -106, label %28
-    i8 -105, label %29
-    i8 -104, label %28
-    i8 -103, label %28
-    i8 -102, label %28
-    i8 -101, label %28
-    i8 -100, label %28
-    i8 -99, label %50
-    i8 -98, label %29
-    i8 -97, label %29
-    i8 -96, label %29
-    i8 -95, label %29
-    i8 -94, label %50
-    i8 -93, label %50
-    i8 -92, label %50
-    i8 -91, label %28
-    i8 -90, label %50
-    i8 -89, label %28
-    i8 -88, label %50
-    i8 -87, label %28
-    i8 -86, label %50
-    i8 -85, label %28
-    i8 -84, label %50
-    i8 -83, label %28
-    i8 -82, label %50
-    i8 -81, label %28
-    i8 -80, label %50
-    i8 -79, label %50
-    i8 -78, label %28
-    i8 -77, label %30
-    i8 -76, label %30
-    i8 -75, label %28
-    i8 -74, label %28
-    i8 -73, label %28
-    i8 -72, label %28
-    i8 -71, label %28
-    i8 -70, label %28
-    i8 -69, label %29
-    i8 -68, label %30
-  ]
+  %26 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %.0.val = load i8, ptr %26, align 1, !range !1796, !noundef !4
+  %switch.tableidx = xor i8 %.0.val, -128
+  %27 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [256 x i8], ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$20available_in_any_isa17h6fb63b6d959bb2d2E", i64 0, i64 %27
+  %switch.load = load i8, ptr %switch.gep, align 1
+  store i8 %switch.load, ptr %0, align 8
+  %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 1, ptr %.sroa.415.0..sroa_idx, align 8
+  br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-28:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  br label %50
-
-29:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  br label %50
-
-30:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  br label %50
-
-31:                                               ; preds = %26
-  br label %50
-
-32:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %20, %19, %18, %17, %16
+28:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %20, %19, %18, %17, %16
   %.sink17 = phi i64 [ 2, %20 ], [ 2, %19 ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.sink17
-  %.04.val = load i8, ptr %33, align 1, !range !1803, !noundef !4
+  %29 = getelementptr inbounds i8, ptr %1, i64 %.sink17
+  %.04.val = load i8, ptr %29, align 1, !range !1803, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1952)
   switch i8 %.04.val, label %default.unreachable16 [
-    i8 0, label %36
-    i8 1, label %36
-    i8 2, label %36
-    i8 3, label %36
-    i8 4, label %36
-    i8 5, label %36
-    i8 6, label %36
-    i8 7, label %36
-    i8 8, label %36
-    i8 9, label %36
-    i8 10, label %36
-    i8 11, label %36
-    i8 12, label %36
-    i8 13, label %36
-    i8 14, label %36
-    i8 15, label %36
-    i8 16, label %43
-    i8 17, label %43
-    i8 18, label %43
-    i8 19, label %43
-    i8 20, label %43
-    i8 21, label %43
-    i8 22, label %43
-    i8 23, label %43
-    i8 24, label %43
-    i8 25, label %43
-    i8 26, label %43
-    i8 27, label %43
-    i8 28, label %43
-    i8 29, label %43
-    i8 30, label %43
-    i8 31, label %43
-    i8 32, label %43
-    i8 33, label %43
-    i8 34, label %43
-    i8 35, label %43
-    i8 36, label %43
-    i8 37, label %43
-    i8 38, label %43
-    i8 39, label %43
-    i8 40, label %43
-    i8 41, label %43
-    i8 42, label %43
-    i8 43, label %43
-    i8 44, label %43
-    i8 45, label %43
-    i8 46, label %43
-    i8 47, label %43
-    i8 48, label %43
-    i8 49, label %43
-    i8 50, label %43
-    i8 51, label %43
-    i8 52, label %43
-    i8 53, label %43
-    i8 54, label %43
-    i8 55, label %43
-    i8 56, label %43
-    i8 57, label %43
-    i8 58, label %43
-    i8 59, label %43
-    i8 60, label %43
-    i8 61, label %43
-    i8 62, label %43
-    i8 63, label %43
-    i8 64, label %43
-    i8 65, label %43
-    i8 66, label %43
-    i8 67, label %43
-    i8 68, label %43
-    i8 69, label %43
-    i8 70, label %43
-    i8 71, label %43
-    i8 72, label %43
-    i8 73, label %43
-    i8 74, label %43
-    i8 75, label %43
-    i8 76, label %43
-    i8 77, label %43
-    i8 78, label %43
-    i8 79, label %43
-    i8 80, label %43
-    i8 81, label %43
-    i8 82, label %43
-    i8 83, label %43
-    i8 84, label %43
-    i8 85, label %43
-    i8 86, label %43
-    i8 87, label %43
-    i8 88, label %43
-    i8 89, label %43
-    i8 90, label %43
-    i8 91, label %43
-    i8 92, label %43
-    i8 93, label %43
-    i8 94, label %43
-    i8 95, label %43
-    i8 96, label %43
-    i8 97, label %43
-    i8 98, label %43
-    i8 99, label %43
-    i8 100, label %43
-    i8 101, label %43
-    i8 102, label %43
-    i8 103, label %43
-    i8 104, label %43
-    i8 105, label %43
-    i8 106, label %43
-    i8 107, label %43
-    i8 108, label %43
-    i8 109, label %43
-    i8 110, label %43
-    i8 111, label %43
-    i8 112, label %43
-    i8 113, label %43
-    i8 114, label %43
-    i8 115, label %43
-    i8 116, label %43
-    i8 117, label %43
-    i8 118, label %43
-    i8 119, label %43
-    i8 120, label %43
-    i8 121, label %43
-    i8 122, label %43
-    i8 123, label %43
-    i8 124, label %43
-    i8 125, label %43
-    i8 126, label %43
-    i8 127, label %43
-    i8 -128, label %43
-    i8 -127, label %43
-    i8 -126, label %43
-    i8 -125, label %43
-    i8 -124, label %43
-    i8 -123, label %43
-    i8 -122, label %43
-    i8 -121, label %43
-    i8 -120, label %43
-    i8 -119, label %43
-    i8 -118, label %43
-    i8 -117, label %43
-    i8 -116, label %43
-    i8 -115, label %43
-    i8 -114, label %43
-    i8 -113, label %43
-    i8 -112, label %43
-    i8 -111, label %43
-    i8 -110, label %43
-    i8 -109, label %43
-    i8 -108, label %43
-    i8 -107, label %43
-    i8 -106, label %43
-    i8 -105, label %43
-    i8 -104, label %43
-    i8 -103, label %43
-    i8 -102, label %43
-    i8 -101, label %43
-    i8 -100, label %43
-    i8 -99, label %43
-    i8 -98, label %43
-    i8 -97, label %43
-    i8 -96, label %43
-    i8 -95, label %43
-    i8 -94, label %43
-    i8 -93, label %43
-    i8 -92, label %43
-    i8 -91, label %43
-    i8 -90, label %43
-    i8 -89, label %43
-    i8 -88, label %43
-    i8 -87, label %43
-    i8 -86, label %43
-    i8 -85, label %43
-    i8 -84, label %34
-    i8 -83, label %34
-    i8 -82, label %34
-    i8 -81, label %43
-    i8 -80, label %43
-    i8 -79, label %43
-    i8 -78, label %43
-    i8 -77, label %43
-    i8 -76, label %43
-    i8 -75, label %43
-    i8 -74, label %43
-    i8 -73, label %43
-    i8 -72, label %43
-    i8 -71, label %43
-    i8 -70, label %43
-    i8 -69, label %43
-    i8 -68, label %43
-    i8 -67, label %43
-    i8 -66, label %43
-    i8 -65, label %43
+    i8 0, label %32
+    i8 1, label %32
+    i8 2, label %32
+    i8 3, label %32
+    i8 4, label %32
+    i8 5, label %32
+    i8 6, label %32
+    i8 7, label %32
+    i8 8, label %32
+    i8 9, label %32
+    i8 10, label %32
+    i8 11, label %32
+    i8 12, label %32
+    i8 13, label %32
+    i8 14, label %32
+    i8 15, label %32
+    i8 16, label %39
+    i8 17, label %39
+    i8 18, label %39
+    i8 19, label %39
+    i8 20, label %39
+    i8 21, label %39
+    i8 22, label %39
+    i8 23, label %39
+    i8 24, label %39
+    i8 25, label %39
+    i8 26, label %39
+    i8 27, label %39
+    i8 28, label %39
+    i8 29, label %39
+    i8 30, label %39
+    i8 31, label %39
+    i8 32, label %39
+    i8 33, label %39
+    i8 34, label %39
+    i8 35, label %39
+    i8 36, label %39
+    i8 37, label %39
+    i8 38, label %39
+    i8 39, label %39
+    i8 40, label %39
+    i8 41, label %39
+    i8 42, label %39
+    i8 43, label %39
+    i8 44, label %39
+    i8 45, label %39
+    i8 46, label %39
+    i8 47, label %39
+    i8 48, label %39
+    i8 49, label %39
+    i8 50, label %39
+    i8 51, label %39
+    i8 52, label %39
+    i8 53, label %39
+    i8 54, label %39
+    i8 55, label %39
+    i8 56, label %39
+    i8 57, label %39
+    i8 58, label %39
+    i8 59, label %39
+    i8 60, label %39
+    i8 61, label %39
+    i8 62, label %39
+    i8 63, label %39
+    i8 64, label %39
+    i8 65, label %39
+    i8 66, label %39
+    i8 67, label %39
+    i8 68, label %39
+    i8 69, label %39
+    i8 70, label %39
+    i8 71, label %39
+    i8 72, label %39
+    i8 73, label %39
+    i8 74, label %39
+    i8 75, label %39
+    i8 76, label %39
+    i8 77, label %39
+    i8 78, label %39
+    i8 79, label %39
+    i8 80, label %39
+    i8 81, label %39
+    i8 82, label %39
+    i8 83, label %39
+    i8 84, label %39
+    i8 85, label %39
+    i8 86, label %39
+    i8 87, label %39
+    i8 88, label %39
+    i8 89, label %39
+    i8 90, label %39
+    i8 91, label %39
+    i8 92, label %39
+    i8 93, label %39
+    i8 94, label %39
+    i8 95, label %39
+    i8 96, label %39
+    i8 97, label %39
+    i8 98, label %39
+    i8 99, label %39
+    i8 100, label %39
+    i8 101, label %39
+    i8 102, label %39
+    i8 103, label %39
+    i8 104, label %39
+    i8 105, label %39
+    i8 106, label %39
+    i8 107, label %39
+    i8 108, label %39
+    i8 109, label %39
+    i8 110, label %39
+    i8 111, label %39
+    i8 112, label %39
+    i8 113, label %39
+    i8 114, label %39
+    i8 115, label %39
+    i8 116, label %39
+    i8 117, label %39
+    i8 118, label %39
+    i8 119, label %39
+    i8 120, label %39
+    i8 121, label %39
+    i8 122, label %39
+    i8 123, label %39
+    i8 124, label %39
+    i8 125, label %39
+    i8 126, label %39
+    i8 127, label %39
+    i8 -128, label %39
+    i8 -127, label %39
+    i8 -126, label %39
+    i8 -125, label %39
+    i8 -124, label %39
+    i8 -123, label %39
+    i8 -122, label %39
+    i8 -121, label %39
+    i8 -120, label %39
+    i8 -119, label %39
+    i8 -118, label %39
+    i8 -117, label %39
+    i8 -116, label %39
+    i8 -115, label %39
+    i8 -114, label %39
+    i8 -113, label %39
+    i8 -112, label %39
+    i8 -111, label %39
+    i8 -110, label %39
+    i8 -109, label %39
+    i8 -108, label %39
+    i8 -107, label %39
+    i8 -106, label %39
+    i8 -105, label %39
+    i8 -104, label %39
+    i8 -103, label %39
+    i8 -102, label %39
+    i8 -101, label %39
+    i8 -100, label %39
+    i8 -99, label %39
+    i8 -98, label %39
+    i8 -97, label %39
+    i8 -96, label %39
+    i8 -95, label %39
+    i8 -94, label %39
+    i8 -93, label %39
+    i8 -92, label %39
+    i8 -91, label %39
+    i8 -90, label %39
+    i8 -89, label %39
+    i8 -88, label %39
+    i8 -87, label %39
+    i8 -86, label %39
+    i8 -85, label %39
+    i8 -84, label %30
+    i8 -83, label %30
+    i8 -82, label %30
+    i8 -81, label %39
+    i8 -80, label %39
+    i8 -79, label %39
+    i8 -78, label %39
+    i8 -77, label %39
+    i8 -76, label %39
+    i8 -75, label %39
+    i8 -74, label %39
+    i8 -73, label %39
+    i8 -72, label %39
+    i8 -71, label %39
+    i8 -70, label %39
+    i8 -69, label %39
+    i8 -68, label %39
+    i8 -67, label %39
+    i8 -66, label %39
+    i8 -65, label %39
   ]
 
-34:                                               ; preds = %32, %32, %32
+30:                                               ; preds = %28, %28, %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1952
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %35, align 8, !alias.scope !1955, !noalias !1952
+  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 0, ptr %31, align 8, !alias.scope !1955, !noalias !1952
   invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17he6af0df132c4286fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef 11)
-          to label %42 unwind label %40, !noalias !1952
+          to label %38 unwind label %36, !noalias !1952
 
-36:                                               ; preds = %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32
+32:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
   store i8 9, ptr %0, align 8, !alias.scope !1952
   %.sroa.41.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.41.0..sroa_idx.i8, align 8, !alias.scope !1952
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-37:                                               ; preds = %40
-  %38 = landingpad { ptr, i32 }
+33:                                               ; preds = %36
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39, !noalias !1952
   unreachable
 
-39:                                               ; preds = %40
-  resume { ptr, i32 } %41
+35:                                               ; preds = %36
+  resume { ptr, i32 } %37
 
-40:                                               ; preds = %34
-  %41 = landingpad { ptr, i32 }
+36:                                               ; preds = %30
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr123drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..inst..args..InstructionSet$u3b$$u20$2$u5d$$GT$$GT$17hc11cd4e60b71d944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #38
-          to label %39 unwind label %37, !noalias !1952
+          to label %35 unwind label %33, !noalias !1952
 
-42:                                               ; preds = %34
+38:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1952
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-43:                                               ; preds = %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32
+39:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
   store i8 10, ptr %0, align 8, !alias.scope !1952
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !1952
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-44:                                               ; preds = %2, %2, %2, %21
+40:                                               ; preds = %2, %2, %2, %21
   %.sink18 = phi i64 [ 2, %21 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 %.sink18
-  %.03.val = load i8, ptr %45, align 1, !range !1648, !noundef !4
+  %41 = getelementptr inbounds i8, ptr %1, i64 %.sink18
+  %.03.val = load i8, ptr %41, align 1, !range !1648, !noundef !4
   switch i8 %.03.val, label %default.unreachable16 [
-    i8 0, label %49
-    i8 1, label %49
-    i8 2, label %46
-    i8 3, label %47
-    i8 4, label %48
-    i8 5, label %49
-    i8 6, label %49
+    i8 0, label %45
+    i8 1, label %45
+    i8 2, label %42
+    i8 3, label %43
+    i8 4, label %44
+    i8 5, label %45
+    i8 6, label %45
   ]
 
-46:                                               ; preds = %44
+42:                                               ; preds = %40
   store i8 16, ptr %0, align 8, !alias.scope !1958
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 15, ptr %.sroa.43.0..sroa_idx.i, align 1, !alias.scope !1958
@@ -19105,7 +18913,7 @@ _ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e
   store i64 2, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !1958
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-47:                                               ; preds = %44
+43:                                               ; preds = %40
   store i8 16, ptr %0, align 8, !alias.scope !1958
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 13, ptr %.sroa.47.0..sroa_idx.i, align 1, !alias.scope !1958
@@ -19113,7 +18921,7 @@ _ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e
   store i64 2, ptr %.sroa.59.0..sroa_idx.i, align 8, !alias.scope !1958
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-48:                                               ; preds = %44
+44:                                               ; preds = %40
   store i8 16, ptr %0, align 8, !alias.scope !1958
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 12, ptr %.sroa.411.0..sroa_idx.i, align 1, !alias.scope !1958
@@ -19121,19 +18929,12 @@ _ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e
   store i64 2, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !1958
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 
-49:                                               ; preds = %44, %44, %44, %44
+45:                                               ; preds = %40, %40, %40, %40
   store i8 14, ptr %0, align 8, !alias.scope !1958
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 16, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !1958
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.51.0..sroa_idx.i, align 8, !alias.scope !1958
-  br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
-
-50:                                               ; preds = %31, %30, %29, %28, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  %.0.i = phi i8 [ 4, %31 ], [ 2, %30 ], [ 3, %29 ], [ 1, %28 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ]
-  store i8 %.0.i, ptr %0, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 1, ptr %.sroa.415.0..sroa_idx, align 8
   br label %_ZN17cranelift_codegen3isa3x644inst4args14UnaryRmROpcode14available_from17h9778e3c4fd7802e4E.exit
 }
 
@@ -57014,755 +56815,17 @@ define { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions6Opcode3all17h428d23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE(i8 noundef %0) unnamed_addr #11 {
-  switch i8 %0, label %2 [
-    i8 1, label %187
-    i8 2, label %3
-    i8 3, label %4
-    i8 4, label %5
-    i8 5, label %6
-    i8 6, label %7
-    i8 7, label %8
-    i8 8, label %9
-    i8 9, label %10
-    i8 10, label %11
-    i8 11, label %12
-    i8 12, label %13
-    i8 13, label %14
-    i8 14, label %15
-    i8 15, label %16
-    i8 16, label %17
-    i8 17, label %18
-    i8 18, label %19
-    i8 19, label %20
-    i8 20, label %21
-    i8 21, label %22
-    i8 22, label %23
-    i8 23, label %24
-    i8 24, label %25
-    i8 25, label %26
-    i8 26, label %27
-    i8 27, label %28
-    i8 28, label %29
-    i8 29, label %30
-    i8 30, label %31
-    i8 31, label %32
-    i8 32, label %33
-    i8 33, label %34
-    i8 34, label %35
-    i8 35, label %36
-    i8 36, label %37
-    i8 37, label %38
-    i8 38, label %39
-    i8 39, label %40
-    i8 40, label %41
-    i8 41, label %42
-    i8 42, label %43
-    i8 43, label %44
-    i8 44, label %45
-    i8 45, label %46
-    i8 46, label %47
-    i8 47, label %48
-    i8 48, label %49
-    i8 49, label %50
-    i8 50, label %51
-    i8 51, label %52
-    i8 52, label %53
-    i8 53, label %54
-    i8 54, label %55
-    i8 55, label %56
-    i8 56, label %57
-    i8 57, label %58
-    i8 58, label %59
-    i8 59, label %60
-    i8 60, label %61
-    i8 61, label %62
-    i8 62, label %63
-    i8 63, label %64
-    i8 64, label %65
-    i8 65, label %66
-    i8 66, label %67
-    i8 67, label %68
-    i8 68, label %69
-    i8 69, label %70
-    i8 70, label %71
-    i8 71, label %72
-    i8 72, label %73
-    i8 73, label %74
-    i8 74, label %75
-    i8 75, label %76
-    i8 76, label %77
-    i8 77, label %78
-    i8 78, label %79
-    i8 79, label %80
-    i8 80, label %81
-    i8 81, label %82
-    i8 82, label %83
-    i8 83, label %84
-    i8 84, label %85
-    i8 85, label %86
-    i8 86, label %87
-    i8 87, label %88
-    i8 88, label %89
-    i8 89, label %90
-    i8 90, label %91
-    i8 91, label %92
-    i8 92, label %93
-    i8 93, label %94
-    i8 94, label %95
-    i8 95, label %96
-    i8 96, label %97
-    i8 97, label %98
-    i8 98, label %99
-    i8 99, label %100
-    i8 100, label %101
-    i8 101, label %102
-    i8 102, label %103
-    i8 103, label %104
-    i8 104, label %105
-    i8 105, label %106
-    i8 106, label %107
-    i8 107, label %108
-    i8 108, label %109
-    i8 109, label %110
-    i8 110, label %111
-    i8 111, label %112
-    i8 112, label %113
-    i8 113, label %114
-    i8 114, label %115
-    i8 115, label %116
-    i8 116, label %117
-    i8 117, label %118
-    i8 118, label %119
-    i8 119, label %120
-    i8 120, label %121
-    i8 121, label %122
-    i8 122, label %123
-    i8 123, label %124
-    i8 124, label %125
-    i8 125, label %126
-    i8 126, label %127
-    i8 127, label %128
-    i8 -128, label %129
-    i8 -127, label %130
-    i8 -126, label %131
-    i8 -125, label %132
-    i8 -124, label %133
-    i8 -123, label %134
-    i8 -122, label %135
-    i8 -121, label %136
-    i8 -120, label %137
-    i8 -119, label %138
-    i8 -118, label %139
-    i8 -117, label %140
-    i8 -116, label %141
-    i8 -115, label %142
-    i8 -114, label %143
-    i8 -113, label %144
-    i8 -112, label %145
-    i8 -111, label %146
-    i8 -110, label %147
-    i8 -109, label %148
-    i8 -108, label %149
-    i8 -107, label %150
-    i8 -106, label %151
-    i8 -105, label %152
-    i8 -104, label %153
-    i8 -103, label %154
-    i8 -102, label %155
-    i8 -101, label %156
-    i8 -100, label %157
-    i8 -99, label %158
-    i8 -98, label %159
-    i8 -97, label %160
-    i8 -96, label %161
-    i8 -95, label %162
-    i8 -94, label %163
-    i8 -93, label %164
-    i8 -92, label %165
-    i8 -91, label %166
-    i8 -90, label %167
-    i8 -89, label %168
-    i8 -88, label %169
-    i8 -87, label %170
-    i8 -86, label %171
-    i8 -85, label %172
-    i8 -84, label %173
-    i8 -83, label %174
-    i8 -82, label %175
-    i8 -81, label %176
-    i8 -80, label %177
-    i8 -79, label %178
-    i8 -78, label %179
-    i8 -77, label %180
-    i8 -76, label %181
-    i8 -75, label %182
-    i8 -74, label %183
-    i8 -73, label %184
-    i8 -72, label %185
-    i8 -71, label %186
-  ]
-
-2:                                                ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  br label %187
-
-4:                                                ; preds = %1
-  br label %187
-
-5:                                                ; preds = %1
-  br label %187
-
-6:                                                ; preds = %1
-  br label %187
-
-7:                                                ; preds = %1
-  br label %187
-
-8:                                                ; preds = %1
-  br label %187
-
-9:                                                ; preds = %1
-  br label %187
-
-10:                                               ; preds = %1
-  br label %187
-
-11:                                               ; preds = %1
-  br label %187
-
-12:                                               ; preds = %1
-  br label %187
-
-13:                                               ; preds = %1
-  br label %187
-
-14:                                               ; preds = %1
-  br label %187
-
-15:                                               ; preds = %1
-  br label %187
-
-16:                                               ; preds = %1
-  br label %187
-
-17:                                               ; preds = %1
-  br label %187
-
-18:                                               ; preds = %1
-  br label %187
-
-19:                                               ; preds = %1
-  br label %187
-
-20:                                               ; preds = %1
-  br label %187
-
-21:                                               ; preds = %1
-  br label %187
-
-22:                                               ; preds = %1
-  br label %187
-
-23:                                               ; preds = %1
-  br label %187
-
-24:                                               ; preds = %1
-  br label %187
-
-25:                                               ; preds = %1
-  br label %187
-
-26:                                               ; preds = %1
-  br label %187
-
-27:                                               ; preds = %1
-  br label %187
-
-28:                                               ; preds = %1
-  br label %187
-
-29:                                               ; preds = %1
-  br label %187
-
-30:                                               ; preds = %1
-  br label %187
-
-31:                                               ; preds = %1
-  br label %187
-
-32:                                               ; preds = %1
-  br label %187
-
-33:                                               ; preds = %1
-  br label %187
-
-34:                                               ; preds = %1
-  br label %187
-
-35:                                               ; preds = %1
-  br label %187
-
-36:                                               ; preds = %1
-  br label %187
-
-37:                                               ; preds = %1
-  br label %187
-
-38:                                               ; preds = %1
-  br label %187
-
-39:                                               ; preds = %1
-  br label %187
-
-40:                                               ; preds = %1
-  br label %187
-
-41:                                               ; preds = %1
-  br label %187
-
-42:                                               ; preds = %1
-  br label %187
-
-43:                                               ; preds = %1
-  br label %187
-
-44:                                               ; preds = %1
-  br label %187
-
-45:                                               ; preds = %1
-  br label %187
-
-46:                                               ; preds = %1
-  br label %187
-
-47:                                               ; preds = %1
-  br label %187
-
-48:                                               ; preds = %1
-  br label %187
-
-49:                                               ; preds = %1
-  br label %187
-
-50:                                               ; preds = %1
-  br label %187
-
-51:                                               ; preds = %1
-  br label %187
-
-52:                                               ; preds = %1
-  br label %187
-
-53:                                               ; preds = %1
-  br label %187
-
-54:                                               ; preds = %1
-  br label %187
-
-55:                                               ; preds = %1
-  br label %187
-
-56:                                               ; preds = %1
-  br label %187
-
-57:                                               ; preds = %1
-  br label %187
-
-58:                                               ; preds = %1
-  br label %187
-
-59:                                               ; preds = %1
-  br label %187
-
-60:                                               ; preds = %1
-  br label %187
-
-61:                                               ; preds = %1
-  br label %187
-
-62:                                               ; preds = %1
-  br label %187
-
-63:                                               ; preds = %1
-  br label %187
-
-64:                                               ; preds = %1
-  br label %187
-
-65:                                               ; preds = %1
-  br label %187
-
-66:                                               ; preds = %1
-  br label %187
-
-67:                                               ; preds = %1
-  br label %187
-
-68:                                               ; preds = %1
-  br label %187
-
-69:                                               ; preds = %1
-  br label %187
-
-70:                                               ; preds = %1
-  br label %187
-
-71:                                               ; preds = %1
-  br label %187
-
-72:                                               ; preds = %1
-  br label %187
-
-73:                                               ; preds = %1
-  br label %187
-
-74:                                               ; preds = %1
-  br label %187
-
-75:                                               ; preds = %1
-  br label %187
-
-76:                                               ; preds = %1
-  br label %187
-
-77:                                               ; preds = %1
-  br label %187
-
-78:                                               ; preds = %1
-  br label %187
-
-79:                                               ; preds = %1
-  br label %187
-
-80:                                               ; preds = %1
-  br label %187
-
-81:                                               ; preds = %1
-  br label %187
-
-82:                                               ; preds = %1
-  br label %187
-
-83:                                               ; preds = %1
-  br label %187
-
-84:                                               ; preds = %1
-  br label %187
-
-85:                                               ; preds = %1
-  br label %187
-
-86:                                               ; preds = %1
-  br label %187
-
-87:                                               ; preds = %1
-  br label %187
-
-88:                                               ; preds = %1
-  br label %187
-
-89:                                               ; preds = %1
-  br label %187
-
-90:                                               ; preds = %1
-  br label %187
-
-91:                                               ; preds = %1
-  br label %187
-
-92:                                               ; preds = %1
-  br label %187
-
-93:                                               ; preds = %1
-  br label %187
-
-94:                                               ; preds = %1
-  br label %187
-
-95:                                               ; preds = %1
-  br label %187
-
-96:                                               ; preds = %1
-  br label %187
-
-97:                                               ; preds = %1
-  br label %187
-
-98:                                               ; preds = %1
-  br label %187
-
-99:                                               ; preds = %1
-  br label %187
-
-100:                                              ; preds = %1
-  br label %187
-
-101:                                              ; preds = %1
-  br label %187
-
-102:                                              ; preds = %1
-  br label %187
-
-103:                                              ; preds = %1
-  br label %187
-
-104:                                              ; preds = %1
-  br label %187
-
-105:                                              ; preds = %1
-  br label %187
-
-106:                                              ; preds = %1
-  br label %187
-
-107:                                              ; preds = %1
-  br label %187
-
-108:                                              ; preds = %1
-  br label %187
-
-109:                                              ; preds = %1
-  br label %187
-
-110:                                              ; preds = %1
-  br label %187
-
-111:                                              ; preds = %1
-  br label %187
-
-112:                                              ; preds = %1
-  br label %187
-
-113:                                              ; preds = %1
-  br label %187
-
-114:                                              ; preds = %1
-  br label %187
-
-115:                                              ; preds = %1
-  br label %187
-
-116:                                              ; preds = %1
-  br label %187
-
-117:                                              ; preds = %1
-  br label %187
-
-118:                                              ; preds = %1
-  br label %187
-
-119:                                              ; preds = %1
-  br label %187
-
-120:                                              ; preds = %1
-  br label %187
-
-121:                                              ; preds = %1
-  br label %187
-
-122:                                              ; preds = %1
-  br label %187
-
-123:                                              ; preds = %1
-  br label %187
-
-124:                                              ; preds = %1
-  br label %187
-
-125:                                              ; preds = %1
-  br label %187
-
-126:                                              ; preds = %1
-  br label %187
-
-127:                                              ; preds = %1
-  br label %187
-
-128:                                              ; preds = %1
-  br label %187
-
-129:                                              ; preds = %1
-  br label %187
-
-130:                                              ; preds = %1
-  br label %187
-
-131:                                              ; preds = %1
-  br label %187
-
-132:                                              ; preds = %1
-  br label %187
-
-133:                                              ; preds = %1
-  br label %187
-
-134:                                              ; preds = %1
-  br label %187
-
-135:                                              ; preds = %1
-  br label %187
-
-136:                                              ; preds = %1
-  br label %187
-
-137:                                              ; preds = %1
-  br label %187
-
-138:                                              ; preds = %1
-  br label %187
-
-139:                                              ; preds = %1
-  br label %187
-
-140:                                              ; preds = %1
-  br label %187
-
-141:                                              ; preds = %1
-  br label %187
-
-142:                                              ; preds = %1
-  br label %187
-
-143:                                              ; preds = %1
-  br label %187
-
-144:                                              ; preds = %1
-  br label %187
-
-145:                                              ; preds = %1
-  br label %187
-
-146:                                              ; preds = %1
-  br label %187
-
-147:                                              ; preds = %1
-  br label %187
-
-148:                                              ; preds = %1
-  br label %187
-
-149:                                              ; preds = %1
-  br label %187
-
-150:                                              ; preds = %1
-  br label %187
-
-151:                                              ; preds = %1
-  br label %187
-
-152:                                              ; preds = %1
-  br label %187
-
-153:                                              ; preds = %1
-  br label %187
-
-154:                                              ; preds = %1
-  br label %187
-
-155:                                              ; preds = %1
-  br label %187
-
-156:                                              ; preds = %1
-  br label %187
-
-157:                                              ; preds = %1
-  br label %187
-
-158:                                              ; preds = %1
-  br label %187
-
-159:                                              ; preds = %1
-  br label %187
-
-160:                                              ; preds = %1
-  br label %187
-
-161:                                              ; preds = %1
-  br label %187
-
-162:                                              ; preds = %1
-  br label %187
-
-163:                                              ; preds = %1
-  br label %187
-
-164:                                              ; preds = %1
-  br label %187
-
-165:                                              ; preds = %1
-  br label %187
-
-166:                                              ; preds = %1
-  br label %187
-
-167:                                              ; preds = %1
-  br label %187
-
-168:                                              ; preds = %1
-  br label %187
-
-169:                                              ; preds = %1
-  br label %187
-
-170:                                              ; preds = %1
-  br label %187
-
-171:                                              ; preds = %1
-  br label %187
-
-172:                                              ; preds = %1
-  br label %187
-
-173:                                              ; preds = %1
-  br label %187
-
-174:                                              ; preds = %1
-  br label %187
-
-175:                                              ; preds = %1
-  br label %187
-
-176:                                              ; preds = %1
-  br label %187
-
-177:                                              ; preds = %1
-  br label %187
-
-178:                                              ; preds = %1
-  br label %187
-
-179:                                              ; preds = %1
-  br label %187
-
-180:                                              ; preds = %1
-  br label %187
-
-181:                                              ; preds = %1
-  br label %187
-
-182:                                              ; preds = %1
-  br label %187
-
-183:                                              ; preds = %1
-  br label %187
-
-184:                                              ; preds = %1
-  br label %187
-
-185:                                              ; preds = %1
-  br label %187
-
-186:                                              ; preds = %1
-  br label %187
-
-187:                                              ; preds = %1, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1134, %186 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1133, %185 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1132, %184 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1131, %183 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1130, %182 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1129, %181 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1128, %180 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1127, %179 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1126, %178 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1125, %177 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1124, %176 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1123, %175 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1122, %174 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1121, %173 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1120, %172 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1119, %171 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1118, %170 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1117, %169 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1116, %168 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1115, %167 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1114, %166 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1113, %165 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1112, %164 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1111, %163 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1110, %162 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1109, %161 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1108, %160 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1107, %159 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1106, %158 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1105, %157 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1104, %156 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1103, %155 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1102, %154 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1101, %153 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1100, %152 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1099, %151 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1098, %150 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1097, %149 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1096, %148 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1095, %147 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1094, %146 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1093, %145 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1092, %144 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1091, %143 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1090, %142 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1089, %141 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1088, %140 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1087, %139 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1086, %138 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1085, %137 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1084, %136 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1083, %135 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.247, %134 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.544, %133 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1082, %132 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1081, %131 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1080, %130 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1079, %129 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1078, %128 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1077, %127 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1076, %126 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1075, %125 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1074, %124 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1073, %123 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1072, %122 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1071, %121 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1070, %120 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1069, %119 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1068, %118 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1067, %117 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1066, %116 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1065, %115 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1064, %114 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1063, %113 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1062, %112 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1061, %111 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1060, %110 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1059, %109 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1058, %108 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1057, %107 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1056, %106 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1055, %105 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1054, %104 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1053, %103 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1052, %102 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1051, %101 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1050, %100 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1049, %99 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1048, %98 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1047, %97 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1046, %96 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1045, %95 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1044, %94 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1043, %93 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1042, %92 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1041, %91 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1040, %90 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1039, %89 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1038, %88 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1037, %87 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1036, %86 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1035, %85 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1034, %84 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1033, %83 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.521, %82 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1032, %81 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1031, %80 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1030, %79 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1029, %78 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1028, %77 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1027, %76 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1026, %75 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1025, %74 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1024, %73 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1023, %72 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1022, %71 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1021, %70 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1020, %69 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.507, %68 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1019, %67 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1018, %66 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1017, %65 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1016, %64 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1015, %63 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1014, %62 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1013, %61 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1012, %60 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1011, %59 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1010, %58 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1009, %57 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1008, %56 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1007, %55 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1006, %54 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1005, %53 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1004, %52 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1003, %51 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1002, %50 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1001, %49 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.1000, %48 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.999, %47 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.998, %46 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.997, %45 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.996, %44 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.995, %43 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.994, %42 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.993, %41 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.992, %40 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.991, %39 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.990, %38 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.989, %37 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.988, %36 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.987, %35 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.986, %34 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.985, %33 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.984, %32 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.983, %31 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.982, %30 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.981, %29 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.980, %28 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.979, %27 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.978, %26 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.977, %25 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.976, %24 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.975, %23 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.974, %22 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.973, %21 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.972, %20 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.971, %19 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.970, %18 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.969, %17 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.968, %16 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.967, %15 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.966, %14 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.965, %13 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.587, %12 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.964, %11 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.963, %10 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.962, %9 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.961, %8 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.960, %7 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.959, %6 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.958, %5 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.611, %4 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.957, %3 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.956, %1 ]
-  %.sroa.186.0 = phi i64 [ 14, %186 ], [ 5, %185 ], [ 12, %184 ], [ 11, %183 ], [ 10, %182 ], [ 10, %181 ], [ 7, %180 ], [ 6, %179 ], [ 14, %178 ], [ 14, %177 ], [ 11, %176 ], [ 16, %175 ], [ 16, %174 ], [ 12, %173 ], [ 12, %172 ], [ 13, %171 ], [ 8, %170 ], [ 7, %169 ], [ 8, %168 ], [ 7, %167 ], [ 7, %166 ], [ 13, %165 ], [ 13, %164 ], [ 11, %163 ], [ 10, %162 ], [ 11, %161 ], [ 10, %160 ], [ 8, %159 ], [ 7, %158 ], [ 7, %157 ], [ 7, %156 ], [ 5, %155 ], [ 16, %154 ], [ 7, %153 ], [ 10, %152 ], [ 7, %151 ], [ 7, %150 ], [ 5, %149 ], [ 5, %148 ], [ 4, %147 ], [ 4, %146 ], [ 4, %145 ], [ 9, %144 ], [ 4, %143 ], [ 4, %142 ], [ 3, %141 ], [ 4, %140 ], [ 4, %139 ], [ 4, %138 ], [ 4, %137 ], [ 4, %136 ], [ 4, %135 ], [ 6, %134 ], [ 5, %133 ], [ 3, %132 ], [ 3, %131 ], [ 3, %130 ], [ 6, %129 ], [ 8, %128 ], [ 8, %127 ], [ 8, %126 ], [ 4, %125 ], [ 4, %124 ], [ 4, %123 ], [ 8, %122 ], [ 8, %121 ], [ 4, %120 ], [ 4, %119 ], [ 8, %118 ], [ 7, %117 ], [ 8, %116 ], [ 8, %115 ], [ 7, %114 ], [ 8, %113 ], [ 4, %112 ], [ 4, %111 ], [ 3, %110 ], [ 4, %109 ], [ 11, %108 ], [ 8, %107 ], [ 18, %106 ], [ 13, %105 ], [ 13, %104 ], [ 13, %103 ], [ 13, %102 ], [ 13, %101 ], [ 13, %100 ], [ 10, %99 ], [ 8, %98 ], [ 9, %97 ], [ 8, %96 ], [ 8, %95 ], [ 8, %94 ], [ 8, %93 ], [ 8, %92 ], [ 8, %91 ], [ 4, %90 ], [ 4, %89 ], [ 4, %88 ], [ 4, %87 ], [ 12, %86 ], [ 15, %85 ], [ 6, %84 ], [ 6, %83 ], [ 4, %82 ], [ 4, %81 ], [ 4, %80 ], [ 4, %79 ], [ 4, %78 ], [ 8, %77 ], [ 4, %76 ], [ 10, %75 ], [ 9, %74 ], [ 9, %73 ], [ 10, %72 ], [ 9, %71 ], [ 20, %70 ], [ 6, %69 ], [ 3, %68 ], [ 4, %67 ], [ 7, %66 ], [ 6, %65 ], [ 8, %64 ], [ 8, %63 ], [ 6, %62 ], [ 18, %61 ], [ 17, %60 ], [ 17, %59 ], [ 14, %58 ], [ 14, %57 ], [ 9, %56 ], [ 12, %55 ], [ 12, %54 ], [ 18, %53 ], [ 19, %52 ], [ 18, %51 ], [ 10, %50 ], [ 11, %49 ], [ 10, %48 ], [ 9, %47 ], [ 9, %46 ], [ 9, %45 ], [ 9, %44 ], [ 8, %43 ], [ 8, %42 ], [ 8, %41 ], [ 7, %40 ], [ 7, %39 ], [ 8, %38 ], [ 7, %37 ], [ 7, %36 ], [ 7, %35 ], [ 6, %34 ], [ 6, %33 ], [ 5, %32 ], [ 4, %31 ], [ 8, %30 ], [ 8, %29 ], [ 8, %28 ], [ 8, %27 ], [ 9, %26 ], [ 4, %25 ], [ 4, %24 ], [ 4, %23 ], [ 4, %22 ], [ 11, %21 ], [ 10, %20 ], [ 10, %19 ], [ 7, %18 ], [ 5, %17 ], [ 9, %16 ], [ 20, %15 ], [ 11, %14 ], [ 13, %13 ], [ 4, %12 ], [ 6, %11 ], [ 16, %10 ], [ 6, %9 ], [ 14, %8 ], [ 5, %7 ], [ 4, %6 ], [ 9, %5 ], [ 8, %4 ], [ 4, %3 ], [ 4, %1 ]
-  %188 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %189 = insertvalue { ptr, i64 } %188, i64 %.sroa.186.0, 1
-  ret { ptr, i64 } %189
+switch.lookup:
+  %switch.tableidx = xor i8 %0, -128
+  %1 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [256 x ptr], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE, i64 0, i64 %1
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %2 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds [256 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.119, i64 0, i64 %2
+  %switch.load3 = load i64, ptr %switch.gep2, align 8
+  %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %switch.load3, 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -59578,7 +58641,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.119", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.120", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -59629,7 +58692,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.120", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.121", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -59687,7 +58750,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.121", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.122", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

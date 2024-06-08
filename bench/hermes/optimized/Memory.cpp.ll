@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef readonly %NearBlock, i32 noundef %PFlags, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC) local_unnamed_addr #0 align 2 {
 entry:
   %Result = alloca %"class.llvh::sys::MemoryBlock", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   store i32 0, ptr %EC, align 8
   %ref.tmp.sroa.224.0.EC.sroa_idx = getelementptr inbounds i8, ptr %EC, i64 8
   store ptr %call.i, ptr %ref.tmp.sroa.224.0.EC.sroa_idx, align 8
@@ -28,15 +28,15 @@ if.end:                                           ; preds = %entry
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
 
 init.check:                                       ; preds = %if.end
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #9
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = tail call noundef i32 @_ZN4llvh3sys7Process11getPageSizeEv() #9
+  %call = tail call noundef i32 @_ZN4llvh3sys7Process11getPageSizeEv() #8
   %conv = zext i32 %call to i64
   store i64 %conv, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #9
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize) #8
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end
@@ -46,10 +46,6 @@ init.end:                                         ; preds = %init, %init.check, 
   %div = udiv i64 %sub, %2
   %3 = add i32 %PFlags, -16777216
   %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
-  %switch.maskindex = trunc i32 %4 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %5 = sext i32 %4 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -79,13 +75,13 @@ if.end12:                                         ; preds = %if.then8, %land.lhs
   %Start.0 = phi i64 [ %add11, %if.then8 ], [ %add5, %land.lhs.true ], [ 0, %cond.end ]
   %9 = inttoptr i64 %Start.0 to ptr
   %mul = mul i64 %div, %2
-  %call13 = tail call ptr @mmap(ptr noundef %9, i64 noundef %mul, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
+  %call13 = tail call ptr @mmap(ptr noundef %9, i64 noundef %mul, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %cmp14 = icmp eq ptr %call13, inttoptr (i64 -1 to ptr)
   br i1 %cmp14, label %if.then17, label %if.end23
 
 if.end12.thread:                                  ; preds = %init.end
   %mul32 = mul i64 %div, %2
-  %call1333 = tail call ptr @mmap(ptr noundef null, i64 noundef %mul32, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
+  %call1333 = tail call ptr @mmap(ptr noundef null, i64 noundef %mul32, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %cmp1434 = icmp eq ptr %call1333, inttoptr (i64 -1 to ptr)
   br i1 %cmp1434, label %if.end19, label %if.end23
 
@@ -96,9 +92,9 @@ if.then17:                                        ; preds = %if.end12
   br label %return
 
 if.end19:                                         ; preds = %if.end12.thread
-  %call21 = tail call ptr @__errno_location() #8
+  %call21 = tail call ptr @__errno_location() #7
   %12 = load i32, ptr %call21, align 4
-  %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
+  %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #7
   store i32 %12, ptr %EC, align 8
   store ptr %call22, ptr %ref.tmp.sroa.224.0.EC.sroa_idx, align 8
   br label %return
@@ -161,15 +157,15 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize) #9
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize) #8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = tail call noundef i32 @_ZN4llvh3sys7Process11getPageSizeEv() #9
+  %call = tail call noundef i32 @_ZN4llvh3sys7Process11getPageSizeEv() #8
   %conv = zext i32 %call to i64
   store i64 %conv, ptr @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize) #9
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize) #8
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -184,7 +180,7 @@ lor.lhs.false:                                    ; preds = %init.end
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %init.end
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -192,16 +188,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
+  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #7
   br label %return
 
 if.end5:                                          ; preds = %if.end
   %4 = add i32 %Flags, -16777216
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 8)
-  %switch.maskindex = trunc i32 %5 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %6 = sext i32 %5 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -219,14 +211,14 @@ if.end5:                                          ; preds = %if.end
   %and.i14 = and i64 %sub.i12, %idx.neg
   %10 = inttoptr i64 %and.i to ptr
   %sub = sub i64 %and.i14, %and.i
-  %call15 = tail call i32 @mprotect(ptr noundef %10, i64 noundef %sub, i32 noundef %switch.load) #9
+  %call15 = tail call i32 @mprotect(ptr noundef %10, i64 noundef %sub, i32 noundef %switch.load) #8
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %if.end5
-  %call18 = tail call ptr @__errno_location() #8
+  %call18 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %call18, align 4
-  %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
+  %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #7
   br label %return
 
 if.end20:                                         ; preds = %if.end5
@@ -237,11 +229,11 @@ if.end20:                                         ; preds = %if.end5
 if.then22:                                        ; preds = %if.end20
   %12 = load ptr, ptr %M, align 8
   %13 = load i64, ptr %Size, align 8
-  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %12, i64 noundef %13) #9
+  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %12, i64 noundef %13) #8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end20
-  %call.i17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
+  %call.i17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   br label %return
 
 return:                                           ; preds = %if.end25, %if.then17, %if.then3, %if.then
@@ -266,22 +258,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #9
+  %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #8
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call ptr @__errno_location() #8
+  %call6 = tail call ptr @__errno_location() #7
   %2 = load i32, ptr %call6, align 4
-  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
+  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #7
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %call.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
+  %call.i9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %M, i8 0, i64 16, i1 false)
   br label %return
 
@@ -302,7 +294,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh3sys6Memory26InvalidateInstructionCacheEPKvm(ptr noundef %Addr, i64 noundef %Len) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %Addr, i64 noundef %Len) #9
+  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %Addr, i64 noundef %Len) #8
   ret void
 }
 
@@ -317,9 +309,6 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -327,9 +316,8 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

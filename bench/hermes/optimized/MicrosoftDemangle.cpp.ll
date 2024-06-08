@@ -108,6 +108,7 @@ $_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Prim
 @.str.74 = private unnamed_addr constant [15 x i8] c"  [%d] - %.*s\0A\00", align 1
 @.str.76 = private unnamed_addr constant [24 x i8] c"%d name backreferences\0A\00", align 1
 @switch.table._Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup = private unnamed_addr constant [3 x ptr] [ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Basic, ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE5Under, ptr @_ZZ30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroupE11DoubleUnder], align 8
+@switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 0, i32 2], align 4
 @switch.table._ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView = private unnamed_addr constant [20 x i16] [i16 0, i16 1, i16 2, i16 3, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 257, i16 258, i16 259], align 2
 @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8 = private unnamed_addr constant [17 x i8] c"\01\01\02\02\03\03\04\04\05\05\00\00\06\06\07\07\08", align 1
 @switch.table._ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE.9 = private unnamed_addr constant [20 x i8] c"\00\01\02\03\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03", align 1
@@ -2074,40 +2075,27 @@ if.then52:                                        ; preds = %while.end49
 if.end54:                                         ; preds = %if.then52, %while.end49
   %conv55 = trunc i64 %retval.sroa.0.0.i to i32
   %call56 = call noundef i32 @_Z17guessCharByteSizePKhjj(ptr noundef nonnull %StringBytes, i32 noundef %BytesDecoded.0, i32 noundef %conv55)
-  switch i32 %call56, label %sw.default63 [
-    i32 1, label %sw.epilog64
-    i32 2, label %sw.bb59
-    i32 4, label %sw.bb61
-  ]
-
-sw.bb59:                                          ; preds = %if.end54
-  br label %sw.epilog64
-
-sw.bb61:                                          ; preds = %if.end54
-  br label %sw.epilog64
-
-sw.default63:                                     ; preds = %if.end54
-  unreachable
-
-sw.epilog64:                                      ; preds = %if.end54, %sw.bb61, %sw.bb59
-  %.sink = phi i32 [ 2, %sw.bb61 ], [ 1, %sw.bb59 ], [ 0, %if.end54 ]
-  store i32 %.sink, ptr %Char.i7.i, align 4
+  %switch.tableidx = add nsw i32 %call56, -1
+  %69 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 0, i64 %69
+  %switch.load = load i32, ptr %switch.gep, align 4
+  store i32 %switch.load, ptr %Char.i7.i, align 4
   %cmp65142.not = icmp ugt i32 %call56, %BytesDecoded.0
   br i1 %cmp65142.not, label %if.end76, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %sw.epilog64
+for.body.lr.ph:                                   ; preds = %if.end54
   %div = udiv i32 %BytesDecoded.0, %call56
   %wide.trip.count.i = zext nneg i32 %call56 to i64
   %IsTruncated71 = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 40
-  %69 = zext i32 %div to i64
+  %70 = zext i32 %div to i64
   %umax = tail call i32 @llvm.umax.i32(i32 %div, i32 1)
   %wide.trip.count = zext i32 %umax to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %70 = trunc nuw i64 %indvars.iv to i32
-  %mul.i = mul i32 %call56, %70
+  %71 = trunc nuw i64 %indvars.iv to i32
+  %mul.i = mul i32 %call56, %71
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i118 = getelementptr inbounds i8, ptr %StringBytes, i64 %idx.ext.i
   br label %for.body.i120
@@ -2116,11 +2104,11 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i120 ]
   %Result.08.i = phi i32 [ 0, %for.body ], [ %or.i124, %for.body.i120 ]
   %arrayidx.i121 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 %indvars.iv.i
-  %71 = load i8, ptr %arrayidx.i121, align 1
-  %conv.i122 = zext i8 %71 to i32
+  %72 = load i8, ptr %arrayidx.i121, align 1
+  %conv.i122 = zext i8 %72 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %72 = shl i32 %indvars.iv.tr.i, 3
-  %shl.i123 = shl nuw i32 %conv.i122, %72
+  %73 = shl i32 %indvars.iv.tr.i, 3
+  %shl.i123 = shl nuw i32 %conv.i122, %73
   %or.i124 = or i32 %shl.i123, %Result.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2128,12 +2116,12 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
 
 _ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %for.body.i120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp69 = icmp ult i64 %indvars.iv.next, %69
+  %cmp69 = icmp ult i64 %indvars.iv.next, %70
   br i1 %cmp69, label %if.then73, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
-  %73 = load i8, ptr %IsTruncated71, align 8
-  %tobool72 = trunc i8 %73 to i1
+  %74 = load i8, ptr %IsTruncated71, align 8
+  %tobool72 = trunc i8 %74 to i1
   br i1 %tobool72, label %if.then73, label %for.inc
 
 if.then73:                                        ; preds = %lor.lhs.false70, %_ZL19decodeMultiByteCharPKhjj.exit
@@ -2144,18 +2132,18 @@ for.inc:                                          ; preds = %lor.lhs.false70, %i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end76, label %for.body, !llvm.loop !14
 
-if.end76:                                         ; preds = %for.inc, %sw.epilog64, %_ZN10StringView12consumeFrontEc.exit
+if.end76:                                         ; preds = %for.inc, %if.end54, %_ZN10StringView12consumeFrontEc.exit
   %call77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12OutputStreamlsEc(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef signext 0)
-  %74 = load ptr, ptr %OS, align 8
-  %call.i128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #21
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %74, i64 %call.i128
-  %call81 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %74, ptr %add.ptr.i129)
-  %75 = extractvalue { ptr, ptr } %call81, 0
-  %76 = extractvalue { ptr, ptr } %call81, 1
-  store ptr %75, ptr %DecodedString.i6.i, align 8
+  %75 = load ptr, ptr %OS, align 8
+  %call.i128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #21
+  %add.ptr.i129 = getelementptr inbounds i8, ptr %75, i64 %call.i128
+  %call81 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %75, ptr %add.ptr.i129)
+  %76 = extractvalue { ptr, ptr } %call81, 0
+  %77 = extractvalue { ptr, ptr } %call81, 1
+  store ptr %76, ptr %DecodedString.i6.i, align 8
   %ref.tmp79.sroa.2.0.DecodedString.sroa_idx = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
-  store ptr %76, ptr %ref.tmp79.sroa.2.0.DecodedString.sroa_idx, align 8
-  call void @free(ptr noundef %74) #24
+  store ptr %77, ptr %ref.tmp79.sroa.2.0.DecodedString.sroa_idx, align 8
+  call void @free(ptr noundef %75) #24
   br label %return
 
 StringLiteralError:                               ; preds = %if.end39, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit, %if.end13, %if.then.i47, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEPT_DpOT0_.exit, %_ZNK10StringView10startsWithES_.exit.i, %if.end16, %_ZNK10StringView4findEcm.exit, %if.end5, %if.end

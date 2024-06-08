@@ -1650,12 +1650,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ba1dbd3e6462eeaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-switch.hole_check:
+switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !74, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !56, !noundef !4
-  %switch.shifted = lshr i8 93, %.val
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ba1dbd3e6462eeaE", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8

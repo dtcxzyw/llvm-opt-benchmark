@@ -12473,15 +12473,11 @@ define noundef zeroext i1 @"_ZN87_$LT$ockam_transport_websocket..error..WebSocke
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 1, 18) i8 @"_ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E"(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-switch.hole_check:
+switch.lookup:
   %2 = load i64, ptr %0, align 8, !range !1092, !noundef !7
   %3 = add nsw i64 %2, -3
   %4 = icmp ult i64 %3, 12
   %5 = select i1 %4, i64 %3, i64 10
-  %switch.maskindex = trunc nuw nsw i64 %5 to i16
-  %switch.shifted = lshr i16 4087, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E", i64 0, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)

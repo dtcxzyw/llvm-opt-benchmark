@@ -17409,16 +17409,16 @@ _ZN4http3uri3Uri4host17h222a5641bb949bb4E.exit.i.i.i.i.i: ; preds = %257
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio_tungstenite..connect..connect_async$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0721f2440eff1b84E"(ptr noundef nonnull align 8 %1068)
           to label %1072 unwind label %1070
 
-1070:                                             ; preds = %switch.hole_check, %1064
+1070:                                             ; preds = %switch.lookup, %1064
   %1071 = landingpad { ptr, i32 }
           cleanup
   br label %178
 
 1072:                                             ; preds = %1064
   %1073 = icmp eq i64 %.sroa.022.0.i.i.i, 2
-  br i1 %1073, label %switch.hole_check, label %1077
+  br i1 %1073, label %switch.lookup, label %1077
 
-switch.hole_check:                                ; preds = %1072
+switch.lookup:                                    ; preds = %1072
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %59), !noalias !2350
   store i64 %.sroa.3.0.i.i.i, ptr %59, align 8, !noalias !2354
   %.sroa.7.8..sroa_idx.i = getelementptr inbounds i8, ptr %59, i64 8
@@ -17456,10 +17456,6 @@ switch.hole_check:                                ; preds = %1072
   %1074 = add nsw i64 %.sroa.3.0.i.i.i, -3
   %1075 = icmp ult i64 %1074, 12
   %1076 = select i1 %1075, i64 %1074, i64 10
-  %switch.maskindex = trunc i64 %1076 to i16
-  %switch.shifted = lshr i16 4087, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637", i64 0, i64 %1076
   %switch.load = load i8, ptr %switch.gep, align 1
   %switch.gep128 = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637.43", i64 0, i64 %1076
@@ -17525,7 +17521,7 @@ switch.hole_check:                                ; preds = %1072
   invoke void @"_ZN4core3ptr106drop_in_place$LT$http..response..Response$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h0bb17be81c89b1dcE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %1078)
           to label %1081 unwind label %1127
 
-1079:                                             ; preds = %switch.hole_check
+1079:                                             ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %59), !noalias !2350
   %1080 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h42c56356042333a3E.llvm.10085540174115877777(i8 noundef 3, i8 noundef %switch.load, i8 noundef %switch.load129, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7120f4d5eb3bed4be5208692d8a4868d.146)
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17haf8a8ed79a3ad3c2E.exit.i" unwind label %1129

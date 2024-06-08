@@ -372,14 +372,16 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E = external local_unnamed_addr global { i64 }
 @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E = external global { ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }
+@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78777b647d412635E" = private unnamed_addr constant [256 x i64] [i64 6, i64 4, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 6, i64 13, i64 13, i64 4, i64 5, i64 4, i64 16, i64 12, i64 12, i64 8, i64 11, i64 6, i64 10, i64 9, i64 4, i64 8, i64 13, i64 15, i64 13, i64 14, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 6, i64 6, i64 5, i64 3, i64 3, i64 9, i64 9, i64 9, i64 9, i64 9, i64 12, i64 12, i64 11, i64 9, i64 9, i64 5, i64 8, i64 10, i64 6, i64 5, i64 8, i64 11, i64 8, i64 2, i64 5, i64 6, i64 12, i64 6, i64 14, i64 9, i64 5, i64 3, i64 9, i64 10, i64 5, i64 5, i64 13, i64 8, i64 12, i64 13, i64 16, i64 33, i64 9, i64 13, i64 9, i64 17, i64 10, i64 15, i64 14, i64 15, i64 11, i64 17, i64 15, i64 14, i64 7, i64 11, i64 11, i64 5, i64 13, i64 15, i64 8, i64 11, i64 12, i64 11, i64 11, i64 11, i64 3, i64 5, i64 8, i64 20, i64 18, i64 14, i64 16, i64 11, i64 12, i64 4, i64 9, i64 11, i64 8, i64 10, i64 7, i64 10, i64 6, i64 10, i64 10, i64 8, i64 9, i64 19, i64 16, i64 20, i64 16, i64 12, i64 15, i64 9, i64 9, i64 20, i64 17, i64 5, i64 16, i64 7], align 8
+@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78777b647d412635E.220" = private unnamed_addr constant [256 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.225, ptr @anon.4403288d20c13f5dd705abcb94830296.226, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.97, ptr @anon.4403288d20c13f5dd705abcb94830296.98, ptr @anon.4403288d20c13f5dd705abcb94830296.99, ptr @anon.4403288d20c13f5dd705abcb94830296.100, ptr @anon.4403288d20c13f5dd705abcb94830296.101, ptr @anon.4403288d20c13f5dd705abcb94830296.102, ptr @anon.4403288d20c13f5dd705abcb94830296.103, ptr @anon.4403288d20c13f5dd705abcb94830296.104, ptr @anon.4403288d20c13f5dd705abcb94830296.105, ptr @anon.4403288d20c13f5dd705abcb94830296.106, ptr @anon.4403288d20c13f5dd705abcb94830296.107, ptr @anon.4403288d20c13f5dd705abcb94830296.108, ptr @anon.4403288d20c13f5dd705abcb94830296.109, ptr @anon.4403288d20c13f5dd705abcb94830296.110, ptr @anon.4403288d20c13f5dd705abcb94830296.111, ptr @anon.4403288d20c13f5dd705abcb94830296.112, ptr @anon.4403288d20c13f5dd705abcb94830296.113, ptr @anon.4403288d20c13f5dd705abcb94830296.114, ptr @anon.4403288d20c13f5dd705abcb94830296.115, ptr @anon.4403288d20c13f5dd705abcb94830296.116, ptr @anon.4403288d20c13f5dd705abcb94830296.117, ptr @anon.4403288d20c13f5dd705abcb94830296.118, ptr @anon.4403288d20c13f5dd705abcb94830296.119, ptr @anon.4403288d20c13f5dd705abcb94830296.120, ptr @anon.4403288d20c13f5dd705abcb94830296.121, ptr @anon.4403288d20c13f5dd705abcb94830296.122, ptr @anon.4403288d20c13f5dd705abcb94830296.123, ptr @anon.4403288d20c13f5dd705abcb94830296.124, ptr @anon.4403288d20c13f5dd705abcb94830296.125, ptr @anon.4403288d20c13f5dd705abcb94830296.126, ptr @anon.4403288d20c13f5dd705abcb94830296.127, ptr @anon.4403288d20c13f5dd705abcb94830296.128, ptr @anon.4403288d20c13f5dd705abcb94830296.129, ptr @anon.4403288d20c13f5dd705abcb94830296.130, ptr @anon.4403288d20c13f5dd705abcb94830296.131, ptr @anon.4403288d20c13f5dd705abcb94830296.132, ptr @anon.4403288d20c13f5dd705abcb94830296.133, ptr @anon.4403288d20c13f5dd705abcb94830296.134, ptr @anon.4403288d20c13f5dd705abcb94830296.135, ptr @anon.4403288d20c13f5dd705abcb94830296.136, ptr @anon.4403288d20c13f5dd705abcb94830296.137, ptr @anon.4403288d20c13f5dd705abcb94830296.138, ptr @anon.4403288d20c13f5dd705abcb94830296.139, ptr @anon.4403288d20c13f5dd705abcb94830296.140, ptr @anon.4403288d20c13f5dd705abcb94830296.141, ptr @anon.4403288d20c13f5dd705abcb94830296.142, ptr @anon.4403288d20c13f5dd705abcb94830296.143, ptr @anon.4403288d20c13f5dd705abcb94830296.144, ptr @anon.4403288d20c13f5dd705abcb94830296.145, ptr @anon.4403288d20c13f5dd705abcb94830296.146, ptr @anon.4403288d20c13f5dd705abcb94830296.147, ptr @anon.4403288d20c13f5dd705abcb94830296.148, ptr @anon.4403288d20c13f5dd705abcb94830296.149, ptr @anon.4403288d20c13f5dd705abcb94830296.150, ptr @anon.4403288d20c13f5dd705abcb94830296.151, ptr @anon.4403288d20c13f5dd705abcb94830296.152, ptr @anon.4403288d20c13f5dd705abcb94830296.153, ptr @anon.4403288d20c13f5dd705abcb94830296.154, ptr @anon.4403288d20c13f5dd705abcb94830296.155, ptr @anon.4403288d20c13f5dd705abcb94830296.156, ptr @anon.4403288d20c13f5dd705abcb94830296.157, ptr @anon.4403288d20c13f5dd705abcb94830296.158, ptr @anon.4403288d20c13f5dd705abcb94830296.159, ptr @anon.4403288d20c13f5dd705abcb94830296.160, ptr @anon.4403288d20c13f5dd705abcb94830296.161, ptr @anon.4403288d20c13f5dd705abcb94830296.162, ptr @anon.4403288d20c13f5dd705abcb94830296.163, ptr @anon.4403288d20c13f5dd705abcb94830296.164, ptr @anon.4403288d20c13f5dd705abcb94830296.165, ptr @anon.4403288d20c13f5dd705abcb94830296.166, ptr @anon.4403288d20c13f5dd705abcb94830296.167, ptr @anon.4403288d20c13f5dd705abcb94830296.168, ptr @anon.4403288d20c13f5dd705abcb94830296.169, ptr @anon.4403288d20c13f5dd705abcb94830296.170, ptr @anon.4403288d20c13f5dd705abcb94830296.171, ptr @anon.4403288d20c13f5dd705abcb94830296.172, ptr @anon.4403288d20c13f5dd705abcb94830296.173, ptr @anon.4403288d20c13f5dd705abcb94830296.174, ptr @anon.4403288d20c13f5dd705abcb94830296.175, ptr @anon.4403288d20c13f5dd705abcb94830296.176, ptr @anon.4403288d20c13f5dd705abcb94830296.177, ptr @anon.4403288d20c13f5dd705abcb94830296.178, ptr @anon.4403288d20c13f5dd705abcb94830296.179, ptr @anon.4403288d20c13f5dd705abcb94830296.180, ptr @anon.4403288d20c13f5dd705abcb94830296.181, ptr @anon.4403288d20c13f5dd705abcb94830296.182, ptr @anon.4403288d20c13f5dd705abcb94830296.183, ptr @anon.4403288d20c13f5dd705abcb94830296.184, ptr @anon.4403288d20c13f5dd705abcb94830296.185, ptr @anon.4403288d20c13f5dd705abcb94830296.186, ptr @anon.4403288d20c13f5dd705abcb94830296.187, ptr @anon.4403288d20c13f5dd705abcb94830296.188, ptr @anon.4403288d20c13f5dd705abcb94830296.189, ptr @anon.4403288d20c13f5dd705abcb94830296.190, ptr @anon.4403288d20c13f5dd705abcb94830296.191, ptr @anon.4403288d20c13f5dd705abcb94830296.192, ptr @anon.4403288d20c13f5dd705abcb94830296.193, ptr @anon.4403288d20c13f5dd705abcb94830296.194, ptr @anon.4403288d20c13f5dd705abcb94830296.195, ptr @anon.4403288d20c13f5dd705abcb94830296.196, ptr @anon.4403288d20c13f5dd705abcb94830296.197, ptr @anon.4403288d20c13f5dd705abcb94830296.198, ptr @anon.4403288d20c13f5dd705abcb94830296.199, ptr @anon.4403288d20c13f5dd705abcb94830296.200, ptr @anon.4403288d20c13f5dd705abcb94830296.201, ptr @anon.4403288d20c13f5dd705abcb94830296.202, ptr @anon.4403288d20c13f5dd705abcb94830296.203, ptr @anon.4403288d20c13f5dd705abcb94830296.204, ptr @anon.4403288d20c13f5dd705abcb94830296.205, ptr @anon.4403288d20c13f5dd705abcb94830296.206, ptr @anon.4403288d20c13f5dd705abcb94830296.207, ptr @anon.4403288d20c13f5dd705abcb94830296.208, ptr @anon.4403288d20c13f5dd705abcb94830296.209, ptr @anon.4403288d20c13f5dd705abcb94830296.210, ptr @anon.4403288d20c13f5dd705abcb94830296.211, ptr @anon.4403288d20c13f5dd705abcb94830296.212, ptr @anon.4403288d20c13f5dd705abcb94830296.213, ptr @anon.4403288d20c13f5dd705abcb94830296.214, ptr @anon.4403288d20c13f5dd705abcb94830296.215, ptr @anon.4403288d20c13f5dd705abcb94830296.216, ptr @anon.4403288d20c13f5dd705abcb94830296.217, ptr @anon.4403288d20c13f5dd705abcb94830296.218, ptr @anon.4403288d20c13f5dd705abcb94830296.219, ptr @anon.4403288d20c13f5dd705abcb94830296.220, ptr @anon.4403288d20c13f5dd705abcb94830296.221, ptr @anon.4403288d20c13f5dd705abcb94830296.222, ptr @anon.4403288d20c13f5dd705abcb94830296.223, ptr @anon.4403288d20c13f5dd705abcb94830296.224], align 8
 @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE" = private unnamed_addr constant [29 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.328, ptr @anon.4403288d20c13f5dd705abcb94830296.329, ptr @anon.4403288d20c13f5dd705abcb94830296.330, ptr @anon.4403288d20c13f5dd705abcb94830296.331, ptr @anon.4403288d20c13f5dd705abcb94830296.332, ptr @anon.4403288d20c13f5dd705abcb94830296.333, ptr @anon.4403288d20c13f5dd705abcb94830296.334, ptr @anon.4403288d20c13f5dd705abcb94830296.335, ptr @anon.4403288d20c13f5dd705abcb94830296.336, ptr @anon.4403288d20c13f5dd705abcb94830296.337, ptr @anon.4403288d20c13f5dd705abcb94830296.338, ptr @anon.4403288d20c13f5dd705abcb94830296.339, ptr @anon.4403288d20c13f5dd705abcb94830296.340, ptr @anon.4403288d20c13f5dd705abcb94830296.341, ptr @anon.4403288d20c13f5dd705abcb94830296.342, ptr @anon.4403288d20c13f5dd705abcb94830296.343, ptr @anon.4403288d20c13f5dd705abcb94830296.344, ptr @anon.4403288d20c13f5dd705abcb94830296.345, ptr @anon.4403288d20c13f5dd705abcb94830296.346, ptr @anon.4403288d20c13f5dd705abcb94830296.347, ptr @anon.4403288d20c13f5dd705abcb94830296.348, ptr @anon.4403288d20c13f5dd705abcb94830296.349, ptr @anon.4403288d20c13f5dd705abcb94830296.350, ptr @anon.4403288d20c13f5dd705abcb94830296.351, ptr @anon.4403288d20c13f5dd705abcb94830296.352, ptr @anon.4403288d20c13f5dd705abcb94830296.353, ptr @anon.4403288d20c13f5dd705abcb94830296.354, ptr @anon.4403288d20c13f5dd705abcb94830296.355, ptr @anon.4403288d20c13f5dd705abcb94830296.356], align 8
-@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.220" = private unnamed_addr constant [29 x i64] [i64 9, i64 12, i64 8, i64 11, i64 6, i64 13, i64 4, i64 5, i64 8, i64 6, i64 9, i64 5, i64 8, i64 8, i64 5, i64 10, i64 6, i64 12, i64 17, i64 6, i64 6, i64 11, i64 5, i64 11, i64 10, i64 10, i64 5, i64 11, i64 12], align 8
-@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.221" = private unnamed_addr constant [5 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.368, ptr @anon.4403288d20c13f5dd705abcb94830296.369, ptr @anon.4403288d20c13f5dd705abcb94830296.370, ptr @anon.4403288d20c13f5dd705abcb94830296.371, ptr @anon.4403288d20c13f5dd705abcb94830296.372], align 8
-@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.222" = private unnamed_addr constant [5 x i64] [i64 7, i64 10, i64 7, i64 10, i64 8], align 8
-@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.223" = private unnamed_addr constant [10 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.373, ptr @anon.4403288d20c13f5dd705abcb94830296.374, ptr @anon.4403288d20c13f5dd705abcb94830296.375, ptr @anon.4403288d20c13f5dd705abcb94830296.376, ptr @anon.4403288d20c13f5dd705abcb94830296.377, ptr @anon.4403288d20c13f5dd705abcb94830296.378, ptr @anon.4403288d20c13f5dd705abcb94830296.379, ptr @anon.4403288d20c13f5dd705abcb94830296.380, ptr @anon.4403288d20c13f5dd705abcb94830296.381, ptr @anon.4403288d20c13f5dd705abcb94830296.382], align 8
-@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.224" = private unnamed_addr constant [10 x i64] [i64 7, i64 5, i64 11, i64 5, i64 5, i64 3, i64 5, i64 9, i64 10, i64 11], align 8
+@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.221" = private unnamed_addr constant [29 x i64] [i64 9, i64 12, i64 8, i64 11, i64 6, i64 13, i64 4, i64 5, i64 8, i64 6, i64 9, i64 5, i64 8, i64 8, i64 5, i64 10, i64 6, i64 12, i64 17, i64 6, i64 6, i64 11, i64 5, i64 11, i64 10, i64 10, i64 5, i64 11, i64 12], align 8
+@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.222" = private unnamed_addr constant [5 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.368, ptr @anon.4403288d20c13f5dd705abcb94830296.369, ptr @anon.4403288d20c13f5dd705abcb94830296.370, ptr @anon.4403288d20c13f5dd705abcb94830296.371, ptr @anon.4403288d20c13f5dd705abcb94830296.372], align 8
+@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.223" = private unnamed_addr constant [5 x i64] [i64 7, i64 10, i64 7, i64 10, i64 8], align 8
+@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.224" = private unnamed_addr constant [10 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.373, ptr @anon.4403288d20c13f5dd705abcb94830296.374, ptr @anon.4403288d20c13f5dd705abcb94830296.375, ptr @anon.4403288d20c13f5dd705abcb94830296.376, ptr @anon.4403288d20c13f5dd705abcb94830296.377, ptr @anon.4403288d20c13f5dd705abcb94830296.378, ptr @anon.4403288d20c13f5dd705abcb94830296.379, ptr @anon.4403288d20c13f5dd705abcb94830296.380, ptr @anon.4403288d20c13f5dd705abcb94830296.381, ptr @anon.4403288d20c13f5dd705abcb94830296.382], align 8
+@"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.225" = private unnamed_addr constant [10 x i64] [i64 7, i64 5, i64 11, i64 5, i64 5, i64 3, i64 5, i64 9, i64 10, i64 11], align 8
 @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E" = private unnamed_addr constant [22 x ptr] [ptr @anon.4403288d20c13f5dd705abcb94830296.386, ptr @anon.4403288d20c13f5dd705abcb94830296.387, ptr @anon.4403288d20c13f5dd705abcb94830296.328, ptr @anon.4403288d20c13f5dd705abcb94830296.388, ptr @anon.4403288d20c13f5dd705abcb94830296.389, ptr @anon.4403288d20c13f5dd705abcb94830296.390, ptr @anon.4403288d20c13f5dd705abcb94830296.391, ptr @anon.4403288d20c13f5dd705abcb94830296.392, ptr @anon.4403288d20c13f5dd705abcb94830296.393, ptr @anon.4403288d20c13f5dd705abcb94830296.394, ptr @anon.4403288d20c13f5dd705abcb94830296.395, ptr @anon.4403288d20c13f5dd705abcb94830296.396, ptr @anon.4403288d20c13f5dd705abcb94830296.397, ptr @anon.4403288d20c13f5dd705abcb94830296.398, ptr @anon.4403288d20c13f5dd705abcb94830296.342, ptr @anon.4403288d20c13f5dd705abcb94830296.343, ptr @anon.4403288d20c13f5dd705abcb94830296.399, ptr @anon.4403288d20c13f5dd705abcb94830296.400, ptr @anon.4403288d20c13f5dd705abcb94830296.401, ptr @anon.4403288d20c13f5dd705abcb94830296.347, ptr @anon.4403288d20c13f5dd705abcb94830296.350, ptr @anon.4403288d20c13f5dd705abcb94830296.402], align 8
-@"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.226" = private unnamed_addr constant [22 x i64] [i64 10, i64 5, i64 9, i64 8, i64 5, i64 9, i64 7, i64 10, i64 15, i64 11, i64 13, i64 8, i64 14, i64 7, i64 5, i64 10, i64 7, i64 6, i64 9, i64 6, i64 5, i64 6], align 8
+@"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.227" = private unnamed_addr constant [22 x i64] [i64 10, i64 5, i64 9, i64 8, i64 5, i64 9, i64 7, i64 10, i64 15, i64 11, i64 13, i64 8, i64 14, i64 7, i64 5, i64 10, i64 7, i64 6, i64 9, i64 6, i64 5, i64 6], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdda0f0cf84e8f806E.llvm.10712026466629435290"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
@@ -1434,536 +1436,18 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78777b647d412635E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !8, !align !298, !noundef !8
-  %.val = load i8, ptr %3, align 1, !range !299, !noundef !8
-  switch i8 %.val, label %default.unreachable [
-    i8 0, label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-    i8 1, label %4
-    i8 2, label %5
-    i8 3, label %6
-    i8 4, label %7
-    i8 5, label %8
-    i8 6, label %9
-    i8 7, label %10
-    i8 8, label %11
-    i8 9, label %12
-    i8 10, label %13
-    i8 11, label %14
-    i8 12, label %15
-    i8 13, label %16
-    i8 14, label %17
-    i8 15, label %18
-    i8 16, label %19
-    i8 17, label %20
-    i8 18, label %21
-    i8 19, label %22
-    i8 20, label %23
-    i8 21, label %24
-    i8 22, label %25
-    i8 23, label %26
-    i8 24, label %27
-    i8 25, label %28
-    i8 26, label %29
-    i8 27, label %30
-    i8 28, label %31
-    i8 29, label %32
-    i8 30, label %33
-    i8 31, label %34
-    i8 32, label %35
-    i8 33, label %36
-    i8 34, label %37
-    i8 35, label %38
-    i8 36, label %39
-    i8 37, label %40
-    i8 38, label %41
-    i8 39, label %42
-    i8 40, label %43
-    i8 41, label %44
-    i8 42, label %45
-    i8 43, label %46
-    i8 44, label %47
-    i8 45, label %48
-    i8 46, label %49
-    i8 47, label %50
-    i8 48, label %51
-    i8 49, label %52
-    i8 50, label %53
-    i8 51, label %54
-    i8 52, label %55
-    i8 53, label %56
-    i8 54, label %57
-    i8 55, label %58
-    i8 56, label %59
-    i8 57, label %60
-    i8 58, label %61
-    i8 59, label %62
-    i8 60, label %63
-    i8 61, label %64
-    i8 62, label %65
-    i8 63, label %66
-    i8 64, label %67
-    i8 65, label %68
-    i8 66, label %69
-    i8 67, label %70
-    i8 68, label %71
-    i8 69, label %72
-    i8 70, label %73
-    i8 71, label %74
-    i8 72, label %75
-    i8 73, label %76
-    i8 74, label %77
-    i8 75, label %78
-    i8 76, label %79
-    i8 77, label %80
-    i8 78, label %81
-    i8 79, label %82
-    i8 80, label %83
-    i8 81, label %84
-    i8 82, label %85
-    i8 83, label %86
-    i8 84, label %87
-    i8 85, label %88
-    i8 86, label %89
-    i8 87, label %90
-    i8 88, label %91
-    i8 89, label %92
-    i8 90, label %93
-    i8 91, label %94
-    i8 92, label %95
-    i8 93, label %96
-    i8 94, label %97
-    i8 95, label %98
-    i8 96, label %99
-    i8 97, label %100
-    i8 98, label %101
-    i8 99, label %102
-    i8 100, label %103
-    i8 101, label %104
-    i8 102, label %105
-    i8 103, label %106
-    i8 104, label %107
-    i8 105, label %108
-    i8 106, label %109
-    i8 107, label %110
-    i8 108, label %111
-    i8 109, label %112
-    i8 110, label %113
-    i8 111, label %114
-    i8 112, label %115
-    i8 113, label %116
-    i8 114, label %117
-    i8 115, label %118
-    i8 116, label %119
-    i8 117, label %120
-    i8 118, label %121
-    i8 119, label %122
-    i8 120, label %123
-    i8 121, label %124
-    i8 122, label %125
-    i8 123, label %126
-    i8 124, label %127
-    i8 125, label %128
-    i8 126, label %129
-    i8 127, label %130
-    i8 -128, label %131
-    i8 -127, label %132
-  ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
-
-4:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-5:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-6:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-7:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-8:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-9:                                                ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-10:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-11:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-12:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-13:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-14:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-15:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-16:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-17:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-18:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-19:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-20:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-21:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-22:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-23:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-24:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-25:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-26:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-27:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-28:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-29:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-30:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-31:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-32:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-33:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-34:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-35:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-36:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-37:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-38:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-39:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-40:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-41:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-42:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-43:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-44:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-45:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-46:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-47:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-48:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-49:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-50:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-51:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-52:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-53:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-54:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-55:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-56:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-57:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-58:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-59:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-60:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-61:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-62:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-63:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-64:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-65:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-66:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-67:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-68:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-69:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-70:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-71:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-72:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-73:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-74:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-75:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-76:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-77:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-78:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-79:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-80:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-81:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-82:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-83:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-84:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-85:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-86:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-87:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-88:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-89:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-90:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-91:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-92:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-93:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-94:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-95:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-96:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-97:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-98:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-99:                                               ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-100:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-101:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-102:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-103:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-104:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-105:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-106:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-107:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-108:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-109:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-110:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-111:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-112:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-113:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-114:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-115:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-116:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-117:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-118:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-119:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-120:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-121:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-122:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-123:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-124:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-125:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-126:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-127:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-128:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-129:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-130:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-131:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-132:                                              ; preds = %2
-  br label %"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit"
-
-"_ZN65_$LT$hir_def..lang_item..LangItem$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0e0bee7bb043119E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131, %132
-  %.sroa.131.0.i = phi i64 [ 4, %132 ], [ 6, %131 ], [ 7, %130 ], [ 16, %129 ], [ 5, %128 ], [ 17, %127 ], [ 20, %126 ], [ 9, %125 ], [ 9, %124 ], [ 15, %123 ], [ 12, %122 ], [ 16, %121 ], [ 20, %120 ], [ 16, %119 ], [ 19, %118 ], [ 9, %117 ], [ 8, %116 ], [ 10, %115 ], [ 10, %114 ], [ 6, %113 ], [ 10, %112 ], [ 7, %111 ], [ 10, %110 ], [ 8, %109 ], [ 11, %108 ], [ 9, %107 ], [ 4, %106 ], [ 12, %105 ], [ 11, %104 ], [ 16, %103 ], [ 14, %102 ], [ 18, %101 ], [ 20, %100 ], [ 8, %99 ], [ 5, %98 ], [ 3, %97 ], [ 11, %96 ], [ 11, %95 ], [ 11, %94 ], [ 12, %93 ], [ 11, %92 ], [ 8, %91 ], [ 15, %90 ], [ 13, %89 ], [ 5, %88 ], [ 11, %87 ], [ 11, %86 ], [ 7, %85 ], [ 14, %84 ], [ 15, %83 ], [ 17, %82 ], [ 11, %81 ], [ 15, %80 ], [ 14, %79 ], [ 15, %78 ], [ 10, %77 ], [ 17, %76 ], [ 9, %75 ], [ 13, %74 ], [ 9, %73 ], [ 33, %72 ], [ 16, %71 ], [ 13, %70 ], [ 12, %69 ], [ 8, %68 ], [ 13, %67 ], [ 5, %66 ], [ 5, %65 ], [ 10, %64 ], [ 9, %63 ], [ 3, %62 ], [ 5, %61 ], [ 9, %60 ], [ 14, %59 ], [ 6, %58 ], [ 12, %57 ], [ 6, %56 ], [ 5, %55 ], [ 2, %54 ], [ 8, %53 ], [ 11, %52 ], [ 8, %51 ], [ 5, %50 ], [ 6, %49 ], [ 10, %48 ], [ 8, %47 ], [ 5, %46 ], [ 9, %45 ], [ 9, %44 ], [ 11, %43 ], [ 12, %42 ], [ 12, %41 ], [ 9, %40 ], [ 9, %39 ], [ 9, %38 ], [ 9, %37 ], [ 9, %36 ], [ 3, %35 ], [ 3, %34 ], [ 5, %33 ], [ 6, %32 ], [ 6, %31 ], [ 3, %30 ], [ 3, %29 ], [ 3, %28 ], [ 3, %27 ], [ 3, %26 ], [ 3, %25 ], [ 3, %24 ], [ 14, %23 ], [ 13, %22 ], [ 15, %21 ], [ 13, %20 ], [ 8, %19 ], [ 4, %18 ], [ 9, %17 ], [ 10, %16 ], [ 6, %15 ], [ 11, %14 ], [ 8, %13 ], [ 12, %12 ], [ 12, %11 ], [ 16, %10 ], [ 4, %9 ], [ 5, %8 ], [ 4, %7 ], [ 13, %6 ], [ 13, %5 ], [ 6, %4 ], [ 5, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.4403288d20c13f5dd705abcb94830296.226, %132 ], [ @anon.4403288d20c13f5dd705abcb94830296.225, %131 ], [ @anon.4403288d20c13f5dd705abcb94830296.224, %130 ], [ @anon.4403288d20c13f5dd705abcb94830296.223, %129 ], [ @anon.4403288d20c13f5dd705abcb94830296.222, %128 ], [ @anon.4403288d20c13f5dd705abcb94830296.221, %127 ], [ @anon.4403288d20c13f5dd705abcb94830296.220, %126 ], [ @anon.4403288d20c13f5dd705abcb94830296.219, %125 ], [ @anon.4403288d20c13f5dd705abcb94830296.218, %124 ], [ @anon.4403288d20c13f5dd705abcb94830296.217, %123 ], [ @anon.4403288d20c13f5dd705abcb94830296.216, %122 ], [ @anon.4403288d20c13f5dd705abcb94830296.215, %121 ], [ @anon.4403288d20c13f5dd705abcb94830296.214, %120 ], [ @anon.4403288d20c13f5dd705abcb94830296.213, %119 ], [ @anon.4403288d20c13f5dd705abcb94830296.212, %118 ], [ @anon.4403288d20c13f5dd705abcb94830296.211, %117 ], [ @anon.4403288d20c13f5dd705abcb94830296.210, %116 ], [ @anon.4403288d20c13f5dd705abcb94830296.209, %115 ], [ @anon.4403288d20c13f5dd705abcb94830296.208, %114 ], [ @anon.4403288d20c13f5dd705abcb94830296.207, %113 ], [ @anon.4403288d20c13f5dd705abcb94830296.206, %112 ], [ @anon.4403288d20c13f5dd705abcb94830296.205, %111 ], [ @anon.4403288d20c13f5dd705abcb94830296.204, %110 ], [ @anon.4403288d20c13f5dd705abcb94830296.203, %109 ], [ @anon.4403288d20c13f5dd705abcb94830296.202, %108 ], [ @anon.4403288d20c13f5dd705abcb94830296.201, %107 ], [ @anon.4403288d20c13f5dd705abcb94830296.200, %106 ], [ @anon.4403288d20c13f5dd705abcb94830296.199, %105 ], [ @anon.4403288d20c13f5dd705abcb94830296.198, %104 ], [ @anon.4403288d20c13f5dd705abcb94830296.197, %103 ], [ @anon.4403288d20c13f5dd705abcb94830296.196, %102 ], [ @anon.4403288d20c13f5dd705abcb94830296.195, %101 ], [ @anon.4403288d20c13f5dd705abcb94830296.194, %100 ], [ @anon.4403288d20c13f5dd705abcb94830296.193, %99 ], [ @anon.4403288d20c13f5dd705abcb94830296.192, %98 ], [ @anon.4403288d20c13f5dd705abcb94830296.191, %97 ], [ @anon.4403288d20c13f5dd705abcb94830296.190, %96 ], [ @anon.4403288d20c13f5dd705abcb94830296.189, %95 ], [ @anon.4403288d20c13f5dd705abcb94830296.188, %94 ], [ @anon.4403288d20c13f5dd705abcb94830296.187, %93 ], [ @anon.4403288d20c13f5dd705abcb94830296.186, %92 ], [ @anon.4403288d20c13f5dd705abcb94830296.185, %91 ], [ @anon.4403288d20c13f5dd705abcb94830296.184, %90 ], [ @anon.4403288d20c13f5dd705abcb94830296.183, %89 ], [ @anon.4403288d20c13f5dd705abcb94830296.182, %88 ], [ @anon.4403288d20c13f5dd705abcb94830296.181, %87 ], [ @anon.4403288d20c13f5dd705abcb94830296.180, %86 ], [ @anon.4403288d20c13f5dd705abcb94830296.179, %85 ], [ @anon.4403288d20c13f5dd705abcb94830296.178, %84 ], [ @anon.4403288d20c13f5dd705abcb94830296.177, %83 ], [ @anon.4403288d20c13f5dd705abcb94830296.176, %82 ], [ @anon.4403288d20c13f5dd705abcb94830296.175, %81 ], [ @anon.4403288d20c13f5dd705abcb94830296.174, %80 ], [ @anon.4403288d20c13f5dd705abcb94830296.173, %79 ], [ @anon.4403288d20c13f5dd705abcb94830296.172, %78 ], [ @anon.4403288d20c13f5dd705abcb94830296.171, %77 ], [ @anon.4403288d20c13f5dd705abcb94830296.170, %76 ], [ @anon.4403288d20c13f5dd705abcb94830296.169, %75 ], [ @anon.4403288d20c13f5dd705abcb94830296.168, %74 ], [ @anon.4403288d20c13f5dd705abcb94830296.167, %73 ], [ @anon.4403288d20c13f5dd705abcb94830296.166, %72 ], [ @anon.4403288d20c13f5dd705abcb94830296.165, %71 ], [ @anon.4403288d20c13f5dd705abcb94830296.164, %70 ], [ @anon.4403288d20c13f5dd705abcb94830296.163, %69 ], [ @anon.4403288d20c13f5dd705abcb94830296.162, %68 ], [ @anon.4403288d20c13f5dd705abcb94830296.161, %67 ], [ @anon.4403288d20c13f5dd705abcb94830296.160, %66 ], [ @anon.4403288d20c13f5dd705abcb94830296.159, %65 ], [ @anon.4403288d20c13f5dd705abcb94830296.158, %64 ], [ @anon.4403288d20c13f5dd705abcb94830296.157, %63 ], [ @anon.4403288d20c13f5dd705abcb94830296.156, %62 ], [ @anon.4403288d20c13f5dd705abcb94830296.155, %61 ], [ @anon.4403288d20c13f5dd705abcb94830296.154, %60 ], [ @anon.4403288d20c13f5dd705abcb94830296.153, %59 ], [ @anon.4403288d20c13f5dd705abcb94830296.152, %58 ], [ @anon.4403288d20c13f5dd705abcb94830296.151, %57 ], [ @anon.4403288d20c13f5dd705abcb94830296.150, %56 ], [ @anon.4403288d20c13f5dd705abcb94830296.149, %55 ], [ @anon.4403288d20c13f5dd705abcb94830296.148, %54 ], [ @anon.4403288d20c13f5dd705abcb94830296.147, %53 ], [ @anon.4403288d20c13f5dd705abcb94830296.146, %52 ], [ @anon.4403288d20c13f5dd705abcb94830296.145, %51 ], [ @anon.4403288d20c13f5dd705abcb94830296.144, %50 ], [ @anon.4403288d20c13f5dd705abcb94830296.143, %49 ], [ @anon.4403288d20c13f5dd705abcb94830296.142, %48 ], [ @anon.4403288d20c13f5dd705abcb94830296.141, %47 ], [ @anon.4403288d20c13f5dd705abcb94830296.140, %46 ], [ @anon.4403288d20c13f5dd705abcb94830296.139, %45 ], [ @anon.4403288d20c13f5dd705abcb94830296.138, %44 ], [ @anon.4403288d20c13f5dd705abcb94830296.137, %43 ], [ @anon.4403288d20c13f5dd705abcb94830296.136, %42 ], [ @anon.4403288d20c13f5dd705abcb94830296.135, %41 ], [ @anon.4403288d20c13f5dd705abcb94830296.134, %40 ], [ @anon.4403288d20c13f5dd705abcb94830296.133, %39 ], [ @anon.4403288d20c13f5dd705abcb94830296.132, %38 ], [ @anon.4403288d20c13f5dd705abcb94830296.131, %37 ], [ @anon.4403288d20c13f5dd705abcb94830296.130, %36 ], [ @anon.4403288d20c13f5dd705abcb94830296.129, %35 ], [ @anon.4403288d20c13f5dd705abcb94830296.128, %34 ], [ @anon.4403288d20c13f5dd705abcb94830296.127, %33 ], [ @anon.4403288d20c13f5dd705abcb94830296.126, %32 ], [ @anon.4403288d20c13f5dd705abcb94830296.125, %31 ], [ @anon.4403288d20c13f5dd705abcb94830296.124, %30 ], [ @anon.4403288d20c13f5dd705abcb94830296.123, %29 ], [ @anon.4403288d20c13f5dd705abcb94830296.122, %28 ], [ @anon.4403288d20c13f5dd705abcb94830296.121, %27 ], [ @anon.4403288d20c13f5dd705abcb94830296.120, %26 ], [ @anon.4403288d20c13f5dd705abcb94830296.119, %25 ], [ @anon.4403288d20c13f5dd705abcb94830296.118, %24 ], [ @anon.4403288d20c13f5dd705abcb94830296.117, %23 ], [ @anon.4403288d20c13f5dd705abcb94830296.116, %22 ], [ @anon.4403288d20c13f5dd705abcb94830296.115, %21 ], [ @anon.4403288d20c13f5dd705abcb94830296.114, %20 ], [ @anon.4403288d20c13f5dd705abcb94830296.113, %19 ], [ @anon.4403288d20c13f5dd705abcb94830296.112, %18 ], [ @anon.4403288d20c13f5dd705abcb94830296.111, %17 ], [ @anon.4403288d20c13f5dd705abcb94830296.110, %16 ], [ @anon.4403288d20c13f5dd705abcb94830296.109, %15 ], [ @anon.4403288d20c13f5dd705abcb94830296.108, %14 ], [ @anon.4403288d20c13f5dd705abcb94830296.107, %13 ], [ @anon.4403288d20c13f5dd705abcb94830296.106, %12 ], [ @anon.4403288d20c13f5dd705abcb94830296.105, %11 ], [ @anon.4403288d20c13f5dd705abcb94830296.104, %10 ], [ @anon.4403288d20c13f5dd705abcb94830296.103, %9 ], [ @anon.4403288d20c13f5dd705abcb94830296.102, %8 ], [ @anon.4403288d20c13f5dd705abcb94830296.101, %7 ], [ @anon.4403288d20c13f5dd705abcb94830296.100, %6 ], [ @anon.4403288d20c13f5dd705abcb94830296.99, %5 ], [ @anon.4403288d20c13f5dd705abcb94830296.98, %4 ], [ @anon.4403288d20c13f5dd705abcb94830296.97, %2 ]
-  %133 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.131.0.i)
-  ret i1 %133
+switch.lookup:
+  %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !298, !noundef !8
+  %.val = load i8, ptr %2, align 1, !range !299, !noundef !8
+  %switch.tableidx = xor i8 %.val, -128
+  %3 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78777b647d412635E", i64 0, i64 %3
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78777b647d412635E.220", i64 0, i64 %4
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31067,25 +30551,25 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds [29 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE", i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = sext i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds [29 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.220", i64 0, i64 %20
+  %switch.gep1 = getelementptr inbounds [29 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.221", i64 0, i64 %20
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
 switch.lookup3:                                   ; preds = %2
   %21 = sext i8 %5 to i64
-  %switch.gep4 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.221", i64 0, i64 %21
+  %switch.gep4 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.222", i64 0, i64 %21
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   %22 = sext i8 %5 to i64
-  %switch.gep6 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.222", i64 0, i64 %22
+  %switch.gep6 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.223", i64 0, i64 %22
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
 switch.lookup8:                                   ; preds = %2
   %23 = sext i8 %5 to i64
-  %switch.gep9 = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.223", i64 0, i64 %23
+  %switch.gep9 = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.224", i64 0, i64 %23
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   %24 = sext i8 %5 to i64
-  %switch.gep11 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.224", i64 0, i64 %24
+  %switch.gep11 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.225", i64 0, i64 %24
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
@@ -31113,7 +30597,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [22 x ptr], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.226", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.227", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %5
@@ -31160,7 +30644,7 @@ switch.lookup:                                    ; preds = %_ZN4core4iter6trait
   %switch.gep = getelementptr inbounds [22 x ptr], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E", i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i8 %.val6.i to i64
-  %switch.gep31 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.226", i64 0, i64 %15
+  %switch.gep31 = getelementptr inbounds [22 x i64], ptr @"switch.table._ZN80_$LT$ide..syntax_highlighting..tags..Highlight$u20$as$u20$core..fmt..Display$GT$3fmt17h39028996b9a74b63E.227", i64 0, i64 %15
   %switch.load32 = load i64, ptr %switch.gep31, align 8
   %16 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load32, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !7557
   br i1 %16, label %.loopexit, label %.backedge

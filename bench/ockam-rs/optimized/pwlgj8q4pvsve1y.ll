@@ -17678,16 +17678,16 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   store i8 2, ptr %0, align 8
   br label %common.ret
 
-770:                                              ; preds = %switch.hole_check, %766
+770:                                              ; preds = %switch.lookup, %766
   %771 = landingpad { ptr, i32 }
           cleanup
   br label %471
 
 772:                                              ; preds = %766
   %773 = icmp eq i64 %.sroa.029.0.i94.i.i, 2
-  br i1 %773, label %switch.hole_check, label %779
+  br i1 %773, label %switch.lookup, label %779
 
-switch.hole_check:                                ; preds = %772
+switch.lookup:                                    ; preds = %772
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %96), !noalias !2321
   store i64 %.sroa.330.0.i93.i.i, ptr %96, align 8, !noalias !2325
   %.sroa.7446.8..sroa_idx = getelementptr inbounds i8, ptr %96, i64 8
@@ -17725,10 +17725,6 @@ switch.hole_check:                                ; preds = %772
   %774 = add nsw i64 %.sroa.330.0.i93.i.i, -3
   %775 = icmp ult i64 %774, 12
   %776 = select i1 %775, i64 %774, i64 10
-  %switch.maskindex = trunc i64 %776 to i16
-  %switch.shifted = lshr i16 4087, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE", i64 0, i64 %776
   %switch.load = load i8, ptr %switch.gep, align 1
   %switch.gep730 = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49", i64 0, i64 %776
@@ -17736,7 +17732,7 @@ switch.hole_check:                                ; preds = %772
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %96)
           to label %777 unwind label %770
 
-777:                                              ; preds = %switch.hole_check
+777:                                              ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %96), !noalias !2321
   %778 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h42c56356042333a3E.llvm.10085540174115877777(i8 noundef 3, i8 noundef %switch.load, i8 noundef %switch.load731, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6fbd00d737ef92c21e315129d89735c1.190)
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hf6ae8f12f76900e0E.exit" unwind label %877

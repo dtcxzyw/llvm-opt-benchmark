@@ -364,6 +364,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.295 = private unnamed_addr constant [83 x i8] c"Using ${expr} (variable variables) in strings is deprecated, use {${expr}} instead\00", align 1
 @.str.297 = private unnamed_addr constant [51 x i8] c"Match expressions may only contain one default arm\00", align 1
 @switch.table.zend_modifier_token_to_flag = private unnamed_addr constant [3 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3], align 8
+@switch.table.zend_compile_use.26 = private unnamed_addr constant [4 x ptr] [ptr @.str.136, ptr @.str.272, ptr @.str.136, ptr @.str.273], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_assert_valid_class_name(ptr noundef %0) local_unnamed_addr #0 {
@@ -20329,8 +20330,8 @@ zend_get_import_ht.exit:                          ; preds = %6, %10, %14, %.sink
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   br label %28
 
-28:                                               ; preds = %.lr.ph, %205
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %205 ]
+28:                                               ; preds = %.lr.ph, %196
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
   %29 = getelementptr inbounds [1 x ptr], ptr %22, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
@@ -20475,7 +20476,7 @@ zend_get_unqualified_name.exit:                   ; preds = %50
 
 zend_is_reserved_class_name.exit:                 ; preds = %105, %82, %78, %85
   %.0213249 = phi ptr [ %86, %85 ], [ %.0214, %78 ], [ %.0214, %82 ], [ %86, %105 ]
-  br i1 %.not222, label %149, label %110
+  br i1 %.not222, label %146, label %110
 
 110:                                              ; preds = %zend_is_reserved_class_name.exit
   %111 = load i64, ptr %24, align 8
@@ -20520,183 +20521,144 @@ zend_have_seen_symbol.exit:                       ; preds = %110
   %137 = load i64, ptr %136, align 8
   %138 = load i64, ptr %121, align 8
   %139 = icmp eq i64 %137, %138
-  br i1 %139, label %140, label %143
+  br i1 %139, label %140, label %switch.lookup
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds i8, ptr %38, i64 24
   %142 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %141, i64 noundef %137, ptr noundef nonnull %122, i64 noundef %137) #28
   %.not.i233 = icmp eq i32 %142, 0
-  br i1 %.not.i233, label %zend_check_already_in_use.exit, label %143
+  br i1 %.not.i233, label %zend_check_already_in_use.exit, label %switch.lookup
 
-143:                                              ; preds = %140, %135
-  switch i16 %5, label %146 [
-    i16 1, label %zend_get_use_type_str.exit.i
-    i16 2, label %144
-    i16 4, label %145
-  ]
-
-144:                                              ; preds = %143
-  br label %zend_get_use_type_str.exit.i
-
-145:                                              ; preds = %143
-  br label %zend_get_use_type_str.exit.i
-
-146:                                              ; preds = %143
-  unreachable
-
-zend_get_use_type_str.exit.i:                     ; preds = %145, %144, %143
-  %.0.i.i = phi ptr [ @.str.273, %145 ], [ @.str.272, %144 ], [ @.str.136, %143 ]
-  %147 = getelementptr inbounds i8, ptr %38, i64 24
-  %148 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %147, ptr noundef nonnull %148) #29
+switch.lookup:                                    ; preds = %140, %135
+  %switch.tableidx = add nsw i16 %5, -1
+  %143 = sext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %143
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %144 = getelementptr inbounds i8, ptr %38, i64 24
+  %145 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load, ptr noundef nonnull %144, ptr noundef nonnull %145) #29
   unreachable
 
 zend_check_already_in_use.exit:                   ; preds = %110, %140, %zend_have_seen_symbol.exit
   call void @_efree(ptr noundef nonnull %118) #28
   br label %zend_check_already_in_use.exit239
 
-149:                                              ; preds = %zend_is_reserved_class_name.exit
-  %150 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 280), ptr noundef %.0213249) #28
-  %.not.i234 = icmp eq ptr %150, null
+146:                                              ; preds = %zend_is_reserved_class_name.exit
+  %147 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 280), ptr noundef %.0213249) #28
+  %.not.i234 = icmp eq ptr %147, null
   br i1 %.not.i234, label %zend_check_already_in_use.exit239, label %zend_have_seen_symbol.exit235
 
-zend_have_seen_symbol.exit235:                    ; preds = %149
-  %151 = load i64, ptr %150, align 8
-  %152 = and i64 %151, %26
-  %.not252 = icmp eq i64 %152, 0
-  br i1 %.not252, label %zend_check_already_in_use.exit239, label %153
+zend_have_seen_symbol.exit235:                    ; preds = %146
+  %148 = load i64, ptr %147, align 8
+  %149 = and i64 %148, %26
+  %.not252 = icmp eq i64 %149, 0
+  br i1 %.not252, label %zend_check_already_in_use.exit239, label %150
 
-153:                                              ; preds = %zend_have_seen_symbol.exit235
-  %154 = getelementptr inbounds i8, ptr %38, i64 16
-  %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %.0213249, i64 16
-  %157 = load i64, ptr %156, align 8
-  %158 = icmp eq i64 %155, %157
-  br i1 %158, label %159, label %163
+150:                                              ; preds = %zend_have_seen_symbol.exit235
+  %151 = getelementptr inbounds i8, ptr %38, i64 16
+  %152 = load i64, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %.0213249, i64 16
+  %154 = load i64, ptr %153, align 8
+  %155 = icmp eq i64 %152, %154
+  br i1 %155, label %156, label %switch.lookup300
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %38, i64 24
-  %161 = getelementptr inbounds i8, ptr %.0213249, i64 24
-  %162 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %160, i64 noundef %155, ptr noundef nonnull %161, i64 noundef %155) #28
-  %.not.i238 = icmp eq i32 %162, 0
-  br i1 %.not.i238, label %zend_check_already_in_use.exit239, label %163
+156:                                              ; preds = %150
+  %157 = getelementptr inbounds i8, ptr %38, i64 24
+  %158 = getelementptr inbounds i8, ptr %.0213249, i64 24
+  %159 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %157, i64 noundef %152, ptr noundef nonnull %158, i64 noundef %152) #28
+  %.not.i238 = icmp eq i32 %159, 0
+  br i1 %.not.i238, label %zend_check_already_in_use.exit239, label %switch.lookup300
 
-163:                                              ; preds = %159, %153
-  switch i16 %5, label %166 [
-    i16 1, label %zend_get_use_type_str.exit.i236
-    i16 2, label %164
-    i16 4, label %165
-  ]
-
-164:                                              ; preds = %163
-  br label %zend_get_use_type_str.exit.i236
-
-165:                                              ; preds = %163
-  br label %zend_get_use_type_str.exit.i236
-
-166:                                              ; preds = %163
+switch.lookup300:                                 ; preds = %156, %150
+  %switch.tableidx301 = add nsw i16 %5, -1
+  %160 = sext i16 %switch.tableidx301 to i64
+  %switch.gep302 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %160
+  %switch.load303 = load ptr, ptr %switch.gep302, align 8
+  %161 = getelementptr inbounds i8, ptr %38, i64 24
+  %162 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load303, ptr noundef nonnull %161, ptr noundef nonnull %162) #29
   unreachable
 
-zend_get_use_type_str.exit.i236:                  ; preds = %165, %164, %163
-  %.0.i.i237 = phi ptr [ @.str.273, %165 ], [ @.str.272, %164 ], [ @.str.136, %163 ]
-  %167 = getelementptr inbounds i8, ptr %38, i64 24
-  %168 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i.i237, ptr noundef nonnull %167, ptr noundef nonnull %168) #29
-  unreachable
+zend_check_already_in_use.exit239:                ; preds = %146, %156, %zend_have_seen_symbol.exit235, %zend_check_already_in_use.exit
+  %163 = getelementptr inbounds i8, ptr %38, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = and i32 %164, 64
+  %.not226 = icmp eq i32 %165, 0
+  br i1 %.not226, label %166, label %169
 
-zend_check_already_in_use.exit239:                ; preds = %149, %159, %zend_have_seen_symbol.exit235, %zend_check_already_in_use.exit
-  %169 = getelementptr inbounds i8, ptr %38, i64 4
-  %170 = load i32, ptr %169, align 4
-  %171 = and i32 %170, 64
-  %.not226 = icmp eq i32 %171, 0
-  br i1 %.not226, label %172, label %175
+166:                                              ; preds = %zend_check_already_in_use.exit239
+  %167 = load i32, ptr %38, align 4
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %38, align 4
+  br label %169
 
-172:                                              ; preds = %zend_check_already_in_use.exit239
-  %173 = load i32, ptr %38, align 4
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %38, align 4
-  br label %175
-
-175:                                              ; preds = %zend_check_already_in_use.exit239, %172
-  %176 = load ptr, ptr @zend_new_interned_string, align 8
-  %177 = call ptr %176(ptr noundef nonnull %38) #28
-  store ptr %177, ptr %2, align 8
+169:                                              ; preds = %zend_check_already_in_use.exit239, %166
+  %170 = load ptr, ptr @zend_new_interned_string, align 8
+  %171 = call ptr %170(ptr noundef nonnull %38) #28
+  store ptr %171, ptr %2, align 8
   store i32 13, ptr %27, align 8
-  %178 = call ptr @zend_hash_add(ptr noundef %.0.i, ptr noundef %.0213249, ptr noundef nonnull %2) #28
-  %.not227 = icmp eq ptr %178, null
-  br i1 %.not227, label %179, label %185
+  %172 = call ptr @zend_hash_add(ptr noundef %.0.i, ptr noundef %.0213249, ptr noundef nonnull %2) #28
+  %.not227 = icmp eq ptr %172, null
+  br i1 %.not227, label %switch.lookup304, label %176
 
-179:                                              ; preds = %175
-  switch i16 %5, label %182 [
-    i16 1, label %zend_get_use_type_str.exit
-    i16 2, label %180
-    i16 4, label %181
-  ]
-
-180:                                              ; preds = %179
-  br label %zend_get_use_type_str.exit
-
-181:                                              ; preds = %179
-  br label %zend_get_use_type_str.exit
-
-182:                                              ; preds = %179
+switch.lookup304:                                 ; preds = %169
+  %switch.tableidx305 = add nsw i16 %5, -1
+  %173 = sext i16 %switch.tableidx305 to i64
+  %switch.gep306 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %173
+  %switch.load307 = load ptr, ptr %switch.gep306, align 8
+  %174 = getelementptr inbounds i8, ptr %171, i64 24
+  %175 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load307, ptr noundef nonnull %174, ptr noundef nonnull %175) #29
   unreachable
 
-zend_get_use_type_str.exit:                       ; preds = %179, %180, %181
-  %.0.i240 = phi ptr [ @.str.273, %181 ], [ @.str.272, %180 ], [ @.str.136, %179 ]
-  %183 = getelementptr inbounds i8, ptr %177, i64 24
-  %184 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i240, ptr noundef nonnull %183, ptr noundef nonnull %184) #29
-  unreachable
+176:                                              ; preds = %169
+  %177 = getelementptr inbounds i8, ptr %.0213249, i64 4
+  %178 = load i32, ptr %177, align 4
+  %179 = and i32 %178, 64
+  %.not229 = icmp eq i32 %179, 0
+  br i1 %.not229, label %180, label %186
 
-185:                                              ; preds = %175
-  %186 = getelementptr inbounds i8, ptr %.0213249, i64 4
-  %187 = load i32, ptr %186, align 4
-  %188 = and i32 %187, 64
-  %.not229 = icmp eq i32 %188, 0
-  br i1 %.not229, label %189, label %195
+180:                                              ; preds = %176
+  %181 = load i32, ptr %.0213249, align 4
+  %182 = icmp ne i32 %181, 0
+  call void @llvm.assume(i1 %182)
+  %183 = add i32 %181, -1
+  store i32 %183, ptr %.0213249, align 4
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %186
 
-189:                                              ; preds = %185
-  %190 = load i32, ptr %.0213249, align 4
-  %191 = icmp ne i32 %190, 0
-  call void @llvm.assume(i1 %191)
-  %192 = add i32 %190, -1
-  store i32 %192, ptr %.0213249, align 4
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %195
-
-194:                                              ; preds = %189
+185:                                              ; preds = %180
   call void @_efree(ptr noundef nonnull %.0213249) #28
-  br label %195
+  br label %186
 
-195:                                              ; preds = %189, %194, %185
-  %196 = getelementptr inbounds i8, ptr %.0214, i64 4
-  %197 = load i32, ptr %196, align 4
-  %198 = and i32 %197, 64
-  %.not230 = icmp eq i32 %198, 0
-  br i1 %.not230, label %199, label %205
+186:                                              ; preds = %180, %185, %176
+  %187 = getelementptr inbounds i8, ptr %.0214, i64 4
+  %188 = load i32, ptr %187, align 4
+  %189 = and i32 %188, 64
+  %.not230 = icmp eq i32 %189, 0
+  br i1 %.not230, label %190, label %196
 
-199:                                              ; preds = %195
-  %200 = load i32, ptr %.0214, align 4
-  %201 = icmp ne i32 %200, 0
-  call void @llvm.assume(i1 %201)
-  %202 = add i32 %200, -1
-  store i32 %202, ptr %.0214, align 4
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %205
+190:                                              ; preds = %186
+  %191 = load i32, ptr %.0214, align 4
+  %192 = icmp ne i32 %191, 0
+  call void @llvm.assume(i1 %192)
+  %193 = add i32 %191, -1
+  store i32 %193, ptr %.0214, align 4
+  %194 = icmp eq i32 %193, 0
+  br i1 %194, label %195, label %196
 
-204:                                              ; preds = %199
+195:                                              ; preds = %190
   call void @_efree(ptr noundef nonnull %.0214) #28
-  br label %205
+  br label %196
 
-205:                                              ; preds = %195, %204, %199
+196:                                              ; preds = %186, %195, %190
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %206 = load i32, ptr %20, align 8
-  %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next, %207
-  br i1 %208, label %28, label %._crit_edge
+  %197 = load i32, ptr %20, align 8
+  %198 = zext i32 %197 to i64
+  %199 = icmp ult i64 %indvars.iv.next, %198
+  br i1 %199, label %28, label %._crit_edge
 
-._crit_edge:                                      ; preds = %205, %zend_get_import_ht.exit
+._crit_edge:                                      ; preds = %196, %zend_get_import_ht.exit
   ret void
 }
 

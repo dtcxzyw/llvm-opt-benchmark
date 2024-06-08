@@ -5333,7 +5333,7 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
     i16 141, label %737
     i16 143, label %738
     i16 0, label %switch.lookup
-    i16 1, label %switch.hole_check
+    i16 1, label %switch.lookup7081
     i16 256, label %792
     i16 257, label %809
     i16 258, label %812
@@ -5341,13 +5341,13 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
     i16 260, label %.loopexit5865
     i16 261, label %828
     i16 262, label %.loopexit5585.loopexit
-    i16 263, label %.loopexit5585.loopexit7094
+    i16 263, label %.loopexit5585.loopexit7093
     i16 264, label %.loopexit6536
     i16 265, label %838
     i16 266, label %.loopexit6814
     i16 267, label %877
-    i16 268, label %.loopexit7095
-    i16 269, label %switch.lookup7086
+    i16 268, label %.loopexit7094
+    i16 269, label %switch.lookup7085
     i16 270, label %884
     i16 271, label %2916
     i16 272, label %887
@@ -5374,11 +5374,11 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
     i16 276, label %1087
     i16 518, label %.loopexit5588
     i16 519, label %.loopexit5868
-    i16 520, label %switch.lookup7089
+    i16 520, label %switch.lookup7088
     i16 531, label %.loopexit6538
     i16 521, label %1142
     i16 522, label %.loopexit6816
-    i16 523, label %.loopexit7096
+    i16 523, label %.loopexit7095
     i16 524, label %2864
     i16 525, label %1165
     i16 526, label %1166
@@ -7094,16 +7094,13 @@ switch.lookup:                                    ; preds = %6
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.zend_ast_export_ex, i64 0, i64 %787
   br label %.loopexit5587.sink.split
 
-switch.hole_check:                                ; preds = %6
+switch.lookup7081:                                ; preds = %6
   %788 = getelementptr inbounds i8, ptr %.044595853, i64 2
   %789 = load i16, ptr %788, align 2
   %790 = and i16 %789, -257
   %switch.tableidx7082 = add nsw i16 %790, -7
-  %switch.shifted = lshr i16 801, %switch.tableidx7082
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %791 = sext i16 %switch.tableidx7082 to i64
-  %switch.gep7084 = getelementptr inbounds [10 x ptr], ptr @switch.table.zend_ast_export_ex.2, i64 0, i64 %791
+  %switch.gep7083 = getelementptr inbounds [10 x ptr], ptr @switch.table.zend_ast_export_ex.2, i64 0, i64 %791
   br label %.loopexit5587.sink.split
 
 792:                                              ; preds = %6
@@ -7304,13 +7301,13 @@ switch.hole_check:                                ; preds = %6
   %.not5412 = icmp eq ptr %879, null
   br i1 %.not5412, label %.loopexit5587, label %.loopexit5585
 
-switch.lookup7086:                                ; preds = %6
+switch.lookup7085:                                ; preds = %6
   %880 = getelementptr inbounds i8, ptr %.044595853, i64 2
   %881 = load i16, ptr %880, align 2
   %882 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %881, i1 true)
   %883 = zext nneg i16 %882 to i64
-  %switch.gep7087 = getelementptr inbounds [5 x ptr], ptr @switch.table.zend_ast_export_ex.3, i64 0, i64 %883
-  %switch.load7088 = load ptr, ptr %switch.gep7087, align 8
+  %switch.gep7086 = getelementptr inbounds [5 x ptr], ptr @switch.table.zend_ast_export_ex.3, i64 0, i64 %883
+  %switch.load7087 = load ptr, ptr %switch.gep7086, align 8
   br label %.loopexit5585
 
 884:                                              ; preds = %6
@@ -7844,13 +7841,13 @@ switch.lookup7086:                                ; preds = %6
   store i64 %.14654, ptr %1138, align 8
   br label %zend_ast_export_list.exit
 
-switch.lookup7089:                                ; preds = %6
+switch.lookup7088:                                ; preds = %6
   %1139 = getelementptr inbounds i8, ptr %.044595853, i64 2
   %1140 = load i16, ptr %1139, align 2
-  %switch.tableidx7090 = add nsw i16 %1140, -1
-  %1141 = sext i16 %switch.tableidx7090 to i64
-  %switch.gep7091 = getelementptr inbounds [12 x ptr], ptr @switch.table.zend_ast_export_ex.4, i64 0, i64 %1141
-  %switch.load7092 = load ptr, ptr %switch.gep7091, align 8
+  %switch.tableidx7089 = add nsw i16 %1140, -1
+  %1141 = sext i16 %switch.tableidx7089 to i64
+  %switch.gep7090 = getelementptr inbounds [12 x ptr], ptr @switch.table.zend_ast_export_ex.4, i64 0, i64 %1141
+  %switch.load7091 = load ptr, ptr %switch.gep7090, align 8
   br label %2864
 
 1142:                                             ; preds = %6
@@ -11491,14 +11488,14 @@ switch.lookup7089:                                ; preds = %6
 .loopexit6816:                                    ; preds = %6
   br label %2864
 
-.loopexit7096:                                    ; preds = %6
+.loopexit7095:                                    ; preds = %6
   br label %2864
 
-2864:                                             ; preds = %6, %.loopexit7096, %switch.lookup7089, %.loopexit6816, %.loopexit6538, %.loopexit5868, %.loopexit5588, %1142, %1402, %1165, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145
-  %.04451 = phi i32 [ 110, %1402 ], [ 120, %1165 ], [ 180, %1163 ], [ 40, %1162 ], [ 250, %1161 ], [ 180, %1160 ], [ 180, %1159 ], [ 170, %1158 ], [ 170, %1157 ], [ 170, %1156 ], [ 170, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 180, %.loopexit6816 ], [ 90, %switch.lookup7089 ], [ 180, %.loopexit7096 ], [ 130, %6 ]
-  %.04448 = phi i32 [ 111, %1402 ], [ 120, %1165 ], [ 181, %1163 ], [ 40, %1162 ], [ 251, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 91, %.loopexit5588 ], [ 91, %.loopexit5868 ], [ 91, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 91, %switch.lookup7089 ], [ 181, %.loopexit7096 ], [ 130, %6 ]
-  %.04447 = phi i32 [ 110, %1402 ], [ 121, %1165 ], [ 181, %1163 ], [ 41, %1162 ], [ 250, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 151, %1154 ], [ 161, %1153 ], [ 141, %1152 ], [ 186, %1151 ], [ 191, %1150 ], [ 191, %1149 ], [ 211, %1148 ], [ 211, %1147 ], [ 211, %1146 ], [ 201, %1145 ], [ 201, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 90, %switch.lookup7089 ], [ 181, %.loopexit7096 ], [ 131, %6 ]
-  %.04445 = phi ptr [ @.str.124, %1402 ], [ @.str.118, %1165 ], [ @.str.114, %1163 ], [ @.str.113, %1162 ], [ @.str.112, %1161 ], [ @.str.111, %1160 ], [ @.str.110, %1159 ], [ @.str.109, %1158 ], [ @.str.108, %1157 ], [ @.str.107, %1156 ], [ @.str.106, %1155 ], [ @.str.105, %1154 ], [ @.str.104, %1153 ], [ @.str.103, %1152 ], [ @.str.102, %1151 ], [ @.str.101, %1150 ], [ @.str.100, %1149 ], [ @.str.99, %1148 ], [ @.str.98, %1147 ], [ @.str.97, %1146 ], [ @.str.96, %1145 ], [ @.str.95, %1142 ], [ @.str.80, %.loopexit5588 ], [ @.str.81, %.loopexit5868 ], [ @.str.94, %.loopexit6538 ], [ @.str.115, %.loopexit6816 ], [ %switch.load7092, %switch.lookup7089 ], [ @.str.116, %.loopexit7096 ], [ @.str.117, %6 ]
+2864:                                             ; preds = %6, %.loopexit7095, %switch.lookup7088, %.loopexit6816, %.loopexit6538, %.loopexit5868, %.loopexit5588, %1142, %1402, %1165, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145
+  %.04451 = phi i32 [ 110, %1402 ], [ 120, %1165 ], [ 180, %1163 ], [ 40, %1162 ], [ 250, %1161 ], [ 180, %1160 ], [ 180, %1159 ], [ 170, %1158 ], [ 170, %1157 ], [ 170, %1156 ], [ 170, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 180, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 180, %.loopexit7095 ], [ 130, %6 ]
+  %.04448 = phi i32 [ 111, %1402 ], [ 120, %1165 ], [ 181, %1163 ], [ 40, %1162 ], [ 251, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 91, %.loopexit5588 ], [ 91, %.loopexit5868 ], [ 91, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 91, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 130, %6 ]
+  %.04447 = phi i32 [ 110, %1402 ], [ 121, %1165 ], [ 181, %1163 ], [ 41, %1162 ], [ 250, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 151, %1154 ], [ 161, %1153 ], [ 141, %1152 ], [ 186, %1151 ], [ 191, %1150 ], [ 191, %1149 ], [ 211, %1148 ], [ 211, %1147 ], [ 211, %1146 ], [ 201, %1145 ], [ 201, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 131, %6 ]
+  %.04445 = phi ptr [ @.str.124, %1402 ], [ @.str.118, %1165 ], [ @.str.114, %1163 ], [ @.str.113, %1162 ], [ @.str.112, %1161 ], [ @.str.111, %1160 ], [ @.str.110, %1159 ], [ @.str.109, %1158 ], [ @.str.108, %1157 ], [ @.str.107, %1156 ], [ @.str.106, %1155 ], [ @.str.105, %1154 ], [ @.str.104, %1153 ], [ @.str.103, %1152 ], [ @.str.102, %1151 ], [ @.str.101, %1150 ], [ @.str.100, %1149 ], [ @.str.99, %1148 ], [ @.str.98, %1147 ], [ @.str.97, %1146 ], [ @.str.96, %1145 ], [ @.str.95, %1142 ], [ @.str.80, %.loopexit5588 ], [ @.str.81, %.loopexit5868 ], [ @.str.94, %.loopexit6538 ], [ @.str.115, %.loopexit6816 ], [ %switch.load7091, %switch.lookup7088 ], [ @.str.116, %.loopexit7095 ], [ @.str.117, %6 ]
   %2865 = icmp slt i32 %.04451, %.tr55805857
   br i1 %2865, label %2866, label %2881
 
@@ -11616,13 +11613,13 @@ switch.lookup7089:                                ; preds = %6
 .loopexit6814:                                    ; preds = %6
   br label %2916
 
-.loopexit7095:                                    ; preds = %6
+.loopexit7094:                                    ; preds = %6
   br label %2916
 
-2916:                                             ; preds = %6, %.loopexit7095, %.loopexit6814, %.loopexit6536, %.loopexit5865, %.loopexit5584, %884, %828, %1401, %887, %836, %835, %834, %833, %832, %831
-  %.14452 = phi i32 [ 85, %1401 ], [ 240, %887 ], [ 240, %836 ], [ 240, %835 ], [ 240, %834 ], [ 240, %833 ], [ 240, %832 ], [ 240, %831 ], [ 240, %828 ], [ 240, %884 ], [ 240, %.loopexit5584 ], [ 240, %.loopexit5865 ], [ 240, %.loopexit6536 ], [ 270, %.loopexit6814 ], [ 60, %.loopexit7095 ], [ 240, %6 ]
-  %.14449 = phi i32 [ 86, %1401 ], [ 241, %887 ], [ 241, %836 ], [ 241, %835 ], [ 241, %834 ], [ 241, %833 ], [ 241, %832 ], [ 241, %831 ], [ 241, %828 ], [ 241, %884 ], [ 241, %.loopexit5584 ], [ 241, %.loopexit5865 ], [ 241, %.loopexit6536 ], [ 271, %.loopexit6814 ], [ 61, %.loopexit7095 ], [ 241, %6 ]
-  %.14446 = phi ptr [ @.str.123, %1401 ], [ @.str.63, %887 ], [ @.str.48, %836 ], [ @.str.47, %835 ], [ @.str.46, %834 ], [ @.str.45, %833 ], [ @.str.44, %832 ], [ @.str.43, %831 ], [ @.str.42, %828 ], [ %.str.60..str.61, %884 ], [ @.str.40, %.loopexit5584 ], [ @.str.41, %.loopexit5865 ], [ @.str.51, %.loopexit6536 ], [ @.str.52, %.loopexit6814 ], [ @.str.54, %.loopexit7095 ], [ @.str.62, %6 ]
+2916:                                             ; preds = %6, %.loopexit7094, %.loopexit6814, %.loopexit6536, %.loopexit5865, %.loopexit5584, %884, %828, %1401, %887, %836, %835, %834, %833, %832, %831
+  %.14452 = phi i32 [ 85, %1401 ], [ 240, %887 ], [ 240, %836 ], [ 240, %835 ], [ 240, %834 ], [ 240, %833 ], [ 240, %832 ], [ 240, %831 ], [ 240, %828 ], [ 240, %884 ], [ 240, %.loopexit5584 ], [ 240, %.loopexit5865 ], [ 240, %.loopexit6536 ], [ 270, %.loopexit6814 ], [ 60, %.loopexit7094 ], [ 240, %6 ]
+  %.14449 = phi i32 [ 86, %1401 ], [ 241, %887 ], [ 241, %836 ], [ 241, %835 ], [ 241, %834 ], [ 241, %833 ], [ 241, %832 ], [ 241, %831 ], [ 241, %828 ], [ 241, %884 ], [ 241, %.loopexit5584 ], [ 241, %.loopexit5865 ], [ 241, %.loopexit6536 ], [ 271, %.loopexit6814 ], [ 61, %.loopexit7094 ], [ 241, %6 ]
+  %.14446 = phi ptr [ @.str.123, %1401 ], [ @.str.63, %887 ], [ @.str.48, %836 ], [ @.str.47, %835 ], [ @.str.46, %834 ], [ @.str.45, %833 ], [ @.str.44, %832 ], [ @.str.43, %831 ], [ @.str.42, %828 ], [ %.str.60..str.61, %884 ], [ @.str.40, %.loopexit5584 ], [ @.str.41, %.loopexit5865 ], [ @.str.51, %.loopexit6536 ], [ @.str.52, %.loopexit6814 ], [ @.str.54, %.loopexit7094 ], [ @.str.62, %6 ]
   %2917 = icmp slt i32 %.14452, %.tr55805857
   br i1 %2917, label %2918, label %2933
 
@@ -11835,11 +11832,11 @@ switch.lookup7089:                                ; preds = %6
 .loopexit5585.loopexit:                           ; preds = %6
   br label %.loopexit5585
 
-.loopexit5585.loopexit7094:                       ; preds = %6
+.loopexit5585.loopexit7093:                       ; preds = %6
   br label %.loopexit5585
 
-.loopexit5585:                                    ; preds = %6, %.loopexit5585.loopexit7094, %switch.lookup7086, %.loopexit5585.loopexit, %877
-  %.3 = phi ptr [ @.str.53, %877 ], [ @.str.49, %.loopexit5585.loopexit ], [ %switch.load7088, %switch.lookup7086 ], [ @.str.50, %.loopexit5585.loopexit7094 ], [ @.str.65, %6 ]
+.loopexit5585:                                    ; preds = %6, %.loopexit5585.loopexit7093, %switch.lookup7085, %.loopexit5585.loopexit, %877
+  %.3 = phi ptr [ @.str.53, %877 ], [ @.str.49, %.loopexit5585.loopexit ], [ %switch.load7087, %switch.lookup7085 ], [ @.str.50, %.loopexit5585.loopexit7093 ], [ @.str.65, %6 ]
   %3015 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #17
   %3016 = load ptr, ptr %0, align 8
   %.not5417 = icmp eq ptr %3016, null
@@ -12001,13 +11998,13 @@ switch.lookup7089:                                ; preds = %6
   store i64 %.14435, ptr %3092, align 8
   br label %.backedge
 
-.loopexit5587.sink.split:                         ; preds = %switch.lookup, %switch.hole_check
-  %switch.gep7084.sink = phi ptr [ %switch.gep7084, %switch.hole_check ], [ %switch.gep, %switch.lookup ]
-  %switch.load7085 = load ptr, ptr %switch.gep7084.sink, align 8
+.loopexit5587.sink.split:                         ; preds = %switch.lookup, %switch.lookup7081
+  %switch.gep7083.sink = phi ptr [ %switch.gep7083, %switch.lookup7081 ], [ %switch.gep, %switch.lookup ]
+  %switch.load7084 = load ptr, ptr %switch.gep7083.sink, align 8
   br label %.loopexit5587
 
 .loopexit5587:                                    ; preds = %6, %.loopexit5587.sink.split, %877
-  %.5 = phi ptr [ @.str.53, %877 ], [ %switch.load7085, %.loopexit5587.sink.split ], [ @.str.67, %6 ]
+  %.5 = phi ptr [ @.str.53, %877 ], [ %switch.load7084, %.loopexit5587.sink.split ], [ @.str.67, %6 ]
   %3093 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #17
   %3094 = load ptr, ptr %0, align 8
   %.not5433 = icmp eq ptr %3094, null

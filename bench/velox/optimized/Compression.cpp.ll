@@ -80,10 +80,6 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %kind) local_unnamed_addr #0 {
 entry:
-  %switch.maskindex = trunc i64 %kind to i8
-  %switch.shifted = lshr i8 119, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %sext = shl i64 %kind, 32
   %0 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE, i64 0, i64 %0
@@ -98,10 +94,6 @@ declare void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::uniqu
 define noundef range(i64 0, 7) i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
 entry:
   %switch.tableidx = add nsw i32 %type, -1
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 399, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
   %0 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8

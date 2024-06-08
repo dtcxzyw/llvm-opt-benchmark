@@ -210,7 +210,7 @@ if.then36:                                        ; preds = %sub_140
   br label %if.end71
 
 if.else40:                                        ; preds = %sub_039, %sub_140
-  %call42 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %whole_mangled_symbol, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #12
+  %call42 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %whole_mangled_symbol, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #11
   %cmp43 = icmp eq i32 %call42, 0
   br i1 %cmp43, label %if.then45, label %return
 
@@ -252,7 +252,7 @@ if.end78:                                         ; preds = %for.body
   br i1 %cmp80, label %land.lhs.true82, label %if.end87
 
 land.lhs.true82:                                  ; preds = %if.end78
-  %call83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.062, ptr noundef nonnull dereferenceable(7) @.str.5, i64 noundef 6) #12
+  %call83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.062, ptr noundef nonnull dereferenceable(7) @.str.5, i64 noundef 6) #11
   %cmp84 = icmp eq i32 %call83, 0
   br i1 %cmp84, label %for.end, label %if.end87
 
@@ -359,7 +359,7 @@ land.lhs.true.i.i:                                ; preds = %if.then10.i
 if.then.i25.i:                                    ; preds = %land.lhs.true.i.i
   %48 = load ptr, ptr %callback1, align 8
   %49 = load ptr, ptr %callback_opaque, align 8
-  call void %48(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %49) #13
+  call void %48(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %49) #12
   %.pre.i = load i8, ptr %errored, align 8
   br label %if.end11.i
 
@@ -443,7 +443,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then36.i.i
 if.then.i.i39.i:                                  ; preds = %land.lhs.true.i.i.i
   %58 = load ptr, ptr %callback1, align 8
   %59 = load ptr, ptr %callback_opaque, align 8
-  call void %58(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %59) #13
+  call void %58(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %59) #12
   br label %print_str.exit.i.i
 
 print_str.exit.i.i:                               ; preds = %if.then.i.i39.i, %land.lhs.true.i.i.i, %if.then36.i.i
@@ -464,7 +464,7 @@ land.lhs.true.i63.i.i:                            ; preds = %if.else41.i.i
 if.then.i66.i.i:                                  ; preds = %land.lhs.true.i63.i.i
   %62 = load ptr, ptr %callback1, align 8
   %63 = load ptr, ptr %callback_opaque, align 8
-  call void %62(ptr noundef nonnull @.str.8, i64 noundef 1, ptr noundef %63) #13
+  call void %62(ptr noundef nonnull @.str.8, i64 noundef 1, ptr noundef %63) #12
   br label %print_str.exit69.i.i
 
 print_str.exit69.i.i:                             ; preds = %if.then.i66.i.i, %land.lhs.true.i63.i.i, %if.else41.i.i
@@ -475,7 +475,7 @@ print_str.exit69.i.i:                             ; preds = %if.then.i66.i.i, %l
 if.then53.i.i:                                    ; preds = %if.else.i.i
   %arrayidx55.i.i = getelementptr inbounds i8, ptr %arrayidx194.le229234.i.i, i64 1
   %sub57.i.i = add i64 %54, -1
-  %call.i.i = call ptr @memchr(ptr noundef nonnull %arrayidx55.i.i, i32 noundef 36, i64 noundef %sub57.i.i) #12
+  %call.i.i = call ptr @memchr(ptr noundef nonnull %arrayidx55.i.i, i32 noundef 36, i64 noundef %sub57.i.i) #11
   %tobool58.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool58.not.i.i, label %while.end.i.i, label %if.end60.i.i
 
@@ -771,13 +771,13 @@ land.lhs.true.i153.i.i:                           ; preds = %if.else167.i.i
 if.then.i156.i.i:                                 ; preds = %land.lhs.true.i153.i.i
   %131 = load ptr, ptr %callback1, align 8
   %132 = load ptr, ptr %callback_opaque, align 8
-  call void %131(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %132) #13
+  call void %131(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %132) #12
   br label %print_str.exit159.i.i
 
 print_str.exit159.i.i:                            ; preds = %if.then.i156.i.i, %land.lhs.true.i153.i.i, %if.else167.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %s.i.i, i8 0, i64 9, i1 false)
-  %call168.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c.0.lcssa269272.i.i) #13
-  %call171.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #12
+  %call168.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c.0.lcssa269272.i.i) #12
+  %call171.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #11
   %133 = load i8, ptr %errored, align 8
   %tobool.i161.i.i = trunc i8 %133 to i1
   br i1 %tobool.i161.i.i, label %print_str.exit168.i.i, label %land.lhs.true.i162.i.i
@@ -790,7 +790,7 @@ land.lhs.true.i162.i.i:                           ; preds = %print_str.exit159.i
 if.then.i165.i.i:                                 ; preds = %land.lhs.true.i162.i.i
   %135 = load ptr, ptr %callback1, align 8
   %136 = load ptr, ptr %callback_opaque, align 8
-  call void %135(ptr noundef nonnull %s.i.i, i64 noundef %call171.i.i, ptr noundef %136) #13
+  call void %135(ptr noundef nonnull %s.i.i, i64 noundef %call171.i.i, ptr noundef %136) #12
   %.pre.i.i = load i8, ptr %errored, align 8
   br label %print_str.exit168.i.i
 
@@ -808,7 +808,7 @@ if.end180.sink.split.i.i:                         ; preds = %land.lhs.true.i171.
   %.str.27.sink.i.i = phi ptr [ @.str.10, %land.lhs.true.i72.i.i ], [ @.str.12, %land.lhs.true.i81.i.i ], [ @.str.14, %land.lhs.true.i90.i.i ], [ @.str.16, %land.lhs.true.i99.i.i ], [ @.str.18, %land.lhs.true.i108.i.i ], [ @.str.20, %land.lhs.true.i117.i.i ], [ @.str.22, %land.lhs.true.i126.i.i ], [ @.str.24, %land.lhs.true.i135.i.i ], [ %v.i.i, %land.lhs.true.i144.i.i ], [ @.str.27, %land.lhs.true.i171.i.i ]
   %139 = load ptr, ptr %callback1, align 8
   %140 = load ptr, ptr %callback_opaque, align 8
-  call void %139(ptr noundef nonnull %.str.27.sink.i.i, i64 noundef 1, ptr noundef %140) #13
+  call void %139(ptr noundef nonnull %.str.27.sink.i.i, i64 noundef 1, ptr noundef %140) #12
   br label %if.end180.i.i
 
 if.end180.i.i:                                    ; preds = %if.end180.sink.split.i.i, %land.lhs.true.i171.i.i, %print_str.exit168.i.i, %land.lhs.true.i144.i.i, %if.then165.i.i, %land.lhs.true.i135.i.i, %if.then101.i.i, %land.lhs.true.i126.i.i, %if.then96.i.i, %land.lhs.true.i117.i.i, %if.then91.i.i, %land.lhs.true.i108.i.i, %if.then86.i.i, %land.lhs.true.i99.i.i, %if.then81.i.i, %land.lhs.true.i90.i.i, %if.then76.i.i, %land.lhs.true.i81.i.i, %if.then71.i.i, %land.lhs.true.i72.i.i, %if.then66.i.i
@@ -840,7 +840,7 @@ land.lhs.true.i180.i.i:                           ; preds = %if.then204.i.i
 if.then.i183.i.i:                                 ; preds = %land.lhs.true.i180.i.i
   %144 = load ptr, ptr %callback1, align 8
   %145 = load ptr, ptr %callback_opaque, align 8
-  call void %144(ptr noundef nonnull %arrayidx194.le229234.i.i, i64 noundef %i187.0226.i.i, ptr noundef %145) #13
+  call void %144(ptr noundef nonnull %arrayidx194.le229234.i.i, i64 noundef %i187.0226.i.i, ptr noundef %145) #12
   br label %print_str.exit186.i.i
 
 print_str.exit186.i.i:                            ; preds = %if.then.i183.i.i, %land.lhs.true.i180.i.i, %if.then204.i.i
@@ -873,7 +873,7 @@ land.lhs.true.i189.i.i:                           ; preds = %while.end.i.i
 if.then.i192.i.i:                                 ; preds = %land.lhs.true.i189.i.i
   %149 = load ptr, ptr %callback1, align 8
   %150 = load ptr, ptr %callback_opaque, align 8
-  call void %149(ptr noundef %arrayidx194.le229.lcssa.sink.i.i, i64 noundef %.lcssa.sink.i.i, ptr noundef %150) #13
+  call void %149(ptr noundef %arrayidx194.le229.lcssa.sink.i.i, i64 noundef %.lcssa.sink.i.i, ptr noundef %150) #12
   %.pre85.i = load i8, ptr %errored, align 8
   br label %print_legacy_ident.exit.i
 
@@ -965,7 +965,7 @@ if.then.i27:                                      ; preds = %land.lhs.true.i26
   %sub166 = sub i64 %159, %160
   %169 = load ptr, ptr %callback1, align 8
   %170 = load ptr, ptr %callback_opaque, align 8
-  call void %169(ptr noundef nonnull %add.ptr126, i64 noundef %sub166, ptr noundef %170) #13
+  call void %169(ptr noundef nonnull %add.ptr126, i64 noundef %sub166, ptr noundef %170) #12
   %.pre = load i8, ptr %errored, align 8
   %.pre86 = trunc i8 %.pre to i1
   %171 = xor i1 %.pre86, true
@@ -1122,13 +1122,13 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %16 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %17 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %16(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %17) #13
+  tail call void %16(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %17) #12
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %if.then6, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %s.i)
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %retval.0.i.i) #13
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #12
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %retval.0.i.i) #12
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #11
   %18 = load i8, ptr %errored, align 8
   %tobool.i.i = trunc i8 %18 to i1
   br i1 %tobool.i.i, label %print_uint64_hex.exit, label %land.lhs.true.i.i
@@ -1144,7 +1144,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %20 = load ptr, ptr %callback.i.i, align 8
   %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %21 = load ptr, ptr %callback_opaque.i.i, align 8
-  call void %20(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %21) #13
+  call void %20(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %21) #12
   %.pre428 = load i8, ptr %errored, align 8
   br label %print_uint64_hex.exit
 
@@ -1165,7 +1165,7 @@ if.then.i68:                                      ; preds = %land.lhs.true.i65
   %24 = load ptr, ptr %callback.i69, align 8
   %callback_opaque.i70 = getelementptr inbounds i8, ptr %rdm, i64 16
   %25 = load ptr, ptr %callback_opaque.i70, align 8
-  call void %24(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %25) #13
+  call void %24(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %25) #12
   br label %common.ret493
 
 sw.bb8:                                           ; preds = %next.exit
@@ -1292,7 +1292,7 @@ if.then.i127:                                     ; preds = %land.lhs.true.i124
   %43 = load ptr, ptr %callback.i128, align 8
   %callback_opaque.i129 = getelementptr inbounds i8, ptr %rdm, i64 16
   %44 = load ptr, ptr %callback_opaque.i129, align 8
-  tail call void %43(ptr noundef nonnull @.str.30, i64 noundef 3, ptr noundef %44) #13
+  tail call void %43(ptr noundef nonnull @.str.30, i64 noundef 3, ptr noundef %44) #12
   br label %print_str.exit130
 
 print_str.exit130:                                ; preds = %if.then40, %land.lhs.true.i124, %if.then.i127
@@ -1317,7 +1317,7 @@ if.then.i136:                                     ; preds = %land.lhs.true.i133
   %47 = load ptr, ptr %callback.i137, align 8
   %callback_opaque.i138 = getelementptr inbounds i8, ptr %rdm, i64 16
   %48 = load ptr, ptr %callback_opaque.i138, align 8
-  tail call void %47(ptr noundef nonnull @.str.31, i64 noundef 7, ptr noundef %48) #13
+  tail call void %47(ptr noundef nonnull @.str.31, i64 noundef 7, ptr noundef %48) #12
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %print_str.exit130
@@ -1334,7 +1334,7 @@ if.then.i145:                                     ; preds = %land.lhs.true.i142
   %50 = load ptr, ptr %callback.i146, align 8
   %callback_opaque.i147 = getelementptr inbounds i8, ptr %rdm, i64 16
   %51 = load ptr, ptr %callback_opaque.i147, align 8
-  tail call void %50(ptr noundef nonnull @.str.32, i64 noundef 4, ptr noundef %51) #13
+  tail call void %50(ptr noundef nonnull @.str.32, i64 noundef 4, ptr noundef %51) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %print_str.exit130
@@ -1351,7 +1351,7 @@ if.then.i154:                                     ; preds = %land.lhs.true.i151
   %53 = load ptr, ptr %callback.i155, align 8
   %callback_opaque.i156 = getelementptr inbounds i8, ptr %rdm, i64 16
   %54 = load ptr, ptr %callback_opaque.i156, align 8
-  call void %53(ptr noundef nonnull %ns, i64 noundef 1, ptr noundef %54) #13
+  call void %53(ptr noundef nonnull %ns, i64 noundef 1, ptr noundef %54) #12
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i154, %land.lhs.true.i151, %sw.default, %if.then.i145, %land.lhs.true.i142, %sw.bb43, %if.then.i136, %land.lhs.true.i133, %sw.bb42
@@ -1379,7 +1379,7 @@ if.then.i163:                                     ; preds = %land.lhs.true.i160
   %58 = load ptr, ptr %callback.i164, align 8
   %callback_opaque.i165 = getelementptr inbounds i8, ptr %rdm, i64 16
   %59 = load ptr, ptr %callback_opaque.i165, align 8
-  call void %58(ptr noundef nonnull @.str.33, i64 noundef 1, ptr noundef %59) #13
+  call void %58(ptr noundef nonnull @.str.33, i64 noundef 1, ptr noundef %59) #12
   br label %print_str.exit166
 
 print_str.exit166:                                ; preds = %if.then47, %land.lhs.true.i160, %if.then.i163
@@ -1403,7 +1403,7 @@ if.then.i172:                                     ; preds = %land.lhs.true.i169
   %62 = load ptr, ptr %callback.i173, align 8
   %callback_opaque.i174 = getelementptr inbounds i8, ptr %rdm, i64 16
   %63 = load ptr, ptr %callback_opaque.i174, align 8
-  call void %62(ptr noundef nonnull @.str.34, i64 noundef 1, ptr noundef %63) #13
+  call void %62(ptr noundef nonnull @.str.34, i64 noundef 1, ptr noundef %63) #12
   br label %print_str.exit175
 
 print_str.exit175:                                ; preds = %if.end48, %land.lhs.true.i169, %if.then.i172
@@ -1423,7 +1423,7 @@ if.then.i181:                                     ; preds = %land.lhs.true.i178
   %66 = load ptr, ptr %callback.i182, align 8
   %callback_opaque.i183 = getelementptr inbounds i8, ptr %rdm, i64 16
   %67 = load ptr, ptr %callback_opaque.i183, align 8
-  call void %66(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %67) #13
+  call void %66(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %67) #12
   br label %common.ret493
 
 if.else:                                          ; preds = %parse_disambiguator.exit121
@@ -1451,7 +1451,7 @@ if.then.i190:                                     ; preds = %land.lhs.true.i187
   %72 = load ptr, ptr %callback.i191, align 8
   %callback_opaque.i192 = getelementptr inbounds i8, ptr %rdm, i64 16
   %73 = load ptr, ptr %callback_opaque.i192, align 8
-  tail call void %72(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %73) #13
+  tail call void %72(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %73) #12
   br label %print_str.exit193
 
 print_str.exit193:                                ; preds = %if.then54, %land.lhs.true.i187, %if.then.i190
@@ -1542,7 +1542,7 @@ if.then.i237:                                     ; preds = %land.lhs.true.i234
   %85 = load ptr, ptr %callback.i238, align 8
   %callback_opaque.i239 = getelementptr inbounds i8, ptr %rdm, i64 16
   %86 = load ptr, ptr %callback_opaque.i239, align 8
-  tail call void %85(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %86) #13
+  tail call void %85(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %86) #12
   br label %print_str.exit240
 
 print_str.exit240:                                ; preds = %sw.bb66, %land.lhs.true.i234, %if.then.i237
@@ -1566,7 +1566,7 @@ if.then.i246:                                     ; preds = %land.lhs.true.i243
   %89 = load ptr, ptr %callback.i247, align 8
   %callback_opaque.i248 = getelementptr inbounds i8, ptr %rdm, i64 16
   %90 = load ptr, ptr %callback_opaque.i248, align 8
-  tail call void %89(ptr noundef nonnull @.str.35, i64 noundef 4, ptr noundef %90) #13
+  tail call void %89(ptr noundef nonnull @.str.35, i64 noundef 4, ptr noundef %90) #12
   br label %print_str.exit249
 
 print_str.exit249:                                ; preds = %if.then70, %land.lhs.true.i243, %if.then.i246
@@ -1589,7 +1589,7 @@ if.then.i255:                                     ; preds = %land.lhs.true.i252
   %93 = load ptr, ptr %callback.i256, align 8
   %callback_opaque.i257 = getelementptr inbounds i8, ptr %rdm, i64 16
   %94 = load ptr, ptr %callback_opaque.i257, align 8
-  tail call void %93(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %94) #13
+  tail call void %93(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %94) #12
   br label %common.ret493
 
 sw.bb72:                                          ; preds = %next.exit
@@ -1612,7 +1612,7 @@ if.then.i264:                                     ; preds = %land.lhs.true.i261
   %96 = load ptr, ptr %callback.i265, align 8
   %callback_opaque.i266 = getelementptr inbounds i8, ptr %rdm, i64 16
   %97 = load ptr, ptr %callback_opaque.i266, align 8
-  tail call void %96(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %97) #13
+  tail call void %96(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %97) #12
   %.pre = load i8, ptr %errored, align 8
   br label %if.end76
 
@@ -1632,7 +1632,7 @@ if.then.i273:                                     ; preds = %land.lhs.true.i270
   %100 = load ptr, ptr %callback.i274, align 8
   %callback_opaque.i275 = getelementptr inbounds i8, ptr %rdm, i64 16
   %101 = load ptr, ptr %callback_opaque.i275, align 8
-  tail call void %100(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %101) #13
+  tail call void %100(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %101) #12
   %.pre422 = load i8, ptr %errored, align 8
   br label %print_str.exit276
 
@@ -1673,7 +1673,7 @@ land.lhs.true.i288:                               ; preds = %for.body
 if.then.i291:                                     ; preds = %land.lhs.true.i288
   %108 = load ptr, ptr %callback.i292, align 8
   %109 = load ptr, ptr %callback_opaque.i293, align 8
-  tail call void %108(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %109) #13
+  tail call void %108(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %109) #12
   %.pre423 = load i64, ptr %next.i.i, align 8
   %.pre424 = load i64, ptr %sym_len.i.i, align 8
   br label %if.end83
@@ -1793,7 +1793,7 @@ land.lhs.true.i299:                               ; preds = %peek.exit.i280
 if.then.i302:                                     ; preds = %land.lhs.true.i299
   %124 = load ptr, ptr %callback.i292, align 8
   %125 = load ptr, ptr %callback_opaque.i293, align 8
-  tail call void %124(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %125) #13
+  tail call void %124(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %125) #12
   br label %common.ret493
 
 sw.bb84:                                          ; preds = %next.exit
@@ -1894,7 +1894,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %out, align 8
-  call void @free(ptr noundef %0) #13
+  call void @free(ptr noundef %0) #12
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1930,13 +1930,13 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %4 = load ptr, ptr %out, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %4, i64 noundef %new_cap.0.i.i) #14
+  %call.i.i = call ptr @realloc(ptr noundef %4, i64 noundef %new_cap.0.i.i) #13
   %cmp20.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %while.end.i.i
   %5 = load ptr, ptr %out, align 8
-  call void @free(ptr noundef %5) #13
+  call void @free(ptr noundef %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, i8 0, i64 24, i1 false)
   br label %str_buf_append.exit
 
@@ -2014,13 +2014,13 @@ if.then17.i.i:                                    ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %3 = load ptr, ptr %opaque, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %new_cap.0.i.i) #14
+  %call.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %new_cap.0.i.i) #13
   %cmp20.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %while.end.i.i
   %4 = load ptr, ptr %opaque, align 8
-  tail call void @free(ptr noundef %4) #13
+  tail call void @free(ptr noundef %4) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %opaque, i8 0, i64 24, i1 false)
   store i8 1, ptr %errored.i.i, align 8
   br label %str_buf_append.exit
@@ -2271,7 +2271,7 @@ print_str.exit:                                   ; preds = %if.end
   %6 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %7 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %6(ptr noundef %4, i64 noundef %5, ptr noundef %7) #13
+  tail call void %6(ptr noundef %4, i64 noundef %5, ptr noundef %7) #12
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -2290,7 +2290,7 @@ do.body9:                                         ; preds = %while.body
 
 while.end:                                        ; preds = %while.cond
   %mul13 = shl nuw i64 %cap.0, 2
-  %call = tail call noalias ptr @malloc(i64 noundef %mul13) #15
+  %call = tail call noalias ptr @malloc(i64 noundef %mul13) #14
   %tobool15.not = icmp eq ptr %call, null
   br i1 %tobool15.not, label %do.body17, label %for.cond.preheader
 
@@ -2418,7 +2418,7 @@ do.body116:                                       ; preds = %do.body112
 if.end123:                                        ; preds = %do.body112, %do.end88
   %cap.2 = phi i64 [ %mul98, %do.body112 ], [ %cap.1137, %do.end88 ]
   %mul125 = shl i64 %cap.2, 2
-  %call126 = tail call ptr @realloc(ptr noundef nonnull %out.0136, i64 noundef %mul125) #14
+  %call126 = tail call ptr @realloc(ptr noundef nonnull %out.0136, i64 noundef %mul125) #13
   %tobool128.not = icmp eq ptr %call126, null
   br i1 %tobool128.not, label %do.body130, label %do.end136
 
@@ -2532,12 +2532,12 @@ if.then.i115:                                     ; preds = %for.inc217, %while.
   %21 = load ptr, ptr %callback.i116, align 8
   %callback_opaque.i117 = getelementptr inbounds i8, ptr %rdm, i64 16
   %22 = load ptr, ptr %callback_opaque.i117, align 8
-  tail call void %21(ptr noundef nonnull %out.1, i64 noundef %j.0.lcssa, ptr noundef %22) #13
+  tail call void %21(ptr noundef nonnull %out.1, i64 noundef %j.0.lcssa, ptr noundef %22) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i115, %do.body130, %do.body116, %do.body105, %do.body75, %do.body45
   %out.2 = phi ptr [ %out.0136, %do.body130 ], [ %out.0136, %do.body116 ], [ %out.0136, %do.body105 ], [ %out.0136, %do.body75 ], [ %out.0136, %do.body45 ], [ %out.1, %if.then.i115 ]
-  tail call void @free(ptr noundef %out.2) #13
+  tail call void @free(ptr noundef %out.2) #12
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup, %do.body17, %do.body9, %print_str.exit
@@ -2548,8 +2548,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define internal fastcc void @print_uint64(ptr nocapture noundef readonly %rdm, i64 noundef %x) unnamed_addr #0 {
 entry:
   %s = alloca [21 x i8], align 16
-  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %x) #13
-  %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #12
+  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %x) #12
+  %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #11
   %errored.i = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -2566,7 +2566,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %2 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %3 = load ptr, ptr %callback_opaque.i, align 8
-  call void %2(ptr noundef nonnull %s, i64 noundef %call3, ptr noundef %3) #13
+  call void %2(ptr noundef nonnull %s, i64 noundef %call3, ptr noundef %3) #12
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -2713,7 +2713,7 @@ if.then6.loopexit1217:                            ; preds = %next.exit
 
 if.then6:                                         ; preds = %next.exit, %if.then6.loopexit1217, %if.then6.loopexit1107, %if.then6.loopexit1007, %if.then6.loopexit906, %if.then6.loopexit804, %if.then6.loopexit701, %if.then6.loopexit656, %if.then6.loopexit, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i
   %retval.0.i94.ph = phi ptr [ @.str.60, %sw.bb9.i ], [ @.str.61, %sw.bb10.i ], [ @.str.62, %sw.bb11.i ], [ @.str.63, %sw.bb12.i ], [ @.str.64, %sw.bb13.i ], [ @.str.65, %sw.bb14.i ], [ @.str.66, %sw.bb15.i ], [ @.str.67, %sw.bb16.i ], [ @.str.68, %sw.bb17.i ], [ @.str.69, %sw.bb18.i ], [ @.str.70, %sw.bb19.i ], [ @.str.71, %sw.bb20.i ], [ @.str.51, %if.then6.loopexit ], [ @.str.52, %if.then6.loopexit656 ], [ @.str.53, %if.then6.loopexit701 ], [ @.str.54, %if.then6.loopexit804 ], [ @.str.55, %if.then6.loopexit906 ], [ @.str.56, %if.then6.loopexit1007 ], [ @.str.57, %if.then6.loopexit1107 ], [ @.str.58, %if.then6.loopexit1217 ], [ @.str.59, %next.exit ]
-  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i94.ph) #12
+  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i94.ph) #11
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %common.ret, label %land.lhs.true.i
 
@@ -2725,7 +2725,7 @@ land.lhs.true.i:                                  ; preds = %if.then6
 if.then.i:                                        ; preds = %land.lhs.true.i
   %8 = load ptr, ptr %callback.i136, align 8
   %9 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %8(ptr noundef nonnull %retval.0.i94.ph, i64 noundef %call7, ptr noundef %9) #13
+  tail call void %8(ptr noundef nonnull %retval.0.i94.ph, i64 noundef %call7, ptr noundef %9) #12
   br label %common.ret
 
 sw.bb:                                            ; preds = %next.exit, %next.exit
@@ -2740,7 +2740,7 @@ land.lhs.true.i98:                                ; preds = %sw.bb
 if.then.i101:                                     ; preds = %land.lhs.true.i98
   %11 = load ptr, ptr %callback.i136, align 8
   %12 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %11(ptr noundef nonnull @.str.14, i64 noundef 1, ptr noundef %12) #13
+  tail call void %11(ptr noundef nonnull @.str.14, i64 noundef 1, ptr noundef %12) #12
   %.pre699 = load i64, ptr %next.i.i, align 8
   %.pre700 = load i64, ptr %sym_len.i.i, align 8
   br label %print_str.exit104
@@ -2837,7 +2837,7 @@ land.lhs.true.i114:                               ; preds = %if.then13
 if.then.i117:                                     ; preds = %land.lhs.true.i114
   %25 = load ptr, ptr %callback.i136, align 8
   %26 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %25(ptr noundef nonnull @.str.39, i64 noundef 1, ptr noundef %26) #13
+  tail call void %25(ptr noundef nonnull @.str.39, i64 noundef 1, ptr noundef %26) #12
   br label %if.end15
 
 if.end15:                                         ; preds = %eat.exit.thread.i, %do.body.i, %print_str.exit104, %peek.exit.i108, %if.then.i117, %land.lhs.true.i114, %if.then13, %parse_integer_62.exit
@@ -2857,7 +2857,7 @@ land.lhs.true.i123:                               ; preds = %if.then18
 if.then.i126:                                     ; preds = %land.lhs.true.i123
   %29 = load ptr, ptr %callback.i136, align 8
   %30 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %29(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %30) #13
+  tail call void %29(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %30) #12
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %if.then24, %land.lhs.true.i141, %if.then.i144, %if.else, %land.lhs.true.i150, %if.then.i153, %if.end15, %if.then18, %land.lhs.true.i123, %if.then.i126
@@ -2877,7 +2877,7 @@ land.lhs.true.i132:                               ; preds = %sw.bb20
 if.then.i135:                                     ; preds = %land.lhs.true.i132
   %33 = load ptr, ptr %callback.i136, align 8
   %34 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %33(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %34) #13
+  tail call void %33(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %34) #12
   %.pre1006 = load i8, ptr %errored, align 8
   br label %print_str.exit138
 
@@ -2898,7 +2898,7 @@ land.lhs.true.i141:                               ; preds = %if.then24
 if.then.i144:                                     ; preds = %land.lhs.true.i141
   %37 = load ptr, ptr %callback.i136, align 8
   %38 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %37(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %38) #13
+  tail call void %37(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %38) #12
   br label %tailrecurse.backedge
 
 if.else:                                          ; preds = %print_str.exit138
@@ -2912,7 +2912,7 @@ land.lhs.true.i150:                               ; preds = %if.else
 if.then.i153:                                     ; preds = %land.lhs.true.i150
   %40 = load ptr, ptr %callback.i136, align 8
   %41 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %40(ptr noundef nonnull @.str.41, i64 noundef 6, ptr noundef %41) #13
+  tail call void %40(ptr noundef nonnull @.str.41, i64 noundef 6, ptr noundef %41) #12
   br label %tailrecurse.backedge
 
 sw.bb26:                                          ; preds = %next.exit, %next.exit
@@ -2927,7 +2927,7 @@ land.lhs.true.i159:                               ; preds = %sw.bb26
 if.then.i162:                                     ; preds = %land.lhs.true.i159
   %43 = load ptr, ptr %callback.i136, align 8
   %44 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %43(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %44) #13
+  tail call void %43(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %44) #12
   br label %print_str.exit165
 
 print_str.exit165:                                ; preds = %sw.bb26, %land.lhs.true.i159, %if.then.i162
@@ -2948,7 +2948,7 @@ land.lhs.true.i168:                               ; preds = %if.then30
 if.then.i171:                                     ; preds = %land.lhs.true.i168
   %47 = load ptr, ptr %callback.i136, align 8
   %48 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %47(ptr noundef nonnull @.str.42, i64 noundef 2, ptr noundef %48) #13
+  tail call void %47(ptr noundef nonnull @.str.42, i64 noundef 2, ptr noundef %48) #12
   br label %print_str.exit174
 
 print_str.exit174:                                ; preds = %if.then30, %land.lhs.true.i168, %if.then.i171
@@ -2968,7 +2968,7 @@ land.lhs.true.i177:                               ; preds = %if.end31
 if.then.i180:                                     ; preds = %land.lhs.true.i177
   %51 = load ptr, ptr %callback.i136, align 8
   %52 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %51(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %52) #13
+  tail call void %51(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %52) #12
   br label %common.ret
 
 sw.bb32:                                          ; preds = %next.exit
@@ -2983,7 +2983,7 @@ land.lhs.true.i186:                               ; preds = %sw.bb32
 if.then.i189:                                     ; preds = %land.lhs.true.i186
   %54 = load ptr, ptr %callback.i136, align 8
   %55 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %54(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %55) #13
+  tail call void %54(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %55) #12
   %.pre697 = load i8, ptr %errored, align 8
   br label %print_str.exit192
 
@@ -3019,7 +3019,7 @@ land.lhs.true.i206:                               ; preds = %for.body
 if.then.i209:                                     ; preds = %land.lhs.true.i206
   %63 = load ptr, ptr %callback.i136, align 8
   %64 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %63(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %64) #13
+  tail call void %63(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %64) #12
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then.i209, %land.lhs.true.i206, %for.body
@@ -3043,7 +3043,7 @@ land.lhs.true.i215:                               ; preds = %for.end.thread
 if.then.i218:                                     ; preds = %land.lhs.true.i215
   %67 = load ptr, ptr %callback.i136, align 8
   %68 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %67(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %68) #13
+  tail call void %67(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %68) #12
   %.pre698 = load i8, ptr %errored, align 8
   br label %if.end43
 
@@ -3060,7 +3060,7 @@ land.lhs.true.i224:                               ; preds = %if.end43
 if.then.i227:                                     ; preds = %land.lhs.true.i224
   %71 = load ptr, ptr %callback.i136, align 8
   %72 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %71(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %72) #13
+  tail call void %71(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %72) #12
   br label %common.ret
 
 sw.bb44:                                          ; preds = %next.exit
@@ -3094,7 +3094,7 @@ land.lhs.true.i244:                               ; preds = %if.then46
 if.then.i247:                                     ; preds = %land.lhs.true.i244
   %80 = load ptr, ptr %callback.i136, align 8
   %81 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %80(ptr noundef nonnull @.str.43, i64 noundef 7, ptr noundef %81) #13
+  tail call void %80(ptr noundef nonnull @.str.43, i64 noundef 7, ptr noundef %81) #12
   %.pre692 = load i64, ptr %next.i.i, align 8
   %.pre693 = load i64, ptr %sym_len.i.i, align 8
   br label %if.end47
@@ -3160,7 +3160,7 @@ land.lhs.true.i275:                               ; preds = %if.end63
 if.then.i278:                                     ; preds = %land.lhs.true.i275
   %89 = load ptr, ptr %callback.i136, align 8
   %90 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %89(ptr noundef nonnull @.str.44, i64 noundef 8, ptr noundef %90) #13
+  tail call void %89(ptr noundef nonnull @.str.44, i64 noundef 8, ptr noundef %90) #12
   br label %print_str.exit281
 
 print_str.exit281:                                ; preds = %if.end63, %land.lhs.true.i275, %if.then.i278
@@ -3189,7 +3189,7 @@ land.lhs.true.i284:                               ; preds = %if.then74
 if.then.i287:                                     ; preds = %land.lhs.true.i284
   %94 = load ptr, ptr %callback.i136, align 8
   %95 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %94(ptr noundef nonnull %abi.sroa.0.1648, i64 noundef %i64.0647, ptr noundef %95) #13
+  tail call void %94(ptr noundef nonnull %abi.sroa.0.1648, i64 noundef %i64.0647, ptr noundef %95) #12
   %.pre694 = load i8, ptr %errored, align 8
   br label %print_str.exit290
 
@@ -3206,7 +3206,7 @@ land.lhs.true.i293:                               ; preds = %print_str.exit290
 if.then.i296:                                     ; preds = %land.lhs.true.i293
   %98 = load ptr, ptr %callback.i136, align 8
   %99 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %98(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %99) #13
+  tail call void %98(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %99) #12
   br label %print_str.exit299
 
 print_str.exit299:                                ; preds = %print_str.exit290, %land.lhs.true.i293, %if.then.i296
@@ -3238,7 +3238,7 @@ land.lhs.true.i302:                               ; preds = %for.end82
 if.then.i305:                                     ; preds = %land.lhs.true.i302
   %102 = load ptr, ptr %callback.i136, align 8
   %103 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %102(ptr noundef %abi.sroa.0.1.lcssa, i64 noundef %abi.sroa.8.1.lcssa, ptr noundef %103) #13
+  tail call void %102(ptr noundef %abi.sroa.0.1.lcssa, i64 noundef %abi.sroa.8.1.lcssa, ptr noundef %103) #12
   %.pre695 = load i8, ptr %errored, align 8
   br label %print_str.exit308
 
@@ -3255,7 +3255,7 @@ land.lhs.true.i311:                               ; preds = %print_str.exit308
 if.then.i314:                                     ; preds = %land.lhs.true.i311
   %106 = load ptr, ptr %callback.i136, align 8
   %107 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %106(ptr noundef nonnull @.str.46, i64 noundef 2, ptr noundef %107) #13
+  tail call void %106(ptr noundef nonnull @.str.46, i64 noundef 2, ptr noundef %107) #12
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end47, %peek.exit.i254, %if.then.i314, %land.lhs.true.i311, %print_str.exit308
@@ -3271,7 +3271,7 @@ land.lhs.true.i320:                               ; preds = %if.end85
 if.then.i323:                                     ; preds = %land.lhs.true.i320
   %110 = load ptr, ptr %callback.i136, align 8
   %111 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %110(ptr noundef nonnull @.str.47, i64 noundef 3, ptr noundef %111) #13
+  tail call void %110(ptr noundef nonnull @.str.47, i64 noundef 3, ptr noundef %111) #12
   %.pre696 = load i8, ptr %errored, align 8
   br label %print_str.exit326
 
@@ -3306,7 +3306,7 @@ land.lhs.true.i340:                               ; preds = %for.body94
 if.then.i343:                                     ; preds = %land.lhs.true.i340
   %118 = load ptr, ptr %callback.i136, align 8
   %119 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %118(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %119) #13
+  tail call void %118(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %119) #12
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then.i343, %land.lhs.true.i340, %for.body94
@@ -3326,7 +3326,7 @@ land.lhs.true.i349:                               ; preds = %peek.exit.i330
 if.then.i352:                                     ; preds = %land.lhs.true.i349
   %122 = load ptr, ptr %callback.i136, align 8
   %123 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %122(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %123) #13
+  tail call void %122(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %123) #12
   br label %print_str.exit355
 
 print_str.exit355:                                ; preds = %if.end98, %print_str.exit326, %land.lhs.true.i349, %if.then.i352
@@ -3360,7 +3360,7 @@ land.lhs.true.i369:                               ; preds = %if.else104
 if.then.i372:                                     ; preds = %land.lhs.true.i369
   %130 = load ptr, ptr %callback.i136, align 8
   %131 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %130(ptr noundef nonnull @.str.48, i64 noundef 4, ptr noundef %131) #13
+  tail call void %130(ptr noundef nonnull @.str.48, i64 noundef 4, ptr noundef %131) #12
   br label %print_str.exit375
 
 print_str.exit375:                                ; preds = %if.else104, %land.lhs.true.i369, %if.then.i372
@@ -3383,7 +3383,7 @@ land.lhs.true.i378:                               ; preds = %sw.bb107
 if.then.i381:                                     ; preds = %land.lhs.true.i378
   %133 = load ptr, ptr %callback.i136, align 8
   %134 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %133(ptr noundef nonnull @.str.49, i64 noundef 4, ptr noundef %134) #13
+  tail call void %133(ptr noundef nonnull @.str.49, i64 noundef 4, ptr noundef %134) #12
   br label %print_str.exit384
 
 print_str.exit384:                                ; preds = %sw.bb107, %land.lhs.true.i378, %if.then.i381
@@ -3426,7 +3426,7 @@ land.lhs.true.i398:                               ; preds = %for.body118
 if.then.i401:                                     ; preds = %land.lhs.true.i398
   %143 = load ptr, ptr %callback.i136, align 8
   %144 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %143(ptr noundef nonnull @.str.50, i64 noundef 3, ptr noundef %144) #13
+  tail call void %143(ptr noundef nonnull @.str.50, i64 noundef 3, ptr noundef %144) #12
   %.pre = load i8, ptr %errored, align 8
   br label %if.end122
 
@@ -3474,7 +3474,7 @@ land.lhs.true.i457:                               ; preds = %if.then6.i
 if.then.i460:                                     ; preds = %land.lhs.true.i457
   %153 = load ptr, ptr %callback.i136, align 8
   %154 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %153(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %154) #13
+  tail call void %153(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %154) #12
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -3488,7 +3488,7 @@ land.lhs.true.i448:                               ; preds = %if.else.i
 if.then.i451:                                     ; preds = %land.lhs.true.i448
   %156 = load ptr, ptr %callback.i136, align 8
   %157 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %156(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %157) #13
+  tail call void %156(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %157) #12
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then.i451, %land.lhs.true.i448, %if.else.i, %if.then.i460, %land.lhs.true.i457, %if.then6.i
@@ -3506,7 +3506,7 @@ land.lhs.true.i439:                               ; preds = %if.end7.i
 if.then.i442:                                     ; preds = %land.lhs.true.i439
   %160 = load ptr, ptr %callback.i136, align 8
   %161 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %160(ptr noundef nonnull @.str.90, i64 noundef 3, ptr noundef %161) #13
+  tail call void %160(ptr noundef nonnull @.str.90, i64 noundef 3, ptr noundef %161) #12
   br label %print_str.exit445
 
 print_str.exit445:                                ; preds = %if.end7.i, %land.lhs.true.i439, %if.then.i442
@@ -3533,7 +3533,7 @@ land.lhs.true.i430:                               ; preds = %if.then9.i
 if.then.i433:                                     ; preds = %land.lhs.true.i430
   %166 = load ptr, ptr %callback.i136, align 8
   %167 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %166(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %167) #13
+  tail call void %166(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %167) #12
   br label %demangle_dyn_trait.exit
 
 demangle_dyn_trait.exit:                          ; preds = %if.then.i433, %land.lhs.true.i430, %if.then9.i, %do.body1.i407, %while.end.i
@@ -3581,7 +3581,7 @@ land.lhs.true.i421:                               ; preds = %if.then138
 if.then.i424:                                     ; preds = %land.lhs.true.i421
   %175 = load ptr, ptr %callback.i136, align 8
   %176 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %175(ptr noundef nonnull @.str.50, i64 noundef 3, ptr noundef %176) #13
+  tail call void %175(ptr noundef nonnull @.str.50, i64 noundef 3, ptr noundef %176) #12
   br label %print_str.exit427
 
 print_str.exit427:                                ; preds = %if.then138, %land.lhs.true.i421, %if.then.i424
@@ -3729,7 +3729,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %2 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %3 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %2(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %3) #13
+  tail call void %2(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %3) #12
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -3752,7 +3752,7 @@ if.then.i14:                                      ; preds = %land.lhs.true.i11
   %6 = load ptr, ptr %callback.i15, align 8
   %callback_opaque.i16 = getelementptr inbounds i8, ptr %rdm, i64 16
   %7 = load ptr, ptr %callback_opaque.i16, align 8
-  tail call void %6(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %7) #13
+  tail call void %6(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %7) #12
   br label %if.end3
 
 if.end:                                           ; preds = %print_str.exit
@@ -3781,7 +3781,7 @@ if.then.i23:                                      ; preds = %land.lhs.true.i20
   %12 = load ptr, ptr %callback.i24, align 8
   %callback_opaque.i25 = getelementptr inbounds i8, ptr %rdm, i64 16
   %13 = load ptr, ptr %callback_opaque.i25, align 8
-  call void %12(ptr noundef nonnull %c, i64 noundef 1, ptr noundef %13) #13
+  call void %12(ptr noundef nonnull %c, i64 noundef 1, ptr noundef %13) #12
   br label %if.end3
 
 if.else:                                          ; preds = %if.end
@@ -3800,13 +3800,13 @@ if.then.i32:                                      ; preds = %land.lhs.true.i29
   %16 = load ptr, ptr %callback.i33, align 8
   %callback_opaque.i34 = getelementptr inbounds i8, ptr %rdm, i64 16
   %17 = load ptr, ptr %callback_opaque.i34, align 8
-  tail call void %16(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %17) #13
+  tail call void %16(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %17) #12
   br label %print_str.exit35
 
 print_str.exit35:                                 ; preds = %if.else, %land.lhs.true.i29, %if.then.i32
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %s.i)
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %sub) #13
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #12
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %sub) #12
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #11
   %18 = load i8, ptr %errored.i, align 8
   %tobool.i.i = trunc i8 %18 to i1
   br i1 %tobool.i.i, label %print_uint64.exit, label %land.lhs.true.i.i
@@ -3822,7 +3822,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %20 = load ptr, ptr %callback.i.i, align 8
   %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %21 = load ptr, ptr %callback_opaque.i.i, align 8
-  call void %20(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %21) #13
+  call void %20(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %21) #12
   br label %print_uint64.exit
 
 print_uint64.exit:                                ; preds = %print_str.exit35, %land.lhs.true.i.i, %if.then.i.i
@@ -3900,7 +3900,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %7 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %6(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %7) #13
+  tail call void %6(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %7) #12
   br label %common.ret671
 
 sw.bb4:                                           ; preds = %next.exit, %next.exit, %next.exit, %next.exit, %next.exit, %next.exit
@@ -3930,7 +3930,7 @@ if.then.i111:                                     ; preds = %land.lhs.true.i108
   %10 = load ptr, ptr %callback.i112, align 8
   %callback_opaque.i113 = getelementptr inbounds i8, ptr %rdm, i64 16
   %11 = load ptr, ptr %callback_opaque.i113, align 8
-  tail call void %10(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %11) #13
+  tail call void %10(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %11) #12
   br label %if.end8
 
 if.end8:                                          ; preds = %sw.bb5, %peek.exit.i102, %if.then.i111, %land.lhs.true.i108
@@ -4048,7 +4048,7 @@ if.then.i123:                                     ; preds = %land.lhs.true.i120
   %22 = load ptr, ptr %callback.i124, align 8
   %callback_opaque.i125 = getelementptr inbounds i8, ptr %rdm, i64 16
   %23 = load ptr, ptr %callback_opaque.i125, align 8
-  tail call void %22(ptr noundef nonnull %cond40, i64 noundef %call45, ptr noundef %23) #13
+  tail call void %22(ptr noundef nonnull %cond40, i64 noundef %call45, ptr noundef %23) #12
   br label %common.ret671
 
 while.cond.i.i130:                                ; preds = %next.exit, %do.end14.i.i146
@@ -4161,7 +4161,7 @@ if.then.i177:                                     ; preds = %land.lhs.true.i174
   %33 = load ptr, ptr %callback.i178, align 8
   %callback_opaque.i179 = getelementptr inbounds i8, ptr %rdm, i64 16
   %34 = load ptr, ptr %callback_opaque.i179, align 8
-  tail call void %33(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %34) #13
+  tail call void %33(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %34) #12
   br label %print_str.exit180
 
 print_str.exit180:                                ; preds = %land.lhs.true.i174, %if.then.i177
@@ -4181,7 +4181,7 @@ if.then.i186:                                     ; preds = %land.lhs.true.i183
   %37 = load ptr, ptr %callback.i187, align 8
   %callback_opaque.i188 = getelementptr inbounds i8, ptr %rdm, i64 16
   %38 = load ptr, ptr %callback_opaque.i188, align 8
-  tail call void %37(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %38) #13
+  tail call void %37(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %38) #12
   br label %common.ret671
 
 sw.bb69:                                          ; preds = %next.exit
@@ -4198,7 +4198,7 @@ if.then.i195:                                     ; preds = %land.lhs.true.i192
   %40 = load ptr, ptr %callback.i196, align 8
   %callback_opaque.i197 = getelementptr inbounds i8, ptr %rdm, i64 16
   %41 = load ptr, ptr %callback_opaque.i197, align 8
-  tail call void %40(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %41) #13
+  tail call void %40(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %41) #12
   %.pre567 = load i8, ptr %errored, align 8
   br label %if.end72
 
@@ -4218,7 +4218,7 @@ if.then.i204:                                     ; preds = %land.lhs.true.i201
   %44 = load ptr, ptr %callback.i205, align 8
   %callback_opaque.i206 = getelementptr inbounds i8, ptr %rdm, i64 16
   %45 = load ptr, ptr %callback_opaque.i206, align 8
-  tail call void %44(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %45) #13
+  tail call void %44(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %45) #12
   br label %print_str.exit207
 
 print_str.exit207:                                ; preds = %if.end72, %land.lhs.true.i201, %if.then.i204
@@ -4255,7 +4255,7 @@ if.then.i224:                                     ; preds = %land.lhs.true.i221
   %48 = load ptr, ptr %callback.i225, align 8
   %callback_opaque.i226 = getelementptr inbounds i8, ptr %rdm, i64 16
   %49 = load ptr, ptr %callback_opaque.i226, align 8
-  tail call void %48(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %49) #13
+  tail call void %48(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %49) #12
   %.pre = load i8, ptr %errored, align 8
   br label %if.end84
 
@@ -4275,7 +4275,7 @@ if.then.i233:                                     ; preds = %land.lhs.true.i230
   %52 = load ptr, ptr %callback.i234, align 8
   %callback_opaque.i235 = getelementptr inbounds i8, ptr %rdm, i64 16
   %53 = load ptr, ptr %callback_opaque.i235, align 8
-  tail call void %52(ptr noundef nonnull @.str.14, i64 noundef 1, ptr noundef %53) #13
+  tail call void %52(ptr noundef nonnull @.str.14, i64 noundef 1, ptr noundef %53) #12
   br label %print_str.exit236
 
 print_str.exit236:                                ; preds = %if.end84, %land.lhs.true.i230, %if.then.i233
@@ -4298,7 +4298,7 @@ if.then.i242:                                     ; preds = %land.lhs.true.i239
   %56 = load ptr, ptr %callback.i243, align 8
   %callback_opaque.i244 = getelementptr inbounds i8, ptr %rdm, i64 16
   %57 = load ptr, ptr %callback_opaque.i244, align 8
-  tail call void %56(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %57) #13
+  tail call void %56(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %57) #12
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then.i242, %land.lhs.true.i239, %if.then88, %print_str.exit236
@@ -4319,7 +4319,7 @@ if.then.i251:                                     ; preds = %land.lhs.true.i248
   %59 = load ptr, ptr %callback.i252, align 8
   %callback_opaque.i253 = getelementptr inbounds i8, ptr %rdm, i64 16
   %60 = load ptr, ptr %callback_opaque.i253, align 8
-  tail call void %59(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %60) #13
+  tail call void %59(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %60) #12
   %.pre558 = load i8, ptr %errored, align 8
   br label %if.end93
 
@@ -4339,7 +4339,7 @@ if.then.i260:                                     ; preds = %land.lhs.true.i257
   %63 = load ptr, ptr %callback.i261, align 8
   %callback_opaque.i262 = getelementptr inbounds i8, ptr %rdm, i64 16
   %64 = load ptr, ptr %callback_opaque.i262, align 8
-  tail call void %63(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %64) #13
+  tail call void %63(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %64) #12
   br label %print_str.exit263
 
 print_str.exit263:                                ; preds = %if.end93, %land.lhs.true.i257, %if.then.i260
@@ -4388,7 +4388,7 @@ land.lhs.true.i277:                               ; preds = %do.end104
 if.then.i280:                                     ; preds = %land.lhs.true.i277
   %71 = load ptr, ptr %callback.i281, align 8
   %72 = load ptr, ptr %callback_opaque.i282, align 8
-  tail call void %71(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %72) #13
+  tail call void %71(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %72) #12
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then.i280, %land.lhs.true.i277, %do.end104
@@ -4410,7 +4410,7 @@ land.lhs.true.i286:                               ; preds = %while.end
 if.then.i289:                                     ; preds = %land.lhs.true.i286
   %74 = load ptr, ptr %callback.i281, align 8
   %75 = load ptr, ptr %callback_opaque.i282, align 8
-  tail call void %74(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %75) #13
+  tail call void %74(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %75) #12
   br label %sw.epilog202
 
 sw.bb109:                                         ; preds = %next.exit
@@ -4427,7 +4427,7 @@ if.then.i298:                                     ; preds = %land.lhs.true.i295
   %77 = load ptr, ptr %callback.i299, align 8
   %callback_opaque.i300 = getelementptr inbounds i8, ptr %rdm, i64 16
   %78 = load ptr, ptr %callback_opaque.i300, align 8
-  tail call void %77(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %78) #13
+  tail call void %77(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %78) #12
   %.pre555 = load i8, ptr %errored, align 8
   br label %if.end112
 
@@ -4447,7 +4447,7 @@ if.then.i307:                                     ; preds = %land.lhs.true.i304
   %81 = load ptr, ptr %callback.i308, align 8
   %callback_opaque.i309 = getelementptr inbounds i8, ptr %rdm, i64 16
   %82 = load ptr, ptr %callback_opaque.i309, align 8
-  tail call void %81(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %82) #13
+  tail call void %81(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %82) #12
   br label %print_str.exit310
 
 print_str.exit310:                                ; preds = %if.end112, %land.lhs.true.i304, %if.then.i307
@@ -4496,7 +4496,7 @@ land.lhs.true.i324:                               ; preds = %do.end126
 if.then.i327:                                     ; preds = %land.lhs.true.i324
   %89 = load ptr, ptr %callback.i328, align 8
   %90 = load ptr, ptr %callback_opaque.i329, align 8
-  tail call void %89(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %90) #13
+  tail call void %89(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %90) #12
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then.i327, %land.lhs.true.i324, %do.end126
@@ -4522,7 +4522,7 @@ land.lhs.true.i333:                               ; preds = %if.then135
 if.then.i336:                                     ; preds = %land.lhs.true.i333
   %92 = load ptr, ptr %callback.i328, align 8
   %93 = load ptr, ptr %callback_opaque.i329, align 8
-  tail call void %92(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %93) #13
+  tail call void %92(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %93) #12
   %.pre556 = load i8, ptr %errored, align 8
   br label %if.end136
 
@@ -4539,7 +4539,7 @@ land.lhs.true.i342:                               ; preds = %if.end136
 if.then.i345:                                     ; preds = %land.lhs.true.i342
   %96 = load ptr, ptr %callback.i328, align 8
   %97 = load ptr, ptr %callback_opaque.i329, align 8
-  tail call void %96(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %97) #13
+  tail call void %96(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %97) #12
   br label %sw.epilog202
 
 sw.bb137:                                         ; preds = %next.exit
@@ -4556,7 +4556,7 @@ if.then.i354:                                     ; preds = %land.lhs.true.i351
   %99 = load ptr, ptr %callback.i355, align 8
   %callback_opaque.i356 = getelementptr inbounds i8, ptr %rdm, i64 16
   %100 = load ptr, ptr %callback_opaque.i356, align 8
-  tail call void %99(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %100) #13
+  tail call void %99(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %100) #12
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then.i354, %land.lhs.true.i351, %sw.bb137
@@ -4598,7 +4598,7 @@ if.then.i375:                                     ; preds = %land.lhs.true.i372
   %107 = load ptr, ptr %callback.i376, align 8
   %callback_opaque.i377 = getelementptr inbounds i8, ptr %rdm, i64 16
   %108 = load ptr, ptr %callback_opaque.i377, align 8
-  tail call void %107(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %108) #13
+  tail call void %107(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %108) #12
   br label %print_str.exit378
 
 print_str.exit378:                                ; preds = %sw.bb144, %land.lhs.true.i372, %if.then.i375
@@ -4647,7 +4647,7 @@ land.lhs.true.i392:                               ; preds = %do.end158
 if.then.i395:                                     ; preds = %land.lhs.true.i392
   %115 = load ptr, ptr %callback.i396, align 8
   %116 = load ptr, ptr %callback_opaque.i397, align 8
-  tail call void %115(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %116) #13
+  tail call void %115(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %116) #12
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then.i395, %land.lhs.true.i392, %do.end158
@@ -4669,7 +4669,7 @@ land.lhs.true.i401:                               ; preds = %while.end164
 if.then.i404:                                     ; preds = %land.lhs.true.i401
   %118 = load ptr, ptr %callback.i396, align 8
   %119 = load ptr, ptr %callback_opaque.i397, align 8
-  tail call void %118(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %119) #13
+  tail call void %118(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %119) #12
   br label %sw.epilog202
 
 sw.bb165:                                         ; preds = %next.exit369
@@ -4688,7 +4688,7 @@ if.then.i413:                                     ; preds = %land.lhs.true.i410
   %122 = load ptr, ptr %callback.i414, align 8
   %callback_opaque.i415 = getelementptr inbounds i8, ptr %rdm, i64 16
   %123 = load ptr, ptr %callback_opaque.i415, align 8
-  tail call void %122(ptr noundef nonnull @.str.76, i64 noundef 3, ptr noundef %123) #13
+  tail call void %122(ptr noundef nonnull @.str.76, i64 noundef 3, ptr noundef %123) #12
   br label %print_str.exit416
 
 print_str.exit416:                                ; preds = %sw.bb165, %land.lhs.true.i410, %if.then.i413
@@ -4737,7 +4737,7 @@ land.lhs.true.i430:                               ; preds = %do.end179
 if.then.i433:                                     ; preds = %land.lhs.true.i430
   %130 = load ptr, ptr %callback.i434, align 8
   %131 = load ptr, ptr %callback_opaque.i435, align 8
-  tail call void %130(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %131) #13
+  tail call void %130(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %131) #12
   %.pre563 = load i64, ptr %next.i.i, align 8
   %.pre564 = load i64, ptr %sym_len.i.i, align 8
   br label %if.end183
@@ -4818,7 +4818,7 @@ land.lhs.true.i446:                               ; preds = %parse_disambiguator
 if.then.i449:                                     ; preds = %land.lhs.true.i446
   %145 = load ptr, ptr %callback.i434, align 8
   %146 = load ptr, ptr %callback_opaque.i435, align 8
-  tail call void %145(ptr noundef nonnull @.str.77, i64 noundef 2, ptr noundef %146) #13
+  tail call void %145(ptr noundef nonnull @.str.77, i64 noundef 2, ptr noundef %146) #12
   br label %print_str.exit452
 
 print_str.exit452:                                ; preds = %parse_disambiguator.exit, %land.lhs.true.i446, %if.then.i449
@@ -4840,7 +4840,7 @@ land.lhs.true.i455:                               ; preds = %while.end186
 if.then.i458:                                     ; preds = %land.lhs.true.i455
   %148 = load ptr, ptr %callback.i434, align 8
   %149 = load ptr, ptr %callback_opaque.i435, align 8
-  tail call void %148(ptr noundef nonnull @.str.78, i64 noundef 2, ptr noundef %149) #13
+  tail call void %148(ptr noundef nonnull @.str.78, i64 noundef 2, ptr noundef %149) #12
   br label %sw.epilog202
 
 do.body187:                                       ; preds = %peek.exit.i364, %if.end140, %next.exit369
@@ -4950,7 +4950,7 @@ if.then.i472:                                     ; preds = %land.lhs.true.i469
   %161 = load ptr, ptr %callback.i473, align 8
   %callback_opaque.i474 = getelementptr inbounds i8, ptr %rdm, i64 16
   %162 = load ptr, ptr %callback_opaque.i474, align 8
-  tail call void %161(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %162) #13
+  tail call void %161(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %162) #12
   br label %common.ret671
 }
 
@@ -5062,7 +5062,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %13 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %14 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %13(ptr noundef nonnull @.str.88, i64 noundef 4, ptr noundef %14) #13
+  tail call void %13(ptr noundef nonnull @.str.88, i64 noundef 4, ptr noundef %14) #12
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %if.then4.thread, %if.then4, %land.lhs.true.i, %if.then.i
@@ -5091,7 +5091,7 @@ land.lhs.true.i14:                                ; preds = %if.then7
 if.then.i17:                                      ; preds = %land.lhs.true.i14
   %17 = load ptr, ptr %callback.i18, align 8
   %18 = load ptr, ptr %callback_opaque.i19, align 8
-  tail call void %17(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %18) #13
+  tail call void %17(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %18) #12
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then.i17, %land.lhs.true.i14, %if.then7, %for.body
@@ -5116,7 +5116,7 @@ land.lhs.true.i24:                                ; preds = %for.end
 if.then.i27:                                      ; preds = %land.lhs.true.i24
   %22 = load ptr, ptr %callback.i18, align 8
   %23 = load ptr, ptr %callback_opaque.i19, align 8
-  tail call void %22(ptr noundef nonnull @.str.89, i64 noundef 2, ptr noundef %23) #13
+  tail call void %22(ptr noundef nonnull @.str.89, i64 noundef 2, ptr noundef %23) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end3, %peek.exit.i.i, %if.then.i27, %land.lhs.true.i24, %for.end, %parse_opt_integer_62.exit, %do.body1
@@ -5243,7 +5243,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %12 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %13 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %12(ptr noundef nonnull @.str.79, i64 noundef 2, ptr noundef %13) #13
+  tail call void %12(ptr noundef nonnull @.str.79, i64 noundef 2, ptr noundef %13) #12
   %.pre = load i8, ptr %errored, align 8
   br label %print_str.exit
 
@@ -5262,7 +5262,7 @@ if.then.i22:                                      ; preds = %land.lhs.true.i19
   %16 = load ptr, ptr %callback.i23, align 8
   %callback_opaque.i24 = getelementptr inbounds i8, ptr %rdm, i64 16
   %17 = load ptr, ptr %callback_opaque.i24, align 8
-  tail call void %16(ptr noundef %retval.sroa.0.1.i, i64 noundef %retval.sroa.5.1.i, ptr noundef %17) #13
+  tail call void %16(ptr noundef %retval.sroa.0.1.i, i64 noundef %retval.sroa.5.1.i, ptr noundef %17) #12
   br label %if.end19
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -5283,8 +5283,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %v.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %or, %for.body ]
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %s.i)
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %v.0.lcssa) #13
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #12
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %v.0.lcssa) #12
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #11
   %19 = load i8, ptr %errored, align 8
   %tobool.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i, label %print_uint64.exit, label %land.lhs.true.i.i
@@ -5300,7 +5300,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %21 = load ptr, ptr %callback.i.i, align 8
   %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %22 = load ptr, ptr %callback_opaque.i.i, align 8
-  call void %21(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %22) #13
+  call void %21(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %22) #12
   br label %print_uint64.exit
 
 print_uint64.exit:                                ; preds = %for.end, %land.lhs.true.i.i, %if.then.i.i
@@ -5315,14 +5315,10 @@ if.end19:                                         ; preds = %if.then.i22, %land.
 
 if.then21:                                        ; preds = %if.end19
   %switch.tableidx = add nsw i8 %ty_tag, -97
-  %switch.maskindex = zext nneg i8 %switch.tableidx to i32
-  %switch.shifted = lshr i32 62716863, %switch.maskindex
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  call void @llvm.assume(i1 %switch.lobit)
   %24 = sext i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [26 x ptr], ptr @switch.table.demangle_const_uint, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #12
+  %call24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #11
   %25 = load i8, ptr %errored, align 8
   %tobool.i50 = trunc i8 %25 to i1
   br i1 %tobool.i50, label %if.end25, label %land.lhs.true.i51
@@ -5338,7 +5334,7 @@ if.then.i54:                                      ; preds = %land.lhs.true.i51
   %27 = load ptr, ptr %callback.i55, align 8
   %callback_opaque.i56 = getelementptr inbounds i8, ptr %rdm, i64 16
   %28 = load ptr, ptr %callback_opaque.i56, align 8
-  call void %27(ptr noundef nonnull %switch.load, i64 noundef %call24, ptr noundef %28) #13
+  call void %27(ptr noundef nonnull %switch.load, i64 noundef %call24, ptr noundef %28) #12
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then.i54, %land.lhs.true.i51, %if.then21, %if.end19, %do.body8, %do.body1
@@ -5389,7 +5385,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %4 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %3(ptr noundef nonnull @.str.80, i64 noundef 2, ptr noundef %4) #13
+  tail call void %3(ptr noundef nonnull @.str.80, i64 noundef 2, ptr noundef %4) #12
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %do.end4
@@ -5409,7 +5405,7 @@ if.then.i29:                                      ; preds = %land.lhs.true.i26
   %7 = load ptr, ptr %callback.i30, align 8
   %callback_opaque.i31 = getelementptr inbounds i8, ptr %rdm, i64 16
   %8 = load ptr, ptr %callback_opaque.i31, align 8
-  tail call void %7(ptr noundef nonnull @.str.81, i64 noundef 2, ptr noundef %8) #13
+  tail call void %7(ptr noundef nonnull @.str.81, i64 noundef 2, ptr noundef %8) #12
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %do.end4
@@ -5429,7 +5425,7 @@ if.then.i38:                                      ; preds = %land.lhs.true.i35
   %11 = load ptr, ptr %callback.i39, align 8
   %callback_opaque.i40 = getelementptr inbounds i8, ptr %rdm, i64 16
   %12 = load ptr, ptr %callback_opaque.i40, align 8
-  tail call void %11(ptr noundef nonnull @.str.82, i64 noundef 2, ptr noundef %12) #13
+  tail call void %11(ptr noundef nonnull @.str.82, i64 noundef 2, ptr noundef %12) #12
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %do.end4
@@ -5449,7 +5445,7 @@ if.then.i47:                                      ; preds = %land.lhs.true.i44
   %15 = load ptr, ptr %callback.i48, align 8
   %callback_opaque.i49 = getelementptr inbounds i8, ptr %rdm, i64 16
   %16 = load ptr, ptr %callback_opaque.i49, align 8
-  tail call void %15(ptr noundef nonnull @.str.83, i64 noundef 2, ptr noundef %16) #13
+  tail call void %15(ptr noundef nonnull @.str.83, i64 noundef 2, ptr noundef %16) #12
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %do.end4
@@ -5469,7 +5465,7 @@ if.then.i56:                                      ; preds = %land.lhs.true.i53
   %19 = load ptr, ptr %callback.i57, align 8
   %callback_opaque.i58 = getelementptr inbounds i8, ptr %rdm, i64 16
   %20 = load ptr, ptr %callback_opaque.i58, align 8
-  tail call void %19(ptr noundef nonnull @.str.84, i64 noundef 2, ptr noundef %20) #13
+  tail call void %19(ptr noundef nonnull @.str.84, i64 noundef 2, ptr noundef %20) #12
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %do.end4
@@ -5493,7 +5489,7 @@ if.then.i65:                                      ; preds = %land.lhs.true.i62
   %23 = load ptr, ptr %callback.i66, align 8
   %callback_opaque.i67 = getelementptr inbounds i8, ptr %rdm, i64 16
   %24 = load ptr, ptr %callback_opaque.i67, align 8
-  tail call void %23(ptr noundef nonnull @.str.85, i64 noundef 2, ptr noundef %24) #13
+  tail call void %23(ptr noundef nonnull @.str.85, i64 noundef 2, ptr noundef %24) #12
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb9
@@ -5510,7 +5506,7 @@ if.then.i74:                                      ; preds = %land.lhs.true.i71
   %26 = load ptr, ptr %callback.i75, align 8
   %callback_opaque.i76 = getelementptr inbounds i8, ptr %rdm, i64 16
   %27 = load ptr, ptr %callback_opaque.i76, align 8
-  tail call void %26(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %27) #13
+  tail call void %26(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %27) #12
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %do.end4
@@ -5534,7 +5530,7 @@ if.then.i83:                                      ; preds = %land.lhs.true.i80
   %30 = load ptr, ptr %callback.i84, align 8
   %callback_opaque.i85 = getelementptr inbounds i8, ptr %rdm, i64 16
   %31 = load ptr, ptr %callback_opaque.i85, align 8
-  tail call void %30(ptr noundef nonnull @.str.87, i64 noundef 2, ptr noundef %31) #13
+  tail call void %30(ptr noundef nonnull @.str.87, i64 noundef 2, ptr noundef %31) #12
   br label %sw.epilog
 
 if.else19:                                        ; preds = %sw.bb14
@@ -5551,7 +5547,7 @@ if.then.i92:                                      ; preds = %land.lhs.true.i89
   %33 = load ptr, ptr %callback.i93, align 8
   %callback_opaque.i94 = getelementptr inbounds i8, ptr %rdm, i64 16
   %34 = load ptr, ptr %callback_opaque.i94, align 8
-  tail call void %33(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %34) #13
+  tail call void %33(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %34) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %do.end4
@@ -5578,7 +5574,7 @@ if.then.i101:                                     ; preds = %land.lhs.true.i98
   %38 = load ptr, ptr %callback.i102, align 8
   %callback_opaque.i103 = getelementptr inbounds i8, ptr %rdm, i64 16
   %39 = load ptr, ptr %callback_opaque.i103, align 8
-  call void %38(ptr noundef nonnull %v, i64 noundef 1, ptr noundef %39) #13
+  call void %38(ptr noundef nonnull %v, i64 noundef 1, ptr noundef %39) #12
   br label %sw.epilog
 
 if.else28:                                        ; preds = %sw.default
@@ -5598,13 +5594,13 @@ if.then.i110:                                     ; preds = %land.lhs.true.i107
   %42 = load ptr, ptr %callback.i111, align 8
   %callback_opaque.i112 = getelementptr inbounds i8, ptr %rdm, i64 16
   %43 = load ptr, ptr %callback_opaque.i112, align 8
-  tail call void %42(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %43) #13
+  tail call void %42(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %43) #12
   br label %print_str.exit113
 
 print_str.exit113:                                ; preds = %if.else28, %land.lhs.true.i107, %if.then.i110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %s, i8 0, i64 9, i1 false)
-  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c) #13
-  %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #12
+  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c) #12
+  %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #11
   %44 = load i8, ptr %errored.i105, align 8
   %tobool.i115 = trunc i8 %44 to i1
   br i1 %tobool.i115, label %print_str.exit122, label %land.lhs.true.i116
@@ -5620,7 +5616,7 @@ if.then.i119:                                     ; preds = %land.lhs.true.i116
   %46 = load ptr, ptr %callback.i120, align 8
   %callback_opaque.i121 = getelementptr inbounds i8, ptr %rdm, i64 16
   %47 = load ptr, ptr %callback_opaque.i121, align 8
-  call void %46(ptr noundef nonnull %s, i64 noundef %call31, ptr noundef %47) #13
+  call void %46(ptr noundef nonnull %s, i64 noundef %call31, ptr noundef %47) #12
   %.pre = load i8, ptr %errored.i105, align 8
   br label %print_str.exit122
 
@@ -5640,7 +5636,7 @@ if.then.i128:                                     ; preds = %land.lhs.true.i125
   %50 = load ptr, ptr %callback.i129, align 8
   %callback_opaque.i130 = getelementptr inbounds i8, ptr %rdm, i64 16
   %51 = load ptr, ptr %callback_opaque.i130, align 8
-  call void %50(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %51) #13
+  call void %50(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %51) #12
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i128, %land.lhs.true.i125, %print_str.exit122, %if.then.i101, %land.lhs.true.i98, %if.then26, %if.then.i92, %land.lhs.true.i89, %if.else19, %if.then.i83, %land.lhs.true.i80, %if.then18, %if.then.i74, %land.lhs.true.i71, %if.else, %if.then.i65, %land.lhs.true.i62, %if.then12, %if.then.i56, %land.lhs.true.i53, %sw.bb8, %if.then.i47, %land.lhs.true.i44, %sw.bb7, %if.then.i38, %land.lhs.true.i35, %sw.bb6, %if.then.i29, %land.lhs.true.i26, %sw.bb5, %if.then.i, %land.lhs.true.i, %sw.bb, %do.body3
@@ -5735,7 +5731,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %11 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %12 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %11(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %12) #13
+  tail call void %11(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %12) #12
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %land.lhs.true.i, %if.then.i
@@ -5878,7 +5874,7 @@ if.then.i54:                                      ; preds = %land.lhs.true.i51
   %21 = load ptr, ptr %callback.i55, align 8
   %callback_opaque.i56 = getelementptr inbounds i8, ptr %rdm, i64 16
   %22 = load ptr, ptr %callback_opaque.i56, align 8
-  tail call void %21(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %22) #13
+  tail call void %21(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %22) #12
   br label %return
 
 return:                                           ; preds = %if.then.i54, %land.lhs.true.i51, %for.end71, %do.body59, %do.body31, %do.body8, %do.body1
@@ -6021,7 +6017,7 @@ if.then.i32:                                      ; preds = %land.lhs.true.i
   %18 = load ptr, ptr %callback.i, align 8
   %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %19 = load ptr, ptr %callback_opaque.i, align 8
-  tail call void %18(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %19) #13
+  tail call void %18(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %19) #12
   %.pre = load i8, ptr %errored, align 8
   br label %print_str.exit
 
@@ -6067,7 +6063,7 @@ land.lhs.true.i46:                                ; preds = %for.body
 if.then.i49:                                      ; preds = %land.lhs.true.i46
   %26 = load ptr, ptr %callback.i50, align 8
   %27 = load ptr, ptr %callback_opaque.i51, align 8
-  tail call void %26(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %27) #13
+  tail call void %26(ptr noundef nonnull @.str.36, i64 noundef 2, ptr noundef %27) #12
   %.pre154 = load i64, ptr %next.i.i, align 8
   %.pre155 = load i64, ptr %sym_len.i.i, align 8
   br label %if.end19
@@ -6194,9 +6190,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 attributes #0 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6208,11 +6201,10 @@ attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(1) }
-attributes #15 = { nounwind allocsize(0) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -455,11 +455,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h20d9d9b71c73efa5E" = private unnamed_addr constant [5 x ptr] [ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.416, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.417, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.418, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.419, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.420], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE" = private unnamed_addr constant [3 x i64] [i64 4, i64 6, i64 4], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE.440" = private unnamed_addr constant [3 x ptr] [ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.421, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.422, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.423], align 8
-@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.445 = private unnamed_addr constant [10 x i64] [i64 263, i64 271, i64 287, i64 319, i64 383, i64 287, i64 319, i64 255, i64 287, i64 319], align 8
-@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.462 = private unnamed_addr constant [16 x i8] c"\01\00\03\02\05\04\07\06\09\08\0B\0A\0D\0C\0F\0E", align 1
-@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.468 = private unnamed_addr constant [10 x i8] c"\04\05\0F\0E\0C\0D\07\06\02\03", align 1
-@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.470 = private unnamed_addr constant [10 x i8] c"\04\05\0C\0D\0F\0E\02\03\07\06", align 1
-@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.471 = private unnamed_addr constant [10 x i32] [i32 7, i32 15, i32 31, i32 63, i32 127, i32 31, i32 63, i32 255, i32 31, i32 63], align 4
+@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E" = private unnamed_addr constant [256 x i64] [i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 7, i64 7, i64 8, i64 8, i64 9, i64 9, i64 9, i64 9, i64 10, i64 10, i64 7, i64 7, i64 10, i64 10, i64 11, i64 11, i64 8, i64 8, i64 7, i64 6, i64 6, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 8, i64 8, i64 12, i64 12, i64 12, i64 12, i64 5, i64 5, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 7, i64 7, i64 8, i64 8, i64 8, i64 8, i64 6, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 7, i64 7, i64 8, i64 8, i64 6, i64 6, i64 6, i64 6, i64 7, i64 7, i64 8, i64 8, i64 6, i64 6, i64 5, i64 6, i64 6, i64 4, i64 5, i64 5, i64 5, i64 6, i64 6, i64 7, i64 7, i64 7, i64 7, i64 9, i64 8, i64 7, i64 8, i64 10, i64 10, i64 9, i64 9, i64 9, i64 7, i64 7, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 6, i64 6, i64 6, i64 6, i64 9, i64 9, i64 9, i64 8, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 7, i64 10, i64 10, i64 9, i64 9, i64 9, i64 9, i64 8, i64 7, i64 7, i64 7, i64 7, i64 8, i64 10, i64 9, i64 7, i64 7, i64 6, i64 6, i64 6, i64 6, i64 6, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 6], align 8
+@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E.441" = private unnamed_addr constant [256 x ptr] [ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.568, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.569, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.570, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.571, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.572, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.573, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.574, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.575, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.576, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.577, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.578, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.579, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.580, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.581, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.582, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.583, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.584, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.585, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.586, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.587, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.588, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.589, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.590, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.591, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.592, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.593, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.594, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.595, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.596, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.597, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.598, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.599, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.600, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.601, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.602, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.603, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.604, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.605, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.606, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.607, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.608, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.609, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.610, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.611, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.612, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.613, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.614, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.615, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.616, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.617, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.618, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.619, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.620, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.621, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.622, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.623, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.624, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.625, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.626, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.627, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.628, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.629, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.630, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.631, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.441, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.442, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.443, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.444, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.445, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.446, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.447, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.448, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.449, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.450, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.451, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.452, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.453, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.454, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.455, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.456, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.457, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.458, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.459, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.460, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.461, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.462, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.463, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.464, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.465, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.466, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.467, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.468, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.469, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.470, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.471, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.472, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.473, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.474, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.475, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.476, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.477, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.478, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.479, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.480, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.481, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.482, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.483, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.484, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.485, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.486, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.487, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.488, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.489, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.490, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.491, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.492, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.493, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.494, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.495, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.496, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.497, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.498, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.499, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.500, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.501, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.502, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.503, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.504, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.505, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.506, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.507, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.508, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.509, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.510, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.511, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.512, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.513, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.514, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.515, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.516, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.517, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.518, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.519, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.520, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.521, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.522, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.523, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.524, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.525, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.526, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.527, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.528, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.529, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.530, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.531, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.532, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.533, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.534, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.535, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.536, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.537, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.538, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.539, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.540, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.541, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.542, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.543, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.544, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.545, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.546, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.547, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.548, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.549, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.550, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.551, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.552, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.553, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.554, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.555, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.556, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.557, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.558, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.559, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.560, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.561, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.562, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.563, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.564, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.565, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.566, ptr @anon.2cddbf5bcaf761a71b3f633d4eb1e193.567], align 8
+@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.446 = private unnamed_addr constant [10 x i64] [i64 263, i64 271, i64 287, i64 319, i64 383, i64 287, i64 319, i64 255, i64 287, i64 319], align 8
+@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.463 = private unnamed_addr constant [16 x i8] c"\01\00\03\02\05\04\07\06\09\08\0B\0A\0D\0C\0F\0E", align 1
+@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.469 = private unnamed_addr constant [10 x i8] c"\04\05\0F\0E\0C\0D\07\06\02\03", align 1
+@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.471 = private unnamed_addr constant [10 x i8] c"\04\05\0C\0D\0F\0E\02\03\07\06", align 1
+@switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.472 = private unnamed_addr constant [10 x i32] [i32 7, i32 15, i32 31, i32 63, i32 127, i32 31, i32 63, i32 255, i32 31, i32 63], align 4
 @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E" = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 0, i32 32, i32 64], align 4
 
 ; Function Attrs: nonlazybind uwtable
@@ -564,784 +566,18 @@ default.unreachable:                              ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %.val = load i8, ptr %3, align 1, !range !16, !noundef !4
-  switch i8 %.val, label %default.unreachable [
-    i8 0, label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-    i8 1, label %4
-    i8 2, label %5
-    i8 3, label %6
-    i8 4, label %7
-    i8 5, label %8
-    i8 6, label %9
-    i8 7, label %10
-    i8 8, label %11
-    i8 9, label %12
-    i8 10, label %13
-    i8 11, label %14
-    i8 12, label %15
-    i8 13, label %16
-    i8 14, label %17
-    i8 15, label %18
-    i8 16, label %19
-    i8 17, label %20
-    i8 18, label %21
-    i8 19, label %22
-    i8 20, label %23
-    i8 21, label %24
-    i8 22, label %25
-    i8 23, label %26
-    i8 24, label %27
-    i8 25, label %28
-    i8 26, label %29
-    i8 27, label %30
-    i8 28, label %31
-    i8 29, label %32
-    i8 30, label %33
-    i8 31, label %34
-    i8 32, label %35
-    i8 33, label %36
-    i8 34, label %37
-    i8 35, label %38
-    i8 36, label %39
-    i8 37, label %40
-    i8 38, label %41
-    i8 39, label %42
-    i8 40, label %43
-    i8 41, label %44
-    i8 42, label %45
-    i8 43, label %46
-    i8 44, label %47
-    i8 45, label %48
-    i8 46, label %49
-    i8 47, label %50
-    i8 48, label %51
-    i8 49, label %52
-    i8 50, label %53
-    i8 51, label %54
-    i8 52, label %55
-    i8 53, label %56
-    i8 54, label %57
-    i8 55, label %58
-    i8 56, label %59
-    i8 57, label %60
-    i8 58, label %61
-    i8 59, label %62
-    i8 60, label %63
-    i8 61, label %64
-    i8 62, label %65
-    i8 63, label %66
-    i8 64, label %67
-    i8 65, label %68
-    i8 66, label %69
-    i8 67, label %70
-    i8 68, label %71
-    i8 69, label %72
-    i8 70, label %73
-    i8 71, label %74
-    i8 72, label %75
-    i8 73, label %76
-    i8 74, label %77
-    i8 75, label %78
-    i8 76, label %79
-    i8 77, label %80
-    i8 78, label %81
-    i8 79, label %82
-    i8 80, label %83
-    i8 81, label %84
-    i8 82, label %85
-    i8 83, label %86
-    i8 84, label %87
-    i8 85, label %88
-    i8 86, label %89
-    i8 87, label %90
-    i8 88, label %91
-    i8 89, label %92
-    i8 90, label %93
-    i8 91, label %94
-    i8 92, label %95
-    i8 93, label %96
-    i8 94, label %97
-    i8 95, label %98
-    i8 96, label %99
-    i8 97, label %100
-    i8 98, label %101
-    i8 99, label %102
-    i8 100, label %103
-    i8 101, label %104
-    i8 102, label %105
-    i8 103, label %106
-    i8 104, label %107
-    i8 105, label %108
-    i8 106, label %109
-    i8 107, label %110
-    i8 108, label %111
-    i8 109, label %112
-    i8 110, label %113
-    i8 111, label %114
-    i8 112, label %115
-    i8 113, label %116
-    i8 114, label %117
-    i8 115, label %118
-    i8 116, label %119
-    i8 117, label %120
-    i8 118, label %121
-    i8 119, label %122
-    i8 120, label %123
-    i8 121, label %124
-    i8 122, label %125
-    i8 123, label %126
-    i8 124, label %127
-    i8 125, label %128
-    i8 126, label %129
-    i8 127, label %130
-    i8 -128, label %131
-    i8 -127, label %132
-    i8 -126, label %133
-    i8 -125, label %134
-    i8 -124, label %135
-    i8 -123, label %136
-    i8 -122, label %137
-    i8 -121, label %138
-    i8 -120, label %139
-    i8 -119, label %140
-    i8 -118, label %141
-    i8 -117, label %142
-    i8 -116, label %143
-    i8 -115, label %144
-    i8 -114, label %145
-    i8 -113, label %146
-    i8 -112, label %147
-    i8 -111, label %148
-    i8 -110, label %149
-    i8 -109, label %150
-    i8 -108, label %151
-    i8 -107, label %152
-    i8 -106, label %153
-    i8 -105, label %154
-    i8 -104, label %155
-    i8 -103, label %156
-    i8 -102, label %157
-    i8 -101, label %158
-    i8 -100, label %159
-    i8 -99, label %160
-    i8 -98, label %161
-    i8 -97, label %162
-    i8 -96, label %163
-    i8 -95, label %164
-    i8 -94, label %165
-    i8 -93, label %166
-    i8 -92, label %167
-    i8 -91, label %168
-    i8 -90, label %169
-    i8 -89, label %170
-    i8 -88, label %171
-    i8 -87, label %172
-    i8 -86, label %173
-    i8 -85, label %174
-    i8 -84, label %175
-    i8 -83, label %176
-    i8 -82, label %177
-    i8 -81, label %178
-    i8 -80, label %179
-    i8 -79, label %180
-    i8 -78, label %181
-    i8 -77, label %182
-    i8 -76, label %183
-    i8 -75, label %184
-    i8 -74, label %185
-    i8 -73, label %186
-    i8 -72, label %187
-    i8 -71, label %188
-    i8 -70, label %189
-    i8 -69, label %190
-    i8 -68, label %191
-    i8 -67, label %192
-    i8 -66, label %193
-    i8 -65, label %194
-  ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
-
-4:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-5:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-6:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-7:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-8:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-9:                                                ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-10:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-11:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-12:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-13:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-14:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-15:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-16:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-17:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-18:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-19:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-20:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-21:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-22:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-23:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-24:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-25:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-26:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-27:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-28:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-29:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-30:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-31:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-32:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-33:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-34:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-35:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-36:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-37:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-38:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-39:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-40:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-41:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-42:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-43:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-44:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-45:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-46:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-47:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-48:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-49:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-50:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-51:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-52:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-53:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-54:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-55:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-56:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-57:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-58:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-59:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-60:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-61:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-62:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-63:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-64:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-65:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-66:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-67:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-68:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-69:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-70:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-71:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-72:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-73:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-74:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-75:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-76:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-77:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-78:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-79:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-80:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-81:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-82:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-83:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-84:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-85:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-86:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-87:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-88:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-89:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-90:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-91:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-92:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-93:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-94:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-95:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-96:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-97:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-98:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-99:                                               ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-100:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-101:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-102:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-103:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-104:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-105:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-106:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-107:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-108:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-109:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-110:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-111:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-112:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-113:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-114:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-115:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-116:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-117:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-118:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-119:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-120:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-121:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-122:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-123:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-124:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-125:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-126:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-127:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-128:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-129:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-130:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-131:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-132:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-133:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-134:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-135:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-136:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-137:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-138:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-139:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-140:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-141:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-142:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-143:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-144:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-145:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-146:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-147:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-148:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-149:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-150:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-151:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-152:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-153:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-154:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-155:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-156:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-157:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-158:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-159:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-160:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-161:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-162:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-163:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-164:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-165:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-166:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-167:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-168:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-169:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-170:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-171:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-172:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-173:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-174:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-175:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-176:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-177:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-178:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-179:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-180:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-181:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-182:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-183:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-184:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-185:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-186:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-187:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-188:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-189:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-190:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-191:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-192:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-193:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-194:                                              ; preds = %2
-  br label %"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit"
-
-"_ZN104_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h44bef21a055d309dE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194
-  %.sroa.193.0.i = phi i64 [ 6, %194 ], [ 8, %193 ], [ 8, %192 ], [ 8, %191 ], [ 8, %190 ], [ 7, %189 ], [ 7, %188 ], [ 9, %187 ], [ 9, %186 ], [ 9, %185 ], [ 9, %184 ], [ 9, %183 ], [ 9, %182 ], [ 9, %181 ], [ 5, %180 ], [ 5, %179 ], [ 12, %178 ], [ 12, %177 ], [ 12, %176 ], [ 12, %175 ], [ 8, %174 ], [ 8, %173 ], [ 7, %172 ], [ 7, %171 ], [ 7, %170 ], [ 7, %169 ], [ 7, %168 ], [ 7, %167 ], [ 7, %166 ], [ 6, %165 ], [ 6, %164 ], [ 7, %163 ], [ 8, %162 ], [ 8, %161 ], [ 11, %160 ], [ 11, %159 ], [ 10, %158 ], [ 10, %157 ], [ 7, %156 ], [ 7, %155 ], [ 10, %154 ], [ 10, %153 ], [ 9, %152 ], [ 9, %151 ], [ 9, %150 ], [ 9, %149 ], [ 8, %148 ], [ 8, %147 ], [ 7, %146 ], [ 7, %145 ], [ 6, %144 ], [ 6, %143 ], [ 6, %142 ], [ 6, %141 ], [ 6, %140 ], [ 6, %139 ], [ 6, %138 ], [ 6, %137 ], [ 6, %136 ], [ 6, %135 ], [ 6, %134 ], [ 6, %133 ], [ 6, %132 ], [ 6, %131 ], [ 6, %130 ], [ 9, %129 ], [ 9, %128 ], [ 9, %127 ], [ 9, %126 ], [ 9, %125 ], [ 9, %124 ], [ 6, %123 ], [ 6, %122 ], [ 6, %121 ], [ 6, %120 ], [ 6, %119 ], [ 7, %118 ], [ 7, %117 ], [ 9, %116 ], [ 10, %115 ], [ 8, %114 ], [ 7, %113 ], [ 7, %112 ], [ 7, %111 ], [ 7, %110 ], [ 8, %109 ], [ 9, %108 ], [ 9, %107 ], [ 9, %106 ], [ 9, %105 ], [ 10, %104 ], [ 10, %103 ], [ 7, %102 ], [ 7, %101 ], [ 7, %100 ], [ 7, %99 ], [ 7, %98 ], [ 7, %97 ], [ 7, %96 ], [ 7, %95 ], [ 7, %94 ], [ 7, %93 ], [ 7, %92 ], [ 7, %91 ], [ 8, %90 ], [ 9, %89 ], [ 9, %88 ], [ 9, %87 ], [ 6, %86 ], [ 6, %85 ], [ 6, %84 ], [ 6, %83 ], [ 8, %82 ], [ 8, %81 ], [ 8, %80 ], [ 8, %79 ], [ 8, %78 ], [ 8, %77 ], [ 8, %76 ], [ 8, %75 ], [ 6, %74 ], [ 6, %73 ], [ 6, %72 ], [ 6, %71 ], [ 6, %70 ], [ 6, %69 ], [ 6, %68 ], [ 6, %67 ], [ 6, %66 ], [ 7, %65 ], [ 7, %64 ], [ 9, %63 ], [ 9, %62 ], [ 9, %61 ], [ 10, %60 ], [ 10, %59 ], [ 8, %58 ], [ 7, %57 ], [ 8, %56 ], [ 9, %55 ], [ 7, %54 ], [ 7, %53 ], [ 7, %52 ], [ 7, %51 ], [ 6, %50 ], [ 6, %49 ], [ 5, %48 ], [ 5, %47 ], [ 5, %46 ], [ 4, %45 ], [ 6, %44 ], [ 6, %43 ], [ 5, %42 ], [ 6, %41 ], [ 6, %40 ], [ 8, %39 ], [ 8, %38 ], [ 7, %37 ], [ 7, %36 ], [ 6, %35 ], [ 6, %34 ], [ 6, %33 ], [ 6, %32 ], [ 8, %31 ], [ 8, %30 ], [ 7, %29 ], [ 7, %28 ], [ 6, %27 ], [ 6, %26 ], [ 6, %25 ], [ 6, %24 ], [ 6, %23 ], [ 6, %22 ], [ 6, %21 ], [ 6, %20 ], [ 6, %19 ], [ 12, %18 ], [ 12, %17 ], [ 12, %16 ], [ 12, %15 ], [ 12, %14 ], [ 12, %13 ], [ 12, %12 ], [ 12, %11 ], [ 11, %10 ], [ 11, %9 ], [ 11, %8 ], [ 11, %7 ], [ 11, %6 ], [ 11, %5 ], [ 11, %4 ], [ 11, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.631, %194 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.630, %193 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.629, %192 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.628, %191 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.627, %190 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.626, %189 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.625, %188 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.624, %187 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.623, %186 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.622, %185 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.621, %184 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.620, %183 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.619, %182 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.618, %181 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.617, %180 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.616, %179 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.615, %178 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.614, %177 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.613, %176 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.612, %175 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.611, %174 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.610, %173 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.609, %172 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.608, %171 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.607, %170 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.606, %169 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.605, %168 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.604, %167 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.603, %166 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.602, %165 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.601, %164 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.600, %163 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.599, %162 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.598, %161 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.597, %160 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.596, %159 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.595, %158 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.594, %157 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.593, %156 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.592, %155 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.591, %154 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.590, %153 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.589, %152 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.588, %151 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.587, %150 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.586, %149 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.585, %148 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.584, %147 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.583, %146 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.582, %145 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.581, %144 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.580, %143 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.579, %142 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.578, %141 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.577, %140 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.576, %139 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.575, %138 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.574, %137 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.573, %136 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.572, %135 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.571, %134 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.570, %133 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.569, %132 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.568, %131 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.567, %130 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.566, %129 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.565, %128 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.564, %127 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.563, %126 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.562, %125 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.561, %124 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.560, %123 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.559, %122 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.558, %121 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.557, %120 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.556, %119 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.555, %118 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.554, %117 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.553, %116 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.552, %115 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.551, %114 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.550, %113 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.549, %112 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.548, %111 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.547, %110 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.546, %109 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.545, %108 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.544, %107 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.543, %106 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.542, %105 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.541, %104 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.540, %103 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.539, %102 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.538, %101 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.537, %100 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.536, %99 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.535, %98 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.534, %97 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.533, %96 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.532, %95 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.531, %94 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.530, %93 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.529, %92 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.528, %91 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.527, %90 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.526, %89 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.525, %88 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.524, %87 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.523, %86 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.522, %85 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.521, %84 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.520, %83 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.519, %82 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.518, %81 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.517, %80 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.516, %79 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.515, %78 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.514, %77 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.513, %76 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.512, %75 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.511, %74 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.510, %73 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.509, %72 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.508, %71 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.507, %70 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.506, %69 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.505, %68 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.504, %67 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.503, %66 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.502, %65 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.501, %64 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.500, %63 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.499, %62 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.498, %61 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.497, %60 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.496, %59 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.495, %58 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.494, %57 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.493, %56 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.492, %55 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.491, %54 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.490, %53 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.489, %52 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.488, %51 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.487, %50 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.486, %49 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.485, %48 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.484, %47 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.483, %46 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.482, %45 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.481, %44 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.480, %43 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.479, %42 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.478, %41 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.477, %40 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.476, %39 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.475, %38 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.474, %37 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.473, %36 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.472, %35 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.471, %34 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.470, %33 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.469, %32 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.468, %31 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.467, %30 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.466, %29 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.465, %28 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.464, %27 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.463, %26 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.462, %25 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.461, %24 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.460, %23 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.459, %22 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.458, %21 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.457, %20 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.456, %19 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.455, %18 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.454, %17 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.453, %16 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.452, %15 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.451, %14 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.450, %13 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.449, %12 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.448, %11 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.447, %10 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.446, %9 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.445, %8 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.444, %7 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.443, %6 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.442, %5 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.441, %4 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.440, %2 ]
-  %195 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.193.0.i)
-  ret i1 %195
+switch.lookup:
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %.val = load i8, ptr %2, align 1, !range !16, !noundef !4
+  %switch.tableidx = xor i8 %.val, -128
+  %3 = zext i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E", i64 0, i64 %3
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = zext i8 %switch.tableidx to i64
+  %switch.gep2 = getelementptr inbounds [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E.441", i64 0, i64 %4
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7616,7 +6852,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
 
 switch.lookup17:                                  ; preds = %37
   %42 = zext nneg i16 %switch.tableidx18 to i64
-  %switch.gep19 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.445, i64 0, i64 %42
+  %switch.gep19 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.446, i64 0, i64 %42
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit"
 
@@ -7668,7 +6904,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup21:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
   %52 = zext nneg i16 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.471, i64 0, i64 %52
+  %switch.gep23 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.472, i64 0, i64 %52
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit"
 
@@ -44440,7 +43676,7 @@ switch.lookup:                                    ; preds = %4
   %21 = getelementptr inbounds i8, ptr %1, i64 1
   %.val40 = load i8, ptr %21, align 1, !range !6387, !alias.scope !6388, !noundef !4
   %22 = zext nneg i8 %.val40 to i64
-  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.462, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.463, i64 0, i64 %22
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %12)
   store i8 83, ptr %12, align 8
@@ -44453,7 +43689,7 @@ switch.lookup:                                    ; preds = %4
   %24 = getelementptr inbounds i8, ptr %1, i64 2
   %.val = load i8, ptr %24, align 2, !range !6387, !alias.scope !6388, !noundef !4
   %25 = zext nneg i8 %.val to i64
-  %switch.gep3 = getelementptr inbounds [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.462, i64 0, i64 %25
+  %switch.gep3 = getelementptr inbounds [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.463, i64 0, i64 %25
   %switch.load4 = load i8, ptr %switch.gep3, align 1
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11)
   store i8 84, ptr %11, align 8
@@ -45141,7 +44377,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit68"
   %93 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.470, i64 0, i64 %93
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.471, i64 0, i64 %93
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %42)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_emit_cmp_i12817h9ea53a68c171da94E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %42, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 %switch.load, i32 noundef %.sroa.3.0.extract.trunc, i32 noundef %.sroa.021.0.extract.trunc, i32 noundef %.sroa.326.0.extract.trunc, i32 noundef %.sroa.023.0.extract.trunc)
@@ -45377,7 +44613,7 @@ switch.lookup77:                                  ; preds = %switch.hole_check
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %40)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %40, i8 %switch.masked, i32 noundef %.sroa.04.0.extract.trunc.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %41)
   %174 = sext i8 %.0.val to i64
-  %switch.gep79 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.468, i64 0, i64 %174
+  %switch.gep79 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.469, i64 0, i64 %174
   %switch.load80 = load i8, ptr %switch.gep79, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28)
@@ -45641,7 +44877,7 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %37)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %37, i8 %switch.masked95, i32 noundef %.sroa.04.0.extract.trunc.i.i90, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %38)
   %255 = sext i8 %.0.val to i64
-  %switch.gep97 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.470, i64 0, i64 %255
+  %switch.gep97 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.471, i64 0, i64 %255
   %switch.load98 = load i8, ptr %switch.gep97, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %26)
@@ -45836,7 +45072,7 @@ switch.lookup106:                                 ; preds = %switch.hole_check10
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %34)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %34, i8 %switch.masked113, i32 noundef %.sroa.04.0.extract.trunc.i.i112, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %35)
   %305 = sext i8 %.0.val to i64
-  %switch.gep115 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.468, i64 0, i64 %305
+  %switch.gep115 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.469, i64 0, i64 %305
   %switch.load116 = load i8, ptr %switch.gep115, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %24)
@@ -45938,7 +45174,7 @@ switch.lookup124:                                 ; preds = %switch.hole_check12
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %31)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %31, i8 %switch.masked131, i32 noundef %.sroa.04.0.extract.trunc.i.i124, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %32)
   %333 = sext i8 %.0.val to i64
-  %switch.gep133 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.470, i64 0, i64 %333
+  %switch.gep133 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.471, i64 0, i64 %333
   %switch.load134 = load i8, ptr %switch.gep133, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %22)
@@ -79058,7 +78294,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
   %39 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.471, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.472, i64 0, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit"
 
@@ -79086,7 +78322,7 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 switch.lookup18:                                  ; preds = %42
   %47 = zext nneg i16 %switch.tableidx19 to i64
-  %switch.gep20 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.471, i64 0, i64 %47
+  %switch.gep20 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.472, i64 0, i64 %47
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit"
 

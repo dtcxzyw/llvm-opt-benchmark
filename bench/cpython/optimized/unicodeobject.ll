@@ -1366,6 +1366,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.329 = private unnamed_addr constant [17 x i8] c"formatter_parser\00", align 1
 @.str.330 = private unnamed_addr constant [38 x i8] c"parse the argument as a format string\00", align 1
 @.str.331 = private unnamed_addr constant [21 x i8] c"expected str, got %s\00", align 1
+@switch.table._PyUnicodeWriter_PrepareKindInternal = private unnamed_addr constant [4 x i32] [i32 255, i32 65535, i32 255, i32 1114111], align 4
 @switch.table.PyUnicode_RichCompare = private unnamed_addr constant [6 x ptr] [ptr @_Py_FalseStruct, ptr @_Py_TrueStruct, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -22502,24 +22503,11 @@ _PyUnicode_AsLatin1String.exit:                   ; preds = %if.then.i, %PyUnico
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_PyUnicodeWriter_PrepareKindInternal(ptr nocapture noundef %writer, i32 noundef %kind) local_unnamed_addr #0 {
 entry:
-  switch i32 %kind, label %sw.default [
-    i32 1, label %sw.epilog
-    i32 2, label %sw.bb1
-    i32 4, label %sw.bb2
-  ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  unreachable
-
-sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw.bb1
-  %maxchar.0 = phi i32 [ 1114111, %sw.bb2 ], [ 65535, %sw.bb1 ], [ 255, %entry ]
-  %call = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef %writer, i64 noundef 0, i32 noundef %maxchar.0)
+  %switch.tableidx = add nsw i32 %kind, -1
+  %0 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._PyUnicodeWriter_PrepareKindInternal, i64 0, i64 %0
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %call = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef %writer, i64 noundef 0, i32 noundef %switch.load)
   ret i32 %call
 }
 
