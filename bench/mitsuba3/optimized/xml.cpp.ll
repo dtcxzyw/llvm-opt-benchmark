@@ -21316,7 +21316,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %271 = shl nsw i64 %.1.i123, 1
   %272 = or disjoint i64 %271, 1
   %273 = getelementptr inbounds %"class.std::__1::tuple", ptr %.0158, i64 %272
-  %274 = add i64 %271, 2
+  %274 = add nsw i64 %271, 2
   %275 = icmp slt i64 %274, %31
   br i1 %275, label %276, label %._crit_edge20.i
 
@@ -21450,7 +21450,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %334 = getelementptr i8, ptr %333, i64 56
   %335 = shl nsw i64 %.0.i.i.i.i.i, 1
   %336 = or disjoint i64 %335, 1
-  %337 = add i64 %335, 2
+  %337 = add nsw i64 %335, 2
   %338 = icmp slt i64 %337, %.07.i.i.i
   br i1 %338, label %339, label %352
 

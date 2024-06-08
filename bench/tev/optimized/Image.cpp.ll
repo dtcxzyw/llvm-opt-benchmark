@@ -25350,7 +25350,7 @@ define linkonce_odr hidden void @_ZNSt3__111__sift_downB8ne190000INS_17_ClassicA
   %48 = shl nsw i64 %.1, 1
   %49 = or disjoint i64 %48, 1
   %50 = getelementptr inbounds %"struct.std::__1::pair", ptr %0, i64 %49
-  %51 = add i64 %48, 2
+  %51 = add nsw i64 %48, 2
   %52 = icmp slt i64 %51, %2
   br i1 %52, label %53, label %._crit_edge48
 
@@ -25417,7 +25417,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = shl nsw i64 %.0.i, 1
   %13 = or disjoint i64 %12, 1
-  %14 = add i64 %12, 2
+  %14 = add nsw i64 %12, 2
   %15 = icmp slt i64 %14, %3
   br i1 %15, label %16, label %._crit_edge.i
 
@@ -75369,7 +75369,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
   %23 = getelementptr inbounds %"struct.tev::ImageAddition", ptr %.sroa.09.0.i, i64 %22
   %24 = shl nsw i64 %.0.i, 1
   %25 = or disjoint i64 %24, 1
-  %26 = add i64 %24, 2
+  %26 = add nsw i64 %24, 2
   %27 = icmp slt i64 %26, %3
   br i1 %27, label %28, label %.critedge.i
 

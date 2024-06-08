@@ -840,7 +840,7 @@ cache_get_entry.exit.preheader.i.i:               ; preds = %tailrecurse.i.i
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 40
   %118 = load i64, ptr %117, align 8
-  %119 = add i32 %112, 2
+  %119 = add nsw i32 %112, 2
   %120 = icmp slt i32 %119, %110
   br i1 %120, label %121, label %128
 
@@ -1464,7 +1464,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %222
   %415 = sext i32 %412 to i64
   %416 = getelementptr inbounds %struct.read_ce_req, ptr %414, i64 %415
   %417 = load i64, ptr %416, align 8
-  %418 = add i32 %413, 2
+  %418 = add nsw i32 %413, 2
   %419 = icmp slt i32 %418, %411
   br i1 %419, label %420, label %425
 
@@ -1687,7 +1687,7 @@ rede_get_entry.exit149.thread195.i.i:             ; preds = %462, %451, %246, %r
   %519 = load ptr, ptr %518, align 8
   %520 = getelementptr inbounds i8, ptr %519, i64 40
   %521 = load i64, ptr %520, align 8
-  %522 = add i32 %515, 2
+  %522 = add nsw i32 %515, 2
   %523 = icmp slt i32 %522, %513
   br i1 %523, label %524, label %531
 

@@ -89,12 +89,12 @@ if.end.i17:                                       ; preds = %for.body
 if.end.i.i:                                       ; preds = %if.end.i17
   %cmp5.i = icmp slt i32 %7, 127
   %mul.i20 = shl nuw nsw i32 %7, 1
-  %add8.i = add nuw i32 %mul.i20, 129
-  %and.i = and i32 %add8.i, -128
+  %add8.i = add nuw nsw i32 %mul.i20, 129
+  %and.i = and i32 %add8.i, 2147483520
   %cond.i = select i1 %cmp5.i, i32 128, i32 %and.i
-  %add.i.i = or disjoint i32 %cond.i, 1
-  %conv.i.i = sext i32 %add.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 1
+  %add.i.i = shl nuw i32 %cond.i, 1
+  %8 = or disjoint i32 %add.i.i, 2
+  %mul.i.i = zext i32 %8 to i64
   %call.i.i = call ptr @uprv_realloc_75(ptr noundef %.pre12.i, i64 noundef %mul.i.i) #8
   store ptr %call.i.i, ptr %s, align 8
   %cmp3.i.i = icmp eq ptr %call.i.i, null
@@ -108,8 +108,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 ustr_resize.exit.i:                               ; preds = %if.then5.i.i, %if.end.i.i
   %cond.sink.i = phi i32 [ 0, %if.then5.i.i ], [ %cond.i, %if.end.i.i ]
   store i32 %cond.sink.i, ptr %fCapacity, align 4
-  %8 = load i32, ptr %status, align 4
-  %cmp9.i = icmp sgt i32 %8, 0
+  %9 = load i32, ptr %status, align 4
+  %cmp9.i = icmp sgt i32 %9, 0
   br i1 %cmp9.i, label %ustr_ucat.exit, label %ustr_resize.exit.do.body_crit_edge.i
 
 ustr_resize.exit.do.body_crit_edge.i:             ; preds = %ustr_resize.exit.i
@@ -118,17 +118,17 @@ ustr_resize.exit.do.body_crit_edge.i:             ; preds = %ustr_resize.exit.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %ustr_resize.exit.do.body_crit_edge.i, %if.end.i17
-  %9 = phi i32 [ %.pre13.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %7, %if.end.i17 ]
-  %10 = phi ptr [ %.pre.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %.pre12.i, %if.end.i17 ]
-  %idx.ext.i = sext i32 %9 to i64
-  %add.ptr.i = getelementptr inbounds i16, ptr %10, i64 %idx.ext.i
+  %10 = phi i32 [ %.pre13.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %7, %if.end.i17 ]
+  %11 = phi ptr [ %.pre.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %.pre12.i, %if.end.i17 ]
+  %idx.ext.i = sext i32 %10 to i64
+  %add.ptr.i = getelementptr inbounds i16, ptr %11, i64 %idx.ext.i
   store i16 %4, ptr %add.ptr.i, align 2
-  %11 = load i32, ptr %fLength, align 8
-  %add15.i = add nsw i32 %11, 1
+  %12 = load i32, ptr %fLength, align 8
+  %add15.i = add nsw i32 %12, 1
   store i32 %add15.i, ptr %fLength, align 8
-  %12 = load ptr, ptr %s, align 8
+  %13 = load ptr, ptr %s, align 8
   %idxprom.i = sext i32 %add15.i to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %12, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %13, i64 %idxprom.i
   store i16 0, ptr %arrayidx.i, align 2
   br label %ustr_ucat.exit
 
@@ -165,12 +165,12 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %cmp5 = icmp slt i32 %2, 127
   %mul = shl nuw nsw i32 %2, 1
-  %add8 = add nuw i32 %mul, 129
-  %and = and i32 %add8, -128
+  %add8 = add nuw nsw i32 %mul, 129
+  %and = and i32 %add8, 2147483520
   %cond = select i1 %cmp5, i32 128, i32 %and
-  %add.i = or disjoint i32 %cond, 1
-  %conv.i = sext i32 %add.i to i64
-  %mul.i = shl nsw i64 %conv.i, 1
+  %add.i = shl nuw i32 %cond, 1
+  %3 = or disjoint i32 %add.i, 2
+  %mul.i = zext i32 %3 to i64
   %call.i = tail call ptr @uprv_realloc_75(ptr noundef %.pre12, i64 noundef %mul.i) #8
   store ptr %call.i, ptr %dst, align 8
   %cmp3.i = icmp eq ptr %call.i, null
@@ -184,8 +184,8 @@ if.then5.i:                                       ; preds = %if.end.i
 ustr_resize.exit:                                 ; preds = %if.end.i, %if.then5.i
   %cond.sink = phi i32 [ 0, %if.then5.i ], [ %cond, %if.end.i ]
   store i32 %cond.sink, ptr %fCapacity, align 4
-  %3 = load i32, ptr %status, align 4
-  %cmp9 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %status, align 4
+  %cmp9 = icmp sgt i32 %4, 0
   br i1 %cmp9, label %return, label %ustr_resize.exit.do.body_crit_edge
 
 ustr_resize.exit.do.body_crit_edge:               ; preds = %ustr_resize.exit
@@ -194,17 +194,17 @@ ustr_resize.exit.do.body_crit_edge:               ; preds = %ustr_resize.exit
   br label %do.body
 
 do.body:                                          ; preds = %ustr_resize.exit.do.body_crit_edge, %if.end
-  %4 = phi i32 [ %.pre13, %ustr_resize.exit.do.body_crit_edge ], [ %2, %if.end ]
-  %5 = phi ptr [ %.pre, %ustr_resize.exit.do.body_crit_edge ], [ %.pre12, %if.end ]
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %5, i64 %idx.ext
+  %5 = phi i32 [ %.pre13, %ustr_resize.exit.do.body_crit_edge ], [ %2, %if.end ]
+  %6 = phi ptr [ %.pre, %ustr_resize.exit.do.body_crit_edge ], [ %.pre12, %if.end ]
+  %idx.ext = sext i32 %5 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
   store i16 %c, ptr %add.ptr, align 2
-  %6 = load i32, ptr %fLength, align 8
-  %add15 = add nsw i32 %6, 1
+  %7 = load i32, ptr %fLength, align 8
+  %add15 = add nsw i32 %7, 1
   store i32 %add15, ptr %fLength, align 8
-  %7 = load ptr, ptr %dst, align 8
+  %8 = load ptr, ptr %dst, align 8
   %idxprom = sext i32 %add15 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
+  %arrayidx = getelementptr inbounds i16, ptr %8, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   br label %return
 
@@ -549,12 +549,12 @@ if.end.i:                                         ; preds = %if.then2
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp5.i = icmp slt i32 %3, 127
   %mul.i = shl nuw nsw i32 %3, 1
-  %add8.i = add nuw i32 %mul.i, 129
-  %and.i = and i32 %add8.i, -128
+  %add8.i = add nuw nsw i32 %mul.i, 129
+  %and.i = and i32 %add8.i, 2147483520
   %cond.i = select i1 %cmp5.i, i32 128, i32 %and.i
-  %add.i.i = or disjoint i32 %cond.i, 1
-  %conv.i.i = sext i32 %add.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 1
+  %add.i.i = shl nuw i32 %cond.i, 1
+  %4 = or disjoint i32 %add.i.i, 2
+  %mul.i.i = zext i32 %4 to i64
   %call.i.i = tail call ptr @uprv_realloc_75(ptr noundef %.pre12.i, i64 noundef %mul.i.i) #8
   store ptr %call.i.i, ptr %dst, align 8
   %cmp3.i.i = icmp eq ptr %call.i.i, null
@@ -568,8 +568,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 ustr_resize.exit.i:                               ; preds = %if.then5.i.i, %if.end.i.i
   %cond.sink.i = phi i32 [ 0, %if.then5.i.i ], [ %cond.i, %if.end.i.i ]
   store i32 %cond.sink.i, ptr %fCapacity.i, align 4
-  %4 = load i32, ptr %status, align 4
-  %cmp9.i = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %status, align 4
+  %cmp9.i = icmp sgt i32 %5, 0
   br i1 %cmp9.i, label %if.end5, label %ustr_resize.exit.do.body_crit_edge.i
 
 ustr_resize.exit.do.body_crit_edge.i:             ; preds = %ustr_resize.exit.i
@@ -578,140 +578,140 @@ ustr_resize.exit.do.body_crit_edge.i:             ; preds = %ustr_resize.exit.i
   br label %ustr_ucat.exit
 
 ustr_ucat.exit:                                   ; preds = %if.end.i, %ustr_resize.exit.do.body_crit_edge.i
-  %5 = phi i32 [ %.pre13.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %3, %if.end.i ]
-  %6 = phi ptr [ %.pre.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %.pre12.i, %if.end.i ]
-  %idx.ext.i = sext i32 %5 to i64
-  %add.ptr.i = getelementptr inbounds i16, ptr %6, i64 %idx.ext.i
+  %6 = phi i32 [ %.pre13.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %3, %if.end.i ]
+  %7 = phi ptr [ %.pre.i, %ustr_resize.exit.do.body_crit_edge.i ], [ %.pre12.i, %if.end.i ]
+  %idx.ext.i = sext i32 %6 to i64
+  %add.ptr.i = getelementptr inbounds i16, ptr %7, i64 %idx.ext.i
   store i16 %conv, ptr %add.ptr.i, align 2
-  %7 = load i32, ptr %fLength.i, align 8
-  %add15.i = add nsw i32 %7, 1
+  %8 = load i32, ptr %fLength.i, align 8
+  %add15.i = add nsw i32 %8, 1
   store i32 %add15.i, ptr %fLength.i, align 8
-  %8 = load ptr, ptr %dst, align 8
+  %9 = load ptr, ptr %dst, align 8
   %idxprom.i = sext i32 %add15.i to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %9, i64 %idxprom.i
   store i16 0, ptr %arrayidx.i, align 2
   %.pr = load i32, ptr %status, align 4
-  %9 = trunc i32 %c to i16
-  %10 = and i16 %9, 1023
-  %conv3 = or disjoint i16 %10, -9216
+  %10 = trunc i32 %c to i16
+  %11 = and i16 %10, 1023
+  %conv3 = or disjoint i16 %11, -9216
   %cmp.i10 = icmp sgt i32 %.pr, 0
   br i1 %cmp.i10, label %if.end5, label %if.end.i11
 
 if.end.i11:                                       ; preds = %ustr_ucat.exit
-  %11 = load i32, ptr %fCapacity.i, align 4
-  %12 = load i32, ptr %fLength.i, align 8
-  %cmp1.not.i14 = icmp sgt i32 %11, %12
+  %12 = load i32, ptr %fCapacity.i, align 4
+  %13 = load i32, ptr %fLength.i, align 8
+  %cmp1.not.i14 = icmp sgt i32 %12, %13
   %.pre12.i15 = load ptr, ptr %dst, align 8
-  br i1 %cmp1.not.i14, label %do.body.i33, label %if.end.i.i16
+  br i1 %cmp1.not.i14, label %do.body.i32, label %if.end.i.i16
 
 if.end.i.i16:                                     ; preds = %if.end.i11
-  %cmp5.i17 = icmp slt i32 %12, 127
-  %mul.i18 = shl nuw nsw i32 %12, 1
-  %add8.i19 = add nuw i32 %mul.i18, 129
-  %and.i20 = and i32 %add8.i19, -128
+  %cmp5.i17 = icmp slt i32 %13, 127
+  %mul.i18 = shl nuw nsw i32 %13, 1
+  %add8.i19 = add nuw nsw i32 %mul.i18, 129
+  %and.i20 = and i32 %add8.i19, 2147483520
   %cond.i21 = select i1 %cmp5.i17, i32 128, i32 %and.i20
-  %add.i.i22 = or disjoint i32 %cond.i21, 1
-  %conv.i.i23 = sext i32 %add.i.i22 to i64
-  %mul.i.i24 = shl nsw i64 %conv.i.i23, 1
-  %call.i.i25 = tail call ptr @uprv_realloc_75(ptr noundef %.pre12.i15, i64 noundef %mul.i.i24) #8
-  store ptr %call.i.i25, ptr %dst, align 8
-  %cmp3.i.i26 = icmp eq ptr %call.i.i25, null
-  br i1 %cmp3.i.i26, label %if.then5.i.i39, label %ustr_resize.exit.i27
+  %add.i.i22 = shl nuw i32 %cond.i21, 1
+  %14 = or disjoint i32 %add.i.i22, 2
+  %mul.i.i23 = zext i32 %14 to i64
+  %call.i.i24 = tail call ptr @uprv_realloc_75(ptr noundef %.pre12.i15, i64 noundef %mul.i.i23) #8
+  store ptr %call.i.i24, ptr %dst, align 8
+  %cmp3.i.i25 = icmp eq ptr %call.i.i24, null
+  br i1 %cmp3.i.i25, label %if.then5.i.i38, label %ustr_resize.exit.i26
 
-if.then5.i.i39:                                   ; preds = %if.end.i.i16
+if.then5.i.i38:                                   ; preds = %if.end.i.i16
   store i32 7, ptr %status, align 4
   store i32 0, ptr %fLength.i, align 8
-  br label %ustr_resize.exit.i27
+  br label %ustr_resize.exit.i26
 
-ustr_resize.exit.i27:                             ; preds = %if.then5.i.i39, %if.end.i.i16
-  %cond.sink.i28 = phi i32 [ 0, %if.then5.i.i39 ], [ %cond.i21, %if.end.i.i16 ]
-  store i32 %cond.sink.i28, ptr %fCapacity.i, align 4
-  %13 = load i32, ptr %status, align 4
-  %cmp9.i29 = icmp sgt i32 %13, 0
-  br i1 %cmp9.i29, label %if.end5, label %ustr_resize.exit.do.body_crit_edge.i30
+ustr_resize.exit.i26:                             ; preds = %if.then5.i.i38, %if.end.i.i16
+  %cond.sink.i27 = phi i32 [ 0, %if.then5.i.i38 ], [ %cond.i21, %if.end.i.i16 ]
+  store i32 %cond.sink.i27, ptr %fCapacity.i, align 4
+  %15 = load i32, ptr %status, align 4
+  %cmp9.i28 = icmp sgt i32 %15, 0
+  br i1 %cmp9.i28, label %if.end5, label %ustr_resize.exit.do.body_crit_edge.i29
 
-ustr_resize.exit.do.body_crit_edge.i30:           ; preds = %ustr_resize.exit.i27
-  %.pre.i31 = load ptr, ptr %dst, align 8
-  %.pre13.i32 = load i32, ptr %fLength.i, align 8
-  br label %do.body.i33
+ustr_resize.exit.do.body_crit_edge.i29:           ; preds = %ustr_resize.exit.i26
+  %.pre.i30 = load ptr, ptr %dst, align 8
+  %.pre13.i31 = load i32, ptr %fLength.i, align 8
+  br label %do.body.i32
 
-do.body.i33:                                      ; preds = %ustr_resize.exit.do.body_crit_edge.i30, %if.end.i11
-  %14 = phi i32 [ %.pre13.i32, %ustr_resize.exit.do.body_crit_edge.i30 ], [ %12, %if.end.i11 ]
-  %15 = phi ptr [ %.pre.i31, %ustr_resize.exit.do.body_crit_edge.i30 ], [ %.pre12.i15, %if.end.i11 ]
-  %idx.ext.i34 = sext i32 %14 to i64
-  %add.ptr.i35 = getelementptr inbounds i16, ptr %15, i64 %idx.ext.i34
-  store i16 %conv3, ptr %add.ptr.i35, align 2
-  %16 = load i32, ptr %fLength.i, align 8
-  %add15.i36 = add nsw i32 %16, 1
-  store i32 %add15.i36, ptr %fLength.i, align 8
-  %17 = load ptr, ptr %dst, align 8
-  %idxprom.i37 = sext i32 %add15.i36 to i64
-  %arrayidx.i38 = getelementptr inbounds i16, ptr %17, i64 %idxprom.i37
-  store i16 0, ptr %arrayidx.i38, align 2
+do.body.i32:                                      ; preds = %ustr_resize.exit.do.body_crit_edge.i29, %if.end.i11
+  %16 = phi i32 [ %.pre13.i31, %ustr_resize.exit.do.body_crit_edge.i29 ], [ %13, %if.end.i11 ]
+  %17 = phi ptr [ %.pre.i30, %ustr_resize.exit.do.body_crit_edge.i29 ], [ %.pre12.i15, %if.end.i11 ]
+  %idx.ext.i33 = sext i32 %16 to i64
+  %add.ptr.i34 = getelementptr inbounds i16, ptr %17, i64 %idx.ext.i33
+  store i16 %conv3, ptr %add.ptr.i34, align 2
+  %18 = load i32, ptr %fLength.i, align 8
+  %add15.i35 = add nsw i32 %18, 1
+  store i32 %add15.i35, ptr %fLength.i, align 8
+  %19 = load ptr, ptr %dst, align 8
+  %idxprom.i36 = sext i32 %add15.i35 to i64
+  %arrayidx.i37 = getelementptr inbounds i16, ptr %19, i64 %idxprom.i36
+  store i16 0, ptr %arrayidx.i37, align 2
   br label %if.end5
 
 if.else:                                          ; preds = %if.end
   %conv4 = trunc i32 %c to i16
-  %18 = load i32, ptr %status, align 4
-  %cmp.i41 = icmp sgt i32 %18, 0
-  br i1 %cmp.i41, label %if.end5, label %if.end.i42
+  %20 = load i32, ptr %status, align 4
+  %cmp.i40 = icmp sgt i32 %20, 0
+  br i1 %cmp.i40, label %if.end5, label %if.end.i41
 
-if.end.i42:                                       ; preds = %if.else
-  %fCapacity.i43 = getelementptr inbounds i8, ptr %dst, i64 12
-  %19 = load i32, ptr %fCapacity.i43, align 4
-  %fLength.i44 = getelementptr inbounds i8, ptr %dst, i64 8
-  %20 = load i32, ptr %fLength.i44, align 8
-  %cmp1.not.i45 = icmp sgt i32 %19, %20
-  %.pre12.i46 = load ptr, ptr %dst, align 8
-  br i1 %cmp1.not.i45, label %do.body.i64, label %if.end.i.i47
+if.end.i41:                                       ; preds = %if.else
+  %fCapacity.i42 = getelementptr inbounds i8, ptr %dst, i64 12
+  %21 = load i32, ptr %fCapacity.i42, align 4
+  %fLength.i43 = getelementptr inbounds i8, ptr %dst, i64 8
+  %22 = load i32, ptr %fLength.i43, align 8
+  %cmp1.not.i44 = icmp sgt i32 %21, %22
+  %.pre12.i45 = load ptr, ptr %dst, align 8
+  br i1 %cmp1.not.i44, label %do.body.i62, label %if.end.i.i46
 
-if.end.i.i47:                                     ; preds = %if.end.i42
-  %cmp5.i48 = icmp slt i32 %20, 127
-  %mul.i49 = shl nuw nsw i32 %20, 1
-  %add8.i50 = add nuw i32 %mul.i49, 129
-  %and.i51 = and i32 %add8.i50, -128
-  %cond.i52 = select i1 %cmp5.i48, i32 128, i32 %and.i51
-  %add.i.i53 = or disjoint i32 %cond.i52, 1
-  %conv.i.i54 = sext i32 %add.i.i53 to i64
-  %mul.i.i55 = shl nsw i64 %conv.i.i54, 1
-  %call.i.i56 = tail call ptr @uprv_realloc_75(ptr noundef %.pre12.i46, i64 noundef %mul.i.i55) #8
-  store ptr %call.i.i56, ptr %dst, align 8
-  %cmp3.i.i57 = icmp eq ptr %call.i.i56, null
-  br i1 %cmp3.i.i57, label %if.then5.i.i70, label %ustr_resize.exit.i58
+if.end.i.i46:                                     ; preds = %if.end.i41
+  %cmp5.i47 = icmp slt i32 %22, 127
+  %mul.i48 = shl nuw nsw i32 %22, 1
+  %add8.i49 = add nuw nsw i32 %mul.i48, 129
+  %and.i50 = and i32 %add8.i49, 2147483520
+  %cond.i51 = select i1 %cmp5.i47, i32 128, i32 %and.i50
+  %add.i.i52 = shl nuw i32 %cond.i51, 1
+  %23 = or disjoint i32 %add.i.i52, 2
+  %mul.i.i53 = zext i32 %23 to i64
+  %call.i.i54 = tail call ptr @uprv_realloc_75(ptr noundef %.pre12.i45, i64 noundef %mul.i.i53) #8
+  store ptr %call.i.i54, ptr %dst, align 8
+  %cmp3.i.i55 = icmp eq ptr %call.i.i54, null
+  br i1 %cmp3.i.i55, label %if.then5.i.i68, label %ustr_resize.exit.i56
 
-if.then5.i.i70:                                   ; preds = %if.end.i.i47
+if.then5.i.i68:                                   ; preds = %if.end.i.i46
   store i32 7, ptr %status, align 4
-  store i32 0, ptr %fLength.i44, align 8
-  br label %ustr_resize.exit.i58
+  store i32 0, ptr %fLength.i43, align 8
+  br label %ustr_resize.exit.i56
 
-ustr_resize.exit.i58:                             ; preds = %if.then5.i.i70, %if.end.i.i47
-  %cond.sink.i59 = phi i32 [ 0, %if.then5.i.i70 ], [ %cond.i52, %if.end.i.i47 ]
-  store i32 %cond.sink.i59, ptr %fCapacity.i43, align 4
-  %21 = load i32, ptr %status, align 4
-  %cmp9.i60 = icmp sgt i32 %21, 0
-  br i1 %cmp9.i60, label %if.end5, label %ustr_resize.exit.do.body_crit_edge.i61
+ustr_resize.exit.i56:                             ; preds = %if.then5.i.i68, %if.end.i.i46
+  %cond.sink.i57 = phi i32 [ 0, %if.then5.i.i68 ], [ %cond.i51, %if.end.i.i46 ]
+  store i32 %cond.sink.i57, ptr %fCapacity.i42, align 4
+  %24 = load i32, ptr %status, align 4
+  %cmp9.i58 = icmp sgt i32 %24, 0
+  br i1 %cmp9.i58, label %if.end5, label %ustr_resize.exit.do.body_crit_edge.i59
 
-ustr_resize.exit.do.body_crit_edge.i61:           ; preds = %ustr_resize.exit.i58
-  %.pre.i62 = load ptr, ptr %dst, align 8
-  %.pre13.i63 = load i32, ptr %fLength.i44, align 8
-  br label %do.body.i64
+ustr_resize.exit.do.body_crit_edge.i59:           ; preds = %ustr_resize.exit.i56
+  %.pre.i60 = load ptr, ptr %dst, align 8
+  %.pre13.i61 = load i32, ptr %fLength.i43, align 8
+  br label %do.body.i62
 
-do.body.i64:                                      ; preds = %ustr_resize.exit.do.body_crit_edge.i61, %if.end.i42
-  %22 = phi i32 [ %.pre13.i63, %ustr_resize.exit.do.body_crit_edge.i61 ], [ %20, %if.end.i42 ]
-  %23 = phi ptr [ %.pre.i62, %ustr_resize.exit.do.body_crit_edge.i61 ], [ %.pre12.i46, %if.end.i42 ]
-  %idx.ext.i65 = sext i32 %22 to i64
-  %add.ptr.i66 = getelementptr inbounds i16, ptr %23, i64 %idx.ext.i65
-  store i16 %conv4, ptr %add.ptr.i66, align 2
-  %24 = load i32, ptr %fLength.i44, align 8
-  %add15.i67 = add nsw i32 %24, 1
-  store i32 %add15.i67, ptr %fLength.i44, align 8
-  %25 = load ptr, ptr %dst, align 8
-  %idxprom.i68 = sext i32 %add15.i67 to i64
-  %arrayidx.i69 = getelementptr inbounds i16, ptr %25, i64 %idxprom.i68
-  store i16 0, ptr %arrayidx.i69, align 2
+do.body.i62:                                      ; preds = %ustr_resize.exit.do.body_crit_edge.i59, %if.end.i41
+  %25 = phi i32 [ %.pre13.i61, %ustr_resize.exit.do.body_crit_edge.i59 ], [ %22, %if.end.i41 ]
+  %26 = phi ptr [ %.pre.i60, %ustr_resize.exit.do.body_crit_edge.i59 ], [ %.pre12.i45, %if.end.i41 ]
+  %idx.ext.i63 = sext i32 %25 to i64
+  %add.ptr.i64 = getelementptr inbounds i16, ptr %26, i64 %idx.ext.i63
+  store i16 %conv4, ptr %add.ptr.i64, align 2
+  %27 = load i32, ptr %fLength.i43, align 8
+  %add15.i65 = add nsw i32 %27, 1
+  store i32 %add15.i65, ptr %fLength.i43, align 8
+  %28 = load ptr, ptr %dst, align 8
+  %idxprom.i66 = sext i32 %add15.i65 to i64
+  %arrayidx.i67 = getelementptr inbounds i16, ptr %28, i64 %idxprom.i66
+  store i16 0, ptr %arrayidx.i67, align 2
   br label %if.end5
 
-if.end5:                                          ; preds = %ustr_resize.exit.i, %if.then2, %do.body.i64, %ustr_resize.exit.i58, %if.else, %do.body.i33, %ustr_resize.exit.i27, %ustr_ucat.exit, %if.then
+if.end5:                                          ; preds = %ustr_resize.exit.i, %if.then2, %do.body.i62, %ustr_resize.exit.i56, %if.else, %do.body.i32, %ustr_resize.exit.i26, %ustr_ucat.exit, %if.then
   ret void
 }
 

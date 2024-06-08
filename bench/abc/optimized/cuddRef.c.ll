@@ -588,7 +588,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
   %95 = getelementptr inbounds i8, ptr %0, i64 140
   %96 = load i32, ptr %95, align 4
   %.not = icmp eq i32 %96, 0
-  %97 = add i32 %69, 3
+  %97 = add nsw i32 %69, 3
   %spec.select104 = select i1 %.not, i32 %70, i32 %97
   %98 = icmp sgt i32 %96, 0
   br i1 %98, label %.lr.ph140, label %._crit_edge141

@@ -1074,7 +1074,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %11 = alloca double, align 8
   %12 = shl nsw i32 %0, 1
   %13 = or disjoint i32 %12, 1
-  %14 = add i32 %12, 14
+  %14 = add nsw i32 %12, 14
   %15 = add nsw i32 %13, %0
   %16 = mul nsw i32 %15, %14
   %17 = mul nsw i32 %0, 3

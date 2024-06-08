@@ -11289,7 +11289,7 @@ define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_file
   %11 = phi i32 [ %92, %90 ], [ %8, %.preheader4 ]
   %12 = phi i32 [ %91, %90 ], [ %7, %.preheader4 ]
   %.020726 = phi i32 [ %54, %90 ], [ %.020930, %.preheader4 ]
-  %13 = add i32 %12, 2
+  %13 = add nsw i32 %12, 2
   %14 = icmp slt i32 %13, %.16.val
   %.pre = load ptr, ptr %.88.val, align 8
   %.pre77 = load ptr, ptr %1, align 8
@@ -11460,7 +11460,7 @@ define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_file
   %99 = phi i32 [ %178, %176 ], [ 1, %.lr.ph58.preheader ]
   %100 = phi i32 [ %177, %176 ], [ 0, %.lr.ph58.preheader ]
   %.020556 = phi i32 [ %142, %176 ], [ 0, %.lr.ph58.preheader ]
-  %101 = add i32 %100, 2
+  %101 = add nsw i32 %100, 2
   %102 = sext i32 %101 to i64
   %103 = icmp sgt i64 %indvars.iv.next, %102
   %.pre78 = load ptr, ptr %.88.val, align 8

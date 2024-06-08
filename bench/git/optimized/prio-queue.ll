@@ -244,7 +244,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %add45 = phi i32 [ 1, %for.body.lr.ph ], [ %add, %if.end32 ]
   %mul44 = phi i32 [ 0, %for.body.lr.ph ], [ %mul, %if.end32 ]
   %ix.043 = phi i32 [ 0, %for.body.lr.ph ], [ %child.0, %if.end32 ]
-  %add22 = add i32 %mul44, 2
+  %add22 = add nsw i32 %mul44, 2
   %cmp24 = icmp slt i32 %add22, %6
   %.pre46 = load ptr, ptr %array, align 8
   br i1 %cmp24, label %land.lhs.true, label %if.end28

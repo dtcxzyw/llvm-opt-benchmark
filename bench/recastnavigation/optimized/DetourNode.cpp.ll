@@ -542,7 +542,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
   %.019 = phi i32 [ %.0, %.lr.ph._crit_edge ], [ %.016, %3 ]
   %.0.in18 = phi i32 [ %.0.in, %.lr.ph._crit_edge ], [ %.0.in15, %3 ]
   %.01217 = phi i32 [ %.1, %.lr.ph._crit_edge ], [ %1, %3 ]
-  %8 = add i32 %.0.in18, 2
+  %8 = add nsw i32 %.0.in18, 2
   %9 = icmp slt i32 %8, %7
   %.pre = load ptr, ptr %0, align 8
   %10 = sext i32 %.019 to i64

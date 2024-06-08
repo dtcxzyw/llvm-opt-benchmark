@@ -41,7 +41,7 @@ thread-pre-split:                                 ; preds = %21, %34
   %44 = sext i32 %40 to i64
   %45 = getelementptr inbounds double, ptr %24, i64 %44
   store double 0.000000e+00, ptr %45, align 8, !tbaa !7
-  %.pre93 = add i32 %39, 2
+  %.pre93 = add nsw i32 %39, 2
   %.pre94 = sext i32 %.pre93 to i64
   br label %55
 

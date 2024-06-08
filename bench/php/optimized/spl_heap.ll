@@ -469,7 +469,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocaptu
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %32, align 8
-  %39 = add i32 %34, 2
+  %39 = add nsw i32 %34, 2
   %40 = sext i32 %39 to i64
   %41 = mul i64 %.pre103, %40
   %42 = getelementptr inbounds i8, ptr %.pre101, i64 %41

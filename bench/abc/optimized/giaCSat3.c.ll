@@ -3994,8 +3994,8 @@ Vec_WecPushTwo.exit43.i.i.i:                      ; preds = %Vec_WecGrow.exit.i3
 372:                                              ; preds = %366
   %373 = load ptr, ptr %49, align 8
   %.not13.i.i48.i.i.i = icmp eq ptr %373, null
-  %374 = sext i32 %370 to i64
-  %375 = shl nsw i64 %374, 4
+  %374 = zext nneg i32 %370 to i64
+  %375 = shl nuw nsw i64 %374, 4
   br i1 %.not13.i.i48.i.i.i, label %378, label %376
 
 376:                                              ; preds = %372

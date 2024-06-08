@@ -1557,7 +1557,7 @@ _ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %19, %.sink.split.i.
   %31 = getelementptr inbounds %"struct.tev::ThreadPool::QueuedTask", ptr %.sroa.09.0.i, i64 %30
   %32 = shl nsw i64 %.0.i, 1
   %33 = or disjoint i64 %32, 1
-  %34 = add i64 %32, 2
+  %34 = add nsw i64 %32, 2
   %35 = icmp slt i64 %34, %3
   br i1 %35, label %36, label %..critedge_crit_edge.i
 

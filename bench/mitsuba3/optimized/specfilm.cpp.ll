@@ -9357,7 +9357,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %84 = shl nsw i64 %.1, 1
   %85 = or disjoint i64 %84, 1
   %86 = getelementptr inbounds %"class.std::__1::basic_string", ptr %0, i64 %85
-  %87 = add i64 %84, 2
+  %87 = add nsw i64 %84, 2
   %88 = icmp slt i64 %87, %2
   br i1 %88, label %89, label %._crit_edge58
 
@@ -9531,7 +9531,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__117__floyd_sift_downB8ne190000IN
   %8 = getelementptr i8, ptr %7, i64 24
   %9 = shl nsw i64 %.0, 1
   %10 = or disjoint i64 %9, 1
-  %11 = add i64 %9, 2
+  %11 = add nsw i64 %9, 2
   %12 = icmp slt i64 %11, %2
   br i1 %12, label %13, label %41
 

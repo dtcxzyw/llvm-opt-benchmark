@@ -721,7 +721,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %254, %237
 
 280:                                              ; preds = %270
   %281 = mul nsw i64 %278, 10
-  %282 = add i64 %281, 2
+  %282 = add nsw i64 %281, 2
   br label %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i
 
 283:                                              ; preds = %270

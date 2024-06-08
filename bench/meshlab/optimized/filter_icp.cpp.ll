@@ -34215,7 +34215,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %11 = alloca double, align 8
   %12 = shl nsw i32 %0, 1
   %13 = or disjoint i32 %12, 1
-  %14 = add i32 %12, 14
+  %14 = add nsw i32 %12, 14
   %15 = add nsw i32 %13, %0
   %16 = mul nsw i32 %15, %14
   %17 = mul nsw i32 %0, 3

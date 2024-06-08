@@ -28074,7 +28074,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %84 = shl nsw i64 %.1, 1
   %85 = or disjoint i64 %84, 1
   %86 = getelementptr inbounds %"class.std::__1::basic_string", ptr %0, i64 %85
-  %87 = add i64 %84, 2
+  %87 = add nsw i64 %84, 2
   %88 = icmp slt i64 %87, %2
   br i1 %88, label %89, label %._crit_edge58
 
@@ -28248,7 +28248,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__117__floyd_sift_downB8ne190000IN
   %8 = getelementptr i8, ptr %7, i64 24
   %9 = shl nsw i64 %.0, 1
   %10 = or disjoint i64 %9, 1
-  %11 = add i64 %9, 2
+  %11 = add nsw i64 %9, 2
   %12 = icmp slt i64 %11, %2
   br i1 %12, label %13, label %41
 
@@ -39076,7 +39076,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsu
   %337 = shl nsw i64 %.1.i129, 1
   %338 = or disjoint i64 %337, 1
   %339 = getelementptr inbounds %"struct.std::__1::pair.61", ptr %.0161, i64 %338
-  %340 = add i64 %337, 2
+  %340 = add nsw i64 %337, 2
   %341 = icmp slt i64 %340, %31
   br i1 %341, label %342, label %._crit_edge18.i
 
@@ -39236,7 +39236,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsu
   %420 = getelementptr i8, ptr %419, i64 32
   %421 = shl nsw i64 %.0.i.i.i.i.i, 1
   %422 = or disjoint i64 %421, 1
-  %423 = add i64 %421, 2
+  %423 = add nsw i64 %421, 2
   %424 = icmp slt i64 %423, %.05.i.i.i
   br i1 %424, label %425, label %453
 
@@ -42204,7 +42204,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %131 = shl nsw i64 %.1.i118, 1
   %132 = or disjoint i64 %131, 1
   %133 = getelementptr inbounds %"class.std::__1::basic_string", ptr %.0143, i64 %132
-  %134 = add i64 %131, 2
+  %134 = add nsw i64 %131, 2
   %135 = icmp slt i64 %134, %22
   br i1 %135, label %136, label %140
 
@@ -42275,7 +42275,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %157 = getelementptr i8, ptr %156, i64 24
   %158 = shl nsw i64 %.0.i.i.i.i.i, 1
   %159 = or disjoint i64 %158, 1
-  %160 = add i64 %158, 2
+  %160 = add nsw i64 %158, 2
   %161 = icmp slt i64 %160, %.05.i.i.i
   br i1 %161, label %162, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i.i.i.i
 

@@ -2290,7 +2290,7 @@ define ptr @neato_dequeue() local_unnamed_addr #9 {
   %21 = phi i32 [ %59, %49 ], [ %19, %14 ]
   %22 = phi i32 [ %58, %49 ], [ %18, %14 ]
   %.023.i = phi i32 [ %.019.i, %49 ], [ %17, %14 ]
-  %23 = add i32 %22, 2
+  %23 = add nsw i32 %22, 2
   %24 = icmp slt i32 %23, %6
   br i1 %24, label %25, label %._crit_edge30.i
 
@@ -2566,7 +2566,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %50, %.
   %78 = phi i32 [ %116, %106 ], [ %76, %71 ]
   %79 = phi i32 [ %115, %106 ], [ %75, %71 ]
   %.023.i.i = phi i32 [ %.019.i.i, %106 ], [ %74, %71 ]
-  %80 = add i32 %79, 2
+  %80 = add nsw i32 %79, 2
   %81 = icmp slt i32 %80, %63
   br i1 %81, label %82, label %._crit_edge30.i.i
 

@@ -2576,30 +2576,30 @@ bitVectorRead.exit:                               ; preds = %.lr.ph, %bitVectorR
   %104 = shl nuw i64 1, %103
   %105 = or i64 %101, %104
   store i64 %105, ptr %96, align 8
-  %106 = add nuw i32 %.1.lcssa, 2
-  %107 = sext i32 %106 to i64
+  %106 = add nuw nsw i32 %.1.lcssa, 2
+  %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %16, i64 %107
   store i32 0, ptr %108, align 4
-  %109 = add nuw i32 %.1.lcssa, 3
-  %110 = sext i32 %109 to i64
+  %109 = add nuw nsw i32 %.1.lcssa, 3
+  %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %16, i64 %110
   store i32 0, ptr %111, align 4
-  %112 = ashr i32 %106, 6
+  %112 = lshr i32 %106, 6
   %113 = and i32 %106, 62
   %114 = zext nneg i32 %113 to i64
   %115 = shl nuw nsw i64 1, %114
   %116 = xor i64 %115, -1
-  %117 = sext i32 %112 to i64
+  %117 = zext nneg i32 %112 to i64
   %118 = getelementptr inbounds i64, ptr %calloc.i, i64 %117
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %119, %116
   store i64 %120, ptr %118, align 8
-  %121 = ashr i32 %109, 6
+  %121 = lshr i32 %109, 6
   %122 = and i32 %109, 63
   %123 = zext nneg i32 %122 to i64
   %124 = shl nuw i64 1, %123
   %125 = xor i64 %124, -1
-  %126 = sext i32 %121 to i64
+  %126 = zext nneg i32 %121 to i64
   %127 = getelementptr inbounds i64, ptr %calloc.i, i64 %126
   %128 = load i64, ptr %127, align 8
   %129 = and i64 %128, %125

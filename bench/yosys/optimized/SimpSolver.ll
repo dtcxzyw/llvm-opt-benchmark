@@ -893,7 +893,7 @@ define noundef i32 @_ZN7Minisat10SimpSolver6newVarENS_5lboolEb(ptr noundef nonnu
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   store i32 0, ptr %23, align 4
-  %24 = add i32 %19, 2
+  %24 = add nsw i32 %19, 2
   tail call void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %24)
   %25 = load ptr, ptr %18, align 8
   %26 = sext i32 %20 to i64

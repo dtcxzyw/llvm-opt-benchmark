@@ -217,7 +217,7 @@ if.then96:                                        ; preds = %for.end
 
 if.then109:                                       ; preds = %for.end, %for.end
   %cmp113 = icmp eq i8 %21, 45
-  %add117 = add nuw i32 %o.0102, 5
+  %add117 = add nuw nsw i32 %o.0102, 5
   %cmp118 = icmp sgt i32 %add117, %1
   br i1 %cmp118, label %return, label %if.end121
 

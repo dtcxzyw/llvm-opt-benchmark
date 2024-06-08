@@ -1127,7 +1127,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   store i8 0, ptr %5, align 1
   call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %31 = add i32 %23, 2
+  %31 = add nsw i32 %23, 2
   call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %31)
   %32 = load ptr, ptr %22, align 8
   %33 = sext i32 %24 to i64

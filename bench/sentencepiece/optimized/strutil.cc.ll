@@ -4926,13 +4926,13 @@ define noundef i32 @_ZN6google8protobuf25CalculateBase64EscapedLenEib(i32 nounde
 
 6:                                                ; preds = %2
   %7 = or disjoint i32 %4, 2
-  %8 = add i32 %4, 4
+  %8 = add nsw i32 %4, 4
   %spec.select = select i1 %1, i32 %8, i32 %7
   br label %12
 
 9:                                                ; preds = %2
   %10 = or disjoint i32 %4, 3
-  %11 = add i32 %4, 4
+  %11 = add nsw i32 %4, 4
   %spec.select11 = select i1 %1, i32 %11, i32 %10
   br label %12
 
@@ -4952,11 +4952,11 @@ define noundef i32 @_ZN6google8protobuf25CalculateBase64EscapedLenEi(i32 noundef
   ]
 
 5:                                                ; preds = %1
-  %6 = add i32 %3, 4
+  %6 = add nsw i32 %3, 4
   br label %_ZN6google8protobuf25CalculateBase64EscapedLenEib.exit
 
 7:                                                ; preds = %1
-  %8 = add i32 %3, 4
+  %8 = add nsw i32 %3, 4
   br label %_ZN6google8protobuf25CalculateBase64EscapedLenEib.exit
 
 _ZN6google8protobuf25CalculateBase64EscapedLenEib.exit: ; preds = %1, %5, %7
@@ -6035,13 +6035,13 @@ define void @_ZN6google8protobuf20Base64EscapeInternalEPKhiPNSt7__cxx1112basic_s
 
 9:                                                ; preds = %5
   %10 = or disjoint i32 %7, 2
-  %11 = add i32 %7, 4
+  %11 = add nsw i32 %7, 4
   %spec.select.i = select i1 %3, i32 %11, i32 %10
   br label %_ZN6google8protobuf25CalculateBase64EscapedLenEib.exit
 
 12:                                               ; preds = %5
   %13 = or disjoint i32 %7, 3
-  %14 = add i32 %7, 4
+  %14 = add nsw i32 %7, 4
   %spec.select11.i = select i1 %3, i32 %14, i32 %13
   br label %_ZN6google8protobuf25CalculateBase64EscapedLenEib.exit
 

@@ -21232,7 +21232,7 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %94 = phi i64 [ %167, %165 ], [ 1, %.lr.ph57.preheader ]
   %95 = phi i64 [ %166, %165 ], [ 0, %.lr.ph57.preheader ]
   %.024055 = phi i64 [ %134, %165 ], [ 0, %.lr.ph57.preheader ]
-  %96 = add nuw i64 %95, 2
+  %96 = add nuw nsw i64 %95, 2
   %97 = icmp ult i64 %96, %indvars.iv75
   %.pre79 = load ptr, ptr %.104.val, align 8
   %.pre80 = load ptr, ptr %1, align 8

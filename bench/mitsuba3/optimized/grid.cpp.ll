@@ -3789,7 +3789,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %3
   %49 = or disjoint i32 %48, 1
   %50 = shl nuw i32 %.sroa.2.0.extract.trunc.i.i, 1
   %.not17.not.i.i = icmp ult i32 %50, %32
-  %51 = add i32 %48, 2
+  %51 = add nsw i32 %48, 2
   %spec.select.i = select i1 %.not17.not.i.i, i32 %49, i32 %51
   br label %_ZN5drjit7divisorIiiEC2Ei.exit.i
 
@@ -9562,7 +9562,7 @@ define linkonce_odr hidden void @_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterM
   %44 = or disjoint i32 %43, 1
   %45 = shl nuw i32 %.sroa.2.0.extract.trunc.i, 1
   %.not17.not.i = icmp ult i32 %45, %27
-  %46 = add i32 %43, 2
+  %46 = add nsw i32 %43, 2
   %spec.select = select i1 %.not17.not.i, i32 %44, i32 %46
   br label %_ZN5drjit7divisorIiiEC2Ei.exit
 
