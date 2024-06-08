@@ -15465,7 +15465,7 @@ Abc_TtNegVar.exit.thread.us.i:                    ; preds = %Abc_TtPosVar.exit.u
 .preheader.lr.ph.i.i:                             ; preds = %.lr.ph.split.i
   %143 = add i32 %130, -6
   %144 = shl nuw nsw i32 1, %143
-  %145 = shl i32 2, %143
+  %145 = shl nuw nsw i32 2, %143
   %146 = zext nneg i32 %145 to i64
   %147 = zext nneg i32 %144 to i64
   br label %.preheader.i.i
@@ -15525,7 +15525,7 @@ Abc_TtNegVar.exit.thread.us.i:                    ; preds = %Abc_TtPosVar.exit.u
 .preheader.lr.ph.i12.i:                           ; preds = %.loopexit.i
   %172 = add i32 %159, -6
   %173 = shl nuw nsw i32 1, %172
-  %174 = shl i32 2, %172
+  %174 = shl nuw nsw i32 2, %172
   %175 = zext nneg i32 %174 to i64
   %176 = zext nneg i32 %173 to i64
   br label %.preheader.i13.i

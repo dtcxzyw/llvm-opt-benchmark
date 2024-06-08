@@ -1876,7 +1876,7 @@ for.cond45.preheader.lr.ph:                       ; preds = %if.else
   %isneg = icmp eq i32 %shr.fr, 0
   %8 = or i32 %xor.i.i54.neg, %shr.fr
   %isneg78 = icmp sgt i32 %8, -1
-  %mul58 = shl i32 2, %sub19
+  %mul58 = shl nuw nsw i32 2, %sub19
   %9 = or i32 %xor.i.i59.neg, %shr.fr
   %isneg79 = icmp sgt i32 %9, -1
   %mul6448 = shl nuw nsw i32 3, %sub19
@@ -1884,10 +1884,9 @@ for.cond45.preheader.lr.ph:                       ; preds = %if.else
   %isneg80 = icmp sgt i32 %10, -1
   %idx.ext84 = zext nneg i32 %shl to i64
   %11 = zext nneg i32 %shl20 to i64
-  %12 = sext i32 %mul58 to i64
+  %12 = zext nneg i32 %mul58 to i64
   %13 = zext nneg i32 %mul6448 to i64
   %wide.trip.count414 = zext nneg i32 %top to i64
-  %wide.trip.count409 = zext nneg i32 %shl20 to i64
   br i1 %isneg, label %for.cond45.preheader.lr.ph.split.us, label %for.cond45.preheader.lr.ph.split
 
 for.cond45.preheader.lr.ph.split.us:              ; preds = %for.cond45.preheader.lr.ph
@@ -1929,7 +1928,7 @@ for.body48.us.us.us.us.us.us.us.us:               ; preds = %for.body48.us.us.us
   %and74.us.us.us.us.us.us.us.us = select i1 %isneg82.us.us.us.us.us.us.us.us, i64 %or69.us.us.us.us.us.us.us.us, i64 0
   %or75.us.us.us.us.us.us.us.us = or i64 %and74.us.us.us.us.us.us.us.us, %acc44.087.us.us.us.us.us.us.us.us
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
-  %exitcond410.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count409
+  %exitcond410.not = icmp eq i64 %indvars.iv.next403, %11
   br i1 %exitcond410.not, label %for.end78.split.us.us.split.us.us.split.us.us.split.us.us, label %for.body48.us.us.us.us.us.us.us.us, !llvm.loop !36
 
 for.end78.split.us.us.split.us.us.split.us.us.split.us.us: ; preds = %for.body48.us.us.us.us.us.us.us.us
@@ -1970,7 +1969,7 @@ for.body48.us.us.us.us.us.us:                     ; preds = %for.body48.us.us.us
   %and74.us.us.us.us.us.us = select i1 %isneg82.us.us.us.us.us.us, i64 %or63.us.us.us.us.us.us, i64 0
   %or75.us.us.us.us.us.us = or i64 %and74.us.us.us.us.us.us, %acc44.087.us.us.us.us.us.us
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
-  %exitcond396.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count409
+  %exitcond396.not = icmp eq i64 %indvars.iv.next389, %11
   br i1 %exitcond396.not, label %for.end78.split.us.us.split.us.us.split.us.us.split, label %for.body48.us.us.us.us.us.us, !llvm.loop !36
 
 for.end78.split.us.us.split.us.us.split.us.us.split: ; preds = %for.body48.us.us.us.us.us.us
@@ -2014,7 +2013,7 @@ for.body48.us.us.us.us.us201.us:                  ; preds = %for.body48.us.us.us
   %and74.us.us.us.us.us220.us = select i1 %isneg82.us.us.us.us.us219.us, i64 %or69.us.us.us.us.us217.us, i64 0
   %or75.us.us.us.us.us221.us = or i64 %and74.us.us.us.us.us220.us, %acc44.087.us.us.us.us.us202.us
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
-  %exitcond382.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count409
+  %exitcond382.not = icmp eq i64 %indvars.iv.next375, %11
   br i1 %exitcond382.not, label %for.end78.split.us.us.split.us.us.split.split.us.us, label %for.body48.us.us.us.us.us201.us, !llvm.loop !36
 
 for.end78.split.us.us.split.us.us.split.split.us.us: ; preds = %for.body48.us.us.us.us.us201.us
@@ -2054,7 +2053,7 @@ for.body48.us.us.us.us:                           ; preds = %for.body48.us.us.us
   %and74.us.us.us.us = select i1 %isneg82.us.us.us.us, i64 %or57.us.us.us.us, i64 0
   %or75.us.us.us.us = or i64 %and74.us.us.us.us, %acc44.087.us.us.us.us
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %exitcond368.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count409
+  %exitcond368.not = icmp eq i64 %indvars.iv.next361, %11
   br i1 %exitcond368.not, label %for.end78.split.us.us.split.us.us.split.split, label %for.body48.us.us.us.us, !llvm.loop !36
 
 for.end78.split.us.us.split.us.us.split.split:    ; preds = %for.body48.us.us.us.us
@@ -2101,7 +2100,7 @@ for.body48.us.us.us163.us.us.us:                  ; preds = %for.body48.us.us.us
   %and74.us.us.us183.us.us.us = select i1 %isneg82.us.us.us182.us.us.us, i64 %or69.us.us.us180.us.us.us, i64 0
   %or75.us.us.us184.us.us.us = or i64 %and74.us.us.us183.us.us.us, %acc44.087.us.us.us164.us.us.us
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
-  %exitcond354.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count409
+  %exitcond354.not = icmp eq i64 %indvars.iv.next347, %11
   br i1 %exitcond354.not, label %for.end78.split.us.us.split.split.us.us.split.us.us, label %for.body48.us.us.us163.us.us.us, !llvm.loop !36
 
 for.end78.split.us.us.split.split.us.us.split.us.us: ; preds = %for.body48.us.us.us163.us.us.us
@@ -2141,7 +2140,7 @@ for.body48.us.us.us163.us:                        ; preds = %for.body48.us.us.us
   %and74.us.us.us183.us = select i1 %isneg82.us.us.us182.us, i64 %or63.us.us.us175.us, i64 0
   %or75.us.us.us184.us = or i64 %and74.us.us.us183.us, %acc44.087.us.us.us164.us
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
-  %exitcond340.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count409
+  %exitcond340.not = icmp eq i64 %indvars.iv.next333, %11
   br i1 %exitcond340.not, label %for.end78.split.us.us.split.split.us.us.split, label %for.body48.us.us.us163.us, !llvm.loop !36
 
 for.end78.split.us.us.split.split.us.us.split:    ; preds = %for.body48.us.us.us163.us
@@ -2182,7 +2181,7 @@ for.body48.us.us:                                 ; preds = %for.body48.us.us, %
   %and74.us.us = select i1 %isneg82.us.us, i64 %or69.us.us, i64 0
   %or75.us.us = or i64 %and74.us.us, %acc44.087.us.us
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
-  %exitcond326.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count409
+  %exitcond326.not = icmp eq i64 %indvars.iv.next319, %11
   br i1 %exitcond326.not, label %for.end78.split.us.us.split.split, label %for.body48.us.us, !llvm.loop !36
 
 for.end78.split.us.us.split.split:                ; preds = %for.body48.us.us
@@ -2232,7 +2231,7 @@ for.body48.us88.us.us.us.us.us:                   ; preds = %for.body48.us88.us.
   %and74.us109.us.us.us.us.us = select i1 %isneg82.us108.us.us.us.us.us, i64 %or69.us106.us.us.us.us.us, i64 0
   %or75.us110.us.us.us.us.us = or i64 %and74.us109.us.us.us.us.us, %acc44.087.us89.us.us.us.us.us
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %exitcond312.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count409
+  %exitcond312.not = icmp eq i64 %indvars.iv.next305, %11
   br i1 %exitcond312.not, label %for.end78.split.split.us.us.split.us.us.split.us.us, label %for.body48.us88.us.us.us.us.us, !llvm.loop !36
 
 for.end78.split.split.us.us.split.us.us.split.us.us: ; preds = %for.body48.us88.us.us.us.us.us
@@ -2272,7 +2271,7 @@ for.body48.us88.us.us.us:                         ; preds = %for.body48.us88.us.
   %and74.us109.us.us.us = select i1 %isneg82.us108.us.us.us, i64 %or63.us101.us.us.us, i64 0
   %or75.us110.us.us.us = or i64 %and74.us109.us.us.us, %acc44.087.us89.us.us.us
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %exitcond298.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count409
+  %exitcond298.not = icmp eq i64 %indvars.iv.next291, %11
   br i1 %exitcond298.not, label %for.end78.split.split.us.us.split.us.us.split, label %for.body48.us88.us.us.us, !llvm.loop !36
 
 for.end78.split.split.us.us.split.us.us.split:    ; preds = %for.body48.us88.us.us.us
@@ -2315,7 +2314,7 @@ for.body48.us88.us.us127.us:                      ; preds = %for.body48.us88.us.
   %and74.us109.us.us145.us = select i1 %isneg82.us108.us.us144.us, i64 %or69.us106.us.us142.us, i64 0
   %or75.us110.us.us146.us = or i64 %and74.us109.us.us145.us, %acc44.087.us89.us.us128.us
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %exitcond284.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count409
+  %exitcond284.not = icmp eq i64 %indvars.iv.next277, %11
   br i1 %exitcond284.not, label %for.end78.split.split.us.us.split.split.us.us, label %for.body48.us88.us.us127.us, !llvm.loop !36
 
 for.end78.split.split.us.us.split.split.us.us:    ; preds = %for.body48.us88.us.us127.us
@@ -2354,7 +2353,7 @@ for.body48.us88.us:                               ; preds = %for.body48.us88.us,
   %and74.us109.us = select i1 %isneg82.us108.us, i64 %126, i64 0
   %or75.us110.us = or i64 %and74.us109.us, %acc44.087.us89.us
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %exitcond270.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count409
+  %exitcond270.not = icmp eq i64 %indvars.iv.next263, %11
   br i1 %exitcond270.not, label %for.end78.split.split.us.us.split.split, label %for.body48.us88.us, !llvm.loop !36
 
 for.end78.split.split.us.us.split.split:          ; preds = %for.body48.us88.us
@@ -2396,7 +2395,7 @@ for.body48:                                       ; preds = %for.cond45.preheade
   %and74 = select i1 %isneg82, i64 %or69, i64 0
   %or75 = or i64 %and74, %acc44.087
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count409
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %for.end78.split.split, label %for.body48, !llvm.loop !36
 
 for.end78.split.split:                            ; preds = %for.body48

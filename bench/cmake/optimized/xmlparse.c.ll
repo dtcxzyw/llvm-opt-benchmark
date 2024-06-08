@@ -9975,7 +9975,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %78, label %keyeq.exit, label %79
 
 79:                                               ; preds = %73
-  %80 = shl i64 8, %75
+  %80 = shl nuw i64 8, %75
   %81 = getelementptr inbounds i8, ptr %1, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %82, align 8
@@ -9984,7 +9984,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not143, label %keyeq.exit, label %85
 
 85:                                               ; preds = %79
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %84, i8 0, i64 %80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %84, i8 0, i64 %80, i1 false)
   %86 = load i64, ptr %5, align 8
   %.not183 = icmp eq i64 %86, 0
   br i1 %.not183, label %._crit_edge175, label %.lr.ph174

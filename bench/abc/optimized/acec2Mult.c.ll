@@ -1090,7 +1090,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph22.preheader.
 .preheader.lr.ph.i.us.i.i.us:                     ; preds = %.lr.ph.split.us.i.i.us
   %477 = add i32 %476, -6
   %478 = shl nuw nsw i32 1, %477
-  %479 = shl i32 2, %477
+  %479 = shl nuw nsw i32 2, %477
   %480 = zext nneg i32 %479 to i64
   %481 = zext nneg i32 %478 to i64
   br label %.preheader.i.us.i.i.us

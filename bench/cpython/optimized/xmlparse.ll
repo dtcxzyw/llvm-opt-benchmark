@@ -10404,7 +10404,7 @@ if.end62:                                         ; preds = %if.then53
   br i1 %cmp66, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end62
-  %mul71 = shl i64 8, %sh_prom64
+  %mul71 = shl nuw i64 8, %sh_prom64
   %mem72 = getelementptr inbounds i8, ptr %table, i64 32
   %19 = load ptr, ptr %mem72, align 8
   %20 = load ptr, ptr %19, align 8
@@ -10413,7 +10413,7 @@ if.end69:                                         ; preds = %if.end62
   br i1 %tobool75.not, label %return, label %if.end77
 
 if.end77:                                         ; preds = %if.end69
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call74, i8 0, i64 %mul71, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call74, i8 0, i64 %mul71, i1 false)
   %21 = load i64, ptr %size, align 8
   %cmp79120.not = icmp eq i64 %21, 0
   br i1 %cmp79120.not, label %for.end, label %for.body.lr.ph

@@ -5898,7 +5898,7 @@ Abc_TtNot.exit.i.us.us.us:                        ; preds = %.lr.ph.i132.i.us.us
 .preheader.lr.ph.i.us.i.i.us.us.us:               ; preds = %.lr.ph.split.us.i.i.us.us.us
   %765 = add i32 %764, -6
   %766 = shl nuw nsw i32 1, %765
-  %767 = shl i32 2, %765
+  %767 = shl nuw nsw i32 2, %765
   %768 = zext nneg i32 %767 to i64
   %769 = zext nneg i32 %766 to i64
   br label %.preheader.i.us.i.i.us.us.us
@@ -8133,7 +8133,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph.i93.i.us, %.
 .preheader.lr.ph.i.us.i.i316.us:                  ; preds = %.lr.ph.split.us.i.i313.us
   %1850 = add i32 %1849, -6
   %1851 = shl nuw nsw i32 1, %1850
-  %1852 = shl i32 2, %1850
+  %1852 = shl nuw nsw i32 2, %1850
   %1853 = zext nneg i32 %1852 to i64
   %1854 = zext nneg i32 %1851 to i64
   br label %.preheader.i.us.i.i317.us

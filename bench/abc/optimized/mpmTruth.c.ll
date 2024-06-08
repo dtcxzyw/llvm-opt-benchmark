@@ -1065,7 +1065,7 @@ Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.u
 .preheader.lr.ph.i.i.i.i:                         ; preds = %.lr.ph.split.split.split.i.i.i
   %585 = add i32 %573, -6
   %586 = shl nuw nsw i32 1, %585
-  %587 = shl i32 2, %585
+  %587 = shl nuw nsw i32 2, %585
   %588 = zext nneg i32 %587 to i64
   %589 = zext nneg i32 %586 to i64
   br label %.preheader.i.i.i.i

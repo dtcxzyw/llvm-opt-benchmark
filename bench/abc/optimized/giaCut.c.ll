@@ -1151,7 +1151,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph.i84.i.us, %.
 .preheader.lr.ph.i.us.i.i.us:                     ; preds = %.lr.ph.split.us.i.i.us
   %506 = add i32 %505, -6
   %507 = shl nuw nsw i32 1, %506
-  %508 = shl i32 2, %506
+  %508 = shl nuw nsw i32 2, %506
   %509 = zext nneg i32 %508 to i64
   %510 = zext nneg i32 %507 to i64
   br label %.preheader.i.us.i.i.us

@@ -2641,7 +2641,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
 
 ._crit_edge:                                      ; preds = %50, %._crit_edge159.thread
   %56 = shl i32 %.098.lcssa218, 16
-  %57 = shl i32 65536, %1
+  %57 = shl nuw nsw i32 65536, %1
   %58 = trunc i32 %1 to i8
   %.1101177 = add i8 %58, 1
   %59 = icmp ugt i8 %.1101177, 16

@@ -4517,7 +4517,7 @@ if.then:                                          ; preds = %entry.if.then_crit_
   br i1 %cmp.i, label %if.then.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then
-  %mul.i = shl i64 8, %sh_prom.i.pre-phi
+  %mul.i = shl nuw i64 8, %sh_prom.i.pre-phi
   %call.i = tail call ptr @PyMem_Malloc(i64 noundef %mul.i) #7
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %if.then.i, label %for.end.i

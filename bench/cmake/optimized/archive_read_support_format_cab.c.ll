@@ -5446,7 +5446,7 @@ define internal fastcc range(i32 -30, 1) i32 @lzx_huffman_init(ptr nocapture nou
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %2 to i64
-  %22 = shl i64 2, %21
+  %22 = shl nuw nsw i64 2, %21
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #22
   store ptr %23, ptr %17, align 8
   %24 = icmp eq ptr %23, null
