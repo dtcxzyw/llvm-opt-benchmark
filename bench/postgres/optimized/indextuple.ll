@@ -198,27 +198,26 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph92, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %76, %.split72
-  %77 = and i64 %64, 8184
-  %.not78 = icmp eq i64 %77, %65
-  br i1 %.not78, label %82, label %78
+  %.not78 = icmp ult i64 %64, 8192
+  br i1 %.not78, label %81, label %77
 
-78:                                               ; preds = %._crit_edge
-  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %79)
-  %80 = call i32 @errcode(i32 noundef 261) #8
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef %65, i64 noundef 8191) #8
+77:                                               ; preds = %._crit_edge
+  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %78)
+  %79 = call i32 @errcode(i32 noundef 261) #8
+  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef %65, i64 noundef 8191) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__func__.index_form_tuple_context) #8
   unreachable
 
-82:                                               ; preds = %._crit_edge
-  %83 = load i16, ptr %5, align 2
-  %84 = shl i16 %83, 13
-  %85 = and i16 %84, 16384
-  %86 = trunc i64 %65 to i16
-  %spec.select = or i16 %.069, %86
-  %87 = or i16 %spec.select, %85
-  %88 = getelementptr inbounds i8, ptr %66, i64 6
-  store i16 %87, ptr %88, align 2
+81:                                               ; preds = %._crit_edge
+  %82 = load i16, ptr %5, align 2
+  %83 = shl i16 %82, 13
+  %84 = and i16 %83, 16384
+  %85 = trunc nuw i64 %65 to i16
+  %spec.select = or disjoint i16 %.069, %85
+  %86 = or disjoint i16 %spec.select, %84
+  %87 = getelementptr inbounds i8, ptr %66, i64 6
+  store i16 %86, ptr %87, align 2
   ret ptr %66
 }
 

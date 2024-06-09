@@ -8080,28 +8080,25 @@ define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr nocapture nou
   %11 = load i32, ptr %10, align 8
   %12 = call i32 %9(ptr noundef %4, i32 noundef %11, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %2) #27
   %13 = load i32, ptr %2, align 4
-  %14 = and i32 %13, 524288
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %26
+  %14 = and i32 %13, 525312
+  %or.cond.not = icmp eq i32 %14, 1024
+  br i1 %or.cond.not, label %15, label %22
 
-16:                                               ; preds = %1
-  %17 = and i32 %13, 65535
-  %18 = and i32 %13, 64511
-  %19 = icmp eq i32 %18, %17
-  br i1 %19, label %26, label %20
+15:                                               ; preds = %1
+  %16 = and i32 %13, 64511
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %10, align 8
+  %21 = call i32 %19(ptr noundef %4, i32 noundef %20, i32 noundef 4, i32 noundef 2, i32 noundef %16) #27
+  br label %22
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %10, align 8
-  %25 = call i32 %23(ptr noundef %4, i32 noundef %24, i32 noundef 4, i32 noundef 2, i32 noundef %18) #27
-  br label %26
-
-26:                                               ; preds = %20, %16, %1
+22:                                               ; preds = %15, %1
+  %23 = and i32 %13, 524288
+  %24 = icmp eq i32 %23, 0
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pci_lock, i64 noundef %5) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
-  ret i1 %15
+  ret i1 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
