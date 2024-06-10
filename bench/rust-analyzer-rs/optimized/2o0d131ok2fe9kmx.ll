@@ -17892,7 +17892,7 @@ attributes #40 = { "function-inline-cost-multiplier"="2" }
 !1701 = distinct !{!1701, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hdb027f88f3d0ff84E"}
 !1702 = !{!1703}
 !1703 = distinct !{!1703, !1701, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hdb027f88f3d0ff84E: argument 1"}
-!1704 = !{!"branch_weights", i32 2000, i32 1}
+!1704 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1705 = !{!1706}
 !1706 = distinct !{!1706, !1707, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hc0f4ef8434f53152E: argument 0"}
 !1707 = distinct !{!1707, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hc0f4ef8434f53152E"}

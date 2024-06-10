@@ -36209,7 +36209,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !126 = distinct !{!126, !124, !"_ZN97_$LT$tree_sitter..QueryMatches$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3356ca6e1acad8dE: argument 0"}
 !127 = !{!126}
 !128 = !{i64 8}
-!129 = !{!"branch_weights", i32 2000, i32 1}
+!129 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !130 = !{!131}
 !131 = distinct !{!131, !132, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7b9dc4e5a4aa6e3E: argument 1"}
 !132 = distinct !{!132, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7b9dc4e5a4aa6e3E"}
@@ -38451,7 +38451,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2368 = distinct !{!2368, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE"}
 !2369 = distinct !{!2369, !2368, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE: argument 1"}
 !2370 = !{!2364, !2268}
-!2371 = !{!"branch_weights", i32 1, i32 2000}
+!2371 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !2372 = !{!2373}
 !2373 = distinct !{!2373, !2374, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0c823c1625d44aeE: argument 1"}
 !2374 = distinct !{!2374, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0c823c1625d44aeE"}

@@ -135106,7 +135106,7 @@ attributes #55 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{}
-!5 = !{!"branch_weights", i32 1, i32 2000}
+!5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfd04e28ae679b43E.llvm.18123795597341512700: argument 1"}
 !8 = distinct !{!8, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfd04e28ae679b43E.llvm.18123795597341512700"}
@@ -168783,7 +168783,7 @@ attributes #55 = { "function-inline-cost-multiplier"="2" }
 !33679 = !{!33680}
 !33680 = distinct !{!33680, !33678, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h47da263192b0f72eE.llvm.4057250340930679409: argument 0"}
 !33681 = !{!33674, !33671, !33668}
-!33682 = !{!"branch_weights", i32 2000, i32 1}
+!33682 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !33683 = !{!33684}
 !33684 = distinct !{!33684, !33685, !"_ZN14deltalake_core10operations5merge7barrier21MergeBarrierPartition4feed17h191a39e09ecadad7E: argument 1"}
 !33685 = distinct !{!33685, !"_ZN14deltalake_core10operations5merge7barrier21MergeBarrierPartition4feed17h191a39e09ecadad7E"}

@@ -97343,7 +97343,7 @@ attributes #57 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{}
-!5 = !{!"branch_weights", i32 2000, i32 1}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca5d97d2e8016403E.llvm.13625555649392560756: argument 0"}
 !8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca5d97d2e8016403E.llvm.13625555649392560756"}
@@ -113643,7 +113643,7 @@ attributes #57 = { "function-inline-cost-multiplier"="2" }
 !16302 = distinct !{!16302, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.13625555649392560756"}
 !16303 = distinct !{!16303, !16302, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.13625555649392560756: argument 1"}
 !16304 = !{!16282, !16289}
-!16305 = !{!"branch_weights", i32 2145873841, i32 1609807}
+!16305 = !{!"branch_weights", !"expected", i32 2145873841, i32 1609807}
 !16306 = !{!16307}
 !16307 = distinct !{!16307, !16308, !"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h90d0f1d08d385eeaE.llvm.13625555649392560756: argument 0"}
 !16308 = distinct !{!16308, !"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h90d0f1d08d385eeaE.llvm.13625555649392560756"}

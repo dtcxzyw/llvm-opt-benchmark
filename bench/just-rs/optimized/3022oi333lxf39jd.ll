@@ -14649,7 +14649,7 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !1355 = distinct !{!1355, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE"}
 !1356 = distinct !{!1356, !1357, !"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17hab08ace5a5033898E.llvm.4740080591946275097: argument 0"}
 !1357 = distinct !{!1357, !"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17hab08ace5a5033898E.llvm.4740080591946275097"}
-!1358 = !{!"branch_weights", i32 2000, i32 1}
+!1358 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1359 = !{!1360}
 !1360 = distinct !{!1360, !1361, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17hc8504eb9d97f3fd9E: argument 0"}
 !1361 = distinct !{!1361, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17hc8504eb9d97f3fd9E"}

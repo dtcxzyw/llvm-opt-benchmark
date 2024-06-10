@@ -180295,7 +180295,7 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !4735 = distinct !{!4735, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h16fab586b1a22442E"}
 !4736 = !{!4734, !4730, !4727}
 !4737 = !{!4734, !4730, !4727, !4655}
-!4738 = !{!"branch_weights", i32 2000, i32 1}
+!4738 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !4739 = !{!4740, !4742}
 !4740 = distinct !{!4740, !4741, !"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h04cc52f2653be3fcE: argument 0"}
 !4741 = distinct !{!4741, !"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h04cc52f2653be3fcE"}

@@ -168487,7 +168487,7 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !11185 = !{!11186, !11187}
 !11186 = distinct !{!11186, !11184, !"_ZN4core6option15Option$LT$T$GT$6map_or17h7a156f7a3104df21E: argument 0"}
 !11187 = distinct !{!11187, !11184, !"_ZN4core6option15Option$LT$T$GT$6map_or17h7a156f7a3104df21E: argument 2"}
-!11188 = !{!"branch_weights", i32 2000, i32 1}
+!11188 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11189 = !{!11190}
 !11190 = distinct !{!11190, !11191, !"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h168ff49f0e74d088E.llvm.8022584466853825857: argument 0"}
 !11191 = distinct !{!11191, !"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h168ff49f0e74d088E.llvm.8022584466853825857"}
@@ -185752,7 +185752,7 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !28450 = !{!28451}
 !28451 = distinct !{!28451, !28449, !"_ZN88_$LT$deltalake_core..delta_datafusion..DeltaScanConfig$u20$as$u20$core..clone..Clone$GT$5clone17h531b106a797b1cedE: argument 1"}
 !28452 = !{!28448, !28451}
-!28453 = !{!"branch_weights", i32 1, i32 2000}
+!28453 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !28454 = !{!28455}
 !28455 = distinct !{!28455, !28456, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfafab972e3dcbc3cE: argument 0"}
 !28456 = distinct !{!28456, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfafab972e3dcbc3cE"}

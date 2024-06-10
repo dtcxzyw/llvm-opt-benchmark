@@ -5822,7 +5822,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !106 = distinct !{!106, !"_ZN4core5slice4iter20ChunksExact$LT$T$GT$3new17hf5f3fe34a162ba37E.llvm.13576623291743085369"}
 !107 = !{!108}
 !108 = distinct !{!108, !106, !"_ZN4core5slice4iter20ChunksExact$LT$T$GT$3new17hf5f3fe34a162ba37E.llvm.13576623291743085369: argument 1"}
-!109 = !{!"branch_weights", i32 1, i32 2000}
+!109 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !110 = !{i64 0, i64 2}
 !111 = !{i64 1}
 !112 = !{!113}
@@ -6237,7 +6237,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !521 = distinct !{!521, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17ha9159fb0215f6753E.llvm.17494673454204231270"}
 !522 = distinct !{!522, !523, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h29dbf0d7967272e3E: argument 0"}
 !523 = distinct !{!523, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h29dbf0d7967272e3E"}
-!524 = !{!"branch_weights", i32 2000, i32 1}
+!524 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !525 = !{!526}
 !526 = distinct !{!526, !527, !"_ZN8smol_str4Repr6as_str17h6612cd4653de1669E: argument 0"}
 !527 = distinct !{!527, !"_ZN8smol_str4Repr6as_str17h6612cd4653de1669E"}

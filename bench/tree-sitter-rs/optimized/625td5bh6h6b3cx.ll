@@ -29985,7 +29985,7 @@ attributes #34 = { "function-inline-cost-multiplier"="2" }
 !202 = distinct !{!202, !200, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
 !203 = distinct !{!203, !200, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 2"}
 !204 = !{i64 1}
-!205 = !{!"branch_weights", i32 2000, i32 1}
+!205 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !206 = !{!207}
 !207 = distinct !{!207, !208, !"_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$17hf63ba5633761a450E: argument 1"}
 !208 = distinct !{!208, !"_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$17hf63ba5633761a450E"}
@@ -30241,7 +30241,7 @@ attributes #34 = { "function-inline-cost-multiplier"="2" }
 !458 = !{!459}
 !459 = distinct !{!459, !460, !"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h0d28f9c7202e6747E: argument 0"}
 !460 = distinct !{!460, !"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h0d28f9c7202e6747E"}
-!461 = !{!"branch_weights", i32 1, i32 2000}
+!461 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !462 = !{!463}
 !463 = distinct !{!463, !464, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h3c2ac4f63d0295fbE: argument 1"}
 !464 = distinct !{!464, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h3c2ac4f63d0295fbE"}

@@ -17019,7 +17019,7 @@ attributes #42 = { "function-inline-cost-multiplier"="2" }
 !1329 = distinct !{!1329, !1326, !"_ZN67_$LT$sqlx_sqlite..row..SqliteRow$u20$as$u20$sqlx_core..row..Row$GT$11try_get_raw17h450778f592258070E: argument 2"}
 !1330 = !{!1328}
 !1331 = !{!1328, !1329}
-!1332 = !{!"branch_weights", i32 2000, i32 1}
+!1332 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1333 = !{!1334}
 !1334 = distinct !{!1334, !1335, !"_ZN9sqlx_core5types4Type10compatible17h1f6e0ebe013ccd8eE: argument 0"}
 !1335 = distinct !{!1335, !"_ZN9sqlx_core5types4Type10compatible17h1f6e0ebe013ccd8eE"}

@@ -77294,7 +77294,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !4178 = !{!4179}
 !4179 = distinct !{!4179, !4180, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h63f2ee360a4f7a50E: argument 0"}
 !4180 = distinct !{!4180, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h63f2ee360a4f7a50E"}
-!4181 = !{!"branch_weights", i32 2000, i32 1}
+!4181 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !4182 = !{!4183, !4185, !4187, !4189}
 !4183 = distinct !{!4183, !4184, !"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17h49f113c28defab11E: argument 0"}
 !4184 = distinct !{!4184, !"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17h49f113c28defab11E"}

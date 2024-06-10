@@ -55861,7 +55861,7 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !780 = distinct !{!780, !"_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E"}
 !781 = !{!782}
 !782 = distinct !{!782, !780, !"_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E: argument 1"}
-!783 = !{!"branch_weights", i32 2000, i32 1}
+!783 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !784 = !{!785}
 !785 = distinct !{!785, !786, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h19291572cc03c0d7E: argument 0"}
 !786 = distinct !{!786, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h19291572cc03c0d7E"}
@@ -57551,7 +57551,7 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !2470 = distinct !{!2470, !"_ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE"}
 !2471 = !{!2472}
 !2472 = distinct !{!2472, !2470, !"_ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE: argument 1"}
-!2473 = !{!"branch_weights", i32 1, i32 2000}
+!2473 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !2474 = !{!2469, !2472}
 !2475 = !{!2476, !2478, !2480, !2482, !2469, !2472}
 !2476 = distinct !{!2476, !2477, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfe23a4e3dbe7216cE: argument 0"}
