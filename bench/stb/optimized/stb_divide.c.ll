@@ -240,16 +240,10 @@ entry:
 define noundef i32 @stb_mod_eucl(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
 entry:
   %rem = srem i32 %v1, %v2
-  %cmp = icmp sgt i32 %rem, -1
-  br i1 %cmp, label %return, label %if.else
-
-if.else:                                          ; preds = %entry
   %0 = tail call i32 @llvm.abs.i32(i32 %v2, i1 false)
-  %sub2 = add i32 %rem, %0
-  br label %return
-
-return:                                           ; preds = %entry, %if.else
-  %retval.0 = phi i32 [ %sub2, %if.else ], [ %rem, %entry ]
+  %cmp6 = icmp slt i32 %rem, 0
+  %sub2 = select i1 %cmp6, i32 %0, i32 0
+  %retval.0 = add i32 %sub2, %rem
   ret i32 %retval.0
 }
 

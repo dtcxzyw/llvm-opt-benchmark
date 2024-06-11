@@ -2516,10 +2516,10 @@ _ZNK9Stockfish10ThreadPool7tb_hitsEv.exit:        ; preds = %.lr.ph.i.i68, %_ZN9
 72:                                               ; preds = %_ZNK9Stockfish10ThreadPool7tb_hitsEv.exit, %65
   %73 = phi i64 [ %71, %65 ], [ 0, %_ZNK9Stockfish10ThreadPool7tb_hitsEv.exit ]
   %74 = add i64 %73, %.010.lcssa.i.i72
-  %.not96 = icmp eq i64 %.sroa.speculated82, 0
-  br i1 %.not96, label %._crit_edge, label %.lr.ph95
+  %.not93 = icmp eq i64 %.sroa.speculated82, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph92
 
-.lr.ph95:                                         ; preds = %72
+.lr.ph92:                                         ; preds = %72
   %75 = icmp eq i32 %5, 1
   %76 = call i32 @llvm.smax.i32(i32 %5, i32 2)
   %.sroa.speculated = add nsw i32 %76, -1
@@ -2533,19 +2533,19 @@ _ZNK9Stockfish10ThreadPool7tb_hitsEv.exit:        ; preds = %.lr.ph.i.i68, %_ZN9
   %84 = getelementptr inbounds i8, ptr %2, i64 9571336
   br label %85
 
-85:                                               ; preds = %.lr.ph95, %.loopexit
-  %.094 = phi i64 [ 0, %.lr.ph95 ], [ %.pre-phi, %.loopexit ]
+85:                                               ; preds = %.lr.ph92, %.loopexit
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %.pre-phi, %.loopexit ]
   %86 = load ptr, ptr %28, align 64
-  %87 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %86, i64 %.094
+  %87 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %86, i64 %.091
   %88 = load i32, ptr %87, align 8
   %.not62 = icmp eq i32 %88, -32001
-  %89 = icmp ne i64 %.094, 0
+  %89 = icmp ne i64 %.091, 0
   %or.cond = and i1 %89, %.not62
   %or.cond64 = select i1 %75, i1 %or.cond, i1 false
   br i1 %or.cond64, label %..loopexit_crit_edge, label %90
 
 ..loopexit_crit_edge:                             ; preds = %85
-  %.pre = add nuw i64 %.094, 1
+  %.pre = add nuw i64 %.091, 1
   br label %.loopexit
 
 90:                                               ; preds = %85
@@ -2559,135 +2559,135 @@ _ZNK9Stockfish10ThreadPool7tb_hitsEv.exit:        ; preds = %.lr.ph.i.i68, %_ZN9
   %95 = trunc i8 %94 to i1
   %96 = call i32 @llvm.abs.i32(i32 %spec.store.select, i1 true)
   %97 = icmp ult i32 %96, 31754
-  %or.cond89 = select i1 %95, i1 %97, i1 false
-  br i1 %or.cond89, label %98, label %.thread87
+  %98 = select i1 %95, i1 %97, i1 false
+  br i1 %98, label %99, label %102
 
-98:                                               ; preds = %90
-  %99 = getelementptr inbounds i8, ptr %87, i64 28
-  %100 = load i32, ptr %99, align 4
-  br label %.thread87
+99:                                               ; preds = %90
+  %100 = getelementptr inbounds i8, ptr %87, i64 28
+  %101 = load i32, ptr %100, align 4
+  br label %102
 
-.thread87:                                        ; preds = %90, %98
-  %101 = phi i32 [ %100, %98 ], [ %spec.store.select, %90 ]
-  %102 = call noundef ptr @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(128) %7) #20
-  %103 = call noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE8in_availEv(ptr noundef nonnull align 8 dereferenceable(64) %102) #20
-  %.not = icmp eq i64 %103, 0
-  br i1 %.not, label %106, label %104
+102:                                              ; preds = %90, %99
+  %103 = phi i32 [ %101, %99 ], [ %spec.store.select, %90 ]
+  %104 = call noundef ptr @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(128) %7) #20
+  %105 = call noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE8in_availEv(ptr noundef nonnull align 8 dereferenceable(64) %104) #20
+  %.not = icmp eq i64 %105, 0
+  br i1 %.not, label %108, label %106
 
-104:                                              ; preds = %.thread87
-  %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.8) #20
-  br label %106
+106:                                              ; preds = %102
+  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.8) #20
+  br label %108
 
-106:                                              ; preds = %104, %.thread87
-  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.9) #20
-  %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull @.str.10) #20
-  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %108, i32 noundef %91) #20
-  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.11) #20
-  %111 = load ptr, ptr %28, align 64
-  %112 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %111, i64 %.094, i32 6
-  %113 = load i32, ptr %112, align 4
-  %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %110, i32 noundef %113) #20
-  %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull @.str.12) #20
-  %116 = add nuw i64 %.094, 1
-  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %115, i64 noundef %116) #20
-  %118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.13) #20
-  call void @_ZN9Stockfish3UCI5valueB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i32 noundef %101) #20
-  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(32) %11) #20
+108:                                              ; preds = %106, %102
+  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.9) #20
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.10) #20
+  %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %110, i32 noundef %91) #20
+  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull @.str.11) #20
+  %113 = load ptr, ptr %28, align 64
+  %114 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %113, i64 %.091, i32 6
+  %115 = load i32, ptr %114, align 4
+  %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %112, i32 noundef %115) #20
+  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull @.str.12) #20
+  %118 = add nuw i64 %.091, 1
+  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %117, i64 noundef %118) #20
+  %120 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.13) #20
+  call void @_ZN9Stockfish3UCI5valueB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i32 noundef %103) #20
+  %121 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
-  %120 = load ptr, ptr %34, align 8
+  %122 = load ptr, ptr %34, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #20
-  %121 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %121, ptr noundef nonnull align 1 dereferenceable(1) %14) #20
+  %123 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %123, ptr noundef nonnull align 1 dereferenceable(1) %14) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 11))
-  call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %120, ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  %122 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #20
-  %.not63 = icmp eq i32 %122, 0
-  %123 = load ptr, ptr %78, align 8
-  %.not.i.i.i74 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i74, label %_ZN9Stockfish6OptionD2Ev.exit75, label %124
+  call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(32) %13) #20
+  %124 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #20
+  %.not63 = icmp eq i32 %124, 0
+  %125 = load ptr, ptr %78, align 8
+  %.not.i.i.i74 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i74, label %_ZN9Stockfish6OptionD2Ev.exit75, label %126
 
-124:                                              ; preds = %106
-  %125 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3) #20
+126:                                              ; preds = %108
+  %127 = call noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3) #20
   br label %_ZN9Stockfish6OptionD2Ev.exit75
 
-_ZN9Stockfish6OptionD2Ev.exit75:                  ; preds = %106, %124
+_ZN9Stockfish6OptionD2Ev.exit75:                  ; preds = %108, %126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #20
-  br i1 %.not63, label %129, label %126
+  br i1 %.not63, label %131, label %128
 
-126:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit75
-  %127 = load i32, ptr %82, align 64
-  call void @_ZN9Stockfish3UCI3wdlB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, i32 noundef %101, i32 noundef %127) #20
-  %128 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(32) %15) #20
+128:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit75
+  %129 = load i32, ptr %82, align 64
+  call void @_ZN9Stockfish3UCI3wdlB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, i32 noundef %103, i32 noundef %129) #20
+  %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  br label %129
+  br label %131
 
-129:                                              ; preds = %126, %_ZN9Stockfish6OptionD2Ev.exit75
-  %130 = icmp ne i64 %.094, %30
-  %brmerge = or i1 %130, %or.cond89
+131:                                              ; preds = %128, %_ZN9Stockfish6OptionD2Ev.exit75
+  %132 = icmp ne i64 %.091, %30
+  %brmerge = or i1 %132, %98
   %brmerge66 = select i1 %brmerge, i1 true, i1 %.not62
-  br i1 %brmerge66, label %145, label %131
+  br i1 %brmerge66, label %147, label %133
 
-131:                                              ; preds = %129
-  %132 = load ptr, ptr %28, align 64
-  %133 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %132, i64 %30
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
-  %135 = load i8, ptr %134, align 8
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %142, label %137
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %28, align 64
+  %135 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %134, i64 %30
+  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %137 = load i8, ptr %136, align 8
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %144, label %139
 
-137:                                              ; preds = %131
-  %138 = getelementptr inbounds i8, ptr %133, i64 17
-  %139 = load i8, ptr %138, align 1
-  %140 = trunc i8 %139 to i1
-  %141 = select i1 %140, ptr @.str.16, ptr @.str.17
-  br label %142
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds i8, ptr %135, i64 17
+  %141 = load i8, ptr %140, align 1
+  %142 = trunc i8 %141 to i1
+  %143 = select i1 %142, ptr @.str.16, ptr @.str.17
+  br label %144
 
-142:                                              ; preds = %131, %137
-  %143 = phi ptr [ %141, %137 ], [ @.str.15, %131 ]
-  %144 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull %143) #20
-  br label %145
+144:                                              ; preds = %133, %139
+  %145 = phi ptr [ %143, %139 ], [ @.str.15, %133 ]
+  %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull %145) #20
+  br label %147
 
-145:                                              ; preds = %129, %142
-  %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.18) #20
-  %147 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %146, i64 noundef %.010.lcssa.i.i) #20
-  %148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.19) #20
-  %149 = udiv i64 %83, %33
-  %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %148, i64 noundef %149) #20
-  %151 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull @.str.20) #20
-  %152 = call noundef i32 @_ZNK9Stockfish18TranspositionTable8hashfullEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
-  %153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %151, i32 noundef %152) #20
-  %154 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull @.str.21) #20
-  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %154, i64 noundef %74) #20
-  %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @.str.22) #20
-  %157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %156, i64 noundef %33) #20
-  %158 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @.str.23) #20
-  %159 = load ptr, ptr %28, align 64
-  %160 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %159, i64 %.094, i32 9
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %160, i64 8
+147:                                              ; preds = %131, %144
+  %148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.18) #20
+  %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %148, i64 noundef %.010.lcssa.i.i) #20
+  %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @.str.19) #20
+  %151 = udiv i64 %83, %33
+  %152 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %150, i64 noundef %151) #20
+  %153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull @.str.20) #20
+  %154 = call noundef i32 @_ZNK9Stockfish18TranspositionTable8hashfullEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %153, i32 noundef %154) #20
+  %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @.str.21) #20
+  %157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %156, i64 noundef %74) #20
+  %158 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @.str.22) #20
+  %159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %158, i64 noundef %33) #20
+  %160 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull @.str.23) #20
+  %161 = load ptr, ptr %28, align 64
+  %162 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %161, i64 %.091, i32 9
   %163 = load ptr, ptr %162, align 8
-  %.not9092 = icmp eq ptr %161, %163
-  br i1 %.not9092, label %.loopexit, label %.lr.ph
+  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %.not8789 = icmp eq ptr %163, %165
+  br i1 %.not8789, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %145, %.lr.ph
-  %.sroa.076.093 = phi ptr [ %168, %.lr.ph ], [ %161, %145 ]
-  %.sroa.02.0.copyload = load i16, ptr %.sroa.076.093, align 2
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.24) #20
-  %165 = load i8, ptr %84, align 8
-  %166 = trunc i8 %165 to i1
-  call void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, i16 %.sroa.02.0.copyload, i1 noundef zeroext %166) #20
-  %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull align 8 dereferenceable(32) %16) #20
+.lr.ph:                                           ; preds = %147, %.lr.ph
+  %.sroa.076.090 = phi ptr [ %170, %.lr.ph ], [ %163, %147 ]
+  %.sroa.02.0.copyload = load i16, ptr %.sroa.076.090, align 2
+  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.24) #20
+  %167 = load i8, ptr %84, align 8
+  %168 = trunc i8 %167 to i1
+  call void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, i16 %.sroa.02.0.copyload, i1 noundef zeroext %168) #20
+  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
-  %168 = getelementptr inbounds i8, ptr %.sroa.076.093, i64 2
-  %.not90 = icmp eq ptr %168, %163
-  br i1 %.not90, label %.loopexit, label %.lr.ph
+  %170 = getelementptr inbounds i8, ptr %.sroa.076.090, i64 2
+  %.not87 = icmp eq ptr %170, %165
+  br i1 %.not87, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %145
-  %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %116, %145 ], [ %116, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %147
+  %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %118, %147 ], [ %118, %.lr.ph ]
   %exitcond.not = icmp eq i64 %.pre-phi, %.sroa.speculated82
   br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !21
 

@@ -289,24 +289,18 @@ while.body158.i.preheader:                        ; preds = %while.cond155.i.pre
 if.else124.i:                                     ; preds = %if.else117.i
   %and125.i = and i32 %flags.1.i, 512
   %tobool126.not.i = icmp eq i32 %and125.i, 0
-  br i1 %tobool126.not.i, label %if.else128.i, label %while.cond147.i.preheader
-
-if.else128.i:                                     ; preds = %if.else124.i
   %frombool132.i = icmp slt i64 %16, 0
   %spec.select.i = call i64 @llvm.abs.i64(i64 %16, i1 false)
-  br label %while.cond147.i.preheader
-
-while.cond147.i.preheader:                        ; preds = %if.else124.i, %if.else128.i
-  %is_neg.0.i309.ph = phi i1 [ %frombool132.i, %if.else128.i ], [ false, %if.else124.i ]
-  %num.1.i.ph = phi i64 [ %spec.select.i, %if.else128.i ], [ %16, %if.else124.i ]
+  %is_neg.0.i309.ph = select i1 %tobool126.not.i, i1 %frombool132.i, i1 false
+  %num.1.i.ph = select i1 %tobool126.not.i, i64 %spec.select.i, i64 %16
   %cmp142.i764 = icmp eq i32 %prec.0.i, -1
   %spec.store.select2.i765 = select i1 %cmp142.i764, i32 1, i32 %prec.0.i
   %cmp148.not.i608 = icmp eq i64 %num.1.i.ph, 0
   br i1 %cmp148.not.i608, label %sw.epilog.i.thread, label %while.body150.i
 
-while.body150.i:                                  ; preds = %while.cond147.i.preheader, %while.body150.i
-  %w.0.idx.i610 = phi i64 [ %w.0.add.i, %while.body150.i ], [ 324, %while.cond147.i.preheader ]
-  %num.1.i609 = phi i64 [ %div.i, %while.body150.i ], [ %num.1.i.ph, %while.cond147.i.preheader ]
+while.body150.i:                                  ; preds = %if.else124.i, %while.body150.i
+  %w.0.idx.i610 = phi i64 [ %w.0.add.i, %while.body150.i ], [ 324, %if.else124.i ]
+  %num.1.i609 = phi i64 [ %div.i, %while.body150.i ], [ %num.1.i.ph, %if.else124.i ]
   %w.0.ptr.i = getelementptr inbounds i8, ptr %work.i, i64 %w.0.idx.i610
   %rem.i = urem i64 %num.1.i609, 10
   %18 = trunc nuw nsw i64 %rem.i to i8
@@ -330,8 +324,8 @@ while.body158.i:                                  ; preds = %while.body158.i.pre
   %cmp156.not.i = icmp ugt i64 %base.0.i316.ph, %num.2.i613
   br i1 %cmp156.not.i, label %sw.epilog.i, label %while.body158.i, !llvm.loop !9
 
-sw.epilog.i.thread:                               ; preds = %while.body150.i, %while.cond147.i.preheader
-  %w.2.idx.i.ph = phi i64 [ 324, %while.cond147.i.preheader ], [ %w.0.add.i, %while.body150.i ]
+sw.epilog.i.thread:                               ; preds = %while.body150.i, %if.else124.i
+  %w.2.idx.i.ph = phi i64 [ 324, %if.else124.i ], [ %w.0.add.i, %while.body150.i ]
   %20 = trunc i64 %w.2.idx.i.ph to i32
   %conv164.i774 = sub i32 324, %20
   %sub165.i775 = sub nsw i32 %width.1.i, %conv164.i774
@@ -1367,24 +1361,18 @@ while.body158.preheader:                          ; preds = %while.cond155.prehe
 if.else124:                                       ; preds = %if.else117
   %and125 = and i32 %flags.1, 512
   %tobool126.not = icmp eq i32 %and125, 0
-  br i1 %tobool126.not, label %if.else128, label %while.cond147.preheader
-
-if.else128:                                       ; preds = %if.else124
   %frombool132 = icmp slt i64 %14, 0
   %spec.select = call i64 @llvm.abs.i64(i64 %14, i1 false)
-  br label %while.cond147.preheader
-
-while.cond147.preheader:                          ; preds = %if.else124, %if.else128
-  %is_neg.0297.ph = phi i1 [ %frombool132, %if.else128 ], [ false, %if.else124 ]
-  %num.1.ph = phi i64 [ %spec.select, %if.else128 ], [ %14, %if.else124 ]
+  %is_neg.0297.ph = select i1 %tobool126.not, i1 %frombool132, i1 false
+  %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %14
   %cmp142510 = icmp eq i32 %prec.0, -1
   %spec.store.select2511 = select i1 %cmp142510, i32 1, i32 %prec.0
   %cmp148.not406 = icmp eq i64 %num.1.ph, 0
   br i1 %cmp148.not406, label %sw.epilog.thread, label %while.body150
 
-while.body150:                                    ; preds = %while.cond147.preheader, %while.body150
-  %w.0.idx408 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %while.cond147.preheader ]
-  %num.1407 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %while.cond147.preheader ]
+while.body150:                                    ; preds = %if.else124, %while.body150
+  %w.0.idx408 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.1407 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
   %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx408
   %rem = urem i64 %num.1407, 10
   %18 = trunc nuw nsw i64 %rem to i8
@@ -1408,8 +1396,8 @@ while.body158:                                    ; preds = %while.body158.prehe
   %cmp156.not = icmp ugt i64 %base.0304.ph, %num.2411
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
-sw.epilog.thread:                                 ; preds = %while.body150, %while.cond147.preheader
-  %w.2.idx.ph = phi i64 [ 324, %while.cond147.preheader ], [ %w.0.add, %while.body150 ]
+sw.epilog.thread:                                 ; preds = %while.body150, %if.else124
+  %w.2.idx.ph = phi i64 [ 324, %if.else124 ], [ %w.0.add, %while.body150 ]
   %20 = trunc i64 %w.2.idx.ph to i32
   %conv164520 = sub i32 324, %20
   %sub165521 = sub nsw i32 %width.1, %conv164520
@@ -3583,24 +3571,18 @@ while.body158.preheader:                          ; preds = %while.cond155.prehe
 if.else124:                                       ; preds = %if.else117
   %and125 = and i32 %flags.1, 512
   %tobool126.not = icmp eq i32 %and125, 0
-  br i1 %tobool126.not, label %if.else128, label %while.cond147.preheader
-
-if.else128:                                       ; preds = %if.else124
   %frombool132 = icmp slt i64 %14, 0
   %spec.select = call i64 @llvm.abs.i64(i64 %14, i1 false)
-  br label %while.cond147.preheader
-
-while.cond147.preheader:                          ; preds = %if.else124, %if.else128
-  %is_neg.011.ph = phi i1 [ %frombool132, %if.else128 ], [ false, %if.else124 ]
-  %num.1.ph = phi i64 [ %spec.select, %if.else128 ], [ %14, %if.else124 ]
+  %is_neg.011.ph = select i1 %tobool126.not, i1 %frombool132, i1 false
+  %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %14
   %cmp142224 = icmp eq i32 %prec.0, -1
   %spec.store.select2225 = select i1 %cmp142224, i32 1, i32 %prec.0
   %cmp148.not120 = icmp eq i64 %num.1.ph, 0
   br i1 %cmp148.not120, label %sw.epilog.thread, label %while.body150
 
-while.body150:                                    ; preds = %while.cond147.preheader, %while.body150
-  %w.0.idx122 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %while.cond147.preheader ]
-  %num.1121 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %while.cond147.preheader ]
+while.body150:                                    ; preds = %if.else124, %while.body150
+  %w.0.idx122 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.1121 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
   %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx122
   %rem = urem i64 %num.1121, 10
   %18 = trunc nuw nsw i64 %rem to i8
@@ -3624,8 +3606,8 @@ while.body158:                                    ; preds = %while.body158.prehe
   %cmp156.not = icmp ugt i64 %base.018.ph, %num.2125
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
-sw.epilog.thread:                                 ; preds = %while.body150, %while.cond147.preheader
-  %w.2.idx.ph = phi i64 [ 324, %while.cond147.preheader ], [ %w.0.add, %while.body150 ]
+sw.epilog.thread:                                 ; preds = %while.body150, %if.else124
+  %w.2.idx.ph = phi i64 [ 324, %if.else124 ], [ %w.0.add, %while.body150 ]
   %20 = trunc i64 %w.2.idx.ph to i32
   %conv164234 = sub i32 324, %20
   %sub165235 = sub nsw i32 %width.1, %conv164234
@@ -4601,24 +4583,18 @@ while.body158.preheader:                          ; preds = %while.cond155.prehe
 if.else124:                                       ; preds = %if.else117
   %and125 = and i32 %flags.1, 512
   %tobool126.not = icmp eq i32 %and125, 0
-  br i1 %tobool126.not, label %if.else128, label %while.cond147.preheader
-
-if.else128:                                       ; preds = %if.else124
   %frombool132 = icmp slt i64 %16, 0
   %spec.select = call i64 @llvm.abs.i64(i64 %16, i1 false)
-  br label %while.cond147.preheader
-
-while.cond147.preheader:                          ; preds = %if.else124, %if.else128
-  %is_neg.011.ph = phi i1 [ %frombool132, %if.else128 ], [ false, %if.else124 ]
-  %num.1.ph = phi i64 [ %spec.select, %if.else128 ], [ %16, %if.else124 ]
+  %is_neg.011.ph = select i1 %tobool126.not, i1 %frombool132, i1 false
+  %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %16
   %cmp142155 = icmp eq i32 %prec.0, -1
   %spec.store.select2156 = select i1 %cmp142155, i32 1, i32 %prec.0
   %cmp148.not84 = icmp eq i64 %num.1.ph, 0
   br i1 %cmp148.not84, label %sw.epilog.thread, label %while.body150
 
-while.body150:                                    ; preds = %while.cond147.preheader, %while.body150
-  %w.0.idx86 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %while.cond147.preheader ]
-  %num.185 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %while.cond147.preheader ]
+while.body150:                                    ; preds = %if.else124, %while.body150
+  %w.0.idx86 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.185 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
   %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx86
   %rem = urem i64 %num.185, 10
   %25 = trunc nuw nsw i64 %rem to i8
@@ -4642,8 +4618,8 @@ while.body158:                                    ; preds = %while.body158.prehe
   %cmp156.not = icmp ugt i64 %base.018.ph, %num.289
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
-sw.epilog.thread:                                 ; preds = %while.body150, %while.cond147.preheader
-  %w.2.idx.ph = phi i64 [ 324, %while.cond147.preheader ], [ %w.0.add, %while.body150 ]
+sw.epilog.thread:                                 ; preds = %while.body150, %if.else124
+  %w.2.idx.ph = phi i64 [ 324, %if.else124 ], [ %w.0.add, %while.body150 ]
   %27 = trunc i64 %w.2.idx.ph to i32
   %conv164165 = sub i32 324, %27
   %sub165166 = sub nsw i32 %width.1, %conv164165
