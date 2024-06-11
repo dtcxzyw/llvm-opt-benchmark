@@ -6350,6 +6350,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 0, ptr %add.ptr.i.i16, align 8
   %m_value.i = getelementptr inbounds i8, ptr %stack.sroa.17.8, i64 -8
   store ptr null, ptr %m_value.i, align 8
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i, i8 noundef zeroext 0)
   %12 = load i8, ptr %current_item, align 8
   switch i8 %12, label %if.end87 [
     i8 2, label %if.then44

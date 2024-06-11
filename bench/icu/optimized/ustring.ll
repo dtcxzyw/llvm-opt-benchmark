@@ -79,7 +79,7 @@ for.cond.preheader:                               ; preds = %while.body
 if.then29:                                        ; preds = %if.end42, %for.cond.preheader
   %p.0.lcssa = phi ptr [ %incdec.ptr20133, %for.cond.preheader ], [ %incdec.ptr43, %if.end42 ]
   %cmp1.not.i = icmp eq ptr %s.addr.0132, %s
-  %or.cond.i = or i1 %cmp.i78, %cmp1.not.i
+  %or.cond.i = or i1 %cmp1.not.i, %cmp.i78
   br i1 %or.cond.i, label %if.end.i79, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.then29
@@ -201,60 +201,31 @@ while.cond68.preheader:                           ; preds = %if.end65
 while.body72.lr.ph:                               ; preds = %while.cond68.preheader
   %incdec.ptr69151 = getelementptr inbounds i8, ptr %s, i64 2
   %cmp78147 = icmp eq i32 %dec, 0
-  br i1 %cmp78147, label %while.body72.us.preheader, label %while.body72
+  br i1 %cmp78147, label %while.body72.us, label %while.body72
 
-while.body72.us.preheader:                        ; preds = %while.body72.lr.ph
-  %25 = and i16 %20, -1024
-  %cmp.i = icmp ne i16 %25, -9216
-  br label %while.body72.us
+while.body72.us:                                  ; preds = %while.body72.lr.ph, %if.end99.us
+  %25 = phi i16 [ %26, %if.end99.us ], [ %24, %while.body72.lr.ph ]
+  %incdec.ptr69154.us = phi ptr [ %incdec.ptr69.us, %if.end99.us ], [ %incdec.ptr69151, %while.body72.lr.ph ]
+  %s.addr.1153.us = phi ptr [ %incdec.ptr69154.us, %if.end99.us ], [ %s, %while.body72.lr.ph ]
+  %cmp75.us = icmp eq i16 %25, %20
+  br i1 %cmp75.us, label %for.cond77.preheader.us, label %if.end99.us
 
-while.body72.us:                                  ; preds = %while.body72.us.preheader, %if.end99.us
-  %26 = phi i16 [ %27, %if.end99.us ], [ %24, %while.body72.us.preheader ]
-  %incdec.ptr69154.us = phi ptr [ %incdec.ptr69.us, %if.end99.us ], [ %incdec.ptr69151, %while.body72.us.preheader ]
-  %s.addr.1153.us = phi ptr [ %incdec.ptr69154.us, %if.end99.us ], [ %s, %while.body72.us.preheader ]
-  %cmp75.us = icmp eq i16 %26, %20
-  br i1 %cmp75.us, label %for.cond77.preheader.us, label %if.end99.usthread-pre-split
-
-if.end99.usthread-pre-split:                      ; preds = %while.body72.us, %land.lhs.true2.i185
-  %.pr = load i16, ptr %incdec.ptr69154.us, align 2
-  br label %if.end99.us
-
-if.end99.us:                                      ; preds = %if.end99.usthread-pre-split, %land.lhs.true12.i192
-  %27 = phi i16 [ %.pr, %if.end99.usthread-pre-split ], [ %32, %land.lhs.true12.i192 ]
+if.end99.us:                                      ; preds = %for.cond77.preheader.us, %while.body72.us
   %incdec.ptr69.us = getelementptr inbounds i8, ptr %incdec.ptr69154.us, i64 2
-  %cmp71.not.us = icmp eq i16 %27, 0
+  %26 = load i16, ptr %incdec.ptr69154.us, align 2
+  %cmp71.not.us = icmp eq i16 %26, 0
   br i1 %cmp71.not.us, label %return, label %while.body72.us, !llvm.loop !10
 
 for.cond77.preheader.us:                          ; preds = %while.body72.us
-  %cmp1.not.i183 = icmp eq ptr %s.addr.1153.us, %s
-  %or.cond.i184 = or i1 %cmp1.not.i183, %cmp.i
-  br i1 %or.cond.i184, label %if.end.i188, label %land.lhs.true2.i185
-
-land.lhs.true2.i185:                              ; preds = %for.cond77.preheader.us
-  %add.ptr.i186 = getelementptr inbounds i8, ptr %s.addr.1153.us, i64 -2
-  %28 = load i16, ptr %add.ptr.i186, align 2
-  %29 = and i16 %28, -1024
-  %cmp5.i187 = icmp eq i16 %29, -10240
-  br i1 %cmp5.i187, label %if.end99.usthread-pre-split, label %if.end.i188
-
-if.end.i188:                                      ; preds = %land.lhs.true2.i185, %for.cond77.preheader.us
-  %add.ptr6.i189 = getelementptr inbounds i8, ptr %incdec.ptr69154.us, i64 -2
-  %30 = load i16, ptr %add.ptr6.i189, align 2
-  %31 = and i16 %30, -1024
-  %cmp9.i.not196 = icmp eq i16 %31, -10240
-  br i1 %cmp9.i.not196, label %land.lhs.true12.i192, label %return
-
-land.lhs.true12.i192:                             ; preds = %if.end.i188
-  %32 = load i16, ptr %incdec.ptr69154.us, align 2
-  %33 = and i16 %32, -1024
-  %cmp15.i193 = icmp eq i16 %33, -9216
-  br i1 %cmp15.i193, label %if.end99.us, label %return
+  %call81.us = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef nonnull %s, ptr noundef nonnull %s.addr.1153.us, ptr noundef nonnull %incdec.ptr69154.us, ptr noundef null)
+  %tobool82.not.us = icmp eq i8 %call81.us, 0
+  br i1 %tobool82.not.us, label %if.end99.us, label %return
 
 while.body72:                                     ; preds = %while.body72.lr.ph, %if.end99
-  %34 = phi i16 [ %37, %if.end99 ], [ %24, %while.body72.lr.ph ]
+  %27 = phi i16 [ %30, %if.end99 ], [ %24, %while.body72.lr.ph ]
   %incdec.ptr69154 = phi ptr [ %incdec.ptr69, %if.end99 ], [ %incdec.ptr69151, %while.body72.lr.ph ]
   %s.addr.1153 = phi ptr [ %incdec.ptr69154, %if.end99 ], [ %s, %while.body72.lr.ph ]
-  %cmp75 = icmp eq i16 %34, %20
+  %cmp75 = icmp eq i16 %27, %20
   br i1 %cmp75, label %if.end86, label %if.end99
 
 for.cond77.if.then79_crit_edge:                   ; preds = %if.end95
@@ -265,13 +236,13 @@ for.cond77.if.then79_crit_edge:                   ; preds = %if.end95
 if.end86:                                         ; preds = %while.body72, %if.end95
   %q.1149 = phi ptr [ %incdec.ptr97, %if.end95 ], [ %incdec.ptr54.ptr, %while.body72 ]
   %p.1148 = phi ptr [ %incdec.ptr96, %if.end95 ], [ %incdec.ptr69154, %while.body72 ]
-  %35 = load i16, ptr %p.1148, align 2
-  %cmp88 = icmp eq i16 %35, 0
+  %28 = load i16, ptr %p.1148, align 2
+  %cmp88 = icmp eq i16 %28, 0
   br i1 %cmp88, label %return, label %if.end90
 
 if.end90:                                         ; preds = %if.end86
-  %36 = load i16, ptr %q.1149, align 2
-  %cmp93.not = icmp eq i16 %35, %36
+  %29 = load i16, ptr %q.1149, align 2
+  %cmp93.not = icmp eq i16 %28, %29
   br i1 %cmp93.not, label %if.end95, label %if.end99
 
 if.end95:                                         ; preds = %if.end90
@@ -282,8 +253,8 @@ if.end95:                                         ; preds = %if.end90
 
 if.end99:                                         ; preds = %if.end90, %for.cond77.if.then79_crit_edge, %while.body72
   %incdec.ptr69 = getelementptr inbounds i8, ptr %incdec.ptr69154, i64 2
-  %37 = load i16, ptr %incdec.ptr69154, align 2
-  %cmp71.not = icmp eq i16 %37, 0
+  %30 = load i16, ptr %incdec.ptr69154, align 2
+  %cmp71.not = icmp eq i16 %30, 0
   br i1 %cmp71.not, label %return, label %while.body72, !llvm.loop !10
 
 if.else101:                                       ; preds = %if.end65
@@ -300,15 +271,15 @@ if.end104:                                        ; preds = %if.else101
 
 while.body111.lr.ph:                              ; preds = %if.end104
   %cmp118138 = icmp eq i32 %dec, 0
-  %38 = and i16 %20, -1024
-  %cmp.i90 = icmp ne i16 %38, -9216
+  %31 = and i16 %20, -1024
+  %cmp.i90 = icmp ne i16 %31, -9216
   br label %while.body111
 
 while.body111:                                    ; preds = %while.body111.lr.ph, %if.end135
   %s.addr.2143 = phi ptr [ %s, %while.body111.lr.ph ], [ %incdec.ptr112, %if.end135 ]
   %incdec.ptr112 = getelementptr inbounds i8, ptr %s.addr.2143, i64 2
-  %39 = load i16, ptr %s.addr.2143, align 2
-  %cmp115 = icmp eq i16 %39, %20
+  %32 = load i16, ptr %s.addr.2143, align 2
+  %cmp115 = icmp eq i16 %32, %20
   br i1 %cmp115, label %for.cond117.preheader, label %if.end135
 
 for.cond117.preheader:                            ; preds = %while.body111
@@ -317,37 +288,37 @@ for.cond117.preheader:                            ; preds = %while.body111
 if.then119:                                       ; preds = %if.end131, %for.cond117.preheader
   %p.2.lcssa = phi ptr [ %incdec.ptr112, %for.cond117.preheader ], [ %incdec.ptr132, %if.end131 ]
   %cmp1.not.i91 = icmp eq ptr %s.addr.2143, %s
-  %or.cond.i92 = or i1 %cmp.i90, %cmp1.not.i91
+  %or.cond.i92 = or i1 %cmp1.not.i91, %cmp.i90
   br i1 %or.cond.i92, label %if.end.i96, label %land.lhs.true2.i93
 
 land.lhs.true2.i93:                               ; preds = %if.then119
   %add.ptr.i94 = getelementptr inbounds i8, ptr %s.addr.2143, i64 -2
-  %40 = load i16, ptr %add.ptr.i94, align 2
-  %41 = and i16 %40, -1024
-  %cmp5.i95 = icmp eq i16 %41, -10240
+  %33 = load i16, ptr %add.ptr.i94, align 2
+  %34 = and i16 %33, -1024
+  %cmp5.i95 = icmp eq i16 %34, -10240
   br i1 %cmp5.i95, label %if.end135, label %if.end.i96
 
 if.end.i96:                                       ; preds = %land.lhs.true2.i93, %if.then119
   %add.ptr6.i97 = getelementptr inbounds i8, ptr %p.2.lcssa, i64 -2
-  %42 = load i16, ptr %add.ptr6.i97, align 2
-  %43 = and i16 %42, -1024
-  %cmp9.i98 = icmp ne i16 %43, -10240
+  %35 = load i16, ptr %add.ptr6.i97, align 2
+  %36 = and i16 %35, -1024
+  %cmp9.i98 = icmp ne i16 %36, -10240
   %cmp11.not.i = icmp eq ptr %p.2.lcssa, %add.ptr106
   %or.cond5.i = or i1 %cmp11.not.i, %cmp9.i98
   br i1 %or.cond5.i, label %return, label %land.lhs.true12.i99
 
 land.lhs.true12.i99:                              ; preds = %if.end.i96
-  %44 = load i16, ptr %p.2.lcssa, align 2
-  %45 = and i16 %44, -1024
-  %cmp15.i100 = icmp eq i16 %45, -9216
+  %37 = load i16, ptr %p.2.lcssa, align 2
+  %38 = and i16 %37, -1024
+  %cmp15.i100 = icmp eq i16 %38, -9216
   br i1 %cmp15.i100, label %if.end135, label %return
 
 if.end126:                                        ; preds = %for.cond117.preheader, %if.end131
   %q.2140 = phi ptr [ %incdec.ptr133, %if.end131 ], [ %incdec.ptr54.ptr, %for.cond117.preheader ]
   %p.2139 = phi ptr [ %incdec.ptr132, %if.end131 ], [ %incdec.ptr112, %for.cond117.preheader ]
-  %46 = load i16, ptr %p.2139, align 2
-  %47 = load i16, ptr %q.2140, align 2
-  %cmp129.not = icmp eq i16 %46, %47
+  %39 = load i16, ptr %p.2139, align 2
+  %40 = load i16, ptr %q.2140, align 2
+  %cmp129.not = icmp eq i16 %39, %40
   br i1 %cmp129.not, label %if.end131, label %if.end135
 
 if.end131:                                        ; preds = %if.end126
@@ -360,8 +331,8 @@ if.end135:                                        ; preds = %if.end126, %land.lh
   %cmp110.not = icmp eq ptr %incdec.ptr112, %add.ptr108
   br i1 %cmp110.not, label %return, label %while.body111, !llvm.loop !13
 
-return:                                           ; preds = %if.end8.i, %if.end.i, %if.end45, %if.end.i79, %land.lhs.true12.i, %if.end33, %do.cond.i, %do.body.i, %if.end135, %if.end.i96, %land.lhs.true12.i99, %for.cond77.if.then79_crit_edge, %if.end99, %if.end86, %land.lhs.true12.i192, %if.end.i188, %if.end99.us, %for.cond.i.preheader, %while.cond.preheader, %if.end104, %while.cond68.preheader, %cond.false, %if.else101, %cond.true, %if.end50, %if.then9, %if.end, %entry
-  %retval.0 = phi ptr [ %s, %entry ], [ null, %if.end ], [ %s, %if.then9 ], [ %s, %if.end50 ], [ %call63, %cond.true ], [ null, %if.else101 ], [ null, %cond.false ], [ null, %while.cond68.preheader ], [ null, %if.end104 ], [ null, %while.cond.preheader ], [ %s, %for.cond.i.preheader ], [ %s.addr.1153.us, %land.lhs.true12.i192 ], [ %s.addr.1153.us, %if.end.i188 ], [ null, %if.end99.us ], [ null, %if.end86 ], [ null, %if.end99 ], [ %s.addr.1153, %for.cond77.if.then79_crit_edge ], [ %s.addr.2143, %land.lhs.true12.i99 ], [ %s.addr.2143, %if.end.i96 ], [ null, %if.end135 ], [ %s.addr.0.i85, %do.body.i ], [ null, %do.cond.i ], [ null, %if.end33 ], [ %s.addr.0132, %land.lhs.true12.i ], [ %s.addr.0132, %if.end.i79 ], [ null, %if.end45 ], [ null, %if.end.i ], [ %incdec.ptr.i, %if.end8.i ]
+return:                                           ; preds = %if.end8.i, %if.end.i, %if.end45, %if.end.i79, %land.lhs.true12.i, %if.end33, %do.cond.i, %do.body.i, %if.end135, %if.end.i96, %land.lhs.true12.i99, %for.cond77.if.then79_crit_edge, %if.end99, %if.end86, %for.cond77.preheader.us, %if.end99.us, %for.cond.i.preheader, %while.cond.preheader, %if.end104, %while.cond68.preheader, %cond.false, %if.else101, %cond.true, %if.end50, %if.then9, %if.end, %entry
+  %retval.0 = phi ptr [ %s, %entry ], [ null, %if.end ], [ %s, %if.then9 ], [ %s, %if.end50 ], [ %call63, %cond.true ], [ null, %if.else101 ], [ null, %cond.false ], [ null, %while.cond68.preheader ], [ null, %if.end104 ], [ null, %while.cond.preheader ], [ %s, %for.cond.i.preheader ], [ %s.addr.1153.us, %for.cond77.preheader.us ], [ null, %if.end99.us ], [ null, %if.end86 ], [ %s.addr.1153, %for.cond77.if.then79_crit_edge ], [ null, %if.end99 ], [ null, %if.end135 ], [ %s.addr.2143, %if.end.i96 ], [ %s.addr.2143, %land.lhs.true12.i99 ], [ null, %do.cond.i ], [ %s.addr.0.i85, %do.body.i ], [ null, %if.end33 ], [ null, %if.end45 ], [ %s.addr.0132, %if.end.i79 ], [ %s.addr.0132, %land.lhs.true12.i ], [ %incdec.ptr.i, %if.end8.i ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -752,7 +723,7 @@ if.end45.i:                                       ; preds = %if.end37.i, %land.l
   br i1 %cmp22.not.i, label %u_strFindFirst_75.exit, label %while.body.i, !llvm.loop !7
 
 u_strFindFirst_75.exit:                           ; preds = %if.end.i.i, %if.end8.i.i, %if.then29.i.loopexit.us, %land.lhs.true12.i.i.us12, %if.end45.i.us14, %if.end33.i.us, %if.end.i79.i, %land.lhs.true12.i.i, %if.end45.i, %if.end33.i, %for.cond.preheader.i.us.us, %land.lhs.true12.i.i.us.us, %if.end45.i.us.us, %for.cond.preheader.i.us, %land.lhs.true2.i.i.us, %if.end45.i.us, %entry, %if.end.i, %if.end6.i, %for.cond.i.preheader.i, %while.cond.preheader.i
-  %retval.0.i = phi ptr [ %s, %entry ], [ null, %if.end.i ], [ %s, %if.end6.i ], [ null, %while.cond.preheader.i ], [ %s, %for.cond.i.preheader.i ], [ %s.addr.0132.i.us, %for.cond.preheader.i.us ], [ %s.addr.0132.i.us, %land.lhs.true2.i.i.us ], [ null, %if.end45.i.us ], [ null, %if.end45.i.us.us ], [ %s.addr.0132.i.us.us, %for.cond.preheader.i.us.us ], [ %s.addr.0132.i.us.us, %land.lhs.true12.i.i.us.us ], [ null, %if.end33.i ], [ null, %if.end45.i ], [ %s.addr.0132.i, %if.end.i79.i ], [ %s.addr.0132.i, %land.lhs.true12.i.i ], [ null, %if.end33.i.us ], [ null, %if.end45.i.us14 ], [ %s.addr.0132.i.us5, %if.then29.i.loopexit.us ], [ %s.addr.0132.i.us5, %land.lhs.true12.i.i.us12 ], [ %incdec.ptr.i.i, %if.end8.i.i ], [ null, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %s, %entry ], [ null, %if.end.i ], [ %s, %if.end6.i ], [ null, %while.cond.preheader.i ], [ %s, %for.cond.i.preheader.i ], [ %s.addr.0132.i.us, %for.cond.preheader.i.us ], [ %s.addr.0132.i.us, %land.lhs.true2.i.i.us ], [ null, %if.end45.i.us ], [ %s.addr.0132.i.us.us, %land.lhs.true12.i.i.us.us ], [ %s.addr.0132.i.us.us, %for.cond.preheader.i.us.us ], [ null, %if.end45.i.us.us ], [ null, %if.end33.i ], [ %s.addr.0132.i, %land.lhs.true12.i.i ], [ %s.addr.0132.i, %if.end.i79.i ], [ null, %if.end45.i ], [ null, %if.end33.i.us ], [ %s.addr.0132.i.us5, %land.lhs.true12.i.i.us12 ], [ %s.addr.0132.i.us5, %if.then29.i.loopexit.us ], [ null, %if.end45.i.us14 ], [ null, %if.end.i.i ], [ %incdec.ptr.i.i, %if.end8.i.i ]
   ret ptr %retval.0.i
 }
 

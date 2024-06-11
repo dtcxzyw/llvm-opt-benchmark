@@ -2787,7 +2787,7 @@ cast_is_allowed.exit:                             ; preds = %90, %80, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56

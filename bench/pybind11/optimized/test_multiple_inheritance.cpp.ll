@@ -77758,7 +77758,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -78286,7 +78286,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -78681,7 +78681,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -79900,7 +79900,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -80767,7 +80767,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -81649,7 +81649,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -82556,7 +82556,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
@@ -83465,7 +83465,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #19 align 2 {
+define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev(ptr nocapture nonnull align 8 %0) unnamed_addr #19 align 2 {
   ret void
 }
 
