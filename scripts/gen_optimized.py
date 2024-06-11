@@ -9,20 +9,41 @@ import tqdm
 bench_dir = sys.argv[1]
 opt_exec = sys.argv[2]
 bench_filter = None
+comptime = None
 if len(sys.argv) > 3:
-    bench_filter = sys.argv[3].split(',')
+    if sys.argv[3] == "comptime":
+        comptime = sys.argv[4]
+    else:
+        bench_filter = sys.argv[3].split(',')
+
+comptime_res = []
 
 def run_opt(task):
     input_file, output_file = task
     try:
-        ret = subprocess.run([opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S', '-o', output_file],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
-        if ret.returncode != 0:
-            return (input_file, 'fail')
-        return (input_file, 'success')
+        result = 0
+        cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S']
+        if comptime is None:
+            cmd += ['-o', output_file]
+            ret = subprocess.run(cmd,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
+            if ret.returncode != 0:
+                return (input_file, 'fail', 0)
+        else:
+            cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd + ['-disable-output']
+            ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, timeout=600.0, capture_output=True)
+            if ret.returncode != 0:
+                return (input_file, 'fail', 0)
+            err = ret.stderr.decode()
+            for line in err.splitlines():
+                if 'instructions:u' in line:
+                    result = int(line.strip().split()[0].replace(',',''))
+                    break
+        
+        return (input_file, 'success', result)
     except subprocess.TimeoutExpired:
-        return (input_file, 'timeout')
+        return (input_file, 'timeout', 0)
     except Exception:
-        return (input_file, 'crash')
+        return (input_file, 'crash', 0)
 
 if __name__ == '__main__':
     work_list = []
@@ -39,14 +60,24 @@ if __name__ == '__main__':
                 work_list.append((os.path.join(original_dir, file), os.path.join(optimized_dir, file)))
     
     print("total items: ", len(work_list))
+    print("threads: ", os.cpu_count())
 
-    pool = Pool(processes=16)
+    pool = Pool(processes=os.cpu_count())
     progress = tqdm.tqdm(work_list, miniters=len(work_list)/200)
     with open('test.log', 'w') as log:
-        for file, status in pool.imap_unordered(run_opt, work_list):
+        for file, status, res in pool.imap_unordered(run_opt, work_list):
+            file = os.path.relpath(file, bench_dir)
+            file = file.replace('/original/','/')
             if status != 'success':
-                file = os.path.relpath(file, bench_dir)
                 progress.write(file + ' ' + status)
                 log.write(file + ' ' + status + '\n')
+            elif comptime:
+                comptime_res.append((file, res))
             progress.update()
         progress.close()
+
+    if comptime is not None:
+        comptime_res.sort(key=lambda x: x[0])
+        with open(comptime, 'w') as f:
+            for k,v in comptime_res:
+                f.write(f'{k} {v}\n')

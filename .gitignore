@@ -1,7 +1,7 @@
 bench_build
 llvm-build
 CHANGELOGS
-test.log
+*.log
 patch.diff
 *.bench_tmp.ll
 .vscode
