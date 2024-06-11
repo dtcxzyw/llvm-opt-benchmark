@@ -1259,5 +1259,5 @@ attributes #25 = { noreturn }
 !72 = !{!73}
 !73 = distinct !{!73, !74, !"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$6choose17h0490c9d3246daa94E: argument 0"}
 !74 = distinct !{!74, !"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$6choose17h0490c9d3246daa94E"}
-!75 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!75 = !{!"branch_weights", i32 2000, i32 1}
 !76 = !{i64 1}

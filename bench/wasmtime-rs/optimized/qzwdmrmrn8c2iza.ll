@@ -132208,7 +132208,7 @@ attributes #40 = { cold "function-inline-cost-multiplier"="2" }
 !36361 = !{!36362}
 !36362 = distinct !{!36362, !36363, !"_ZN143_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..IndexMut$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$9index_mut17h64fdd46ad1f4b720E: argument 0"}
 !36363 = distinct !{!36363, !"_ZN143_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..IndexMut$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$9index_mut17h64fdd46ad1f4b720E"}
-!36364 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!36364 = !{!"branch_weights", i32 2000, i32 1}
 !36365 = !{!36366}
 !36366 = distinct !{!36366, !36367, !"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h2654daaa8adb2adfE: argument 0"}
 !36367 = distinct !{!36367, !"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h2654daaa8adb2adfE"}

@@ -46738,7 +46738,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !93 = distinct !{!93, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hde9861c606f8673dE"}
 !94 = !{!92, !80}
 !95 = !{!88, !83}
-!96 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!96 = !{!"branch_weights", i32 2000, i32 1}
 !97 = !{!92, !88, !80, !83}
 !98 = !{!99, !101}
 !99 = distinct !{!99, !100, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE: argument 0"}

@@ -22279,7 +22279,7 @@ attributes #27 = { cold "function-inline-cost-multiplier"="2" }
 !9 = distinct !{!9, !"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hcdc142ef2ddc7e5eE"}
 !10 = distinct !{!10, !11, !"_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E: argument 0"}
 !11 = distinct !{!11, !"_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E"}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = !{!"branch_weights", i32 1, i32 2000}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h3666d21bb6bcf740E.llvm.6766350830065688733: argument 0"}
 !15 = distinct !{!15, !"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h3666d21bb6bcf740E.llvm.6766350830065688733"}
@@ -22289,7 +22289,7 @@ attributes #27 = { cold "function-inline-cost-multiplier"="2" }
 !19 = !{!20, !14}
 !20 = distinct !{!20, !21, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317871459ac2c286E.llvm.6766350830065688733: argument 0"}
 !21 = distinct !{!21, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317871459ac2c286E.llvm.6766350830065688733"}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = !{!"branch_weights", i32 2000, i32 1}
 !23 = !{i8 0, i8 2}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h61f1ada7aa2f8b9dE: argument 0"}

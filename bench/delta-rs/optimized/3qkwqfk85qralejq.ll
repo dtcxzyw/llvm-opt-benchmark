@@ -102340,7 +102340,7 @@ attributes #41 = { "function-inline-cost-multiplier"="2" }
 !6513 = !{!6514}
 !6514 = distinct !{!6514, !6515, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5487bad6bd6b2e02E: argument 0"}
 !6515 = distinct !{!6515, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5487bad6bd6b2e02E"}
-!6516 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6516 = !{!"branch_weights", i32 2000, i32 1}
 !6517 = !{!6518}
 !6518 = distinct !{!6518, !6515, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5487bad6bd6b2e02E: argument 1"}
 !6519 = !{!6520}

@@ -104280,7 +104280,7 @@ attributes #53 = { "function-inline-cost-multiplier"="2" }
 !17613 = distinct !{!17613, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h71eb3a59f27f79bbE.llvm.1686074433831124249"}
 !17614 = distinct !{!17614, !17615, !"_ZN4core4hash6Hasher11write_isize17h5e9be24f56cddb39E.llvm.1686074433831124249: argument 0"}
 !17615 = distinct !{!17615, !"_ZN4core4hash6Hasher11write_isize17h5e9be24f56cddb39E.llvm.1686074433831124249"}
-!17616 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17616 = !{!"branch_weights", i32 2000, i32 1}
 !17617 = !{!17618}
 !17618 = distinct !{!17618, !17619, !"_ZN6memchr4arch7generic10packedpair15Finder$LT$V$GT$3new17h67cb5b515668c5caE: argument 0"}
 !17619 = distinct !{!17619, !"_ZN6memchr4arch7generic10packedpair15Finder$LT$V$GT$3new17h67cb5b515668c5caE"}

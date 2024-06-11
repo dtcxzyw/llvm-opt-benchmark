@@ -37169,7 +37169,7 @@ attributes #34 = { "function-inline-cost-multiplier"="2" }
 !18 = distinct !{!18, !19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17heff9f0764184ab42E: argument 0"}
 !19 = distinct !{!19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17heff9f0764184ab42E"}
 !20 = distinct !{!20, !19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17heff9f0764184ab42E: argument 1"}
-!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!21 = !{!"branch_weights", i32 2000, i32 1}
 !22 = !{i8 0, i8 2}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e676b857a249806E: argument 0"}

@@ -22606,7 +22606,7 @@ attributes #38 = { "function-inline-cost-multiplier"="2" }
 !3779 = !{!3780, !3781}
 !3780 = distinct !{!3780, !3777, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hdb027f88f3d0ff84E: argument 1"}
 !3781 = distinct !{!3781, !3774, !"_ZN162_$LT$project_model..cargo_workspace..CargoWorkspace$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$project_model..cargo_workspace..PackageData$GT$$GT$$GT$5index17h8b09320b1d93797aE: argument 1"}
-!3782 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!3782 = !{!"branch_weights", i32 2000, i32 1}
 !3783 = !{!3784}
 !3784 = distinct !{!3784, !3785, !"_ZN67_$LT$paths..AbsPathBuf$u20$as$u20$core..cmp..PartialEq$LT$P$GT$$GT$2eq17hbc2e8133a3adf04dE: argument 0"}
 !3785 = distinct !{!3785, !"_ZN67_$LT$paths..AbsPathBuf$u20$as$u20$core..cmp..PartialEq$LT$P$GT$$GT$2eq17hbc2e8133a3adf04dE"}

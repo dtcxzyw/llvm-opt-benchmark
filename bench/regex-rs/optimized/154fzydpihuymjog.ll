@@ -9765,7 +9765,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !844 = !{!842, !838, !835}
 !845 = !{!846}
 !846 = distinct !{!846, !843, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974: argument 1"}
-!847 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!847 = !{!"branch_weights", i32 2000, i32 1}
 !848 = !{!849, !842}
 !849 = distinct !{!849, !850, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4194b0343084b578E.llvm.14842887858627331974: argument 0"}
 !850 = distinct !{!850, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4194b0343084b578E.llvm.14842887858627331974"}

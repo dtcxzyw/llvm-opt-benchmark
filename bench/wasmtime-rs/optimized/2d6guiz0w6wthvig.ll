@@ -268,5 +268,5 @@ attributes #8 = { noreturn }
 !5 = distinct !{!5, !"_ZN15wiggle_generate8wasmtime11link_module28_$u7b$$u7b$closure$u7d$$u7d$17he38a1079212620e5E"}
 !6 = !{}
 !7 = !{i64 8}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i8 0, i8 4}

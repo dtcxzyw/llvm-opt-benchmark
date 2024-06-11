@@ -21854,7 +21854,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3254 = distinct !{!3254, !3252, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17he42375bc421567c1E: argument 1"}
 !3255 = distinct !{!3255, !3252, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17he42375bc421567c1E: argument 2"}
 !3256 = !{!3254, !3255}
-!3257 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!3257 = !{!"branch_weights", i32 1, i32 2000}
 !3258 = !{!3259}
 !3259 = distinct !{!3259, !3260, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda21bfe2d8e4d0ccE: argument 0"}
 !3260 = distinct !{!3260, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda21bfe2d8e4d0ccE"}

@@ -29870,7 +29870,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !784 = !{!785, !786}
 !785 = distinct !{!785, !783, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hbb04a1bd7ba15817E: argument 1"}
 !786 = distinct !{!786, !780, !"_ZN4span6ast_id8AstIdMap3get17h196a5415aff44f19E: argument 0"}
-!787 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!787 = !{!"branch_weights", i32 2000, i32 1}
 !788 = !{!786, !779}
 !789 = !{!790, !792}
 !790 = distinct !{!790, !791, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h088ead6b8109b0a2E: argument 0"}

@@ -11884,7 +11884,7 @@ attributes #28 = { "function-inline-cost-multiplier"="2" }
 !886 = !{!887, !888, !885, !877}
 !887 = distinct !{!887, !883, !"_ZN4core3str7pattern14TwoWaySearcher4next17h88a9db3ab366ef44E: argument 0"}
 !888 = distinct !{!888, !883, !"_ZN4core3str7pattern14TwoWaySearcher4next17h88a9db3ab366ef44E: argument 1"}
-!889 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!889 = !{!"branch_weights", i32 2000, i32 1}
 !890 = !{!887, !888, !882, !877}
 !891 = !{!892, !894}
 !892 = distinct !{!892, !893, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h058db236f8da2dceE.llvm.13813575593581205168: argument 0"}

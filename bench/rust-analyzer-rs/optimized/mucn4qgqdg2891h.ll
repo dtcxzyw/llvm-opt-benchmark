@@ -70510,7 +70510,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !2643 = distinct !{!2643, !"_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E"}
 !2644 = !{!2645}
 !2645 = distinct !{!2645, !2643, !"_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E: argument 1"}
-!2646 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!2646 = !{!"branch_weights", i32 2000, i32 1}
 !2647 = !{!2648, !2650, !2652, !2654, !2642, !2645}
 !2648 = distinct !{!2648, !2649, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd1e6276d841b63e0E: argument 0"}
 !2649 = distinct !{!2649, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd1e6276d841b63e0E"}
@@ -77345,7 +77345,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !9478 = distinct !{!9478, !"_ZN101_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$la_arena..Idx$LT$T$GT$$GT$$GT$9index_mut17h8b65e4a23ce1750dE"}
 !9479 = !{!9480}
 !9480 = distinct !{!9480, !9478, !"_ZN101_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$la_arena..Idx$LT$T$GT$$GT$$GT$9index_mut17h8b65e4a23ce1750dE: argument 1"}
-!9481 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9481 = !{!"branch_weights", i32 1, i32 2000}
 !9482 = !{!9483}
 !9483 = distinct !{!9483, !9484, !"_ZN7hir_def7nameres9collector12DefCollector6finish17h8e81b16999b95972E: argument 0"}
 !9484 = distinct !{!9484, !"_ZN7hir_def7nameres9collector12DefCollector6finish17h8e81b16999b95972E"}

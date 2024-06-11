@@ -66483,7 +66483,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !8920 = !{!8921}
 !8921 = distinct !{!8921, !8922, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5bda9980beba38a2E: argument 0"}
 !8922 = distinct !{!8922, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5bda9980beba38a2E"}
-!8923 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8923 = !{!"branch_weights", i32 2000, i32 1}
 !8924 = !{!8925}
 !8925 = distinct !{!8925, !8926, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd7ab8f2b689b746fE: argument 0"}
 !8926 = distinct !{!8926, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd7ab8f2b689b746fE"}
@@ -67046,7 +67046,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !9483 = distinct !{!9483, !"_ZN15tree_sitter_cli8generate15prepare_grammar14intern_symbols14intern_symbols17h67566a78646f3627E"}
 !9484 = !{!9485, !9482}
 !9485 = distinct !{!9485, !9483, !"_ZN15tree_sitter_cli8generate15prepare_grammar14intern_symbols14intern_symbols17h67566a78646f3627E: argument 0"}
-!9486 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9486 = !{!"branch_weights", i32 1, i32 2000}
 !9487 = !{!9488, !9485}
 !9488 = distinct !{!9488, !9489, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfc7bb71779fb332eE: argument 0"}
 !9489 = distinct !{!9489, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfc7bb71779fb332eE"}

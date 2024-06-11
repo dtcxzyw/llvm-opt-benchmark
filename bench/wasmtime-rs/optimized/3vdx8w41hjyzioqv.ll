@@ -38355,7 +38355,7 @@ attributes #55 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{}
-!5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h3639345cd6ed17f9E.llvm.3458943816331328394: argument 0"}
 !8 = distinct !{!8, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h3639345cd6ed17f9E.llvm.3458943816331328394"}
@@ -39445,7 +39445,7 @@ attributes #55 = { "function-inline-cost-multiplier"="2" }
 !1092 = distinct !{!1092, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6d8b862bedd5bc2dE"}
 !1093 = !{!1094}
 !1094 = distinct !{!1094, !1092, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6d8b862bedd5bc2dE: argument 1"}
-!1095 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!1095 = !{!"branch_weights", i32 2000, i32 1}
 !1096 = !{!1097}
 !1097 = distinct !{!1097, !1098, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6d8b862bedd5bc2dE: argument 0"}
 !1098 = distinct !{!1098, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6d8b862bedd5bc2dE"}

@@ -118128,7 +118128,7 @@ attributes #51 = { "function-inline-cost-multiplier"="2" }
 !7234 = distinct !{!7234, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17hf58684b96626e42eE.llvm.11905809803391100490"}
 !7235 = distinct !{!7235, !7236, !"_ZN4core3ptr197drop_in_place$LT$core..cell..RefMut$LT$typed_arena..ChunkList$LT$ra_ap_rustc_pattern_analysis..pat..DeconstructedPat$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCheckCtx$GT$$GT$$GT$$GT$17h18522583ca749012E: argument 0:thread"}
 !7236 = distinct !{!7236, !"_ZN4core3ptr197drop_in_place$LT$core..cell..RefMut$LT$typed_arena..ChunkList$LT$ra_ap_rustc_pattern_analysis..pat..DeconstructedPat$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCheckCtx$GT$$GT$$GT$$GT$17h18522583ca749012E"}
-!7237 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7237 = !{!"branch_weights", i32 1, i32 2000}
 !7238 = !{!7239}
 !7239 = distinct !{!7239, !7240, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7caf0559fce168abE: argument 0"}
 !7240 = distinct !{!7240, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7caf0559fce168abE"}
@@ -126822,7 +126822,7 @@ attributes #51 = { "function-inline-cost-multiplier"="2" }
 !15928 = distinct !{!15928, !"_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E"}
 !15929 = !{!15930}
 !15930 = distinct !{!15930, !15928, !"_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E: argument 1"}
-!15931 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15931 = !{!"branch_weights", i32 2000, i32 1}
 !15932 = !{!15933, !15935, !15937, !15939, !15927, !15930}
 !15933 = distinct !{!15933, !15934, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he59770d3994cbb15E: argument 0"}
 !15934 = distinct !{!15934, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he59770d3994cbb15E"}

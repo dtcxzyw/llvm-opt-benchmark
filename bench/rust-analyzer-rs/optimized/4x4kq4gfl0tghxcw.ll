@@ -27794,7 +27794,7 @@ attributes #51 = { "function-inline-cost-multiplier"="2" }
 !1984 = distinct !{!1984, !1985, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbda15dff8c8ab8dbE.llvm.15519223860240118519: argument 0"}
 !1985 = distinct !{!1985, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbda15dff8c8ab8dbE.llvm.15519223860240118519"}
 !1986 = !{!1984, !1981}
-!1987 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!1987 = !{!"branch_weights", i32 1, i32 2000}
 !1988 = !{!1989}
 !1989 = distinct !{!1989, !1990, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E: argument 0"}
 !1990 = distinct !{!1990, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E"}

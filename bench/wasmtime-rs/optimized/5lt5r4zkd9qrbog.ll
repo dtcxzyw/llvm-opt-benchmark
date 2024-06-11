@@ -8780,4 +8780,4 @@ attributes #15 = { noreturn }
 !12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E: argument 0"}
 !13 = distinct !{!13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E"}
 !14 = !{i8 0, i8 3}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = !{!"branch_weights", i32 2000, i32 1}

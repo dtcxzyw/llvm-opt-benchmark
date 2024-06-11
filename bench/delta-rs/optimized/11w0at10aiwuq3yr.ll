@@ -186205,8 +186205,8 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !30051 = !{!30052, !30044, !30039}
 !30052 = distinct !{!30052, !30053, !"_ZN14deltalake_core5table6config11TableConfig19checkpoint_interval17h1523ebb486098da9E: argument 0"}
 !30053 = distinct !{!30053, !"_ZN14deltalake_core5table6config11TableConfig19checkpoint_interval17h1523ebb486098da9E"}
-!30054 = !{!"branch_weights", !"expected", i32 5494813, i32 2141988835}
-!30055 = !{!"branch_weights", !"expected", i32 5506156, i32 2141977492}
+!30054 = !{!"branch_weights", i32 5494813, i32 2141988835}
+!30055 = !{!"branch_weights", i32 5506156, i32 2141977492}
 !30056 = !{!30057}
 !30057 = distinct !{!30057, !30058, !"_ZN86_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$core..clone..Clone$GT$5clone17h1bc129d250abd47cE: argument 1"}
 !30058 = distinct !{!30058, !"_ZN86_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$core..clone..Clone$GT$5clone17h1bc129d250abd47cE"}

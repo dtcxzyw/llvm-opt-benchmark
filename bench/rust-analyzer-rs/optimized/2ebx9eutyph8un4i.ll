@@ -37773,7 +37773,7 @@ attributes #53 = { "function-inline-cost-multiplier"="2" }
 !4062 = !{!4063, !4064, !4055, !4050, !4051}
 !4063 = distinct !{!4063, !4059, !"_ZN70_$LT$chalk_ir..GenericArgData$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hc5b5b89d27900376E.llvm.7136808221034403137: argument 1"}
 !4064 = distinct !{!4064, !4061, !"_ZN66_$LT$chalk_ir..GenericArg$LT$I$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hf827e9919e10791dE.llvm.7136808221034403137: argument 1"}
-!4065 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4065 = !{!"branch_weights", i32 2000, i32 1}
 !4066 = !{!4067}
 !4067 = distinct !{!4067, !4068, !"_ZN6intern17Interned$LT$T$GT$6select17hb38808d72e3ff331E: argument 0"}
 !4068 = distinct !{!4068, !"_ZN6intern17Interned$LT$T$GT$6select17hb38808d72e3ff331E"}

@@ -701,4 +701,4 @@ attributes #6 = { noreturn }
 !48 = distinct !{!48, !"_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970"}
 !49 = !{!50}
 !50 = distinct !{!50, !48, !"_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970: argument 1"}
-!51 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!51 = !{!"branch_weights", i32 2000, i32 1}

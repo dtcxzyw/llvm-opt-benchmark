@@ -46033,7 +46033,7 @@ attributes #37 = { "function-inline-cost-multiplier"="2" }
 !2108 = distinct !{!2108, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h4d50f44f016791f0E"}
 !2109 = !{!2110, !2103}
 !2110 = distinct !{!2110, !2108, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h4d50f44f016791f0E: argument 1"}
-!2111 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!2111 = !{!"branch_weights", i32 2000, i32 1}
 !2112 = !{!2107, !2103}
 !2113 = !{!2114}
 !2114 = distinct !{!2114, !2115, !"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h4d50f44f016791f0E: argument 0"}

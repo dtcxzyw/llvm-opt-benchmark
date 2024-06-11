@@ -158149,7 +158149,7 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !227 = distinct !{!227, !222, !"_ZN11flatbuffers8verifier8Verifier15range_in_buffer17hbeb0aa91b0b8151fE: argument 0"}
 !228 = distinct !{!228, !219, !"_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E: argument 0"}
 !229 = !{!227, !221, !228, !218, !224, !215}
-!230 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!230 = !{!"branch_weights", i32 2000, i32 1}
 !231 = !{!224, !215}
 !232 = !{!233}
 !233 = distinct !{!233, !234, !"_ZN81_$LT$arrow_ipc..gen..Schema..Int$u20$as$u20$flatbuffers..verifier..Verifiable$GT$12run_verifier17hbad0bb6b1af754a2E: argument 0"}
